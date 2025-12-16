@@ -3,7 +3,9 @@
 extern STATES current_state = STATES::INITIAL;
 extern uint8_t burst_index = 0;
 
-void Initialize_Machine(){
+void Reset_And_Initialize_Machine(){
+  current_state = STATES::INITIAL;
+  burst_index = 0;
   State_Enter();
 };
 
@@ -47,83 +49,83 @@ void State_Enter(){
       Sailor_Response_Enter();
       break;
     default:
-      State_Machine_Error(ERRORS::INEXISTING_STATE);
+      State_Machine_Error(STATE_MACHINE_ERRORS::INEXISTING_STATE);
       break;
   }
 };
 
-void State_ReceiveCallback(const uint8_t* macAddr, const uint8_t* data, int dataLen){
+void State_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
   switch (current_state) {
     case STATES::INITIAL:
-      Initial_ReceiveCallback(macAddr, data, dataLen);
+      Initial_ReceiveCallback(data, dataLen, receive_time);
       break;
     case STATES::BURST_QUERY:
-      Burst_Query_ReceiveCallback(macAddr, data, dataLen);
+      Burst_Query_ReceiveCallback(data, dataLen, receive_time);
       break;
     case STATES::BURST_RESPONSE:
-      Burst_Response_ReceiveCallback(macAddr, data, dataLen);
+      Burst_Response_ReceiveCallback(data, dataLen, receive_time);
       break;
     case STATES::POST_BURST_CHECK_IF_ALL_LGHS_SET: 
-      Post_Burst_Check_If_All_LGHS_Set_ReceiveCallback(macAddr, data, dataLen);
+      Post_Burst_Check_If_All_LGHS_Set_ReceiveCallback(data, dataLen, receive_time);
       break;
     case STATES::RELAY_BURST_QUERING:
-      Relay_Burst_Quering_ReceiveCallback(macAddr, data, dataLen);
+      Relay_Burst_Quering_ReceiveCallback(data, dataLen, receive_time);
       break;
     case STATES::INFORM_END_CONFIG:
-      Inform_End_Config_ReceiveCallback(macAddr, data, dataLen);
+      Inform_End_Config_ReceiveCallback(data, dataLen, receive_time);
       break;
     case STATES::DISTANCE_MEASURE_RESPONSE:
-      Distance_Measure_Response_ReceiveCallback(macAddr, data, dataLen);
+      Distance_Measure_Response_ReceiveCallback(data, dataLen, receive_time);
       break;
     case STATES::DISTANCE_MEASURE_QUERY:
-      Distance_Measure_Query_ReceiveCallback(macAddr, data, dataLen);
+      Distance_Measure_Query_ReceiveCallback(data, dataLen, receive_time);
       break;
     case STATES::SEND_CALCULATED_POSITION:
-      Send_Calculated_Position_Enter();
+      Send_Calculated_Position_ReceiveCallback(data, dataLen, receive_time);
       break;
     case STATES::SAILOR_RESPONSE:
-      Sailor_Response_ReceiveCallback(macAddr, data, dataLen);
+      Sailor_Response_ReceiveCallback(data, dataLen, receive_time);
       break;
     default:
-      State_Machine_Error(ERRORS::INEXISTING_STATE);
+      State_Machine_Error(STATE_MACHINE_ERRORS::INEXISTING_STATE);
       break;
   }
 };
 
-void State_SentCallback(const uint8_t *macAddr, esp_now_send_status_t status){
+void State_SentCallback(uint32_t send_time){
   switch (current_state) {
     case STATES::INITIAL:
-      Initial_SentCallback(macAddr, status);
+      Initial_SentCallback(send_time);
       break;
     case STATES::BURST_QUERY:
-      Burst_Query_SentCallback(macAddr, status);
+      Burst_Query_SentCallback(send_time);
       break;
     case STATES::BURST_RESPONSE:
-      Burst_Response_SentCallback(macAddr, status);
+      Burst_Response_SentCallback(send_time);
       break;
     case STATES::POST_BURST_CHECK_IF_ALL_LGHS_SET: 
-      Post_Burst_Check_If_All_LGHS_Set_SentCallback(macAddr, status);
+      Post_Burst_Check_If_All_LGHS_Set_SentCallback(send_time);
       break;
     case STATES::RELAY_BURST_QUERING:
-      Relay_Burst_Quering_SentCallback(macAddr, status);
+      Relay_Burst_Quering_SentCallback(send_time);
       break;
     case STATES::INFORM_END_CONFIG:
-      Inform_End_Config_SentCallback(macAddr, status);
+      Inform_End_Config_SentCallback(send_time);
       break;
     case STATES::DISTANCE_MEASURE_RESPONSE:
-      Distance_Measure_Response_SentCallback(macAddr, status);
+      Distance_Measure_Response_SentCallback(send_time);
       break;
     case STATES::DISTANCE_MEASURE_QUERY:
-      Distance_Measure_Query_SentCallback(macAddr, status);
+      Distance_Measure_Query_SentCallback(send_time);
       break;
     case STATES::SEND_CALCULATED_POSITION:
-      Send_Calculated_Position_SentCallback(macAddr, status);
+      Send_Calculated_Position_SentCallback(send_time);
       break;
     case STATES::SAILOR_RESPONSE:
-      Sailor_Response_SentCallback(macAddr, status);
+      Sailor_Response_SentCallback(send_time);
       break;
     default:
-      State_Machine_Error(ERRORS::INEXISTING_STATE);
+      State_Machine_Error(STATE_MACHINE_ERRORS::INEXISTING_STATE);
       break;
   }
 };
@@ -161,7 +163,7 @@ void State_TimerCallback(){
       Sailor_Response_TimerCallback();
       break;
     default:
-      State_Machine_Error(ERRORS::INEXISTING_STATE);
+      State_Machine_Error(STATE_MACHINE_ERRORS::INEXISTING_STATE);
       break;
   }
 };
@@ -199,11 +201,12 @@ void State_Exit(){
       Sailor_Response_Exit();
       break;
     default:
-      State_Machine_Error(ERRORS::INEXISTING_STATE);
+      State_Machine_Error(STATE_MACHINE_ERRORS::INEXISTING_STATE);
       break;
   }
 };
 
-void State_Machine_Error(ERRORS error){
+void State_Machine_Error(STATE_MACHINE_ERRORS error){
   // TODO
+  Serial.printf("State Machine Error: %d \n", error);
 };

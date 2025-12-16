@@ -9,7 +9,7 @@ void Initialize_Timers(){
     response_await_timer = timerBegin(0, 80, true); // Źródło zegarów to 80MHz // TODO obsługa błędów 
     Stop_Response_Await_Timer();
     timerAttachInterrupt(response_await_timer, &On_Response_Await_Timer_Timeout, true);
-    timerAlarmWrite(response_await_timer, 1000000, true); // 10ms
+    timerAlarmWrite(response_await_timer, 2e4, true); // 20ms
     timerAlarmEnable(response_await_timer);
  };
 
