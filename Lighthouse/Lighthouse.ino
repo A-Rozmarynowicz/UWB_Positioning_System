@@ -1,10 +1,5 @@
-#include <WiFi.h>
-#include <esp_now.h>
-#include <Arduino.h>
+#include "LighthouseConfig.h"
 
-#define LIGHTHOUSE_ID (uint8_t) 0
-
-#define CLOCK_PERIOD (double) 1/(240E+6)
 #define DATA_SIZE (uint8_t) 20
 #define STATUS_BUTTON (uint8_t) 4
 char receiver = 1;
