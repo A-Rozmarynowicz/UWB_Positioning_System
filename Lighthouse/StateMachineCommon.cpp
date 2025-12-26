@@ -1,7 +1,8 @@
 #include "StateMachine.h"
 
-extern STATES current_state = STATES::INITIAL;
-extern uint8_t burst_index = 0;
+STATES current_state = STATES::INITIAL;
+uint8_t burst_index = 0;
+StateData current_state_data = {0};
 
 void Reset_And_Initialize_Machine(){
   current_state = STATES::INITIAL;
@@ -130,37 +131,37 @@ void State_SentCallback(uint32_t send_time){
   }
 };
 
-void State_TimerCallback(){
+void State_TimerCallback(TIMER_CALLBACKS timer_callback){
   switch (current_state) {
     case STATES::INITIAL:
-      Initial_TimerCallback();
+      Initial_TimerCallback(timer_callback);
       break;
     case STATES::BURST_QUERY:
-      Burst_Query_TimerCallback();
+      Burst_Query_TimerCallback(timer_callback);
       break;
     case STATES::BURST_RESPONSE:
-      Burst_Response_TimerCallback();
+      Burst_Response_TimerCallback(timer_callback);
       break;
     case STATES::POST_BURST_CHECK_IF_ALL_LGHS_SET: 
-      Post_Burst_Check_If_All_LGHS_Set_TimerCallback();
+      Post_Burst_Check_If_All_LGHS_Set_TimerCallback(timer_callback);
       break;
     case STATES::RELAY_BURST_QUERING:
-      Relay_Burst_Quering_TimerCallback();
+      Relay_Burst_Quering_TimerCallback(timer_callback);
       break;
     case STATES::INFORM_END_CONFIG:
-      Inform_End_Config_TimerCallback();
+      Inform_End_Config_TimerCallback(timer_callback);
       break;
     case STATES::DISTANCE_MEASURE_RESPONSE:
-      Distance_Measure_Response_TimerCallback();
+      Distance_Measure_Response_TimerCallback(timer_callback);
       break;
     case STATES::DISTANCE_MEASURE_QUERY:
-      Distance_Measure_Query_TimerCallback();
+      Distance_Measure_Query_TimerCallback(timer_callback);
       break;
     case STATES::SEND_CALCULATED_POSITION:
-      Send_Calculated_Position_TimerCallback();
+      Send_Calculated_Position_TimerCallback(timer_callback);
       break;
     case STATES::SAILOR_RESPONSE:
-      Sailor_Response_TimerCallback();
+      Sailor_Response_TimerCallback(timer_callback);
       break;
     default:
       State_Machine_Error(STATE_MACHINE_ERRORS::INEXISTING_STATE);

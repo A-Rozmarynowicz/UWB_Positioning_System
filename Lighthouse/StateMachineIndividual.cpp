@@ -3,34 +3,49 @@
 #pragma region Initial State Functions
 void Initial_Enter(){
   if (LIGHTHOUSE_ID == 0){
+    MESSAGES::Send_Machine_Initialization(BROADCAST_RECEIVER_ID);
     Change_State(STATES::BURST_QUERY);
   }
   else {
     Change_State(STATES::BURST_RESPONSE);
   }
 };
-void Initial_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){};
+
+void Initial_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
+  if (buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::INITIALIZE_MACHINE_COM){
+    Change_State(STATES::BURST_RESPONSE);
+  };
+};
+
 void Initial_SentCallback(uint32_t send_time){};
-void Initial_TimerCallback(){};
+void Initial_TimerCallback(TIMER_CALLBACKS timer_callback){};
 void Initial_Exit(){};
 #pragma endregion
 
 #pragma region Burst Query State Functions
 void Burst_Query_Enter(){
-  Serial.println("Starting Response TImer.");
-  Start_Response_Await_Timer();
+  MESSAGES::Send_Burst_Query(current_state_data.target_lighthouse, current_state_data.burst_index);
+  Start_ms10_Timer();
 };
-void Burst_Query_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){};
-void Burst_Query_SentCallback(uint32_t send_time){};
-void Burst_Query_TimerCallback(){};
+void Burst_Query_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
+  
+};
+void Burst_Query_SentCallback(uint32_t send_time){
+  Start_ms10_Timer();
+};
+void Burst_Query_TimerCallback(TIMER_CALLBACKS timer_callback){
+  MESSAGES::Send_Burst_Query(current_state_data.target_lighthouse, current_state_data.burst_index);
+};
 void Burst_Query_Exit(){};
 #pragma endregion
 
 #pragma region Burst Response State Functions
 void Burst_Response_Enter(){};
-void Burst_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){};
+void Burst_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
+
+};
 void Burst_Response_SentCallback(uint32_t send_time){};
-void Burst_Response_TimerCallback(){};
+void Burst_Response_TimerCallback(TIMER_CALLBACKS timer_callback){};
 void Burst_Response_Exit(){};
 #pragma endregion
 
@@ -38,7 +53,7 @@ void Burst_Response_Exit(){};
 void Post_Burst_Check_If_All_LGHS_Set_Enter(){};
 void Post_Burst_Check_If_All_LGHS_Set_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){};
 void Post_Burst_Check_If_All_LGHS_Set_SentCallback(uint32_t send_time){};
-void Post_Burst_Check_If_All_LGHS_Set_TimerCallback(){};
+void Post_Burst_Check_If_All_LGHS_Set_TimerCallback(TIMER_CALLBACKS timer_callback){};
 void Post_Burst_Check_If_All_LGHS_Set_Exit(){};
 #pragma endregion
 
@@ -46,7 +61,7 @@ void Post_Burst_Check_If_All_LGHS_Set_Exit(){};
 void Relay_Burst_Quering_Enter(){};
 void Relay_Burst_Quering_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){};
 void Relay_Burst_Quering_SentCallback(uint32_t send_time){};
-void Relay_Burst_Quering_TimerCallback(){};
+void Relay_Burst_Quering_TimerCallback(TIMER_CALLBACKS timer_callback){};
 void Relay_Burst_Quering_Exit(){};
 #pragma endregion
 
@@ -54,7 +69,7 @@ void Relay_Burst_Quering_Exit(){};
 void Inform_End_Config_Enter(){};
 void Inform_End_Config_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){};
 void Inform_End_Config_SentCallback(uint32_t send_time){};
-void Inform_End_Config_TimerCallback(){};
+void Inform_End_Config_TimerCallback(TIMER_CALLBACKS timer_callback){};
 void Inform_End_Config_Exit(){};
 #pragma endregion
 
@@ -62,7 +77,7 @@ void Inform_End_Config_Exit(){};
 void Distance_Measure_Response_Enter(){};
 void Distance_Measure_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){};
 void Distance_Measure_Response_SentCallback(uint32_t send_time){};
-void Distance_Measure_Response_TimerCallback(){};
+void Distance_Measure_Response_TimerCallback(TIMER_CALLBACKS timer_callback){};
 void Distance_Measure_Response_Exit(){};
 #pragma endregion
 
@@ -70,7 +85,7 @@ void Distance_Measure_Response_Exit(){};
 void Distance_Measure_Query_Enter(){};
 void Distance_Measure_Query_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){};
 void Distance_Measure_Query_SentCallback(uint32_t send_time){};
-void Distance_Measure_Query_TimerCallback(){};
+void Distance_Measure_Query_TimerCallback(TIMER_CALLBACKS timer_callback){};
 void Distance_Measure_Query_Exit(){};
 #pragma endregion
 
@@ -78,7 +93,7 @@ void Distance_Measure_Query_Exit(){};
 void Send_Calculated_Position_Enter(){};
 void Send_Calculated_Position_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){};
 void Send_Calculated_Position_SentCallback(uint32_t send_time){};
-void Send_Calculated_Position_TimerCallback(){};
+void Send_Calculated_Position_TimerCallback(TIMER_CALLBACKS timer_callback){};
 void Send_Calculated_Position_Exit(){};
 #pragma endregion
 
@@ -86,6 +101,6 @@ void Send_Calculated_Position_Exit(){};
 void Sailor_Response_Enter(){};
 void Sailor_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){};
 void Sailor_Response_SentCallback(uint32_t send_time){};
-void Sailor_Response_TimerCallback(){};
+void Sailor_Response_TimerCallback(TIMER_CALLBACKS timer_callback){};
 void Sailor_Response_Exit(){};
 #pragma endregion

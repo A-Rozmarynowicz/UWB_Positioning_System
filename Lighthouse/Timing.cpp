@@ -1,26 +1,27 @@
 #include "HardwareSerial.h"
 #include "esp32-hal-timer.h"
-#include "Timing.h"
+#include "LighthouseConfig.h"
 
-hw_timer_t* response_await_timer = NULL;
+hw_timer_t* ms10_timer = NULL;
 uint8_t czas = 0;
 
 void Initialize_Timers(){
-    response_await_timer = timerBegin(0, 80, true); // Źródło zegarów to 80MHz // TODO obsługa błędów 
-    Stop_Response_Await_Timer();
-    timerAttachInterrupt(response_await_timer, &On_Response_Await_Timer_Timeout, true);
-    timerAlarmWrite(response_await_timer, 2e4, true); // 20ms
-    timerAlarmEnable(response_await_timer);
+    ms10_timer = timerBegin(0, 8000, true); // Źródło zegarów to 80MHz // TODO obsługa błędów 
+    Stop_ms10_Timer();
+    timerAttachInterrupt(ms10_timer, &On_ms10_Timer_Timeout, true);
+    timerAlarmWrite(ms10_timer, 10*10, true); // 10ms
+    timerAlarmEnable(ms10_timer);
  };
 
-void IRAM_ATTR On_Response_Await_Timer_Timeout(){
-  Serial.printf("Hello There!\n");
+void IRAM_ATTR On_ms10_Timer_Timeout(){
+  Stop_ms10_Timer();
+  State_TimerCallback(TIMER_CALLBACKS::MS_10);
 };
 
-void Start_Response_Await_Timer(){
-  timerStart(response_await_timer);
+void Start_ms10_Timer(){
+  timerStart(ms10_timer);
 };
 
-void Stop_Response_Await_Timer(){
-  timerStop(response_await_timer);
+void Stop_ms10_Timer(){
+  timerStop(ms10_timer);
 };

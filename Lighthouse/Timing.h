@@ -3,13 +3,17 @@
 #include "esp32-hal-timer.h"
 #include "LighthouseConfig.h"
 
-extern hw_timer_t* response_await_timer;
+enum TIMER_CALLBACKS {
+  MS_10=0,
+};
+
+extern hw_timer_t* ms10_timer;
 extern uint8_t czas;
 
-void IRAM_ATTR On_Response_Await_Timer_Timeout();
+void IRAM_ATTR On_ms10_Timer_Timeout();
 void Initialize_Timers();
 
-void Start_Response_Await_Timer();
-void Stop_Response_Await_Timer();
+void Start_ms10_Timer();
+void Stop_ms10_Timer();
 
 #endif

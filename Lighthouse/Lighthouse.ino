@@ -1,12 +1,10 @@
 #include "LighthouseConfig.h"
-#include "Communication.h"
 
 #define STATUS_BUTTON (uint8_t) 4
 
 const uint32_t CYCLE_COUNT_MAX = 4294967295;
 
 void ICACHE_RAM_ATTR buttonISR() {
-  delay(150);
   Reset_And_Initialize_Machine();
   Serial.println("Machine Inited");
 }

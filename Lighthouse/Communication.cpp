@@ -1,5 +1,32 @@
+#include "string.h"
 #include "Communication.h"
 
+uint8_t buffer[DATA_SIZE] = {0};
+
+#pragma region Message Functions
+void MESSAGES::Send_Machine_Initialization(uint8_t receiver){
+  buffer[DATA_SETUP::RECEIVER_ID] = receiver;
+  buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::INITIALIZE_MACHINE_COM;
+  Send_ESP();
+}
+
+void MESSAGES::Send_Burst_Query(uint8_t receiver, uint8_t burst_index){
+  buffer[DATA_SETUP::RECEIVER_ID] = receiver;
+  buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::BURST_QUERY_COM;
+  buffer[DATA_SETUP::SINGLE_0] = burst_index;
+  Send_ESP();
+};
+
+void MESSAGES::Send_Burst_Response(uint8_t receiver, float response_time, uint8_t burst_index){
+  buffer[DATA_SETUP::RECEIVER_ID] = receiver;
+  buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::BURST_RESPONSE_COM;
+  buffer[DATA_SETUP::SINGLE_0] = burst_index;
+  memcpy(&buffer[DATA_SETUP::QUAD_0], &response_time, sizeof(float));
+  Send_ESP();
+}
+#pragma endregion
+
+#pragma region Other Functions
 void Initialize_Communication(){
   WiFi.mode(WIFI_STA);
   WiFi.disconnect();
@@ -12,9 +39,10 @@ void Initialize_Communication(){
   else {
     Communication_Error(COMMUNICATION_ERRORS::PROTOCOL_INIT_FAIL);
   }
+  buffer[DATA_SETUP::TRANSMITTER_ID] = LIGHTHOUSE_ID;
 };
 
-void Send_ESP(const uint8_t* buffer){
+void Send_ESP(){
   uint8_t broadcastAddress[] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};
   esp_now_peer_info_t peerInfo = {};
   memcpy(&peerInfo.peer_addr, broadcastAddress, 6);
@@ -31,7 +59,7 @@ void Send_ESP(const uint8_t* buffer){
 
 void Receive_Callback(const uint8_t* macAddr, const uint8_t* data, int dataLen){
   uint32_t message_receive_time = ESP.getCycleCount();
-  uint8_t receiver_id = data[DS_RECEIVER_ID];
+  uint8_t receiver_id = data[RECEIVER_ID];
   if ((receiver_id != LIGHTHOUSE_ID) & (receiver_id != BROADCAST_RECEIVER_ID)){
     Serial.println("This is NOT Me...");
     return;
@@ -58,3 +86,4 @@ void Communication_Error(COMMUNICATION_ERRORS error){
   // TODO
   Serial.printf("Communication Error: %d \n", error);
 };
+#pragma endregion
