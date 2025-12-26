@@ -1,4 +1,4 @@
-#include "LighthouseConfig.h"
+#include "headers/LighthouseConfig.h"
 
 #define STATUS_BUTTON (uint8_t) 4
 
@@ -22,5 +22,5 @@ void setup()
   pinMode(STATUS_BUTTON, INPUT_PULLUP);
   attachInterrupt(STATUS_BUTTON, buttonISR, RISING);
 }
- 
+
 void loop(){}

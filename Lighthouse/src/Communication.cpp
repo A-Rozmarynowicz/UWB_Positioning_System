@@ -1,5 +1,5 @@
 #include "string.h"
-#include "Communication.h"
+#include "../headers/Communication.h"
 
 uint8_t buffer[DATA_SIZE] = {0};
 
@@ -49,7 +49,7 @@ void Send_ESP(){
   if (!esp_now_is_peer_exist(broadcastAddress)) {
     esp_now_add_peer(&peerInfo);
   }
-  
+
   esp_err_t result = esp_now_send(broadcastAddress, buffer, DATA_SIZE);
   if (result == ESP_OK) {}
   else {

@@ -1,4 +1,4 @@
-#include "StateMachine.h"
+#include "../headers/StateMachine.h"
 
 STATES current_state = STATES::INITIAL;
 uint8_t burst_index = 0;
@@ -28,7 +28,7 @@ void State_Enter(){
     case STATES::BURST_RESPONSE:
       Burst_Response_Enter();
       break;
-    case STATES::POST_BURST_CHECK_IF_ALL_LGHS_SET: 
+    case STATES::POST_BURST_CHECK_IF_ALL_LGHS_SET:
       Post_Burst_Check_If_All_LGHS_Set_Enter();
       break;
     case STATES::RELAY_BURST_QUERING:
@@ -66,7 +66,7 @@ void State_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_ti
     case STATES::BURST_RESPONSE:
       Burst_Response_ReceiveCallback(data, dataLen, receive_time);
       break;
-    case STATES::POST_BURST_CHECK_IF_ALL_LGHS_SET: 
+    case STATES::POST_BURST_CHECK_IF_ALL_LGHS_SET:
       Post_Burst_Check_If_All_LGHS_Set_ReceiveCallback(data, dataLen, receive_time);
       break;
     case STATES::RELAY_BURST_QUERING:
@@ -104,7 +104,7 @@ void State_SentCallback(uint32_t send_time){
     case STATES::BURST_RESPONSE:
       Burst_Response_SentCallback(send_time);
       break;
-    case STATES::POST_BURST_CHECK_IF_ALL_LGHS_SET: 
+    case STATES::POST_BURST_CHECK_IF_ALL_LGHS_SET:
       Post_Burst_Check_If_All_LGHS_Set_SentCallback(send_time);
       break;
     case STATES::RELAY_BURST_QUERING:
@@ -142,7 +142,7 @@ void State_TimerCallback(TIMER_CALLBACKS timer_callback){
     case STATES::BURST_RESPONSE:
       Burst_Response_TimerCallback(timer_callback);
       break;
-    case STATES::POST_BURST_CHECK_IF_ALL_LGHS_SET: 
+    case STATES::POST_BURST_CHECK_IF_ALL_LGHS_SET:
       Post_Burst_Check_If_All_LGHS_Set_TimerCallback(timer_callback);
       break;
     case STATES::RELAY_BURST_QUERING:
@@ -180,7 +180,7 @@ void State_Exit(){
     case STATES::BURST_RESPONSE:
       Burst_Response_Exit();
       break;
-    case STATES::POST_BURST_CHECK_IF_ALL_LGHS_SET: 
+    case STATES::POST_BURST_CHECK_IF_ALL_LGHS_SET:
       Post_Burst_Check_If_All_LGHS_Set_Exit();
       break;
     case STATES::RELAY_BURST_QUERING:

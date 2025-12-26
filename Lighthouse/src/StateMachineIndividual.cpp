@@ -1,4 +1,4 @@
-#include "StateMachine.h"
+#include "../headers/StateMachine.h"
 
 #pragma region Initial State Functions
 void Initial_Enter(){
@@ -28,7 +28,7 @@ void Burst_Query_Enter(){
   Start_ms10_Timer();
 };
 void Burst_Query_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
-  
+
 };
 void Burst_Query_SentCallback(uint32_t send_time){
   Start_ms10_Timer();
