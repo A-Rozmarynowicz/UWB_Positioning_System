@@ -3,6 +3,7 @@
 #pragma region Initial State Functions
 void Initial_Enter(){
   if (LIGHTHOUSE_ID == 0){
+    current_state_data.target_lighthouse = 1;
     MESSAGES::Send_Machine_Initialization(BROADCAST_RECEIVER_ID);
     Change_State(STATES::BURST_QUERY);
   }
@@ -12,7 +13,7 @@ void Initial_Enter(){
 };
 
 void Initial_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
-  if (buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::INITIALIZE_MACHINE_COM){
+if (data[DATA_SETUP::COMMAND] == DATA_COMMANDS::INITIALIZE_MACHINE_COM){
     Change_State(STATES::BURST_RESPONSE);
   };
 };
@@ -27,8 +28,13 @@ void Burst_Query_Enter(){
   MESSAGES::Send_Burst_Query(current_state_data.target_lighthouse, current_state_data.burst_index);
   Start_ms10_Timer();
 };
-void Burst_Query_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
 
+void Burst_Query_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
+  if (data[DATA_SETUP::COMMAND] == DATA_COMMANDS::BURST_RESPONSE_COM){
+    double offset = 0.0;
+    memcpy(&offset, &data[DATA_SETUP::QUAD_0], sizeof(double));
+    Serial.printf("Received response. Offset= %f\n", offset);
+  }
 };
 void Burst_Query_SentCallback(uint32_t send_time){
   Start_ms10_Timer();
@@ -42,9 +48,16 @@ void Burst_Query_Exit(){};
 #pragma region Burst Response State Functions
 void Burst_Response_Enter(){};
 void Burst_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
-
+  if (data[DATA_SETUP::COMMAND] == DATA_COMMANDS::BURST_QUERY_COM){
+    buffer[DATA_SETUP::RECEIVER_ID] = data[DATA_SETUP::TRANSMITTER_ID];
+    buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::BURST_RESPONSE_COM;
+    memcpy(&buffer[DATA_SETUP::QUAD_0], &time_response_offset, sizeof(double));
+    Send_ESP();
+  }
 };
-void Burst_Response_SentCallback(uint32_t send_time){};
+void Burst_Response_SentCallback(uint32_t send_time){
+  Serial.println("Response");
+};
 void Burst_Response_TimerCallback(TIMER_CALLBACKS timer_callback){};
 void Burst_Response_Exit(){};
 #pragma endregion
