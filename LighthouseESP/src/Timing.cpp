@@ -9,7 +9,7 @@ void Initialize_Timers(){
     ms10_timer = timerBegin(0, 8000, true); // Źródło zegarów to 80MHz // TODO obsługa błędów
     Stop_ms10_Timer();
     timerAttachInterrupt(ms10_timer, &On_ms10_Timer_Timeout, true);
-    timerAlarmWrite(ms10_timer, 10*10, true); // 10ms
+    timerAlarmWrite(ms10_timer, 500*10, true); // 10ms
     timerAlarmEnable(ms10_timer);
  };
 

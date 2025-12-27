@@ -5,6 +5,9 @@
 struct StateData {
   uint8_t target_lighthouse;
   uint8_t burst_index;
+  uint32_t last_registered_time;
+  double elapsed_times_sum;
+  uint8_t time_measurements_completed;
 };
 
 extern struct StateData current_state_data;
@@ -26,10 +29,9 @@ enum STATE_MACHINE_ERRORS {
   INEXISTING_STATE,
 };
 
-const uint8_t BURST_COUNT = 10; 
+const uint8_t BURST_COUNT = 250;
 
 extern STATES current_state;
-extern uint8_t burst_index;
 
 void Reset_And_Initialize_Machine();
 void State_Machine_Error(STATE_MACHINE_ERRORS error);

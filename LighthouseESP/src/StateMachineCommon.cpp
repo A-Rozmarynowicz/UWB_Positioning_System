@@ -1,12 +1,11 @@
 #include "StateMachine.h"
 
 STATES current_state = STATES::INITIAL;
-uint8_t burst_index = 0;
 StateData current_state_data = {0};
 
 void Reset_And_Initialize_Machine(){
   current_state = STATES::INITIAL;
-  burst_index = 0;
+  current_state_data = {0};
   State_Enter();
 };
 

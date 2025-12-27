@@ -1,5 +1,6 @@
 #ifndef LIGHTHOUSECONFIG_H
 #define LIGHTHOUSECONFIG_H
+
 #include <WiFi.h>
 #include <esp_now.h>
 #include <Arduino.h>
@@ -7,8 +8,7 @@
 #include "StateMachine.h"
 #include "Communication.h"
 #include "Measure.h"
-
-#define CLOCK_PERIOD (double) 1/(240E+6)
+#include "States.h"
 
 #define STATUS_BUTTON (uint8_t) 4
 
@@ -18,6 +18,5 @@
 
 extern uint8_t LIGHTHOUSE_ID;
 const uint32_t CYCLE_COUNT_MAX = 4294967295;
-const uint8_t NUMBER_OF_LIGHTHOUSES = 4;
 
 #endif
