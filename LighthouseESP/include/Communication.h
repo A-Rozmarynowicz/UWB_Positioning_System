@@ -47,6 +47,8 @@ namespace MESSAGES {
 void Send_Machine_Initialization(uint8_t receiver);
 void Send_Burst_Query(uint8_t receiver, uint8_t burst_index);
 void Send_Burst_Response(uint8_t receiver, float response_time, uint8_t burst_index);
+void Send_Relay_Burst_Response(uint8_t new_burster_id);
+void Send_End_Of_Config_Message();
 }
 
 #endif

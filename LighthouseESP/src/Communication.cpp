@@ -24,6 +24,20 @@ void MESSAGES::Send_Burst_Response(uint8_t receiver, float response_time, uint8_
   memcpy(&buffer[DATA_SETUP::QUAD_0], &response_time, sizeof(float));
   Send_ESP();
 }
+
+void MESSAGES::Send_Relay_Burst_Response(uint8_t new_burster_id){
+  buffer[DATA_SETUP::RECEIVER_ID] = new_burster_id;
+  buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::CHANGE_STATE_COM;
+  buffer[DATA_SETUP::SINGLE_0] = STATES::BURST_QUERY;
+  Send_ESP();
+}
+
+void MESSAGES::Send_End_Of_Config_Message(){
+  buffer[DATA_SETUP::RECEIVER_ID] = BROADCAST_RECEIVER_ID;
+  buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::CHANGE_STATE_COM;
+  buffer[DATA_SETUP::SINGLE_0] = STATES::DISTANCE_MEASURE_RESPONSE;
+  Send_ESP();
+}
 #pragma endregion
 
 #pragma region Other Functions

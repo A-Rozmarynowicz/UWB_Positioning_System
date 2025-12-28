@@ -2,7 +2,7 @@
 #define MEASURE_H
 #include "LighthouseConfig.h"
 
-#define NUMBER_OF_LIGHTHOUSES (uint8_t) 4
+#define NUMBER_OF_LIGHTHOUSES (uint8_t) 2
 
 const float C_SPEED = 299792458.0; // m/s
 extern double time_response_offset;
