@@ -23,8 +23,7 @@ void Initial_SentCallback(uint32_t send_time){
   if (current_state_data.ignoring_sent_callbacks){
     return;
   }
-  current_state_data.target_lighthouse = LIGHTHOUSE_ID;
-  Increment_Target_Lighthouse_Index(&current_state_data.target_lighthouse);
+  Reset_Target_Lighthouse_Index(&current_state_data.target_lighthouse);
   Change_State(STATES::BURST_QUERY);
 };
 
@@ -58,6 +57,9 @@ void Burst_Query_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t rece
 };
 
 void Burst_Query_SentCallback(uint32_t send_time){
+  if (current_state_data.message_index % 50 == 0) {
+    Serial.printf("Send packet nr. %d\n", current_state_data.message_index);
+  }
   current_state_data.last_registered_time = ESP.getCycleCount();
   Start_ms10_Timer();
 };
@@ -91,8 +93,7 @@ void Burst_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t r
   else if (data[DATA_SETUP::COMMAND] == DATA_COMMANDS::CHANGE_STATE_COM){
     switch (data[DATA_SETUP::SINGLE_0]) {
       case STATES::BURST_QUERY:
-        current_state_data.target_lighthouse = LIGHTHOUSE_ID;
-        Increment_Target_Lighthouse_Index(&current_state_data.target_lighthouse);
+        Reset_Target_Lighthouse_Index(&current_state_data.target_lighthouse);
         Change_State(STATES::BURST_QUERY);
         break;
       case STATES::DISTANCE_MEASURE_RESPONSE:
@@ -196,7 +197,13 @@ void Distance_Measure_Response_Enter(){
     Change_State(STATES::DISTANCE_MEASURE_QUERY);
   }
 };
-void Distance_Measure_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){};
+void Distance_Measure_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
+  if (data[DATA_SETUP::COMMAND] == DATA_COMMANDS::QUERY_DISTANCE){
+    float distance = distances_to_lighthouses[data[DATA_SETUP::SINGLE_0]];
+    Serial.printf("Asked for distance to nr. %d. Distance = %f\n", data[DATA_SETUP::SINGLE_0], distance);
+    MESSAGES::Send_Response_Distance(data[DATA_SETUP::TRANSMITTER_ID], data[DATA_SETUP::SINGLE_0], distance);
+  }
+};
 void Distance_Measure_Response_SentCallback(uint32_t send_time){};
 void Distance_Measure_Response_TimerCallback(TIMER_CALLBACKS timer_callback){};
 void Distance_Measure_Response_ButtonCallback(uint8_t button){};
@@ -204,8 +211,36 @@ void Distance_Measure_Response_Exit(){};
 #pragma endregion
 
 #pragma region Distance Measure Query State Functions
-void Distance_Measure_Query_Enter(){};
-void Distance_Measure_Query_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){};
+void Distance_Measure_Query_Enter(){
+  for (uint8_t i=0;i<NUMBER_OF_LIGHTHOUSES;i++){
+    master_all_distances_matrix[0][i] = distances_to_lighthouses[i];
+  }
+  Reset_Distance_Query_Target_Index(&current_state_data.distance_query_target);
+  Reset_Target_Lighthouse_Index(&current_state_data.target_lighthouse);
+  MESSAGES::Send_Query_Distance(current_state_data.target_lighthouse, current_state_data.distance_query_target);
+};
+void Distance_Measure_Query_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
+  if (data[DATA_SETUP::COMMAND] == DATA_COMMANDS::RESPONSE_DISTANCE){
+    if (data[DATA_SETUP::SINGLE_0] != current_state_data.distance_query_target){
+      Serial.printf("Wrong query distance target target: %d vs %d\n", data[DATA_SETUP::SINGLE_0], current_state_data.distance_query_target);
+      MESSAGES::Send_Query_Distance(current_state_data.target_lighthouse, current_state_data.distance_query_target);
+      return;
+    }
+    float distance = 0.0f;
+    memcpy(&distance, &data[DATA_SETUP::QUAD_0], sizeof(float));
+    master_all_distances_matrix[current_state_data.target_lighthouse][current_state_data.distance_query_target] = distance;
+    Serial.printf("Received distance\n");
+    Increment_Distance_Query_Target_Index(&current_state_data.distance_query_target);
+    if (current_state_data.distance_query_target >= NUMBER_OF_LIGHTHOUSES - 1){
+      Reset_Distance_Query_Target_Index(&current_state_data.distance_query_target);
+      Increment_Target_Lighthouse_Index(&current_state_data.target_lighthouse);
+    }
+    if (current_state_data.target_lighthouse == LIGHTHOUSE_ID){
+      Print_Master_All_Distances_Matrix();
+      Change_State(STATES::SEND_CALCULATED_POSITION);
+    }
+  }
+};
 void Distance_Measure_Query_SentCallback(uint32_t send_time){};
 void Distance_Measure_Query_TimerCallback(TIMER_CALLBACKS timer_callback){};
 void Distance_Measure_Query_ButtonCallback(uint8_t button){};

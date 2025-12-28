@@ -2,6 +2,7 @@
 
 double time_response_offset = 0.0;
 float distances_to_lighthouses[NUMBER_OF_LIGHTHOUSES] = {0};
+float master_all_distances_matrix[NUMBER_OF_LIGHTHOUSES][NUMBER_OF_LIGHTHOUSES] = {0.0};
 
 double Get_Elapsed_Time_From_Measurements(uint32_t first_registered_time, uint32_t second_registered_time, double time_offset){
     uint32_t travel_cycle_counts = 0;
@@ -20,4 +21,13 @@ void Calculate_Distance_To_Target(double measured_times_sum, uint16_t completed_
   float distance = (C_SPEED/2.0) *
                   ( ((measured_times_sum)/((float) completed_measurements)) - avg_response_time);
   distances_to_lighthouses[current_target] = distance;
+}
+
+void Print_Master_All_Distances_Matrix(){
+  for (uint8_t i=0;i<NUMBER_OF_LIGHTHOUSES;i++){
+        for (uint8_t j=0;j<NUMBER_OF_LIGHTHOUSES;j++){
+            printf("%4f ", master_all_distances_matrix[i][j]);
+        }
+        printf("\n");
+    }
 }

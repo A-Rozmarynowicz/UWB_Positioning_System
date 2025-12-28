@@ -24,12 +24,25 @@ uint8_t Get_New_State_From_Post_Burst(uint8_t current_target_lighthouse) {
     }
 }
 
+void Reset_Target_Lighthouse_Index(uint8_t* target_lighthouse_index){
+    *target_lighthouse_index = LIGHTHOUSE_ID;
+    Increment_Target_Lighthouse_Index(target_lighthouse_index);
+}
+
 void Increment_Target_Lighthouse_Index(uint8_t* target_lighthouse_index){
     uint8_t new_index= (*target_lighthouse_index) + 1;
     if (new_index >= NUMBER_OF_LIGHTHOUSES){
         new_index = 0;
     }
     *target_lighthouse_index = new_index;
+}
+
+void Reset_Distance_Query_Target_Index(uint8_t* distance_query_target_index){
+    *distance_query_target_index = 0;
+}
+
+void Increment_Distance_Query_Target_Index(uint8_t* distance_query_target_index){
+    *distance_query_target_index = (*distance_query_target_index) + 1;
 }
 
 double Calculate_Avg_Response_Time(double time_responses_sum, uint16_t completed_measurements){

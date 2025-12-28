@@ -62,6 +62,15 @@ void MESSAGES::Send_Query_Distance(uint8_t receiver, uint8_t target){
   buffer[DATA_SETUP::SINGLE_0] = target;
   Send_ESP();
 }
+
+void MESSAGES::Send_Response_Distance(uint8_t receiver, uint8_t target, float distance){
+  buffer[DATA_SETUP::RECEIVER_ID] = receiver;
+  buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::RESPONSE_DISTANCE;
+  buffer[DATA_SETUP::SINGLE_0] = target;
+  memcpy(&buffer[QUAD_0], &distance, sizeof(float));
+  Send_ESP();
+}
+
 #pragma endregion
 
 #pragma region Other Functions

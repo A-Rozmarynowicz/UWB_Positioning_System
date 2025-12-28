@@ -4,6 +4,7 @@
 
 struct StateData {
   uint8_t target_lighthouse;
+  uint8_t distance_query_target;
   uint16_t message_index;
   uint32_t last_registered_time;
   double elapsed_times_sum;
@@ -31,7 +32,7 @@ enum STATE_MACHINE_ERRORS {
   INEXISTING_STATE,
 };
 
-const uint16_t BURST_COUNT = 5000;
+const uint16_t BURST_COUNT = 500;
 const uint8_t MESSAGE_MAX_COUNT = 5;
 
 extern STATES current_state;

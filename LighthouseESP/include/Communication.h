@@ -28,6 +28,7 @@ enum DATA_COMMANDS {
   QUERY_AVG_RESPONSE_TIME,
   RESPOND_AVG_RESPONSE_TIME,
   QUERY_DISTANCE,
+  RESPONSE_DISTANCE,
 };
 
 enum COMMUNICATION_ERRORS {
@@ -56,6 +57,7 @@ void Send_Query_Avg_Response_Time(uint8_t receiver);
 void Send_Response_Avg_Response_Time(uint8_t receiver, double avg);
 void Send_Master_LHG_Reset();
 void Send_Query_Distance(uint8_t receiver, uint8_t target);
+void Send_Response_Distance(uint8_t receiver, uint8_t target, float distance);
 }
 
 #endif
