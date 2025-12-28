@@ -4,24 +4,22 @@
 uint8_t buffer[DATA_SIZE] = {0};
 
 #pragma region Message Functions
-void MESSAGES::Send_Machine_Initialization(uint8_t receiver){
+void MESSAGES::Send_Change_To_Burst_Response(uint8_t receiver){
   buffer[DATA_SETUP::RECEIVER_ID] = receiver;
-  buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::INITIALIZE_MACHINE_COM;
+  buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::CHANGE_STATE_COM;
+  buffer[DATA_SETUP::SINGLE_0] = STATES::BURST_RESPONSE;
   Send_ESP();
 }
 
-void MESSAGES::Send_Burst_Query(uint8_t receiver, uint8_t burst_index){
+void MESSAGES::Send_Burst_Query(uint8_t receiver){
   buffer[DATA_SETUP::RECEIVER_ID] = receiver;
   buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::BURST_QUERY_COM;
-  buffer[DATA_SETUP::SINGLE_0] = burst_index;
   Send_ESP();
 };
 
-void MESSAGES::Send_Burst_Response(uint8_t receiver, float response_time, uint8_t burst_index){
+void MESSAGES::Send_Burst_Response(uint8_t receiver){
   buffer[DATA_SETUP::RECEIVER_ID] = receiver;
   buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::BURST_RESPONSE_COM;
-  buffer[DATA_SETUP::SINGLE_0] = burst_index;
-  memcpy(&buffer[DATA_SETUP::QUAD_0], &response_time, sizeof(float));
   Send_ESP();
 }
 
@@ -36,6 +34,32 @@ void MESSAGES::Send_End_Of_Config_Message(){
   buffer[DATA_SETUP::RECEIVER_ID] = BROADCAST_RECEIVER_ID;
   buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::CHANGE_STATE_COM;
   buffer[DATA_SETUP::SINGLE_0] = STATES::DISTANCE_MEASURE_RESPONSE;
+  Send_ESP();
+}
+
+void MESSAGES::Send_Query_Avg_Response_Time(uint8_t receiver){
+  buffer[DATA_SETUP::RECEIVER_ID] = receiver;
+  buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::QUERY_AVG_RESPONSE_TIME;
+  Send_ESP();
+}
+
+void MESSAGES::Send_Response_Avg_Response_Time(uint8_t receiver, double avg){
+  buffer[DATA_SETUP::RECEIVER_ID] = receiver;
+  buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::RESPOND_AVG_RESPONSE_TIME;
+  memcpy(&buffer[DATA_SETUP::QUAD_0], &avg, sizeof(double));
+  Send_ESP();
+}
+
+void MESSAGES::Send_Master_LHG_Reset(){
+  buffer[DATA_SETUP::RECEIVER_ID] = BROADCAST_RECEIVER_ID;
+  buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::MASTER_LGH_RESET;
+  Send_ESP();
+}
+
+void MESSAGES::Send_Query_Distance(uint8_t receiver, uint8_t target){
+  buffer[DATA_SETUP::RECEIVER_ID] = receiver;
+  buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::QUERY_DISTANCE;
+  buffer[DATA_SETUP::SINGLE_0] = target;
   Send_ESP();
 }
 #pragma endregion
@@ -75,10 +99,13 @@ void Receive_Callback(const uint8_t* macAddr, const uint8_t* data, int dataLen){
   uint32_t message_receive_time = ESP.getCycleCount();
   uint8_t receiver_id = data[RECEIVER_ID];
   if ((receiver_id != LIGHTHOUSE_ID) & (receiver_id != BROADCAST_RECEIVER_ID)){
-    Serial.println("This is NOT Me...");
+    Serial.printf("This is NOT Me...: %d\n", receiver_id);
     return;
   }
   State_ReceiveCallback(data, dataLen, message_receive_time);
+  if (data[DATA_SETUP::COMMAND] == DATA_COMMANDS::MASTER_LGH_RESET){
+    ESP.restart();
+  }
 };
 
 void Sent_Callback(const uint8_t *macAddr, esp_now_send_status_t status){

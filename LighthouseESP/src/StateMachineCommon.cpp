@@ -168,6 +168,44 @@ void State_TimerCallback(TIMER_CALLBACKS timer_callback){
   }
 };
 
+void State_Button_Callback(uint8_t button){
+  switch (current_state) {
+    case STATES::INITIAL:
+      Initial_ButtonCallback(button);
+      break;
+    case STATES::BURST_QUERY:
+      Burst_Query_ButtonCallback(button);
+      break;
+    case STATES::BURST_RESPONSE:
+      Burst_Response_ButtonCallback(button);
+      break;
+    case STATES::POST_BURST_CHECK_IF_ALL_LGHS_SET:
+      Post_Burst_Check_If_All_LGHS_Set_ButtonCallback(button);
+      break;
+    case STATES::RELAY_BURST_QUERING:
+      Relay_Burst_Quering_ButtonCallback(button);
+      break;
+    case STATES::INFORM_END_CONFIG:
+      Inform_End_Config_ButtonCallback(button);
+      break;
+    case STATES::DISTANCE_MEASURE_RESPONSE:
+      Distance_Measure_Response_ButtonCallback(button);
+      break;
+    case STATES::DISTANCE_MEASURE_QUERY:
+      Distance_Measure_Query_ButtonCallback(button);
+      break;
+    case STATES::SEND_CALCULATED_POSITION:
+      Send_Calculated_Position_ButtonCallback(button);
+      break;
+    case STATES::SAILOR_RESPONSE:
+      Sailor_Response_ButtonCallback(button);
+      break;
+    default:
+      State_Machine_Error(STATE_MACHINE_ERRORS::INEXISTING_STATE);
+      break;
+  }
+};
+
 void State_Exit(){
   switch (current_state) {
     case STATES::INITIAL:

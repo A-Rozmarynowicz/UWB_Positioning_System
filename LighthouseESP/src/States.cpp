@@ -1,12 +1,13 @@
 #include "States.h"
 
 void Handle_Sending_Burst_Query_Message(){
-    current_state_data.burst_index += 1;
-    if (current_state_data.burst_index >= BURST_COUNT){
+    current_state_data.message_index += 1;
+    if (current_state_data.message_index >= BURST_COUNT){
         Change_State(STATES::POST_BURST_CHECK_IF_ALL_LGHS_SET);
         return;
     }
-    MESSAGES::Send_Burst_Query(current_state_data.target_lighthouse, current_state_data.burst_index);
+    MESSAGES::Send_Burst_Query(current_state_data.target_lighthouse);
+    // Serial.printf("Packet index: %d\n", current_state_data.message_index);
 }
 
 uint8_t Get_New_State_From_Post_Burst(uint8_t current_target_lighthouse) {
@@ -29,4 +30,9 @@ void Increment_Target_Lighthouse_Index(uint8_t* target_lighthouse_index){
         new_index = 0;
     }
     *target_lighthouse_index = new_index;
+}
+
+double Calculate_Avg_Response_Time(double time_responses_sum, uint16_t completed_measurements){
+    double avg = (time_responses_sum)/((double) completed_measurements);
+    return avg;
 }

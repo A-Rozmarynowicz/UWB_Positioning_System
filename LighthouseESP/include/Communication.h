@@ -20,11 +20,14 @@ enum DATA_SETUP {
 };
 
 enum DATA_COMMANDS {
+  MASTER_LGH_RESET,
   ACK_COM,
-  INITIALIZE_MACHINE_COM,
   BURST_QUERY_COM,
   BURST_RESPONSE_COM,
   CHANGE_STATE_COM,
+  QUERY_AVG_RESPONSE_TIME,
+  RESPOND_AVG_RESPONSE_TIME,
+  QUERY_DISTANCE,
 };
 
 enum COMMUNICATION_ERRORS {
@@ -44,11 +47,15 @@ void Sent_Callback(const uint8_t *macAddr, esp_now_send_status_t status);
 void Communication_Error(COMMUNICATION_ERRORS error);
 
 namespace MESSAGES {
-void Send_Machine_Initialization(uint8_t receiver);
-void Send_Burst_Query(uint8_t receiver, uint8_t burst_index);
-void Send_Burst_Response(uint8_t receiver, float response_time, uint8_t burst_index);
+void Send_Change_To_Burst_Response(uint8_t receiver);
+void Send_Burst_Query(uint8_t receiver);
+void Send_Burst_Response(uint8_t receiver);
 void Send_Relay_Burst_Response(uint8_t new_burster_id);
 void Send_End_Of_Config_Message();
+void Send_Query_Avg_Response_Time(uint8_t receiver);
+void Send_Response_Avg_Response_Time(uint8_t receiver, double avg);
+void Send_Master_LHG_Reset();
+void Send_Query_Distance(uint8_t receiver, uint8_t target);
 }
 
 #endif
