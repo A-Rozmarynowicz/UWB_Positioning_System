@@ -9,6 +9,7 @@
 #include "Communication.h"
 #include "Measure.h"
 #include "States.h"
+#include "Interface.h"
 
 #define STATUS_BUTTON (uint8_t) 4
 

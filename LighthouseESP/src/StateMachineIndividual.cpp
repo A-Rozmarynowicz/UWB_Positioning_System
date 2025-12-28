@@ -53,15 +53,17 @@ void Burst_Query_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t rece
     current_state_data.elapsed_times_sum += travel_time;
     current_state_data.time_measurements_completed += 1;
     Handle_Sending_Burst_Query_Message();
+    Data_Transfer_LED_OFF();
   }
 };
 
 void Burst_Query_SentCallback(uint32_t send_time){
-  if (current_state_data.message_index % 50 == 0) {
+  if (current_state_data.message_index % 2000 == 0) {
     Serial.printf("Send packet nr. %d\n", current_state_data.message_index);
   }
   current_state_data.last_registered_time = ESP.getCycleCount();
   Start_ms10_Timer();
+  Data_Transfer_LED_ON();
 };
 
 void Burst_Query_TimerCallback(TIMER_CALLBACKS timer_callback){

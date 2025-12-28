@@ -29,6 +29,8 @@ void setup()
   LIGHTHOUSE_ID = 4*idx2 + 2*idx1 + 1*idx0;
   Serial.printf("LIGHTHOUSE_ID: %d \n", LIGHTHOUSE_ID);
 
+  Initialize_Interface();
+  Serial.println("Interface Inited");
   Initialize_Timers();
   Serial.println("Timers Inited");
   Initialize_Communication();
