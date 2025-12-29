@@ -11,6 +11,7 @@ struct StateData {
   uint16_t time_measurements_completed;
   bool ignoring_sent_callbacks;
   double stored_targets_avg_response_time;
+  uint8_t stored_next_state;
 };
 
 extern struct StateData current_state_data;
@@ -32,7 +33,7 @@ enum STATE_MACHINE_ERRORS {
   INEXISTING_STATE,
 };
 
-const uint16_t BURST_COUNT = 65000;
+const uint16_t BURST_COUNT = 100;
 const uint8_t MESSAGE_MAX_COUNT = 5;
 
 extern STATES current_state;

@@ -1,9 +1,16 @@
 #include "string.h"
 #include "Communication.h"
 
+AckStatus current_ack_status = {0};
 uint8_t buffer[DATA_SIZE] = {0};
 
 #pragma region Message Functions
+void MESSAGES::Send_Ack(uint8_t receiver){
+  buffer[DATA_SETUP::RECEIVER_ID] = receiver;
+  buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::ACK_COM;
+  Send_ESP();
+}
+
 void MESSAGES::Send_Change_To_Burst_Response(uint8_t receiver){
   buffer[DATA_SETUP::RECEIVER_ID] = receiver;
   buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::CHANGE_STATE_COM;
@@ -30,8 +37,13 @@ void MESSAGES::Send_Relay_Burst_Response(uint8_t new_burster_id){
   Send_ESP();
 }
 
-void MESSAGES::Send_End_Of_Config_Message(){
+void MESSAGES::Send_Reset_Burst_Response_Info(){
   buffer[DATA_SETUP::RECEIVER_ID] = BROADCAST_RECEIVER_ID;
+  Send_ESP();
+}
+
+void MESSAGES::Send_End_Of_Config_Message(uint8_t receiver){
+  buffer[DATA_SETUP::RECEIVER_ID] = receiver;
   buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::CHANGE_STATE_COM;
   buffer[DATA_SETUP::SINGLE_0] = STATES::DISTANCE_MEASURE_RESPONSE;
   Send_ESP();
