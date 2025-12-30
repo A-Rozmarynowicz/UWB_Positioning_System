@@ -1,8 +1,10 @@
 #include "Measure.h"
 
 double time_response_offset = 0.0;
-float distances_to_lighthouses[NUMBER_OF_LIGHTHOUSES] = {0};
+float distances_to_lighthouses[NUMBER_OF_LIGHTHOUSES] = {0.0};
 float master_all_distances_matrix[NUMBER_OF_LIGHTHOUSES][NUMBER_OF_LIGHTHOUSES] = {0.0};
+float master_all_positions[NUMBER_OF_LIGHTHOUSES][3] = {0.0};
+Position position = {0.0};
 
 double Get_Elapsed_Time_From_Measurements(uint32_t first_registered_time, uint32_t second_registered_time, double time_offset){
     uint32_t travel_cycle_counts = 0;

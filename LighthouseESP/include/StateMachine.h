@@ -34,7 +34,7 @@ enum STATE_MACHINE_ERRORS {
   WRONG_TRANSITION,
 };
 
-const uint16_t BURST_COUNT = 2000;
+const uint16_t BURST_COUNT = 1000;
 const uint8_t MESSAGE_MAX_COUNT = 5;
 
 extern STATES current_state;

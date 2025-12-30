@@ -1,5 +1,11 @@
 #include "string.h"
 #include "Communication.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#include "esp_wifi.h"
+#include "esp_event.h"
+#include "esp_log.h"
+#include "nvs_flash.h"
 
 AckStatus current_ack_status = {0};
 uint8_t buffer[DATA_SIZE] = {0};
@@ -84,6 +90,15 @@ void MESSAGES::Send_Response_Distance(uint8_t receiver, uint8_t target, float di
   Send_ESP();
 }
 
+void MESSAGES::Send_Set_Position(uint8_t receiver, float x, float y, float z){
+  buffer[DATA_SETUP::RECEIVER_ID] = receiver;
+  buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::SET_POSITION;
+  memcpy(&buffer[QUAD_0], &x, sizeof(float));
+  memcpy(&buffer[QUAD_1], &y, sizeof(float));
+  memcpy(&buffer[QUAD_2], &z, sizeof(float));
+  Send_ESP();
+}
+
 #pragma endregion
 
 #pragma region Other Functions
@@ -100,6 +115,20 @@ void Initialize_Communication(){
     Communication_Error(COMMUNICATION_ERRORS::PROTOCOL_INIT_FAIL);
   }
   buffer[DATA_SETUP::TRANSMITTER_ID] = LIGHTHOUSE_ID;
+
+  ESP_ERROR_CHECK(esp_netif_init());
+  ESP_ERROR_CHECK(esp_event_loop_create_default());
+  esp_netif_create_default_wifi_sta();
+
+  wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
+  ESP_ERROR_CHECK(esp_wifi_init(&cfg));
+
+  ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
+  ESP_ERROR_CHECK(esp_wifi_start());
+
+  // Lock Wi-Fi channel (important for FTM)
+  ESP_ERROR_CHECK(esp_wifi_set_channel(FTM_CHANNEL, WIFI_SECOND_CHAN_NONE));
+
 };
 
 void Send_ESP(){

@@ -48,13 +48,31 @@ void Burst_Query_Enter(){
 
 void Burst_Query_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
   if (data[DATA_SETUP::COMMAND] == DATA_COMMANDS::BURST_RESPONSE_COM){
-    // if (data[DATA_SETUP::SINGLE_0] != current_state_data.message_index){
-    //   //TODO
-    // }
+    if (current_state_data.message_index < 10){
+      return;
+    }
     double travel_time = Get_Elapsed_Time_From_Measurements(current_state_data.last_registered_time, receive_time);
+    if (travel_time < 0.00009){
+      Serial.printf("To short time: %f\n", travel_time);
+      return;
+    }
+    uint32_t first_registered_time = current_state_data.last_registered_time;
+    uint32_t second_registered_time = receive_time;
+    uint32_t travel_cycle_counts = 0;
+    if (first_registered_time > second_registered_time){
+      travel_cycle_counts = (CYCLE_COUNT_MAX - first_registered_time) + second_registered_time;
+    }
+    else {
+      travel_cycle_counts = second_registered_time - first_registered_time;
+    }
+    // Serial.printf("Cycles: %d\n", travel_cycle_counts);
     current_state_data.elapsed_times_sum += travel_time;
     current_state_data.time_measurements_completed += 1;
+
     // Serial.printf("Received packet: %d. Time: %f \n", current_state_data.message_index, travel_time);
+    // if (travel_time < 0.0001) {
+    //   Serial.printf("---------------------------\n");
+    // }
   }
 };
 
@@ -289,6 +307,14 @@ void Distance_Measure_Response_ReceiveCallback(const uint8_t* data, int dataLen,
     float distance = distances_to_lighthouses[data[DATA_SETUP::SINGLE_0]];
     Serial.printf("Asked for distance to nr. %d. Distance = %f\n", data[DATA_SETUP::SINGLE_0], distance);
     MESSAGES::Send_Response_Distance(data[DATA_SETUP::TRANSMITTER_ID], data[DATA_SETUP::SINGLE_0], distance);
+  }
+  else if (data[DATA_SETUP::COMMAND] == DATA_COMMANDS::SET_POSITION){
+    memcpy(&position.x, &data[QUAD_0], sizeof(float));
+    memcpy(&position.y, &data[QUAD_1], sizeof(float));
+    memcpy(&position.z, &data[QUAD_2], sizeof(float));
+    Serial.printf("Set position: %0.2f | %0.2f | %0.2f \n");
+    MESSAGES::Send_Ack(data[DATA_SETUP::TRANSMITTER_ID]);
+    Change_State(STATES::SAILOR_RESPONSE);
   }
 };
 void Distance_Measure_Response_SentCallback(uint32_t send_time){};

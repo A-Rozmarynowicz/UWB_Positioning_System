@@ -8,7 +8,7 @@ enum TIMER_CALLBACKS {
   ACK,
 };
 
-const uint16_t BURST_TIMER_PERIOD_MS = 4;
+const uint16_t BURST_TIMER_PERIOD_MS = 5;
 const uint16_t ACK_TIMER_PERIOD_MS = 25;
 
 extern hw_timer_t* burst_timer;
