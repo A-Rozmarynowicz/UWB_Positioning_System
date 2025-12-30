@@ -10,7 +10,7 @@ void Reset_And_Initialize_Machine(){
 };
 
 void Change_State(STATES new_state){
-  Serial.printf("Switching from state %d to state %d  \n", current_state, new_state);
+  Serial.printf("Switching from state %d to state %d  \n ---------------- \n", current_state, new_state);
   State_Exit();
   current_state = new_state;
   State_Enter();

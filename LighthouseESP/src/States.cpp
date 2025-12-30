@@ -29,10 +29,17 @@ void Reset_Target_Lighthouse_Index(uint8_t* target_lighthouse_index){
     Increment_Target_Lighthouse_Index(target_lighthouse_index);
 }
 
-void Increment_Target_Lighthouse_Index(uint8_t* target_lighthouse_index){
+bool Increment_Target_Lighthouse_Index(uint8_t* target_lighthouse_index){
     *target_lighthouse_index = (*target_lighthouse_index) + 1;
     if ((*target_lighthouse_index) >= NUMBER_OF_LIGHTHOUSES){
         (*target_lighthouse_index) = 0;
+    }
+
+    if (*target_lighthouse_index == LIGHTHOUSE_ID){
+        return true;
+    }
+    else {
+        return false;
     }
 }
 
@@ -40,25 +47,39 @@ void Reset_Distance_Query_Target_Index(uint8_t* distance_query_target_index){
     *distance_query_target_index = 0;
 }
 
-void Increment_Distance_Query_Target_Index(uint8_t* distance_query_target_index){
+bool Increment_Distance_Query_Target_Index(uint8_t* distance_query_target_index){
     *distance_query_target_index = (*distance_query_target_index) + 1;
+    if (*distance_query_target_index >= NUMBER_OF_LIGHTHOUSES - 1) {
+        return true;
+    }
+    else {
+        return false;
+    }
 }
 
-void Reset_Ack_Target_Index(uint8_t* ack_target_lighthouse){
+void Reset_Ack_Target_Index(uint8_t* ack_target_lighthouse, uint8_t* ack_message_index){
     *ack_target_lighthouse = LIGHTHOUSE_ID;
-    Increment_Ack_Target_Index(ack_target_lighthouse);
+    Increment_Ack_Target_Index(ack_target_lighthouse, ack_message_index);
 }
 
-void Increment_Ack_Target_Index(uint8_t* ack_target_lighthouse){
+bool Increment_Ack_Target_Index(uint8_t* ack_target_lighthouse, uint8_t* ack_message_index){
     *ack_target_lighthouse = (*ack_target_lighthouse) + 1;
     if (*ack_target_lighthouse >= NUMBER_OF_LIGHTHOUSES){
         *ack_target_lighthouse = 0;
+    }
+    *ack_message_index = 0;
+
+    if (current_ack_status.target_ack_lighthouse == LIGHTHOUSE_ID){
+        return true;
+    }
+    else {
+        return false;
     }
 }
 
 bool Validate_Ack_Index_Increase(uint8_t* ack_index){
     *ack_index += 1;
-    if (*ack_index >= ACK_MESSAGE_COUNT - 1){
+    if (*ack_index >= ACK_MESSAGE_COUNT){
         return false;
     }
     else {
@@ -69,4 +90,23 @@ bool Validate_Ack_Index_Increase(uint8_t* ack_index){
 double Calculate_Avg_Response_Time(double time_responses_sum, uint16_t completed_measurements){
     double avg = (time_responses_sum)/((double) completed_measurements);
     return avg;
+}
+
+bool Handle_Post_Burst_State_Change(uint8_t* current_target_lighthouse){
+    Increment_Target_Lighthouse_Index(current_target_lighthouse);
+    STATES new_state = static_cast<STATES>(Get_New_State_From_Post_Burst(*current_target_lighthouse));
+    switch (new_state) {
+        case STATES::BURST_QUERY:
+            Change_State(STATES::BURST_QUERY);
+            break;
+        case STATES::RELAY_BURST_QUERING:
+            Change_State(STATES::RELAY_BURST_QUERING);
+            break;
+        case STATES::INFORM_END_CONFIG:
+            Change_State(STATES::INFORM_END_CONFIG);
+            break;
+        default:
+            return false;
+    }
+    return true;
 }

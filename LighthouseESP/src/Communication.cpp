@@ -73,6 +73,7 @@ void MESSAGES::Send_Query_Distance(uint8_t receiver, uint8_t target){
   buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::QUERY_DISTANCE;
   buffer[DATA_SETUP::SINGLE_0] = target;
   Send_ESP();
+  Start_Ack_Timer();
 }
 
 void MESSAGES::Send_Response_Distance(uint8_t receiver, uint8_t target, float distance){
