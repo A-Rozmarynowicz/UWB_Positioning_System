@@ -45,6 +45,7 @@ void MESSAGES::Send_Relay_Burst_Response(uint8_t new_burster_id){
 
 void MESSAGES::Send_Reset_Burst_Response_Info(){
   buffer[DATA_SETUP::RECEIVER_ID] = BROADCAST_RECEIVER_ID;
+  buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::RESET_BURST_INFO;
   Send_ESP();
 }
 
@@ -115,20 +116,6 @@ void Initialize_Communication(){
     Communication_Error(COMMUNICATION_ERRORS::PROTOCOL_INIT_FAIL);
   }
   buffer[DATA_SETUP::TRANSMITTER_ID] = LIGHTHOUSE_ID;
-
-  ESP_ERROR_CHECK(esp_netif_init());
-  ESP_ERROR_CHECK(esp_event_loop_create_default());
-  esp_netif_create_default_wifi_sta();
-
-  wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
-  ESP_ERROR_CHECK(esp_wifi_init(&cfg));
-
-  ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
-  ESP_ERROR_CHECK(esp_wifi_start());
-
-  // Lock Wi-Fi channel (important for FTM)
-  ESP_ERROR_CHECK(esp_wifi_set_channel(FTM_CHANNEL, WIFI_SECOND_CHAN_NONE));
-
 };
 
 void Send_ESP(){
@@ -150,7 +137,7 @@ void Receive_Callback(const uint8_t* macAddr, const uint8_t* data, int dataLen){
   uint32_t message_receive_time = ESP.getCycleCount();
   uint8_t receiver_id = data[RECEIVER_ID];
   if ((receiver_id != LIGHTHOUSE_ID) & (receiver_id != BROADCAST_RECEIVER_ID)){
-    Serial.printf("This is NOT Me...: %d\n", receiver_id);
+    // Serial.printf("This is NOT Me...: %d\n", receiver_id);
     return;
   }
   State_ReceiveCallback(data, dataLen, message_receive_time);

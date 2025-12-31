@@ -2,7 +2,7 @@
 #define MEASURE_H
 #include "LighthouseConfig.h"
 
-#define NUMBER_OF_LIGHTHOUSES (uint8_t) 2
+#define NUMBER_OF_LIGHTHOUSES (uint8_t) 4
 
 struct Position {
     float x;

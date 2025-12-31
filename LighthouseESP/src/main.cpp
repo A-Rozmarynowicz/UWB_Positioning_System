@@ -43,8 +43,6 @@ void setup()
   pinMode(STATUS_BUTTON, INPUT_PULLUP);
   attachInterrupt(STATUS_BUTTON, buttonISR, RISING);
 
-
-  Serial.printf("Freq: %d\n", ESP.getCpuFreqMHz());
   setCpuFrequencyMhz(240);
 
   esp_pm_lock_handle_t cpu_freq_lock;
@@ -60,8 +58,6 @@ void setup()
   esp_pm_lock_create(ESP_PM_NO_LIGHT_SLEEP, 0, "no_light_sleep_lock_name", &no_light_sleep_lock);
   esp_pm_lock_acquire(no_light_sleep_lock);
   esp_wifi_set_ps(WIFI_PS_NONE); // Disables Wi-Fi power save (Modem-sleep)
-  Serial.printf("Freq: %d\n", ESP.getCpuFreqMHz());
-
 }
 
 void loop(){}

@@ -40,6 +40,7 @@ void Initial_Exit(){};
 
 #pragma region Burst Query State Functions
 void Burst_Query_Enter(){
+  Serial.printf("Target LGH: %d\n", current_state_data.target_lighthouse);
   current_state_data.elapsed_times_sum = 0.0;
   current_state_data.time_measurements_completed = 0;
   current_state_data.message_index = 0;
@@ -111,6 +112,12 @@ void Burst_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t r
     double avg = Calculate_Avg_Response_Time(current_state_data.elapsed_times_sum, current_state_data.time_measurements_completed);
     MESSAGES::Send_Response_Avg_Response_Time(data[DATA_SETUP::TRANSMITTER_ID], avg);
     Serial.printf("Avg response time (self): %f.\n", avg);
+  }
+  else if (data[DATA_SETUP::COMMAND] == DATA_COMMANDS::RESET_BURST_INFO) {
+    Serial.printf("Reseting Burst Info\n");
+    current_state_data.ignoring_sent_callbacks = false;
+    current_state_data.elapsed_times_sum = 0.0;
+    current_state_data.time_measurements_completed = 0;
   }
   else if (data[DATA_SETUP::COMMAND] == DATA_COMMANDS::CHANGE_STATE_COM){
     switch (data[DATA_SETUP::SINGLE_0]) {
@@ -345,7 +352,7 @@ void Distance_Measure_Query_ReceiveCallback(const uint8_t* data, int dataLen, ui
     float distance = 0.0f;
     memcpy(&distance, &data[DATA_SETUP::QUAD_0], sizeof(float));
     master_all_distances_matrix[current_state_data.target_lighthouse][current_state_data.distance_query_target] = distance;
-    Serial.printf("Received distance\n");
+    Serial.printf("Received distance from %d about %d\n", current_state_data.target_lighthouse, current_state_data.distance_query_target);
 
     if (Increment_Distance_Query_Target_Index(&current_state_data.distance_query_target)){
       current_ack_status.current_ack_index = 0;

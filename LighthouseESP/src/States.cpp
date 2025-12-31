@@ -49,7 +49,7 @@ void Reset_Distance_Query_Target_Index(uint8_t* distance_query_target_index){
 
 bool Increment_Distance_Query_Target_Index(uint8_t* distance_query_target_index){
     *distance_query_target_index = (*distance_query_target_index) + 1;
-    if (*distance_query_target_index >= NUMBER_OF_LIGHTHOUSES - 1) {
+    if (*distance_query_target_index >= NUMBER_OF_LIGHTHOUSES) {
         return true;
     }
     else {
