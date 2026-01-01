@@ -1,4 +1,5 @@
 #include "StateMachine.h"
+#include <math.h>
 
 #pragma region Initial State Functions
 void Initial_Enter(){
@@ -319,7 +320,7 @@ void Distance_Measure_Response_ReceiveCallback(const uint8_t* data, int dataLen,
     memcpy(&position.x, &data[QUAD_0], sizeof(float));
     memcpy(&position.y, &data[QUAD_1], sizeof(float));
     memcpy(&position.z, &data[QUAD_2], sizeof(float));
-    Serial.printf("Set position: %0.2f | %0.2f | %0.2f \n");
+    Serial.printf("Set position: %0.2f | %0.2f | %0.2f \n", position.x, position.y, position.z);
     MESSAGES::Send_Ack(data[DATA_SETUP::TRANSMITTER_ID]);
     Change_State(STATES::SAILOR_RESPONSE);
   }
@@ -342,6 +343,10 @@ void Distance_Measure_Query_Enter(){
 };
 
 void Distance_Measure_Query_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
+  if (data[DATA_SETUP::TRANSMITTER_ID] != current_state_data.target_lighthouse){
+    Serial.printf("Distance Query Wrong target index: %d vs %d\n", data[DATA_SETUP::TRANSMITTER_ID], current_state_data.target_lighthouse);
+    return;
+  }
   if (data[DATA_SETUP::COMMAND] == DATA_COMMANDS::RESPONSE_DISTANCE){
     Stop_Ack_Timer();
     if (data[DATA_SETUP::SINGLE_0] != current_state_data.distance_query_target){
@@ -393,10 +398,64 @@ void Distance_Measure_Query_Exit(){};
 #pragma endregion
 
 #pragma region Send Calculated Position State Functions
-void Send_Calculated_Position_Enter(){};
-void Send_Calculated_Position_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){};
+void Send_Calculated_Position_Enter(){
+  // float dist0[4] = {0.0, 1.0, 1.0, 1.0};
+  // memcpy(&master_all_distances_matrix[0], &dist0, sizeof(float) * 4);
+
+  // float dist1[4] = {1.0, 0.0, 1.0, 1.0};
+  // memcpy(&master_all_distances_matrix[1], &dist1, sizeof(float) * 4);
+
+  // float dist2[4] = {1.0, 1.0, 0.0, 1.0};
+  // memcpy(&master_all_distances_matrix[2], &dist2, sizeof(float) * 4);
+
+  // float dist3[4] = {1.0, 1.0, 1.0, 0.0};
+  // memcpy(&master_all_distances_matrix[3], &dist3, sizeof(float) * 4);
+
+  for (uint8_t i = 0; i<NUMBER_OF_LIGHTHOUSES;i++){
+    Calculate_Position_Of_Lighthouse(i);
+    Print_Position(i);
+  }
+  Reset_Target_Lighthouse_Index(&current_state_data.target_lighthouse);
+  Reset_Ack_Target_Index(&current_ack_status.target_ack_lighthouse, &current_ack_status.current_ack_index);
+  MESSAGES::Send_Set_Position(current_state_data.target_lighthouse);
+};
+
+void Send_Calculated_Position_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
+  if (data[DATA_SETUP::TRANSMITTER_ID] != current_state_data.target_lighthouse){
+    Stop_Ack_Timer();
+    Serial.printf("Set Position Wrong target index: %d vs %d\n", data[DATA_SETUP::TRANSMITTER_ID], current_state_data.target_lighthouse);
+    MESSAGES::Send_Set_Position(current_state_data.target_lighthouse);
+    return;
+  }
+  if (data[DATA_SETUP::COMMAND] == DATA_COMMANDS::ACK_COM){
+    Stop_Ack_Timer();
+    current_ack_status.current_ack_index = 0;
+    if (Increment_Target_Lighthouse_Index(&current_state_data.target_lighthouse)){
+      Change_State(STATES::SAILOR_RESPONSE);
+      return;
+    }
+    MESSAGES::Send_Set_Position(current_state_data.target_lighthouse);
+  }
+};
+
 void Send_Calculated_Position_SentCallback(uint32_t send_time){};
-void Send_Calculated_Position_TimerCallback(TIMER_CALLBACKS timer_callback){};
+void Send_Calculated_Position_TimerCallback(TIMER_CALLBACKS timer_callback){
+  if (timer_callback == TIMER_CALLBACKS::ACK){
+    if (Validate_Ack_Index_Increase(&current_ack_status.current_ack_index)){
+      Serial.printf("Missed a single ACK for Set Position \n");
+      MESSAGES::Send_Set_Position(current_state_data.target_lighthouse);
+    }
+    else {
+      Serial.printf("Missed all ACK for Set Position from %d \n", current_state_data.target_lighthouse);
+      Communication_Error(COMMUNICATION_ERRORS::ACK_FAIL);
+      current_ack_status.current_ack_index = 0;
+      if (Increment_Target_Lighthouse_Index(&current_state_data.target_lighthouse)){
+        Change_State(STATES::SAILOR_RESPONSE);
+        return;
+      }
+    }
+  }
+};
 void Send_Calculated_Position_ButtonCallback(uint8_t button){};
 void Send_Calculated_Position_Exit(){};
 #pragma endregion

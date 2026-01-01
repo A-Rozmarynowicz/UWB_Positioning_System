@@ -70,7 +70,7 @@ void Send_Response_Avg_Response_Time(uint8_t receiver, double avg);
 void Send_Master_LHG_Reset();
 void Send_Query_Distance(uint8_t receiver, uint8_t target);
 void Send_Response_Distance(uint8_t receiver, uint8_t target, float distance);
-void Send_Set_Position(uint8_t receiver, float x, float y, float z);
+void Send_Set_Position(uint8_t receiver);
 }
 
 #endif

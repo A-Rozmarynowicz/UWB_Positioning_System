@@ -91,12 +91,13 @@ void MESSAGES::Send_Response_Distance(uint8_t receiver, uint8_t target, float di
   Send_ESP();
 }
 
-void MESSAGES::Send_Set_Position(uint8_t receiver, float x, float y, float z){
+void MESSAGES::Send_Set_Position(uint8_t receiver){
+  Start_Ack_Timer();
   buffer[DATA_SETUP::RECEIVER_ID] = receiver;
   buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::SET_POSITION;
-  memcpy(&buffer[QUAD_0], &x, sizeof(float));
-  memcpy(&buffer[QUAD_1], &y, sizeof(float));
-  memcpy(&buffer[QUAD_2], &z, sizeof(float));
+  memcpy(&buffer[QUAD_0], &master_all_positions[receiver].x, sizeof(float));
+  memcpy(&buffer[QUAD_1], &master_all_positions[receiver].y, sizeof(float));
+  memcpy(&buffer[QUAD_2], &master_all_positions[receiver].z, sizeof(float));
   Send_ESP();
 }
 
