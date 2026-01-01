@@ -1,0 +1,47 @@
+P_star = [1, 4];
+
+P_vec = [
+    [0, 0]; ...
+    [1, 0]; ...
+    [1, 1]; ...
+    ];
+
+sz = size(P_vec);
+N = sz(1);
+
+R_vec = sqrt(sum( (ones(N,1) * P_star - P_vec).^2, 2));
+
+P = Solver(P_vec, R_vec);
+
+side_num = 60;
+Circle_vec = zeros(2*N, side_num);
+
+for i=1:N
+    Circ = Circle(P_vec(i, :), R_vec(i), side_num);
+    Circle_vec(2*i-1, :) = Circ(1, :);
+    Circle_vec(2*i, :) = Circ(2, :);
+end
+
+figure;
+
+scatter(P_star(1), P_star(2), "yellow","*", "LineWidth", 3.0)
+scatter(P(1), P(2), "red", "o","LineWidth", 3.0);
+hold on;
+
+for i=1:N
+    C = polyshape(Circle_vec(2*i-1, :), Circle_vec(2*i, :));
+    plot(C, "FaceColor", 'none');
+end
+
+title('Polyshape Circle');
+xlabel('X-axis');
+ylabel('Y-axis');
+axis equal; % Ensures the circle looks round, not elliptical
+grid on;
+
+function Circ = Circle(p, R, side_num)
+    theta = linspace(0, 2*pi-0.01, side_num); % Angles from 0 to 2*pi
+    x = p(1) + R * cos(theta);
+    y = p(2) + R * sin(theta);
+    Circ = [x; y];
+end

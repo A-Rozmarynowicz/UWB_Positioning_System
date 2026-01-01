@@ -448,6 +448,7 @@ void Send_Calculated_Position_TimerCallback(TIMER_CALLBACKS timer_callback){
     else {
       Serial.printf("Missed all ACK for Set Position from %d \n", current_state_data.target_lighthouse);
       Communication_Error(COMMUNICATION_ERRORS::ACK_FAIL);
+      Data_Transfer_LED_ON();
       current_ack_status.current_ack_index = 0;
       if (Increment_Target_Lighthouse_Index(&current_state_data.target_lighthouse)){
         Change_State(STATES::SAILOR_RESPONSE);
@@ -459,7 +460,7 @@ void Send_Calculated_Position_TimerCallback(TIMER_CALLBACKS timer_callback){
 void Send_Calculated_Position_ButtonCallback(uint8_t button){};
 void Send_Calculated_Position_Exit(){};
 #pragma endregion
-
+ 
 #pragma region Sailor Response State Functions
 void Sailor_Response_Enter(){};
 void Sailor_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){};
