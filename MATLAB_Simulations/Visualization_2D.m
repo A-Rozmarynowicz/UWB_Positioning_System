@@ -6,12 +6,12 @@ P_vec = [
     [1, 1]; ...
     ];
 
-noise_strength = 0.1;
+distance_accuracy = 0.1;
 
 sz = size(P_vec);
 N = sz(1);
 
-Noise_vec = -noise_strength/2 + rand(N, 1)*noise_strength;
+Noise_vec = -distance_accuracy/2 + rand(N, 1)*distance_accuracy;
 R_vec = sqrt(sum( (ones(N,1) * P_star - P_vec).^2, 2)) + Noise_vec;
 
 P = Solver(P_vec, R_vec);
@@ -42,9 +42,9 @@ scatter(P_vec(:, 1), P_vec(:, 2), "blue", ".");
 legend(["Obliczony punkt", "Faktyczny punkt", "Odległości do latarni"])
 
 title('Wizualizacja 2D');
-subtitle(sprintf("Dokładność pomiaru odległości: %0.2fm \n Dokładność pomiaru pozycji: %0.2fm", noise_strength, accuracy));
-xlabel('');
-ylabel('');
+subtitle(sprintf("Dokładność pomiaru odległości: %0.2fm \n Dokładność pomiaru pozycji: %0.2fm", distance_accuracy, accuracy));
+xlabel('x');
+ylabel('y');
 axis equal; % Ensures the circle looks round, not elliptical
 
 function Circ = Circle(p, R, side_num)

@@ -90,6 +90,9 @@ void Set_LGH_3_Position(){
   if (z_sugg > 0.0) {
     z = sqrtf(z_sugg/3.0);
   }
+  else {
+    z = 0.1;
+  }
 
   master_all_positions[3].x = x;
   master_all_positions[3].y = y;
