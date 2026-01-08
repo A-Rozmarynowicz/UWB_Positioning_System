@@ -93,12 +93,10 @@ int main(void)
   MX_USART2_UART_Init();
   MX_I2C2_Init();
   /* USER CODE BEGIN 2 */
-  initialize_handler(&hi2c2);
-  lcd_init();
-  lcd_put_cur(0, 0);
-  char* dupa = "DUPA";
-  HAL_Delay(1000);
-  uint64_t counter = 0;
+  Initialize_LCD_Handler(&hi2c2);
+  Put_Cursor(0, 0);
+  Print_String("DUPA", 4);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -106,15 +104,6 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  if (counter < 65000){
-		  counter++;
-	  }
-	  else{
-		  if (counter == 65000){
-			  lcd_send_string("D");
-		  }
-		  counter = 66000;
-	  }
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -290,7 +279,17 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+void HAL_I2C_MasterRxCpltCallback(I2C_HandleTypeDef *hi2c)
+{
+	lcd_i2c_receive_callback(hi2c);
+}
 
+void HAL_I2C_MasterTxCpltCallback(I2C_HandleTypeDef *hi2c)
+{
+	uint8_t mess[] = "DUPA\r\n";
+	HAL_UART_Transmit_IT(&huart2, mess, sizeof(mess));
+	lcd_i2c_transmit_callback(hi2c);
+}
 /* USER CODE END 4 */
 
 /**
