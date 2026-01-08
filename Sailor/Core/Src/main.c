@@ -45,10 +45,7 @@ I2C_HandleTypeDef hi2c2;
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
-void lcd_send_data (char data);
-void lcd_send_string (char *str);
-void lcd_put_cur(int row, int col);
-void lcd_send_cmd (char cmd);
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -96,13 +93,12 @@ int main(void)
   MX_USART2_UART_Init();
   MX_I2C2_Init();
   /* USER CODE BEGIN 2 */
+  initialize_handler(&hi2c2);
   lcd_init();
   lcd_put_cur(0, 0);
-  lcd_send_string ("HELLO WORLD");
-  lcd_put_cur(1, 0);
-  lcd_send_string("from CTECH");
-  uint8_t buf[7] = {'S', 'R', 'A', 'K', 'A', '\r', '\n'};
-  HAL_UART_Transmit_IT(&huart2, buf, 7);
+  char* dupa = "DUPA";
+  HAL_Delay(1000);
+  uint64_t counter = 0;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -110,7 +106,15 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
+	  if (counter < 65000){
+		  counter++;
+	  }
+	  else{
+		  if (counter == 65000){
+			  lcd_send_string("D");
+		  }
+		  counter = 66000;
+	  }
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -286,17 +290,6 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-void HAL_I2C_MasterTxCpltCallback (I2C_HandleTypeDef * hi2c)
-{
-	uint8_t buf[] = {'D', 'U', 'P', 'A', '\r', '\n'};
-	HAL_UART_Transmit_IT(&huart2, buf, 6);
-}
-
-void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
-{
-	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 1);
-}
-
 
 /* USER CODE END 4 */
 

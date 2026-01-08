@@ -1,0 +1,8 @@
+../Core/Src/lcd_handler.c:5:6:initialize_handler	16	static
+../Core/Src/lcd_handler.c:9:6:lcd_init	8	static
+../Core/Src/lcd_handler.c:36:6:lcd_send_data	24	static
+../Core/Src/lcd_handler.c:53:6:lcd_send_string	16	static
+../Core/Src/lcd_handler.c:58:6:lcd_put_cur	16	static
+../Core/Src/lcd_handler.c:72:6:lcd_send_cmd	32	static
+../Core/Src/lcd_handler.c:91:6:HAL_I2C_MasterTxCpltCallback	32	static
+../Core/Src/lcd_handler.c:126:6:HAL_I2C_MasterRxCpltCallback	16	static
