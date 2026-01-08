@@ -96,6 +96,9 @@ int main(void)
   Initialize_LCD_Handler(&hi2c2);
   Put_Cursor(0, 0);
   Print_String("DUPA", 4);
+  Put_Cursor(1, 9);
+  Print_String("ASS", 3);
+  Print_Whole_Position(12.12, 4.69, 88.11);
 
   /* USER CODE END 2 */
 

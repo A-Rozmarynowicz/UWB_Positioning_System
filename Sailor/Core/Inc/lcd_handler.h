@@ -9,11 +9,17 @@
 #define INC_LCD_HANDLER_H_
 
 #include <string.h>
+#include <stdio.h>
 #include "stm32l4xx_hal.h"
 
 #define SLAVE_ADDRESS_LCD 0x4E
 #define QUEUE_SIZE 512
 #define COMMAND_SIZE 4
+
+extern const uint8_t X_LCD_COORDS[2];
+extern const uint8_t Y_LCD_COORDS[2];
+extern const uint8_t Z_LCD_COORDS[2];
+
 
 typedef enum LCD_Status {
 	LCD_OK = 0,

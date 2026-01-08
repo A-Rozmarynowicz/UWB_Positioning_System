@@ -6,6 +6,10 @@ uint16_t head_pointer = 0;
 uint16_t tail_pointer = 0;
 uint8_t transmission_going = 0;
 
+const uint8_t X_LCD_COORDS[2] = {0, 0};
+const uint8_t Y_LCD_COORDS[2] = {0, 9};
+const uint8_t Z_LCD_COORDS[2] = {1, 0};
+
 LCD_Status Initialize_LCD_Handler(I2C_HandleTypeDef* i2c_handle){
 	h_lcd_i2c = i2c_handle;
 	return lcd_init();
@@ -39,10 +43,19 @@ LCD_Status Print_String(char* txt, uint8_t size){
 }
 
 LCD_Status Print_String_At_Pos(char* txt, uint8_t size, uint8_t row, uint8_t column){
-	return LCD_OK;
+	Put_Cursor(row, column);
+	return Print_String(txt, size);
 }
 
 LCD_Status Print_Whole_Position(float x, float y, float z){
+	char buffer[12];
+	uint8_t size = 0;
+	size = sprintf(buffer, "x=%.2fm", x);
+	Print_String_At_Pos(buffer, size, X_LCD_COORDS[0], X_LCD_COORDS[1]);
+	size = sprintf(buffer, "y=%.2fm", y);
+	Print_String_At_Pos(buffer, size, Y_LCD_COORDS[0], Y_LCD_COORDS[1]);
+	size = sprintf(buffer, "z=%.2fm", z);
+	Print_String_At_Pos(buffer, size, Z_LCD_COORDS[0], Z_LCD_COORDS[1]);
 	return LCD_OK;
 }
 
