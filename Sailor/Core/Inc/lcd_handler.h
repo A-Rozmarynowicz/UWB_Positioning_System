@@ -29,6 +29,8 @@ typedef enum LCD_Status {
 	LCD_HAL_ERROR = 4,
 } LCD_Status;
 
+extern uint8_t* current_position;
+
 extern I2C_HandleTypeDef* h_lcd_i2c;
 extern uint8_t tx_queue[QUEUE_SIZE];
 extern uint16_t head_pointer; // Where we append to

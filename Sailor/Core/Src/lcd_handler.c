@@ -6,6 +6,8 @@ uint16_t head_pointer = 0;
 uint16_t tail_pointer = 0;
 uint8_t transmission_going = 0;
 
+uint8_t* current_position = 0;
+
 const uint8_t X_LCD_COORDS[2] = {0, 0};
 const uint8_t Y_LCD_COORDS[2] = {0, 9};
 const uint8_t Z_LCD_COORDS[2] = {1, 0};
