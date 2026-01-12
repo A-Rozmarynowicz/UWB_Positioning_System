@@ -1,0 +1,15 @@
+#ifndef OBSERVER_CONFIG_H
+#define OBSERVER_CONFIG_H
+
+#include <Arduino.h>
+#include <WiFi.h>
+#include <esp_now.h>
+#include "calculations.h"
+#include "timing.h"
+#include "sailor_comm.h"
+#include "state_machine.h"
+
+#define NUMBER_OF_LIGHTHOUSES 4
+#define SAILOR_ID 169
+
+#endif

@@ -1,6 +1,6 @@
 #include "string.h"
 #include "Communication.h"
-#include "freertos/FreeRTOS.h"
+#include "freertos/FreeRTOS.h" // TODO co to jest
 #include "freertos/task.h"
 #include "esp_wifi.h"
 #include "esp_event.h"

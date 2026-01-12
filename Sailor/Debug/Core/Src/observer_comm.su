@@ -1,5 +1,5 @@
 ../Core/Src/observer_comm.c:16:19:Initialize_Observer_Comm	16	static
 ../Core/Src/observer_comm.c:23:6:print_position_to_lcd	16	static
 ../Core/Src/observer_comm.c:28:6:obs_timer_period_elapsed_it_callback	16	static
-../Core/Src/observer_comm.c:33:19:obs_uart_receive_it_callback	16	static
-../Core/Src/observer_comm.c:40:19:obs_uart_transmit_it_callback	16	static
+../Core/Src/observer_comm.c:34:19:obs_uart_receive_it_callback	16	static
+../Core/Src/observer_comm.c:41:19:obs_uart_transmit_it_callback	16	static

@@ -16,8 +16,8 @@ struct Position current_position = {0};
 HAL_StatusTypeDef Initialize_Observer_Comm(TIM_HandleTypeDef* refresh_tim_handle, UART_HandleTypeDef* obs_uart_handle){
 	refresh_info_timer_h = refresh_tim_handle;
 	obs_uart_h = obs_uart_handle;
-
-	return HAL_UART_Receive_DMA(obs_uart_h, obs_uart_receive_buffer, 12);
+	HAL_TIM_Base_Start_IT(refresh_info_timer_h);
+	return HAL_UART_Receive_DMA(obs_uart_h, obs_uart_receive_buffer, OBSERVER_MESSAGE_SIZE);
 }
 
 void print_position_to_lcd(){
@@ -26,13 +26,14 @@ void print_position_to_lcd(){
 };
 
 void obs_timer_period_elapsed_it_callback(TIM_HandleTypeDef *htim){
-	HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-	print_position_to_lcd();
+	if (htim == refresh_info_timer_h){
+		print_position_to_lcd();
+	}
 };
 
 HAL_StatusTypeDef obs_uart_receive_it_callback(UART_HandleTypeDef *huart){
 	if (huart == obs_uart_h){
-		return HAL_UART_Receive_DMA(obs_uart_h, obs_uart_receive_buffer, 12);
+		return HAL_UART_Receive_DMA(obs_uart_h, obs_uart_receive_buffer, OBSERVER_MESSAGE_SIZE);
 	}
 	return HAL_OK;
 };
