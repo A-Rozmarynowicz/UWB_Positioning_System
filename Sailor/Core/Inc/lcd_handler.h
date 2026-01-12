@@ -29,7 +29,6 @@ typedef enum LCD_Status {
 	LCD_HAL_ERROR = 4,
 } LCD_Status;
 
-extern uint8_t* current_position;
 
 extern I2C_HandleTypeDef* h_lcd_i2c;
 extern uint8_t tx_queue[QUEUE_SIZE];
@@ -63,7 +62,7 @@ LCD_Status copy_buffer_to_queue(uint8_t* buffer);
 
 HAL_StatusTypeDef send_one_byte();
 
-void lcd_i2c_transmit_callback(I2C_HandleTypeDef *hi2c);
-void lcd_i2c_receive_callback(I2C_HandleTypeDef *hi2c);
+HAL_StatusTypeDef lcd_i2c_transmit_it_callback(I2C_HandleTypeDef *hi2c);
+HAL_StatusTypeDef lcd_i2c_receive_it_callback(I2C_HandleTypeDef *hi2c);
 
 #endif /* INC_LCD_HANDLER_H_ */

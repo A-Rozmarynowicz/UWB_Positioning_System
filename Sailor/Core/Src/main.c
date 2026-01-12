@@ -22,6 +22,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "lcd_handler.h"
+#include "observer_comm.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -42,6 +43,8 @@
 /* Private variables ---------------------------------------------------------*/
 I2C_HandleTypeDef hi2c2;
 
+TIM_HandleTypeDef htim2;
+
 UART_HandleTypeDef huart4;
 UART_HandleTypeDef huart2;
 DMA_HandleTypeDef hdma_uart4_rx;
@@ -57,13 +60,14 @@ static void MX_DMA_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_I2C2_Init(void);
 static void MX_UART4_Init(void);
+static void MX_TIM2_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-uint8_t uart_buf[12] = {0};
+
 /* USER CODE END 0 */
 
 /**
@@ -98,14 +102,15 @@ int main(void)
   MX_USART2_UART_Init();
   MX_I2C2_Init();
   MX_UART4_Init();
+  MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
-  Initialize_LCD_Handler(&hi2c2);
-  HAL_UART_Receive_DMA(&huart4, uart_buf, 12);
-//  Put_Cursor(0, 0);
-//  Print_String("DUPA", 4);
-//  Put_Cursor(1, 9);
-//  Print_String("ASS", 3);
-//  Print_Whole_Position(12.12, 4.69, 88.11);
+
+  if (Initialize_LCD_Handler(&hi2c2) != LCD_OK){
+	  Error_Handler();
+  };
+  if (Initialize_Observer_Comm(&htim2, &huart4) != HAL_OK){
+	  Error_Handler();
+  }
 
   /* USER CODE END 2 */
 
@@ -214,6 +219,51 @@ static void MX_I2C2_Init(void)
   /* USER CODE BEGIN I2C2_Init 2 */
 
   /* USER CODE END I2C2_Init 2 */
+
+}
+
+/**
+  * @brief TIM2 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM2_Init(void)
+{
+
+  /* USER CODE BEGIN TIM2_Init 0 */
+
+  /* USER CODE END TIM2_Init 0 */
+
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM2_Init 1 */
+
+  /* USER CODE END TIM2_Init 1 */
+  htim2.Instance = TIM2;
+  htim2.Init.Prescaler = 79;
+  htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim2.Init.Period = 9999;
+  htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim2, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM2_Init 2 */
+
+  /* USER CODE END TIM2_Init 2 */
 
 }
 
@@ -341,28 +391,32 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
-{
-	if (huart == &huart4){
-		float x, y, z;
-		memcpy(&x, &(uart_buf[0]), 4);
-		memcpy(&y, &(uart_buf[4]), 4);
-		memcpy(&z, &(uart_buf[8]), 4);
-		Print_Whole_Position(x, y, z);
-		HAL_UART_Receive_DMA(&huart4, uart_buf, 12);
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
+	if (obs_uart_receive_it_callback(huart) != HAL_OK){
+		Error_Handler();
+	};
+}
+
+void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart) {
+	if (obs_uart_transmit_it_callback(huart) != HAL_OK){
+		Error_Handler();
 	}
 }
 
-void HAL_I2C_MasterRxCpltCallback(I2C_HandleTypeDef *hi2c)
-{
-	lcd_i2c_receive_callback(hi2c);
+void HAL_I2C_MasterRxCpltCallback(I2C_HandleTypeDef *hi2c){
+	if (lcd_i2c_receive_it_callback(hi2c) != HAL_OK) {
+		Error_Handler();
+	}
 }
 
-void HAL_I2C_MasterTxCpltCallback(I2C_HandleTypeDef *hi2c)
-{
-	uint8_t mess[] = "DUPA\r\n";
-	HAL_UART_Transmit_IT(&huart2, mess, sizeof(mess));
-	lcd_i2c_transmit_callback(hi2c);
+void HAL_I2C_MasterTxCpltCallback(I2C_HandleTypeDef *hi2c) {
+	if (lcd_i2c_transmit_it_callback(hi2c) != HAL_OK){
+		Error_Handler();
+	}
+}
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
+	obs_timer_period_elapsed_it_callback(htim);
 }
 /* USER CODE END 4 */
 

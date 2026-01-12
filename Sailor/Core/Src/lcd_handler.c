@@ -6,8 +6,6 @@ uint16_t head_pointer = 0;
 uint16_t tail_pointer = 0;
 uint8_t transmission_going = 0;
 
-uint8_t* current_position = 0;
-
 const uint8_t X_LCD_COORDS[2] = {0, 0};
 const uint8_t Y_LCD_COORDS[2] = {0, 9};
 const uint8_t Z_LCD_COORDS[2] = {1, 0};
@@ -204,22 +202,24 @@ HAL_StatusTypeDef send_one_byte(){
 	return HAL_OK;
 }
 
-void lcd_i2c_transmit_callback(I2C_HandleTypeDef *hi2c){
+HAL_StatusTypeDef lcd_i2c_transmit_it_callback(I2C_HandleTypeDef *hi2c){
 	if (!is_transmission_going()){
-		return;
+		return HAL_OK;
 	}
 	if (tail_pointer == head_pointer){
 		stop_transmission();
-		return;
+		return HAL_OK;
 	}
-	send_one_byte();
+	return send_one_byte();
 
 	//	if (hi2c != h_lcd_i2c){
 //		return;
 //	}
 
 }
-void lcd_i2c_receive_callback(I2C_HandleTypeDef *hi2c){}
+HAL_StatusTypeDef lcd_i2c_receive_it_callback(I2C_HandleTypeDef *hi2c){
+	return HAL_OK;
+}
 
 LCD_Status lcd_init (void) {
   LCD_Status result = LCD_OK;
