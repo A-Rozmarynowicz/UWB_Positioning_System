@@ -1,103 +1,112 @@
 #include "string.h"
 #include "Communication.h"
-#include "freertos/FreeRTOS.h" // TODO co to jest
-#include "freertos/task.h"
-#include "esp_wifi.h"
-#include "esp_event.h"
-#include "esp_log.h"
-#include "nvs_flash.h"
 
 AckStatus current_ack_status = {0};
-uint8_t buffer[DATA_SIZE] = {0};
+uint8_t transmit_buffer[DATA_SIZE] = {0};
 
 #pragma region Message Functions
 void MESSAGES::Send_Ack(uint8_t receiver){
-  buffer[DATA_SETUP::RECEIVER_ID] = receiver;
-  buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::ACK_COM;
+  transmit_buffer[DATA_SETUP::RECEIVER_ID] = receiver;
+  transmit_buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::ACK_COM;
   Send_ESP();
 }
 
 void MESSAGES::Send_Change_To_Burst_Response(uint8_t receiver){
-  buffer[DATA_SETUP::RECEIVER_ID] = receiver;
-  buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::CHANGE_STATE_COM;
-  buffer[DATA_SETUP::SINGLE_0] = STATES::BURST_RESPONSE;
+  transmit_buffer[DATA_SETUP::RECEIVER_ID] = receiver;
+  transmit_buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::CHANGE_STATE_COM;
+  transmit_buffer[DATA_SETUP::SINGLE_0] = STATES::BURST_RESPONSE;
   Send_ESP();
 }
 
 void MESSAGES::Send_Burst_Query(uint8_t receiver){
-  buffer[DATA_SETUP::RECEIVER_ID] = receiver;
-  buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::BURST_QUERY_COM;
+  transmit_buffer[DATA_SETUP::RECEIVER_ID] = receiver;
+  transmit_buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::BURST_QUERY_COM;
   Send_ESP();
 };
 
 void MESSAGES::Send_Burst_Response(uint8_t receiver){
-  buffer[DATA_SETUP::RECEIVER_ID] = receiver;
-  buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::BURST_RESPONSE_COM;
+  transmit_buffer[DATA_SETUP::RECEIVER_ID] = receiver;
+  transmit_buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::BURST_RESPONSE_COM;
   Send_ESP();
 }
 
 void MESSAGES::Send_Relay_Burst_Response(uint8_t new_burster_id){
-  buffer[DATA_SETUP::RECEIVER_ID] = new_burster_id;
-  buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::CHANGE_STATE_COM;
-  buffer[DATA_SETUP::SINGLE_0] = STATES::BURST_QUERY;
+  transmit_buffer[DATA_SETUP::RECEIVER_ID] = new_burster_id;
+  transmit_buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::CHANGE_STATE_COM;
+  transmit_buffer[DATA_SETUP::SINGLE_0] = STATES::BURST_QUERY;
   Send_ESP();
 }
 
 void MESSAGES::Send_Reset_Burst_Response_Info(){
-  buffer[DATA_SETUP::RECEIVER_ID] = BROADCAST_RECEIVER_ID;
-  buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::RESET_BURST_INFO;
+  transmit_buffer[DATA_SETUP::RECEIVER_ID] = BROADCAST_RECEIVER_ID;
+  transmit_buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::RESET_BURST_INFO;
   Send_ESP();
 }
 
 void MESSAGES::Send_End_Of_Config_Message(uint8_t receiver){
-  buffer[DATA_SETUP::RECEIVER_ID] = receiver;
-  buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::CHANGE_STATE_COM;
-  buffer[DATA_SETUP::SINGLE_0] = STATES::DISTANCE_MEASURE_RESPONSE;
+  transmit_buffer[DATA_SETUP::RECEIVER_ID] = receiver;
+  transmit_buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::CHANGE_STATE_COM;
+  transmit_buffer[DATA_SETUP::SINGLE_0] = STATES::DISTANCE_MEASURE_RESPONSE;
   Send_ESP();
 }
 
 void MESSAGES::Send_Query_Avg_Response_Time(uint8_t receiver){
-  buffer[DATA_SETUP::RECEIVER_ID] = receiver;
-  buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::QUERY_AVG_RESPONSE_TIME;
+  transmit_buffer[DATA_SETUP::RECEIVER_ID] = receiver;
+  transmit_buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::QUERY_AVG_RESPONSE_TIME;
   Send_ESP();
 }
 
 void MESSAGES::Send_Response_Avg_Response_Time(uint8_t receiver, double avg){
-  buffer[DATA_SETUP::RECEIVER_ID] = receiver;
-  buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::RESPOND_AVG_RESPONSE_TIME;
-  memcpy(&buffer[DATA_SETUP::QUAD_0], &avg, sizeof(double));
+  transmit_buffer[DATA_SETUP::RECEIVER_ID] = receiver;
+  transmit_buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::RESPOND_AVG_RESPONSE_TIME;
+  memcpy(&transmit_buffer[DATA_SETUP::QUAD_0], &avg, sizeof(double));
   Send_ESP();
 }
 
 void MESSAGES::Send_Master_LHG_Reset(){
-  buffer[DATA_SETUP::RECEIVER_ID] = BROADCAST_RECEIVER_ID;
-  buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::MASTER_LGH_RESET;
+  transmit_buffer[DATA_SETUP::RECEIVER_ID] = BROADCAST_RECEIVER_ID;
+  transmit_buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::MASTER_LGH_RESET;
   Send_ESP();
 }
 
 void MESSAGES::Send_Query_Distance(uint8_t receiver, uint8_t target){
-  buffer[DATA_SETUP::RECEIVER_ID] = receiver;
-  buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::QUERY_DISTANCE;
-  buffer[DATA_SETUP::SINGLE_0] = target;
+  transmit_buffer[DATA_SETUP::RECEIVER_ID] = receiver;
+  transmit_buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::QUERY_DISTANCE;
+  transmit_buffer[DATA_SETUP::SINGLE_0] = target;
   Send_ESP();
   Start_Ack_Timer();
 }
 
 void MESSAGES::Send_Response_Distance(uint8_t receiver, uint8_t target, float distance){
-  buffer[DATA_SETUP::RECEIVER_ID] = receiver;
-  buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::RESPONSE_DISTANCE;
-  buffer[DATA_SETUP::SINGLE_0] = target;
-  memcpy(&buffer[QUAD_0], &distance, sizeof(float));
+  transmit_buffer[DATA_SETUP::RECEIVER_ID] = receiver;
+  transmit_buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::RESPONSE_DISTANCE;
+  transmit_buffer[DATA_SETUP::SINGLE_0] = target;
+  memcpy(&transmit_buffer[QUAD_0], &distance, sizeof(float));
   Send_ESP();
 }
 
 void MESSAGES::Send_Set_Position(uint8_t receiver){
   Start_Ack_Timer();
-  buffer[DATA_SETUP::RECEIVER_ID] = receiver;
-  buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::SET_POSITION;
-  memcpy(&buffer[QUAD_0], &master_all_positions[receiver].x, sizeof(float));
-  memcpy(&buffer[QUAD_1], &master_all_positions[receiver].y, sizeof(float));
-  memcpy(&buffer[QUAD_2], &master_all_positions[receiver].z, sizeof(float));
+  transmit_buffer[DATA_SETUP::RECEIVER_ID] = receiver;
+  transmit_buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::SET_POSITION;
+  memcpy(&transmit_buffer[QUAD_0], &master_all_positions[receiver].x, sizeof(float));
+  memcpy(&transmit_buffer[QUAD_1], &master_all_positions[receiver].y, sizeof(float));
+  memcpy(&transmit_buffer[QUAD_2], &master_all_positions[receiver].z, sizeof(float));
+  Send_ESP();
+}
+
+void MESSAGES::Send_Sailor_Ready(){
+  transmit_buffer[DATA_SETUP::RECEIVER_ID] = SAILOR_ID;
+  transmit_buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::READY_FOR_SAILOR;
+  Send_ESP();
+}
+
+void MESSAGES::Send_Sailor_Position_Response(){
+  transmit_buffer[DATA_SETUP::RECEIVER_ID] = SAILOR_ID;
+  transmit_buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::OBSERVER_RESPONSE_POSITION;
+  memcpy(&(transmit_buffer[DATA_SETUP::QUAD_0]), &(position.x), sizeof(float));
+  memcpy(&(transmit_buffer[DATA_SETUP::QUAD_1]), &(position.y), sizeof(float));
+  memcpy(&(transmit_buffer[DATA_SETUP::QUAD_2]), &(position.z), sizeof(float));
   Send_ESP();
 }
 
@@ -116,7 +125,7 @@ void Initialize_Communication(){
   else {
     Communication_Error(COMMUNICATION_ERRORS::PROTOCOL_INIT_FAIL);
   }
-  buffer[DATA_SETUP::TRANSMITTER_ID] = LIGHTHOUSE_ID;
+  transmit_buffer[DATA_SETUP::TRANSMITTER_ID] = LIGHTHOUSE_ID;
 };
 
 void Send_ESP(){
@@ -127,7 +136,7 @@ void Send_ESP(){
     esp_now_add_peer(&peerInfo);
   }
 
-  esp_err_t result = esp_now_send(broadcastAddress, buffer, DATA_SIZE);
+  esp_err_t result = esp_now_send(broadcastAddress, transmit_buffer, DATA_SIZE);
   if (result == ESP_OK) {}
   else {
     Communication_Error(COMMUNICATION_ERRORS::MESSAGE_SEND_FAIL);

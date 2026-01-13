@@ -7,8 +7,6 @@
 const uint8_t BROADCAST_RECEIVER_ID = 255;
 const uint8_t ACK_MESSAGE_COUNT = 5;
 
-extern uint8_t buffer[DATA_SIZE];
-
 enum DATA_SETUP {
   RECEIVER_ID = 0,
   TRANSMITTER_ID = 1,
@@ -32,6 +30,11 @@ enum DATA_COMMANDS {
   QUERY_DISTANCE,
   RESPONSE_DISTANCE,
   SET_POSITION,
+  READY_FOR_SAILOR,
+
+  OBSERVER_QUERY_POSITION,
+  OBSERVER_RESPONSE_POSITION,
+  OBSERVER_ENABLE_UWB,
 };
 
 enum COMMUNICATION_ERRORS {
@@ -71,6 +74,9 @@ void Send_Master_LHG_Reset();
 void Send_Query_Distance(uint8_t receiver, uint8_t target);
 void Send_Response_Distance(uint8_t receiver, uint8_t target, float distance);
 void Send_Set_Position(uint8_t receiver);
+
+void Send_Sailor_Ready();
+void Send_Sailor_Position_Response();
 }
 
 #endif

@@ -460,10 +460,19 @@ void Send_Calculated_Position_TimerCallback(TIMER_CALLBACKS timer_callback){
 void Send_Calculated_Position_ButtonCallback(uint8_t button){};
 void Send_Calculated_Position_Exit(){};
 #pragma endregion
- 
+
 #pragma region Sailor Response State Functions
-void Sailor_Response_Enter(){};
-void Sailor_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){};
+void Sailor_Response_Enter(){
+  if (LIGHTHOUSE_ID == 0){
+    MESSAGES::Send_Sailor_Ready();
+  }
+  Enable_UWB();
+};
+void Sailor_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
+  if (data[DATA_SETUP::COMMAND] == DATA_COMMANDS::OBSERVER_QUERY_POSITION){
+    MESSAGES::Send_Sailor_Position_Response();
+  }
+};
 void Sailor_Response_SentCallback(uint32_t send_time){};
 void Sailor_Response_TimerCallback(TIMER_CALLBACKS timer_callback){};
 void Sailor_Response_ButtonCallback(uint8_t button){};

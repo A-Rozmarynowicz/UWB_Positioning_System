@@ -37,6 +37,8 @@ void setup()
   Serial.println("Timers Inited");
   Initialize_Communication();
   Serial.println("Communication Inited");
+  Initialize_UWB();
+  Serial.println("UWB Initialized");
   Reset_And_Initialize_Machine();
   Serial.println("Machine Initialized");
 
@@ -57,7 +59,7 @@ void setup()
 
   esp_pm_lock_create(ESP_PM_NO_LIGHT_SLEEP, 0, "no_light_sleep_lock_name", &no_light_sleep_lock);
   esp_pm_lock_acquire(no_light_sleep_lock);
-  esp_wifi_set_ps(WIFI_PS_NONE); // Disables Wi-Fi power save (Modem-sleep)
+  esp_wifi_set_ps(WIFI_PS_NONE);
 }
 
 void loop(){}
