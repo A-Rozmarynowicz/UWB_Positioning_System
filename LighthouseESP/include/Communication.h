@@ -21,6 +21,7 @@ enum DATA_SETUP {
 enum DATA_COMMANDS {
   MASTER_LGH_RESET,
   ACK_COM,
+  UWB_START_ANCHORING,
   BURST_QUERY_COM,
   BURST_RESPONSE_COM,
   CHANGE_STATE_COM,
@@ -63,6 +64,7 @@ void Communication_Error(COMMUNICATION_ERRORS error);
 namespace MESSAGES {
 void Send_Ack(uint8_t receiver);
 void Send_Change_To_Burst_Response(uint8_t receiver);
+void Send_UWB_Start_Anchoring(uint8_t receiver);
 void Send_Burst_Query(uint8_t receiver);
 void Send_Burst_Response(uint8_t receiver);
 void Send_Relay_Burst_Response(uint8_t new_burster_id);

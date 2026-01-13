@@ -23,12 +23,11 @@ void Query_Positions_Enter(){
 
 void Query_Positions_ReceiveCallback(const uint8_t* data, int dataLen){
     if (data[DATA_SETUP::COMMAND] == DATA_COMMANDS::OBSERVER_RESPONSE_POSITION) {
-        Stop_Ack_Timer();
         if (data[DATA_SETUP::TRANSMITTER_ID] != current_state_data.target_lgh) {
             Serial.printf("Wrong pos query transmitter: actual: %d vs desired: %d\n", data[DATA_SETUP::TRANSMITTER_ID], current_state_data.target_lgh);
-            MESSAGES::Send_Query_Position(current_state_data.target_lgh);
             return;
         }
+        Stop_Ack_Timer();
         current_state_data.ack_index = 0;
         float x, y, z;
         memcpy(&x, &(data[DATA_SETUP::QUAD_0]), sizeof(float));

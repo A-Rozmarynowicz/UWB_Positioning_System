@@ -18,6 +18,12 @@ void MESSAGES::Send_Change_To_Burst_Response(uint8_t receiver){
   Send_ESP();
 }
 
+void MESSAGES::Send_UWB_Start_Anchoring(uint8_t receiver){
+  transmit_buffer[DATA_SETUP::RECEIVER_ID] = receiver;
+  transmit_buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::UWB_START_ANCHORING;
+  Send_ESP();
+}
+
 void MESSAGES::Send_Burst_Query(uint8_t receiver){
   transmit_buffer[DATA_SETUP::RECEIVER_ID] = receiver;
   transmit_buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::BURST_QUERY_COM;

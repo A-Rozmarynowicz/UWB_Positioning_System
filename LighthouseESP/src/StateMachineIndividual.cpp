@@ -24,7 +24,7 @@ void Initial_SentCallback(uint32_t send_time){
     return;
   }
   Reset_Target_Lighthouse_Index(&current_state_data.target_lighthouse);
-  Start_Burst_Timer();
+  Start_Ack_Timer();
 };
 
 void Initial_TimerCallback(TIMER_CALLBACKS timer_callback){
@@ -41,125 +41,61 @@ void Initial_Exit(){};
 
 #pragma region Burst Query State Functions
 void Burst_Query_Enter(){
-  Serial.printf("Target LGH: %d\n", current_state_data.target_lighthouse);
-  current_state_data.elapsed_times_sum = 0.0;
-  current_state_data.time_measurements_completed = 0;
-  current_state_data.message_index = 0;
-  Start_Burst_Timer();
+  Restart_UWB_As_Tag();
+  MESSAGES::Send_UWB_Start_Anchoring(current_state_data.target_lighthouse);
+  Start_UWB_Restart_Ack_Timer();
 };
 
 void Burst_Query_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
-  if (data[DATA_SETUP::COMMAND] == DATA_COMMANDS::BURST_RESPONSE_COM){
-    if (current_state_data.message_index < 10){
+  if (data[DATA_SETUP::COMMAND] == DATA_COMMANDS::ACK_COM){
+    if (data[DATA_SETUP::TRANSMITTER_ID] != current_state_data.target_lighthouse){
+      Serial.printf("Wrong ack for uwb start anchor: actaal %d vs desired %d\n", data[DATA_SETUP::TRANSMITTER_ID], current_state_data.target_lighthouse);
       return;
     }
-    double travel_time = Get_Elapsed_Time_From_Measurements(current_state_data.last_registered_time, receive_time);
-    if (travel_time < 0.00009){
-      Serial.printf("To short time: %f\n", travel_time);
-      return;
-    }
-    uint32_t first_registered_time = current_state_data.last_registered_time;
-    uint32_t second_registered_time = receive_time;
-    uint32_t travel_cycle_counts = 0;
-    if (first_registered_time > second_registered_time){
-      travel_cycle_counts = (CYCLE_COUNT_MAX - first_registered_time) + second_registered_time;
-    }
-    else {
-      travel_cycle_counts = second_registered_time - first_registered_time;
-    }
-    // Serial.printf("Cycles: %d\n", travel_cycle_counts);
-    current_state_data.elapsed_times_sum += travel_time;
-    current_state_data.time_measurements_completed += 1;
+    Stop_UWB_Restart_Ack_Timer();
 
-    // Serial.printf("Received packet: %d. Time: %f \n", current_state_data.message_index, travel_time);
-    // if (travel_time < 0.0001) {
-    //   Serial.printf("---------------------------\n");
-    // }
   }
 };
 
 void Burst_Query_SentCallback(uint32_t send_time){
-  // Serial.printf("Sent packet: %d\n", current_state_data.message_index);
-  current_state_data.last_registered_time = ESP.getCycleCount();
-  Start_Burst_Timer();
-  // Data_Transfer_LED_ON();
+
 };
 
 void Burst_Query_TimerCallback(TIMER_CALLBACKS timer_callback){
-  Handle_Sending_Burst_Query_Message();
-  // Serial.printf("Timer packet: %d\n", current_state_data.message_index);
+  if (timer_callback == TIMER_CALLBACKS::UWB_RESTART_ACK){
+    current_ack_status.current_ack_index++;
+    if (current_ack_status.current_ack_index >= ACK_MESSAGE_COUNT){
+      Serial.printf("Missed all UWB acks for lgh %d\n", current_state_data.target_lighthouse);
+      Change_State(STATES::POST_BURST_CHECK_IF_ALL_LGHS_SET);
+      return;
+    }
+    Serial.printf("Missed a single UWB ack from %d\n", current_state_data.target_lighthouse);
+    MESSAGES::Send_UWB_Start_Anchoring(current_state_data.target_lighthouse);
+    Start_UWB_Restart_Ack_Timer();
+  }
 };
 
 void Burst_Query_ButtonCallback(uint8_t button){};
 void Burst_Query_Exit(){
-  Serial.printf("Desired: %d, complete: %d\n", BURST_COUNT, current_state_data.time_measurements_completed);
+
 };
 #pragma endregion
 
 #pragma region Burst Response State Functions
 void Burst_Response_Enter(){
-  current_state_data.elapsed_times_sum = 0.0;
-  current_state_data.time_measurements_completed = 0;
-  current_state_data.ignoring_sent_callbacks = false;
+
 };
 
 void Burst_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
-  if (data[DATA_SETUP::COMMAND] == DATA_COMMANDS::BURST_QUERY_COM){
-    current_state_data.last_registered_time = receive_time;
-    MESSAGES::Send_Burst_Response(data[DATA_SETUP::TRANSMITTER_ID]);
-  }
-  else if (data[DATA_SETUP::COMMAND] == DATA_COMMANDS::QUERY_AVG_RESPONSE_TIME) {
-    current_state_data.ignoring_sent_callbacks = true;
-    double avg = Calculate_Avg_Response_Time(current_state_data.elapsed_times_sum, current_state_data.time_measurements_completed);
-    MESSAGES::Send_Response_Avg_Response_Time(data[DATA_SETUP::TRANSMITTER_ID], avg);
-    Serial.printf("Avg response time (self): %f.\n", avg);
-  }
-  else if (data[DATA_SETUP::COMMAND] == DATA_COMMANDS::RESET_BURST_INFO) {
-    Serial.printf("Reseting Burst Info\n");
-    current_state_data.ignoring_sent_callbacks = false;
-    current_state_data.elapsed_times_sum = 0.0;
-    current_state_data.time_measurements_completed = 0;
-  }
-  else if (data[DATA_SETUP::COMMAND] == DATA_COMMANDS::CHANGE_STATE_COM){
-    switch (data[DATA_SETUP::SINGLE_0]) {
-      case STATES::BURST_QUERY:
-        current_state_data.ignoring_sent_callbacks = true;
-        current_state_data.stored_next_state = STATES::BURST_QUERY;
-        MESSAGES::Send_Ack(data[DATA_SETUP::TRANSMITTER_ID]);
-        Start_Ack_Timer();
-        break;
-      case STATES::DISTANCE_MEASURE_RESPONSE:
-        current_state_data.ignoring_sent_callbacks = true;
-        MESSAGES::Send_Ack(data[DATA_SETUP::TRANSMITTER_ID]);
-        Change_State(STATES::DISTANCE_MEASURE_RESPONSE);
-        break;
-      default:
-        State_Machine_Error(STATE_MACHINE_ERRORS::WRONG_TRANSITION);
-    }
-  }
+
 };
 
 void Burst_Response_SentCallback(uint32_t send_time){
-  if (current_state_data.ignoring_sent_callbacks){
-    return;
-  }
-  double response_time = Get_Elapsed_Time_From_Measurements(current_state_data.last_registered_time, send_time);
-  current_state_data.elapsed_times_sum += response_time;
-  current_state_data.time_measurements_completed += 1;
+
 };
 
 void Burst_Response_TimerCallback(TIMER_CALLBACKS timer_callback){
-  if (timer_callback == TIMER_CALLBACKS::ACK){
-    switch (current_state_data.stored_next_state)
-    {
-    case STATES::BURST_QUERY:
-      Reset_Target_Lighthouse_Index(&current_state_data.target_lighthouse);
-      Change_State(STATES::BURST_QUERY);
-      break;
-    default:
-      break; // TODO
-    }
-  }
+
 };
 void Burst_Response_ButtonCallback(uint8_t button){};
 void Burst_Response_Exit(){};
@@ -167,52 +103,14 @@ void Burst_Response_Exit(){};
 
 #pragma region Post Burst Check If All LGHS Set State Functions
 void Post_Burst_Check_If_All_LGHS_Set_Enter(){
-  current_state_data.message_index = 0;
-  current_ack_status.target_ack_lighthouse = current_state_data.target_lighthouse;
-  current_ack_status.current_ack_index = 0;
-  Start_Ack_Timer();
-  MESSAGES::Send_Query_Avg_Response_Time(current_state_data.target_lighthouse);
-};
-
-void Post_Burst_Check_If_All_LGHS_Set_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
-  if (data[DATA_SETUP::COMMAND] != DATA_COMMANDS::RESPOND_AVG_RESPONSE_TIME){
-    return;
-  }
-
-  double avg_response_time = 0.0;
-  memcpy(&avg_response_time, &data[DATA_SETUP::QUAD_0], sizeof(double));
-  avg_response_time = max(avg_response_time, current_state_data.stored_targets_avg_response_time);
-  current_state_data.stored_targets_avg_response_time = avg_response_time;
-
-  Calculate_Distance_To_Target(current_state_data.elapsed_times_sum, current_state_data.time_measurements_completed,
-                              avg_response_time, current_state_data.target_lighthouse);
-  Serial.printf("Distance: %f. AVG Response (target): %f\n", distances_to_lighthouses[current_state_data.target_lighthouse], avg_response_time);
-
   if (!Handle_Post_Burst_State_Change(&current_state_data.target_lighthouse)){
     State_Machine_Error(STATE_MACHINE_ERRORS::WRONG_TRANSITION);
+    return;
   }
 };
-
+void Post_Burst_Check_If_All_LGHS_Set_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){};
 void Post_Burst_Check_If_All_LGHS_Set_SentCallback(uint32_t send_time){};
-
-void Post_Burst_Check_If_All_LGHS_Set_TimerCallback(TIMER_CALLBACKS timer_callback){
-  if (timer_callback == TIMER_CALLBACKS::ACK){
-    if (Validate_Ack_Index_Increase(&current_ack_status.current_ack_index)){
-      Serial.printf("Missed a single Avg response\n");
-      Start_Ack_Timer();
-      MESSAGES::Send_Query_Avg_Response_Time(current_state_data.target_lighthouse);
-    }
-    else {
-      Serial.printf("Missed all Avg responses\n");
-      Communication_Error(COMMUNICATION_ERRORS::ACK_FAIL);
-      Data_Transfer_LED_ON();
-
-      if (!Handle_Post_Burst_State_Change(&current_state_data.target_lighthouse)){
-        State_Machine_Error(STATE_MACHINE_ERRORS::WRONG_TRANSITION);
-      }
-    }
-  }
-};
+void Post_Burst_Check_If_All_LGHS_Set_TimerCallback(TIMER_CALLBACKS timer_callback){};
 void Post_Burst_Check_If_All_LGHS_Set_ButtonCallback(uint8_t button){};
 void Post_Burst_Check_If_All_LGHS_Set_Exit(){};
 #pragma endregion
