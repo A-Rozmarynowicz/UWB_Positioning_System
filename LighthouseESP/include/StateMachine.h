@@ -48,6 +48,7 @@ void State_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_ti
 void State_SentCallback(uint32_t send_time);
 void State_TimerCallback(TIMER_CALLBACKS timer_callback);
 void State_Button_Callback(uint8_t button);
+void State_UWB_New_Range(uint16_t device, float range, float rx_power);
 void State_Exit();
 
 void Initial_Enter();
@@ -55,6 +56,7 @@ void Initial_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_
 void Initial_SentCallback(uint32_t send_time);
 void Initial_TimerCallback(TIMER_CALLBACKS timer_callback);
 void Initial_ButtonCallback(uint8_t button);
+void Initial_UWB_New_Range(uint16_t device, float range, float rx_power);
 void Initial_Exit();
 
 void Burst_Query_Enter();
@@ -62,6 +64,7 @@ void Burst_Query_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t rece
 void Burst_Query_SentCallback(uint32_t send_time);
 void Burst_Query_TimerCallback(TIMER_CALLBACKS timer_callback);
 void Burst_Query_ButtonCallback(uint8_t button);
+void Burst_Query_UWB_New_Range(uint16_t device, float range, float rx_power);
 void Burst_Query_Exit();
 
 void Burst_Response_Enter();
@@ -69,6 +72,7 @@ void Burst_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t r
 void Burst_Response_SentCallback(uint32_t send_time);
 void Burst_Response_TimerCallback(TIMER_CALLBACKS timer_callback);
 void Burst_Response_ButtonCallback(uint8_t button);
+void Burst_Response_UWB_New_Range(uint16_t device, float range, float rx_power);
 void Burst_Response_Exit();
 
 void Post_Burst_Check_If_All_LGHS_Set_Enter();
@@ -76,6 +80,7 @@ void Post_Burst_Check_If_All_LGHS_Set_ReceiveCallback(const uint8_t* data, int d
 void Post_Burst_Check_If_All_LGHS_Set_SentCallback(uint32_t send_time);
 void Post_Burst_Check_If_All_LGHS_Set_TimerCallback(TIMER_CALLBACKS timer_callback);
 void Post_Burst_Check_If_All_LGHS_Set_ButtonCallback(uint8_t button);
+void Post_Burst_Check_If_All_LGHS_Set_UWB_New_Range(uint16_t device, float range, float rx_power);
 void Post_Burst_Check_If_All_LGHS_Set_Exit();
 
 void Relay_Burst_Quering_Enter();
@@ -83,6 +88,7 @@ void Relay_Burst_Quering_ReceiveCallback(const uint8_t* data, int dataLen, uint3
 void Relay_Burst_Quering_SentCallback(uint32_t send_time);
 void Relay_Burst_Quering_TimerCallback(TIMER_CALLBACKS timer_callback);
 void Relay_Burst_Quering_ButtonCallback(uint8_t button);
+void Relay_Burst_Quering_UWB_New_Range(uint16_t device, float range, float rx_power);
 void Relay_Burst_Quering_Exit();
 
 void Inform_End_Config_Enter();
@@ -90,6 +96,7 @@ void Inform_End_Config_ReceiveCallback(const uint8_t* data, int dataLen, uint32_
 void Inform_End_Config_SentCallback(uint32_t send_time);
 void Inform_End_Config_TimerCallback(TIMER_CALLBACKS timer_callback);
 void Inform_End_Config_ButtonCallback(uint8_t button);
+void Inform_End_Config_UWB_New_Range(uint16_t device, float range, float rx_power);
 void Inform_End_Config_Exit();
 
 void Distance_Measure_Response_Enter();
@@ -97,6 +104,7 @@ void Distance_Measure_Response_ReceiveCallback(const uint8_t* data, int dataLen,
 void Distance_Measure_Response_SentCallback(uint32_t send_time);
 void Distance_Measure_Response_TimerCallback(TIMER_CALLBACKS timer_callback);
 void Distance_Measure_Response_ButtonCallback(uint8_t button);
+void Distance_Measure_Response_UWB_New_Range(uint16_t device, float range, float rx_power);
 void Distance_Measure_Response_Exit();
 
 void Distance_Measure_Query_Enter();
@@ -104,6 +112,7 @@ void Distance_Measure_Query_ReceiveCallback(const uint8_t* data, int dataLen, ui
 void Distance_Measure_Query_SentCallback(uint32_t send_time);
 void Distance_Measure_Query_TimerCallback(TIMER_CALLBACKS timer_callback);
 void Distance_Measure_Query_ButtonCallback(uint8_t button);
+void Distance_Measure_Query_UWB_New_Range(uint16_t device, float range, float rx_power);
 void Distance_Measure_Query_Exit();
 
 void Send_Calculated_Position_Enter();
@@ -111,6 +120,7 @@ void Send_Calculated_Position_ReceiveCallback(const uint8_t* data, int dataLen, 
 void Send_Calculated_Position_SentCallback(uint32_t send_time);
 void Send_Calculated_Position_TimerCallback(TIMER_CALLBACKS timer_callback);
 void Send_Calculated_Position_ButtonCallback(uint8_t button);
+void Send_Calculated_Position_UWB_New_Range(uint16_t device, float range, float rx_power);
 void Send_Calculated_Position_Exit();
 
 void Sailor_Response_Enter();
@@ -118,6 +128,7 @@ void Sailor_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t 
 void Sailor_Response_SentCallback(uint32_t send_time);
 void Sailor_Response_TimerCallback(TIMER_CALLBACKS timer_callback);
 void Sailor_Response_ButtonCallback(uint8_t button);
+void Sailor_Response_UWB_New_Range(uint16_t device, float range, float rx_power);
 void Sailor_Response_Exit();
 
 

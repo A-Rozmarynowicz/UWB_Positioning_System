@@ -62,4 +62,9 @@ void setup()
   esp_wifi_set_ps(WIFI_PS_NONE);
 }
 
-void loop(){}
+void loop(){
+
+  if (Is_UWB_Enabled){
+    Update_UWB();
+  }
+}

@@ -35,26 +35,17 @@ void Initial_ButtonCallback(uint8_t button) {
   current_state_data.ignoring_sent_callbacks = false;
   MESSAGES::Send_Change_To_Burst_Response(BROADCAST_RECEIVER_ID);
 };
-
+void Initial_UWB_New_Range(uint16_t device, float range, float rx_power){}
 void Initial_Exit(){};
 #pragma endregion
 
 #pragma region Burst Query State Functions
 void Burst_Query_Enter(){
   Restart_UWB_As_Tag();
-  MESSAGES::Send_UWB_Start_Anchoring(current_state_data.target_lighthouse);
   Start_UWB_Restart_Ack_Timer();
 };
 
 void Burst_Query_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
-  if (data[DATA_SETUP::COMMAND] == DATA_COMMANDS::ACK_COM){
-    if (data[DATA_SETUP::TRANSMITTER_ID] != current_state_data.target_lighthouse){
-      Serial.printf("Wrong ack for uwb start anchor: actaal %d vs desired %d\n", data[DATA_SETUP::TRANSMITTER_ID], current_state_data.target_lighthouse);
-      return;
-    }
-    Stop_UWB_Restart_Ack_Timer();
-
-  }
 };
 
 void Burst_Query_SentCallback(uint32_t send_time){
@@ -63,19 +54,12 @@ void Burst_Query_SentCallback(uint32_t send_time){
 
 void Burst_Query_TimerCallback(TIMER_CALLBACKS timer_callback){
   if (timer_callback == TIMER_CALLBACKS::UWB_RESTART_ACK){
-    current_ack_status.current_ack_index++;
-    if (current_ack_status.current_ack_index >= ACK_MESSAGE_COUNT){
-      Serial.printf("Missed all UWB acks for lgh %d\n", current_state_data.target_lighthouse);
-      Change_State(STATES::POST_BURST_CHECK_IF_ALL_LGHS_SET);
-      return;
-    }
-    Serial.printf("Missed a single UWB ack from %d\n", current_state_data.target_lighthouse);
-    MESSAGES::Send_UWB_Start_Anchoring(current_state_data.target_lighthouse);
-    Start_UWB_Restart_Ack_Timer();
+    Enable_UWB();
   }
 };
 
 void Burst_Query_ButtonCallback(uint8_t button){};
+void Burst_Query_UWB_New_Range(uint16_t device, float range, float rx_power){}
 void Burst_Query_Exit(){
 
 };
@@ -83,7 +67,7 @@ void Burst_Query_Exit(){
 
 #pragma region Burst Response State Functions
 void Burst_Response_Enter(){
-
+  Restart_UWB_As_Anchor();
 };
 
 void Burst_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
@@ -98,20 +82,19 @@ void Burst_Response_TimerCallback(TIMER_CALLBACKS timer_callback){
 
 };
 void Burst_Response_ButtonCallback(uint8_t button){};
+void Burst_Response_UWB_New_Range(uint16_t device, float range, float rx_power){}
 void Burst_Response_Exit(){};
 #pragma endregion
 
 #pragma region Post Burst Check If All LGHS Set State Functions
 void Post_Burst_Check_If_All_LGHS_Set_Enter(){
-  if (!Handle_Post_Burst_State_Change(&current_state_data.target_lighthouse)){
-    State_Machine_Error(STATE_MACHINE_ERRORS::WRONG_TRANSITION);
-    return;
-  }
+
 };
 void Post_Burst_Check_If_All_LGHS_Set_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){};
 void Post_Burst_Check_If_All_LGHS_Set_SentCallback(uint32_t send_time){};
 void Post_Burst_Check_If_All_LGHS_Set_TimerCallback(TIMER_CALLBACKS timer_callback){};
 void Post_Burst_Check_If_All_LGHS_Set_ButtonCallback(uint8_t button){};
+void Post_Burst_Check_If_All_LGHS_Set_UWB_New_Range(uint16_t device, float range, float rx_power){}
 void Post_Burst_Check_If_All_LGHS_Set_Exit(){};
 #pragma endregion
 
@@ -150,6 +133,7 @@ void Relay_Burst_Quering_TimerCallback(TIMER_CALLBACKS timer_callback){
 };
 
 void Relay_Burst_Quering_ButtonCallback(uint8_t button){};
+void Relay_Burst_Quering_UWB_New_Range(uint16_t device, float range, float rx_power){}
 void Relay_Burst_Quering_Exit(){};
 #pragma endregion
 
@@ -199,6 +183,7 @@ void Inform_End_Config_TimerCallback(TIMER_CALLBACKS timer_callback){
   }
 };
 void Inform_End_Config_ButtonCallback(uint8_t button){};
+void Inform_End_Config_UWB_New_Range(uint16_t device, float range, float rx_power){}
 void Inform_End_Config_Exit(){};
 #pragma endregion
 
@@ -226,6 +211,7 @@ void Distance_Measure_Response_ReceiveCallback(const uint8_t* data, int dataLen,
 void Distance_Measure_Response_SentCallback(uint32_t send_time){};
 void Distance_Measure_Response_TimerCallback(TIMER_CALLBACKS timer_callback){};
 void Distance_Measure_Response_ButtonCallback(uint8_t button){};
+void Distance_Measure_Response_UWB_New_Range(uint16_t device, float range, float rx_power){}
 void Distance_Measure_Response_Exit(){};
 #pragma endregion
 
@@ -292,6 +278,7 @@ void Distance_Measure_Query_TimerCallback(TIMER_CALLBACKS timer_callback){
   }
 };
 void Distance_Measure_Query_ButtonCallback(uint8_t button){};
+void Distance_Measure_Query_UWB_New_Range(uint16_t device, float range, float rx_power){}
 void Distance_Measure_Query_Exit(){};
 #pragma endregion
 
@@ -356,6 +343,7 @@ void Send_Calculated_Position_TimerCallback(TIMER_CALLBACKS timer_callback){
   }
 };
 void Send_Calculated_Position_ButtonCallback(uint8_t button){};
+void Send_Calculated_Position_UWB_New_Range(uint16_t device, float range, float rx_power){}
 void Send_Calculated_Position_Exit(){};
 #pragma endregion
 
@@ -374,5 +362,15 @@ void Sailor_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t 
 void Sailor_Response_SentCallback(uint32_t send_time){};
 void Sailor_Response_TimerCallback(TIMER_CALLBACKS timer_callback){};
 void Sailor_Response_ButtonCallback(uint8_t button){};
+void Sailor_Response_UWB_New_Range(uint16_t device, float range, float rx_power){}
 void Sailor_Response_Exit(){};
 #pragma endregion
+
+
+
+
+
+
+
+
+
