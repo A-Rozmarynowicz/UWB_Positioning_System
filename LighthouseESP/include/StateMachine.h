@@ -15,6 +15,7 @@ struct StateData {
 };
 
 extern struct StateData current_state_data;
+extern uint8_t completed_distance_measurements[NUMBER_OF_LIGHTHOUSES];
 
 enum STATES {
   INITIAL = 0,

@@ -20,9 +20,7 @@ double Get_Elapsed_Time_From_Measurements(uint32_t first_registered_time, uint32
     return elapsed_time;
 }
 
-void Calculate_Distance_To_Target(double measured_times_sum, uint16_t completed_measurements, double avg_response_time, uint8_t current_target){
-  float distance = (C_SPEED/2.0) *
-                  ( ((measured_times_sum)/((float) completed_measurements)) - avg_response_time);
+void Calculate_Distance_To_Target(uint8_t current_target, float distance){
   distances_to_lighthouses[current_target] = distance;
 }
 

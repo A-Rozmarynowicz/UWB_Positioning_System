@@ -63,7 +63,6 @@ void setup()
 }
 
 void loop(){
-
   if (Is_UWB_Enabled){
     Update_UWB();
   }

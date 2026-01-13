@@ -44,43 +44,57 @@ void Burst_Query_Enter(){
   Restart_UWB_As_Tag();
   Start_UWB_Restart_Ack_Timer();
 };
-
-void Burst_Query_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
-};
-
-void Burst_Query_SentCallback(uint32_t send_time){
-
-};
-
+void Burst_Query_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){};
+void Burst_Query_SentCallback(uint32_t send_time){};
 void Burst_Query_TimerCallback(TIMER_CALLBACKS timer_callback){
   if (timer_callback == TIMER_CALLBACKS::UWB_RESTART_ACK){
     Enable_UWB();
   }
 };
-
 void Burst_Query_ButtonCallback(uint8_t button){};
-void Burst_Query_UWB_New_Range(uint16_t device, float range, float rx_power){}
-void Burst_Query_Exit(){
-
-};
+void Burst_Query_UWB_New_Range(uint16_t device, float range, float rx_power){
+  for (uint8_t i=0; i<NUMBER_OF_LIGHTHOUSES;i++){
+    // if (uwb_addresses_from_LGH[i] == device){
+    //   Calculate_Distance_To_Target(i, range);
+    //   completed_distance_measurements[i] += 1;
+    //   if (Check_If_All_Distances_Are_Measured(completed_distance_measurements)){
+    //     Change_State(STATES::POST_BURST_CHECK_IF_ALL_LGHS_SET);
+    //   }
+    //   break;
+    // }
+  }
+}
+void Burst_Query_Exit(){};
 #pragma endregion
 
 #pragma region Burst Response State Functions
 void Burst_Response_Enter(){
   Restart_UWB_As_Anchor();
+  Enable_UWB();
 };
 
 void Burst_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
-
+  if (data[DATA_SETUP::COMMAND] == DATA_COMMANDS::CHANGE_STATE_COM){
+    switch (data[DATA_SETUP::SINGLE_0]) {
+      case STATES::BURST_QUERY:
+        current_state_data.ignoring_sent_callbacks = true;
+        current_state_data.stored_next_state = STATES::BURST_QUERY;
+        MESSAGES::Send_Ack(data[DATA_SETUP::TRANSMITTER_ID]);
+        Start_Ack_Timer();
+        break;
+      case STATES::DISTANCE_MEASURE_RESPONSE:
+        current_state_data.ignoring_sent_callbacks = true;
+        MESSAGES::Send_Ack(data[DATA_SETUP::TRANSMITTER_ID]);
+        Change_State(STATES::DISTANCE_MEASURE_RESPONSE);
+        break;
+      default:
+        State_Machine_Error(STATE_MACHINE_ERRORS::WRONG_TRANSITION);
+    }
+  }
 };
 
-void Burst_Response_SentCallback(uint32_t send_time){
-
-};
-
-void Burst_Response_TimerCallback(TIMER_CALLBACKS timer_callback){
-
-};
+void Burst_Response_SentCallback(uint32_t send_time){};
+void Burst_Response_TimerCallback(TIMER_CALLBACKS timer_callback){};
 void Burst_Response_ButtonCallback(uint8_t button){};
 void Burst_Response_UWB_New_Range(uint16_t device, float range, float rx_power){}
 void Burst_Response_Exit(){};
@@ -88,7 +102,12 @@ void Burst_Response_Exit(){};
 
 #pragma region Post Burst Check If All LGHS Set State Functions
 void Post_Burst_Check_If_All_LGHS_Set_Enter(){
-
+  if (LIGHTHOUSE_ID == NUMBER_OF_LIGHTHOUSES - 1){
+    Change_State(STATES::INFORM_END_CONFIG);
+  }
+  else {
+    Change_State(STATES::RELAY_BURST_QUERING);
+  }
 };
 void Post_Burst_Check_If_All_LGHS_Set_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){};
 void Post_Burst_Check_If_All_LGHS_Set_SentCallback(uint32_t send_time){};
@@ -352,6 +371,7 @@ void Sailor_Response_Enter(){
   if (LIGHTHOUSE_ID == 0){
     MESSAGES::Send_Sailor_Ready();
   }
+  Restart_UWB_As_Anchor();
   Enable_UWB();
 };
 void Sailor_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){

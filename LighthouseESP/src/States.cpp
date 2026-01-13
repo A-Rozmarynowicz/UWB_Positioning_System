@@ -110,3 +110,16 @@ bool Handle_Post_Burst_State_Change(uint8_t* current_target_lighthouse){
     }
     return true;
 }
+
+bool Check_If_All_Distances_Are_Measured(uint8_t* received_distances){
+    uint8_t completed = 0;
+    for (uint8_t i=0; i<NUMBER_OF_LIGHTHOUSES;i++){
+        if (received_distances[i] >= 0){
+            completed++;
+        }
+    }
+    if (completed >= NUMBER_OF_LIGHTHOUSES - 1){
+        return true;
+    }
+    return false;
+}

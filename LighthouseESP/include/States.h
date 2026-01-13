@@ -20,4 +20,6 @@ double Calculate_Avg_Response_Time(double time_responses_sum, uint16_t completed
 
 bool Handle_Post_Burst_State_Change(uint8_t* current_target_lighthouse);
 
+bool Check_If_All_Distances_Are_Measured(uint8_t* received_distances);
+
 #endif

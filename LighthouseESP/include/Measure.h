@@ -2,7 +2,6 @@
 #define MEASURE_H
 #include "LighthouseConfig.h"
 
-#define NUMBER_OF_LIGHTHOUSES (uint8_t) 4
 
 struct Position {
     float x;
@@ -18,7 +17,7 @@ extern Position master_all_positions[NUMBER_OF_LIGHTHOUSES];
 extern Position position;
 
 double Get_Elapsed_Time_From_Measurements(uint32_t receive_time, uint32_t send_time, double time_offset=0.0);
-void Calculate_Distance_To_Target(double measured_times_sum, uint16_t completed_measurements, double avg_response_time, uint8_t current_target);
+void Calculate_Distance_To_Target(uint8_t current_target, float distance);
 void Print_Master_All_Distances_Matrix();
 void Print_Position(uint8_t lighthouse);
 

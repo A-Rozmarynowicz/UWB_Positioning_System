@@ -1,6 +1,8 @@
 #ifndef LIGHTHOUSECONFIG_H
 #define LIGHTHOUSECONFIG_H
 
+#define NUMBER_OF_LIGHTHOUSES (uint8_t) 4
+
 #include <WiFi.h>
 #include <esp_now.h>
 #include <Arduino.h>

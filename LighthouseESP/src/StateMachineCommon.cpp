@@ -2,6 +2,7 @@
 
 STATES current_state = STATES::INITIAL;
 StateData current_state_data = {0};
+uint8_t completed_distance_measurements[NUMBER_OF_LIGHTHOUSES] = {0};
 
 void Reset_And_Initialize_Machine(){
   current_state = STATES::INITIAL;
