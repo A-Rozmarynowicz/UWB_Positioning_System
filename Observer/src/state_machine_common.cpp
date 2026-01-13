@@ -1,9 +1,11 @@
 #include "state_machine.h"
 
 STATES current_state = STATES::INITIAL;
+STATE_DATA current_state_data = {0};
 
 void Reset_And_Initialize_Machine(){
   current_state = STATES::INITIAL;
+  current_state_data = {0};
   State_Enter();
 };
 
@@ -31,7 +33,7 @@ void State_Enter(){
   }
 };
 
-void State_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
+void State_ReceiveCallback(const uint8_t* data, int dataLen){
   switch (current_state) {
     case STATES::INITIAL:
       Initial_ReceiveCallback(data, dataLen);
@@ -48,7 +50,7 @@ void State_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_ti
   }
 };
 
-void State_SentCallback(uint32_t send_time){
+void State_SentCallback(){
   switch (current_state) {
     case STATES::INITIAL:
       Initial_SentCallback();
@@ -82,7 +84,7 @@ void State_TimerCallback(TIMER_CALLBACKS timer_callback){
   }
 };
 
-void State_Button_Callback(SAILOR_COMMANDS command){
+void State_SailorCommand(SAILOR_COMMANDS command){
   switch (current_state) {
     case STATES::INITIAL:
       Initial_SailorCommand(command);
@@ -115,6 +117,23 @@ void State_Exit(){
       break;
   }
 };
+
+void State_UWB_Info() {
+  switch (current_state) {
+    case STATES::INITIAL:
+      Initial_UWB_Info();
+      break;
+    case STATES::QUERY_POSITIONS:
+      Query_Positions_UWB_Info();
+      break;
+    case STATES::QUERY_DISTANCES:
+      Query_Distances_UWB_Info();
+      break;
+    default:
+      State_Machine_Error(STATE_MACHINE_ERRORS::INEXISTING_STATE);
+      break;
+  }
+}
 
 void State_Machine_Error(STATE_MACHINE_ERRORS error){
   // TODO

@@ -7,8 +7,6 @@
 const uint8_t BROADCAST_RECEIVER_ID = 255;
 const uint8_t ACK_MESSAGE_COUNT = 5;
 
-extern uint8_t buffer[DATA_SIZE];
-
 enum DATA_SETUP {
   RECEIVER_ID = 0,
   TRANSMITTER_ID = 1,
@@ -32,6 +30,11 @@ enum DATA_COMMANDS {
   QUERY_DISTANCE,
   RESPONSE_DISTANCE,
   SET_POSITION,
+  READY_FOR_SAILOR,
+
+  OBSERVER_QUERY_POSITION,
+  OBSERVER_RESPONSE_POSITION,
+  OBSERVER_ENABLE_UWB,
 };
 
 enum COMMUNICATION_ERRORS {
@@ -58,7 +61,7 @@ void Sent_Callback(const uint8_t *macAddr, esp_now_send_status_t status);
 void Communication_Error(COMMUNICATION_ERRORS error);
 
 namespace MESSAGES {
-
+    void Send_Query_Position(uint8_t lgh_index);
 }
 
 #endif

@@ -10,12 +10,8 @@ enum OBSERVER_INFO_SETUP {
 	OBS_POSITION_STRUCT = 4,
 };
 
-enum SAILOR_COMMANDS {
-
-};
-
 
 void Initialize_Sailor_Comm();
-void Send_Current_Position(Position* current_pos);
+void Send_Current_Position();
 
 #endif

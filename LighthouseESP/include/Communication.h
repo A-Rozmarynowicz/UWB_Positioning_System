@@ -47,7 +47,7 @@ struct AckStatus {
 };
 
 extern AckStatus current_ack_status;
-extern uint8_t transmit_buffer[DATA_SIZE];
+extern uint8_t transmit_buffer[DATA_SIZE]; // TODO
 
 void Initialize_Communication();
 

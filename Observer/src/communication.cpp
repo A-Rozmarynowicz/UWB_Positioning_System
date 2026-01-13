@@ -7,9 +7,15 @@
 #include "esp_log.h"
 #include "nvs_flash.h"
 
-uint8_t buffer[DATA_SIZE] = {0};
+uint8_t transmit_buffer[DATA_SIZE] = {0};
 
 #pragma region Message Functions
+void MESSAGES::Send_Query_Position(uint8_t lgh_index){
+    transmit_buffer[DATA_SETUP::RECEIVER_ID] = lgh_index;
+    transmit_buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::OBSERVER_QUERY_POSITION;
+    Send_ESP();
+    Start_Ack_Timer();
+}
 #pragma endregion
 
 #pragma region Other Functions
@@ -25,7 +31,7 @@ void Initialize_Communication(){
   else {
     Communication_Error(COMMUNICATION_ERRORS::PROTOCOL_INIT_FAIL);
   }
-  buffer[DATA_SETUP::TRANSMITTER_ID] = SAILOR_ID;
+  transmit_buffer[DATA_SETUP::TRANSMITTER_ID] = SAILOR_ID;
 };
 
 void Send_ESP(){
@@ -36,7 +42,7 @@ void Send_ESP(){
     esp_now_add_peer(&peerInfo);
   }
 
-  esp_err_t result = esp_now_send(broadcastAddress, buffer, DATA_SIZE);
+  esp_err_t result = esp_now_send(broadcastAddress, transmit_buffer, DATA_SIZE);
   if (result == ESP_OK) {}
   else {
     Communication_Error(COMMUNICATION_ERRORS::MESSAGE_SEND_FAIL);
