@@ -102,6 +102,7 @@ void Burst_Response_Exit(){};
 
 #pragma region Post Burst Check If All LGHS Set State Functions
 void Post_Burst_Check_If_All_LGHS_Set_Enter(){
+  Disable_UWB();
   if (LIGHTHOUSE_ID == NUMBER_OF_LIGHTHOUSES - 1){
     Change_State(STATES::INFORM_END_CONFIG);
   }

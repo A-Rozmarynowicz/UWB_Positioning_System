@@ -118,16 +118,16 @@ void State_Exit(){
   }
 };
 
-void State_UWB_Info() {
+void State_UWB_New_Range(uint16_t device, float range, float rx_power) {
   switch (current_state) {
     case STATES::INITIAL:
-      Initial_UWB_Info();
+      Initial_UWB_New_Range(device, range, rx_power);
       break;
     case STATES::QUERY_POSITIONS:
-      Query_Positions_UWB_Info();
+      Query_Positions_UWB_New_Range(device, range, rx_power);
       break;
     case STATES::QUERY_DISTANCES:
-      Query_Distances_UWB_Info();
+      Query_Distances_UWB_New_Range(device, range, rx_power);
       break;
     default:
       State_Machine_Error(STATE_MACHINE_ERRORS::INEXISTING_STATE);

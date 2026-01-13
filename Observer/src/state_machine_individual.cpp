@@ -12,7 +12,7 @@ void Initial_ReceiveCallback(const uint8_t* data, int dataLen){
 void Initial_SentCallback(){}
 void Initial_TimerCallback(TIMER_CALLBACKS timer_callback){}
 void Initial_SailorCommand(SAILOR_COMMANDS command){}
-void Initial_UWB_Info(){}
+void Initial_UWB_New_Range(uint16_t device, float range, float rx_power){}
 void Initial_Exit(){}
 #pragma endregion
 
@@ -65,7 +65,7 @@ void Query_Positions_TimerCallback(TIMER_CALLBACKS timer_callback){
 
 void Query_Positions_SailorCommand(SAILOR_COMMANDS command){}
 
-void Query_Positions_UWB_Info(){}
+void Query_Positions_UWB_New_Range(uint16_t device, float range, float rx_power){}
 
 void Query_Positions_Exit(){
     Build_Constant_Matrices();
@@ -74,14 +74,15 @@ void Query_Positions_Exit(){
 
 #pragma region Query Distances State Functions
 void Query_Distances_Enter(){
-    current_state_data.target_lgh = 0;
-    current_state_data.ack_index = 0;
+    Enable_UWB();
 }
 
 void Query_Distances_ReceiveCallback(const uint8_t* data, int dataLen){}
 void Query_Distances_SentCallback(){}
 void Query_Distances_TimerCallback(TIMER_CALLBACKS timer_callback){}
 void Query_Distances_SailorCommand(SAILOR_COMMANDS command){}
-void Query_Distances_UWB_Info(){}
+void Query_Distances_UWB_New_Range(uint16_t device, float range, float rx_power){
+    //  TODO
+}
 void Query_Distances_Exit(){}
 #pragma endregion
