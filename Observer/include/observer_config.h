@@ -12,6 +12,12 @@ enum SAILOR_COMMANDS {
 	cmd_s_1 = 0,
 };
 
+typedef struct Position {
+    float x;
+    float y;
+    float z;
+} Position;
+
 #include <Arduino.h>
 #include <WiFi.h>
 #include <esp_now.h>

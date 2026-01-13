@@ -1,5 +1,6 @@
 #ifndef COMMUNICATION_H
 #define COMMUNICATION_H
+
 #include "esp_now.h"
 #include "observer_config.h"
 

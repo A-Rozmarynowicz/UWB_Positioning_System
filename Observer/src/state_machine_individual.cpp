@@ -65,8 +65,12 @@ void Query_Positions_TimerCallback(TIMER_CALLBACKS timer_callback){
 }
 
 void Query_Positions_SailorCommand(SAILOR_COMMANDS command){}
+
 void Query_Positions_UWB_Info(){}
-void Query_Positions_Exit(){}
+
+void Query_Positions_Exit(){
+    Build_Constant_Matrices();
+}
 #pragma endregion
 
 #pragma region Query Distances State Functions

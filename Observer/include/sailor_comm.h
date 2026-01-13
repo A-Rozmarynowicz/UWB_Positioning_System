@@ -12,6 +12,6 @@ enum OBSERVER_INFO_SETUP {
 
 
 void Initialize_Sailor_Comm();
-void Send_Current_Position();
+void Send_Current_Position(Position* current_pos);
 
 #endif
