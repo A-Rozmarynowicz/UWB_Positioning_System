@@ -9,5 +9,5 @@
 ../Core/Src/main.c:370:6:HAL_UART_TxCpltCallback	2
 ../Core/Src/main.c:376:6:HAL_I2C_MasterRxCpltCallback	2
 ../Core/Src/main.c:382:6:HAL_I2C_MasterTxCpltCallback	2
-../Core/Src/main.c:388:6:HAL_TIM_PeriodElapsedCallback	1
-../Core/Src/main.c:397:6:Error_Handler	1
+../Core/Src/main.c:388:6:HAL_TIM_PeriodElapsedCallback	2
+../Core/Src/main.c:399:6:Error_Handler	1

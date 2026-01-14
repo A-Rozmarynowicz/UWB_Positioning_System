@@ -46,23 +46,23 @@ LCD_Status Print_String_At_Pos(char* txt, uint8_t size, uint8_t row, uint8_t col
 LCD_Status Print_Whole_Position(float x, float y, float z);
 
 // Private
-LCD_Status lcd_init(void);
+LCD_Status _lcd_init(void);
 
-LCD_Status add_command_to_queue(char cmd);
-LCD_Status add_data_to_queue(char data);
-LCD_Status lcd_send_cmd (char cmd);
+LCD_Status _add_command_to_queue(char cmd);
+LCD_Status _add_data_to_queue(char data);
+LCD_Status _cd_send_cmd (char cmd);
 
-HAL_StatusTypeDef begin_transmission();
-void stop_transmission();
-uint8_t is_transmission_going();
-void increase_tail_pointer(uint16_t inc);
+HAL_StatusTypeDef _begin_transmission();
+void _stop_transmission();
+uint8_t _is_transmission_going();
+void _increase_tail_pointer(uint16_t inc);
 
-uint8_t has_queue_space(uint16_t data_size);
-LCD_Status copy_buffer_to_queue(uint8_t* buffer);
+uint8_t _has_queue_space(uint16_t data_size);
+LCD_Status _copy_buffer_to_queue(uint8_t* buffer);
 
-HAL_StatusTypeDef send_one_byte();
+HAL_StatusTypeDef _send_one_byte();
 
-HAL_StatusTypeDef lcd_i2c_transmit_it_callback(I2C_HandleTypeDef *hi2c);
-HAL_StatusTypeDef lcd_i2c_receive_it_callback(I2C_HandleTypeDef *hi2c);
+HAL_StatusTypeDef _lcd_i2c_transmit_it_callback(I2C_HandleTypeDef *hi2c);
+HAL_StatusTypeDef _lcd_i2c_receive_it_callback(I2C_HandleTypeDef *hi2c);
 
 #endif /* INC_LCD_HANDLER_H_ */

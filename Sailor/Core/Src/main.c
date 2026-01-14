@@ -362,31 +362,33 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
-	if (obs_uart_receive_it_callback(huart) != HAL_OK){
+	if (_obs_uart_receive_it_callback(huart) != HAL_OK){
 		Error_Handler();
 	};
 }
 
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart) {
-	if (obs_uart_transmit_it_callback(huart) != HAL_OK){
+	if (_obs_uart_transmit_it_callback(huart) != HAL_OK){
 		Error_Handler();
 	}
 }
 
 void HAL_I2C_MasterRxCpltCallback(I2C_HandleTypeDef *hi2c){
-	if (lcd_i2c_receive_it_callback(hi2c) != HAL_OK) {
+	if (_lcd_i2c_receive_it_callback(hi2c) != HAL_OK) {
 		Error_Handler();
 	}
 }
 
 void HAL_I2C_MasterTxCpltCallback(I2C_HandleTypeDef *hi2c) {
-	if (lcd_i2c_transmit_it_callback(hi2c) != HAL_OK){
+	if (_lcd_i2c_transmit_it_callback(hi2c) != HAL_OK){
 		Error_Handler();
 	}
 }
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
-	obs_timer_period_elapsed_it_callback(htim);
+	if (_obs_timer_period_elapsed_it_callback(htim) != HAL_OK){
+		Error_Handler();
+	}
 }
 /* USER CODE END 4 */
 

@@ -31,12 +31,14 @@ extern UART_HandleTypeDef* obs_uart_h;
 extern struct Position current_position;
 extern uint8_t obs_uart_receive_buffer[OBSERVER_MESSAGE_SIZE];
 
+// Public
 HAL_StatusTypeDef Initialize_Observer_Comm(TIM_HandleTypeDef* refresh_tim_handle, UART_HandleTypeDef* obs_uart_handle);
 
-void print_position_to_lcd();
+// Private
+LCD_Status _print_position_to_lcd();
 
-void obs_timer_period_elapsed_it_callback(TIM_HandleTypeDef *htim);
-HAL_StatusTypeDef obs_uart_receive_it_callback(UART_HandleTypeDef *huart);
-HAL_StatusTypeDef obs_uart_transmit_it_callback(UART_HandleTypeDef *huart);
+HAL_StatusTypeDef _obs_timer_period_elapsed_it_callback(TIM_HandleTypeDef *htim);
+HAL_StatusTypeDef _obs_uart_receive_it_callback(UART_HandleTypeDef *huart);
+HAL_StatusTypeDef _obs_uart_transmit_it_callback(UART_HandleTypeDef *huart);
 
 #endif /* INC_OBSERVER_COMM_H_ */
