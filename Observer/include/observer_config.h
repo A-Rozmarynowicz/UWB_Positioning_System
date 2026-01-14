@@ -4,11 +4,11 @@
 #define NUMBER_OF_LIGHTHOUSES 4
 #define SAILOR_ID 169
 
-enum TIMER_CALLBACKS {
+enum Timer_Callbacks {
   ACK,
 };
 
-enum SAILOR_COMMANDS {
+enum Sailor_Commands {
 	cmd_s_1 = 0,
 };
 

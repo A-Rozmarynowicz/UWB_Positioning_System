@@ -4,13 +4,14 @@
 #include "observer_config.h"
 
 const uint16_t ACK_TIMER_PERIOD_MS = 25;
-
 extern hw_timer_t* ack_timer;
 
-void IRAM_ATTR On_Ack_Timer_Timeout();
+// Public
 void Initialize_Timers();
-
 void Start_Ack_Timer();
 void Stop_Ack_Timer();
+
+// Private
+void IRAM_ATTR _on_ack_timer_timeout();
 
 #endif

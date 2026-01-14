@@ -38,7 +38,7 @@ enum Data_Commands {
   OBSERVER_ENABLE_UWB,
 };
 
-enum COMMUNICATION_ERRORS {
+enum Communication_Errors {
   PROTOCOL_INIT_FAIL,
   MESSAGE_SEND_FAIL,
   DELIVERY_FAIL,
@@ -53,16 +53,17 @@ struct AckStatus {
 extern AckStatus current_ack_status;
 extern uint8_t transmit_buffer[DATA_SIZE];
 
+// Public
 void Initialize_Communication();
-
-void Send_ESP();
-
-void Receive_Callback(const uint8_t* macAddr, const uint8_t* data, int dataLen);
-void Sent_Callback(const uint8_t *macAddr, esp_now_send_status_t status);
-void Communication_Error(COMMUNICATION_ERRORS error);
 
 namespace MESSAGES {
     void Send_Query_Position(uint8_t lgh_index);
 }
+
+// Private
+void _send_esp();
+void _receive_callback(const uint8_t* macAddr, const uint8_t* data, int dataLen);
+void _sent_callback(const uint8_t *macAddr, esp_now_send_status_t status);
+void _communication_error(Communication_Errors error);
 
 #endif
