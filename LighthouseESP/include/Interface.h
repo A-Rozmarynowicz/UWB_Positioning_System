@@ -4,8 +4,8 @@
 
 #define DATA_TRANSFER_LED (uint8_t) 2
 
+// Public
 void Initialize_Interface();
-
 void Data_Transfer_LED_ON();
 void Data_Transfer_LED_OFF();
 

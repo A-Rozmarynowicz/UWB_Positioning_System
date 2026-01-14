@@ -2,29 +2,27 @@
 #define MEASURE_H
 #include "LighthouseConfig.h"
 
-
 struct Position {
     float x;
     float y;
     float z;
 };
 
-const float C_SPEED = 299792458.0; // m/s
-extern double time_response_offset;
 extern float distances_to_lighthouses[NUMBER_OF_LIGHTHOUSES];
 extern float master_all_distances_matrix[NUMBER_OF_LIGHTHOUSES][NUMBER_OF_LIGHTHOUSES];
 extern Position master_all_positions[NUMBER_OF_LIGHTHOUSES];
 extern Position position;
 
-double Get_Elapsed_Time_From_Measurements(uint32_t receive_time, uint32_t send_time, double time_offset=0.0);
+// Public
 void Calculate_Distance_To_Target(uint8_t current_target, float distance);
 void Print_Master_All_Distances_Matrix();
 void Print_Position(uint8_t lighthouse);
-
 void Calculate_Position_Of_Lighthouse(uint8_t lighthouse);
-void Set_LGH_1_Position();
-void Set_LGH_2_Position();
-void Set_LGH_3_Position();
-void Set_LGH_4Plus_Position(uint8_t lighthouse);
+
+// Private
+void _set_LGH_1_position();
+void _set_LGH_2_position();
+void _set_LGH_3_position();
+void _set_LGH_4plus_position(uint8_t lighthouse);
 
 #endif

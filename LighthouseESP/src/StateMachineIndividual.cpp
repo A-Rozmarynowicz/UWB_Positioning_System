@@ -12,8 +12,8 @@ void Initial_Enter(){
 void Initial_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
 if (data[Data_Setup::COMMAND] == Data_Commands::CHANGE_STATE_COM){
   switch (data[Data_Setup::SINGLE_0]) {
-    case STATES::BURST_RESPONSE:
-      Change_State(STATES::BURST_RESPONSE);
+    case States::BURST_RESPONSE:
+      Change_State(States::BURST_RESPONSE);
       break;
   }
   };
@@ -28,7 +28,7 @@ void Initial_SentCallback(uint32_t send_time){
 };
 
 void Initial_TimerCallback(TIMER_CALLBACKS timer_callback){
-  Change_State(STATES::BURST_QUERY);
+  Change_State(States::BURST_QUERY);
 };
 
 void Initial_ButtonCallback(uint8_t button) {
@@ -58,7 +58,7 @@ void Burst_Query_UWB_New_Range(uint16_t device, float range, float rx_power){
     //   Calculate_Distance_To_Target(i, range);
     //   completed_distance_measurements[i] += 1;
     //   if (Check_If_All_Distances_Are_Measured(completed_distance_measurements)){
-    //     Change_State(STATES::POST_BURST_CHECK_IF_ALL_LGHS_SET);
+    //     Change_State(States::POST_BURST_CHECK_IF_ALL_LGHS_SET);
     //   }
     //   break;
     // }
@@ -76,19 +76,19 @@ void Burst_Response_Enter(){
 void Burst_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
   if (data[Data_Setup::COMMAND] == Data_Commands::CHANGE_STATE_COM){
     switch (data[Data_Setup::SINGLE_0]) {
-      case STATES::BURST_QUERY:
+      case States::BURST_QUERY:
         current_state_data.ignoring_sent_callbacks = true;
-        current_state_data.stored_next_state = STATES::BURST_QUERY;
+        current_state_data.stored_next_state = States::BURST_QUERY;
         MESSAGES::Send_Ack(data[Data_Setup::TRANSMITTER_ID]);
         Start_Ack_Timer();
         break;
-      case STATES::DISTANCE_MEASURE_RESPONSE:
+      case States::DISTANCE_MEASURE_RESPONSE:
         current_state_data.ignoring_sent_callbacks = true;
         MESSAGES::Send_Ack(data[Data_Setup::TRANSMITTER_ID]);
-        Change_State(STATES::DISTANCE_MEASURE_RESPONSE);
+        Change_State(States::DISTANCE_MEASURE_RESPONSE);
         break;
       default:
-        State_Machine_Error(STATE_MACHINE_ERRORS::WRONG_TRANSITION);
+        State_Machine_Error(State_Machine_Errors::WRONG_TRANSITION);
     }
   }
 };
@@ -104,10 +104,10 @@ void Burst_Response_Exit(){};
 void Post_Burst_Check_If_All_LGHS_Set_Enter(){
   Disable_UWB();
   if (LIGHTHOUSE_ID == NUMBER_OF_LIGHTHOUSES - 1){
-    Change_State(STATES::INFORM_END_CONFIG);
+    Change_State(States::INFORM_END_CONFIG);
   }
   else {
-    Change_State(STATES::RELAY_BURST_QUERING);
+    Change_State(States::RELAY_BURST_QUERING);
   }
 };
 void Post_Burst_Check_If_All_LGHS_Set_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){};
@@ -130,7 +130,7 @@ void Relay_Burst_Quering_ReceiveCallback(const uint8_t* data, int dataLen, uint3
     if (data[Data_Setup::COMMAND] == Data_Commands::ACK_COM){
       Serial.printf("Received Ack \n");
       Stop_Ack_Timer();
-      Change_State(STATES::BURST_RESPONSE);
+      Change_State(States::BURST_RESPONSE);
     }
   }
 };
@@ -147,7 +147,7 @@ void Relay_Burst_Quering_TimerCallback(TIMER_CALLBACKS timer_callback){
       Serial.printf("Missed All Ack\n");
       Data_Transfer_LED_ON();
       _communication_error(Communication_Errors::ACK_FAIL);
-      Change_State(STATES::BURST_RESPONSE);
+      Change_State(States::BURST_RESPONSE);
     }
   }
 };
@@ -172,7 +172,7 @@ void Inform_End_Config_ReceiveCallback(const uint8_t* data, int dataLen, uint32_
     Serial.printf("Received EndConf Ack\n");
     Stop_Ack_Timer();
     if (Increment_Ack_Target_Index(&current_ack_status.target_ack_lighthouse, &current_ack_status.current_ack_index)){
-      Change_State(STATES::DISTANCE_MEASURE_RESPONSE);
+      Change_State(States::DISTANCE_MEASURE_RESPONSE);
     }
     else {
       Start_Ack_Timer();
@@ -194,7 +194,7 @@ void Inform_End_Config_TimerCallback(TIMER_CALLBACKS timer_callback){
     _communication_error(Communication_Errors::ACK_FAIL);
 
     if (Increment_Ack_Target_Index(&current_ack_status.target_ack_lighthouse, &current_ack_status.current_ack_index)){
-      Change_State(STATES::DISTANCE_MEASURE_RESPONSE);
+      Change_State(States::DISTANCE_MEASURE_RESPONSE);
     }
     else {
       Start_Ack_Timer();
@@ -210,7 +210,7 @@ void Inform_End_Config_Exit(){};
 #pragma region Distance Measure Response State Functions
 void Distance_Measure_Response_Enter(){
   if (LIGHTHOUSE_ID == 0){
-    Change_State(STATES::DISTANCE_MEASURE_QUERY);
+    Change_State(States::DISTANCE_MEASURE_QUERY);
   }
 };
 void Distance_Measure_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
@@ -225,7 +225,7 @@ void Distance_Measure_Response_ReceiveCallback(const uint8_t* data, int dataLen,
     memcpy(&position.z, &data[QUAD_2], sizeof(float));
     Serial.printf("Set position: %0.2f | %0.2f | %0.2f \n", position.x, position.y, position.z);
     MESSAGES::Send_Ack(data[Data_Setup::TRANSMITTER_ID]);
-    Change_State(STATES::SAILOR_RESPONSE);
+    Change_State(States::SAILOR_RESPONSE);
   }
 };
 void Distance_Measure_Response_SentCallback(uint32_t send_time){};
@@ -269,7 +269,7 @@ void Distance_Measure_Query_ReceiveCallback(const uint8_t* data, int dataLen, ui
       if (Increment_Target_Lighthouse_Index(&current_state_data.target_lighthouse)){
         Print_Master_All_Distances_Matrix();
         Serial.printf("Average distance: %f\n", (master_all_distances_matrix[0][1]+master_all_distances_matrix[1][0])/2.0);
-        Change_State(STATES::SEND_CALCULATED_POSITION);
+        Change_State(States::SEND_CALCULATED_POSITION);
         return;
       }
     }
@@ -291,7 +291,7 @@ void Distance_Measure_Query_TimerCallback(TIMER_CALLBACKS timer_callback){
       Reset_Distance_Query_Target_Index(&current_state_data.distance_query_target);
       if (Increment_Target_Lighthouse_Index(&current_state_data.target_lighthouse)){
         // Print_Master_All_Distances_Matrix();
-        Change_State(STATES::SEND_CALCULATED_POSITION);
+        Change_State(States::SEND_CALCULATED_POSITION);
         return;
       }
     }
@@ -336,7 +336,7 @@ void Send_Calculated_Position_ReceiveCallback(const uint8_t* data, int dataLen, 
     Stop_Ack_Timer();
     current_ack_status.current_ack_index = 0;
     if (Increment_Target_Lighthouse_Index(&current_state_data.target_lighthouse)){
-      Change_State(STATES::SAILOR_RESPONSE);
+      Change_State(States::SAILOR_RESPONSE);
       return;
     }
     MESSAGES::Send_Set_Position(current_state_data.target_lighthouse);
@@ -356,7 +356,7 @@ void Send_Calculated_Position_TimerCallback(TIMER_CALLBACKS timer_callback){
       Data_Transfer_LED_ON();
       current_ack_status.current_ack_index = 0;
       if (Increment_Target_Lighthouse_Index(&current_state_data.target_lighthouse)){
-        Change_State(STATES::SAILOR_RESPONSE);
+        Change_State(States::SAILOR_RESPONSE);
         return;
       }
     }

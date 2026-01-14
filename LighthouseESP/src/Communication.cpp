@@ -14,7 +14,7 @@ void MESSAGES::Send_Ack(uint8_t receiver){
 void MESSAGES::Send_Change_To_Burst_Response(uint8_t receiver){
   transmit_buffer[Data_Setup::RECEIVER_ID] = receiver;
   transmit_buffer[Data_Setup::COMMAND] = Data_Commands::CHANGE_STATE_COM;
-  transmit_buffer[Data_Setup::SINGLE_0] = STATES::BURST_RESPONSE;
+  transmit_buffer[Data_Setup::SINGLE_0] = States::BURST_RESPONSE;
   _send_esp();
 }
 
@@ -39,7 +39,7 @@ void MESSAGES::Send_Burst_Response(uint8_t receiver){
 void MESSAGES::Send_Relay_Burst_Response(uint8_t new_burster_id){
   transmit_buffer[Data_Setup::RECEIVER_ID] = new_burster_id;
   transmit_buffer[Data_Setup::COMMAND] = Data_Commands::CHANGE_STATE_COM;
-  transmit_buffer[Data_Setup::SINGLE_0] = STATES::BURST_QUERY;
+  transmit_buffer[Data_Setup::SINGLE_0] = States::BURST_QUERY;
   _send_esp();
 }
 
@@ -52,7 +52,7 @@ void MESSAGES::Send_Reset_Burst_Response_Info(){
 void MESSAGES::Send_End_Of_Config_Message(uint8_t receiver){
   transmit_buffer[Data_Setup::RECEIVER_ID] = receiver;
   transmit_buffer[Data_Setup::COMMAND] = Data_Commands::CHANGE_STATE_COM;
-  transmit_buffer[Data_Setup::SINGLE_0] = STATES::DISTANCE_MEASURE_RESPONSE;
+  transmit_buffer[Data_Setup::SINGLE_0] = States::DISTANCE_MEASURE_RESPONSE;
   _send_esp();
 }
 

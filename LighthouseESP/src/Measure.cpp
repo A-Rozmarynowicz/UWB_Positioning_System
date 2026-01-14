@@ -1,24 +1,10 @@
 #include "Measure.h"
 #include <math.h>
 
-double time_response_offset = 0.0;
 float distances_to_lighthouses[NUMBER_OF_LIGHTHOUSES] = {0};
 float master_all_distances_matrix[NUMBER_OF_LIGHTHOUSES][NUMBER_OF_LIGHTHOUSES] = {0};
 Position master_all_positions[NUMBER_OF_LIGHTHOUSES] = {0};
 Position position = {0};
-
-double Get_Elapsed_Time_From_Measurements(uint32_t first_registered_time, uint32_t second_registered_time, double time_offset){
-    uint32_t travel_cycle_counts = 0;
-    if (first_registered_time > second_registered_time){
-      travel_cycle_counts = (CYCLE_COUNT_MAX - first_registered_time) + second_registered_time;
-    }
-    else {
-      travel_cycle_counts = second_registered_time - first_registered_time;
-    }
-    double period = 1.0 / (((double) ESP.getCpuFreqMHz() * 10e6));
-    double elapsed_time = ((double) travel_cycle_counts * period) - time_offset;
-    return elapsed_time;
-}
 
 void Calculate_Distance_To_Target(uint8_t current_target, float distance){
   distances_to_lighthouses[current_target] = distance;
@@ -37,25 +23,25 @@ void Calculate_Position_Of_Lighthouse(uint8_t lighthouse){
   if (lighthouse == 0) {
   }
   else if (lighthouse == 1){
-    Set_LGH_1_Position();
+    _set_LGH_1_position();
   }
   else if (lighthouse == 2){
-    Set_LGH_2_Position();
+    _set_LGH_2_position();
   }
   else if (lighthouse == 3){
-    Set_LGH_3_Position();
+    _set_LGH_3_position();
   }
   else {
-    Set_LGH_4Plus_Position(lighthouse);
+    _set_LGH_4plus_position(lighthouse);
   }
 }
 
-void Set_LGH_1_Position(){
+void _set_LGH_1_position(){
   float distance = (master_all_distances_matrix[0][1] + master_all_distances_matrix[1][0])/2.0;
   master_all_positions[1].x = distance;
 }
 
-void Set_LGH_2_Position(){
+void _set_LGH_2_position(){
   float R0 = (master_all_distances_matrix[0][2] + master_all_distances_matrix[2][0])/2.0;
   float R1 = (master_all_distances_matrix[1][2] + master_all_distances_matrix[2][1])/2.0;
   float x1 = master_all_positions[1].x;
@@ -72,7 +58,7 @@ void Set_LGH_2_Position(){
   master_all_positions[2].y = y;
 }
 
-void Set_LGH_3_Position(){
+void _set_LGH_3_position(){
   float R0 = (master_all_distances_matrix[0][3] + master_all_distances_matrix[3][0])/2.0;
   float R1 = (master_all_distances_matrix[1][3] + master_all_distances_matrix[3][1])/2.0;
   float R2 = (master_all_distances_matrix[2][3] + master_all_distances_matrix[3][2])/2.0;
@@ -97,7 +83,7 @@ void Set_LGH_3_Position(){
   master_all_positions[3].z = z;
 }
 
-void Set_LGH_4Plus_Position(uint8_t lighthouse){
+void _set_LGH_4plus_position(uint8_t lighthouse){
 
 }
 

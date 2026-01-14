@@ -3,7 +3,7 @@
 void Handle_Sending_Burst_Query_Message(){
     current_state_data.message_index += 1;
     if (current_state_data.message_index >= BURST_COUNT){
-        Change_State(STATES::POST_BURST_CHECK_IF_ALL_LGHS_SET);
+        Change_State(States::POST_BURST_CHECK_IF_ALL_LGHS_SET);
         return;
     }
     MESSAGES::Send_Burst_Query(current_state_data.target_lighthouse);
@@ -13,14 +13,14 @@ void Handle_Sending_Burst_Query_Message(){
 uint8_t Get_New_State_From_Post_Burst(uint8_t current_target_lighthouse) {
     if (current_target_lighthouse == LIGHTHOUSE_ID){
         if (LIGHTHOUSE_ID == NUMBER_OF_LIGHTHOUSES - 1){
-            return STATES::INFORM_END_CONFIG;
+            return States::INFORM_END_CONFIG;
         }
         else {
-            return STATES::RELAY_BURST_QUERING;
+            return States::RELAY_BURST_QUERING;
         }
     }
     else {
-        return STATES::BURST_QUERY;
+        return States::BURST_QUERY;
     }
 }
 
@@ -94,16 +94,16 @@ double Calculate_Avg_Response_Time(double time_responses_sum, uint16_t completed
 
 bool Handle_Post_Burst_State_Change(uint8_t* current_target_lighthouse){
     Increment_Target_Lighthouse_Index(current_target_lighthouse);
-    STATES new_state = static_cast<STATES>(Get_New_State_From_Post_Burst(*current_target_lighthouse));
+    States new_state = static_cast<States>(Get_New_State_From_Post_Burst(*current_target_lighthouse));
     switch (new_state) {
-        case STATES::BURST_QUERY:
-            Change_State(STATES::BURST_QUERY);
+        case States::BURST_QUERY:
+            Change_State(States::BURST_QUERY);
             break;
-        case STATES::RELAY_BURST_QUERING:
-            Change_State(STATES::RELAY_BURST_QUERING);
+        case States::RELAY_BURST_QUERING:
+            Change_State(States::RELAY_BURST_QUERING);
             break;
-        case STATES::INFORM_END_CONFIG:
-            Change_State(STATES::INFORM_END_CONFIG);
+        case States::INFORM_END_CONFIG:
+            Change_State(States::INFORM_END_CONFIG);
             break;
         default:
             return false;

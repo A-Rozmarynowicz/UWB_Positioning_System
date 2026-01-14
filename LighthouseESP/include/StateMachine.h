@@ -3,21 +3,21 @@
 #include "LighthouseConfig.h"
 
 struct StateData {
+  bool ignoring_sent_callbacks;
   uint8_t target_lighthouse;
   uint8_t distance_query_target;
+  uint8_t stored_next_state;
+  uint16_t time_measurements_completed;
   uint16_t message_index;
   uint32_t last_registered_time;
   double elapsed_times_sum;
-  uint16_t time_measurements_completed;
-  bool ignoring_sent_callbacks;
   double stored_targets_avg_response_time;
-  uint8_t stored_next_state;
 };
 
 extern struct StateData current_state_data;
 extern uint8_t completed_distance_measurements[NUMBER_OF_LIGHTHOUSES];
 
-enum STATES {
+enum States {
   INITIAL = 0,
   BURST_QUERY, // 1
   BURST_RESPONSE, // 2
@@ -30,7 +30,7 @@ enum STATES {
   SAILOR_RESPONSE, // 9
 };
 
-enum STATE_MACHINE_ERRORS {
+enum State_Machine_Errors {
   INEXISTING_STATE,
   WRONG_TRANSITION,
 };
@@ -38,12 +38,12 @@ enum STATE_MACHINE_ERRORS {
 const uint16_t BURST_COUNT = 20;
 const uint8_t MESSAGE_MAX_COUNT = 5;
 
-extern STATES current_state;
+extern States current_state;
 
 void Reset_And_Initialize_Machine();
-void State_Machine_Error(STATE_MACHINE_ERRORS error);
+void State_Machine_Error(State_Machine_Errors error);
 
-void Change_State(STATES new_state);
+void Change_State(States new_state);
 void State_Enter();
 void State_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time);
 void State_SentCallback(uint32_t send_time);
@@ -131,6 +131,5 @@ void Sailor_Response_TimerCallback(TIMER_CALLBACKS timer_callback);
 void Sailor_Response_ButtonCallback(uint8_t button);
 void Sailor_Response_UWB_New_Range(uint16_t device, float range, float rx_power);
 void Sailor_Response_Exit();
-
 
 #endif
