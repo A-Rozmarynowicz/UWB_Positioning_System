@@ -5,7 +5,7 @@
 #pragma region Initial State Functions
 void Initial_Enter(){}
 void Initial_ReceiveCallback(const uint8_t* data, int dataLen){
-    if (data[DATA_SETUP::COMMAND] == DATA_COMMANDS::READY_FOR_SAILOR){
+    if (data[Data_Setup::COMMAND] == Data_Commands::READY_FOR_SAILOR){
         Change_State(STATES::QUERY_POSITIONS);
     }
 }
@@ -22,17 +22,17 @@ void Query_Positions_Enter(){
 }
 
 void Query_Positions_ReceiveCallback(const uint8_t* data, int dataLen){
-    if (data[DATA_SETUP::COMMAND] == DATA_COMMANDS::OBSERVER_RESPONSE_POSITION) {
-        if (data[DATA_SETUP::TRANSMITTER_ID] != current_state_data.target_lgh) {
-            Serial.printf("Wrong pos query transmitter: actual: %d vs desired: %d\n", data[DATA_SETUP::TRANSMITTER_ID], current_state_data.target_lgh);
+    if (data[Data_Setup::COMMAND] == Data_Commands::OBSERVER_RESPONSE_POSITION) {
+        if (data[Data_Setup::TRANSMITTER_ID] != current_state_data.target_lgh) {
+            Serial.printf("Wrong pos query transmitter: actual: %d vs desired: %d\n", data[Data_Setup::TRANSMITTER_ID], current_state_data.target_lgh);
             return;
         }
         Stop_Ack_Timer();
         current_state_data.ack_index = 0;
         float x, y, z;
-        memcpy(&x, &(data[DATA_SETUP::QUAD_0]), sizeof(float));
-        memcpy(&y, &(data[DATA_SETUP::QUAD_1]), sizeof(float));
-        memcpy(&z, &(data[DATA_SETUP::QUAD_2]), sizeof(float));
+        memcpy(&x, &(data[Data_Setup::QUAD_0]), sizeof(float));
+        memcpy(&y, &(data[Data_Setup::QUAD_1]), sizeof(float));
+        memcpy(&z, &(data[Data_Setup::QUAD_2]), sizeof(float));
         Update_LGH_Position(current_state_data.target_lgh, x, y, z);
         Increment_Target_LGH(&current_state_data.target_lgh);
         if (current_state_data.target_lgh == 0){

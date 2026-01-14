@@ -1,8 +1,4 @@
-#include <Arduino.h>
-#include "esp32-hal-timer.h"
 #include "observer_config.h"
-
-hw_timer_t* burst_timer = NULL;
 
 void setup() {
 
@@ -23,7 +19,6 @@ void setup() {
   // Update_Distance_To_LGH(1, 1.0);
   // Update_Distance_To_LGH(2, 1.0);
   // Update_Distance_To_LGH(3, 0.8165*2.0);
-
   pinMode(2, OUTPUT);
 }
 

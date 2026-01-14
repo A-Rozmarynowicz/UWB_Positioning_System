@@ -18,18 +18,20 @@ extern float ATB_vector[3];
 
 extern Position current_position;
 
+// Public
 void Estimate_Position();
 void Build_Constant_Matrices();
 void Update_Distance_To_LGH(uint8_t lgh_index, float new_distance);
 void Update_LGH_Position(uint8_t lgh_index, float x, float y, float z);
 
-void Build_A_Matrix();
-void Build_AT_Matrix();
-void Build_ATA_Matrix();
-uint8_t Build_ATA_Inv_Matrix();
-void Build_B_Vector_Constants();
-void Build_B_Vector();
-void Calculate_ATB_Vector();
-void Calculate_Solution();
+// Private
+void _build_a_matrix();
+void _build_at_matrix();
+void _build_ata_matrix();
+uint8_t _build_ata_inv_matrix();
+void _build_b_vector_constants();
+void _build_b_vector();
+void _calculate_atb_vector();
+void _calculate_solution();
 
 #endif

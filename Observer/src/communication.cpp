@@ -5,8 +5,8 @@ uint8_t transmit_buffer[DATA_SIZE] = {0};
 
 #pragma region Message Functions
 void MESSAGES::Send_Query_Position(uint8_t lgh_index){
-    transmit_buffer[DATA_SETUP::RECEIVER_ID] = lgh_index;
-    transmit_buffer[DATA_SETUP::COMMAND] = DATA_COMMANDS::OBSERVER_QUERY_POSITION;
+    transmit_buffer[Data_Setup::RECEIVER_ID] = lgh_index;
+    transmit_buffer[Data_Setup::COMMAND] = Data_Commands::OBSERVER_QUERY_POSITION;
     Send_ESP();
     Start_Ack_Timer();
 }
@@ -25,7 +25,7 @@ void Initialize_Communication(){
   else {
     Communication_Error(COMMUNICATION_ERRORS::PROTOCOL_INIT_FAIL);
   }
-  transmit_buffer[DATA_SETUP::TRANSMITTER_ID] = SAILOR_ID;
+  transmit_buffer[Data_Setup::TRANSMITTER_ID] = SAILOR_ID;
 };
 
 void Send_ESP(){

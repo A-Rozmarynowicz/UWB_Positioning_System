@@ -8,7 +8,7 @@
 const uint8_t BROADCAST_RECEIVER_ID = 255;
 const uint8_t ACK_MESSAGE_COUNT = 5;
 
-enum DATA_SETUP {
+enum Data_Setup {
   RECEIVER_ID = 0,
   TRANSMITTER_ID = 1,
   COMMAND = 2,
@@ -19,7 +19,7 @@ enum DATA_SETUP {
   QUAD_3 = 16,
 };
 
-enum DATA_COMMANDS {
+enum Data_Commands {
   MASTER_LGH_RESET,
   ACK_COM,
   BURST_QUERY_COM,

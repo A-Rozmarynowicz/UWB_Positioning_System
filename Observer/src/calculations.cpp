@@ -14,18 +14,19 @@ float B_vector[NUMBER_OF_LIGHTHOUSES-1] = {0};
 float ATB_vector[3] = {0};
 float solution_vector[3] = {0};
 
+// Public
 void Build_Constant_Matrices(){
-    Build_A_Matrix();
-    Build_AT_Matrix();
-    Build_ATA_Matrix();
-    Build_ATA_Inv_Matrix();
-    Build_B_Vector_Constants();
+    _build_a_matrix();
+    _build_at_matrix();
+    _build_ata_matrix();
+    _build_ata_inv_matrix();
+    _build_b_vector_constants();
 }
 
 void Estimate_Position(){
-    Build_B_Vector();
-    Calculate_ATB_Vector();
-    Calculate_Solution();
+    _build_b_vector();
+    _calculate_atb_vector();
+    _calculate_solution();
 }
 
 void Update_Distance_To_LGH(uint8_t lgh_index, float new_distance){
@@ -38,8 +39,9 @@ void Update_LGH_Position(uint8_t lgh_index, float x, float y, float z){
     lghs_positions[lgh_index].z = z;
 }
 
+// Private
 #pragma region Obliczenia
-void Build_A_Matrix(){
+void _build_a_matrix(){
     float x1 = lghs_positions[0].x, y1 = lghs_positions[0].y, z1 = lghs_positions[0].z;
     for (uint8_t row=0; row<NUMBER_OF_LIGHTHOUSES-1; row++){
         float xj = lghs_positions[row+1].x, yj = lghs_positions[row+1].y, zj = lghs_positions[row+1].z;
@@ -49,7 +51,7 @@ void Build_A_Matrix(){
     }
 }
 
-void Build_AT_Matrix(){
+void _build_at_matrix(){
     for (uint8_t row=0; row<NUMBER_OF_LIGHTHOUSES-1; row++){
         for (uint8_t column=0; column<3; column++){
             AT_matrix[column][row] = A_matrix[row][column];
@@ -57,7 +59,7 @@ void Build_AT_Matrix(){
     }
 }
 
-void Build_ATA_Matrix(){
+void _build_ata_matrix(){
     for (uint8_t i = 0; i < 3; i++) {
         for (uint8_t j = 0; j < 3; j++) {
             ATA_matrix[i][j] = 0.0;
@@ -69,7 +71,7 @@ void Build_ATA_Matrix(){
     }
 }
 
-uint8_t Build_ATA_Inv_Matrix() {
+uint8_t _build_ata_inv_matrix() {
     uint8_t i, j, k;
     float ratio;
 
@@ -117,14 +119,14 @@ uint8_t Build_ATA_Inv_Matrix() {
     return 0;
 }
 
-void Build_B_Vector_Constants(){
+void _build_b_vector_constants(){
     for (uint8_t j=0; j<NUMBER_OF_LIGHTHOUSES; j++){
         B_vector_constants[j] = -(lghs_positions[j].x)*(lghs_positions[j].x)
                             - (lghs_positions[j].y)*(lghs_positions[j].y) - (lghs_positions[j].z)*(lghs_positions[j].z);
     }
 }
 
-void Build_B_Vector(){
+void _build_b_vector(){
     for (uint8_t j=0; j<NUMBER_OF_LIGHTHOUSES-1; j++){
         B_vector[j] = (distances_to_lghs[j+1])*(distances_to_lghs[j+1])
          - (distances_to_lghs[0])*(distances_to_lghs[0])
@@ -133,7 +135,7 @@ void Build_B_Vector(){
         }
 }
 
-void Calculate_ATB_Vector(){
+void _calculate_atb_vector(){
     uint8_t i, j;
     for (i = 0; i < 3; i++) {
         ATB_vector[i] = 0.0;
@@ -143,7 +145,7 @@ void Calculate_ATB_Vector(){
     }
 }
 
-void Calculate_Solution(){
+void _calculate_solution(){
     uint8_t i, j;
     Serial.printf("Solution\n");
     for (i = 0; i < 3; i++) {
