@@ -28,7 +28,7 @@ void Initial_SentCallback(uint32_t send_time){
 };
 
 void Initial_TimerCallback(Timer_Callbacks timer_callback){
-  Change_State(States::BURST_QUERY);
+  Change_State(States::UWB_QUERY);
 };
 
 void Initial_ButtonCallback(uint8_t button) {
@@ -40,19 +40,19 @@ void Initial_Exit(){};
 #pragma endregion
 
 #pragma region Burst Query State Functions
-void Burst_Query_Enter(){
+void UWB_Query_Enter(){
   Restart_UWB_As_Tag();
   Start_UWB_Activation_Timer();
 };
-void Burst_Query_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){};
-void Burst_Query_SentCallback(uint32_t send_time){};
-void Burst_Query_TimerCallback(Timer_Callbacks timer_callback){
+void UWB_Query_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){};
+void UWB_Query_SentCallback(uint32_t send_time){};
+void UWB_Query_TimerCallback(Timer_Callbacks timer_callback){
   if (timer_callback == Timer_Callbacks::UWB_RESTART_ACK){
     Enable_UWB();
   }
 };
-void Burst_Query_ButtonCallback(uint8_t button){};
-void Burst_Query_UWB_New_Range(uint16_t device, float range, float rx_power){
+void UWB_Query_ButtonCallback(uint8_t button){};
+void UWB_Query_UWB_New_Range(uint16_t device, float range, float rx_power){
   for (uint8_t i=0; i<NUMBER_OF_LIGHTHOUSES;i++){
     // if (uwb_addresses_from_LGH[i] == device){
     //   Calculate_Distance_To_Target(i, range);
@@ -64,7 +64,7 @@ void Burst_Query_UWB_New_Range(uint16_t device, float range, float rx_power){
     // }
   }
 }
-void Burst_Query_Exit(){};
+void UWB_Query_Exit(){};
 #pragma endregion
 
 #pragma region Burst Response State Functions
@@ -76,9 +76,9 @@ void Burst_Response_Enter(){
 void Burst_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
   if (data[Data_Setup::COMMAND] == Data_Commands::CHANGE_STATE_COM){
     switch (data[Data_Setup::SINGLE_0]) {
-      case States::BURST_QUERY:
+      case States::UWB_QUERY:
         current_state_data.ignoring_sent_callbacks = true;
-        current_state_data.stored_next_state = States::BURST_QUERY;
+        current_state_data.stored_next_state = States::UWB_QUERY;
         MESSAGES::Send_Ack(data[Data_Setup::TRANSMITTER_ID]);
         Start_Ack_Timer();
         break;

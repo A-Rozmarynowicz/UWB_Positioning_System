@@ -24,9 +24,9 @@ void MESSAGES::Send_UWB_Start_Anchoring(uint8_t receiver){
   _send_esp();
 }
 
-void MESSAGES::Send_Burst_Query(uint8_t receiver){
+void MESSAGES::Send_UWB_Query(uint8_t receiver){
   transmit_buffer[Data_Setup::RECEIVER_ID] = receiver;
-  transmit_buffer[Data_Setup::COMMAND] = Data_Commands::BURST_QUERY_COM;
+  transmit_buffer[Data_Setup::COMMAND] = Data_Commands::UWB_QUERY_COM;
   _send_esp();
 };
 
@@ -39,7 +39,7 @@ void MESSAGES::Send_Burst_Response(uint8_t receiver){
 void MESSAGES::Send_Relay_Burst_Response(uint8_t new_burster_id){
   transmit_buffer[Data_Setup::RECEIVER_ID] = new_burster_id;
   transmit_buffer[Data_Setup::COMMAND] = Data_Commands::CHANGE_STATE_COM;
-  transmit_buffer[Data_Setup::SINGLE_0] = States::BURST_QUERY;
+  transmit_buffer[Data_Setup::SINGLE_0] = States::UWB_QUERY;
   _send_esp();
 }
 

@@ -22,8 +22,8 @@ void State_Enter(){
     case States::INITIAL:
       Initial_Enter();
       break;
-    case States::BURST_QUERY:
-      Burst_Query_Enter();
+    case States::UWB_QUERY:
+      UWB_Query_Enter();
       break;
     case States::BURST_RESPONSE:
       Burst_Response_Enter();
@@ -60,8 +60,8 @@ void State_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_ti
     case States::INITIAL:
       Initial_ReceiveCallback(data, dataLen, receive_time);
       break;
-    case States::BURST_QUERY:
-      Burst_Query_ReceiveCallback(data, dataLen, receive_time);
+    case States::UWB_QUERY:
+      UWB_Query_ReceiveCallback(data, dataLen, receive_time);
       break;
     case States::BURST_RESPONSE:
       Burst_Response_ReceiveCallback(data, dataLen, receive_time);
@@ -98,8 +98,8 @@ void State_SentCallback(uint32_t send_time){
     case States::INITIAL:
       Initial_SentCallback(send_time);
       break;
-    case States::BURST_QUERY:
-      Burst_Query_SentCallback(send_time);
+    case States::UWB_QUERY:
+      UWB_Query_SentCallback(send_time);
       break;
     case States::BURST_RESPONSE:
       Burst_Response_SentCallback(send_time);
@@ -136,8 +136,8 @@ void State_TimerCallback(Timer_Callbacks timer_callback){
     case States::INITIAL:
       Initial_TimerCallback(timer_callback);
       break;
-    case States::BURST_QUERY:
-      Burst_Query_TimerCallback(timer_callback);
+    case States::UWB_QUERY:
+      UWB_Query_TimerCallback(timer_callback);
       break;
     case States::BURST_RESPONSE:
       Burst_Response_TimerCallback(timer_callback);
@@ -174,8 +174,8 @@ void State_Button_Callback(uint8_t button){
     case States::INITIAL:
       Initial_ButtonCallback(button);
       break;
-    case States::BURST_QUERY:
-      Burst_Query_ButtonCallback(button);
+    case States::UWB_QUERY:
+      UWB_Query_ButtonCallback(button);
       break;
     case States::BURST_RESPONSE:
       Burst_Response_ButtonCallback(button);
@@ -212,8 +212,8 @@ void State_UWB_New_Range(uint16_t device, float range, float rx_power){
     case States::INITIAL:
       Initial_UWB_New_Range(device, range, rx_power);
       break;
-    case States::BURST_QUERY:
-      Burst_Query_UWB_New_Range(device, range, rx_power);
+    case States::UWB_QUERY:
+      UWB_Query_UWB_New_Range(device, range, rx_power);
       break;
     case States::BURST_RESPONSE:
       Burst_Response_UWB_New_Range(device, range, rx_power);
@@ -250,8 +250,8 @@ void State_Exit(){
     case States::INITIAL:
       Initial_Exit();
       break;
-    case States::BURST_QUERY:
-      Burst_Query_Exit();
+    case States::UWB_QUERY:
+      UWB_Query_Exit();
       break;
     case States::BURST_RESPONSE:
       Burst_Response_Exit();
