@@ -133,6 +133,7 @@ void Relay_UWB_Quering_Enter(){
   Start_Ack_Timer();
   MESSAGES::Send_Relay_UWB_Response(current_ack_status.target_ack_lighthouse);
 };
+
 void Relay_UWB_Quering_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
   if (data[Data_Setup::TRANSMITTER_ID] == current_ack_status.target_ack_lighthouse){
     if (data[Data_Setup::COMMAND] == Data_Commands::ACK_COM){
@@ -144,6 +145,7 @@ void Relay_UWB_Quering_ReceiveCallback(const uint8_t* data, int dataLen, uint32_
 };
 
 void Relay_UWB_Quering_SentCallback(uint32_t send_time){};
+
 void Relay_UWB_Quering_TimerCallback(Timer_Callbacks timer_callback){
   if (timer_callback == Timer_Callbacks::ACK){
     if (Validate_Ack_Index_Increase(&current_ack_status.current_ack_index)){
@@ -161,8 +163,11 @@ void Relay_UWB_Quering_TimerCallback(Timer_Callbacks timer_callback){
 };
 
 void Relay_UWB_Quering_ButtonCallback(uint8_t button){};
+
 void Relay_UWB_Quering_UWB_New_Range(uint16_t device, float range, float rx_power){}
+
 void Relay_UWB_Quering_Exit(){};
+
 #pragma endregion
 
 #pragma region Inform End Config State Functions
