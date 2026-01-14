@@ -12,8 +12,7 @@ void ICACHE_RAM_ATTR buttonISR() {
   State_Button_Callback(STATUS_BUTTON);
 }
 
-void setup()
-{
+void setup() {
   Serial.begin(115200);
   Serial.println("Began");
   delay(10);
