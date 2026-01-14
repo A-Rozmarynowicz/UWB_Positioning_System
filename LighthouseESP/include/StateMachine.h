@@ -20,7 +20,7 @@ extern uint8_t completed_distance_measurements[NUMBER_OF_LIGHTHOUSES];
 enum States {
   INITIAL = 0,
   UWB_QUERY, // 1
-  BURST_RESPONSE, // 2
+  UWB_RESPONSE, // 2
   POST_BURST_CHECK_IF_ALL_LGHS_SET, // 3
   RELAY_BURST_QUERING, // 4
   INFORM_END_CONFIG, // 5
@@ -68,13 +68,13 @@ void UWB_Query_ButtonCallback(uint8_t button);
 void UWB_Query_UWB_New_Range(uint16_t device, float range, float rx_power);
 void UWB_Query_Exit();
 
-void Burst_Response_Enter();
-void Burst_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time);
-void Burst_Response_SentCallback(uint32_t send_time);
-void Burst_Response_TimerCallback(Timer_Callbacks timer_callback);
-void Burst_Response_ButtonCallback(uint8_t button);
-void Burst_Response_UWB_New_Range(uint16_t device, float range, float rx_power);
-void Burst_Response_Exit();
+void UWB_Response_Enter();
+void UWB_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time);
+void UWB_Response_SentCallback(uint32_t send_time);
+void UWB_Response_TimerCallback(Timer_Callbacks timer_callback);
+void UWB_Response_ButtonCallback(uint8_t button);
+void UWB_Response_UWB_New_Range(uint16_t device, float range, float rx_power);
+void UWB_Response_Exit();
 
 void Post_Burst_Check_If_All_LGHS_Set_Enter();
 void Post_Burst_Check_If_All_LGHS_Set_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time);

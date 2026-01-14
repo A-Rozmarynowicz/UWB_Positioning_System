@@ -12,8 +12,8 @@ void Initial_Enter(){
 void Initial_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
 if (data[Data_Setup::COMMAND] == Data_Commands::CHANGE_STATE_COM){
   switch (data[Data_Setup::SINGLE_0]) {
-    case States::BURST_RESPONSE:
-      Change_State(States::BURST_RESPONSE);
+    case States::UWB_RESPONSE:
+      Change_State(States::UWB_RESPONSE);
       break;
   }
   };
@@ -33,7 +33,7 @@ void Initial_TimerCallback(Timer_Callbacks timer_callback){
 
 void Initial_ButtonCallback(uint8_t button) {
   current_state_data.ignoring_sent_callbacks = false;
-  MESSAGES::Send_Change_To_Burst_Response(BROADCAST_RECEIVER_ID);
+  MESSAGES::Send_Change_To_UWB_Response(BROADCAST_RECEIVER_ID);
 };
 void Initial_UWB_New_Range(uint16_t device, float range, float rx_power){}
 void Initial_Exit(){};
@@ -68,12 +68,12 @@ void UWB_Query_Exit(){};
 #pragma endregion
 
 #pragma region Burst Response State Functions
-void Burst_Response_Enter(){
+void UWB_Response_Enter(){
   Restart_UWB_As_Anchor();
   Enable_UWB();
 };
 
-void Burst_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
+void UWB_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
   if (data[Data_Setup::COMMAND] == Data_Commands::CHANGE_STATE_COM){
     switch (data[Data_Setup::SINGLE_0]) {
       case States::UWB_QUERY:
@@ -93,11 +93,11 @@ void Burst_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t r
   }
 };
 
-void Burst_Response_SentCallback(uint32_t send_time){};
-void Burst_Response_TimerCallback(Timer_Callbacks timer_callback){};
-void Burst_Response_ButtonCallback(uint8_t button){};
-void Burst_Response_UWB_New_Range(uint16_t device, float range, float rx_power){}
-void Burst_Response_Exit(){};
+void UWB_Response_SentCallback(uint32_t send_time){};
+void UWB_Response_TimerCallback(Timer_Callbacks timer_callback){};
+void UWB_Response_ButtonCallback(uint8_t button){};
+void UWB_Response_UWB_New_Range(uint16_t device, float range, float rx_power){}
+void UWB_Response_Exit(){};
 #pragma endregion
 
 #pragma region Post Burst Check If All LGHS Set State Functions
@@ -122,15 +122,15 @@ void Post_Burst_Check_If_All_LGHS_Set_Exit(){};
 void Relay_Burst_Quering_Enter(){
   Reset_Ack_Target_Index(&current_ack_status.target_ack_lighthouse, &current_ack_status.current_ack_index);
   Start_Ack_Timer();
-  MESSAGES::Send_Relay_Burst_Response(current_ack_status.target_ack_lighthouse);
-  MESSAGES::Send_Reset_Burst_Response_Info();
+  MESSAGES::Send_Relay_UWB_Response(current_ack_status.target_ack_lighthouse);
+  MESSAGES::Send_Reset_UWB_Response_Info();
 };
 void Relay_Burst_Quering_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
   if (data[Data_Setup::TRANSMITTER_ID] == current_ack_status.target_ack_lighthouse){
     if (data[Data_Setup::COMMAND] == Data_Commands::ACK_COM){
       Serial.printf("Received Ack \n");
       Stop_Ack_Timer();
-      Change_State(States::BURST_RESPONSE);
+      Change_State(States::UWB_RESPONSE);
     }
   }
 };
@@ -141,13 +141,13 @@ void Relay_Burst_Quering_TimerCallback(Timer_Callbacks timer_callback){
     if (Validate_Ack_Index_Increase(&current_ack_status.current_ack_index)){
       Serial.printf("Missed Single Ack \n");
       Start_Ack_Timer();
-      MESSAGES::Send_Relay_Burst_Response(current_ack_status.target_ack_lighthouse);
+      MESSAGES::Send_Relay_UWB_Response(current_ack_status.target_ack_lighthouse);
     }
     else {
       Serial.printf("Missed All Ack\n");
       Data_Transfer_LED_ON();
       _communication_error(Communication_Errors::ACK_FAIL);
-      Change_State(States::BURST_RESPONSE);
+      Change_State(States::UWB_RESPONSE);
     }
   }
 };

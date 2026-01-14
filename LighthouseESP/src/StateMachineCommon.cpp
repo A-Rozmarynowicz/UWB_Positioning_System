@@ -25,8 +25,8 @@ void State_Enter(){
     case States::UWB_QUERY:
       UWB_Query_Enter();
       break;
-    case States::BURST_RESPONSE:
-      Burst_Response_Enter();
+    case States::UWB_RESPONSE:
+      UWB_Response_Enter();
       break;
     case States::POST_BURST_CHECK_IF_ALL_LGHS_SET:
       Post_Burst_Check_If_All_LGHS_Set_Enter();
@@ -63,8 +63,8 @@ void State_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_ti
     case States::UWB_QUERY:
       UWB_Query_ReceiveCallback(data, dataLen, receive_time);
       break;
-    case States::BURST_RESPONSE:
-      Burst_Response_ReceiveCallback(data, dataLen, receive_time);
+    case States::UWB_RESPONSE:
+      UWB_Response_ReceiveCallback(data, dataLen, receive_time);
       break;
     case States::POST_BURST_CHECK_IF_ALL_LGHS_SET:
       Post_Burst_Check_If_All_LGHS_Set_ReceiveCallback(data, dataLen, receive_time);
@@ -101,8 +101,8 @@ void State_SentCallback(uint32_t send_time){
     case States::UWB_QUERY:
       UWB_Query_SentCallback(send_time);
       break;
-    case States::BURST_RESPONSE:
-      Burst_Response_SentCallback(send_time);
+    case States::UWB_RESPONSE:
+      UWB_Response_SentCallback(send_time);
       break;
     case States::POST_BURST_CHECK_IF_ALL_LGHS_SET:
       Post_Burst_Check_If_All_LGHS_Set_SentCallback(send_time);
@@ -139,8 +139,8 @@ void State_TimerCallback(Timer_Callbacks timer_callback){
     case States::UWB_QUERY:
       UWB_Query_TimerCallback(timer_callback);
       break;
-    case States::BURST_RESPONSE:
-      Burst_Response_TimerCallback(timer_callback);
+    case States::UWB_RESPONSE:
+      UWB_Response_TimerCallback(timer_callback);
       break;
     case States::POST_BURST_CHECK_IF_ALL_LGHS_SET:
       Post_Burst_Check_If_All_LGHS_Set_TimerCallback(timer_callback);
@@ -177,8 +177,8 @@ void State_Button_Callback(uint8_t button){
     case States::UWB_QUERY:
       UWB_Query_ButtonCallback(button);
       break;
-    case States::BURST_RESPONSE:
-      Burst_Response_ButtonCallback(button);
+    case States::UWB_RESPONSE:
+      UWB_Response_ButtonCallback(button);
       break;
     case States::POST_BURST_CHECK_IF_ALL_LGHS_SET:
       Post_Burst_Check_If_All_LGHS_Set_ButtonCallback(button);
@@ -215,8 +215,8 @@ void State_UWB_New_Range(uint16_t device, float range, float rx_power){
     case States::UWB_QUERY:
       UWB_Query_UWB_New_Range(device, range, rx_power);
       break;
-    case States::BURST_RESPONSE:
-      Burst_Response_UWB_New_Range(device, range, rx_power);
+    case States::UWB_RESPONSE:
+      UWB_Response_UWB_New_Range(device, range, rx_power);
       break;
     case States::POST_BURST_CHECK_IF_ALL_LGHS_SET:
       Post_Burst_Check_If_All_LGHS_Set_UWB_New_Range(device, range, rx_power);
@@ -253,8 +253,8 @@ void State_Exit(){
     case States::UWB_QUERY:
       UWB_Query_Exit();
       break;
-    case States::BURST_RESPONSE:
-      Burst_Response_Exit();
+    case States::UWB_RESPONSE:
+      UWB_Response_Exit();
       break;
     case States::POST_BURST_CHECK_IF_ALL_LGHS_SET:
       Post_Burst_Check_If_All_LGHS_Set_Exit();

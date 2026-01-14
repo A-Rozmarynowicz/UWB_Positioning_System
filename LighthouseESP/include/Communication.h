@@ -24,7 +24,7 @@ enum Data_Commands {
   ACK_COM,
   UWB_START_ANCHORING,
   UWB_QUERY_COM,
-  BURST_RESPONSE_COM,
+  UWB_RESPONSE_COM,
   CHANGE_STATE_COM,
   RESET_BURST_INFO,
   QUERY_AVG_RESPONSE_TIME,
@@ -60,12 +60,12 @@ void Initialize_Communication();
 
 namespace MESSAGES {
 void Send_Ack(uint8_t receiver);
-void Send_Change_To_Burst_Response(uint8_t receiver);
+void Send_Change_To_UWB_Response(uint8_t receiver);
 void Send_UWB_Start_Anchoring(uint8_t receiver);
 void Send_UWB_Query(uint8_t receiver);
-void Send_Burst_Response(uint8_t receiver);
-void Send_Relay_Burst_Response(uint8_t new_burster_id);
-void Send_Reset_Burst_Response_Info();
+void Send_UWB_Response(uint8_t receiver);
+void Send_Relay_UWB_Response(uint8_t new_burster_id);
+void Send_Reset_UWB_Response_Info();
 void Send_End_Of_Config_Message(uint8_t receiver);
 void Send_Query_Avg_Response_Time(uint8_t receiver);
 void Send_Response_Avg_Response_Time(uint8_t receiver, double avg);
