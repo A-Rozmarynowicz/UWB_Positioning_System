@@ -26,7 +26,6 @@ enum Data_Commands {
   UWB_QUERY_COM,
   UWB_RESPONSE_COM,
   CHANGE_STATE_COM,
-  RESET_BURST_INFO,
   QUERY_AVG_RESPONSE_TIME,
   RESPOND_AVG_RESPONSE_TIME,
   QUERY_DISTANCE,
@@ -64,8 +63,7 @@ void Send_Change_To_UWB_Response(uint8_t receiver);
 void Send_UWB_Start_Anchoring(uint8_t receiver);
 void Send_UWB_Query(uint8_t receiver);
 void Send_UWB_Response(uint8_t receiver);
-void Send_Relay_UWB_Response(uint8_t new_burster_id);
-void Send_Reset_UWB_Response_Info();
+void Send_Relay_UWB_Response(uint8_t new_uwber_id);
 void Send_End_Of_Config_Message(uint8_t receiver);
 void Send_Query_Avg_Response_Time(uint8_t receiver);
 void Send_Response_Avg_Response_Time(uint8_t receiver, double avg);

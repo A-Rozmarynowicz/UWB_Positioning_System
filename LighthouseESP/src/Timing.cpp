@@ -21,7 +21,7 @@ void Initialize_Timers(){
 
 void IRAM_ATTR _on_UWB_activation_timer_timeout(){
   Stop_UWB_Activation_Timer();
-  State_TimerCallback(Timer_Callbacks::UWB_RESTART_ACK);
+  State_TimerCallback(Timer_Callbacks::UWB_ACTIVATION);
 };
 
 void IRAM_ATTR _on_ack_timer_timeout(){

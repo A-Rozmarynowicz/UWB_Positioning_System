@@ -36,16 +36,10 @@ void MESSAGES::Send_UWB_Response(uint8_t receiver){
   _send_esp();
 }
 
-void MESSAGES::Send_Relay_UWB_Response(uint8_t new_burster_id){
-  transmit_buffer[Data_Setup::RECEIVER_ID] = new_burster_id;
+void MESSAGES::Send_Relay_UWB_Response(uint8_t new_uwber_id){
+  transmit_buffer[Data_Setup::RECEIVER_ID] = new_uwber_id;
   transmit_buffer[Data_Setup::COMMAND] = Data_Commands::CHANGE_STATE_COM;
   transmit_buffer[Data_Setup::SINGLE_0] = States::UWB_QUERY;
-  _send_esp();
-}
-
-void MESSAGES::Send_Reset_UWB_Response_Info(){
-  transmit_buffer[Data_Setup::RECEIVER_ID] = BROADCAST_RECEIVER_ID;
-  transmit_buffer[Data_Setup::COMMAND] = Data_Commands::RESET_BURST_INFO;
   _send_esp();
 }
 

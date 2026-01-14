@@ -21,8 +21,8 @@ enum States {
   INITIAL = 0,
   UWB_QUERY, // 1
   UWB_RESPONSE, // 2
-  POST_BURST_CHECK_IF_ALL_LGHS_SET, // 3
-  RELAY_BURST_QUERING, // 4
+  POST_UWB_CHECK_IF_ALL_LGHS_SET, // 3
+  RELAY_UWB_QUERING, // 4
   INFORM_END_CONFIG, // 5
   DISTANCE_MEASURE_RESPONSE, // 6
   DISTANCE_MEASURE_QUERY, // 7
@@ -35,7 +35,7 @@ enum State_Machine_Errors {
   WRONG_TRANSITION,
 };
 
-const uint16_t BURST_COUNT = 20;
+const uint16_t UWB_COUNT = 20;
 const uint8_t MESSAGE_MAX_COUNT = 5;
 
 extern States current_state;
@@ -76,21 +76,21 @@ void UWB_Response_ButtonCallback(uint8_t button);
 void UWB_Response_UWB_New_Range(uint16_t device, float range, float rx_power);
 void UWB_Response_Exit();
 
-void Post_Burst_Check_If_All_LGHS_Set_Enter();
-void Post_Burst_Check_If_All_LGHS_Set_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time);
-void Post_Burst_Check_If_All_LGHS_Set_SentCallback(uint32_t send_time);
-void Post_Burst_Check_If_All_LGHS_Set_TimerCallback(Timer_Callbacks timer_callback);
-void Post_Burst_Check_If_All_LGHS_Set_ButtonCallback(uint8_t button);
-void Post_Burst_Check_If_All_LGHS_Set_UWB_New_Range(uint16_t device, float range, float rx_power);
-void Post_Burst_Check_If_All_LGHS_Set_Exit();
+void Post_UWB_Check_If_All_LGHS_Set_Enter();
+void Post_UWB_Check_If_All_LGHS_Set_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time);
+void Post_UWB_Check_If_All_LGHS_Set_SentCallback(uint32_t send_time);
+void Post_UWB_Check_If_All_LGHS_Set_TimerCallback(Timer_Callbacks timer_callback);
+void Post_UWB_Check_If_All_LGHS_Set_ButtonCallback(uint8_t button);
+void Post_UWB_Check_If_All_LGHS_Set_UWB_New_Range(uint16_t device, float range, float rx_power);
+void Post_UWB_Check_If_All_LGHS_Set_Exit();
 
-void Relay_Burst_Quering_Enter();
-void Relay_Burst_Quering_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time);
-void Relay_Burst_Quering_SentCallback(uint32_t send_time);
-void Relay_Burst_Quering_TimerCallback(Timer_Callbacks timer_callback);
-void Relay_Burst_Quering_ButtonCallback(uint8_t button);
-void Relay_Burst_Quering_UWB_New_Range(uint16_t device, float range, float rx_power);
-void Relay_Burst_Quering_Exit();
+void Relay_UWB_Quering_Enter();
+void Relay_UWB_Quering_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time);
+void Relay_UWB_Quering_SentCallback(uint32_t send_time);
+void Relay_UWB_Quering_TimerCallback(Timer_Callbacks timer_callback);
+void Relay_UWB_Quering_ButtonCallback(uint8_t button);
+void Relay_UWB_Quering_UWB_New_Range(uint16_t device, float range, float rx_power);
+void Relay_UWB_Quering_Exit();
 
 void Inform_End_Config_Enter();
 void Inform_End_Config_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time);

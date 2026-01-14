@@ -24,11 +24,13 @@ void Initial_SentCallback(uint32_t send_time){
     return;
   }
   Reset_Target_Lighthouse_Index(&current_state_data.target_lighthouse);
-  Start_Ack_Timer();
+  Start_UWB_Activation_Timer();
 };
 
 void Initial_TimerCallback(Timer_Callbacks timer_callback){
-  Change_State(States::UWB_QUERY);
+  if (timer_callback == Timer_Callbacks::UWB_ACTIVATION){
+    Change_State(States::UWB_QUERY);
+  }
 };
 
 void Initial_ButtonCallback(uint8_t button) {
@@ -39,35 +41,42 @@ void Initial_UWB_New_Range(uint16_t device, float range, float rx_power){}
 void Initial_Exit(){};
 #pragma endregion
 
-#pragma region Burst Query State Functions
+#pragma region UWB Query State Functions
 void UWB_Query_Enter(){
   Restart_UWB_As_Tag();
   Start_UWB_Activation_Timer();
 };
+
 void UWB_Query_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){};
+
 void UWB_Query_SentCallback(uint32_t send_time){};
+
 void UWB_Query_TimerCallback(Timer_Callbacks timer_callback){
-  if (timer_callback == Timer_Callbacks::UWB_RESTART_ACK){
+  if (timer_callback == Timer_Callbacks::UWB_ACTIVATION){
     Enable_UWB();
   }
 };
+
 void UWB_Query_ButtonCallback(uint8_t button){};
+
 void UWB_Query_UWB_New_Range(uint16_t device, float range, float rx_power){
   for (uint8_t i=0; i<NUMBER_OF_LIGHTHOUSES;i++){
     // if (uwb_addresses_from_LGH[i] == device){
     //   Calculate_Distance_To_Target(i, range);
     //   completed_distance_measurements[i] += 1;
     //   if (Check_If_All_Distances_Are_Measured(completed_distance_measurements)){
-    //     Change_State(States::POST_BURST_CHECK_IF_ALL_LGHS_SET);
+    //     Change_State(States::POST_UWB_CHECK_IF_ALL_LGHS_SET);
     //   }
     //   break;
     // }
   }
 }
+
 void UWB_Query_Exit(){};
+
 #pragma endregion
 
-#pragma region Burst Response State Functions
+#pragma region UWB Response State Functions
 void UWB_Response_Enter(){
   Restart_UWB_As_Anchor();
   Enable_UWB();
@@ -100,32 +109,31 @@ void UWB_Response_UWB_New_Range(uint16_t device, float range, float rx_power){}
 void UWB_Response_Exit(){};
 #pragma endregion
 
-#pragma region Post Burst Check If All LGHS Set State Functions
-void Post_Burst_Check_If_All_LGHS_Set_Enter(){
+#pragma region Post UWB Check If All LGHS Set State Functions
+void Post_UWB_Check_If_All_LGHS_Set_Enter(){
   Disable_UWB();
   if (LIGHTHOUSE_ID == NUMBER_OF_LIGHTHOUSES - 1){
     Change_State(States::INFORM_END_CONFIG);
   }
   else {
-    Change_State(States::RELAY_BURST_QUERING);
+    Change_State(States::RELAY_UWB_QUERING);
   }
 };
-void Post_Burst_Check_If_All_LGHS_Set_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){};
-void Post_Burst_Check_If_All_LGHS_Set_SentCallback(uint32_t send_time){};
-void Post_Burst_Check_If_All_LGHS_Set_TimerCallback(Timer_Callbacks timer_callback){};
-void Post_Burst_Check_If_All_LGHS_Set_ButtonCallback(uint8_t button){};
-void Post_Burst_Check_If_All_LGHS_Set_UWB_New_Range(uint16_t device, float range, float rx_power){}
-void Post_Burst_Check_If_All_LGHS_Set_Exit(){};
+void Post_UWB_Check_If_All_LGHS_Set_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){};
+void Post_UWB_Check_If_All_LGHS_Set_SentCallback(uint32_t send_time){};
+void Post_UWB_Check_If_All_LGHS_Set_TimerCallback(Timer_Callbacks timer_callback){};
+void Post_UWB_Check_If_All_LGHS_Set_ButtonCallback(uint8_t button){};
+void Post_UWB_Check_If_All_LGHS_Set_UWB_New_Range(uint16_t device, float range, float rx_power){}
+void Post_UWB_Check_If_All_LGHS_Set_Exit(){};
 #pragma endregion
 
-#pragma region Relay Burst Quering State Functions
-void Relay_Burst_Quering_Enter(){
+#pragma region Relay UWB Quering State Functions
+void Relay_UWB_Quering_Enter(){
   Reset_Ack_Target_Index(&current_ack_status.target_ack_lighthouse, &current_ack_status.current_ack_index);
   Start_Ack_Timer();
   MESSAGES::Send_Relay_UWB_Response(current_ack_status.target_ack_lighthouse);
-  MESSAGES::Send_Reset_UWB_Response_Info();
 };
-void Relay_Burst_Quering_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
+void Relay_UWB_Quering_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
   if (data[Data_Setup::TRANSMITTER_ID] == current_ack_status.target_ack_lighthouse){
     if (data[Data_Setup::COMMAND] == Data_Commands::ACK_COM){
       Serial.printf("Received Ack \n");
@@ -135,8 +143,8 @@ void Relay_Burst_Quering_ReceiveCallback(const uint8_t* data, int dataLen, uint3
   }
 };
 
-void Relay_Burst_Quering_SentCallback(uint32_t send_time){};
-void Relay_Burst_Quering_TimerCallback(Timer_Callbacks timer_callback){
+void Relay_UWB_Quering_SentCallback(uint32_t send_time){};
+void Relay_UWB_Quering_TimerCallback(Timer_Callbacks timer_callback){
   if (timer_callback == Timer_Callbacks::ACK){
     if (Validate_Ack_Index_Increase(&current_ack_status.current_ack_index)){
       Serial.printf("Missed Single Ack \n");
@@ -152,9 +160,9 @@ void Relay_Burst_Quering_TimerCallback(Timer_Callbacks timer_callback){
   }
 };
 
-void Relay_Burst_Quering_ButtonCallback(uint8_t button){};
-void Relay_Burst_Quering_UWB_New_Range(uint16_t device, float range, float rx_power){}
-void Relay_Burst_Quering_Exit(){};
+void Relay_UWB_Quering_ButtonCallback(uint8_t button){};
+void Relay_UWB_Quering_UWB_New_Range(uint16_t device, float range, float rx_power){}
+void Relay_UWB_Quering_Exit(){};
 #pragma endregion
 
 #pragma region Inform End Config State Functions

@@ -28,11 +28,11 @@ void State_Enter(){
     case States::UWB_RESPONSE:
       UWB_Response_Enter();
       break;
-    case States::POST_BURST_CHECK_IF_ALL_LGHS_SET:
-      Post_Burst_Check_If_All_LGHS_Set_Enter();
+    case States::POST_UWB_CHECK_IF_ALL_LGHS_SET:
+      Post_UWB_Check_If_All_LGHS_Set_Enter();
       break;
-    case States::RELAY_BURST_QUERING:
-      Relay_Burst_Quering_Enter();
+    case States::RELAY_UWB_QUERING:
+      Relay_UWB_Quering_Enter();
       break;
     case States::INFORM_END_CONFIG:
       Inform_End_Config_Enter();
@@ -66,11 +66,11 @@ void State_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_ti
     case States::UWB_RESPONSE:
       UWB_Response_ReceiveCallback(data, dataLen, receive_time);
       break;
-    case States::POST_BURST_CHECK_IF_ALL_LGHS_SET:
-      Post_Burst_Check_If_All_LGHS_Set_ReceiveCallback(data, dataLen, receive_time);
+    case States::POST_UWB_CHECK_IF_ALL_LGHS_SET:
+      Post_UWB_Check_If_All_LGHS_Set_ReceiveCallback(data, dataLen, receive_time);
       break;
-    case States::RELAY_BURST_QUERING:
-      Relay_Burst_Quering_ReceiveCallback(data, dataLen, receive_time);
+    case States::RELAY_UWB_QUERING:
+      Relay_UWB_Quering_ReceiveCallback(data, dataLen, receive_time);
       break;
     case States::INFORM_END_CONFIG:
       Inform_End_Config_ReceiveCallback(data, dataLen, receive_time);
@@ -104,11 +104,11 @@ void State_SentCallback(uint32_t send_time){
     case States::UWB_RESPONSE:
       UWB_Response_SentCallback(send_time);
       break;
-    case States::POST_BURST_CHECK_IF_ALL_LGHS_SET:
-      Post_Burst_Check_If_All_LGHS_Set_SentCallback(send_time);
+    case States::POST_UWB_CHECK_IF_ALL_LGHS_SET:
+      Post_UWB_Check_If_All_LGHS_Set_SentCallback(send_time);
       break;
-    case States::RELAY_BURST_QUERING:
-      Relay_Burst_Quering_SentCallback(send_time);
+    case States::RELAY_UWB_QUERING:
+      Relay_UWB_Quering_SentCallback(send_time);
       break;
     case States::INFORM_END_CONFIG:
       Inform_End_Config_SentCallback(send_time);
@@ -142,11 +142,11 @@ void State_TimerCallback(Timer_Callbacks timer_callback){
     case States::UWB_RESPONSE:
       UWB_Response_TimerCallback(timer_callback);
       break;
-    case States::POST_BURST_CHECK_IF_ALL_LGHS_SET:
-      Post_Burst_Check_If_All_LGHS_Set_TimerCallback(timer_callback);
+    case States::POST_UWB_CHECK_IF_ALL_LGHS_SET:
+      Post_UWB_Check_If_All_LGHS_Set_TimerCallback(timer_callback);
       break;
-    case States::RELAY_BURST_QUERING:
-      Relay_Burst_Quering_TimerCallback(timer_callback);
+    case States::RELAY_UWB_QUERING:
+      Relay_UWB_Quering_TimerCallback(timer_callback);
       break;
     case States::INFORM_END_CONFIG:
       Inform_End_Config_TimerCallback(timer_callback);
@@ -180,11 +180,11 @@ void State_Button_Callback(uint8_t button){
     case States::UWB_RESPONSE:
       UWB_Response_ButtonCallback(button);
       break;
-    case States::POST_BURST_CHECK_IF_ALL_LGHS_SET:
-      Post_Burst_Check_If_All_LGHS_Set_ButtonCallback(button);
+    case States::POST_UWB_CHECK_IF_ALL_LGHS_SET:
+      Post_UWB_Check_If_All_LGHS_Set_ButtonCallback(button);
       break;
-    case States::RELAY_BURST_QUERING:
-      Relay_Burst_Quering_ButtonCallback(button);
+    case States::RELAY_UWB_QUERING:
+      Relay_UWB_Quering_ButtonCallback(button);
       break;
     case States::INFORM_END_CONFIG:
       Inform_End_Config_ButtonCallback(button);
@@ -218,11 +218,11 @@ void State_UWB_New_Range(uint16_t device, float range, float rx_power){
     case States::UWB_RESPONSE:
       UWB_Response_UWB_New_Range(device, range, rx_power);
       break;
-    case States::POST_BURST_CHECK_IF_ALL_LGHS_SET:
-      Post_Burst_Check_If_All_LGHS_Set_UWB_New_Range(device, range, rx_power);
+    case States::POST_UWB_CHECK_IF_ALL_LGHS_SET:
+      Post_UWB_Check_If_All_LGHS_Set_UWB_New_Range(device, range, rx_power);
       break;
-    case States::RELAY_BURST_QUERING:
-      Relay_Burst_Quering_UWB_New_Range(device, range, rx_power);
+    case States::RELAY_UWB_QUERING:
+      Relay_UWB_Quering_UWB_New_Range(device, range, rx_power);
       break;
     case States::INFORM_END_CONFIG:
       Inform_End_Config_UWB_New_Range(device, range, rx_power);
@@ -256,11 +256,11 @@ void State_Exit(){
     case States::UWB_RESPONSE:
       UWB_Response_Exit();
       break;
-    case States::POST_BURST_CHECK_IF_ALL_LGHS_SET:
-      Post_Burst_Check_If_All_LGHS_Set_Exit();
+    case States::POST_UWB_CHECK_IF_ALL_LGHS_SET:
+      Post_UWB_Check_If_All_LGHS_Set_Exit();
       break;
-    case States::RELAY_BURST_QUERING:
-      Relay_Burst_Quering_Exit();
+    case States::RELAY_UWB_QUERING:
+      Relay_UWB_Quering_Exit();
       break;
     case States::INFORM_END_CONFIG:
       Inform_End_Config_Exit();

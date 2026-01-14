@@ -4,7 +4,7 @@
 #include "LighthouseConfig.h"
 
 enum Timer_Callbacks {
-  UWB_RESTART_ACK,
+  UWB_ACTIVATION,
   ACK,
 };
 
