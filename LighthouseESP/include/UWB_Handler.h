@@ -19,15 +19,15 @@ void Initialize_UWB();
 void Update_UWB();
 void Restart_UWB_As_Tag();
 void Restart_UWB_As_Anchor();
-void resetDW1000();
-
-void newRange();
-void newDevice(DW1000Device* device);
-void inactiveDevice(DW1000Device* device);
 
 uint8_t Is_UWB_Enabled();
-
 void Disable_UWB();
 void Enable_UWB();
+
+// Private
+void _new_range();
+void _new_device(DW1000Device* device);
+void _inactive_device(DW1000Device* device);
+void _reset_DW1000();
 
 #endif

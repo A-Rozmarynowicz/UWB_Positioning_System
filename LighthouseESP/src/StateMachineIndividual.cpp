@@ -27,7 +27,7 @@ void Initial_SentCallback(uint32_t send_time){
   Start_Ack_Timer();
 };
 
-void Initial_TimerCallback(TIMER_CALLBACKS timer_callback){
+void Initial_TimerCallback(Timer_Callbacks timer_callback){
   Change_State(States::BURST_QUERY);
 };
 
@@ -42,12 +42,12 @@ void Initial_Exit(){};
 #pragma region Burst Query State Functions
 void Burst_Query_Enter(){
   Restart_UWB_As_Tag();
-  Start_UWB_Restart_Ack_Timer();
+  Start_UWB_Activation_Timer();
 };
 void Burst_Query_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){};
 void Burst_Query_SentCallback(uint32_t send_time){};
-void Burst_Query_TimerCallback(TIMER_CALLBACKS timer_callback){
-  if (timer_callback == TIMER_CALLBACKS::UWB_RESTART_ACK){
+void Burst_Query_TimerCallback(Timer_Callbacks timer_callback){
+  if (timer_callback == Timer_Callbacks::UWB_RESTART_ACK){
     Enable_UWB();
   }
 };
@@ -94,7 +94,7 @@ void Burst_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t r
 };
 
 void Burst_Response_SentCallback(uint32_t send_time){};
-void Burst_Response_TimerCallback(TIMER_CALLBACKS timer_callback){};
+void Burst_Response_TimerCallback(Timer_Callbacks timer_callback){};
 void Burst_Response_ButtonCallback(uint8_t button){};
 void Burst_Response_UWB_New_Range(uint16_t device, float range, float rx_power){}
 void Burst_Response_Exit(){};
@@ -112,7 +112,7 @@ void Post_Burst_Check_If_All_LGHS_Set_Enter(){
 };
 void Post_Burst_Check_If_All_LGHS_Set_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){};
 void Post_Burst_Check_If_All_LGHS_Set_SentCallback(uint32_t send_time){};
-void Post_Burst_Check_If_All_LGHS_Set_TimerCallback(TIMER_CALLBACKS timer_callback){};
+void Post_Burst_Check_If_All_LGHS_Set_TimerCallback(Timer_Callbacks timer_callback){};
 void Post_Burst_Check_If_All_LGHS_Set_ButtonCallback(uint8_t button){};
 void Post_Burst_Check_If_All_LGHS_Set_UWB_New_Range(uint16_t device, float range, float rx_power){}
 void Post_Burst_Check_If_All_LGHS_Set_Exit(){};
@@ -136,8 +136,8 @@ void Relay_Burst_Quering_ReceiveCallback(const uint8_t* data, int dataLen, uint3
 };
 
 void Relay_Burst_Quering_SentCallback(uint32_t send_time){};
-void Relay_Burst_Quering_TimerCallback(TIMER_CALLBACKS timer_callback){
-  if (timer_callback == TIMER_CALLBACKS::ACK){
+void Relay_Burst_Quering_TimerCallback(Timer_Callbacks timer_callback){
+  if (timer_callback == Timer_Callbacks::ACK){
     if (Validate_Ack_Index_Increase(&current_ack_status.current_ack_index)){
       Serial.printf("Missed Single Ack \n");
       Start_Ack_Timer();
@@ -181,8 +181,8 @@ void Inform_End_Config_ReceiveCallback(const uint8_t* data, int dataLen, uint32_
   }
 };
 void Inform_End_Config_SentCallback(uint32_t send_time){};
-void Inform_End_Config_TimerCallback(TIMER_CALLBACKS timer_callback){
-  if (timer_callback == TIMER_CALLBACKS::ACK){
+void Inform_End_Config_TimerCallback(Timer_Callbacks timer_callback){
+  if (timer_callback == Timer_Callbacks::ACK){
     if (Validate_Ack_Index_Increase(&current_ack_status.current_ack_index)){
       Serial.printf("Missed a single EndConf Ack\n");
       Start_Ack_Timer();
@@ -229,7 +229,7 @@ void Distance_Measure_Response_ReceiveCallback(const uint8_t* data, int dataLen,
   }
 };
 void Distance_Measure_Response_SentCallback(uint32_t send_time){};
-void Distance_Measure_Response_TimerCallback(TIMER_CALLBACKS timer_callback){};
+void Distance_Measure_Response_TimerCallback(Timer_Callbacks timer_callback){};
 void Distance_Measure_Response_ButtonCallback(uint8_t button){};
 void Distance_Measure_Response_UWB_New_Range(uint16_t device, float range, float rx_power){}
 void Distance_Measure_Response_Exit(){};
@@ -277,8 +277,8 @@ void Distance_Measure_Query_ReceiveCallback(const uint8_t* data, int dataLen, ui
   }
 };
 void Distance_Measure_Query_SentCallback(uint32_t send_time){};
-void Distance_Measure_Query_TimerCallback(TIMER_CALLBACKS timer_callback){
-  if (timer_callback == TIMER_CALLBACKS::ACK){
+void Distance_Measure_Query_TimerCallback(Timer_Callbacks timer_callback){
+  if (timer_callback == Timer_Callbacks::ACK){
     if (Validate_Ack_Index_Increase(&current_ack_status.current_ack_index)){
       Serial.printf("Missed a single ACK for Distance Query \n");
       MESSAGES::Send_Query_Distance(current_state_data.target_lighthouse, current_state_data.distance_query_target);
@@ -344,8 +344,8 @@ void Send_Calculated_Position_ReceiveCallback(const uint8_t* data, int dataLen, 
 };
 
 void Send_Calculated_Position_SentCallback(uint32_t send_time){};
-void Send_Calculated_Position_TimerCallback(TIMER_CALLBACKS timer_callback){
-  if (timer_callback == TIMER_CALLBACKS::ACK){
+void Send_Calculated_Position_TimerCallback(Timer_Callbacks timer_callback){
+  if (timer_callback == Timer_Callbacks::ACK){
     if (Validate_Ack_Index_Increase(&current_ack_status.current_ack_index)){
       Serial.printf("Missed a single ACK for Set Position \n");
       MESSAGES::Send_Set_Position(current_state_data.target_lighthouse);
@@ -381,7 +381,7 @@ void Sailor_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t 
   }
 };
 void Sailor_Response_SentCallback(uint32_t send_time){};
-void Sailor_Response_TimerCallback(TIMER_CALLBACKS timer_callback){};
+void Sailor_Response_TimerCallback(Timer_Callbacks timer_callback){};
 void Sailor_Response_ButtonCallback(uint8_t button){};
 void Sailor_Response_UWB_New_Range(uint16_t device, float range, float rx_power){}
 void Sailor_Response_Exit(){};

@@ -131,7 +131,7 @@ void State_SentCallback(uint32_t send_time){
   }
 };
 
-void State_TimerCallback(TIMER_CALLBACKS timer_callback){
+void State_TimerCallback(Timer_Callbacks timer_callback){
   switch (current_state) {
     case States::INITIAL:
       Initial_TimerCallback(timer_callback);
