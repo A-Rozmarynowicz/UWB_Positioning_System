@@ -32,7 +32,7 @@ enum Data_Commands {
   QUERY_DISTANCE,
   RESPONSE_DISTANCE,
   SET_POSITION,
-  READY_FOR_SAILOR,
+  READY_FOR_OBSERVER,
 
   OBSERVER_QUERY_POSITION,
   OBSERVER_RESPONSE_POSITION,
@@ -74,8 +74,8 @@ void Send_Query_Distance(uint8_t receiver, uint8_t target);
 void Send_Response_Distance(uint8_t receiver, uint8_t target, float distance);
 void Send_Set_Position(uint8_t receiver);
 
-void Send_Sailor_Ready();
-void Send_Sailor_Position_Response();
+void Send_Observer_Ready();
+void Send_Observer_Position_Response();
 }
 
 // Private

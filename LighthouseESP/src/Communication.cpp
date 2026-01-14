@@ -101,14 +101,14 @@ void MESSAGES::Send_Set_Position(uint8_t receiver){
   _send_esp();
 }
 
-void MESSAGES::Send_Sailor_Ready(){
-  transmit_buffer[Data_Setup::RECEIVER_ID] = SAILOR_ID;
-  transmit_buffer[Data_Setup::COMMAND] = Data_Commands::READY_FOR_SAILOR;
+void MESSAGES::Send_Observer_Ready(){
+  transmit_buffer[Data_Setup::RECEIVER_ID] = OBSERVER_ID;
+  transmit_buffer[Data_Setup::COMMAND] = Data_Commands::READY_FOR_OBSERVER;
   _send_esp();
 }
 
-void MESSAGES::Send_Sailor_Position_Response(){
-  transmit_buffer[Data_Setup::RECEIVER_ID] = SAILOR_ID;
+void MESSAGES::Send_Observer_Position_Response(){
+  transmit_buffer[Data_Setup::RECEIVER_ID] = OBSERVER_ID;
   transmit_buffer[Data_Setup::COMMAND] = Data_Commands::OBSERVER_RESPONSE_POSITION;
   memcpy(&(transmit_buffer[Data_Setup::QUAD_0]), &(position.x), sizeof(float));
   memcpy(&(transmit_buffer[Data_Setup::QUAD_1]), &(position.y), sizeof(float));

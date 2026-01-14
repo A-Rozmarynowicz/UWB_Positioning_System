@@ -225,7 +225,7 @@ void Distance_Measure_Response_ReceiveCallback(const uint8_t* data, int dataLen,
     memcpy(&position.z, &data[QUAD_2], sizeof(float));
     Serial.printf("Set position: %0.2f | %0.2f | %0.2f \n", position.x, position.y, position.z);
     MESSAGES::Send_Ack(data[Data_Setup::TRANSMITTER_ID]);
-    Change_State(States::SAILOR_RESPONSE);
+    Change_State(States::OBSERVER_RESPONSE);
   }
 };
 void Distance_Measure_Response_SentCallback(uint32_t send_time){};
@@ -336,7 +336,7 @@ void Send_Calculated_Position_ReceiveCallback(const uint8_t* data, int dataLen, 
     Stop_Ack_Timer();
     current_ack_status.current_ack_index = 0;
     if (Increment_Target_Lighthouse_Index(&current_state_data.target_lighthouse)){
-      Change_State(States::SAILOR_RESPONSE);
+      Change_State(States::OBSERVER_RESPONSE);
       return;
     }
     MESSAGES::Send_Set_Position(current_state_data.target_lighthouse);
@@ -356,7 +356,7 @@ void Send_Calculated_Position_TimerCallback(Timer_Callbacks timer_callback){
       Data_Transfer_LED_ON();
       current_ack_status.current_ack_index = 0;
       if (Increment_Target_Lighthouse_Index(&current_state_data.target_lighthouse)){
-        Change_State(States::SAILOR_RESPONSE);
+        Change_State(States::OBSERVER_RESPONSE);
         return;
       }
     }
@@ -367,24 +367,24 @@ void Send_Calculated_Position_UWB_New_Range(uint16_t device, float range, float 
 void Send_Calculated_Position_Exit(){};
 #pragma endregion
 
-#pragma region Sailor Response State Functions
-void Sailor_Response_Enter(){
+#pragma region Observer Response State Functions
+void Observer_Response_Enter(){
   if (LIGHTHOUSE_ID == 0){
-    MESSAGES::Send_Sailor_Ready();
+    MESSAGES::Send_Observer_Ready();
   }
   Restart_UWB_As_Anchor();
   Enable_UWB();
 };
-void Sailor_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
+void Observer_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
   if (data[Data_Setup::COMMAND] == Data_Commands::OBSERVER_QUERY_POSITION){
-    MESSAGES::Send_Sailor_Position_Response();
+    MESSAGES::Send_Observer_Position_Response();
   }
 };
-void Sailor_Response_SentCallback(uint32_t send_time){};
-void Sailor_Response_TimerCallback(Timer_Callbacks timer_callback){};
-void Sailor_Response_ButtonCallback(uint8_t button){};
-void Sailor_Response_UWB_New_Range(uint16_t device, float range, float rx_power){}
-void Sailor_Response_Exit(){};
+void Observer_Response_SentCallback(uint32_t send_time){};
+void Observer_Response_TimerCallback(Timer_Callbacks timer_callback){};
+void Observer_Response_ButtonCallback(uint8_t button){};
+void Observer_Response_UWB_New_Range(uint16_t device, float range, float rx_power){}
+void Observer_Response_Exit(){};
 #pragma endregion
 
 

@@ -27,7 +27,7 @@ enum States {
   DISTANCE_MEASURE_RESPONSE, // 6
   DISTANCE_MEASURE_QUERY, // 7
   SEND_CALCULATED_POSITION, // 8
-  SAILOR_RESPONSE, // 9
+  OBSERVER_RESPONSE, // 9
 };
 
 enum State_Machine_Errors {
@@ -124,12 +124,12 @@ void Send_Calculated_Position_ButtonCallback(uint8_t button);
 void Send_Calculated_Position_UWB_New_Range(uint16_t device, float range, float rx_power);
 void Send_Calculated_Position_Exit();
 
-void Sailor_Response_Enter();
-void Sailor_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time);
-void Sailor_Response_SentCallback(uint32_t send_time);
-void Sailor_Response_TimerCallback(Timer_Callbacks timer_callback);
-void Sailor_Response_ButtonCallback(uint8_t button);
-void Sailor_Response_UWB_New_Range(uint16_t device, float range, float rx_power);
-void Sailor_Response_Exit();
+void Observer_Response_Enter();
+void Observer_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time);
+void Observer_Response_SentCallback(uint32_t send_time);
+void Observer_Response_TimerCallback(Timer_Callbacks timer_callback);
+void Observer_Response_ButtonCallback(uint8_t button);
+void Observer_Response_UWB_New_Range(uint16_t device, float range, float rx_power);
+void Observer_Response_Exit();
 
 #endif

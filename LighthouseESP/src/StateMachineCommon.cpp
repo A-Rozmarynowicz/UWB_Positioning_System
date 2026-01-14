@@ -46,8 +46,8 @@ void State_Enter(){
     case States::SEND_CALCULATED_POSITION:
       Send_Calculated_Position_Enter();
       break;
-    case States::SAILOR_RESPONSE:
-      Sailor_Response_Enter();
+    case States::OBSERVER_RESPONSE:
+      Observer_Response_Enter();
       break;
     default:
       State_Machine_Error(State_Machine_Errors::INEXISTING_STATE);
@@ -84,8 +84,8 @@ void State_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_ti
     case States::SEND_CALCULATED_POSITION:
       Send_Calculated_Position_ReceiveCallback(data, dataLen, receive_time);
       break;
-    case States::SAILOR_RESPONSE:
-      Sailor_Response_ReceiveCallback(data, dataLen, receive_time);
+    case States::OBSERVER_RESPONSE:
+      Observer_Response_ReceiveCallback(data, dataLen, receive_time);
       break;
     default:
       State_Machine_Error(State_Machine_Errors::INEXISTING_STATE);
@@ -122,8 +122,8 @@ void State_SentCallback(uint32_t send_time){
     case States::SEND_CALCULATED_POSITION:
       Send_Calculated_Position_SentCallback(send_time);
       break;
-    case States::SAILOR_RESPONSE:
-      Sailor_Response_SentCallback(send_time);
+    case States::OBSERVER_RESPONSE:
+      Observer_Response_SentCallback(send_time);
       break;
     default:
       State_Machine_Error(State_Machine_Errors::INEXISTING_STATE);
@@ -160,8 +160,8 @@ void State_TimerCallback(Timer_Callbacks timer_callback){
     case States::SEND_CALCULATED_POSITION:
       Send_Calculated_Position_TimerCallback(timer_callback);
       break;
-    case States::SAILOR_RESPONSE:
-      Sailor_Response_TimerCallback(timer_callback);
+    case States::OBSERVER_RESPONSE:
+      Observer_Response_TimerCallback(timer_callback);
       break;
     default:
       State_Machine_Error(State_Machine_Errors::INEXISTING_STATE);
@@ -198,8 +198,8 @@ void State_Button_Callback(uint8_t button){
     case States::SEND_CALCULATED_POSITION:
       Send_Calculated_Position_ButtonCallback(button);
       break;
-    case States::SAILOR_RESPONSE:
-      Sailor_Response_ButtonCallback(button);
+    case States::OBSERVER_RESPONSE:
+      Observer_Response_ButtonCallback(button);
       break;
     default:
       State_Machine_Error(State_Machine_Errors::INEXISTING_STATE);
@@ -236,8 +236,8 @@ void State_UWB_New_Range(uint16_t device, float range, float rx_power){
     case States::SEND_CALCULATED_POSITION:
       Send_Calculated_Position_UWB_New_Range(device, range, rx_power);
       break;
-    case States::SAILOR_RESPONSE:
-      Sailor_Response_UWB_New_Range(device, range, rx_power);
+    case States::OBSERVER_RESPONSE:
+      Observer_Response_UWB_New_Range(device, range, rx_power);
       break;
     default:
       State_Machine_Error(State_Machine_Errors::INEXISTING_STATE);
@@ -274,8 +274,8 @@ void State_Exit(){
     case States::SEND_CALCULATED_POSITION:
       Send_Calculated_Position_Exit();
       break;
-    case States::SAILOR_RESPONSE:
-      Sailor_Response_Exit();
+    case States::OBSERVER_RESPONSE:
+      Observer_Response_Exit();
       break;
     default:
       State_Machine_Error(State_Machine_Errors::INEXISTING_STATE);
