@@ -1,0 +1,7 @@
+var searchData=
+[
+  ['calculate_5fdistance_5fto_5ftarget_0',['Calculate_Distance_To_Target',['../_measure_8h.html#a853df673822e1422a96aa751eb355fbf',1,'Calculate_Distance_To_Target(uint8_t current_target, float distance):&#160;Measure.cpp'],['../_measure_8cpp.html#a853df673822e1422a96aa751eb355fbf',1,'Calculate_Distance_To_Target(uint8_t current_target, float distance):&#160;Measure.cpp']]],
+  ['calculate_5fposition_5fof_5flighthouse_1',['Calculate_Position_Of_Lighthouse',['../_measure_8h.html#ad8bf287324e8711d8d0b4cb2ead2d476',1,'Calculate_Position_Of_Lighthouse(uint8_t lighthouse):&#160;Measure.cpp'],['../_measure_8cpp.html#ad8bf287324e8711d8d0b4cb2ead2d476',1,'Calculate_Position_Of_Lighthouse(uint8_t lighthouse):&#160;Measure.cpp']]],
+  ['change_5fstate_2',['Change_State',['../_state_machine_8h.html#a1a9296a39f8c1f0afa308b5e0f918460',1,'Change_State(States new_state):&#160;StateMachineCommon.cpp'],['../_state_machine_common_8cpp.html#a1a9296a39f8c1f0afa308b5e0f918460',1,'Change_State(States new_state):&#160;StateMachineCommon.cpp']]],
+  ['check_5fif_5fall_5fdistances_5fare_5fmeasured_3',['Check_If_All_Distances_Are_Measured',['../_states_8h.html#a3400a32772332b093f756fb0084cfa0e',1,'Check_If_All_Distances_Are_Measured(uint8_t *received_distances):&#160;States.cpp'],['../_states_8cpp.html#a3400a32772332b093f756fb0084cfa0e',1,'Check_If_All_Distances_Are_Measured(uint8_t *received_distances):&#160;States.cpp']]]
+];

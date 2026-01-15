@@ -1,0 +1,75 @@
+\doxysection{src/\+\+States.cpp File Reference}
+\hypertarget{_states_8cpp}{}\label{_states_8cpp}\index{src/States.cpp@{src/States.cpp}}
+{\ttfamily \+\#include "{}States.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{_states_8cpp_ad39ba55ff89c6ae490cbed9bdee679b6}{Reset\+\_\+\+Target\+\_\+\+Lighthouse\+\_\+\+Index}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}target\+\_\+lighthouse\+\_\+index)
+\item 
+bool \doxymbox{\hyperlink{_states_8cpp_afa626db13c9a525ccd92eae74bf31d49}{Increment\+\_\+\+Target\+\_\+\+Lighthouse\+\_\+\+Index}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}target\+\_\+lighthouse\+\_\+index)
+\item 
+void \doxymbox{\hyperlink{_states_8cpp_ab6d409a3a35a591a61d30b8de123ec3d}{Reset\+\_\+\+Distance\+\_\+\+Query\+\_\+\+Target\+\_\+\+Index}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}distance\+\_\+query\+\_\+target\+\_\+index)
+\item 
+bool \doxymbox{\hyperlink{_states_8cpp_a1330510c497c8b3ea407c91af4568c54}{Increment\+\_\+\+Distance\+\_\+\+Query\+\_\+\+Target\+\_\+\+Index}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}distance\+\_\+query\+\_\+target\+\_\+index)
+\item 
+void \doxymbox{\hyperlink{_states_8cpp_a162b940ace0454c32d7aecc135e76ff7}{Reset\+\_\+\+Ack\+\_\+\+Target\+\_\+\+Index}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}ack\+\_\+target\+\_\+lighthouse, uint8\+\_\+t \texorpdfstring{$\ast$}{*}ack\+\_\+message\+\_\+index)
+\item 
+bool \doxymbox{\hyperlink{_states_8cpp_a0c6bd876eeff4a0d0c063550d4fcb933}{Increment\+\_\+\+Ack\+\_\+\+Target\+\_\+\+Index}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}ack\+\_\+target\+\_\+lighthouse, uint8\+\_\+t \texorpdfstring{$\ast$}{*}ack\+\_\+message\+\_\+index)
+\item 
+bool \doxymbox{\hyperlink{_states_8cpp_a01b6830ba2ce4a7cca9ba0f308c08b7b}{Validate\+\_\+\+Ack\+\_\+\+Index\+\_\+\+Increase}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}ack\+\_\+index)
+\item 
+bool \doxymbox{\hyperlink{_states_8cpp_a3400a32772332b093f756fb0084cfa0e}{Check\+\_\+\+If\+\_\+\+All\+\_\+\+Distances\+\_\+\+Are\+\_\+\+Measured}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}received\+\_\+distances)
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{_states_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{_states_8cpp_a3400a32772332b093f756fb0084cfa0e}\index{States.cpp@{States.cpp}!Check\_If\_All\_Distances\_Are\_Measured@{Check\_If\_All\_Distances\_Are\_Measured}}
+\index{Check\_If\_All\_Distances\_Are\_Measured@{Check\_If\_All\_Distances\_Are\_Measured}!States.cpp@{States.cpp}}
+\doxysubsubsection{\texorpdfstring{Check\_If\_All\_Distances\_Are\_Measured()}{Check\_If\_All\_Distances\_Are\_Measured()}}
+{\footnotesize\ttfamily \label{_states_8cpp_a3400a32772332b093f756fb0084cfa0e} 
+bool Check\+\_\+\+If\+\_\+\+All\+\_\+\+Distances\+\_\+\+Are\+\_\+\+Measured (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{received\+\_\+distances}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_states_8cpp_a0c6bd876eeff4a0d0c063550d4fcb933}\index{States.cpp@{States.cpp}!Increment\_Ack\_Target\_Index@{Increment\_Ack\_Target\_Index}}
+\index{Increment\_Ack\_Target\_Index@{Increment\_Ack\_Target\_Index}!States.cpp@{States.cpp}}
+\doxysubsubsection{\texorpdfstring{Increment\_Ack\_Target\_Index()}{Increment\_Ack\_Target\_Index()}}
+{\footnotesize\ttfamily \label{_states_8cpp_a0c6bd876eeff4a0d0c063550d4fcb933} 
+bool Increment\+\_\+\+Ack\+\_\+\+Target\+\_\+\+Index (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{ack\+\_\+target\+\_\+lighthouse}{, }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{ack\+\_\+message\+\_\+index}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_states_8cpp_a1330510c497c8b3ea407c91af4568c54}\index{States.cpp@{States.cpp}!Increment\_Distance\_Query\_Target\_Index@{Increment\_Distance\_Query\_Target\_Index}}
+\index{Increment\_Distance\_Query\_Target\_Index@{Increment\_Distance\_Query\_Target\_Index}!States.cpp@{States.cpp}}
+\doxysubsubsection{\texorpdfstring{Increment\_Distance\_Query\_Target\_Index()}{Increment\_Distance\_Query\_Target\_Index()}}
+{\footnotesize\ttfamily \label{_states_8cpp_a1330510c497c8b3ea407c91af4568c54} 
+bool Increment\+\_\+\+Distance\+\_\+\+Query\+\_\+\+Target\+\_\+\+Index (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{distance\+\_\+query\+\_\+target\+\_\+index}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_states_8cpp_afa626db13c9a525ccd92eae74bf31d49}\index{States.cpp@{States.cpp}!Increment\_Target\_Lighthouse\_Index@{Increment\_Target\_Lighthouse\_Index}}
+\index{Increment\_Target\_Lighthouse\_Index@{Increment\_Target\_Lighthouse\_Index}!States.cpp@{States.cpp}}
+\doxysubsubsection{\texorpdfstring{Increment\_Target\_Lighthouse\_Index()}{Increment\_Target\_Lighthouse\_Index()}}
+{\footnotesize\ttfamily \label{_states_8cpp_afa626db13c9a525ccd92eae74bf31d49} 
+bool Increment\+\_\+\+Target\+\_\+\+Lighthouse\+\_\+\+Index (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{target\+\_\+lighthouse\+\_\+index}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_states_8cpp_a162b940ace0454c32d7aecc135e76ff7}\index{States.cpp@{States.cpp}!Reset\_Ack\_Target\_Index@{Reset\_Ack\_Target\_Index}}
+\index{Reset\_Ack\_Target\_Index@{Reset\_Ack\_Target\_Index}!States.cpp@{States.cpp}}
+\doxysubsubsection{\texorpdfstring{Reset\_Ack\_Target\_Index()}{Reset\_Ack\_Target\_Index()}}
+{\footnotesize\ttfamily \label{_states_8cpp_a162b940ace0454c32d7aecc135e76ff7} 
+void Reset\+\_\+\+Ack\+\_\+\+Target\+\_\+\+Index (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{ack\+\_\+target\+\_\+lighthouse}{, }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{ack\+\_\+message\+\_\+index}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_states_8cpp_ab6d409a3a35a591a61d30b8de123ec3d}\index{States.cpp@{States.cpp}!Reset\_Distance\_Query\_Target\_Index@{Reset\_Distance\_Query\_Target\_Index}}
+\index{Reset\_Distance\_Query\_Target\_Index@{Reset\_Distance\_Query\_Target\_Index}!States.cpp@{States.cpp}}
+\doxysubsubsection{\texorpdfstring{Reset\_Distance\_Query\_Target\_Index()}{Reset\_Distance\_Query\_Target\_Index()}}
+{\footnotesize\ttfamily \label{_states_8cpp_ab6d409a3a35a591a61d30b8de123ec3d} 
+void Reset\+\_\+\+Distance\+\_\+\+Query\+\_\+\+Target\+\_\+\+Index (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{distance\+\_\+query\+\_\+target\+\_\+index}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_states_8cpp_ad39ba55ff89c6ae490cbed9bdee679b6}\index{States.cpp@{States.cpp}!Reset\_Target\_Lighthouse\_Index@{Reset\_Target\_Lighthouse\_Index}}
+\index{Reset\_Target\_Lighthouse\_Index@{Reset\_Target\_Lighthouse\_Index}!States.cpp@{States.cpp}}
+\doxysubsubsection{\texorpdfstring{Reset\_Target\_Lighthouse\_Index()}{Reset\_Target\_Lighthouse\_Index()}}
+{\footnotesize\ttfamily \label{_states_8cpp_ad39ba55ff89c6ae490cbed9bdee679b6} 
+void Reset\+\_\+\+Target\+\_\+\+Lighthouse\+\_\+\+Index (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{target\+\_\+lighthouse\+\_\+index}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_states_8cpp_a01b6830ba2ce4a7cca9ba0f308c08b7b}\index{States.cpp@{States.cpp}!Validate\_Ack\_Index\_Increase@{Validate\_Ack\_Index\_Increase}}
+\index{Validate\_Ack\_Index\_Increase@{Validate\_Ack\_Index\_Increase}!States.cpp@{States.cpp}}
+\doxysubsubsection{\texorpdfstring{Validate\_Ack\_Index\_Increase()}{Validate\_Ack\_Index\_Increase()}}
+{\footnotesize\ttfamily \label{_states_8cpp_a01b6830ba2ce4a7cca9ba0f308c08b7b} 
+bool Validate\+\_\+\+Ack\+\_\+\+Index\+\_\+\+Increase (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{ack\+\_\+index}{}\end{DoxyParamCaption})}
+

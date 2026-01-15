@@ -1,0 +1,5 @@
+/** @page subprojects Subprojects
+ *
+ * MainProject depends on the following subprojects:
+ * - [Lighthouse](../../../LighthouseESP/Doxygen_Lighthouse/output/html/index.html)
+ */

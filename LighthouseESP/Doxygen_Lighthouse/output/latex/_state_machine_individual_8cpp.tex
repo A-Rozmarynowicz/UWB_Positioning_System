@@ -1,0 +1,572 @@
+\doxysection{src/\+\+State\+Machine\+Individual.cpp File Reference}
+\hypertarget{_state_machine_individual_8cpp}{}\label{_state_machine_individual_8cpp}\index{src/StateMachineIndividual.cpp@{src/StateMachineIndividual.cpp}}
+{\ttfamily \+\#include "{}State\+Machine.\+h"{}}\newline
+{\ttfamily \+\#include $<$math.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a1f437ba9dbfdcbfed50709d34529dc72}{Initial\+\_\+\+Enter}} ()
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a1a1bc9eb31e75d94f40096a694ac5884}{Initial\+\_\+\+Receive\+Callback}} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, int data\+Len, uint32\+\_\+t receive\+\_\+time)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a79aa0e62d4f7dda633b28c249bb40314}{Initial\+\_\+\+Sent\+Callback}} (uint32\+\_\+t send\+\_\+time)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a3d8ba73994c9dae74db103315344119b}{Initial\+\_\+\+Timer\+Callback}} (\doxymbox{\hyperlink{_timing_8h_aa4cfa56f0ecbc0a890da7fb57c15ee75}{Timer\+\_\+\+Callbacks}} timer\+\_\+callback)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a447bdcdddc967aa5588ae3ea4d6a5459}{Initial\+\_\+\+Button\+Callback}} (uint8\+\_\+t button)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a9bcdbfe549bce16ce4e8c116df083e04}{Initial\+\_\+\+UWB\+\_\+\+New\+\_\+\+Range}} (uint16\+\_\+t device, float range, float rx\+\_\+power)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_abe66698809f83c3a9a7cf2757a9e39e7}{Initial\+\_\+\+Exit}} ()
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a302e8d12aa408c263ff5e882a490c9b5}{UWB\+\_\+\+Query\+\_\+\+Enter}} ()
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_ac0c338d2682b1627f9589e5991ef29c8}{UWB\+\_\+\+Query\+\_\+\+Receive\+Callback}} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, int data\+Len, uint32\+\_\+t receive\+\_\+time)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_abbf8594c1ebc397d8d418fa15afe05ec}{UWB\+\_\+\+Query\+\_\+\+Sent\+Callback}} (uint32\+\_\+t send\+\_\+time)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_af3887a69eeb3f130a9673e761a877f4c}{UWB\+\_\+\+Query\+\_\+\+Timer\+Callback}} (\doxymbox{\hyperlink{_timing_8h_aa4cfa56f0ecbc0a890da7fb57c15ee75}{Timer\+\_\+\+Callbacks}} timer\+\_\+callback)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a43177fdcc16044aa39f76c8c6904a3d6}{UWB\+\_\+\+Query\+\_\+\+Button\+Callback}} (uint8\+\_\+t button)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_adda5c7ba4cde6461184718a1083754d8}{UWB\+\_\+\+Query\+\_\+\+UWB\+\_\+\+New\+\_\+\+Range}} (uint16\+\_\+t device, float range, float rx\+\_\+power)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a82c360c8367720d6ca466925701c69df}{UWB\+\_\+\+Query\+\_\+\+Exit}} ()
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_ade9d656b9f4bcdaa8b2284ed4a75b5ab}{UWB\+\_\+\+Response\+\_\+\+Enter}} ()
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a7e41b8fc5225a8fd3481a4d3984f122b}{UWB\+\_\+\+Response\+\_\+\+Receive\+Callback}} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, int data\+Len, uint32\+\_\+t receive\+\_\+time)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a6467e53b87d63fc0214193345c1475c9}{UWB\+\_\+\+Response\+\_\+\+Sent\+Callback}} (uint32\+\_\+t send\+\_\+time)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a7444c8f0a1a22d4392fd9d19d98d7c6c}{UWB\+\_\+\+Response\+\_\+\+Timer\+Callback}} (\doxymbox{\hyperlink{_timing_8h_aa4cfa56f0ecbc0a890da7fb57c15ee75}{Timer\+\_\+\+Callbacks}} timer\+\_\+callback)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_aaeaa2cab3b16b704da45d516f41432e6}{UWB\+\_\+\+Response\+\_\+\+Button\+Callback}} (uint8\+\_\+t button)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a3046d9bd9ff04de073a1cd9556fd55ec}{UWB\+\_\+\+Response\+\_\+\+UWB\+\_\+\+New\+\_\+\+Range}} (uint16\+\_\+t device, float range, float rx\+\_\+power)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_afcade9aeb918e3e43a52be8d1ff21f33}{UWB\+\_\+\+Response\+\_\+\+Exit}} ()
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a676e69c91b0609c49daa2ba8db3d6a8c}{Post\+\_\+\+UWB\+\_\+\+Check\+\_\+\+If\+\_\+\+All\+\_\+\+LGHS\+\_\+\+Set\+\_\+\+Enter}} ()
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a93921515e71a2a7c1f417599e6591b91}{Post\+\_\+\+UWB\+\_\+\+Check\+\_\+\+If\+\_\+\+All\+\_\+\+LGHS\+\_\+\+Set\+\_\+\+Receive\+Callback}} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, int data\+Len, uint32\+\_\+t receive\+\_\+time)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_ac3b409d39d84b7f423717eb2bcbb8283}{Post\+\_\+\+UWB\+\_\+\+Check\+\_\+\+If\+\_\+\+All\+\_\+\+LGHS\+\_\+\+Set\+\_\+\+Sent\+Callback}} (uint32\+\_\+t send\+\_\+time)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a42138f67cb639a19c90c91fd2e691d0c}{Post\+\_\+\+UWB\+\_\+\+Check\+\_\+\+If\+\_\+\+All\+\_\+\+LGHS\+\_\+\+Set\+\_\+\+Timer\+Callback}} (\doxymbox{\hyperlink{_timing_8h_aa4cfa56f0ecbc0a890da7fb57c15ee75}{Timer\+\_\+\+Callbacks}} timer\+\_\+callback)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a1b94478481f09b1390fd27e108b64f17}{Post\+\_\+\+UWB\+\_\+\+Check\+\_\+\+If\+\_\+\+All\+\_\+\+LGHS\+\_\+\+Set\+\_\+\+Button\+Callback}} (uint8\+\_\+t button)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_ae98affbba257f65725baa48b09f48f18}{Post\+\_\+\+UWB\+\_\+\+Check\+\_\+\+If\+\_\+\+All\+\_\+\+LGHS\+\_\+\+Set\+\_\+\+UWB\+\_\+\+New\+\_\+\+Range}} (uint16\+\_\+t device, float range, float rx\+\_\+power)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a78baf1e5d9f9e036075c4ba93a64c050}{Post\+\_\+\+UWB\+\_\+\+Check\+\_\+\+If\+\_\+\+All\+\_\+\+LGHS\+\_\+\+Set\+\_\+\+Exit}} ()
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_afa57513fcf669c3c4e698a3303b48aef}{Relay\+\_\+\+UWB\+\_\+\+Quering\+\_\+\+Enter}} ()
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a02d017b6ad60f07efaaa729cd589df77}{Relay\+\_\+\+UWB\+\_\+\+Quering\+\_\+\+Receive\+Callback}} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, int data\+Len, uint32\+\_\+t receive\+\_\+time)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a011fcb43cf78f831580e81c0898b9e4b}{Relay\+\_\+\+UWB\+\_\+\+Quering\+\_\+\+Sent\+Callback}} (uint32\+\_\+t send\+\_\+time)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a873d91f092fa7c31dff757ea2afef6a1}{Relay\+\_\+\+UWB\+\_\+\+Quering\+\_\+\+Timer\+Callback}} (\doxymbox{\hyperlink{_timing_8h_aa4cfa56f0ecbc0a890da7fb57c15ee75}{Timer\+\_\+\+Callbacks}} timer\+\_\+callback)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a73be1cb974b5b7bcda997e3f7a78fc69}{Relay\+\_\+\+UWB\+\_\+\+Quering\+\_\+\+Button\+Callback}} (uint8\+\_\+t button)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a2e958de994a348224d7492d54c36db6a}{Relay\+\_\+\+UWB\+\_\+\+Quering\+\_\+\+UWB\+\_\+\+New\+\_\+\+Range}} (uint16\+\_\+t device, float range, float rx\+\_\+power)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a58514337c079bfcedc8bd72b8beac1c8}{Relay\+\_\+\+UWB\+\_\+\+Quering\+\_\+\+Exit}} ()
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a12f1af1b3c813cfdf0f486de7a91daec}{Inform\+\_\+\+End\+\_\+\+Config\+\_\+\+Enter}} ()
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a3847dbd0bbadb0750c6838464f84b5e7}{Inform\+\_\+\+End\+\_\+\+Config\+\_\+\+Receive\+Callback}} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, int data\+Len, uint32\+\_\+t receive\+\_\+time)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a60861e6e8bc0bbe6ea532292d5785e16}{Inform\+\_\+\+End\+\_\+\+Config\+\_\+\+Sent\+Callback}} (uint32\+\_\+t send\+\_\+time)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_ae5554142b5e83f77c98d45694adfd29b}{Inform\+\_\+\+End\+\_\+\+Config\+\_\+\+Timer\+Callback}} (\doxymbox{\hyperlink{_timing_8h_aa4cfa56f0ecbc0a890da7fb57c15ee75}{Timer\+\_\+\+Callbacks}} timer\+\_\+callback)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_aa8272f62996c3004550b891a41d259e8}{Inform\+\_\+\+End\+\_\+\+Config\+\_\+\+Button\+Callback}} (uint8\+\_\+t button)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_ad890afaa19a685cc06a2715e190f333b}{Inform\+\_\+\+End\+\_\+\+Config\+\_\+\+UWB\+\_\+\+New\+\_\+\+Range}} (uint16\+\_\+t device, float range, float rx\+\_\+power)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a44ee926415eab0475c7dbe6f0755f949}{Inform\+\_\+\+End\+\_\+\+Config\+\_\+\+Exit}} ()
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_ab429cb746174f2fdcf9ae1a7e9fffd9b}{Distance\+\_\+\+Measure\+\_\+\+Response\+\_\+\+Enter}} ()
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a119a3e81ba111bedc37fb47b737cd89c}{Distance\+\_\+\+Measure\+\_\+\+Response\+\_\+\+Receive\+Callback}} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, int data\+Len, uint32\+\_\+t receive\+\_\+time)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a208c66475459f777858e515463553b04}{Distance\+\_\+\+Measure\+\_\+\+Response\+\_\+\+Sent\+Callback}} (uint32\+\_\+t send\+\_\+time)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a285c8968d7226dc6055bb0688048e18e}{Distance\+\_\+\+Measure\+\_\+\+Response\+\_\+\+Timer\+Callback}} (\doxymbox{\hyperlink{_timing_8h_aa4cfa56f0ecbc0a890da7fb57c15ee75}{Timer\+\_\+\+Callbacks}} timer\+\_\+callback)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a2d56b55e7f08d810aa456a5ce53e4f52}{Distance\+\_\+\+Measure\+\_\+\+Response\+\_\+\+Button\+Callback}} (uint8\+\_\+t button)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_af7ee78dfd042d89b750546deda5fc599}{Distance\+\_\+\+Measure\+\_\+\+Response\+\_\+\+UWB\+\_\+\+New\+\_\+\+Range}} (uint16\+\_\+t device, float range, float rx\+\_\+power)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a15599a3738d20b276154690cb6356a7b}{Distance\+\_\+\+Measure\+\_\+\+Response\+\_\+\+Exit}} ()
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_abf09c8b2ca7e2b348103e4494e4637d2}{Distance\+\_\+\+Measure\+\_\+\+Query\+\_\+\+Enter}} ()
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a01c8d6b7e7be33abaf3c0d91b9222324}{Distance\+\_\+\+Measure\+\_\+\+Query\+\_\+\+Receive\+Callback}} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, int data\+Len, uint32\+\_\+t receive\+\_\+time)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a6238b087ba97150654554636e57faeb0}{Distance\+\_\+\+Measure\+\_\+\+Query\+\_\+\+Sent\+Callback}} (uint32\+\_\+t send\+\_\+time)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_afcfd8d6a915804e4f63ceae04389530f}{Distance\+\_\+\+Measure\+\_\+\+Query\+\_\+\+Timer\+Callback}} (\doxymbox{\hyperlink{_timing_8h_aa4cfa56f0ecbc0a890da7fb57c15ee75}{Timer\+\_\+\+Callbacks}} timer\+\_\+callback)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a4b58a37162a5104d8fae036cb646e57a}{Distance\+\_\+\+Measure\+\_\+\+Query\+\_\+\+Button\+Callback}} (uint8\+\_\+t button)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_ad1570c15c149020f3a6761163ae19287}{Distance\+\_\+\+Measure\+\_\+\+Query\+\_\+\+UWB\+\_\+\+New\+\_\+\+Range}} (uint16\+\_\+t device, float range, float rx\+\_\+power)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_ac7b497cb40135e442c8ce28565ebbb0a}{Distance\+\_\+\+Measure\+\_\+\+Query\+\_\+\+Exit}} ()
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a5db1e0ebb7b4ac25fae627cce7a8eda7}{Send\+\_\+\+Calculated\+\_\+\+Position\+\_\+\+Enter}} ()
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a5f1b2e31bff835bddc69a5c753f02751}{Send\+\_\+\+Calculated\+\_\+\+Position\+\_\+\+Receive\+Callback}} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, int data\+Len, uint32\+\_\+t receive\+\_\+time)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a445ab32c4f419dc808f43c8c752f2bd6}{Send\+\_\+\+Calculated\+\_\+\+Position\+\_\+\+Sent\+Callback}} (uint32\+\_\+t send\+\_\+time)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a534e4ba4242361faf5b14bf977f2dbe8}{Send\+\_\+\+Calculated\+\_\+\+Position\+\_\+\+Timer\+Callback}} (\doxymbox{\hyperlink{_timing_8h_aa4cfa56f0ecbc0a890da7fb57c15ee75}{Timer\+\_\+\+Callbacks}} timer\+\_\+callback)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a3558d5db86bcaf1331d792dd32ea145b}{Send\+\_\+\+Calculated\+\_\+\+Position\+\_\+\+Button\+Callback}} (uint8\+\_\+t button)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a8bbb1312a1aad37bf62eaa5d3171c233}{Send\+\_\+\+Calculated\+\_\+\+Position\+\_\+\+UWB\+\_\+\+New\+\_\+\+Range}} (uint16\+\_\+t device, float range, float rx\+\_\+power)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a95b7dd212da4b9f1ca04a95d67c3aae2}{Send\+\_\+\+Calculated\+\_\+\+Position\+\_\+\+Exit}} ()
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_aacce87b791354c8b99a2144bbe991b39}{Observer\+\_\+\+Response\+\_\+\+Enter}} ()
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a3992e01ff7f3aa148669d4cc05730111}{Observer\+\_\+\+Response\+\_\+\+Receive\+Callback}} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, int data\+Len, uint32\+\_\+t receive\+\_\+time)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a06cceecd8deca7e38a336710b5332cf5}{Observer\+\_\+\+Response\+\_\+\+Sent\+Callback}} (uint32\+\_\+t send\+\_\+time)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a26cb4ef4fdebd41f33cc355b89c3fe97}{Observer\+\_\+\+Response\+\_\+\+Timer\+Callback}} (\doxymbox{\hyperlink{_timing_8h_aa4cfa56f0ecbc0a890da7fb57c15ee75}{Timer\+\_\+\+Callbacks}} timer\+\_\+callback)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_acff20a0fd977da6fb49ad4b4ecf25dde}{Observer\+\_\+\+Response\+\_\+\+Button\+Callback}} (uint8\+\_\+t button)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_ae68854a9bd56f612709affb6daf0b9bc}{Observer\+\_\+\+Response\+\_\+\+UWB\+\_\+\+New\+\_\+\+Range}} (uint16\+\_\+t device, float range, float rx\+\_\+power)
+\item 
+void \doxymbox{\hyperlink{_state_machine_individual_8cpp_a84c2f6df5281075d272386b5fc942823}{Observer\+\_\+\+Response\+\_\+\+Exit}} ()
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{_state_machine_individual_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{_state_machine_individual_8cpp_a4b58a37162a5104d8fae036cb646e57a}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Distance\_Measure\_Query\_ButtonCallback@{Distance\_Measure\_Query\_ButtonCallback}}
+\index{Distance\_Measure\_Query\_ButtonCallback@{Distance\_Measure\_Query\_ButtonCallback}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Distance\_Measure\_Query\_ButtonCallback()}{Distance\_Measure\_Query\_ButtonCallback()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a4b58a37162a5104d8fae036cb646e57a} 
+void Distance\+\_\+\+Measure\+\_\+\+Query\+\_\+\+Button\+Callback (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{button}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_abf09c8b2ca7e2b348103e4494e4637d2}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Distance\_Measure\_Query\_Enter@{Distance\_Measure\_Query\_Enter}}
+\index{Distance\_Measure\_Query\_Enter@{Distance\_Measure\_Query\_Enter}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Distance\_Measure\_Query\_Enter()}{Distance\_Measure\_Query\_Enter()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_abf09c8b2ca7e2b348103e4494e4637d2} 
+void Distance\+\_\+\+Measure\+\_\+\+Query\+\_\+\+Enter (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_ac7b497cb40135e442c8ce28565ebbb0a}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Distance\_Measure\_Query\_Exit@{Distance\_Measure\_Query\_Exit}}
+\index{Distance\_Measure\_Query\_Exit@{Distance\_Measure\_Query\_Exit}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Distance\_Measure\_Query\_Exit()}{Distance\_Measure\_Query\_Exit()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_ac7b497cb40135e442c8ce28565ebbb0a} 
+void Distance\+\_\+\+Measure\+\_\+\+Query\+\_\+\+Exit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a01c8d6b7e7be33abaf3c0d91b9222324}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Distance\_Measure\_Query\_ReceiveCallback@{Distance\_Measure\_Query\_ReceiveCallback}}
+\index{Distance\_Measure\_Query\_ReceiveCallback@{Distance\_Measure\_Query\_ReceiveCallback}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Distance\_Measure\_Query\_ReceiveCallback()}{Distance\_Measure\_Query\_ReceiveCallback()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a01c8d6b7e7be33abaf3c0d91b9222324} 
+void Distance\+\_\+\+Measure\+\_\+\+Query\+\_\+\+Receive\+Callback (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{int}]{data\+Len}{, }\item[{uint32\+\_\+t}]{receive\+\_\+time}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a6238b087ba97150654554636e57faeb0}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Distance\_Measure\_Query\_SentCallback@{Distance\_Measure\_Query\_SentCallback}}
+\index{Distance\_Measure\_Query\_SentCallback@{Distance\_Measure\_Query\_SentCallback}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Distance\_Measure\_Query\_SentCallback()}{Distance\_Measure\_Query\_SentCallback()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a6238b087ba97150654554636e57faeb0} 
+void Distance\+\_\+\+Measure\+\_\+\+Query\+\_\+\+Sent\+Callback (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{send\+\_\+time}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_afcfd8d6a915804e4f63ceae04389530f}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Distance\_Measure\_Query\_TimerCallback@{Distance\_Measure\_Query\_TimerCallback}}
+\index{Distance\_Measure\_Query\_TimerCallback@{Distance\_Measure\_Query\_TimerCallback}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Distance\_Measure\_Query\_TimerCallback()}{Distance\_Measure\_Query\_TimerCallback()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_afcfd8d6a915804e4f63ceae04389530f} 
+void Distance\+\_\+\+Measure\+\_\+\+Query\+\_\+\+Timer\+Callback (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{_timing_8h_aa4cfa56f0ecbc0a890da7fb57c15ee75}{Timer\+\_\+\+Callbacks}}}]{timer\+\_\+callback}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_ad1570c15c149020f3a6761163ae19287}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Distance\_Measure\_Query\_UWB\_New\_Range@{Distance\_Measure\_Query\_UWB\_New\_Range}}
+\index{Distance\_Measure\_Query\_UWB\_New\_Range@{Distance\_Measure\_Query\_UWB\_New\_Range}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Distance\_Measure\_Query\_UWB\_New\_Range()}{Distance\_Measure\_Query\_UWB\_New\_Range()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_ad1570c15c149020f3a6761163ae19287} 
+void Distance\+\_\+\+Measure\+\_\+\+Query\+\_\+\+UWB\+\_\+\+New\+\_\+\+Range (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{device}{, }\item[{float}]{range}{, }\item[{float}]{rx\+\_\+power}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a2d56b55e7f08d810aa456a5ce53e4f52}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Distance\_Measure\_Response\_ButtonCallback@{Distance\_Measure\_Response\_ButtonCallback}}
+\index{Distance\_Measure\_Response\_ButtonCallback@{Distance\_Measure\_Response\_ButtonCallback}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Distance\_Measure\_Response\_ButtonCallback()}{Distance\_Measure\_Response\_ButtonCallback()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a2d56b55e7f08d810aa456a5ce53e4f52} 
+void Distance\+\_\+\+Measure\+\_\+\+Response\+\_\+\+Button\+Callback (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{button}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_ab429cb746174f2fdcf9ae1a7e9fffd9b}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Distance\_Measure\_Response\_Enter@{Distance\_Measure\_Response\_Enter}}
+\index{Distance\_Measure\_Response\_Enter@{Distance\_Measure\_Response\_Enter}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Distance\_Measure\_Response\_Enter()}{Distance\_Measure\_Response\_Enter()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_ab429cb746174f2fdcf9ae1a7e9fffd9b} 
+void Distance\+\_\+\+Measure\+\_\+\+Response\+\_\+\+Enter (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a15599a3738d20b276154690cb6356a7b}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Distance\_Measure\_Response\_Exit@{Distance\_Measure\_Response\_Exit}}
+\index{Distance\_Measure\_Response\_Exit@{Distance\_Measure\_Response\_Exit}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Distance\_Measure\_Response\_Exit()}{Distance\_Measure\_Response\_Exit()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a15599a3738d20b276154690cb6356a7b} 
+void Distance\+\_\+\+Measure\+\_\+\+Response\+\_\+\+Exit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a119a3e81ba111bedc37fb47b737cd89c}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Distance\_Measure\_Response\_ReceiveCallback@{Distance\_Measure\_Response\_ReceiveCallback}}
+\index{Distance\_Measure\_Response\_ReceiveCallback@{Distance\_Measure\_Response\_ReceiveCallback}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Distance\_Measure\_Response\_ReceiveCallback()}{Distance\_Measure\_Response\_ReceiveCallback()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a119a3e81ba111bedc37fb47b737cd89c} 
+void Distance\+\_\+\+Measure\+\_\+\+Response\+\_\+\+Receive\+Callback (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{int}]{data\+Len}{, }\item[{uint32\+\_\+t}]{receive\+\_\+time}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a208c66475459f777858e515463553b04}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Distance\_Measure\_Response\_SentCallback@{Distance\_Measure\_Response\_SentCallback}}
+\index{Distance\_Measure\_Response\_SentCallback@{Distance\_Measure\_Response\_SentCallback}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Distance\_Measure\_Response\_SentCallback()}{Distance\_Measure\_Response\_SentCallback()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a208c66475459f777858e515463553b04} 
+void Distance\+\_\+\+Measure\+\_\+\+Response\+\_\+\+Sent\+Callback (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{send\+\_\+time}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a285c8968d7226dc6055bb0688048e18e}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Distance\_Measure\_Response\_TimerCallback@{Distance\_Measure\_Response\_TimerCallback}}
+\index{Distance\_Measure\_Response\_TimerCallback@{Distance\_Measure\_Response\_TimerCallback}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Distance\_Measure\_Response\_TimerCallback()}{Distance\_Measure\_Response\_TimerCallback()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a285c8968d7226dc6055bb0688048e18e} 
+void Distance\+\_\+\+Measure\+\_\+\+Response\+\_\+\+Timer\+Callback (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{_timing_8h_aa4cfa56f0ecbc0a890da7fb57c15ee75}{Timer\+\_\+\+Callbacks}}}]{timer\+\_\+callback}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_af7ee78dfd042d89b750546deda5fc599}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Distance\_Measure\_Response\_UWB\_New\_Range@{Distance\_Measure\_Response\_UWB\_New\_Range}}
+\index{Distance\_Measure\_Response\_UWB\_New\_Range@{Distance\_Measure\_Response\_UWB\_New\_Range}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Distance\_Measure\_Response\_UWB\_New\_Range()}{Distance\_Measure\_Response\_UWB\_New\_Range()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_af7ee78dfd042d89b750546deda5fc599} 
+void Distance\+\_\+\+Measure\+\_\+\+Response\+\_\+\+UWB\+\_\+\+New\+\_\+\+Range (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{device}{, }\item[{float}]{range}{, }\item[{float}]{rx\+\_\+power}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_aa8272f62996c3004550b891a41d259e8}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Inform\_End\_Config\_ButtonCallback@{Inform\_End\_Config\_ButtonCallback}}
+\index{Inform\_End\_Config\_ButtonCallback@{Inform\_End\_Config\_ButtonCallback}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Inform\_End\_Config\_ButtonCallback()}{Inform\_End\_Config\_ButtonCallback()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_aa8272f62996c3004550b891a41d259e8} 
+void Inform\+\_\+\+End\+\_\+\+Config\+\_\+\+Button\+Callback (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{button}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a12f1af1b3c813cfdf0f486de7a91daec}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Inform\_End\_Config\_Enter@{Inform\_End\_Config\_Enter}}
+\index{Inform\_End\_Config\_Enter@{Inform\_End\_Config\_Enter}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Inform\_End\_Config\_Enter()}{Inform\_End\_Config\_Enter()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a12f1af1b3c813cfdf0f486de7a91daec} 
+void Inform\+\_\+\+End\+\_\+\+Config\+\_\+\+Enter (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a44ee926415eab0475c7dbe6f0755f949}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Inform\_End\_Config\_Exit@{Inform\_End\_Config\_Exit}}
+\index{Inform\_End\_Config\_Exit@{Inform\_End\_Config\_Exit}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Inform\_End\_Config\_Exit()}{Inform\_End\_Config\_Exit()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a44ee926415eab0475c7dbe6f0755f949} 
+void Inform\+\_\+\+End\+\_\+\+Config\+\_\+\+Exit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a3847dbd0bbadb0750c6838464f84b5e7}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Inform\_End\_Config\_ReceiveCallback@{Inform\_End\_Config\_ReceiveCallback}}
+\index{Inform\_End\_Config\_ReceiveCallback@{Inform\_End\_Config\_ReceiveCallback}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Inform\_End\_Config\_ReceiveCallback()}{Inform\_End\_Config\_ReceiveCallback()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a3847dbd0bbadb0750c6838464f84b5e7} 
+void Inform\+\_\+\+End\+\_\+\+Config\+\_\+\+Receive\+Callback (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{int}]{data\+Len}{, }\item[{uint32\+\_\+t}]{receive\+\_\+time}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a60861e6e8bc0bbe6ea532292d5785e16}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Inform\_End\_Config\_SentCallback@{Inform\_End\_Config\_SentCallback}}
+\index{Inform\_End\_Config\_SentCallback@{Inform\_End\_Config\_SentCallback}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Inform\_End\_Config\_SentCallback()}{Inform\_End\_Config\_SentCallback()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a60861e6e8bc0bbe6ea532292d5785e16} 
+void Inform\+\_\+\+End\+\_\+\+Config\+\_\+\+Sent\+Callback (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{send\+\_\+time}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_ae5554142b5e83f77c98d45694adfd29b}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Inform\_End\_Config\_TimerCallback@{Inform\_End\_Config\_TimerCallback}}
+\index{Inform\_End\_Config\_TimerCallback@{Inform\_End\_Config\_TimerCallback}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Inform\_End\_Config\_TimerCallback()}{Inform\_End\_Config\_TimerCallback()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_ae5554142b5e83f77c98d45694adfd29b} 
+void Inform\+\_\+\+End\+\_\+\+Config\+\_\+\+Timer\+Callback (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{_timing_8h_aa4cfa56f0ecbc0a890da7fb57c15ee75}{Timer\+\_\+\+Callbacks}}}]{timer\+\_\+callback}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_ad890afaa19a685cc06a2715e190f333b}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Inform\_End\_Config\_UWB\_New\_Range@{Inform\_End\_Config\_UWB\_New\_Range}}
+\index{Inform\_End\_Config\_UWB\_New\_Range@{Inform\_End\_Config\_UWB\_New\_Range}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Inform\_End\_Config\_UWB\_New\_Range()}{Inform\_End\_Config\_UWB\_New\_Range()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_ad890afaa19a685cc06a2715e190f333b} 
+void Inform\+\_\+\+End\+\_\+\+Config\+\_\+\+UWB\+\_\+\+New\+\_\+\+Range (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{device}{, }\item[{float}]{range}{, }\item[{float}]{rx\+\_\+power}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a447bdcdddc967aa5588ae3ea4d6a5459}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Initial\_ButtonCallback@{Initial\_ButtonCallback}}
+\index{Initial\_ButtonCallback@{Initial\_ButtonCallback}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Initial\_ButtonCallback()}{Initial\_ButtonCallback()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a447bdcdddc967aa5588ae3ea4d6a5459} 
+void Initial\+\_\+\+Button\+Callback (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{button}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a1f437ba9dbfdcbfed50709d34529dc72}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Initial\_Enter@{Initial\_Enter}}
+\index{Initial\_Enter@{Initial\_Enter}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Initial\_Enter()}{Initial\_Enter()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a1f437ba9dbfdcbfed50709d34529dc72} 
+void Initial\+\_\+\+Enter (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_abe66698809f83c3a9a7cf2757a9e39e7}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Initial\_Exit@{Initial\_Exit}}
+\index{Initial\_Exit@{Initial\_Exit}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Initial\_Exit()}{Initial\_Exit()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_abe66698809f83c3a9a7cf2757a9e39e7} 
+void Initial\+\_\+\+Exit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a1a1bc9eb31e75d94f40096a694ac5884}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Initial\_ReceiveCallback@{Initial\_ReceiveCallback}}
+\index{Initial\_ReceiveCallback@{Initial\_ReceiveCallback}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Initial\_ReceiveCallback()}{Initial\_ReceiveCallback()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a1a1bc9eb31e75d94f40096a694ac5884} 
+void Initial\+\_\+\+Receive\+Callback (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{int}]{data\+Len}{, }\item[{uint32\+\_\+t}]{receive\+\_\+time}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a79aa0e62d4f7dda633b28c249bb40314}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Initial\_SentCallback@{Initial\_SentCallback}}
+\index{Initial\_SentCallback@{Initial\_SentCallback}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Initial\_SentCallback()}{Initial\_SentCallback()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a79aa0e62d4f7dda633b28c249bb40314} 
+void Initial\+\_\+\+Sent\+Callback (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{send\+\_\+time}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a3d8ba73994c9dae74db103315344119b}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Initial\_TimerCallback@{Initial\_TimerCallback}}
+\index{Initial\_TimerCallback@{Initial\_TimerCallback}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Initial\_TimerCallback()}{Initial\_TimerCallback()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a3d8ba73994c9dae74db103315344119b} 
+void Initial\+\_\+\+Timer\+Callback (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{_timing_8h_aa4cfa56f0ecbc0a890da7fb57c15ee75}{Timer\+\_\+\+Callbacks}}}]{timer\+\_\+callback}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a9bcdbfe549bce16ce4e8c116df083e04}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Initial\_UWB\_New\_Range@{Initial\_UWB\_New\_Range}}
+\index{Initial\_UWB\_New\_Range@{Initial\_UWB\_New\_Range}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Initial\_UWB\_New\_Range()}{Initial\_UWB\_New\_Range()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a9bcdbfe549bce16ce4e8c116df083e04} 
+void Initial\+\_\+\+UWB\+\_\+\+New\+\_\+\+Range (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{device}{, }\item[{float}]{range}{, }\item[{float}]{rx\+\_\+power}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_acff20a0fd977da6fb49ad4b4ecf25dde}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Observer\_Response\_ButtonCallback@{Observer\_Response\_ButtonCallback}}
+\index{Observer\_Response\_ButtonCallback@{Observer\_Response\_ButtonCallback}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Observer\_Response\_ButtonCallback()}{Observer\_Response\_ButtonCallback()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_acff20a0fd977da6fb49ad4b4ecf25dde} 
+void Observer\+\_\+\+Response\+\_\+\+Button\+Callback (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{button}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_aacce87b791354c8b99a2144bbe991b39}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Observer\_Response\_Enter@{Observer\_Response\_Enter}}
+\index{Observer\_Response\_Enter@{Observer\_Response\_Enter}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Observer\_Response\_Enter()}{Observer\_Response\_Enter()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_aacce87b791354c8b99a2144bbe991b39} 
+void Observer\+\_\+\+Response\+\_\+\+Enter (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a84c2f6df5281075d272386b5fc942823}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Observer\_Response\_Exit@{Observer\_Response\_Exit}}
+\index{Observer\_Response\_Exit@{Observer\_Response\_Exit}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Observer\_Response\_Exit()}{Observer\_Response\_Exit()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a84c2f6df5281075d272386b5fc942823} 
+void Observer\+\_\+\+Response\+\_\+\+Exit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a3992e01ff7f3aa148669d4cc05730111}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Observer\_Response\_ReceiveCallback@{Observer\_Response\_ReceiveCallback}}
+\index{Observer\_Response\_ReceiveCallback@{Observer\_Response\_ReceiveCallback}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Observer\_Response\_ReceiveCallback()}{Observer\_Response\_ReceiveCallback()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a3992e01ff7f3aa148669d4cc05730111} 
+void Observer\+\_\+\+Response\+\_\+\+Receive\+Callback (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{int}]{data\+Len}{, }\item[{uint32\+\_\+t}]{receive\+\_\+time}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a06cceecd8deca7e38a336710b5332cf5}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Observer\_Response\_SentCallback@{Observer\_Response\_SentCallback}}
+\index{Observer\_Response\_SentCallback@{Observer\_Response\_SentCallback}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Observer\_Response\_SentCallback()}{Observer\_Response\_SentCallback()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a06cceecd8deca7e38a336710b5332cf5} 
+void Observer\+\_\+\+Response\+\_\+\+Sent\+Callback (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{send\+\_\+time}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a26cb4ef4fdebd41f33cc355b89c3fe97}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Observer\_Response\_TimerCallback@{Observer\_Response\_TimerCallback}}
+\index{Observer\_Response\_TimerCallback@{Observer\_Response\_TimerCallback}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Observer\_Response\_TimerCallback()}{Observer\_Response\_TimerCallback()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a26cb4ef4fdebd41f33cc355b89c3fe97} 
+void Observer\+\_\+\+Response\+\_\+\+Timer\+Callback (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{_timing_8h_aa4cfa56f0ecbc0a890da7fb57c15ee75}{Timer\+\_\+\+Callbacks}}}]{timer\+\_\+callback}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_ae68854a9bd56f612709affb6daf0b9bc}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Observer\_Response\_UWB\_New\_Range@{Observer\_Response\_UWB\_New\_Range}}
+\index{Observer\_Response\_UWB\_New\_Range@{Observer\_Response\_UWB\_New\_Range}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Observer\_Response\_UWB\_New\_Range()}{Observer\_Response\_UWB\_New\_Range()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_ae68854a9bd56f612709affb6daf0b9bc} 
+void Observer\+\_\+\+Response\+\_\+\+UWB\+\_\+\+New\+\_\+\+Range (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{device}{, }\item[{float}]{range}{, }\item[{float}]{rx\+\_\+power}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a1b94478481f09b1390fd27e108b64f17}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Post\_UWB\_Check\_If\_All\_LGHS\_Set\_ButtonCallback@{Post\_UWB\_Check\_If\_All\_LGHS\_Set\_ButtonCallback}}
+\index{Post\_UWB\_Check\_If\_All\_LGHS\_Set\_ButtonCallback@{Post\_UWB\_Check\_If\_All\_LGHS\_Set\_ButtonCallback}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Post\_UWB\_Check\_If\_All\_LGHS\_Set\_ButtonCallback()}{Post\_UWB\_Check\_If\_All\_LGHS\_Set\_ButtonCallback()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a1b94478481f09b1390fd27e108b64f17} 
+void Post\+\_\+\+UWB\+\_\+\+Check\+\_\+\+If\+\_\+\+All\+\_\+\+LGHS\+\_\+\+Set\+\_\+\+Button\+Callback (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{button}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a676e69c91b0609c49daa2ba8db3d6a8c}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Post\_UWB\_Check\_If\_All\_LGHS\_Set\_Enter@{Post\_UWB\_Check\_If\_All\_LGHS\_Set\_Enter}}
+\index{Post\_UWB\_Check\_If\_All\_LGHS\_Set\_Enter@{Post\_UWB\_Check\_If\_All\_LGHS\_Set\_Enter}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Post\_UWB\_Check\_If\_All\_LGHS\_Set\_Enter()}{Post\_UWB\_Check\_If\_All\_LGHS\_Set\_Enter()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a676e69c91b0609c49daa2ba8db3d6a8c} 
+void Post\+\_\+\+UWB\+\_\+\+Check\+\_\+\+If\+\_\+\+All\+\_\+\+LGHS\+\_\+\+Set\+\_\+\+Enter (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a78baf1e5d9f9e036075c4ba93a64c050}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Post\_UWB\_Check\_If\_All\_LGHS\_Set\_Exit@{Post\_UWB\_Check\_If\_All\_LGHS\_Set\_Exit}}
+\index{Post\_UWB\_Check\_If\_All\_LGHS\_Set\_Exit@{Post\_UWB\_Check\_If\_All\_LGHS\_Set\_Exit}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Post\_UWB\_Check\_If\_All\_LGHS\_Set\_Exit()}{Post\_UWB\_Check\_If\_All\_LGHS\_Set\_Exit()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a78baf1e5d9f9e036075c4ba93a64c050} 
+void Post\+\_\+\+UWB\+\_\+\+Check\+\_\+\+If\+\_\+\+All\+\_\+\+LGHS\+\_\+\+Set\+\_\+\+Exit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a93921515e71a2a7c1f417599e6591b91}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Post\_UWB\_Check\_If\_All\_LGHS\_Set\_ReceiveCallback@{Post\_UWB\_Check\_If\_All\_LGHS\_Set\_ReceiveCallback}}
+\index{Post\_UWB\_Check\_If\_All\_LGHS\_Set\_ReceiveCallback@{Post\_UWB\_Check\_If\_All\_LGHS\_Set\_ReceiveCallback}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Post\_UWB\_Check\_If\_All\_LGHS\_Set\_ReceiveCallback()}{Post\_UWB\_Check\_If\_All\_LGHS\_Set\_ReceiveCallback()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a93921515e71a2a7c1f417599e6591b91} 
+void Post\+\_\+\+UWB\+\_\+\+Check\+\_\+\+If\+\_\+\+All\+\_\+\+LGHS\+\_\+\+Set\+\_\+\+Receive\+Callback (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{int}]{data\+Len}{, }\item[{uint32\+\_\+t}]{receive\+\_\+time}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_ac3b409d39d84b7f423717eb2bcbb8283}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Post\_UWB\_Check\_If\_All\_LGHS\_Set\_SentCallback@{Post\_UWB\_Check\_If\_All\_LGHS\_Set\_SentCallback}}
+\index{Post\_UWB\_Check\_If\_All\_LGHS\_Set\_SentCallback@{Post\_UWB\_Check\_If\_All\_LGHS\_Set\_SentCallback}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Post\_UWB\_Check\_If\_All\_LGHS\_Set\_SentCallback()}{Post\_UWB\_Check\_If\_All\_LGHS\_Set\_SentCallback()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_ac3b409d39d84b7f423717eb2bcbb8283} 
+void Post\+\_\+\+UWB\+\_\+\+Check\+\_\+\+If\+\_\+\+All\+\_\+\+LGHS\+\_\+\+Set\+\_\+\+Sent\+Callback (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{send\+\_\+time}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a42138f67cb639a19c90c91fd2e691d0c}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Post\_UWB\_Check\_If\_All\_LGHS\_Set\_TimerCallback@{Post\_UWB\_Check\_If\_All\_LGHS\_Set\_TimerCallback}}
+\index{Post\_UWB\_Check\_If\_All\_LGHS\_Set\_TimerCallback@{Post\_UWB\_Check\_If\_All\_LGHS\_Set\_TimerCallback}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Post\_UWB\_Check\_If\_All\_LGHS\_Set\_TimerCallback()}{Post\_UWB\_Check\_If\_All\_LGHS\_Set\_TimerCallback()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a42138f67cb639a19c90c91fd2e691d0c} 
+void Post\+\_\+\+UWB\+\_\+\+Check\+\_\+\+If\+\_\+\+All\+\_\+\+LGHS\+\_\+\+Set\+\_\+\+Timer\+Callback (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{_timing_8h_aa4cfa56f0ecbc0a890da7fb57c15ee75}{Timer\+\_\+\+Callbacks}}}]{timer\+\_\+callback}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_ae98affbba257f65725baa48b09f48f18}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Post\_UWB\_Check\_If\_All\_LGHS\_Set\_UWB\_New\_Range@{Post\_UWB\_Check\_If\_All\_LGHS\_Set\_UWB\_New\_Range}}
+\index{Post\_UWB\_Check\_If\_All\_LGHS\_Set\_UWB\_New\_Range@{Post\_UWB\_Check\_If\_All\_LGHS\_Set\_UWB\_New\_Range}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Post\_UWB\_Check\_If\_All\_LGHS\_Set\_UWB\_New\_Range()}{Post\_UWB\_Check\_If\_All\_LGHS\_Set\_UWB\_New\_Range()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_ae98affbba257f65725baa48b09f48f18} 
+void Post\+\_\+\+UWB\+\_\+\+Check\+\_\+\+If\+\_\+\+All\+\_\+\+LGHS\+\_\+\+Set\+\_\+\+UWB\+\_\+\+New\+\_\+\+Range (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{device}{, }\item[{float}]{range}{, }\item[{float}]{rx\+\_\+power}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a73be1cb974b5b7bcda997e3f7a78fc69}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Relay\_UWB\_Quering\_ButtonCallback@{Relay\_UWB\_Quering\_ButtonCallback}}
+\index{Relay\_UWB\_Quering\_ButtonCallback@{Relay\_UWB\_Quering\_ButtonCallback}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Relay\_UWB\_Quering\_ButtonCallback()}{Relay\_UWB\_Quering\_ButtonCallback()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a73be1cb974b5b7bcda997e3f7a78fc69} 
+void Relay\+\_\+\+UWB\+\_\+\+Quering\+\_\+\+Button\+Callback (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{button}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_afa57513fcf669c3c4e698a3303b48aef}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Relay\_UWB\_Quering\_Enter@{Relay\_UWB\_Quering\_Enter}}
+\index{Relay\_UWB\_Quering\_Enter@{Relay\_UWB\_Quering\_Enter}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Relay\_UWB\_Quering\_Enter()}{Relay\_UWB\_Quering\_Enter()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_afa57513fcf669c3c4e698a3303b48aef} 
+void Relay\+\_\+\+UWB\+\_\+\+Quering\+\_\+\+Enter (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a58514337c079bfcedc8bd72b8beac1c8}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Relay\_UWB\_Quering\_Exit@{Relay\_UWB\_Quering\_Exit}}
+\index{Relay\_UWB\_Quering\_Exit@{Relay\_UWB\_Quering\_Exit}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Relay\_UWB\_Quering\_Exit()}{Relay\_UWB\_Quering\_Exit()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a58514337c079bfcedc8bd72b8beac1c8} 
+void Relay\+\_\+\+UWB\+\_\+\+Quering\+\_\+\+Exit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a02d017b6ad60f07efaaa729cd589df77}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Relay\_UWB\_Quering\_ReceiveCallback@{Relay\_UWB\_Quering\_ReceiveCallback}}
+\index{Relay\_UWB\_Quering\_ReceiveCallback@{Relay\_UWB\_Quering\_ReceiveCallback}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Relay\_UWB\_Quering\_ReceiveCallback()}{Relay\_UWB\_Quering\_ReceiveCallback()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a02d017b6ad60f07efaaa729cd589df77} 
+void Relay\+\_\+\+UWB\+\_\+\+Quering\+\_\+\+Receive\+Callback (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{int}]{data\+Len}{, }\item[{uint32\+\_\+t}]{receive\+\_\+time}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a011fcb43cf78f831580e81c0898b9e4b}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Relay\_UWB\_Quering\_SentCallback@{Relay\_UWB\_Quering\_SentCallback}}
+\index{Relay\_UWB\_Quering\_SentCallback@{Relay\_UWB\_Quering\_SentCallback}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Relay\_UWB\_Quering\_SentCallback()}{Relay\_UWB\_Quering\_SentCallback()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a011fcb43cf78f831580e81c0898b9e4b} 
+void Relay\+\_\+\+UWB\+\_\+\+Quering\+\_\+\+Sent\+Callback (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{send\+\_\+time}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a873d91f092fa7c31dff757ea2afef6a1}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Relay\_UWB\_Quering\_TimerCallback@{Relay\_UWB\_Quering\_TimerCallback}}
+\index{Relay\_UWB\_Quering\_TimerCallback@{Relay\_UWB\_Quering\_TimerCallback}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Relay\_UWB\_Quering\_TimerCallback()}{Relay\_UWB\_Quering\_TimerCallback()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a873d91f092fa7c31dff757ea2afef6a1} 
+void Relay\+\_\+\+UWB\+\_\+\+Quering\+\_\+\+Timer\+Callback (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{_timing_8h_aa4cfa56f0ecbc0a890da7fb57c15ee75}{Timer\+\_\+\+Callbacks}}}]{timer\+\_\+callback}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a2e958de994a348224d7492d54c36db6a}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Relay\_UWB\_Quering\_UWB\_New\_Range@{Relay\_UWB\_Quering\_UWB\_New\_Range}}
+\index{Relay\_UWB\_Quering\_UWB\_New\_Range@{Relay\_UWB\_Quering\_UWB\_New\_Range}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Relay\_UWB\_Quering\_UWB\_New\_Range()}{Relay\_UWB\_Quering\_UWB\_New\_Range()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a2e958de994a348224d7492d54c36db6a} 
+void Relay\+\_\+\+UWB\+\_\+\+Quering\+\_\+\+UWB\+\_\+\+New\+\_\+\+Range (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{device}{, }\item[{float}]{range}{, }\item[{float}]{rx\+\_\+power}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a3558d5db86bcaf1331d792dd32ea145b}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Send\_Calculated\_Position\_ButtonCallback@{Send\_Calculated\_Position\_ButtonCallback}}
+\index{Send\_Calculated\_Position\_ButtonCallback@{Send\_Calculated\_Position\_ButtonCallback}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Send\_Calculated\_Position\_ButtonCallback()}{Send\_Calculated\_Position\_ButtonCallback()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a3558d5db86bcaf1331d792dd32ea145b} 
+void Send\+\_\+\+Calculated\+\_\+\+Position\+\_\+\+Button\+Callback (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{button}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a5db1e0ebb7b4ac25fae627cce7a8eda7}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Send\_Calculated\_Position\_Enter@{Send\_Calculated\_Position\_Enter}}
+\index{Send\_Calculated\_Position\_Enter@{Send\_Calculated\_Position\_Enter}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Send\_Calculated\_Position\_Enter()}{Send\_Calculated\_Position\_Enter()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a5db1e0ebb7b4ac25fae627cce7a8eda7} 
+void Send\+\_\+\+Calculated\+\_\+\+Position\+\_\+\+Enter (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a95b7dd212da4b9f1ca04a95d67c3aae2}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Send\_Calculated\_Position\_Exit@{Send\_Calculated\_Position\_Exit}}
+\index{Send\_Calculated\_Position\_Exit@{Send\_Calculated\_Position\_Exit}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Send\_Calculated\_Position\_Exit()}{Send\_Calculated\_Position\_Exit()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a95b7dd212da4b9f1ca04a95d67c3aae2} 
+void Send\+\_\+\+Calculated\+\_\+\+Position\+\_\+\+Exit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a5f1b2e31bff835bddc69a5c753f02751}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Send\_Calculated\_Position\_ReceiveCallback@{Send\_Calculated\_Position\_ReceiveCallback}}
+\index{Send\_Calculated\_Position\_ReceiveCallback@{Send\_Calculated\_Position\_ReceiveCallback}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Send\_Calculated\_Position\_ReceiveCallback()}{Send\_Calculated\_Position\_ReceiveCallback()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a5f1b2e31bff835bddc69a5c753f02751} 
+void Send\+\_\+\+Calculated\+\_\+\+Position\+\_\+\+Receive\+Callback (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{int}]{data\+Len}{, }\item[{uint32\+\_\+t}]{receive\+\_\+time}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a445ab32c4f419dc808f43c8c752f2bd6}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Send\_Calculated\_Position\_SentCallback@{Send\_Calculated\_Position\_SentCallback}}
+\index{Send\_Calculated\_Position\_SentCallback@{Send\_Calculated\_Position\_SentCallback}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Send\_Calculated\_Position\_SentCallback()}{Send\_Calculated\_Position\_SentCallback()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a445ab32c4f419dc808f43c8c752f2bd6} 
+void Send\+\_\+\+Calculated\+\_\+\+Position\+\_\+\+Sent\+Callback (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{send\+\_\+time}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a534e4ba4242361faf5b14bf977f2dbe8}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Send\_Calculated\_Position\_TimerCallback@{Send\_Calculated\_Position\_TimerCallback}}
+\index{Send\_Calculated\_Position\_TimerCallback@{Send\_Calculated\_Position\_TimerCallback}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Send\_Calculated\_Position\_TimerCallback()}{Send\_Calculated\_Position\_TimerCallback()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a534e4ba4242361faf5b14bf977f2dbe8} 
+void Send\+\_\+\+Calculated\+\_\+\+Position\+\_\+\+Timer\+Callback (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{_timing_8h_aa4cfa56f0ecbc0a890da7fb57c15ee75}{Timer\+\_\+\+Callbacks}}}]{timer\+\_\+callback}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a8bbb1312a1aad37bf62eaa5d3171c233}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!Send\_Calculated\_Position\_UWB\_New\_Range@{Send\_Calculated\_Position\_UWB\_New\_Range}}
+\index{Send\_Calculated\_Position\_UWB\_New\_Range@{Send\_Calculated\_Position\_UWB\_New\_Range}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{Send\_Calculated\_Position\_UWB\_New\_Range()}{Send\_Calculated\_Position\_UWB\_New\_Range()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a8bbb1312a1aad37bf62eaa5d3171c233} 
+void Send\+\_\+\+Calculated\+\_\+\+Position\+\_\+\+UWB\+\_\+\+New\+\_\+\+Range (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{device}{, }\item[{float}]{range}{, }\item[{float}]{rx\+\_\+power}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a43177fdcc16044aa39f76c8c6904a3d6}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!UWB\_Query\_ButtonCallback@{UWB\_Query\_ButtonCallback}}
+\index{UWB\_Query\_ButtonCallback@{UWB\_Query\_ButtonCallback}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{UWB\_Query\_ButtonCallback()}{UWB\_Query\_ButtonCallback()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a43177fdcc16044aa39f76c8c6904a3d6} 
+void UWB\+\_\+\+Query\+\_\+\+Button\+Callback (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{button}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a302e8d12aa408c263ff5e882a490c9b5}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!UWB\_Query\_Enter@{UWB\_Query\_Enter}}
+\index{UWB\_Query\_Enter@{UWB\_Query\_Enter}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{UWB\_Query\_Enter()}{UWB\_Query\_Enter()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a302e8d12aa408c263ff5e882a490c9b5} 
+void UWB\+\_\+\+Query\+\_\+\+Enter (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a82c360c8367720d6ca466925701c69df}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!UWB\_Query\_Exit@{UWB\_Query\_Exit}}
+\index{UWB\_Query\_Exit@{UWB\_Query\_Exit}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{UWB\_Query\_Exit()}{UWB\_Query\_Exit()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a82c360c8367720d6ca466925701c69df} 
+void UWB\+\_\+\+Query\+\_\+\+Exit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_ac0c338d2682b1627f9589e5991ef29c8}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!UWB\_Query\_ReceiveCallback@{UWB\_Query\_ReceiveCallback}}
+\index{UWB\_Query\_ReceiveCallback@{UWB\_Query\_ReceiveCallback}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{UWB\_Query\_ReceiveCallback()}{UWB\_Query\_ReceiveCallback()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_ac0c338d2682b1627f9589e5991ef29c8} 
+void UWB\+\_\+\+Query\+\_\+\+Receive\+Callback (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{int}]{data\+Len}{, }\item[{uint32\+\_\+t}]{receive\+\_\+time}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_abbf8594c1ebc397d8d418fa15afe05ec}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!UWB\_Query\_SentCallback@{UWB\_Query\_SentCallback}}
+\index{UWB\_Query\_SentCallback@{UWB\_Query\_SentCallback}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{UWB\_Query\_SentCallback()}{UWB\_Query\_SentCallback()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_abbf8594c1ebc397d8d418fa15afe05ec} 
+void UWB\+\_\+\+Query\+\_\+\+Sent\+Callback (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{send\+\_\+time}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_af3887a69eeb3f130a9673e761a877f4c}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!UWB\_Query\_TimerCallback@{UWB\_Query\_TimerCallback}}
+\index{UWB\_Query\_TimerCallback@{UWB\_Query\_TimerCallback}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{UWB\_Query\_TimerCallback()}{UWB\_Query\_TimerCallback()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_af3887a69eeb3f130a9673e761a877f4c} 
+void UWB\+\_\+\+Query\+\_\+\+Timer\+Callback (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{_timing_8h_aa4cfa56f0ecbc0a890da7fb57c15ee75}{Timer\+\_\+\+Callbacks}}}]{timer\+\_\+callback}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_adda5c7ba4cde6461184718a1083754d8}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!UWB\_Query\_UWB\_New\_Range@{UWB\_Query\_UWB\_New\_Range}}
+\index{UWB\_Query\_UWB\_New\_Range@{UWB\_Query\_UWB\_New\_Range}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{UWB\_Query\_UWB\_New\_Range()}{UWB\_Query\_UWB\_New\_Range()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_adda5c7ba4cde6461184718a1083754d8} 
+void UWB\+\_\+\+Query\+\_\+\+UWB\+\_\+\+New\+\_\+\+Range (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{device}{, }\item[{float}]{range}{, }\item[{float}]{rx\+\_\+power}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_aaeaa2cab3b16b704da45d516f41432e6}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!UWB\_Response\_ButtonCallback@{UWB\_Response\_ButtonCallback}}
+\index{UWB\_Response\_ButtonCallback@{UWB\_Response\_ButtonCallback}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{UWB\_Response\_ButtonCallback()}{UWB\_Response\_ButtonCallback()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_aaeaa2cab3b16b704da45d516f41432e6} 
+void UWB\+\_\+\+Response\+\_\+\+Button\+Callback (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{button}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_ade9d656b9f4bcdaa8b2284ed4a75b5ab}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!UWB\_Response\_Enter@{UWB\_Response\_Enter}}
+\index{UWB\_Response\_Enter@{UWB\_Response\_Enter}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{UWB\_Response\_Enter()}{UWB\_Response\_Enter()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_ade9d656b9f4bcdaa8b2284ed4a75b5ab} 
+void UWB\+\_\+\+Response\+\_\+\+Enter (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_afcade9aeb918e3e43a52be8d1ff21f33}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!UWB\_Response\_Exit@{UWB\_Response\_Exit}}
+\index{UWB\_Response\_Exit@{UWB\_Response\_Exit}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{UWB\_Response\_Exit()}{UWB\_Response\_Exit()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_afcade9aeb918e3e43a52be8d1ff21f33} 
+void UWB\+\_\+\+Response\+\_\+\+Exit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a7e41b8fc5225a8fd3481a4d3984f122b}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!UWB\_Response\_ReceiveCallback@{UWB\_Response\_ReceiveCallback}}
+\index{UWB\_Response\_ReceiveCallback@{UWB\_Response\_ReceiveCallback}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{UWB\_Response\_ReceiveCallback()}{UWB\_Response\_ReceiveCallback()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a7e41b8fc5225a8fd3481a4d3984f122b} 
+void UWB\+\_\+\+Response\+\_\+\+Receive\+Callback (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{int}]{data\+Len}{, }\item[{uint32\+\_\+t}]{receive\+\_\+time}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a6467e53b87d63fc0214193345c1475c9}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!UWB\_Response\_SentCallback@{UWB\_Response\_SentCallback}}
+\index{UWB\_Response\_SentCallback@{UWB\_Response\_SentCallback}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{UWB\_Response\_SentCallback()}{UWB\_Response\_SentCallback()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a6467e53b87d63fc0214193345c1475c9} 
+void UWB\+\_\+\+Response\+\_\+\+Sent\+Callback (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{send\+\_\+time}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a7444c8f0a1a22d4392fd9d19d98d7c6c}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!UWB\_Response\_TimerCallback@{UWB\_Response\_TimerCallback}}
+\index{UWB\_Response\_TimerCallback@{UWB\_Response\_TimerCallback}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{UWB\_Response\_TimerCallback()}{UWB\_Response\_TimerCallback()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a7444c8f0a1a22d4392fd9d19d98d7c6c} 
+void UWB\+\_\+\+Response\+\_\+\+Timer\+Callback (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{_timing_8h_aa4cfa56f0ecbc0a890da7fb57c15ee75}{Timer\+\_\+\+Callbacks}}}]{timer\+\_\+callback}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_state_machine_individual_8cpp_a3046d9bd9ff04de073a1cd9556fd55ec}\index{StateMachineIndividual.cpp@{StateMachineIndividual.cpp}!UWB\_Response\_UWB\_New\_Range@{UWB\_Response\_UWB\_New\_Range}}
+\index{UWB\_Response\_UWB\_New\_Range@{UWB\_Response\_UWB\_New\_Range}!StateMachineIndividual.cpp@{StateMachineIndividual.cpp}}
+\doxysubsubsection{\texorpdfstring{UWB\_Response\_UWB\_New\_Range()}{UWB\_Response\_UWB\_New\_Range()}}
+{\footnotesize\ttfamily \label{_state_machine_individual_8cpp_a3046d9bd9ff04de073a1cd9556fd55ec} 
+void UWB\+\_\+\+Response\+\_\+\+UWB\+\_\+\+New\+\_\+\+Range (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{device}{, }\item[{float}]{range}{, }\item[{float}]{rx\+\_\+power}{}\end{DoxyParamCaption})}
+

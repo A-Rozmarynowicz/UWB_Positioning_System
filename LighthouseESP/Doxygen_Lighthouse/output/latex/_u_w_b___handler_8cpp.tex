@@ -1,0 +1,133 @@
+\doxysection{src/\+\+UWB\+\_\+\+Handler.cpp File Reference}
+\hypertarget{_u_w_b___handler_8cpp}{}\label{_u_w_b___handler_8cpp}\index{src/UWB\_Handler.cpp@{src/UWB\_Handler.cpp}}
+{\ttfamily \+\#include "{}UWB\+\_\+\+Handler.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{_u_w_b___handler_8cpp_aab700044d1c1eff50a15b9325e4d8905}{Initialize\+\_\+\+UWB}} ()
+\item 
+void \doxymbox{\hyperlink{_u_w_b___handler_8cpp_a04eefed7c7b89a87942a682f4b079f79}{Update\+\_\+\+UWB}} ()
+\item 
+uint8\+\_\+t \doxymbox{\hyperlink{_u_w_b___handler_8cpp_a8f0a8e7a4ece1a0afd7beac4a1f08032}{Is\+\_\+\+UWB\+\_\+\+Enabled}} ()
+\item 
+void \doxymbox{\hyperlink{_u_w_b___handler_8cpp_a4cc3c57e27d7b0b936b0f27f86b4bfc4}{\+\_\+reset\+\_\+\+DW1000}} ()
+\item 
+void \doxymbox{\hyperlink{_u_w_b___handler_8cpp_a53c26686a888efa1696f116939990545}{Restart\+\_\+\+UWB\+\_\+\+As\+\_\+\+Tag}} ()
+\item 
+void \doxymbox{\hyperlink{_u_w_b___handler_8cpp_a36b7fa8dd538039cf67315e96e26a5ca}{Restart\+\_\+\+UWB\+\_\+\+As\+\_\+\+Anchor}} ()
+\item 
+void \doxymbox{\hyperlink{_u_w_b___handler_8cpp_a11c90ba8c4e89bb52cbe853b4b126e55}{Disable\+\_\+\+UWB}} ()
+\item 
+void \doxymbox{\hyperlink{_u_w_b___handler_8cpp_a94baa2c6f8c48fb29a6455f0271fb588}{Enable\+\_\+\+UWB}} ()
+\item 
+void \doxymbox{\hyperlink{_u_w_b___handler_8cpp_aa7bdee499d273973f46132f0f090bc92}{\+\_\+new\+\_\+range}} ()
+\item 
+void \doxymbox{\hyperlink{_u_w_b___handler_8cpp_a130e39040f943b0c4a465cbda92715a1}{\+\_\+new\+\_\+device}} (DW1000\+Device \texorpdfstring{$\ast$}{*}device)
+\item 
+void \doxymbox{\hyperlink{_u_w_b___handler_8cpp_a9fe894aa59b24a7055ba350c1faa18c1}{\+\_\+inactive\+\_\+device}} (DW1000\+Device \texorpdfstring{$\ast$}{*}device)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \doxymbox{\hyperlink{_u_w_b___handler_8cpp_ab439eb28b669bfcf33d3e34a6f780695}{uwb\+\_\+enable}} = 0
+\item 
+const char \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{_u_w_b___handler_8cpp_a50664af3042f07828376f6f9ee3cf37f}{uwb\+\_\+addresses\+\_\+from\+\_\+\+LGH}} \+[$\,$]\+
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{_u_w_b___handler_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{_u_w_b___handler_8cpp_a9fe894aa59b24a7055ba350c1faa18c1}\index{UWB\_Handler.cpp@{UWB\_Handler.cpp}!\_inactive\_device@{\_inactive\_device}}
+\index{\_inactive\_device@{\_inactive\_device}!UWB\_Handler.cpp@{UWB\_Handler.cpp}}
+\doxysubsubsection{\texorpdfstring{\_inactive\_device()}{\_inactive\_device()}}
+{\footnotesize\ttfamily \label{_u_w_b___handler_8cpp_a9fe894aa59b24a7055ba350c1faa18c1} 
+void \+\_\+inactive\+\_\+device (\begin{DoxyParamCaption}\item[{DW1000\+Device \texorpdfstring{$\ast$}{*}}]{device}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_u_w_b___handler_8cpp_a130e39040f943b0c4a465cbda92715a1}\index{UWB\_Handler.cpp@{UWB\_Handler.cpp}!\_new\_device@{\_new\_device}}
+\index{\_new\_device@{\_new\_device}!UWB\_Handler.cpp@{UWB\_Handler.cpp}}
+\doxysubsubsection{\texorpdfstring{\_new\_device()}{\_new\_device()}}
+{\footnotesize\ttfamily \label{_u_w_b___handler_8cpp_a130e39040f943b0c4a465cbda92715a1} 
+void \+\_\+new\+\_\+device (\begin{DoxyParamCaption}\item[{DW1000\+Device \texorpdfstring{$\ast$}{*}}]{device}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_u_w_b___handler_8cpp_aa7bdee499d273973f46132f0f090bc92}\index{UWB\_Handler.cpp@{UWB\_Handler.cpp}!\_new\_range@{\_new\_range}}
+\index{\_new\_range@{\_new\_range}!UWB\_Handler.cpp@{UWB\_Handler.cpp}}
+\doxysubsubsection{\texorpdfstring{\_new\_range()}{\_new\_range()}}
+{\footnotesize\ttfamily \label{_u_w_b___handler_8cpp_aa7bdee499d273973f46132f0f090bc92} 
+void \+\_\+new\+\_\+range (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_u_w_b___handler_8cpp_a4cc3c57e27d7b0b936b0f27f86b4bfc4}\index{UWB\_Handler.cpp@{UWB\_Handler.cpp}!\_reset\_DW1000@{\_reset\_DW1000}}
+\index{\_reset\_DW1000@{\_reset\_DW1000}!UWB\_Handler.cpp@{UWB\_Handler.cpp}}
+\doxysubsubsection{\texorpdfstring{\_reset\_DW1000()}{\_reset\_DW1000()}}
+{\footnotesize\ttfamily \label{_u_w_b___handler_8cpp_a4cc3c57e27d7b0b936b0f27f86b4bfc4} 
+void \+\_\+reset\+\_\+\+DW1000 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_u_w_b___handler_8cpp_a11c90ba8c4e89bb52cbe853b4b126e55}\index{UWB\_Handler.cpp@{UWB\_Handler.cpp}!Disable\_UWB@{Disable\_UWB}}
+\index{Disable\_UWB@{Disable\_UWB}!UWB\_Handler.cpp@{UWB\_Handler.cpp}}
+\doxysubsubsection{\texorpdfstring{Disable\_UWB()}{Disable\_UWB()}}
+{\footnotesize\ttfamily \label{_u_w_b___handler_8cpp_a11c90ba8c4e89bb52cbe853b4b126e55} 
+void Disable\+\_\+\+UWB (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_u_w_b___handler_8cpp_a94baa2c6f8c48fb29a6455f0271fb588}\index{UWB\_Handler.cpp@{UWB\_Handler.cpp}!Enable\_UWB@{Enable\_UWB}}
+\index{Enable\_UWB@{Enable\_UWB}!UWB\_Handler.cpp@{UWB\_Handler.cpp}}
+\doxysubsubsection{\texorpdfstring{Enable\_UWB()}{Enable\_UWB()}}
+{\footnotesize\ttfamily \label{_u_w_b___handler_8cpp_a94baa2c6f8c48fb29a6455f0271fb588} 
+void Enable\+\_\+\+UWB (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_u_w_b___handler_8cpp_aab700044d1c1eff50a15b9325e4d8905}\index{UWB\_Handler.cpp@{UWB\_Handler.cpp}!Initialize\_UWB@{Initialize\_UWB}}
+\index{Initialize\_UWB@{Initialize\_UWB}!UWB\_Handler.cpp@{UWB\_Handler.cpp}}
+\doxysubsubsection{\texorpdfstring{Initialize\_UWB()}{Initialize\_UWB()}}
+{\footnotesize\ttfamily \label{_u_w_b___handler_8cpp_aab700044d1c1eff50a15b9325e4d8905} 
+void Initialize\+\_\+\+UWB (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_u_w_b___handler_8cpp_a8f0a8e7a4ece1a0afd7beac4a1f08032}\index{UWB\_Handler.cpp@{UWB\_Handler.cpp}!Is\_UWB\_Enabled@{Is\_UWB\_Enabled}}
+\index{Is\_UWB\_Enabled@{Is\_UWB\_Enabled}!UWB\_Handler.cpp@{UWB\_Handler.cpp}}
+\doxysubsubsection{\texorpdfstring{Is\_UWB\_Enabled()}{Is\_UWB\_Enabled()}}
+{\footnotesize\ttfamily \label{_u_w_b___handler_8cpp_a8f0a8e7a4ece1a0afd7beac4a1f08032} 
+uint8\+\_\+t Is\+\_\+\+UWB\+\_\+\+Enabled (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_u_w_b___handler_8cpp_a36b7fa8dd538039cf67315e96e26a5ca}\index{UWB\_Handler.cpp@{UWB\_Handler.cpp}!Restart\_UWB\_As\_Anchor@{Restart\_UWB\_As\_Anchor}}
+\index{Restart\_UWB\_As\_Anchor@{Restart\_UWB\_As\_Anchor}!UWB\_Handler.cpp@{UWB\_Handler.cpp}}
+\doxysubsubsection{\texorpdfstring{Restart\_UWB\_As\_Anchor()}{Restart\_UWB\_As\_Anchor()}}
+{\footnotesize\ttfamily \label{_u_w_b___handler_8cpp_a36b7fa8dd538039cf67315e96e26a5ca} 
+void Restart\+\_\+\+UWB\+\_\+\+As\+\_\+\+Anchor (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_u_w_b___handler_8cpp_a53c26686a888efa1696f116939990545}\index{UWB\_Handler.cpp@{UWB\_Handler.cpp}!Restart\_UWB\_As\_Tag@{Restart\_UWB\_As\_Tag}}
+\index{Restart\_UWB\_As\_Tag@{Restart\_UWB\_As\_Tag}!UWB\_Handler.cpp@{UWB\_Handler.cpp}}
+\doxysubsubsection{\texorpdfstring{Restart\_UWB\_As\_Tag()}{Restart\_UWB\_As\_Tag()}}
+{\footnotesize\ttfamily \label{_u_w_b___handler_8cpp_a53c26686a888efa1696f116939990545} 
+void Restart\+\_\+\+UWB\+\_\+\+As\+\_\+\+Tag (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_u_w_b___handler_8cpp_a04eefed7c7b89a87942a682f4b079f79}\index{UWB\_Handler.cpp@{UWB\_Handler.cpp}!Update\_UWB@{Update\_UWB}}
+\index{Update\_UWB@{Update\_UWB}!UWB\_Handler.cpp@{UWB\_Handler.cpp}}
+\doxysubsubsection{\texorpdfstring{Update\_UWB()}{Update\_UWB()}}
+{\footnotesize\ttfamily \label{_u_w_b___handler_8cpp_a04eefed7c7b89a87942a682f4b079f79} 
+void Update\+\_\+\+UWB (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-var-members}
+\Hypertarget{_u_w_b___handler_8cpp_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{_u_w_b___handler_8cpp_a50664af3042f07828376f6f9ee3cf37f}\index{UWB\_Handler.cpp@{UWB\_Handler.cpp}!uwb\_addresses\_from\_LGH@{uwb\_addresses\_from\_LGH}}
+\index{uwb\_addresses\_from\_LGH@{uwb\_addresses\_from\_LGH}!UWB\_Handler.cpp@{UWB\_Handler.cpp}}
+\doxysubsubsection{\texorpdfstring{uwb\_addresses\_from\_LGH}{uwb\_addresses\_from\_LGH}}
+{\footnotesize\ttfamily \label{_u_w_b___handler_8cpp_a50664af3042f07828376f6f9ee3cf37f} 
+const char\texorpdfstring{$\ast$}{*} uwb\+\_\+addresses\+\_\+from\+\_\+\+LGH\+[$\,$]\+}
+
+{\bfseries Initial value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}82:17:5B:D5:A9:9A:E2:9C"{}},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}7D:00:22:EA:82:60:3B:9C"{}},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}A1:B2:C3:D4:E5:F6:07:18"{}},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}3C:9A:44:10:FE:02:8D:6F"{}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\Hypertarget{_u_w_b___handler_8cpp_ab439eb28b669bfcf33d3e34a6f780695}\index{UWB\_Handler.cpp@{UWB\_Handler.cpp}!uwb\_enable@{uwb\_enable}}
+\index{uwb\_enable@{uwb\_enable}!UWB\_Handler.cpp@{UWB\_Handler.cpp}}
+\doxysubsubsection{\texorpdfstring{uwb\_enable}{uwb\_enable}}
+{\footnotesize\ttfamily \label{_u_w_b___handler_8cpp_ab439eb28b669bfcf33d3e34a6f780695} 
+uint8\+\_\+t uwb\+\_\+enable = 0}
+

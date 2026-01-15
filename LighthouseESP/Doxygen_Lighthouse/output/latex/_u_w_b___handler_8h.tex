@@ -1,0 +1,149 @@
+\doxysection{include/\+\+UWB\+\_\+\+Handler.h File Reference}
+\hypertarget{_u_w_b___handler_8h}{}\label{_u_w_b___handler_8h}\index{include/UWB\_Handler.h@{include/UWB\_Handler.h}}
+{\ttfamily \+\#include "{}Lighthouse\+Config.\+h"{}}\newline
+{\ttfamily \+\#include $<$SPI.\+h$>$}\newline
+{\ttfamily \+\#include "{}DW1000\+Ranging.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{_u_w_b___handler_8h_aab700044d1c1eff50a15b9325e4d8905}{Initialize\+\_\+\+UWB}} ()
+\item 
+void \doxymbox{\hyperlink{_u_w_b___handler_8h_a04eefed7c7b89a87942a682f4b079f79}{Update\+\_\+\+UWB}} ()
+\item 
+void \doxymbox{\hyperlink{_u_w_b___handler_8h_a53c26686a888efa1696f116939990545}{Restart\+\_\+\+UWB\+\_\+\+As\+\_\+\+Tag}} ()
+\item 
+void \doxymbox{\hyperlink{_u_w_b___handler_8h_a36b7fa8dd538039cf67315e96e26a5ca}{Restart\+\_\+\+UWB\+\_\+\+As\+\_\+\+Anchor}} ()
+\item 
+uint8\+\_\+t \doxymbox{\hyperlink{_u_w_b___handler_8h_a8f0a8e7a4ece1a0afd7beac4a1f08032}{Is\+\_\+\+UWB\+\_\+\+Enabled}} ()
+\item 
+void \doxymbox{\hyperlink{_u_w_b___handler_8h_a11c90ba8c4e89bb52cbe853b4b126e55}{Disable\+\_\+\+UWB}} ()
+\item 
+void \doxymbox{\hyperlink{_u_w_b___handler_8h_a94baa2c6f8c48fb29a6455f0271fb588}{Enable\+\_\+\+UWB}} ()
+\item 
+void \doxymbox{\hyperlink{_u_w_b___handler_8h_aa7bdee499d273973f46132f0f090bc92}{\+\_\+new\+\_\+range}} ()
+\item 
+void \doxymbox{\hyperlink{_u_w_b___handler_8h_a130e39040f943b0c4a465cbda92715a1}{\+\_\+new\+\_\+device}} (DW1000\+Device \texorpdfstring{$\ast$}{*}device)
+\item 
+void \doxymbox{\hyperlink{_u_w_b___handler_8h_a9fe894aa59b24a7055ba350c1faa18c1}{\+\_\+inactive\+\_\+device}} (DW1000\+Device \texorpdfstring{$\ast$}{*}device)
+\item 
+void \doxymbox{\hyperlink{_u_w_b___handler_8h_a4cc3c57e27d7b0b936b0f27f86b4bfc4}{\+\_\+reset\+\_\+\+DW1000}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const uint8\+\_\+t \doxymbox{\hyperlink{_u_w_b___handler_8h_aacf9828655e12f6482ed5a0c62a79b39}{PIN\+\_\+\+RST}} = 9
+\item 
+const uint8\+\_\+t \doxymbox{\hyperlink{_u_w_b___handler_8h_aaf3fbaad4bd584987486293f9ace5072}{PIN\+\_\+\+IRQ}} = 2
+\item 
+const uint8\+\_\+t \doxymbox{\hyperlink{_u_w_b___handler_8h_aa08e789ac12c166d1db6b7b095309073}{PIN\+\_\+\+SS}} = SS
+\item 
+const char \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{_u_w_b___handler_8h_a50664af3042f07828376f6f9ee3cf37f}{uwb\+\_\+addresses\+\_\+from\+\_\+\+LGH}} \+[$\,$]\+
+\item 
+uint8\+\_\+t \doxymbox{\hyperlink{_u_w_b___handler_8h_ab439eb28b669bfcf33d3e34a6f780695}{uwb\+\_\+enable}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{_u_w_b___handler_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{_u_w_b___handler_8h_a9fe894aa59b24a7055ba350c1faa18c1}\index{UWB\_Handler.h@{UWB\_Handler.h}!\_inactive\_device@{\_inactive\_device}}
+\index{\_inactive\_device@{\_inactive\_device}!UWB\_Handler.h@{UWB\_Handler.h}}
+\doxysubsubsection{\texorpdfstring{\_inactive\_device()}{\_inactive\_device()}}
+{\footnotesize\ttfamily \label{_u_w_b___handler_8h_a9fe894aa59b24a7055ba350c1faa18c1} 
+void \+\_\+inactive\+\_\+device (\begin{DoxyParamCaption}\item[{DW1000\+Device \texorpdfstring{$\ast$}{*}}]{device}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_u_w_b___handler_8h_a130e39040f943b0c4a465cbda92715a1}\index{UWB\_Handler.h@{UWB\_Handler.h}!\_new\_device@{\_new\_device}}
+\index{\_new\_device@{\_new\_device}!UWB\_Handler.h@{UWB\_Handler.h}}
+\doxysubsubsection{\texorpdfstring{\_new\_device()}{\_new\_device()}}
+{\footnotesize\ttfamily \label{_u_w_b___handler_8h_a130e39040f943b0c4a465cbda92715a1} 
+void \+\_\+new\+\_\+device (\begin{DoxyParamCaption}\item[{DW1000\+Device \texorpdfstring{$\ast$}{*}}]{device}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_u_w_b___handler_8h_aa7bdee499d273973f46132f0f090bc92}\index{UWB\_Handler.h@{UWB\_Handler.h}!\_new\_range@{\_new\_range}}
+\index{\_new\_range@{\_new\_range}!UWB\_Handler.h@{UWB\_Handler.h}}
+\doxysubsubsection{\texorpdfstring{\_new\_range()}{\_new\_range()}}
+{\footnotesize\ttfamily \label{_u_w_b___handler_8h_aa7bdee499d273973f46132f0f090bc92} 
+void \+\_\+new\+\_\+range (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_u_w_b___handler_8h_a4cc3c57e27d7b0b936b0f27f86b4bfc4}\index{UWB\_Handler.h@{UWB\_Handler.h}!\_reset\_DW1000@{\_reset\_DW1000}}
+\index{\_reset\_DW1000@{\_reset\_DW1000}!UWB\_Handler.h@{UWB\_Handler.h}}
+\doxysubsubsection{\texorpdfstring{\_reset\_DW1000()}{\_reset\_DW1000()}}
+{\footnotesize\ttfamily \label{_u_w_b___handler_8h_a4cc3c57e27d7b0b936b0f27f86b4bfc4} 
+void \+\_\+reset\+\_\+\+DW1000 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_u_w_b___handler_8h_a11c90ba8c4e89bb52cbe853b4b126e55}\index{UWB\_Handler.h@{UWB\_Handler.h}!Disable\_UWB@{Disable\_UWB}}
+\index{Disable\_UWB@{Disable\_UWB}!UWB\_Handler.h@{UWB\_Handler.h}}
+\doxysubsubsection{\texorpdfstring{Disable\_UWB()}{Disable\_UWB()}}
+{\footnotesize\ttfamily \label{_u_w_b___handler_8h_a11c90ba8c4e89bb52cbe853b4b126e55} 
+void Disable\+\_\+\+UWB (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_u_w_b___handler_8h_a94baa2c6f8c48fb29a6455f0271fb588}\index{UWB\_Handler.h@{UWB\_Handler.h}!Enable\_UWB@{Enable\_UWB}}
+\index{Enable\_UWB@{Enable\_UWB}!UWB\_Handler.h@{UWB\_Handler.h}}
+\doxysubsubsection{\texorpdfstring{Enable\_UWB()}{Enable\_UWB()}}
+{\footnotesize\ttfamily \label{_u_w_b___handler_8h_a94baa2c6f8c48fb29a6455f0271fb588} 
+void Enable\+\_\+\+UWB (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_u_w_b___handler_8h_aab700044d1c1eff50a15b9325e4d8905}\index{UWB\_Handler.h@{UWB\_Handler.h}!Initialize\_UWB@{Initialize\_UWB}}
+\index{Initialize\_UWB@{Initialize\_UWB}!UWB\_Handler.h@{UWB\_Handler.h}}
+\doxysubsubsection{\texorpdfstring{Initialize\_UWB()}{Initialize\_UWB()}}
+{\footnotesize\ttfamily \label{_u_w_b___handler_8h_aab700044d1c1eff50a15b9325e4d8905} 
+void Initialize\+\_\+\+UWB (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_u_w_b___handler_8h_a8f0a8e7a4ece1a0afd7beac4a1f08032}\index{UWB\_Handler.h@{UWB\_Handler.h}!Is\_UWB\_Enabled@{Is\_UWB\_Enabled}}
+\index{Is\_UWB\_Enabled@{Is\_UWB\_Enabled}!UWB\_Handler.h@{UWB\_Handler.h}}
+\doxysubsubsection{\texorpdfstring{Is\_UWB\_Enabled()}{Is\_UWB\_Enabled()}}
+{\footnotesize\ttfamily \label{_u_w_b___handler_8h_a8f0a8e7a4ece1a0afd7beac4a1f08032} 
+uint8\+\_\+t Is\+\_\+\+UWB\+\_\+\+Enabled (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_u_w_b___handler_8h_a36b7fa8dd538039cf67315e96e26a5ca}\index{UWB\_Handler.h@{UWB\_Handler.h}!Restart\_UWB\_As\_Anchor@{Restart\_UWB\_As\_Anchor}}
+\index{Restart\_UWB\_As\_Anchor@{Restart\_UWB\_As\_Anchor}!UWB\_Handler.h@{UWB\_Handler.h}}
+\doxysubsubsection{\texorpdfstring{Restart\_UWB\_As\_Anchor()}{Restart\_UWB\_As\_Anchor()}}
+{\footnotesize\ttfamily \label{_u_w_b___handler_8h_a36b7fa8dd538039cf67315e96e26a5ca} 
+void Restart\+\_\+\+UWB\+\_\+\+As\+\_\+\+Anchor (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_u_w_b___handler_8h_a53c26686a888efa1696f116939990545}\index{UWB\_Handler.h@{UWB\_Handler.h}!Restart\_UWB\_As\_Tag@{Restart\_UWB\_As\_Tag}}
+\index{Restart\_UWB\_As\_Tag@{Restart\_UWB\_As\_Tag}!UWB\_Handler.h@{UWB\_Handler.h}}
+\doxysubsubsection{\texorpdfstring{Restart\_UWB\_As\_Tag()}{Restart\_UWB\_As\_Tag()}}
+{\footnotesize\ttfamily \label{_u_w_b___handler_8h_a53c26686a888efa1696f116939990545} 
+void Restart\+\_\+\+UWB\+\_\+\+As\+\_\+\+Tag (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_u_w_b___handler_8h_a04eefed7c7b89a87942a682f4b079f79}\index{UWB\_Handler.h@{UWB\_Handler.h}!Update\_UWB@{Update\_UWB}}
+\index{Update\_UWB@{Update\_UWB}!UWB\_Handler.h@{UWB\_Handler.h}}
+\doxysubsubsection{\texorpdfstring{Update\_UWB()}{Update\_UWB()}}
+{\footnotesize\ttfamily \label{_u_w_b___handler_8h_a04eefed7c7b89a87942a682f4b079f79} 
+void Update\+\_\+\+UWB (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-var-members}
+\Hypertarget{_u_w_b___handler_8h_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{_u_w_b___handler_8h_aaf3fbaad4bd584987486293f9ace5072}\index{UWB\_Handler.h@{UWB\_Handler.h}!PIN\_IRQ@{PIN\_IRQ}}
+\index{PIN\_IRQ@{PIN\_IRQ}!UWB\_Handler.h@{UWB\_Handler.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_IRQ}{PIN\_IRQ}}
+{\footnotesize\ttfamily \label{_u_w_b___handler_8h_aaf3fbaad4bd584987486293f9ace5072} 
+const uint8\+\_\+t PIN\+\_\+\+IRQ = 2}
+
+\Hypertarget{_u_w_b___handler_8h_aacf9828655e12f6482ed5a0c62a79b39}\index{UWB\_Handler.h@{UWB\_Handler.h}!PIN\_RST@{PIN\_RST}}
+\index{PIN\_RST@{PIN\_RST}!UWB\_Handler.h@{UWB\_Handler.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_RST}{PIN\_RST}}
+{\footnotesize\ttfamily \label{_u_w_b___handler_8h_aacf9828655e12f6482ed5a0c62a79b39} 
+const uint8\+\_\+t PIN\+\_\+\+RST = 9}
+
+\Hypertarget{_u_w_b___handler_8h_aa08e789ac12c166d1db6b7b095309073}\index{UWB\_Handler.h@{UWB\_Handler.h}!PIN\_SS@{PIN\_SS}}
+\index{PIN\_SS@{PIN\_SS}!UWB\_Handler.h@{UWB\_Handler.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_SS}{PIN\_SS}}
+{\footnotesize\ttfamily \label{_u_w_b___handler_8h_aa08e789ac12c166d1db6b7b095309073} 
+const uint8\+\_\+t PIN\+\_\+\+SS = SS}
+
+\Hypertarget{_u_w_b___handler_8h_a50664af3042f07828376f6f9ee3cf37f}\index{UWB\_Handler.h@{UWB\_Handler.h}!uwb\_addresses\_from\_LGH@{uwb\_addresses\_from\_LGH}}
+\index{uwb\_addresses\_from\_LGH@{uwb\_addresses\_from\_LGH}!UWB\_Handler.h@{UWB\_Handler.h}}
+\doxysubsubsection{\texorpdfstring{uwb\_addresses\_from\_LGH}{uwb\_addresses\_from\_LGH}}
+{\footnotesize\ttfamily \label{_u_w_b___handler_8h_a50664af3042f07828376f6f9ee3cf37f} 
+const char\texorpdfstring{$\ast$}{*} uwb\+\_\+addresses\+\_\+from\+\_\+\+LGH\+[$\,$]\+\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{_u_w_b___handler_8h_ab439eb28b669bfcf33d3e34a6f780695}\index{UWB\_Handler.h@{UWB\_Handler.h}!uwb\_enable@{uwb\_enable}}
+\index{uwb\_enable@{uwb\_enable}!UWB\_Handler.h@{UWB\_Handler.h}}
+\doxysubsubsection{\texorpdfstring{uwb\_enable}{uwb\_enable}}
+{\footnotesize\ttfamily \label{_u_w_b___handler_8h_ab439eb28b669bfcf33d3e34a6f780695} 
+uint8\+\_\+t uwb\+\_\+enable\hspace{0.3cm}{\ttfamily [extern]}}
+
