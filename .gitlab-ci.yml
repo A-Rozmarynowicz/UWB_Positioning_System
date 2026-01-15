@@ -1,0 +1,14 @@
+image: alpine:latest
+
+pages:
+  stage: deploy
+  script:
+    - apk add --no-cache doxygen # optional: only if you want to regenerate docs
+    - doxygen Doxyfile           # optional: generate docs on CI
+    - mkdir .public
+    - cp -r docs/html/* .public
+  artifacts:
+    paths:
+      - .public
+  only:
+    - main
