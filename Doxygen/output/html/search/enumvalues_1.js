@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['busfault_5firqn_0',['BusFault_IRQn',['../group___peripheral__interrupt__number__definition.html#gga7e1129cd8a196f4284d41db3e82ad5c8a8693500eff174f16119e96234fee73af',1,'stm32l476xx.h']]]
+  ['change_5fstate_5fcom_0',['CHANGE_STATE_COM',['../_communication_8h.html#a720807528b1dc7575d0e8edca56df577a0f8936df4fa47f6a896b785003ce5b7c',1,'Communication.h']]],
+  ['command_1',['COMMAND',['../_communication_8h.html#a5f7829e71f61d0ac0de6ef57f3556bddae680fa7eb860abe7832f792cc18a44b4',1,'Communication.h']]]
 ];

@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['adc1_5f2_5firqn_0',['ADC1_2_IRQn',['../group___peripheral__interrupt__number__definition.html#gga7e1129cd8a196f4284d41db3e82ad5c8a19cf421347f52d547d370887640c158a',1,'stm32l476xx.h']]],
-  ['adc3_5firqn_1',['ADC3_IRQn',['../group___peripheral__interrupt__number__definition.html#gga7e1129cd8a196f4284d41db3e82ad5c8a5df6270d4d1ecf305aeeb70945c27d16',1,'stm32l476xx.h']]]
+  ['ack_0',['ACK',['../_timing_8h.html#aa4cfa56f0ecbc0a890da7fb57c15ee75a41246e9c8691b7e33bc79b345e06b48e',1,'Timing.h']]],
+  ['ack_5fcom_1',['ACK_COM',['../_communication_8h.html#a720807528b1dc7575d0e8edca56df577a4aa958ba8d227a9fcec6e008b5140b02',1,'Communication.h']]],
+  ['ack_5ffail_2',['ACK_FAIL',['../_communication_8h.html#a9b79e795e3bb6cdece9ebf16adfb9683a3c34663b53d773ecf6328e7c2011f0f8',1,'Communication.h']]]
 ];

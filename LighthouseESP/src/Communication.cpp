@@ -113,6 +113,7 @@ void MESSAGES::Send_Observer_Position_Response(){
 #pragma endregion
 
 #pragma region Other Functions
+
 void Initialize_Communication(){
   WiFi.mode(WIFI_STA);
   WiFi.disconnect();

@@ -1,0 +1,80 @@
+\doxysection{Lighthouse\+ESP/\+src/\+\+Communication.cpp File Reference}
+\hypertarget{_communication_8cpp}{}\label{_communication_8cpp}\index{LighthouseESP/src/Communication.cpp@{LighthouseESP/src/Communication.cpp}}
+{\ttfamily \+\#include "{}string.\+h"{}}\newline
+{\ttfamily \+\#include "{}Communication.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{_communication_8cpp_a3b564dd662c5448bcab004e10a1f06eb}{Initialize\+\_\+\+Communication}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the communication module. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{_communication_8cpp_a3cf83a241a1209a64ef0481ef1c320bc}{\+\_\+send\+\_\+esp}} ()
+\item 
+void \doxymbox{\hyperlink{_communication_8cpp_a90cd84e65fc70f7c9b04995f68ef505f}{\+\_\+receive\+\_\+callback}} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}mac\+Addr, const uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, int data\+Len)
+\item 
+void \doxymbox{\hyperlink{_communication_8cpp_a4ec3145a53468061570ad150e3a99749}{\+\_\+sent\+\_\+callback}} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}mac\+Addr, esp\+\_\+now\+\_\+send\+\_\+status\+\_\+t status)
+\item 
+void \doxymbox{\hyperlink{_communication_8cpp_a727a150d05439f0ffd3a9ff198f82e8b}{\+\_\+communication\+\_\+error}} (\doxymbox{\hyperlink{_communication_8h_a9b79e795e3bb6cdece9ebf16adfb9683}{Communication\+\_\+\+Errors}} error)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{struct_ack_status}{Ack\+Status}} \doxymbox{\hyperlink{_communication_8cpp_a709b06b1381f6268b9c79e782dc87393}{current\+\_\+ack\+\_\+status}} = \{0\}
+\item 
+uint8\+\_\+t \doxymbox{\hyperlink{_communication_8cpp_a09de4a9b4114f488f667f196f70382b0}{transmit\+\_\+buffer}} \+[\doxymbox{\hyperlink{_communication_8h_af55149bc1f05cf18af067a302e31e3f9}{DATA\+\_\+\+SIZE}}]\+ = \{0\}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{_communication_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{_communication_8cpp_a727a150d05439f0ffd3a9ff198f82e8b}\index{Communication.cpp@{Communication.cpp}!\_communication\_error@{\_communication\_error}}
+\index{\_communication\_error@{\_communication\_error}!Communication.cpp@{Communication.cpp}}
+\doxysubsubsection{\texorpdfstring{\_communication\_error()}{\_communication\_error()}}
+{\footnotesize\ttfamily \label{_communication_8cpp_a727a150d05439f0ffd3a9ff198f82e8b} 
+void \+\_\+communication\+\_\+error (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{_communication_8h_a9b79e795e3bb6cdece9ebf16adfb9683}{Communication\+\_\+\+Errors}}}]{error}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_communication_8cpp_a90cd84e65fc70f7c9b04995f68ef505f}\index{Communication.cpp@{Communication.cpp}!\_receive\_callback@{\_receive\_callback}}
+\index{\_receive\_callback@{\_receive\_callback}!Communication.cpp@{Communication.cpp}}
+\doxysubsubsection{\texorpdfstring{\_receive\_callback()}{\_receive\_callback()}}
+{\footnotesize\ttfamily \label{_communication_8cpp_a90cd84e65fc70f7c9b04995f68ef505f} 
+void \+\_\+receive\+\_\+callback (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{mac\+Addr}{, }\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{int}]{data\+Len}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_communication_8cpp_a3cf83a241a1209a64ef0481ef1c320bc}\index{Communication.cpp@{Communication.cpp}!\_send\_esp@{\_send\_esp}}
+\index{\_send\_esp@{\_send\_esp}!Communication.cpp@{Communication.cpp}}
+\doxysubsubsection{\texorpdfstring{\_send\_esp()}{\_send\_esp()}}
+{\footnotesize\ttfamily \label{_communication_8cpp_a3cf83a241a1209a64ef0481ef1c320bc} 
+void \+\_\+send\+\_\+esp (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_communication_8cpp_a4ec3145a53468061570ad150e3a99749}\index{Communication.cpp@{Communication.cpp}!\_sent\_callback@{\_sent\_callback}}
+\index{\_sent\_callback@{\_sent\_callback}!Communication.cpp@{Communication.cpp}}
+\doxysubsubsection{\texorpdfstring{\_sent\_callback()}{\_sent\_callback()}}
+{\footnotesize\ttfamily \label{_communication_8cpp_a4ec3145a53468061570ad150e3a99749} 
+void \+\_\+sent\+\_\+callback (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{mac\+Addr}{, }\item[{esp\+\_\+now\+\_\+send\+\_\+status\+\_\+t}]{status}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_communication_8cpp_a3b564dd662c5448bcab004e10a1f06eb}\index{Communication.cpp@{Communication.cpp}!Initialize\_Communication@{Initialize\_Communication}}
+\index{Initialize\_Communication@{Initialize\_Communication}!Communication.cpp@{Communication.cpp}}
+\doxysubsubsection{\texorpdfstring{Initialize\_Communication()}{Initialize\_Communication()}}
+{\footnotesize\ttfamily \label{_communication_8cpp_a3b564dd662c5448bcab004e10a1f06eb} 
+void Initialize\+\_\+\+Communication (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the communication module. 
+
+Sets up ESP-\/\+NOW and configures callbacks. 
+
+\label{doc-var-members}
+\Hypertarget{_communication_8cpp_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{_communication_8cpp_a709b06b1381f6268b9c79e782dc87393}\index{Communication.cpp@{Communication.cpp}!current\_ack\_status@{current\_ack\_status}}
+\index{current\_ack\_status@{current\_ack\_status}!Communication.cpp@{Communication.cpp}}
+\doxysubsubsection{\texorpdfstring{current\_ack\_status}{current\_ack\_status}}
+{\footnotesize\ttfamily \label{_communication_8cpp_a709b06b1381f6268b9c79e782dc87393} 
+\doxymbox{\hyperlink{struct_ack_status}{Ack\+Status}} current\+\_\+ack\+\_\+status = \{0\}}
+
+\Hypertarget{_communication_8cpp_a09de4a9b4114f488f667f196f70382b0}\index{Communication.cpp@{Communication.cpp}!transmit\_buffer@{transmit\_buffer}}
+\index{transmit\_buffer@{transmit\_buffer}!Communication.cpp@{Communication.cpp}}
+\doxysubsubsection{\texorpdfstring{transmit\_buffer}{transmit\_buffer}}
+{\footnotesize\ttfamily \label{_communication_8cpp_a09de4a9b4114f488f667f196f70382b0} 
+uint8\+\_\+t transmit\+\_\+buffer\+[\doxymbox{\hyperlink{_communication_8h_af55149bc1f05cf18af067a302e31e3f9}{DATA\+\_\+\+SIZE}}]\+ = \{0\}}
+

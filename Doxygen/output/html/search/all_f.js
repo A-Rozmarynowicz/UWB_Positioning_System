@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['visuals_0',['Visuals',['../index.html#autotoc_md11',1,'']]]
+  ['usage_0',['Usage',['../index.html#autotoc_md13',1,'']]]
 ];

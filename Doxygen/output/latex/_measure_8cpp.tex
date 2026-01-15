@@ -1,0 +1,116 @@
+\doxysection{Lighthouse\+ESP/\+src/\+\+Measure.cpp File Reference}
+\hypertarget{_measure_8cpp}{}\label{_measure_8cpp}\index{LighthouseESP/src/Measure.cpp@{LighthouseESP/src/Measure.cpp}}
+{\ttfamily \+\#include "{}Measure.\+h"{}}\newline
+{\ttfamily \+\#include $<$math.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{_measure_8cpp_a853df673822e1422a96aa751eb355fbf}{Calculate\+\_\+\+Distance\+\_\+\+To\+\_\+\+Target}} (uint8\+\_\+t current\+\_\+target, float distance)
+\item 
+void \doxymbox{\hyperlink{_measure_8cpp_a70ecd05335acad1447d5c5dd3c1b2ab0}{Print\+\_\+\+Master\+\_\+\+All\+\_\+\+Distances\+\_\+\+Matrix}} ()
+\item 
+void \doxymbox{\hyperlink{_measure_8cpp_ad8bf287324e8711d8d0b4cb2ead2d476}{Calculate\+\_\+\+Position\+\_\+\+Of\+\_\+\+Lighthouse}} (uint8\+\_\+t lighthouse)
+\item 
+void \doxymbox{\hyperlink{_measure_8cpp_a16cc4c28780495c66196948438d5efe1}{\+\_\+set\+\_\+\+LGH\+\_\+1\+\_\+position}} ()
+\item 
+void \doxymbox{\hyperlink{_measure_8cpp_a240abbec25dedd9c43e2368bbdfad14c}{\+\_\+set\+\_\+\+LGH\+\_\+2\+\_\+position}} ()
+\item 
+void \doxymbox{\hyperlink{_measure_8cpp_ac1a1095b3137980495d24923977f7510}{\+\_\+set\+\_\+\+LGH\+\_\+3\+\_\+position}} ()
+\item 
+void \doxymbox{\hyperlink{_measure_8cpp_ab3051edfbac08774e98634d50480df0a}{\+\_\+set\+\_\+\+LGH\+\_\+4plus\+\_\+position}} (uint8\+\_\+t lighthouse)
+\item 
+void \doxymbox{\hyperlink{_measure_8cpp_af4d6502410cb7cc91ce76f2456492ec2}{Print\+\_\+\+Position}} (uint8\+\_\+t lighthouse)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+float \doxymbox{\hyperlink{_measure_8cpp_a7af4755e90c986eafaf94e9b7b313dc7}{distances\+\_\+to\+\_\+lighthouses}} \+[\doxymbox{\hyperlink{_lighthouse_config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\+\_\+\+OF\+\_\+\+LIGHTHOUSES}}]\+ = \{0\}
+\item 
+float \doxymbox{\hyperlink{_measure_8cpp_a427f2f170e94d2773c129e5597a8bc74}{master\+\_\+all\+\_\+distances\+\_\+matrix}} \+[\doxymbox{\hyperlink{_lighthouse_config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\+\_\+\+OF\+\_\+\+LIGHTHOUSES}}]\+\+[\doxymbox{\hyperlink{_lighthouse_config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\+\_\+\+OF\+\_\+\+LIGHTHOUSES}}]\+ = \{0\}
+\item 
+\doxymbox{\hyperlink{struct_position}{Position}} \doxymbox{\hyperlink{_measure_8cpp_a8b5fce7ca6976a5b07d94bd74d7650d4}{master\+\_\+all\+\_\+positions}} \+[\doxymbox{\hyperlink{_lighthouse_config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\+\_\+\+OF\+\_\+\+LIGHTHOUSES}}]\+ = \{0\}
+\item 
+\doxymbox{\hyperlink{struct_position}{Position}} \doxymbox{\hyperlink{_measure_8cpp_a4d84949a19a29d3bb4dd2635c8241a83}{position}} = \{0\}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{_measure_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{_measure_8cpp_a16cc4c28780495c66196948438d5efe1}\index{Measure.cpp@{Measure.cpp}!\_set\_LGH\_1\_position@{\_set\_LGH\_1\_position}}
+\index{\_set\_LGH\_1\_position@{\_set\_LGH\_1\_position}!Measure.cpp@{Measure.cpp}}
+\doxysubsubsection{\texorpdfstring{\_set\_LGH\_1\_position()}{\_set\_LGH\_1\_position()}}
+{\footnotesize\ttfamily \label{_measure_8cpp_a16cc4c28780495c66196948438d5efe1} 
+void \+\_\+set\+\_\+\+LGH\+\_\+1\+\_\+position (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_measure_8cpp_a240abbec25dedd9c43e2368bbdfad14c}\index{Measure.cpp@{Measure.cpp}!\_set\_LGH\_2\_position@{\_set\_LGH\_2\_position}}
+\index{\_set\_LGH\_2\_position@{\_set\_LGH\_2\_position}!Measure.cpp@{Measure.cpp}}
+\doxysubsubsection{\texorpdfstring{\_set\_LGH\_2\_position()}{\_set\_LGH\_2\_position()}}
+{\footnotesize\ttfamily \label{_measure_8cpp_a240abbec25dedd9c43e2368bbdfad14c} 
+void \+\_\+set\+\_\+\+LGH\+\_\+2\+\_\+position (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_measure_8cpp_ac1a1095b3137980495d24923977f7510}\index{Measure.cpp@{Measure.cpp}!\_set\_LGH\_3\_position@{\_set\_LGH\_3\_position}}
+\index{\_set\_LGH\_3\_position@{\_set\_LGH\_3\_position}!Measure.cpp@{Measure.cpp}}
+\doxysubsubsection{\texorpdfstring{\_set\_LGH\_3\_position()}{\_set\_LGH\_3\_position()}}
+{\footnotesize\ttfamily \label{_measure_8cpp_ac1a1095b3137980495d24923977f7510} 
+void \+\_\+set\+\_\+\+LGH\+\_\+3\+\_\+position (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_measure_8cpp_ab3051edfbac08774e98634d50480df0a}\index{Measure.cpp@{Measure.cpp}!\_set\_LGH\_4plus\_position@{\_set\_LGH\_4plus\_position}}
+\index{\_set\_LGH\_4plus\_position@{\_set\_LGH\_4plus\_position}!Measure.cpp@{Measure.cpp}}
+\doxysubsubsection{\texorpdfstring{\_set\_LGH\_4plus\_position()}{\_set\_LGH\_4plus\_position()}}
+{\footnotesize\ttfamily \label{_measure_8cpp_ab3051edfbac08774e98634d50480df0a} 
+void \+\_\+set\+\_\+\+LGH\+\_\+4plus\+\_\+position (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{lighthouse}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_measure_8cpp_a853df673822e1422a96aa751eb355fbf}\index{Measure.cpp@{Measure.cpp}!Calculate\_Distance\_To\_Target@{Calculate\_Distance\_To\_Target}}
+\index{Calculate\_Distance\_To\_Target@{Calculate\_Distance\_To\_Target}!Measure.cpp@{Measure.cpp}}
+\doxysubsubsection{\texorpdfstring{Calculate\_Distance\_To\_Target()}{Calculate\_Distance\_To\_Target()}}
+{\footnotesize\ttfamily \label{_measure_8cpp_a853df673822e1422a96aa751eb355fbf} 
+void Calculate\+\_\+\+Distance\+\_\+\+To\+\_\+\+Target (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{current\+\_\+target}{, }\item[{float}]{distance}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_measure_8cpp_ad8bf287324e8711d8d0b4cb2ead2d476}\index{Measure.cpp@{Measure.cpp}!Calculate\_Position\_Of\_Lighthouse@{Calculate\_Position\_Of\_Lighthouse}}
+\index{Calculate\_Position\_Of\_Lighthouse@{Calculate\_Position\_Of\_Lighthouse}!Measure.cpp@{Measure.cpp}}
+\doxysubsubsection{\texorpdfstring{Calculate\_Position\_Of\_Lighthouse()}{Calculate\_Position\_Of\_Lighthouse()}}
+{\footnotesize\ttfamily \label{_measure_8cpp_ad8bf287324e8711d8d0b4cb2ead2d476} 
+void Calculate\+\_\+\+Position\+\_\+\+Of\+\_\+\+Lighthouse (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{lighthouse}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_measure_8cpp_a70ecd05335acad1447d5c5dd3c1b2ab0}\index{Measure.cpp@{Measure.cpp}!Print\_Master\_All\_Distances\_Matrix@{Print\_Master\_All\_Distances\_Matrix}}
+\index{Print\_Master\_All\_Distances\_Matrix@{Print\_Master\_All\_Distances\_Matrix}!Measure.cpp@{Measure.cpp}}
+\doxysubsubsection{\texorpdfstring{Print\_Master\_All\_Distances\_Matrix()}{Print\_Master\_All\_Distances\_Matrix()}}
+{\footnotesize\ttfamily \label{_measure_8cpp_a70ecd05335acad1447d5c5dd3c1b2ab0} 
+void Print\+\_\+\+Master\+\_\+\+All\+\_\+\+Distances\+\_\+\+Matrix (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_measure_8cpp_af4d6502410cb7cc91ce76f2456492ec2}\index{Measure.cpp@{Measure.cpp}!Print\_Position@{Print\_Position}}
+\index{Print\_Position@{Print\_Position}!Measure.cpp@{Measure.cpp}}
+\doxysubsubsection{\texorpdfstring{Print\_Position()}{Print\_Position()}}
+{\footnotesize\ttfamily \label{_measure_8cpp_af4d6502410cb7cc91ce76f2456492ec2} 
+void Print\+\_\+\+Position (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{lighthouse}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-var-members}
+\Hypertarget{_measure_8cpp_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{_measure_8cpp_a7af4755e90c986eafaf94e9b7b313dc7}\index{Measure.cpp@{Measure.cpp}!distances\_to\_lighthouses@{distances\_to\_lighthouses}}
+\index{distances\_to\_lighthouses@{distances\_to\_lighthouses}!Measure.cpp@{Measure.cpp}}
+\doxysubsubsection{\texorpdfstring{distances\_to\_lighthouses}{distances\_to\_lighthouses}}
+{\footnotesize\ttfamily \label{_measure_8cpp_a7af4755e90c986eafaf94e9b7b313dc7} 
+float distances\+\_\+to\+\_\+lighthouses\+[\doxymbox{\hyperlink{_lighthouse_config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\+\_\+\+OF\+\_\+\+LIGHTHOUSES}}]\+ = \{0\}}
+
+\Hypertarget{_measure_8cpp_a427f2f170e94d2773c129e5597a8bc74}\index{Measure.cpp@{Measure.cpp}!master\_all\_distances\_matrix@{master\_all\_distances\_matrix}}
+\index{master\_all\_distances\_matrix@{master\_all\_distances\_matrix}!Measure.cpp@{Measure.cpp}}
+\doxysubsubsection{\texorpdfstring{master\_all\_distances\_matrix}{master\_all\_distances\_matrix}}
+{\footnotesize\ttfamily \label{_measure_8cpp_a427f2f170e94d2773c129e5597a8bc74} 
+float master\+\_\+all\+\_\+distances\+\_\+matrix\+[\doxymbox{\hyperlink{_lighthouse_config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\+\_\+\+OF\+\_\+\+LIGHTHOUSES}}]\+\+[\doxymbox{\hyperlink{_lighthouse_config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\+\_\+\+OF\+\_\+\+LIGHTHOUSES}}]\+ = \{0\}}
+
+\Hypertarget{_measure_8cpp_a8b5fce7ca6976a5b07d94bd74d7650d4}\index{Measure.cpp@{Measure.cpp}!master\_all\_positions@{master\_all\_positions}}
+\index{master\_all\_positions@{master\_all\_positions}!Measure.cpp@{Measure.cpp}}
+\doxysubsubsection{\texorpdfstring{master\_all\_positions}{master\_all\_positions}}
+{\footnotesize\ttfamily \label{_measure_8cpp_a8b5fce7ca6976a5b07d94bd74d7650d4} 
+\doxymbox{\hyperlink{struct_position}{Position}} master\+\_\+all\+\_\+positions\+[\doxymbox{\hyperlink{_lighthouse_config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\+\_\+\+OF\+\_\+\+LIGHTHOUSES}}]\+ = \{0\}}
+
+\Hypertarget{_measure_8cpp_a4d84949a19a29d3bb4dd2635c8241a83}\index{Measure.cpp@{Measure.cpp}!position@{position}}
+\index{position@{position}!Measure.cpp@{Measure.cpp}}
+\doxysubsubsection{\texorpdfstring{position}{position}}
+{\footnotesize\ttfamily \label{_measure_8cpp_a4d84949a19a29d3bb4dd2635c8241a83} 
+\doxymbox{\hyperlink{struct_position}{Position}} position = \{0\}}
+

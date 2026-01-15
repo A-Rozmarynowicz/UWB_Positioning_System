@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['gpio_5fpinstate_0',['GPIO_PinState',['../group___g_p_i_o___exported___types.html#ga5b3ef0486b179415581eb342e0ea6b43',1,'stm32l4xx_hal_gpio.h']]]
+  ['data_5fcommands_0',['Data_Commands',['../_communication_8h.html#a720807528b1dc7575d0e8edca56df577',1,'Communication.h']]],
+  ['data_5fsetup_1',['Data_Setup',['../_communication_8h.html#a5f7829e71f61d0ac0de6ef57f3556bdd',1,'Communication.h']]]
 ];

@@ -1,0 +1,180 @@
+\doxysection{Lighthouse\+ESP/\+include/\+\+Communication.h File Reference}
+\hypertarget{_communication_8h}{}\label{_communication_8h}\index{LighthouseESP/include/Communication.h@{LighthouseESP/include/Communication.h}}
+
+
+Handles ESP-\/\+NOW communication and message sending.  
+
+
+{\ttfamily \+\#include "{}esp\+\_\+now.\+h"{}}\newline
+{\ttfamily \+\#include "{}Lighthouse\+Config.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{struct_ack_status}{Ack\+Status}}
+\begin{DoxyCompactList}\small\item\em DUPA SURPA. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \doxymbox{\hyperlink{namespace_m_e_s_s_a_g_e_s}{MESSAGES}}
+\begin{DoxyCompactList}\small\item\em Contains all message sending functions for communication. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{_communication_8h_af55149bc1f05cf18af067a302e31e3f9}\label{_communication_8h_af55149bc1f05cf18af067a302e31e3f9} 
+\+\#define {\bfseries DATA\+\_\+\+SIZE}~20
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{_communication_8h_a5f7829e71f61d0ac0de6ef57f3556bdd}\label{_communication_8h_a5f7829e71f61d0ac0de6ef57f3556bdd} 
+enum {\bfseries Data\+\_\+\+Setup} \{ \newline
+{\bfseries RECEIVER\+\_\+\+ID} = 0
+, {\bfseries TRANSMITTER\+\_\+\+ID} = 1
+, {\bfseries COMMAND} = 2
+, {\bfseries SINGLE\+\_\+0} = 3
+, \newline
+{\bfseries QUAD\+\_\+0} = 4
+, {\bfseries QUAD\+\_\+1} = 8
+, {\bfseries QUAD\+\_\+2} = 12
+, {\bfseries QUAD\+\_\+3} = 16
+ \}
+\item 
+\Hypertarget{_communication_8h_a720807528b1dc7575d0e8edca56df577}\label{_communication_8h_a720807528b1dc7575d0e8edca56df577} 
+enum {\bfseries Data\+\_\+\+Commands} \{ \newline
+{\bfseries MASTER\+\_\+\+LGH\+\_\+\+RESET}
+, {\bfseries ACK\+\_\+\+COM}
+, {\bfseries UWB\+\_\+\+START\+\_\+\+ANCHORING}
+, {\bfseries UWB\+\_\+\+QUERY\+\_\+\+COM}
+, \newline
+{\bfseries UWB\+\_\+\+RESPONSE\+\_\+\+COM}
+, {\bfseries CHANGE\+\_\+\+STATE\+\_\+\+COM}
+, {\bfseries QUERY\+\_\+\+AVG\+\_\+\+RESPONSE\+\_\+\+TIME}
+, {\bfseries RESPOND\+\_\+\+AVG\+\_\+\+RESPONSE\+\_\+\+TIME}
+, \newline
+{\bfseries QUERY\+\_\+\+DISTANCE}
+, {\bfseries RESPONSE\+\_\+\+DISTANCE}
+, {\bfseries SET\+\_\+\+POSITION}
+, {\bfseries READY\+\_\+\+FOR\+\_\+\+OBSERVER}
+, \newline
+{\bfseries OBSERVER\+\_\+\+QUERY\+\_\+\+POSITION}
+, {\bfseries OBSERVER\+\_\+\+RESPONSE\+\_\+\+POSITION}
+, {\bfseries OBSERVER\+\_\+\+ENABLE\+\_\+\+UWB}
+ \}
+\item 
+\Hypertarget{_communication_8h_a9b79e795e3bb6cdece9ebf16adfb9683}\label{_communication_8h_a9b79e795e3bb6cdece9ebf16adfb9683} 
+enum {\bfseries Communication\+\_\+\+Errors} \{ {\bfseries PROTOCOL\+\_\+\+INIT\+\_\+\+FAIL}
+, {\bfseries MESSAGE\+\_\+\+SEND\+\_\+\+FAIL}
+, {\bfseries DELIVERY\+\_\+\+FAIL}
+, {\bfseries ACK\+\_\+\+FAIL}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{_communication_8h_a3b564dd662c5448bcab004e10a1f06eb}{Initialize\+\_\+\+Communication}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the communication module. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{namespace_m_e_s_s_a_g_e_s_a53b9336cd365fbe8b450265789bdb9c5}{MESSAGES::\+\+Send\+\_\+\+Ack}} (uint8\+\_\+t receiver)
+\begin{DoxyCompactList}\small\item\em Sends an acknowledgment to a receiver. \end{DoxyCompactList}\item 
+\Hypertarget{namespace_m_e_s_s_a_g_e_s_a779527be1ce88a871c7dc1d9c67cf608}\label{namespace_m_e_s_s_a_g_e_s_a779527be1ce88a871c7dc1d9c67cf608} 
+void {\bfseries MESSAGES::\+\+Send\+\_\+\+Change\+\_\+\+To\+\_\+\+UWB\+\_\+\+Response} (uint8\+\_\+t receiver)
+\item 
+\Hypertarget{namespace_m_e_s_s_a_g_e_s_a3272238ad0f2e823578a7f947d294bd9}\label{namespace_m_e_s_s_a_g_e_s_a3272238ad0f2e823578a7f947d294bd9} 
+void {\bfseries MESSAGES::\+\+Send\+\_\+\+UWB\+\_\+\+Start\+\_\+\+Anchoring} (uint8\+\_\+t receiver)
+\item 
+\Hypertarget{namespace_m_e_s_s_a_g_e_s_ae485ebc648bcee04c8105f6c559f588b}\label{namespace_m_e_s_s_a_g_e_s_ae485ebc648bcee04c8105f6c559f588b} 
+void {\bfseries MESSAGES::\+\+Send\+\_\+\+UWB\+\_\+\+Query} (uint8\+\_\+t receiver)
+\item 
+\Hypertarget{namespace_m_e_s_s_a_g_e_s_a76e5697b667570905e53eca1413612be}\label{namespace_m_e_s_s_a_g_e_s_a76e5697b667570905e53eca1413612be} 
+void {\bfseries MESSAGES::\+\+Send\+\_\+\+UWB\+\_\+\+Response} (uint8\+\_\+t receiver)
+\item 
+\Hypertarget{namespace_m_e_s_s_a_g_e_s_a63f17ccb4746ff634bd48c66f6beda6f}\label{namespace_m_e_s_s_a_g_e_s_a63f17ccb4746ff634bd48c66f6beda6f} 
+void {\bfseries MESSAGES::\+\+Send\+\_\+\+Relay\+\_\+\+UWB\+\_\+\+Response} (uint8\+\_\+t new\+\_\+uwber\+\_\+id)
+\item 
+\Hypertarget{namespace_m_e_s_s_a_g_e_s_ade29b42c6fcda70cae806551fc7e37e7}\label{namespace_m_e_s_s_a_g_e_s_ade29b42c6fcda70cae806551fc7e37e7} 
+void {\bfseries MESSAGES::\+\+Send\+\_\+\+End\+\_\+\+Of\+\_\+\+Config\+\_\+\+Message} (uint8\+\_\+t receiver)
+\item 
+\Hypertarget{namespace_m_e_s_s_a_g_e_s_a12878913f13578747a1ef67a79361a99}\label{namespace_m_e_s_s_a_g_e_s_a12878913f13578747a1ef67a79361a99} 
+void {\bfseries MESSAGES::\+\+Send\+\_\+\+Query\+\_\+\+Avg\+\_\+\+Response\+\_\+\+Time} (uint8\+\_\+t receiver)
+\item 
+\Hypertarget{namespace_m_e_s_s_a_g_e_s_a0063dd7bd6a1101c183574758d0accde}\label{namespace_m_e_s_s_a_g_e_s_a0063dd7bd6a1101c183574758d0accde} 
+void {\bfseries MESSAGES::\+\+Send\+\_\+\+Response\+\_\+\+Avg\+\_\+\+Response\+\_\+\+Time} (uint8\+\_\+t receiver, double avg)
+\item 
+\Hypertarget{namespace_m_e_s_s_a_g_e_s_a034c8620b34ff4e846a53a18f0d8913d}\label{namespace_m_e_s_s_a_g_e_s_a034c8620b34ff4e846a53a18f0d8913d} 
+void {\bfseries MESSAGES::\+\+Send\+\_\+\+Master\+\_\+\+LHG\+\_\+\+Reset} ()
+\item 
+\Hypertarget{namespace_m_e_s_s_a_g_e_s_ae02c45f1a71bb9b6d61cf4b1e5b8e3a2}\label{namespace_m_e_s_s_a_g_e_s_ae02c45f1a71bb9b6d61cf4b1e5b8e3a2} 
+void {\bfseries MESSAGES::\+\+Send\+\_\+\+Query\+\_\+\+Distance} (uint8\+\_\+t receiver, uint8\+\_\+t target)
+\item 
+\Hypertarget{namespace_m_e_s_s_a_g_e_s_a054a53848d5d59efba7c708f2346790d}\label{namespace_m_e_s_s_a_g_e_s_a054a53848d5d59efba7c708f2346790d} 
+void {\bfseries MESSAGES::\+\+Send\+\_\+\+Response\+\_\+\+Distance} (uint8\+\_\+t receiver, uint8\+\_\+t target, float distance)
+\item 
+\Hypertarget{namespace_m_e_s_s_a_g_e_s_ace0e059de8ab03ca79e8f14a80bf0b6e}\label{namespace_m_e_s_s_a_g_e_s_ace0e059de8ab03ca79e8f14a80bf0b6e} 
+void {\bfseries MESSAGES::\+\+Send\+\_\+\+Set\+\_\+\+Position} (uint8\+\_\+t receiver)
+\item 
+\Hypertarget{namespace_m_e_s_s_a_g_e_s_aeb5d529319fbcc0ad150c621c8d6b5f8}\label{namespace_m_e_s_s_a_g_e_s_aeb5d529319fbcc0ad150c621c8d6b5f8} 
+void {\bfseries MESSAGES::\+\+Send\+\_\+\+Observer\+\_\+\+Ready} ()
+\item 
+\Hypertarget{namespace_m_e_s_s_a_g_e_s_a25f1705da179de9f67cfaf6b497dc8b6}\label{namespace_m_e_s_s_a_g_e_s_a25f1705da179de9f67cfaf6b497dc8b6} 
+void {\bfseries MESSAGES::\+\+Send\+\_\+\+Observer\+\_\+\+Position\+\_\+\+Response} ()
+\item 
+\Hypertarget{_communication_8h_a3cf83a241a1209a64ef0481ef1c320bc}\label{_communication_8h_a3cf83a241a1209a64ef0481ef1c320bc} 
+void {\bfseries \+\_\+send\+\_\+esp} ()
+\item 
+\Hypertarget{_communication_8h_a90cd84e65fc70f7c9b04995f68ef505f}\label{_communication_8h_a90cd84e65fc70f7c9b04995f68ef505f} 
+void {\bfseries \+\_\+receive\+\_\+callback} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}mac\+Addr, const uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, int data\+Len)
+\item 
+\Hypertarget{_communication_8h_a4ec3145a53468061570ad150e3a99749}\label{_communication_8h_a4ec3145a53468061570ad150e3a99749} 
+void {\bfseries \+\_\+sent\+\_\+callback} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}mac\+Addr, esp\+\_\+now\+\_\+send\+\_\+status\+\_\+t status)
+\item 
+\Hypertarget{_communication_8h_a727a150d05439f0ffd3a9ff198f82e8b}\label{_communication_8h_a727a150d05439f0ffd3a9ff198f82e8b} 
+void {\bfseries \+\_\+communication\+\_\+error} (Communication\+\_\+\+Errors error)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{_communication_8h_a09ac70a7b73c274a92a0bbcb20e399f6}\label{_communication_8h_a09ac70a7b73c274a92a0bbcb20e399f6} 
+const uint8\+\_\+t {\bfseries BROADCAST\+\_\+\+RECEIVER\+\_\+\+ID} = 255
+\item 
+\Hypertarget{_communication_8h_a3cc04eaa8880389d6aa4dfc4a291e41a}\label{_communication_8h_a3cc04eaa8880389d6aa4dfc4a291e41a} 
+const uint8\+\_\+t {\bfseries ACK\+\_\+\+MESSAGE\+\_\+\+COUNT} = 5
+\item 
+\Hypertarget{_communication_8h_a709b06b1381f6268b9c79e782dc87393}\label{_communication_8h_a709b06b1381f6268b9c79e782dc87393} 
+\doxymbox{\hyperlink{struct_ack_status}{Ack\+Status}} {\bfseries current\+\_\+ack\+\_\+status}
+\item 
+\Hypertarget{_communication_8h_a09de4a9b4114f488f667f196f70382b0}\label{_communication_8h_a09de4a9b4114f488f667f196f70382b0} 
+uint8\+\_\+t {\bfseries transmit\+\_\+buffer} \+[DATA\+\_\+\+SIZE]\+
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Handles ESP-\/\+NOW communication and message sending. 
+
+This file contains the main communication module for the Lighthouse project. It defines:\+
+\begin{DoxyItemize}
+\item The {\ttfamily \doxylink{namespace_m_e_s_s_a_g_e_s}{MESSAGES}} namespace for sending commands
+\item The {\ttfamily \doxylink{struct_ack_status}{Ack\+Status}} struct for acknowledgment tracking
+\item Initialization and helper functions for ESP-\/\+NOW communication
+\end{DoxyItemize}
+
+\begin{DoxyAuthor}{Author}
+Your Name 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2026-\/01-\/15 
+\end{DoxyDate}
+
+
+\label{doc-func-members}
+\Hypertarget{_communication_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{_communication_8h_a3b564dd662c5448bcab004e10a1f06eb}\index{Communication.h@{Communication.h}!Initialize\_Communication@{Initialize\_Communication}}
+\index{Initialize\_Communication@{Initialize\_Communication}!Communication.h@{Communication.h}}
+\doxysubsubsection{\texorpdfstring{Initialize\_Communication()}{Initialize\_Communication()}}
+{\footnotesize\ttfamily \label{_communication_8h_a3b564dd662c5448bcab004e10a1f06eb} 
+void Initialize\+\_\+\+Communication (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the communication module. 
+
+Sets up ESP-\/\+NOW and configures callbacks. 

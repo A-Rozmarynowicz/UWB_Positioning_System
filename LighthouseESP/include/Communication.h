@@ -1,3 +1,17 @@
+/**
+ * @file Communication.h
+ * @brief Handles ESP-NOW communication and message sending.
+ *
+ * This file contains the main communication module for the Lighthouse project.
+ * It defines:
+ *  - The `MESSAGES` namespace for sending commands
+ *  - The `AckStatus` struct for acknowledgment tracking
+ *  - Initialization and helper functions for ESP-NOW communication
+ *
+ * @author Your Name
+ * @date 2026-01-15
+ */
+
 #ifndef COMMUNICATION_H
 #define COMMUNICATION_H
 #include "esp_now.h"
@@ -45,6 +59,10 @@ enum Communication_Errors {
   ACK_FAIL,
 };
 
+/// @brief DUPA
+/// SURPA
+///
+/// AAAll
 struct AckStatus {
   uint8_t current_ack_index;
   uint8_t target_ack_lighthouse;
@@ -53,12 +71,23 @@ struct AckStatus {
 extern AckStatus current_ack_status;
 extern uint8_t transmit_buffer[DATA_SIZE]; // TODO
 
-
-// Public
+/**
+ * @brief Initializes the communication module.
+ *
+ * Sets up ESP-NOW and configures callbacks.
+ */
 void Initialize_Communication();
 
+/**
+ * @namespace MESSAGES
+ * @brief Contains all message sending functions for communication
+ */
 namespace MESSAGES {
+
+/// @brief Sends an acknowledgment to a receiver.
+/// @param receiver ID of the receiver
 void Send_Ack(uint8_t receiver);
+
 void Send_Change_To_UWB_Response(uint8_t receiver);
 void Send_UWB_Start_Anchoring(uint8_t receiver);
 void Send_UWB_Query(uint8_t receiver);

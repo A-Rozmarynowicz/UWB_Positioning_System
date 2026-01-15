@@ -1,0 +1,93 @@
+\doxysection{Lighthouse\+ESP/\+src/\+\+Timing.cpp File Reference}
+\hypertarget{_timing_8cpp}{}\label{_timing_8cpp}\index{LighthouseESP/src/Timing.cpp@{LighthouseESP/src/Timing.cpp}}
+{\ttfamily \+\#include "{}Hardware\+Serial.\+h"{}}\newline
+{\ttfamily \+\#include "{}esp32-\/hal-\/timer.\+h"{}}\newline
+{\ttfamily \+\#include "{}Lighthouse\+Config.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{_timing_8cpp_a893b566b68340a229bbdc03a9f2c0649}{Initialize\+\_\+\+Timers}} ()
+\item 
+void IRAM\+\_\+\+ATTR \doxymbox{\hyperlink{_timing_8cpp_a07b12639c88cc9df7977d2ab4224b969}{\+\_\+on\+\_\+\+UWB\+\_\+activation\+\_\+timer\+\_\+timeout}} ()
+\item 
+void IRAM\+\_\+\+ATTR \doxymbox{\hyperlink{_timing_8cpp_af93d879c05958ab04769c455da43b421}{\+\_\+on\+\_\+ack\+\_\+timer\+\_\+timeout}} ()
+\item 
+void \doxymbox{\hyperlink{_timing_8cpp_a565bbac38fb8b56978aee216c85d291b}{Start\+\_\+\+UWB\+\_\+\+Activation\+\_\+\+Timer}} ()
+\item 
+void \doxymbox{\hyperlink{_timing_8cpp_a91b59fa17d7d833f0767d5ecaab87fd3}{Stop\+\_\+\+UWB\+\_\+\+Activation\+\_\+\+Timer}} ()
+\item 
+void \doxymbox{\hyperlink{_timing_8cpp_a6c20d9a7484b6e86e03683520d5f5723}{Start\+\_\+\+Ack\+\_\+\+Timer}} ()
+\item 
+void \doxymbox{\hyperlink{_timing_8cpp_aaf050820ac5b78194d516ef0d451499a}{Stop\+\_\+\+Ack\+\_\+\+Timer}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+hw\+\_\+timer\+\_\+t \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{_timing_8cpp_a7fbf619159a97bef5fb263cba960c939}{uwb\+\_\+activation\+\_\+timer}} = NULL
+\item 
+hw\+\_\+timer\+\_\+t \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{_timing_8cpp_a9d740c55adddd05c8ae4b3fbf14de4c8}{ack\+\_\+timer}} = NULL
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{_timing_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{_timing_8cpp_af93d879c05958ab04769c455da43b421}\index{Timing.cpp@{Timing.cpp}!\_on\_ack\_timer\_timeout@{\_on\_ack\_timer\_timeout}}
+\index{\_on\_ack\_timer\_timeout@{\_on\_ack\_timer\_timeout}!Timing.cpp@{Timing.cpp}}
+\doxysubsubsection{\texorpdfstring{\_on\_ack\_timer\_timeout()}{\_on\_ack\_timer\_timeout()}}
+{\footnotesize\ttfamily \label{_timing_8cpp_af93d879c05958ab04769c455da43b421} 
+void IRAM\+\_\+\+ATTR \+\_\+on\+\_\+ack\+\_\+timer\+\_\+timeout (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_timing_8cpp_a07b12639c88cc9df7977d2ab4224b969}\index{Timing.cpp@{Timing.cpp}!\_on\_UWB\_activation\_timer\_timeout@{\_on\_UWB\_activation\_timer\_timeout}}
+\index{\_on\_UWB\_activation\_timer\_timeout@{\_on\_UWB\_activation\_timer\_timeout}!Timing.cpp@{Timing.cpp}}
+\doxysubsubsection{\texorpdfstring{\_on\_UWB\_activation\_timer\_timeout()}{\_on\_UWB\_activation\_timer\_timeout()}}
+{\footnotesize\ttfamily \label{_timing_8cpp_a07b12639c88cc9df7977d2ab4224b969} 
+void IRAM\+\_\+\+ATTR \+\_\+on\+\_\+\+UWB\+\_\+activation\+\_\+timer\+\_\+timeout (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_timing_8cpp_a893b566b68340a229bbdc03a9f2c0649}\index{Timing.cpp@{Timing.cpp}!Initialize\_Timers@{Initialize\_Timers}}
+\index{Initialize\_Timers@{Initialize\_Timers}!Timing.cpp@{Timing.cpp}}
+\doxysubsubsection{\texorpdfstring{Initialize\_Timers()}{Initialize\_Timers()}}
+{\footnotesize\ttfamily \label{_timing_8cpp_a893b566b68340a229bbdc03a9f2c0649} 
+void Initialize\+\_\+\+Timers (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_timing_8cpp_a6c20d9a7484b6e86e03683520d5f5723}\index{Timing.cpp@{Timing.cpp}!Start\_Ack\_Timer@{Start\_Ack\_Timer}}
+\index{Start\_Ack\_Timer@{Start\_Ack\_Timer}!Timing.cpp@{Timing.cpp}}
+\doxysubsubsection{\texorpdfstring{Start\_Ack\_Timer()}{Start\_Ack\_Timer()}}
+{\footnotesize\ttfamily \label{_timing_8cpp_a6c20d9a7484b6e86e03683520d5f5723} 
+void Start\+\_\+\+Ack\+\_\+\+Timer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_timing_8cpp_a565bbac38fb8b56978aee216c85d291b}\index{Timing.cpp@{Timing.cpp}!Start\_UWB\_Activation\_Timer@{Start\_UWB\_Activation\_Timer}}
+\index{Start\_UWB\_Activation\_Timer@{Start\_UWB\_Activation\_Timer}!Timing.cpp@{Timing.cpp}}
+\doxysubsubsection{\texorpdfstring{Start\_UWB\_Activation\_Timer()}{Start\_UWB\_Activation\_Timer()}}
+{\footnotesize\ttfamily \label{_timing_8cpp_a565bbac38fb8b56978aee216c85d291b} 
+void Start\+\_\+\+UWB\+\_\+\+Activation\+\_\+\+Timer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_timing_8cpp_aaf050820ac5b78194d516ef0d451499a}\index{Timing.cpp@{Timing.cpp}!Stop\_Ack\_Timer@{Stop\_Ack\_Timer}}
+\index{Stop\_Ack\_Timer@{Stop\_Ack\_Timer}!Timing.cpp@{Timing.cpp}}
+\doxysubsubsection{\texorpdfstring{Stop\_Ack\_Timer()}{Stop\_Ack\_Timer()}}
+{\footnotesize\ttfamily \label{_timing_8cpp_aaf050820ac5b78194d516ef0d451499a} 
+void Stop\+\_\+\+Ack\+\_\+\+Timer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_timing_8cpp_a91b59fa17d7d833f0767d5ecaab87fd3}\index{Timing.cpp@{Timing.cpp}!Stop\_UWB\_Activation\_Timer@{Stop\_UWB\_Activation\_Timer}}
+\index{Stop\_UWB\_Activation\_Timer@{Stop\_UWB\_Activation\_Timer}!Timing.cpp@{Timing.cpp}}
+\doxysubsubsection{\texorpdfstring{Stop\_UWB\_Activation\_Timer()}{Stop\_UWB\_Activation\_Timer()}}
+{\footnotesize\ttfamily \label{_timing_8cpp_a91b59fa17d7d833f0767d5ecaab87fd3} 
+void Stop\+\_\+\+UWB\+\_\+\+Activation\+\_\+\+Timer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-var-members}
+\Hypertarget{_timing_8cpp_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{_timing_8cpp_a9d740c55adddd05c8ae4b3fbf14de4c8}\index{Timing.cpp@{Timing.cpp}!ack\_timer@{ack\_timer}}
+\index{ack\_timer@{ack\_timer}!Timing.cpp@{Timing.cpp}}
+\doxysubsubsection{\texorpdfstring{ack\_timer}{ack\_timer}}
+{\footnotesize\ttfamily \label{_timing_8cpp_a9d740c55adddd05c8ae4b3fbf14de4c8} 
+hw\+\_\+timer\+\_\+t\texorpdfstring{$\ast$}{*} ack\+\_\+timer = NULL}
+
+\Hypertarget{_timing_8cpp_a7fbf619159a97bef5fb263cba960c939}\index{Timing.cpp@{Timing.cpp}!uwb\_activation\_timer@{uwb\_activation\_timer}}
+\index{uwb\_activation\_timer@{uwb\_activation\_timer}!Timing.cpp@{Timing.cpp}}
+\doxysubsubsection{\texorpdfstring{uwb\_activation\_timer}{uwb\_activation\_timer}}
+{\footnotesize\ttfamily \label{_timing_8cpp_a7fbf619159a97bef5fb263cba960c939} 
+hw\+\_\+timer\+\_\+t\texorpdfstring{$\ast$}{*} uwb\+\_\+activation\+\_\+timer = NULL}
+

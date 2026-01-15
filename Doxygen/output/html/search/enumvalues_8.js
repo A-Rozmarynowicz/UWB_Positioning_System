@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['lcd_5firqn_0',['LCD_IRQn',['../group___peripheral__interrupt__number__definition.html#gga7e1129cd8a196f4284d41db3e82ad5c8a161916b33cc34138d17e57eaa8464568',1,'stm32l476xx.h']]],
-  ['lptim1_5firqn_1',['LPTIM1_IRQn',['../group___peripheral__interrupt__number__definition.html#gga7e1129cd8a196f4284d41db3e82ad5c8aa52967af3850dd051e31eee8807171c6',1,'stm32l476xx.h']]],
-  ['lptim2_5firqn_2',['LPTIM2_IRQn',['../group___peripheral__interrupt__number__definition.html#gga7e1129cd8a196f4284d41db3e82ad5c8a5e28ae70dfc1e247104f6ef44437257b',1,'stm32l476xx.h']]],
-  ['lpuart1_5firqn_3',['LPUART1_IRQn',['../group___peripheral__interrupt__number__definition.html#gga7e1129cd8a196f4284d41db3e82ad5c8af5ac0e39fc168694d2b7d39018c6cc0a',1,'stm32l476xx.h']]]
+  ['ready_5ffor_5fobserver_0',['READY_FOR_OBSERVER',['../_communication_8h.html#a720807528b1dc7575d0e8edca56df577ac55cedbda6e225d3e50409e937629855',1,'Communication.h']]],
+  ['receiver_5fid_1',['RECEIVER_ID',['../_communication_8h.html#a5f7829e71f61d0ac0de6ef57f3556bddade9e5561c6f1f374fe86166d2057fca4',1,'Communication.h']]],
+  ['relay_5fuwb_5fquering_2',['RELAY_UWB_QUERING',['../_state_machine_8h.html#a808e5cd4979462d3bbe3070d7d147444aa6b9d4367a3b28e47237bf3b3ba2326e',1,'StateMachine.h']]],
+  ['respond_5favg_5fresponse_5ftime_3',['RESPOND_AVG_RESPONSE_TIME',['../_communication_8h.html#a720807528b1dc7575d0e8edca56df577a4fb3cd0b6752e11ccdc6297e838e35bd',1,'Communication.h']]],
+  ['response_5fdistance_4',['RESPONSE_DISTANCE',['../_communication_8h.html#a720807528b1dc7575d0e8edca56df577abcfac3650660bc1970706b8df100336d',1,'Communication.h']]]
 ];
