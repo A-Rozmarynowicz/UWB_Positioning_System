@@ -1,0 +1,34 @@
+\doxysection{Measure.\+h}
+\hypertarget{_measure_8h_source}{}\label{_measure_8h_source}\index{LighthouseESP/include/Measure.h@{LighthouseESP/include/Measure.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MEASURE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MEASURE\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}LighthouseConfig.h"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_position}{Position}}\ \{}
+\DoxyCodeLine{00006\ \ \ \ \ \textcolor{keywordtype}{float}\ x;}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keywordtype}{float}\ y;}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keywordtype}{float}\ z;}
+\DoxyCodeLine{00009\ \};}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{float}\ distances\_to\_lighthouses[NUMBER\_OF\_LIGHTHOUSES];}
+\DoxyCodeLine{00012\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{float}\ master\_all\_distances\_matrix[NUMBER\_OF\_LIGHTHOUSES][NUMBER\_OF\_LIGHTHOUSES];}
+\DoxyCodeLine{00013\ \textcolor{keyword}{extern}\ \doxymbox{\hyperlink{struct_position}{Position}}\ master\_all\_positions[NUMBER\_OF\_LIGHTHOUSES];}
+\DoxyCodeLine{00014\ \textcolor{keyword}{extern}\ \doxymbox{\hyperlink{struct_position}{Position}}\ position;}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{comment}{//\ Public}}
+\DoxyCodeLine{00017\ \textcolor{keywordtype}{void}\ Calculate\_Distance\_To\_Target(uint8\_t\ current\_target,\ \textcolor{keywordtype}{float}\ distance);}
+\DoxyCodeLine{00018\ \textcolor{keywordtype}{void}\ Print\_Master\_All\_Distances\_Matrix();}
+\DoxyCodeLine{00019\ \textcolor{keywordtype}{void}\ Print\_Position(uint8\_t\ lighthouse);}
+\DoxyCodeLine{00020\ \textcolor{keywordtype}{void}\ Calculate\_Position\_Of\_Lighthouse(uint8\_t\ lighthouse);}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{comment}{//\ Private}}
+\DoxyCodeLine{00023\ \textcolor{keywordtype}{void}\ \_set\_LGH\_1\_position();}
+\DoxyCodeLine{00024\ \textcolor{keywordtype}{void}\ \_set\_LGH\_2\_position();}
+\DoxyCodeLine{00025\ \textcolor{keywordtype}{void}\ \_set\_LGH\_3\_position();}
+\DoxyCodeLine{00026\ \textcolor{keywordtype}{void}\ \_set\_LGH\_4plus\_position(uint8\_t\ lighthouse);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

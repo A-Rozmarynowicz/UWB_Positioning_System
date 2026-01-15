@@ -1,0 +1,29 @@
+\doxysection{Lighthouse\+Config.\+h}
+\hypertarget{headers_2_lighthouse_config_8h_source}{}\label{headers_2_lighthouse_config_8h_source}\index{Lighthouse/headers/LighthouseConfig.h@{Lighthouse/headers/LighthouseConfig.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ LIGHTHOUSECONFIG\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ LIGHTHOUSECONFIG\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <WiFi.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <esp\_now.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Timing.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}StateMachine.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}Communication.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}Measure.h"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ CLOCK\_PERIOD\ (double)\ 1/(240E+6)}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ STATUS\_BUTTON\ (uint8\_t)\ 4}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ INDEX\_PIN\_2\ (uint8\_t)\ 18}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ INDEX\_PIN\_1\ (uint8\_t)\ 19}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ INDEX\_PIN\_0\ (uint8\_t)\ 21}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{extern}\ uint8\_t\ LIGHTHOUSE\_ID;}
+\DoxyCodeLine{00020\ \textcolor{keyword}{const}\ uint32\_t\ CYCLE\_COUNT\_MAX\ =\ 4294967295;}
+\DoxyCodeLine{00021\ \textcolor{keyword}{const}\ uint8\_t\ NUMBER\_OF\_LIGHTHOUSES\ =\ 4;}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

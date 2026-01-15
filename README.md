@@ -1,7 +1,5 @@
 # Lighthouse Positioning System
 
-
-
 ## Getting started
 
 To make it easy for you to get started with GitLab, here's a list of recommended next steps.
@@ -44,7 +42,7 @@ Use the built-in continuous integration in GitLab.
 
 ***
 
-# Editing this README
+## Editing this README
 
 When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
 

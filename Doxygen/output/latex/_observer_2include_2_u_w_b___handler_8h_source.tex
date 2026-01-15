@@ -1,0 +1,35 @@
+\doxysection{uwb\+\_\+handler.\+h}
+\hypertarget{_observer_2include_2_u_w_b___handler_8h_source}{}\label{_observer_2include_2_u_w_b___handler_8h_source}\index{Observer/include/uwb\_handler.h@{Observer/include/uwb\_handler.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ UWB\_HANDLER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ UWB\_HANDLER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <SPI.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}DW1000Ranging.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}observer\_config.h"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{const}\ uint8\_t\ PIN\_RST\ =\ 9;\ \textcolor{comment}{//\ reset\ pin}}
+\DoxyCodeLine{00009\ \textcolor{keyword}{const}\ uint8\_t\ PIN\_IRQ\ =\ 2;\ \textcolor{comment}{//\ irq\ pin}}
+\DoxyCodeLine{00010\ \textcolor{keyword}{const}\ uint8\_t\ PIN\_SS\ =\ SS;\ \textcolor{comment}{//\ spi\ select\ pin}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ uwb\_address[24];}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{extern}\ uint8\_t\ uwb\_enable;}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{comment}{//\ Public}}
+\DoxyCodeLine{00017\ \textcolor{keywordtype}{void}\ Initialize\_UWB();}
+\DoxyCodeLine{00018\ \textcolor{keywordtype}{void}\ Update\_UWB();}
+\DoxyCodeLine{00019\ uint8\_t\ Is\_UWB\_Enabled();}
+\DoxyCodeLine{00020\ \textcolor{keywordtype}{void}\ Disable\_UWB();}
+\DoxyCodeLine{00021\ \textcolor{keywordtype}{void}\ Enable\_UWB();}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{comment}{//\ Private}}
+\DoxyCodeLine{00024\ \textcolor{keywordtype}{void}\ \_new\_range();}
+\DoxyCodeLine{00025\ \textcolor{keywordtype}{void}\ \_new\_device(DW1000Device*\ device);}
+\DoxyCodeLine{00026\ \textcolor{keywordtype}{void}\ \_inactive\_device(DW1000Device*\ device);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
