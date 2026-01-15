@@ -1,0 +1,23 @@
+\doxysection{timing.\+h}
+\hypertarget{timing_8h_source}{}\label{timing_8h_source}\index{include/timing.h@{include/timing.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ TIMING\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ TIMING\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}esp32-\/hal-\/timer.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}observer\_config.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{const}\ uint16\_t\ ACK\_TIMER\_PERIOD\_MS\ =\ 25;}
+\DoxyCodeLine{00007\ \textcolor{keyword}{extern}\ hw\_timer\_t*\ ack\_timer;}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ Public}}
+\DoxyCodeLine{00010\ \textcolor{keywordtype}{void}\ Initialize\_Timers();}
+\DoxyCodeLine{00011\ \textcolor{keywordtype}{void}\ Start\_Ack\_Timer();}
+\DoxyCodeLine{00012\ \textcolor{keywordtype}{void}\ Stop\_Ack\_Timer();}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ Private}}
+\DoxyCodeLine{00015\ \textcolor{keywordtype}{void}\ IRAM\_ATTR\ \_on\_ack\_timer\_timeout();}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

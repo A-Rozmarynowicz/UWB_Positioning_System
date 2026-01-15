@@ -24,7 +24,29 @@
 */
 var NAVTREE =
 [
-  [ "Lighthouse", "index.html", [
+  [ "Lighthouse Documentation", "index.html", [
+    [ "Lighthouse", "index.html#autotoc_md0", [
+      [ "Submodule of the Lighthouse Positioning System", "index.html#autotoc_md1", null ],
+      [ "Getting started", "index.html#autotoc_md2", null ],
+      [ "Add your files", "index.html#autotoc_md3", null ],
+      [ "Integrate with your tools", "index.html#autotoc_md4", null ],
+      [ "Collaborate with your team", "index.html#autotoc_md5", null ],
+      [ "Test and Deploy", "index.html#autotoc_md6", null ],
+      [ "Editing this README", "index.html#autotoc_md7", null ],
+      [ "Suggestions for a good README", "index.html#autotoc_md8", null ],
+      [ "Name", "index.html#autotoc_md9", null ],
+      [ "Description", "index.html#autotoc_md10", null ],
+      [ "Badges", "index.html#autotoc_md11", null ],
+      [ "Visuals", "index.html#autotoc_md12", null ],
+      [ "Installation", "index.html#autotoc_md13", null ],
+      [ "Usage", "index.html#autotoc_md14", null ],
+      [ "Support", "index.html#autotoc_md15", null ],
+      [ "Roadmap", "index.html#autotoc_md16", null ],
+      [ "Contributing", "index.html#autotoc_md17", null ],
+      [ "Authors and acknowledgment", "index.html#autotoc_md18", null ],
+      [ "License", "index.html#autotoc_md19", null ],
+      [ "Project status", "index.html#autotoc_md20", null ]
+    ] ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['number_5fof_5flighthouses_0',['NUMBER_OF_LIGHTHOUSES',['../_lighthouse_config_8h.html#ad733a36008e3e7e7b67db0dfcf0f18c4',1,'LighthouseConfig.h']]]
+  ['messages_0',['MESSAGES',['../namespace_m_e_s_s_a_g_e_s.html',1,'']]]
 ];

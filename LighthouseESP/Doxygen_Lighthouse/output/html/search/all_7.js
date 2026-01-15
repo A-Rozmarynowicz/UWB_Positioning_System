@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['last_5fregistered_5ftime_0',['last_registered_time',['../struct_state_data.html#ad0ecfecad17822aaefb34cf00a5bc4e8',1,'StateData']]],
-  ['lighthouse_5fid_1',['LIGHTHOUSE_ID',['../_lighthouse_config_8h.html#ac863351c18bb4f0176b6820c9129b11e',1,'LIGHTHOUSE_ID:&#160;main.cpp'],['../main_8cpp.html#ac863351c18bb4f0176b6820c9129b11e',1,'LIGHTHOUSE_ID:&#160;main.cpp']]],
-  ['lighthouseconfig_2eh_2',['LighthouseConfig.h',['../_lighthouse_config_8h.html',1,'']]],
-  ['loop_3',['loop',['../main_8cpp.html#afe461d27b9c48d5921c00d521181f12f',1,'main.cpp']]]
+  ['initialize_5fcommunication_0',['Initialize_Communication',['../_communication_8h.html#a3b564dd662c5448bcab004e10a1f06eb',1,'Communication.cpp']]],
+  ['installation_1',['Installation',['../index.html#autotoc_md13',1,'']]],
+  ['integrate_20with_20your_20tools_2',['Integrate with your tools',['../index.html#autotoc_md4',1,'']]]
 ];

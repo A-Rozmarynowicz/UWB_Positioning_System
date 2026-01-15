@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['initialize_5fcommunication_0',['Initialize_Communication',['../_communication_8h.html#a3b564dd662c5448bcab004e10a1f06eb',1,'Communication.cpp']]]
+  ['collaborate_20with_20your_20team_0',['Collaborate with your team',['../index.html#autotoc_md5',1,'']]],
+  ['communication_2eh_1',['Communication.h',['../_communication_8h.html',1,'']]],
+  ['contributing_2',['Contributing',['../index.html#autotoc_md17',1,'']]]
 ];

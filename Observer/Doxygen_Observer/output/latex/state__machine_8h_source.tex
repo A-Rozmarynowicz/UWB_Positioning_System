@@ -1,0 +1,69 @@
+\doxysection{state\+\_\+machine.\+h}
+\hypertarget{state__machine_8h_source}{}\label{state__machine_8h_source}\index{include/state\_machine.h@{include/state\_machine.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ STATE\_MACHINE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ STATE\_MACHINE\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}observer\_config.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_state___data}{State\_Data}}\ \{}
+\DoxyCodeLine{00007\ \ \ \ \ uint8\_t\ target\_lgh;}
+\DoxyCodeLine{00008\ \ \ \ \ uint8\_t\ ack\_index;}
+\DoxyCodeLine{00009\ \};}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{enum}\ States\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ INITIAL\ =\ 0,}
+\DoxyCodeLine{00013\ \ \ \ \ QUERY\_POSITIONS\ =\ 1,}
+\DoxyCodeLine{00014\ \ \ \ \ QUERY\_DISTANCES\ =\ 2,}
+\DoxyCodeLine{00015\ \};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{enum}\ State\_Machine\_Errors\ \{}
+\DoxyCodeLine{00018\ \ \ INEXISTING\_STATE,}
+\DoxyCodeLine{00019\ \ \ WRONG\_TRANSITION,}
+\DoxyCodeLine{00020\ \};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{const}\ uint8\_t\ MAX\_ACK\_NUMBER\ =\ 5;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{extern}\ States\ current\_state;}
+\DoxyCodeLine{00025\ \textcolor{keyword}{extern}\ \doxymbox{\hyperlink{struct_state___data}{State\_Data}}\ current\_state\_data;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keywordtype}{void}\ Reset\_And\_Initialize\_Machine();}
+\DoxyCodeLine{00028\ \textcolor{keywordtype}{void}\ State\_Machine\_Error(State\_Machine\_Errors\ error);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keywordtype}{void}\ Change\_State(States\ new\_state);}
+\DoxyCodeLine{00031\ \textcolor{keywordtype}{void}\ State\_Enter();}
+\DoxyCodeLine{00032\ \textcolor{keywordtype}{void}\ State\_ReceiveCallback(\textcolor{keyword}{const}\ uint8\_t*\ data,\ \textcolor{keywordtype}{int}\ dataLen);}
+\DoxyCodeLine{00033\ \textcolor{keywordtype}{void}\ State\_SentCallback();}
+\DoxyCodeLine{00034\ \textcolor{keywordtype}{void}\ State\_TimerCallback(Timer\_Callbacks\ timer\_callback);}
+\DoxyCodeLine{00035\ \textcolor{keywordtype}{void}\ State\_SailorCommand(Sailor\_Commands\ command);}
+\DoxyCodeLine{00036\ \textcolor{keywordtype}{void}\ State\_UWB\_New\_Range(uint16\_t\ device,\ \textcolor{keywordtype}{float}\ range,\ \textcolor{keywordtype}{float}\ rx\_power);}
+\DoxyCodeLine{00037\ \textcolor{keywordtype}{void}\ State\_Exit();}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{keywordtype}{void}\ Initial\_Enter();}
+\DoxyCodeLine{00040\ \textcolor{keywordtype}{void}\ Initial\_ReceiveCallback(\textcolor{keyword}{const}\ uint8\_t*\ data,\ \textcolor{keywordtype}{int}\ dataLen);}
+\DoxyCodeLine{00041\ \textcolor{keywordtype}{void}\ Initial\_SentCallback();}
+\DoxyCodeLine{00042\ \textcolor{keywordtype}{void}\ Initial\_TimerCallback(Timer\_Callbacks\ timer\_callback);}
+\DoxyCodeLine{00043\ \textcolor{keywordtype}{void}\ Initial\_SailorCommand(Sailor\_Commands\ command);}
+\DoxyCodeLine{00044\ \textcolor{keywordtype}{void}\ Initial\_UWB\_New\_Range(uint16\_t\ device,\ \textcolor{keywordtype}{float}\ range,\ \textcolor{keywordtype}{float}\ rx\_power);}
+\DoxyCodeLine{00045\ \textcolor{keywordtype}{void}\ Initial\_Exit();}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{keywordtype}{void}\ Query\_Positions\_Enter();}
+\DoxyCodeLine{00048\ \textcolor{keywordtype}{void}\ Query\_Positions\_ReceiveCallback(\textcolor{keyword}{const}\ uint8\_t*\ data,\ \textcolor{keywordtype}{int}\ dataLen);}
+\DoxyCodeLine{00049\ \textcolor{keywordtype}{void}\ Query\_Positions\_SentCallback();}
+\DoxyCodeLine{00050\ \textcolor{keywordtype}{void}\ Query\_Positions\_TimerCallback(Timer\_Callbacks\ timer\_callback);}
+\DoxyCodeLine{00051\ \textcolor{keywordtype}{void}\ Query\_Positions\_SailorCommand(Sailor\_Commands\ command);}
+\DoxyCodeLine{00052\ \textcolor{keywordtype}{void}\ Query\_Positions\_UWB\_New\_Range(uint16\_t\ device,\ \textcolor{keywordtype}{float}\ range,\ \textcolor{keywordtype}{float}\ rx\_power);}
+\DoxyCodeLine{00053\ \textcolor{keywordtype}{void}\ Query\_Positions\_Exit();}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{keywordtype}{void}\ Query\_Distances\_Enter();}
+\DoxyCodeLine{00056\ \textcolor{keywordtype}{void}\ Query\_Distances\_ReceiveCallback(\textcolor{keyword}{const}\ uint8\_t*\ data,\ \textcolor{keywordtype}{int}\ dataLen);}
+\DoxyCodeLine{00057\ \textcolor{keywordtype}{void}\ Query\_Distances\_SentCallback();}
+\DoxyCodeLine{00058\ \textcolor{keywordtype}{void}\ Query\_Distances\_TimerCallback(Timer\_Callbacks\ timer\_callback);}
+\DoxyCodeLine{00059\ \textcolor{keywordtype}{void}\ Query\_Distances\_SailorCommand(Sailor\_Commands\ command);}
+\DoxyCodeLine{00060\ \textcolor{keywordtype}{void}\ Query\_Distances\_UWB\_New\_Range(uint16\_t\ device,\ \textcolor{keywordtype}{float}\ range,\ \textcolor{keywordtype}{float}\ rx\_power);}
+\DoxyCodeLine{00061\ \textcolor{keywordtype}{void}\ Query\_Distances\_Exit();}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

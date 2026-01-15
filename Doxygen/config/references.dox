@@ -1,5 +1,11 @@
 /** @page subprojects Subprojects
  *
- * MainProject depends on the following subprojects:
- * - [Lighthouse](../../../LighthouseESP/Doxygen_Lighthouse/output/html/index.html)
+* Lighthouse Positioning System project depends on the following subprojects:
+
+* - [Lighthouse](../../../LighthouseESP/Doxygen_Lighthouse/output/html/index.html)
+
+* - [Observer](../../../Observer/Doxygen_Observer/output/html/index.html)
+
+* - [Sailor](../../../Sailor/Doxygen_Sailor/output/html/index.html)
+
  */
