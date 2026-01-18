@@ -18,6 +18,7 @@ void setup() {
   Serial.println("Began");
   delay(10);
 
+
   pinMode(INDEX_PIN_0, INPUT_PULLDOWN);
   pinMode(INDEX_PIN_1, INPUT_PULLDOWN);
   pinMode(INDEX_PIN_2, INPUT_PULLDOWN);

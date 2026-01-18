@@ -60,15 +60,16 @@ void UWB_Query_TimerCallback(Timer_Callbacks timer_callback){
 void UWB_Query_ButtonCallback(uint8_t button){};
 
 void UWB_Query_UWB_New_Range(uint16_t device, float range, float rx_power){
-  for (uint8_t i=0; i<NUMBER_OF_LIGHTHOUSES;i++){
-    // if (uwb_addresses_from_LGH[i] == device){
-    //   Calculate_Distance_To_Target(i, range);
-    //   completed_distance_measurements[i] += 1;
-    //   if (Check_If_All_Distances_Are_Measured(completed_distance_measurements)){
-    //     Change_State(States::POST_UWB_CHECK_IF_ALL_LGHS_SET);
-    //   }
-    //   break;
-    // }
+  Serial.printf("New range from %X\n", device);
+  int8_t lgh_index = Get_LGH_From_Short_Address(device);
+  Serial.printf("ADDRESS ID found: %d\n", lgh_index);
+  if (lgh_index == -1){
+    return;
+  }
+  New_Measurement(lgh_index, range);
+  completed_distance_measurements[lgh_index] += 1;
+  if (Check_If_All_Distances_Are_Measured(completed_distance_measurements)){
+    Change_State(States::POST_UWB_CHECK_IF_ALL_LGHS_SET);
   }
 }
 
@@ -84,12 +85,13 @@ void UWB_Response_Enter(){
 
 void UWB_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
   if (data[Data_Setup::COMMAND] == Data_Commands::CHANGE_STATE_COM){
+    Serial.printf("Wanting to switch state to: %d\n", data[Data_Setup::SINGLE_0]);
     switch (data[Data_Setup::SINGLE_0]) {
       case States::UWB_QUERY:
         current_state_data.ignoring_sent_callbacks = true;
         current_state_data.stored_next_state = States::UWB_QUERY;
         MESSAGES::Send_Ack(data[Data_Setup::TRANSMITTER_ID]);
-        Start_Ack_Timer();
+        Change_State(States::UWB_QUERY);
         break;
       case States::DISTANCE_MEASURE_RESPONSE:
         current_state_data.ignoring_sent_callbacks = true;
@@ -130,8 +132,8 @@ void Post_UWB_Check_If_All_LGHS_Set_Exit(){};
 #pragma region Relay UWB Quering State Functions
 void Relay_UWB_Quering_Enter(){
   Reset_Ack_Target_Index(&current_ack_status.target_ack_lighthouse, &current_ack_status.current_ack_index);
-  Start_Ack_Timer();
   MESSAGES::Send_Relay_UWB_Response(current_ack_status.target_ack_lighthouse);
+  Start_Ack_Timer();
 };
 
 void Relay_UWB_Quering_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){

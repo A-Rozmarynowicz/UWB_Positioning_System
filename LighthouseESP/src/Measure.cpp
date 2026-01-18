@@ -6,8 +6,15 @@ float master_all_distances_matrix[NUMBER_OF_LIGHTHOUSES][NUMBER_OF_LIGHTHOUSES] 
 Position master_all_positions[NUMBER_OF_LIGHTHOUSES] = {0};
 Position position = {0};
 
-void Calculate_Distance_To_Target(uint8_t current_target, float distance){
-  distances_to_lighthouses[current_target] = distance;
+
+void New_Measurement(uint8_t lighthouse, float distance){
+  distances_to_lighthouses[lighthouse] += distance;
+}
+
+void Calculate_Distance_To_Targets(uint8_t distance_measurements[NUMBER_OF_LIGHTHOUSES]){
+  for (uint8_t i=0;i<NUMBER_OF_LIGHTHOUSES;i++){
+    distances_to_lighthouses[i] = distances_to_lighthouses[i]/distance_measurements[i];
+  }
 }
 
 void Print_Master_All_Distances_Matrix(){

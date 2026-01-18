@@ -2,6 +2,8 @@
 #define MEASURE_H
 #include "LighthouseConfig.h"
 
+const uint8_t MIN_DISTANCE_MEASUREMENTS = 5;
+
 struct Position {
     float x;
     float y;
@@ -14,7 +16,8 @@ extern Position master_all_positions[NUMBER_OF_LIGHTHOUSES];
 extern Position position;
 
 // Public
-void Calculate_Distance_To_Target(uint8_t current_target, float distance);
+void New_Measurement(uint8_t lighthouse, float distance);
+void Calculate_Distance_To_Targets(uint8_t distance_measurements[NUMBER_OF_LIGHTHOUSES]);
 void Print_Master_All_Distances_Matrix();
 void Print_Position(uint8_t lighthouse);
 void Calculate_Position_Of_Lighthouse(uint8_t lighthouse);
