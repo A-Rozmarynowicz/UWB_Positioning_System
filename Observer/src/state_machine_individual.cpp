@@ -21,9 +21,10 @@ void Initial_Exit(){}
 
 #pragma region Query Positions State Functions
 void Query_Positions_Enter(){
+    UWB_Exchange_Successful();
     MESSAGES::Send_Query_Position(current_state_data.target_lgh);
     Serial.printf("Sent pos query\n");
-    // Start_Ack_Timer();
+    Start_Ack_Timer();
 }
 
 void Query_Positions_ReceiveCallback(const uint8_t* data, int dataLen){
@@ -34,7 +35,7 @@ void Query_Positions_ReceiveCallback(const uint8_t* data, int dataLen){
             Serial.printf("Wrong pos query transmitter: actual: %d vs desired: %d\n", data[Data_Setup::TRANSMITTER_ID], current_state_data.target_lgh);
             return;
         }
-        // Stop_Ack_Timer();
+        Stop_Ack_Timer();
         Serial.printf("Po stop ack timer\n");
         current_state_data.ack_index = 0;
         float x, y, z;
@@ -49,6 +50,7 @@ void Query_Positions_ReceiveCallback(const uint8_t* data, int dataLen){
             return;
         }
         MESSAGES::Send_Query_Position(current_state_data.target_lgh);
+        Start_Ack_Timer();
         Serial.printf("Sent pos query\n");
     }
 }
@@ -93,6 +95,7 @@ void Query_Distances_ReceiveCallback(const uint8_t* data, int dataLen){}
 void Query_Distances_SentCallback(){}
 void Query_Distances_TimerCallback(Timer_Callbacks timer_callback){}
 void Query_Distances_SailorCommand(Sailor_Commands command){}
+
 void Query_Distances_UWB_New_Range(uint16_t device, float range, float rx_power){
     int lgh_index = Get_LGH_From_Short_Address(device);
     if (lgh_index < 0){
@@ -108,9 +111,9 @@ void Query_Distances_UWB_New_Range(uint16_t device, float range, float rx_power)
     }
     else {
         for (int i = 0; i < NUMBER_OF_LIGHTHOUSES;i++){
-            Serial.printf("%d->%d   ", i, distances_measurements_completed[i]);
+            Serial.printf("%d->%0.2f   ", i, distances_to_lghs[i]);
         }
-        Serial.printf("\nNot enough\n");
+        Serial.printf("\n");
     }
 }
 void Query_Distances_Exit(){}

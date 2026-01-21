@@ -17,8 +17,15 @@ float last_rx_power = 0.0f;
 bool _new_range_received = false;
 
 void Initialize_UWB(){
+    pinMode(PIN_RST, OUTPUT);
+    digitalWrite(PIN_RST, LOW);
+    delay(10);
+    digitalWrite(PIN_RST, HIGH);
+    delay(10);
+
+
     SPI.begin(PIN_SCK, PIN_MISO, PIN_MOSI, PIN_SS);
-    SPI.setFrequency(4000000);
+    SPI.setFrequency(1000000);
     DW1000Ranging.initCommunication(PIN_RST, PIN_SS, PIN_IRQ);
     DW1000Ranging.attachNewRange(_new_range);
     DW1000Ranging.attachBlinkDevice(_new_device);
@@ -54,8 +61,10 @@ void _new_range() {
     last_device = DW1000Ranging.getDistantDevice()->getShortAddress();
     last_range = DW1000Ranging.getDistantDevice()->getRange();
     last_rx_power = DW1000Ranging.getDistantDevice()->getRXPower();
-    _new_range_received = true;
-    // Serial.print("from: "); Serial.printf("%x\n", device);
+    // _new_range_received = true;
+    // Handle_Last_Range_Callback();
+    // Serial.print("from: "); Serial.printf("%x\n", last_device);
+    State_UWB_New_Range(last_device, last_range, last_rx_power);
     // Serial.print("\t Range: "); Serial.printf("%0.2f", range); Serial.print(" m");
     // Serial.print("\t RX power: "); Serial.printf("%0.2f", rx_power); Serial.println(" dBm");
 }

@@ -393,12 +393,14 @@ void Send_Calculated_Position_Exit(){};
 void Observer_Response_Enter(){
   if (LIGHTHOUSE_ID == 0){
     MESSAGES::Send_Observer_Ready();
+    Data_Transfer_LED_ON();
   }
   Restart_UWB_As_Anchor();
   Enable_UWB();
 };
 void Observer_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
   if (data[Data_Setup::COMMAND] == Data_Commands::OBSERVER_QUERY_POSITION){
+    // Data_Transfer_LED_OFF();
     MESSAGES::Send_Observer_Position_Response();
   }
   else if (data[Data_Setup::COMMAND] == Data_Commands::OBSERVER_QUERY_UWB_ADDRESS){

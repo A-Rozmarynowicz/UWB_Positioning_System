@@ -4,8 +4,8 @@
 #include "observer_config.h"
 
 
-const uint8_t MINIMUM_MEASUREMENTS_PER_LGH = 10;
-const uint8_t MAXIMUM_MEASUREMENT_PER_LGH = 50;
+const uint8_t MINIMUM_MEASUREMENTS_PER_LGH = 50;
+const uint8_t MAXIMUM_MEASUREMENT_PER_LGH = 250;
 
 extern uint16_t distances_measurements_completed[NUMBER_OF_LIGHTHOUSES];
 extern float distances_to_lghs[NUMBER_OF_LIGHTHOUSES];

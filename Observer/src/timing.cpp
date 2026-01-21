@@ -15,7 +15,7 @@ void Initialize_Timers(){
 
 void IRAM_ATTR _on_ack_timer_timeout(){
   Stop_Ack_Timer();
-  ack_timer_triggered = true;
+  State_TimerCallback(Timer_Callbacks::ACK);
 };
 
 void Start_Ack_Timer(){

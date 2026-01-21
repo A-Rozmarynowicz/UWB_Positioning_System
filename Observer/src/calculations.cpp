@@ -36,6 +36,9 @@ void Update_Distance_To_LGH(uint8_t lgh_index, float new_distance){
     if (distances_measurements_completed[lgh_index] > MAXIMUM_MEASUREMENT_PER_LGH){
         return;
     }
+    if (new_distance > 25.0f || new_distance < -25.0f){
+        return;
+    }
     distances_to_lghs[lgh_index] += new_distance;
     distances_measurements_completed[lgh_index] += 1;
 }
