@@ -60,9 +60,12 @@ void UWB_Query_TimerCallback(Timer_Callbacks timer_callback){
 void UWB_Query_ButtonCallback(uint8_t button){};
 
 void UWB_Query_UWB_New_Range(uint16_t device, float range, float rx_power){
-  Serial.printf("New range from %X\n", device);
   int8_t lgh_index = Get_LGH_From_Short_Address(device);
-  Serial.printf("ADDRESS ID found: %d\n", lgh_index);
+  if (completed_distance_measurements[lgh_index] > MIN_DISTANCE_MEASUREMENTS){
+    // Serial.printf("Enough: %d\n", lgh_index);
+    return;
+  }
+  Serial.printf("New range from %X : %0.2f\n", device, range);
   if (lgh_index == -1){
     return;
   }
@@ -73,7 +76,9 @@ void UWB_Query_UWB_New_Range(uint16_t device, float range, float rx_power){
   }
 }
 
-void UWB_Query_Exit(){};
+void UWB_Query_Exit(){
+  Calculate_Distance_To_Targets(completed_distance_measurements);
+};
 
 #pragma endregion
 
@@ -107,7 +112,9 @@ void UWB_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t rec
 void UWB_Response_SentCallback(uint32_t send_time){};
 void UWB_Response_TimerCallback(Timer_Callbacks timer_callback){};
 void UWB_Response_ButtonCallback(uint8_t button){};
-void UWB_Response_UWB_New_Range(uint16_t device, float range, float rx_power){}
+void UWB_Response_UWB_New_Range(uint16_t device, float range, float rx_power){
+  Serial.printf("SLAVE Range: %x \n", device);
+}
 void UWB_Response_Exit(){};
 #pragma endregion
 
@@ -393,6 +400,9 @@ void Observer_Response_Enter(){
 void Observer_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
   if (data[Data_Setup::COMMAND] == Data_Commands::OBSERVER_QUERY_POSITION){
     MESSAGES::Send_Observer_Position_Response();
+  }
+  else if (data[Data_Setup::COMMAND] == Data_Commands::OBSERVER_QUERY_UWB_ADDRESS){
+    MESSAGES::Send_Observer_UWB_Address_Response();
   }
 };
 void Observer_Response_SentCallback(uint32_t send_time){};

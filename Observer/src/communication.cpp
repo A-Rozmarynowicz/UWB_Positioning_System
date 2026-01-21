@@ -8,7 +8,6 @@ void MESSAGES::Send_Query_Position(uint8_t lgh_index){
     transmit_buffer[Data_Setup::RECEIVER_ID] = lgh_index;
     transmit_buffer[Data_Setup::COMMAND] = Data_Commands::OBSERVER_QUERY_POSITION;
     _send_esp();
-    Start_Ack_Timer();
 }
 #pragma endregion
 
@@ -46,7 +45,6 @@ void _send_esp(){
 void _receive_callback(const uint8_t* macAddr, const uint8_t* data, int dataLen){
   uint8_t receiver_id = data[RECEIVER_ID];
   if ((receiver_id != SAILOR_ID) & (receiver_id != BROADCAST_RECEIVER_ID)){
-    Serial.printf("This is NOT Me...: %d\n", receiver_id);
     return;
   }
   State_ReceiveCallback(data, dataLen);

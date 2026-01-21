@@ -3,6 +3,7 @@
 #include "esp32-hal-timer.h"
 #include "observer_config.h"
 
+extern bool ack_timer_triggered;
 const uint16_t ACK_TIMER_PERIOD_MS = 25;
 extern hw_timer_t* ack_timer;
 

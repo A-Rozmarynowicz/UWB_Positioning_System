@@ -1,13 +1,13 @@
 #ifndef LIGHTHOUSECONFIG_H
 #define LIGHTHOUSECONFIG_H
 
-#define NUMBER_OF_LIGHTHOUSES (uint8_t) 2
+#define NUMBER_OF_LIGHTHOUSES (uint8_t) 4
 #define OBSERVER_ID 169
 #define STATUS_BUTTON (uint8_t) 4
 
-#define INDEX_PIN_2 (uint8_t) 13
-#define INDEX_PIN_1 (uint8_t) 12
-#define INDEX_PIN_0 (uint8_t) 14
+#define INDEX_PIN_2 (uint8_t) 27
+#define INDEX_PIN_1 (uint8_t) 26
+#define INDEX_PIN_0 (uint8_t) 25
 
 #include <WiFi.h>
 #include <esp_now.h>

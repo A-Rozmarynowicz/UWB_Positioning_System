@@ -6,6 +6,8 @@ void setup() {
   Serial.printf("Inited serial to PC\n");
   Initialize_Sailor_Comm();
   Serial.printf("Initialized Sailor Comm\n");
+  Initialize_Communication();
+  Serial.printf("Initialized ESP NOW\n");
   Reset_And_Initialize_Machine();
   Serial.printf("Inited state machine\n");
   Initialize_UWB();
@@ -25,5 +27,10 @@ void setup() {
 void loop() {
   if (Is_UWB_Enabled()){
     Update_UWB();
+  }
+  if(ack_timer_triggered){
+    ack_timer_triggered = false;
+    timerStop(ack_timer);
+    State_TimerCallback(Timer_Callbacks::ACK);
   }
 }

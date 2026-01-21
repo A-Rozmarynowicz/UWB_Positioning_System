@@ -5,9 +5,18 @@
 #include "DW1000Ranging.h"
 #include "observer_config.h"
 
-const uint8_t PIN_RST = 9; // reset pin
-const uint8_t PIN_IRQ = 2; // irq pin
-const uint8_t PIN_SS = SS; // spi select pin
+#define UWB_ADDRESS_LENGTH 8
+
+extern const uint8_t uwb_addresses_from_LGH[NUMBER_OF_LIGHTHOUSES][UWB_ADDRESS_LENGTH];
+
+// connection pins
+const int8_t PIN_RST = 22;  // reset pin
+const int8_t PIN_IRQ = 33;   // irq pin
+const int8_t PIN_SS = 5;    // spi select pin
+
+const int8_t PIN_MOSI = 23;
+const int8_t PIN_MISO = 19;
+const int8_t PIN_SCK = 18;
 
 extern char uwb_address[24];
 

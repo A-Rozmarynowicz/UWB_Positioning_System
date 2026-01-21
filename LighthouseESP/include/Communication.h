@@ -20,7 +20,7 @@
 #define DATA_SIZE 20
 
 const uint8_t BROADCAST_RECEIVER_ID = 255;
-const uint8_t ACK_MESSAGE_COUNT = 5;
+const uint8_t ACK_MESSAGE_COUNT = 10;
 
 enum Data_Setup {
   RECEIVER_ID = 0,
@@ -49,6 +49,8 @@ enum Data_Commands {
 
   OBSERVER_QUERY_POSITION,
   OBSERVER_RESPONSE_POSITION,
+  OBSERVER_QUERY_UWB_ADDRESS,
+  OBSERVER_RESPONSE_UWB_ADDRESS,
   OBSERVER_ENABLE_UWB,
 };
 
@@ -103,6 +105,7 @@ void Send_Set_Position(uint8_t receiver);
 
 void Send_Observer_Ready();
 void Send_Observer_Position_Response();
+void Send_Observer_UWB_Address_Response();
 }
 
 // Private

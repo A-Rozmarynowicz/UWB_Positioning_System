@@ -1,5 +1,6 @@
 #include "calculations.h"
 
+uint16_t distances_measurements_completed[NUMBER_OF_LIGHTHOUSES] = {0};
 float distances_to_lghs[NUMBER_OF_LIGHTHOUSES] = {0};
 Position lghs_positions[NUMBER_OF_LIGHTHOUSES] = {0};
 Position current_position = {0};
@@ -27,16 +28,45 @@ void Estimate_Position(){
     _build_b_vector();
     _calculate_atb_vector();
     _calculate_solution();
+    _flush_distance_measurements();
 }
 
 void Update_Distance_To_LGH(uint8_t lgh_index, float new_distance){
-    distances_to_lghs[lgh_index] = new_distance;
+    if (distances_measurements_completed[lgh_index] > MINIMUM_MEASUREMENTS_PER_LGH){
+        return;
+    }
+    distances_to_lghs[lgh_index] += new_distance;
+    distances_measurements_completed[lgh_index] += 1;
+}
+
+int8_t Get_LGH_From_Short_Address(const uint16_t short_address){
+    for (uint8_t i=0;i<NUMBER_OF_LIGHTHOUSES;i++){
+        const uint8_t* potential_address = uwb_addresses_from_LGH[i];
+        if (Get_Short_Address_From_Long(potential_address) == short_address){
+            return i;
+        }
+    }
+    return -1;
+}
+
+uint16_t Get_Short_Address_From_Long(const uint8_t* address){
+    uint16_t short_address = address[1]*256 + address[0];
+    return short_address;
 }
 
 void Update_LGH_Position(uint8_t lgh_index, float x, float y, float z){
     lghs_positions[lgh_index].x = x;
     lghs_positions[lgh_index].y = y;
     lghs_positions[lgh_index].z = z;
+}
+
+bool Are_Enough_Measurements_Complete() {
+    for (int i = 0; i < NUMBER_OF_LIGHTHOUSES; i++) {
+        if  (distances_measurements_completed[i] < MINIMUM_MEASUREMENTS_PER_LGH){
+            return false;
+        }
+    }
+    return true;
 }
 
 // Private
@@ -159,4 +189,13 @@ void _calculate_solution(){
     current_position.y = solution_vector[1];
     current_position.z = solution_vector[2];
 }
+
+void _flush_distance_measurements(){
+    for (int i = 0; i < NUMBER_OF_LIGHTHOUSES; i++) {
+        distances_measurements_completed[i] = 0;
+        distances_to_lghs[i] = 0.0f;
+    }
+}
+
+
 #pragma endregion

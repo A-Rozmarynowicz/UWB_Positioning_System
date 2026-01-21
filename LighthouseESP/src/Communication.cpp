@@ -110,6 +110,14 @@ void MESSAGES::Send_Observer_Position_Response(){
   _send_esp();
 }
 
+void MESSAGES::Send_Observer_UWB_Address_Response(){
+  transmit_buffer[Data_Setup::RECEIVER_ID] = OBSERVER_ID;
+  transmit_buffer[Data_Setup::COMMAND] = Data_Commands::OBSERVER_RESPONSE_UWB_ADDRESS;
+  memcpy(&(transmit_buffer[Data_Setup::QUAD_0]), (&uwb_addresses_from_LGH[LIGHTHOUSE_ID][0]), 4);
+  memcpy(&(transmit_buffer[Data_Setup::QUAD_1]), (&uwb_addresses_from_LGH[LIGHTHOUSE_ID][4]), 4);
+  _send_esp();
+}
+
 #pragma endregion
 
 #pragma region Other Functions
@@ -153,6 +161,7 @@ void _receive_callback(const uint8_t* macAddr, const uint8_t* data, int dataLen)
   }
   State_ReceiveCallback(data, dataLen, message_receive_time);
   if (data[Data_Setup::COMMAND] == Data_Commands::MASTER_LGH_RESET){
+    Serial.printf("REMOTE RESTART\n");
     ESP.restart();
   }
 };

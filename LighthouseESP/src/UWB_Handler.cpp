@@ -5,12 +5,14 @@ uint8_t uwb_enable = 0;
 const uint8_t uwb_addresses_from_LGH[NUMBER_OF_LIGHTHOUSES][UWB_ADDRESS_LENGTH] = {
     {0x82, 0x17, 0x5B, 0xD5, 0xA9, 0x9A, 0xE2, 0x9C},
     {0x7D, 0x00, 0x22, 0xEA, 0x82, 0x60, 0x3B, 0x9C},
-    // {0xA1, 0xB2, 0xC3, 0xD4, 0xE5, 0xF6, 0x07, 0x18},
-    // {0x3C, 0x9A, 0x44, 0x10, 0xFE, 0x02, 0x8D, 0x6F}
+    {0xA1, 0xB2, 0xC3, 0xD4, 0xE5, 0xF6, 0x07, 0x18},
+    {0x3C, 0x9A, 0x44, 0x10, 0xFE, 0x02, 0x8D, 0x6F}
 };
 
 void Initialize_UWB(){
     pinMode(PIN_RST, OUTPUT);
+
+    digitalWrite(PIN_RST, HIGH);
 }
 
 void Update_UWB(){
@@ -27,7 +29,6 @@ uint16_t Get_Short_Address_From_Long(const uint8_t* address){
 int8_t Get_LGH_From_Short_Address(const uint16_t short_address){
     for (uint8_t i=0;i<NUMBER_OF_LIGHTHOUSES;i++){
         const uint8_t* potential_address = uwb_addresses_from_LGH[i];
-        Serial.printf("Potentail address: %x\n", Get_Short_Address_From_Long(potential_address));
         if (Get_Short_Address_From_Long(potential_address) == short_address){
             return i;
         }
@@ -60,14 +61,16 @@ void Restart_UWB_As_Tag(){
 
     // 3. Re-init SPI & DW1000
     SPI.begin(PIN_SCK, PIN_MISO, PIN_MOSI, PIN_SS);
+    SPI.setFrequency(4000000);
     DW1000Ranging.initCommunication(PIN_RST, PIN_SS, PIN_IRQ);
-
+    DW1000.setAntennaDelay(16436);
+    // DW1000Ranging.setReplyTime(300);
     // 4. Reattach callbacks
     DW1000Ranging.attachNewRange(_new_range);
     DW1000Ranging.attachNewDevice(_new_device);
     DW1000Ranging.attachInactiveDevice(_inactive_device);
 
-    // 5. Start as ANCHOR
+    // 5. Start as TAG
     char address_str[24] = {0};
     _format_address_to_string(LIGHTHOUSE_ID, address_str);
     DW1000Ranging.startAsTag(
@@ -87,9 +90,15 @@ void Restart_UWB_As_Anchor(){
 
     // 3. Re-init SPI & DW1000
     SPI.begin(PIN_SCK, PIN_MISO, PIN_MOSI, PIN_SS);
+    SPI.setFrequency(4000000);
     DW1000Ranging.initCommunication(PIN_RST, PIN_SS, PIN_IRQ);
+    DW1000.setAntennaDelay(16436);
 
+    // DW1000.setAntennaDelay(16736);s
+    // DW1000Ranging.setReplyTime(29);
     // 4. Reattach callbacks
+    DW1000Ranging.setReplyTime(900);
+    DW1000Ranging.attachNewRange(_new_range);
     DW1000Ranging.attachBlinkDevice(_new_blink);
     DW1000Ranging.attachNewDevice(_new_device);
     DW1000Ranging.attachInactiveDevice(_inactive_device);
@@ -97,11 +106,13 @@ void Restart_UWB_As_Anchor(){
     // 5. Start as ANCHOR
     char address_str[24] = {0};
     _format_address_to_string(LIGHTHOUSE_ID, address_str);
+    Serial.printf("%s\n", address_str);
     DW1000Ranging.startAsAnchor(
         address_str,
         DW1000.MODE_LONGDATA_RANGE_ACCURACY,
         false
     );
+    Serial.printf("Short: %x:%x\n", DW1000Ranging.getCurrentShortAddress()[0], DW1000Ranging.getCurrentShortAddress()[1]);
 
     Serial.println("Now running as Ancho");
 }
@@ -127,15 +138,15 @@ bool Are_Addresses_Equal(uint8_t* first, uint8_t* second){
 
 void _reset_DW1000(){
     digitalWrite(PIN_RST, LOW);
-    delay(5);
+    delay(50);
     digitalWrite(PIN_RST, HIGH);
-    delay(5);
+    delay(50);
 }
 
 void _new_blink(DW1000Device* device) {
-  Serial.print("blink; 1 device added ! -> ");
-  Serial.print(" short:");
-  Serial.println(device->getShortAddress(), HEX);
+//   Serial.print("blink; 1 device added ! -> ");
+//   Serial.print(" short:");
+//   Serial.println(device->getShortAddress(), HEX);
 }
 
 void _new_range() {
@@ -149,14 +160,14 @@ void _new_range() {
 }
 
 void _new_device(DW1000Device* device) {
-  Serial.print("ranging init; 1 device added ! -> ");
-  Serial.print(" short:");
-  Serial.println(device->getShortAddress(), HEX);
+//   Serial.print("ranging init; 1 device added ! -> ");
+//   Serial.print(" short:");
+//   Serial.println(device->getShortAddress(), HEX);
 }
 
 void _inactive_device(DW1000Device* device) {
-  Serial.print("delete inactive device: ");
-  Serial.println(device->getShortAddress(), HEX);
+//   Serial.print("delete inactive device: ");
+//   Serial.println(device->getShortAddress(), HEX);
 }
 
 void _format_address_to_string(uint8_t lgh_index, char address_str[24]) {

@@ -13,7 +13,11 @@ void New_Measurement(uint8_t lighthouse, float distance){
 
 void Calculate_Distance_To_Targets(uint8_t distance_measurements[NUMBER_OF_LIGHTHOUSES]){
   for (uint8_t i=0;i<NUMBER_OF_LIGHTHOUSES;i++){
-    distances_to_lighthouses[i] = distances_to_lighthouses[i]/distance_measurements[i];
+    if (i == LIGHTHOUSE_ID){
+      continue;
+    }
+
+    distances_to_lighthouses[i] = (distances_to_lighthouses[i]/distance_measurements[i]) - DISTANCE_ANTENA_DELAY_OFFSET;
   }
 }
 

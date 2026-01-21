@@ -9,7 +9,7 @@
 
 // connection pins
 const int8_t PIN_RST = 22;  // reset pin
-const int8_t PIN_IRQ = 34;   // irq pin
+const int8_t PIN_IRQ = 33;   // irq pin
 const int8_t PIN_SS = 5;    // spi select pin
 
 const int8_t PIN_MOSI = 23;

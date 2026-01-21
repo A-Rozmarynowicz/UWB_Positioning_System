@@ -3,9 +3,10 @@
 #include "timing.h"
 
 hw_timer_t* ack_timer = NULL;
+bool ack_timer_triggered = false;
 
 void Initialize_Timers(){
-    ack_timer = timerBegin(1, 8000, true); // Źródło zegarów to 80MHz // TODO obsługa błędów
+    ack_timer = timerBegin(0, 8000, true); // Źródło zegarów to 80MHz // TODO obsługa błędów
     Stop_Ack_Timer();
     timerAttachInterrupt(ack_timer, &_on_ack_timer_timeout, true);
     timerAlarmWrite(ack_timer, ACK_TIMER_PERIOD_MS*10, true);
@@ -13,8 +14,7 @@ void Initialize_Timers(){
   };
 
 void IRAM_ATTR _on_ack_timer_timeout(){
-  Stop_Ack_Timer();
-  State_TimerCallback(Timer_Callbacks::ACK);
+  ack_timer_triggered = true;
 };
 
 void Start_Ack_Timer(){
