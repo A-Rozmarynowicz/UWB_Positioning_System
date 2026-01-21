@@ -1,7 +1,5 @@
 #include "uwb_handler.h"
 
-uint8_t uwb_enable = 0;
-char uwb_address[24] = "6F:2D:91:8A:C4:73:5E:B0";
 
 const uint8_t uwb_addresses_from_LGH[NUMBER_OF_LIGHTHOUSES][UWB_ADDRESS_LENGTH] = {
     {0x82, 0x17, 0x5B, 0xD5, 0xA9, 0x9A, 0xE2, 0x9C},
@@ -9,6 +7,14 @@ const uint8_t uwb_addresses_from_LGH[NUMBER_OF_LIGHTHOUSES][UWB_ADDRESS_LENGTH] 
     {0xA1, 0xB2, 0xC3, 0xD4, 0xE5, 0xF6, 0x07, 0x18},
     {0x3C, 0x9A, 0x44, 0x10, 0xFE, 0x02, 0x8D, 0x6F}
 };
+
+uint8_t uwb_enable = 0;
+char uwb_address[24] = "6F:2D:91:8A:C4:73:5E:B0";
+
+uint16_t last_device = 0;
+float last_range = 0.0f;
+float last_rx_power = 0.0f;
+bool _new_range_received = false;
 
 void Initialize_UWB(){
     SPI.begin(PIN_SCK, PIN_MISO, PIN_MOSI, PIN_SS);
@@ -35,11 +41,20 @@ void Enable_UWB(){
     uwb_enable = 1;
 }
 
+bool Is_New_Range_Received() {
+    return _new_range_received;
+}
+
+void Handle_Last_Range_Callback() {
+    _new_range_received = false;
+    State_UWB_New_Range(last_device, last_range, last_rx_power);
+}
+
 void _new_range() {
-    uint16_t device = DW1000Ranging.getDistantDevice()->getShortAddress();
-    float range = DW1000Ranging.getDistantDevice()->getRange();
-    float rx_power = DW1000Ranging.getDistantDevice()->getRXPower();
-    State_UWB_New_Range(device, range, rx_power);
+    last_device = DW1000Ranging.getDistantDevice()->getShortAddress();
+    last_range = DW1000Ranging.getDistantDevice()->getRange();
+    last_rx_power = DW1000Ranging.getDistantDevice()->getRXPower();
+    _new_range_received = true;
     // Serial.print("from: "); Serial.printf("%x\n", device);
     // Serial.print("\t Range: "); Serial.printf("%0.2f", range); Serial.print(" m");
     // Serial.print("\t RX power: "); Serial.printf("%0.2f", rx_power); Serial.println(" dBm");

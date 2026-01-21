@@ -11,6 +11,8 @@ extern hw_timer_t* ack_timer;
 void Initialize_Timers();
 void Start_Ack_Timer();
 void Stop_Ack_Timer();
+bool Is_Ack_Timer_Triggered();
+void Handle_Ack_Timer_Callback();
 
 // Private
 void IRAM_ATTR _on_ack_timer_timeout();

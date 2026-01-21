@@ -18,9 +18,10 @@ void loop() {
   if (Is_UWB_Enabled()){
     Update_UWB();
   }
-  if(ack_timer_triggered){
-    ack_timer_triggered = false;
-    timerStop(ack_timer);
-    State_TimerCallback(Timer_Callbacks::ACK);
+  if (Is_Ack_Timer_Triggered()){
+    Handle_Ack_Timer_Callback();
+  }
+  if (Is_New_Range_Received()) {
+    Handle_Last_Range_Callback();
   }
 }
