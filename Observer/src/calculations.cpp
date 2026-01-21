@@ -25,6 +25,7 @@ void Build_Constant_Matrices(){
 }
 
 void Estimate_Position(){
+    _average_results();
     _build_b_vector();
     _calculate_atb_vector();
     _calculate_solution();
@@ -32,7 +33,7 @@ void Estimate_Position(){
 }
 
 void Update_Distance_To_LGH(uint8_t lgh_index, float new_distance){
-    if (distances_measurements_completed[lgh_index] > MINIMUM_MEASUREMENTS_PER_LGH){
+    if (distances_measurements_completed[lgh_index] > MAXIMUM_MEASUREMENT_PER_LGH){
         return;
     }
     distances_to_lghs[lgh_index] += new_distance;
@@ -188,6 +189,15 @@ void _calculate_solution(){
     current_position.x = solution_vector[0];
     current_position.y = solution_vector[1];
     current_position.z = solution_vector[2];
+}
+
+void _average_results() {
+    for (int i = 0; i < NUMBER_OF_LIGHTHOUSES; i++) {
+        if (distances_measurements_completed[i] == 0){
+            continue;
+        }
+        distances_to_lghs[i] /= distances_measurements_completed[i];
+    }
 }
 
 void _flush_distance_measurements(){

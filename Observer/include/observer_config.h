@@ -27,5 +27,6 @@ typedef struct Position {
 #include "communication.h"
 #include "uwb_handler.h"
 #include "calculations.h"
+#include "interface.h"
 
 #endif

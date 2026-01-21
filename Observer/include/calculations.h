@@ -3,7 +3,9 @@
 
 #include "observer_config.h"
 
+
 const uint8_t MINIMUM_MEASUREMENTS_PER_LGH = 10;
+const uint8_t MAXIMUM_MEASUREMENT_PER_LGH = 50;
 
 extern uint16_t distances_measurements_completed[NUMBER_OF_LIGHTHOUSES];
 extern float distances_to_lghs[NUMBER_OF_LIGHTHOUSES];
@@ -38,6 +40,7 @@ void _build_b_vector_constants();
 void _build_b_vector();
 void _calculate_atb_vector();
 void _calculate_solution();
+void _average_results();
 
 void _flush_distance_measurements();
 

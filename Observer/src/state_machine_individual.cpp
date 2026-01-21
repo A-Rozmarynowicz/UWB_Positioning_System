@@ -86,7 +86,7 @@ void Query_Positions_Exit(){
 #pragma region Query Distances State Functions
 void Query_Distances_Enter(){
     Enable_UWB();
-    digitalWrite(2, 1);
+    UWB_Exchange_Successful();
 }
 
 void Query_Distances_ReceiveCallback(const uint8_t* data, int dataLen){}
@@ -99,12 +99,12 @@ void Query_Distances_UWB_New_Range(uint16_t device, float range, float rx_power)
         Serial.printf("NOT FOUND LGH INDEX\n");
         return;
     }
+    UWB_Exchange_Successful();
     Update_Distance_To_LGH(lgh_index, range);
     if (Are_Enough_Measurements_Complete()) {
         Serial.printf("ENOUGH\n");
         Estimate_Position();
         Send_Current_Position(&current_position);
-        digitalWrite(2, !(digitalRead(2)));
     }
     else {
         for (int i = 0; i < NUMBER_OF_LIGHTHOUSES;i++){
