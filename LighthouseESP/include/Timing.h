@@ -22,6 +22,8 @@ void Stop_UWB_Activation_Timer();
 void Start_Ack_Timer();
 void Stop_Ack_Timer();
 
+void Timing_Error();
+
 // Private
 void IRAM_ATTR _on_UWB_activation_timer_timeout();
 void IRAM_ATTR _on_ack_timer_timeout();

@@ -3,15 +3,10 @@
 #include "esp_wifi.h"
 
 
-void ICACHE_RAM_ATTR buttonISR();
 void setup();
 void loop();
 
 uint8_t LIGHTHOUSE_ID = 0;
-
-void ICACHE_RAM_ATTR buttonISR() {
-  State_Button_Callback(STATUS_BUTTON);
-}
 
 void setup() {
   Serial.begin(115200);
@@ -42,9 +37,6 @@ void setup() {
   Serial.println("UWB Initialized");
   Reset_And_Initialize_Machine();
   Serial.println("Machine Initialized");
-
-  pinMode(STATUS_BUTTON, INPUT_PULLUP);
-  attachInterrupt(STATUS_BUTTON, buttonISR, RISING);
 
   setCpuFrequencyMhz(240);
 

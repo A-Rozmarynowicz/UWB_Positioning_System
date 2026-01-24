@@ -95,7 +95,7 @@ void _set_LGH_3_position(){
 }
 
 void _set_LGH_4plus_position(uint8_t lighthouse){
-
+  // Można rozszerzyć funkcjonalność.
 }
 
 void Print_Position(uint8_t lighthouse){

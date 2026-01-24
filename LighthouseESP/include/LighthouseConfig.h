@@ -3,7 +3,6 @@
 
 #define NUMBER_OF_LIGHTHOUSES (uint8_t) 4
 #define OBSERVER_ID 169
-#define STATUS_BUTTON (uint8_t) 4
 
 #define INDEX_PIN_2 (uint8_t) 27
 #define INDEX_PIN_1 (uint8_t) 26

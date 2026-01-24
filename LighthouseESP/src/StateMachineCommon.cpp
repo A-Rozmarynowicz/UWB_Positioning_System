@@ -284,6 +284,6 @@ void State_Exit(){
 };
 
 void State_Machine_Error(State_Machine_Errors error){
-  // TODO
+  Error_LED_On();
   Serial.printf("State Machine Error: %d \n", error);
 };

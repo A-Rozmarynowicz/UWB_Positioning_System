@@ -69,6 +69,7 @@ void UWB_Query_UWB_New_Range(uint16_t device, float range, float rx_power){
   if (lgh_index == -1){
     return;
   }
+  Blink_LED();
   New_Measurement(lgh_index, range);
   completed_distance_measurements[lgh_index] += 1;
   if (Check_If_All_Distances_Are_Measured(completed_distance_measurements)){
@@ -113,6 +114,7 @@ void UWB_Response_SentCallback(uint32_t send_time){};
 void UWB_Response_TimerCallback(Timer_Callbacks timer_callback){};
 void UWB_Response_ButtonCallback(uint8_t button){};
 void UWB_Response_UWB_New_Range(uint16_t device, float range, float rx_power){
+  Blink_LED();
   Serial.printf("SLAVE Range: %x \n", device);
 }
 void UWB_Response_Exit(){};
@@ -393,14 +395,14 @@ void Send_Calculated_Position_Exit(){};
 void Observer_Response_Enter(){
   if (LIGHTHOUSE_ID == 0){
     MESSAGES::Send_Observer_Ready();
-    Data_Transfer_LED_ON();
   }
   Restart_UWB_As_Anchor();
   Enable_UWB();
+  Data_Transfer_LED_ON();
 };
 void Observer_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
   if (data[Data_Setup::COMMAND] == Data_Commands::OBSERVER_QUERY_POSITION){
-    // Data_Transfer_LED_OFF();
+    Data_Transfer_LED_OFF();
     MESSAGES::Send_Observer_Position_Response();
   }
   else if (data[Data_Setup::COMMAND] == Data_Commands::OBSERVER_QUERY_UWB_ADDRESS){
@@ -410,7 +412,9 @@ void Observer_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_
 void Observer_Response_SentCallback(uint32_t send_time){};
 void Observer_Response_TimerCallback(Timer_Callbacks timer_callback){};
 void Observer_Response_ButtonCallback(uint8_t button){};
-void Observer_Response_UWB_New_Range(uint16_t device, float range, float rx_power){}
+void Observer_Response_UWB_New_Range(uint16_t device, float range, float rx_power){
+  Blink_LED();
+}
 void Observer_Response_Exit(){};
 #pragma endregion
 

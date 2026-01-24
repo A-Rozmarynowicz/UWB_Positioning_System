@@ -156,7 +156,6 @@ void _receive_callback(const uint8_t* macAddr, const uint8_t* data, int dataLen)
   uint32_t message_receive_time = ESP.getCycleCount();
   uint8_t receiver_id = data[RECEIVER_ID];
   if ((receiver_id != LIGHTHOUSE_ID) & (receiver_id != BROADCAST_RECEIVER_ID)){
-    // Serial.printf("This is NOT Me...: %d\n", receiver_id);
     return;
   }
   State_ReceiveCallback(data, dataLen, message_receive_time);
@@ -182,7 +181,7 @@ void _communication_error(Communication_Errors error){
     delay(100);
     ESP.restart();
   }
-  // TODO
+  Error_LED_On();
   Serial.printf("Communication Error: %d \n", error);
 };
 #pragma endregion
