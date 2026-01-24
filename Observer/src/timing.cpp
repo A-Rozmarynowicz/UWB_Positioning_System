@@ -6,17 +6,16 @@ hw_timer_t* ack_timer = NULL;
 bool ack_timer_triggered = false;
 
 void Initialize_Timers(){
-    ack_timer = timerBegin(0, 8000, true); // Źródło zegarów to 80MHz // TODO obsługa błędów
-    Stop_Ack_Timer();
-    timerAttachInterrupt(ack_timer, &_on_ack_timer_timeout, true);
-    timerAlarmWrite(ack_timer, ACK_TIMER_PERIOD_MS*10, true);
-    timerAlarmEnable(ack_timer);
-  };
-
-void IRAM_ATTR _on_ack_timer_timeout(){
+  ack_timer = timerBegin(0, 8000, true); // Źródło zegarów to 80MHz // TODO obsługa błędów
+  if (ack_timer == nullptr){
+    Timing_Error();
+  }
   Stop_Ack_Timer();
-  State_TimerCallback(Timer_Callbacks::ACK);
+  timerAttachInterrupt(ack_timer, &_on_ack_timer_timeout, true);
+  timerAlarmWrite(ack_timer, ACK_TIMER_PERIOD_MS*10, true);
+  timerAlarmEnable(ack_timer);
 };
+
 
 void Start_Ack_Timer(){
   timerStart(ack_timer);
@@ -24,13 +23,14 @@ void Start_Ack_Timer(){
 
 void Stop_Ack_Timer(){
   timerStop(ack_timer);
+  }
+
+void Timing_Error(){
+  Serial.printf("Timing Error\n");
+  Error_LED_On();
 }
 
-bool Is_Ack_Timer_Triggered() {
-  return ack_timer_triggered;
-}
-
-void Handle_Ack_Timer_Callback() {
-  ack_timer_triggered = false;
-  State_TimerCallback(Timer_Callbacks::ACK);
-}
+void IRAM_ATTR _on_ack_timer_timeout(){
+    Stop_Ack_Timer();
+    State_TimerCallback(Timer_Callbacks::ACK);
+  };

@@ -3,7 +3,10 @@
 #include "string.h"
 
 #pragma region Initial State Functions
-void Initial_Enter(){}
+void Initial_Enter(){
+    MESSAGES::Send_Wakeup_Reckon();
+}
+
 void Initial_ReceiveCallback(const uint8_t* data, int dataLen){
     if (data[Data_Setup::COMMAND] == Data_Commands::READY_FOR_OBSERVER){
         Change_State(States::QUERY_POSITIONS);
@@ -21,7 +24,7 @@ void Initial_Exit(){}
 
 #pragma region Query Positions State Functions
 void Query_Positions_Enter(){
-    UWB_Exchange_Successful();
+    Blink_LED();
     MESSAGES::Send_Query_Position(current_state_data.target_lgh);
     Serial.printf("Sent pos query\n");
     Start_Ack_Timer();
@@ -88,7 +91,7 @@ void Query_Positions_Exit(){
 #pragma region Query Distances State Functions
 void Query_Distances_Enter(){
     Enable_UWB();
-    UWB_Exchange_Successful();
+    Blink_LED();
 }
 
 void Query_Distances_ReceiveCallback(const uint8_t* data, int dataLen){}
@@ -102,7 +105,7 @@ void Query_Distances_UWB_New_Range(uint16_t device, float range, float rx_power)
         Serial.printf("NOT FOUND LGH INDEX\n");
         return;
     }
-    UWB_Exchange_Successful();
+    Blink_LED();
     Update_Distance_To_LGH(lgh_index, range);
     if (Are_Enough_Measurements_Complete()) {
         Serial.printf("ENOUGH\n");

@@ -3,7 +3,7 @@
 
 #include "observer_config.h"
 
-
+const float THEORETICAL_MAX_DISTANCE = 10.0f;
 const uint8_t MINIMUM_MEASUREMENTS_PER_LGH = 50;
 const uint8_t MAXIMUM_MEASUREMENT_PER_LGH = 250;
 
@@ -31,6 +31,7 @@ int8_t Get_LGH_From_Short_Address(const uint16_t short_address);
 uint16_t Get_Short_Address_From_Long(const uint8_t* address);
 void Update_LGH_Position(uint8_t lgh_index, float x, float y, float z);
 bool Are_Enough_Measurements_Complete();
+void Calculations_Error();
 // Private
 void _build_a_matrix();
 void _build_at_matrix();

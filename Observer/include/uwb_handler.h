@@ -22,19 +22,12 @@ extern char uwb_address[24];
 
 extern uint8_t uwb_enable;
 
-extern uint16_t last_device;
-extern float last_range;
-extern float last_rx_power;
-extern bool _new_range_received;
-
 // Public
 void Initialize_UWB();
 void Update_UWB();
 uint8_t Is_UWB_Enabled();
 void Disable_UWB();
 void Enable_UWB();
-bool Is_New_Range_Received();
-void Handle_Last_Range_Callback();
 
 // Private
 void _new_range();

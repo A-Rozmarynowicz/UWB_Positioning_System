@@ -38,6 +38,7 @@ enum Data_Commands {
   OBSERVER_QUERY_UWB_ADDRESS,
   OBSERVER_RESPONSE_UWB_ADDRESS,
   OBSERVER_ENABLE_UWB,
+  OBSERVER_WAKEUP_RECKON,
 };
 
 enum Communication_Errors {
@@ -60,6 +61,7 @@ void Initialize_Communication();
 
 namespace MESSAGES {
     void Send_Query_Position(uint8_t lgh_index);
+    void Send_Wakeup_Reckon();
 }
 
 // Private

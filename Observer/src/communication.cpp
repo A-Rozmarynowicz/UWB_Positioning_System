@@ -9,6 +9,11 @@ void MESSAGES::Send_Query_Position(uint8_t lgh_index){
     transmit_buffer[Data_Setup::COMMAND] = Data_Commands::OBSERVER_QUERY_POSITION;
     _send_esp();
 }
+void MESSAGES::Send_Wakeup_Reckon() {
+  transmit_buffer[Data_Setup::RECEIVER_ID] = BROADCAST_RECEIVER_ID;
+  transmit_buffer[Data_Setup::COMMAND] = Data_Commands::OBSERVER_WAKEUP_RECKON;
+  _send_esp();
+}
 #pragma endregion
 
 #pragma region Other Functions
@@ -65,7 +70,7 @@ void _communication_error(Communication_Errors error){
     delay(100);
     ESP.restart();
   }
-  // TODO
+  Error_LED_On();
   Serial.printf("Communication Error: %d \n", error);
 };
 #pragma endregion

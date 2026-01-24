@@ -19,11 +19,4 @@ void loop() {
   if (Is_UWB_Enabled()){
     Update_UWB();
   }
-  // if (Is_Ack_Timer_Triggered()){
-  //   Serial.printf("TIMER CALLBACK MAIN HANDLING\n");
-  //   Handle_Ack_Timer_Callback();
-  // }
-  // if (Is_New_Range_Received()) {
-  //   Handle_Last_Range_Callback();
-  // }
 }

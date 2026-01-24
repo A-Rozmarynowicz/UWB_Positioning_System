@@ -20,7 +20,10 @@ void Build_Constant_Matrices(){
     _build_a_matrix();
     _build_at_matrix();
     _build_ata_matrix();
-    _build_ata_inv_matrix();
+    if (_build_ata_inv_matrix() == 1){
+        Calculations_Error();
+        return;
+    }
     _build_b_vector_constants();
 }
 
@@ -36,7 +39,7 @@ void Update_Distance_To_LGH(uint8_t lgh_index, float new_distance){
     if (distances_measurements_completed[lgh_index] > MAXIMUM_MEASUREMENT_PER_LGH){
         return;
     }
-    if (new_distance > 25.0f || new_distance < -25.0f){
+    if (new_distance > THEORETICAL_MAX_DISTANCE || new_distance < -THEORETICAL_MAX_DISTANCE){
         return;
     }
     distances_to_lghs[lgh_index] += new_distance;
@@ -71,6 +74,11 @@ bool Are_Enough_Measurements_Complete() {
         }
     }
     return true;
+}
+
+void Calculations_Error() {
+    Serial.printf("CALCULATION ERRROE\n");
+    Error_LED_On();
 }
 
 // Private
@@ -109,10 +117,8 @@ uint8_t _build_ata_inv_matrix() {
     uint8_t i, j, k;
     float ratio;
 
-    // Augmented matrix [M | I]
     float aug[3][2 * 3];
 
-    // Initialize augmented matrix
     for (i = 0; i < 3; i++) {
         for (j = 0; j < 3; j++) {
             aug[i][j] = ATA_matrix[i][j];
@@ -120,10 +126,9 @@ uint8_t _build_ata_inv_matrix() {
         }
     }
 
-    // Gauss-Jordan elimination
     for (i = 0; i < 3; i++) {
         if (aug[i][i] == 0.0)
-            return 1; // Singular matrix
+            return 1;
 
         for (j = 0; j < 3; j++) {
             if (i != j) {
@@ -135,7 +140,6 @@ uint8_t _build_ata_inv_matrix() {
         }
     }
 
-    // Normalize diagonal elements to 1
     for (i = 0; i < 3; i++) {
         double diag = aug[i][i];
         for (j = 0; j < 2 * 3; j++) {
@@ -143,7 +147,6 @@ uint8_t _build_ata_inv_matrix() {
         }
     }
 
-    // Extract inverse matrix
     for (i = 0; i < 3; i++) {
         for (j = 0; j < 3; j++) {
             ATA_inv_matrix[i][j] = aug[i][j + 3];
