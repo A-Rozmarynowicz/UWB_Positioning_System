@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['distance_5fquery_5ftarget_0',['distance_query_target',['../struct_state_data.html#a3b398db249104529614685215f016a04',1,'StateData']]],
-  ['distances_5fto_5flighthouses_1',['distances_to_lighthouses',['../_measure_8h.html#a7af4755e90c986eafaf94e9b7b313dc7',1,'distances_to_lighthouses:&#160;Measure.cpp'],['../_measure_8cpp.html#a7af4755e90c986eafaf94e9b7b313dc7',1,'distances_to_lighthouses:&#160;Measure.cpp']]]
+  ['lighthouse_5fid_0',['LIGHTHOUSE_ID',['../_lighthouse_config_8h.html#ac863351c18bb4f0176b6820c9129b11e',1,'LIGHTHOUSE_ID:&#160;main.cpp'],['../main_8cpp.html#ac863351c18bb4f0176b6820c9129b11e',1,'LIGHTHOUSE_ID:&#160;main.cpp']]]
 ];

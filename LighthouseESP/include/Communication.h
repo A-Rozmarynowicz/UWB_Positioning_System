@@ -1,15 +1,19 @@
 /**
  * @file Communication.h
- * @brief Handles ESP-NOW communication and message sending.
+ * @brief ESP-NOW based communication interface for Lighthouse devices.
  *
- * This file contains the main communication module for the Lighthouse project.
- * It defines:
- *  - The `MESSAGES` namespace for sending commands
- *  - The `AckStatus` struct for acknowledgment tracking
- *  - Initialization and helper functions for ESP-NOW communication
+ * @details
+ * This file defines the communication protocol, data layout, commands,
+ * and message handling functions used for wireless communication between
+ * Lighthouse units and observers using ESP-NOW.
  *
- * @author Your Name
- * @date 2026-01-15
+ * It includes:
+ * - Fixed-size data buffers and protocol constants
+ * - Enumerations describing message layout and command types
+ * - Error codes related to communication failures
+ * - Structures used to track ACK message state
+ * - High-level message sending API
+ * - Internal (private) callbacks and helper functions
  */
 
 #ifndef COMMUNICATION_H
@@ -17,11 +21,29 @@
 #include "esp_now.h"
 #include "LighthouseConfig.h"
 
+
+/**
+ * @brief Size of the ESP-NOW transmit buffer in bytes.
+ */
 #define DATA_SIZE 20
 
+/**
+ * @brief Receiver ID used for broadcast messages.
+ */
 const uint8_t BROADCAST_RECEIVER_ID = 255;
+
+/**
+ * @brief Number of ACK messages expected during acknowledgment procedures.
+ */
 const uint8_t ACK_MESSAGE_COUNT = 10;
 
+/**
+ * @enum Data_Setup
+ * @brief Byte offsets and layout definitions for the communication data frame.
+ *
+ * This enumeration defines positions of specific fields inside the
+ * transmit/receive buffer used by the communication protocol.
+ */
 enum Data_Setup {
   RECEIVER_ID = 0,
   TRANSMITTER_ID = 1,
@@ -33,6 +55,13 @@ enum Data_Setup {
   QUAD_3 = 16,
 };
 
+/**
+ * @enum Data_Commands
+ * @brief List of all supported communication commands.
+ *
+ * Defines the command identifiers exchanged between Lighthouse devices,
+ * masters, and observers.
+ */
 enum Data_Commands {
   MASTER_LGH_RESET,
   ACK_COM,
@@ -54,6 +83,11 @@ enum Data_Commands {
   OBSERVER_ENABLE_UWB,
   OBSERVER_WAKEUP_RECKON,
 };
+
+/**
+ * @enum Communication_Errors
+ * @brief Communication-related error codes.
+ */
 enum Communication_Errors {
   PROTOCOL_INIT_FAIL,
   MESSAGE_SEND_FAIL,
@@ -61,43 +95,35 @@ enum Communication_Errors {
   ACK_FAIL,
 };
 
-/// @brief DUPA
-/// SURPA
-///
-/// AAAll
+/**
+ * @struct AckStatus
+ * @brief Structure used to track acknowledgment state.
+ */
 struct AckStatus {
   uint8_t current_ack_index;
   uint8_t target_ack_lighthouse;
 };
 
 extern AckStatus current_ack_status;
-extern uint8_t transmit_buffer[DATA_SIZE]; // TODO
+extern uint8_t transmit_buffer[DATA_SIZE];
 
-/**
- * @brief Initializes the communication module.
- *
- * Sets up ESP-NOW and configures callbacks.
- */
 void Initialize_Communication();
 
 /**
  * @namespace MESSAGES
- * @brief Contains all message sending functions for communication
+ * @brief High-level message construction and transmission API.
+ *
+ * This namespace groups functions responsible for creating and sending
+ * protocol-compliant messages between devices.
  */
 namespace MESSAGES {
-
-/// @brief Sends an acknowledgment to a receiver.
-/// @param receiver ID of the receiver
 void Send_Ack(uint8_t receiver);
-
 void Send_Change_To_UWB_Response(uint8_t receiver);
 void Send_UWB_Start_Anchoring(uint8_t receiver);
 void Send_UWB_Query(uint8_t receiver);
 void Send_UWB_Response(uint8_t receiver);
 void Send_Relay_UWB_Response(uint8_t new_uwber_id);
 void Send_End_Of_Config_Message(uint8_t receiver);
-void Send_Query_Avg_Response_Time(uint8_t receiver);
-void Send_Response_Avg_Response_Time(uint8_t receiver, double avg);
 void Send_Master_LHG_Reset();
 void Send_Query_Distance(uint8_t receiver, uint8_t target);
 void Send_Response_Distance(uint8_t receiver, uint8_t target, float distance);

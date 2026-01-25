@@ -6,7 +6,16 @@ float master_all_distances_matrix[NUMBER_OF_LIGHTHOUSES][NUMBER_OF_LIGHTHOUSES] 
 Position master_all_positions[NUMBER_OF_LIGHTHOUSES] = {0};
 Position position = {0};
 
-
+/**
+ * @brief Add a new distance measurement from a lighthouse.
+ *
+ * The measurement is accumulated and later averaged. Values exceeding the
+ * theoretical maximum range are ignored.
+ *
+ * @param lighthouse ID of the lighthouse providing the measurement.
+ * @param distance Measured distance value.
+ * @return void
+ */
 void New_Measurement(uint8_t lighthouse, float distance){
   if (distance > THEORETICAL_MAX_DISTANCE || distance < -THEORETICAL_MAX_DISTANCE){
     return;
@@ -14,6 +23,15 @@ void New_Measurement(uint8_t lighthouse, float distance){
   distances_to_lighthouses[lighthouse] += distance;
 }
 
+/**
+ * @brief Calculate averaged distances to all target lighthouses.
+ *
+ * Applies averaging based on the number of measurements and compensates
+ * for antenna delay offset.
+ *
+ * @param distance_measurements Array containing number of measurements per lighthouse.
+ * @return void
+ */
 void Calculate_Distance_To_Targets(uint8_t distance_measurements[NUMBER_OF_LIGHTHOUSES]){
   for (uint8_t i=0;i<NUMBER_OF_LIGHTHOUSES;i++){
     if (i == LIGHTHOUSE_ID){
@@ -24,6 +42,11 @@ void Calculate_Distance_To_Targets(uint8_t distance_measurements[NUMBER_OF_LIGHT
   }
 }
 
+/**
+ * @brief Print the full matrix of inter-lighthouse distances.
+ *
+ * @return void
+ */
 void Print_Master_All_Distances_Matrix(){
   for (uint8_t i=0;i<NUMBER_OF_LIGHTHOUSES;i++){
         for (uint8_t j=0;j<NUMBER_OF_LIGHTHOUSES;j++){
@@ -33,6 +56,14 @@ void Print_Master_All_Distances_Matrix(){
     }
 }
 
+/**
+ * @brief Calculate the spatial position of a lighthouse.
+ *
+ * Selects the appropriate positioning method depending on the lighthouse index.
+ *
+ * @param lighthouse ID of the lighthouse whose position is calculated.
+ * @return void
+ */
 void Calculate_Position_Of_Lighthouse(uint8_t lighthouse){
   if (lighthouse == 0) {
   }
@@ -50,11 +81,25 @@ void Calculate_Position_Of_Lighthouse(uint8_t lighthouse){
   }
 }
 
+/**
+ * @brief Calculate the position of lighthouse 1.
+ *
+ * Assumes lighthouse 0 is located at the origin.
+ *
+ * @return void
+ */
 void _set_LGH_1_position(){
   float distance = (master_all_distances_matrix[0][1] + master_all_distances_matrix[1][0])/2.0;
   master_all_positions[1].x = distance;
 }
 
+/**
+ * @brief Calculate the 2D position of lighthouse 2.
+ *
+ * Uses distances to lighthouse 0 and 1 to estimate X and Y coordinates.
+ *
+ * @return void
+ */
 void _set_LGH_2_position(){
   float R0 = (master_all_distances_matrix[0][2] + master_all_distances_matrix[2][0])/2.0;
   float R1 = (master_all_distances_matrix[1][2] + master_all_distances_matrix[2][1])/2.0;
@@ -72,6 +117,14 @@ void _set_LGH_2_position(){
   master_all_positions[2].y = y;
 }
 
+
+/**
+ * @brief Calculate the 3D position of lighthouse 3.
+ *
+ * Uses trilateration based on distances to lighthouses 0, 1, and 2.
+ *
+ * @return void
+ */
 void _set_LGH_3_position(){
   float R0 = (master_all_distances_matrix[0][3] + master_all_distances_matrix[3][0])/2.0;
   float R1 = (master_all_distances_matrix[1][3] + master_all_distances_matrix[3][1])/2.0;
@@ -97,10 +150,24 @@ void _set_LGH_3_position(){
   master_all_positions[3].z = z;
 }
 
+
+/**
+ * @brief Calculate the position of lighthouses with index 4 and above.
+ *
+ * Placeholder for future extensions.
+ *
+ * @param lighthouse ID of the lighthouse.
+ * @return void
+ */
 void _set_LGH_4plus_position(uint8_t lighthouse){
   // Można rozszerzyć funkcjonalność.
 }
 
+/**
+ * @brief Print the calculated position of a lighthouse.
+ * @param lighthouse ID of the lighthouse.
+ * @return void
+ */
 void Print_Position(uint8_t lighthouse){
   Serial.printf("Position of LGH number: %d: ", lighthouse);
   Serial.printf("x=%0.2f || y=%0.2f || z=%0.2f \n", master_all_positions[lighthouse].x, master_all_positions[lighthouse].y, master_all_positions[lighthouse].z);

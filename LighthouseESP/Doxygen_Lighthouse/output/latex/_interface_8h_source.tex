@@ -1,26 +1,29 @@
 \doxysection{Interface.\+h}
 \hypertarget{_interface_8h_source}{}\label{_interface_8h_source}\index{include/Interface.h@{include/Interface.h}}
-
+\doxymbox{\hyperlink{_interface_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ INTERFACE\_H}}
-\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ INTERFACE\_H}}
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}LighthouseConfig.h"{}}}
-\DoxyCodeLine{00004\ }
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#define\ DATA\_TRANSFER\_LED\ (uint8\_t)\ 2}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ ERROR\_LED\ (uint8\_t)\ 2}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ STATUS\_BUTTON\ (uint8\_t)\ 4}}
-\DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ }
-\DoxyCodeLine{00010\ \textcolor{comment}{//\ Public}}
-\DoxyCodeLine{00011\ \textcolor{keywordtype}{void}\ Initialize\_Interface();}
-\DoxyCodeLine{00012\ \textcolor{keywordtype}{void}\ Blink\_LED();}
-\DoxyCodeLine{00013\ \textcolor{keywordtype}{void}\ Data\_Transfer\_LED\_ON();}
-\DoxyCodeLine{00014\ \textcolor{keywordtype}{void}\ Data\_Transfer\_LED\_OFF();}
-\DoxyCodeLine{00015\ \textcolor{keywordtype}{void}\ Error\_LED\_On();}
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \textcolor{comment}{//\ Private}}
-\DoxyCodeLine{00018\ \textcolor{keywordtype}{void}\ ICACHE\_RAM\_ATTR\ \_button\_ISR();}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#ifndef\ INTERFACE\_H}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ INTERFACE\_H}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_lighthouse_config_8h}{LighthouseConfig.h}}"{}}}
 \DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ DATA\_TRANSFER\_LED\ (uint8\_t)\ 2}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ ERROR\_LED\ (uint8\_t)\ 2}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ STATUS\_BUTTON\ (uint8\_t)\ 4}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{comment}{//\ Public}}
+\DoxyCodeLine{00036\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_interface_8h_a4291cdb32c220ff3472cd6563d4a1746}{Initialize\_Interface}}();}
+\DoxyCodeLine{00037\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_interface_8h_a6e7538e1969c0945127355e1b6383eea}{Blink\_LED}}();}
+\DoxyCodeLine{00038\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_interface_8h_ade5f5724a7a44e6b8364a6cf07b5af77}{Data\_Transfer\_LED\_ON}}();}
+\DoxyCodeLine{00039\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_interface_8h_a54baf1a24d311a1b5a9f2a22fe639087}{Data\_Transfer\_LED\_OFF}}();}
+\DoxyCodeLine{00040\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_interface_8h_a28f0c1ebb6f675b3b829b57e625cf16a}{Error\_LED\_On}}();}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{comment}{//\ Private}}
+\DoxyCodeLine{00043\ \textcolor{keywordtype}{void}\ ICACHE\_RAM\_ATTR\ \doxymbox{\hyperlink{_interface_8h_a0b5a04ff797267f65e8c78340838b011}{\_button\_ISR}}();}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

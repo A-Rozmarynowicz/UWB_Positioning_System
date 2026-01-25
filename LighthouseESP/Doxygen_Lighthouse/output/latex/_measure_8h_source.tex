@@ -1,40 +1,46 @@
 \doxysection{Measure.\+h}
 \hypertarget{_measure_8h_source}{}\label{_measure_8h_source}\index{include/Measure.h@{include/Measure.h}}
-
+\doxymbox{\hyperlink{_measure_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MEASURE\_H}}
-\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MEASURE\_H}}
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}LighthouseConfig.h"{}}}
-\DoxyCodeLine{00004\ }
-\DoxyCodeLine{00005\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ THEORETICAL\_MAX\_DISTANCE\ =\ 10.0f;}
-\DoxyCodeLine{00006\ \textcolor{keyword}{const}\ uint8\_t\ MIN\_DISTANCE\_MEASUREMENTS\ =\ 5;}
-\DoxyCodeLine{00007\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ DISTANCE\_ANTENA\_DELAY\_OFFSET\ =\ 0.6;}
-\DoxyCodeLine{00008\ \textcolor{comment}{//\ const\ float\ /DISTANCE\_ANTENA\_DELAY\_OFFSET\ =\ 0.0;}}
-\DoxyCodeLine{00009\ }
-\DoxyCodeLine{00010\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_position}{Position}}\ \{}
-\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{float}\ x;}
-\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{float}\ y;}
-\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{float}\ z;}
-\DoxyCodeLine{00014\ \};}
+\DoxyCodeLine{00001\ }
 \DoxyCodeLine{00015\ }
-\DoxyCodeLine{00016\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{float}\ distances\_to\_lighthouses[NUMBER\_OF\_LIGHTHOUSES];}
-\DoxyCodeLine{00017\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{float}\ master\_all\_distances\_matrix[NUMBER\_OF\_LIGHTHOUSES][NUMBER\_OF\_LIGHTHOUSES];}
-\DoxyCodeLine{00018\ \textcolor{keyword}{extern}\ \doxymbox{\hyperlink{struct_position}{Position}}\ master\_all\_positions[NUMBER\_OF\_LIGHTHOUSES];}
-\DoxyCodeLine{00019\ \textcolor{keyword}{extern}\ \doxymbox{\hyperlink{struct_position}{Position}}\ position;}
-\DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ \textcolor{comment}{//\ Public}}
-\DoxyCodeLine{00022\ \textcolor{keywordtype}{void}\ New\_Measurement(uint8\_t\ lighthouse,\ \textcolor{keywordtype}{float}\ distance);}
-\DoxyCodeLine{00023\ \textcolor{keywordtype}{void}\ Calculate\_Distance\_To\_Targets(uint8\_t\ distance\_measurements[NUMBER\_OF\_LIGHTHOUSES]);}
-\DoxyCodeLine{00024\ \textcolor{keywordtype}{void}\ Print\_Master\_All\_Distances\_Matrix();}
-\DoxyCodeLine{00025\ \textcolor{keywordtype}{void}\ Print\_Position(uint8\_t\ lighthouse);}
-\DoxyCodeLine{00026\ \textcolor{keywordtype}{void}\ Calculate\_Position\_Of\_Lighthouse(uint8\_t\ lighthouse);}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \textcolor{comment}{//\ Private}}
-\DoxyCodeLine{00029\ \textcolor{keywordtype}{void}\ \_set\_LGH\_1\_position();}
-\DoxyCodeLine{00030\ \textcolor{keywordtype}{void}\ \_set\_LGH\_2\_position();}
-\DoxyCodeLine{00031\ \textcolor{keywordtype}{void}\ \_set\_LGH\_3\_position();}
-\DoxyCodeLine{00032\ \textcolor{keywordtype}{void}\ \_set\_LGH\_4plus\_position(uint8\_t\ lighthouse);}
-\DoxyCodeLine{00033\ }
-\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#ifndef\ MEASURE\_H}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ MEASURE\_H}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_lighthouse_config_8h}{LighthouseConfig.h}}"{}}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{_measure_8h_a90bd95f72af2171eb58a0f0b55bd822e}{THEORETICAL\_MAX\_DISTANCE}}\ =\ 10.0f;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{const}\ uint8\_t\ \doxymbox{\hyperlink{_measure_8h_a2e68da10780b3a5023d25b9b76c7dcd9}{MIN\_DISTANCE\_MEASUREMENTS}}\ =\ 5;}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{_measure_8h_abbbd56a108e0a59abd9d54f96a635253}{DISTANCE\_ANTENA\_DELAY\_OFFSET}}\ =\ 0.6;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_position}{Position}}\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{float}\ x;}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{float}\ y;}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{float}\ z;}
+\DoxyCodeLine{00043\ \};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{_measure_8h_a7af4755e90c986eafaf94e9b7b313dc7}{distances\_to\_lighthouses}}[\doxymbox{\hyperlink{_lighthouse_config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\_OF\_LIGHTHOUSES}}];}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00053\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{_measure_8h_a427f2f170e94d2773c129e5597a8bc74}{master\_all\_distances\_matrix}}[\doxymbox{\hyperlink{_lighthouse_config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\_OF\_LIGHTHOUSES}}][\doxymbox{\hyperlink{_lighthouse_config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\_OF\_LIGHTHOUSES}}];}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00058\ \textcolor{keyword}{extern}\ \doxymbox{\hyperlink{struct_position}{Position}}\ \doxymbox{\hyperlink{_measure_8h_a8b5fce7ca6976a5b07d94bd74d7650d4}{master\_all\_positions}}[\doxymbox{\hyperlink{_lighthouse_config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\_OF\_LIGHTHOUSES}}];}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00063\ \textcolor{keyword}{extern}\ \doxymbox{\hyperlink{struct_position}{Position}}\ \doxymbox{\hyperlink{_measure_8h_a4d84949a19a29d3bb4dd2635c8241a83}{position}};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{comment}{//\ Public}}
+\DoxyCodeLine{00066\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_measure_8h_a6e5d30d7f9991ec97539ced1544d31c0}{New\_Measurement}}(uint8\_t\ lighthouse,\ \textcolor{keywordtype}{float}\ distance);}
+\DoxyCodeLine{00067\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_measure_8h_a3fe352b30848dee334edbf435c3b49d2}{Calculate\_Distance\_To\_Targets}}(uint8\_t\ distance\_measurements[\doxymbox{\hyperlink{_lighthouse_config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\_OF\_LIGHTHOUSES}}]);}
+\DoxyCodeLine{00068\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_measure_8h_a70ecd05335acad1447d5c5dd3c1b2ab0}{Print\_Master\_All\_Distances\_Matrix}}();}
+\DoxyCodeLine{00069\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_measure_8h_af4d6502410cb7cc91ce76f2456492ec2}{Print\_Position}}(uint8\_t\ lighthouse);}
+\DoxyCodeLine{00070\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_measure_8h_ad8bf287324e8711d8d0b4cb2ead2d476}{Calculate\_Position\_Of\_Lighthouse}}(uint8\_t\ lighthouse);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{comment}{//\ Private}}
+\DoxyCodeLine{00073\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_measure_8h_a16cc4c28780495c66196948438d5efe1}{\_set\_LGH\_1\_position}}();}
+\DoxyCodeLine{00074\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_measure_8h_a240abbec25dedd9c43e2368bbdfad14c}{\_set\_LGH\_2\_position}}();}
+\DoxyCodeLine{00075\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_measure_8h_ac1a1095b3137980495d24923977f7510}{\_set\_LGH\_3\_position}}();}
+\DoxyCodeLine{00076\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_measure_8h_ab3051edfbac08774e98634d50480df0a}{\_set\_LGH\_4plus\_position}}(uint8\_t\ lighthouse);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

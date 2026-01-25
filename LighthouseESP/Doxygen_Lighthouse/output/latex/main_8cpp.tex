@@ -1,46 +1,48 @@
 \doxysection{src/\+main.cpp File Reference}
 \hypertarget{main_8cpp}{}\label{main_8cpp}\index{src/main.cpp@{src/main.cpp}}
+
+
+Initialization and main control program for a UWB Lighthouse.  
+
+
 {\ttfamily \+\#include "{}Lighthouse\+Config.\+h"{}}\newline
 {\ttfamily \+\#include "{}esp\+\_\+pm.\+h"{}}\newline
 {\ttfamily \+\#include "{}esp\+\_\+wifi.\+h"{}}\newline
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void ICACHE\+\_\+\+RAM\+\_\+\+ATTR \doxymbox{\hyperlink{main_8cpp_a1634c0853c51a2b0c09decfb67b3d8bc}{button\+ISR}} ()
+\Hypertarget{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}\label{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d} 
+void {\bfseries setup} ()
 \item 
-void \doxymbox{\hyperlink{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
-\item 
-void \doxymbox{\hyperlink{main_8cpp_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
+\Hypertarget{main_8cpp_afe461d27b9c48d5921c00d521181f12f}\label{main_8cpp_afe461d27b9c48d5921c00d521181f12f} 
+void {\bfseries loop} ()
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
 uint8\+\_\+t \doxymbox{\hyperlink{main_8cpp_ac863351c18bb4f0176b6820c9129b11e}{LIGHTHOUSE\+\_\+\+ID}} = 0
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Unique identifier of the current Lighthouse device. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\label{doc-func-members}
-\Hypertarget{main_8cpp_doc-func-members}
-\doxysubsection{Function Documentation}
-\Hypertarget{main_8cpp_a1634c0853c51a2b0c09decfb67b3d8bc}\index{main.cpp@{main.cpp}!buttonISR@{buttonISR}}
-\index{buttonISR@{buttonISR}!main.cpp@{main.cpp}}
-\doxysubsubsection{\texorpdfstring{buttonISR()}{buttonISR()}}
-{\footnotesize\ttfamily \label{main_8cpp_a1634c0853c51a2b0c09decfb67b3d8bc} 
-void ICACHE\+\_\+\+RAM\+\_\+\+ATTR button\+ISR (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+\doxysubsection{Detailed Description}
+Initialization and main control program for a UWB Lighthouse. 
 
-\Hypertarget{main_8cpp_afe461d27b9c48d5921c00d521181f12f}\index{main.cpp@{main.cpp}!loop@{loop}}
-\index{loop@{loop}!main.cpp@{main.cpp}}
-\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
-{\footnotesize\ttfamily \label{main_8cpp_afe461d27b9c48d5921c00d521181f12f} 
-void loop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+\begin{DoxyAuthor}{Author}
+Arkadiusz Rozmarynowicz 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+01.\+2026
+\end{DoxyDate}
+This program is designed for an ESP32 microcontroller acting as a UWB lighthouse device. It is responsible for:\+
+\begin{DoxyItemize}
+\item Reading the lighthouse identifier (LIGHTHOUSE\+\_\+\+ID) from three configuration pins configured as INPUT\+\_\+\+PULLDOWN.
+\item Initializing hardware interfaces, timers, communication modules, and the UWB subsystem.
+\item Resetting and initializing the internal state machine controlling the lighthouse operation.
+\item Disabling Wi\+Fi power-\/saving modes.
+\item Periodically updating the UWB subsystem in the main program loop.
+\end{DoxyItemize}
 
-\Hypertarget{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}\index{main.cpp@{main.cpp}!setup@{setup}}
-\index{setup@{setup}!main.cpp@{main.cpp}}
-\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
-{\footnotesize\ttfamily \label{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d} 
-void setup (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
-
-
+The application is built using the Arduino framework for ESP32. 
 
 \label{doc-var-members}
 \Hypertarget{main_8cpp_doc-var-members}
@@ -51,3 +53,8 @@ void setup (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 {\footnotesize\ttfamily \label{main_8cpp_ac863351c18bb4f0176b6820c9129b11e} 
 uint8\+\_\+t LIGHTHOUSE\+\_\+\+ID = 0}
 
+
+
+Unique identifier of the current Lighthouse device. 
+
+The value is determined at startup based on the state of index pins. 

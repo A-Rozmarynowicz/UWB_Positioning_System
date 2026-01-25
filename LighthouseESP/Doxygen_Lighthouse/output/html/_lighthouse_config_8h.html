@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lighthouse: include/LighthouseConfig.h File Reference</title>
+<title>Lighthouse Documentation: include/LighthouseConfig.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Lighthouse
+   <div id="projectname">Lighthouse Documentation
    </div>
   </td>
  </tr>
@@ -91,133 +91,55 @@ $(function(){initNavTree('_lighthouse_config_8h.html','',''); });
   <div class="headertitle"><div class="title">LighthouseConfig.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Global configuration header for the Lighthouse system.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;WiFi.h&gt;</code><br />
 <code>#include &lt;esp_now.h&gt;</code><br />
 <code>#include &lt;Arduino.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="_timing_8h_source.html">Timing.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_state_machine_8h_source.html">StateMachine.h</a>&quot;</code><br />
+<code>#include &quot;Timing.h&quot;</code><br />
+<code>#include &quot;StateMachine.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="_communication_8h_source.html">Communication.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_measure_8h_source.html">Measure.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_states_8h_source.html">States.h</a>&quot;</code><br />
+<code>#include &quot;States.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="_interface_8h_source.html">Interface.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_u_w_b___handler_8h_source.html">UWB_Handler.h</a>&quot;</code><br />
+<code>#include &quot;UWB_Handler.h&quot;</code><br />
 </div>
 <p><a href="_lighthouse_config_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:ad733a36008e3e7e7b67db0dfcf0f18c4" id="r_ad733a36008e3e7e7b67db0dfcf0f18c4"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ad733a36008e3e7e7b67db0dfcf0f18c4">NUMBER_OF_LIGHTHOUSES</a>&#160;&#160;&#160;(uint8_t) 4</td></tr>
-<tr class="memitem:a35ac667a7b80faf162f72c6f33fdb3a0" id="r_a35ac667a7b80faf162f72c6f33fdb3a0"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a35ac667a7b80faf162f72c6f33fdb3a0">OBSERVER_ID</a>&#160;&#160;&#160;169</td></tr>
-<tr class="memitem:af9b6757988b942331036baa4951c4e54" id="r_af9b6757988b942331036baa4951c4e54"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#af9b6757988b942331036baa4951c4e54">STATUS_BUTTON</a>&#160;&#160;&#160;(uint8_t) 4</td></tr>
-<tr class="memitem:a5906dee3b2b10baa56eef97b312c2aa4" id="r_a5906dee3b2b10baa56eef97b312c2aa4"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a5906dee3b2b10baa56eef97b312c2aa4">INDEX_PIN_2</a>&#160;&#160;&#160;(uint8_t) 18</td></tr>
-<tr class="memitem:a3cb1cf89095d6978233e4aab984d1978" id="r_a3cb1cf89095d6978233e4aab984d1978"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a3cb1cf89095d6978233e4aab984d1978">INDEX_PIN_1</a>&#160;&#160;&#160;(uint8_t) 19</td></tr>
-<tr class="memitem:a6b536d4738caf0708e81c4924a00d1e1" id="r_a6b536d4738caf0708e81c4924a00d1e1"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a6b536d4738caf0708e81c4924a00d1e1">INDEX_PIN_0</a>&#160;&#160;&#160;(uint8_t) 21</td></tr>
+<tr class="memitem:ad733a36008e3e7e7b67db0dfcf0f18c4" id="r_ad733a36008e3e7e7b67db0dfcf0f18c4"><td class="memItemLeft"><a id="ad733a36008e3e7e7b67db0dfcf0f18c4" name="ad733a36008e3e7e7b67db0dfcf0f18c4"></a>
+#define&#160;</td><td class="memItemRight"><b>NUMBER_OF_LIGHTHOUSES</b>&#160;&#160;&#160;(uint8_t) 4</td></tr>
+<tr class="memdesc:ad733a36008e3e7e7b67db0dfcf0f18c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Total number of Lighthouse devices in the system. <br /></td></tr>
+<tr class="memitem:a35ac667a7b80faf162f72c6f33fdb3a0" id="r_a35ac667a7b80faf162f72c6f33fdb3a0"><td class="memItemLeft"><a id="a35ac667a7b80faf162f72c6f33fdb3a0" name="a35ac667a7b80faf162f72c6f33fdb3a0"></a>
+#define&#160;</td><td class="memItemRight"><b>OBSERVER_ID</b>&#160;&#160;&#160;169</td></tr>
+<tr class="memdesc:a35ac667a7b80faf162f72c6f33fdb3a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unique identifier of the observer device. <br /></td></tr>
+<tr class="memitem:a5906dee3b2b10baa56eef97b312c2aa4" id="r_a5906dee3b2b10baa56eef97b312c2aa4"><td class="memItemLeft"><a id="a5906dee3b2b10baa56eef97b312c2aa4" name="a5906dee3b2b10baa56eef97b312c2aa4"></a>
+#define&#160;</td><td class="memItemRight"><b>INDEX_PIN_2</b>&#160;&#160;&#160;(uint8_t) 27</td></tr>
+<tr class="memdesc:a5906dee3b2b10baa56eef97b312c2aa4"><td class="mdescLeft">&#160;</td><td class="mdescRight">GPIO pin used as the most significant bit of the lighthouse index. <br /></td></tr>
+<tr class="memitem:a3cb1cf89095d6978233e4aab984d1978" id="r_a3cb1cf89095d6978233e4aab984d1978"><td class="memItemLeft"><a id="a3cb1cf89095d6978233e4aab984d1978" name="a3cb1cf89095d6978233e4aab984d1978"></a>
+#define&#160;</td><td class="memItemRight"><b>INDEX_PIN_1</b>&#160;&#160;&#160;(uint8_t) 26</td></tr>
+<tr class="memdesc:a3cb1cf89095d6978233e4aab984d1978"><td class="mdescLeft">&#160;</td><td class="mdescRight">GPIO pin used as the middle bit of the lighthouse index. <br /></td></tr>
+<tr class="memitem:a6b536d4738caf0708e81c4924a00d1e1" id="r_a6b536d4738caf0708e81c4924a00d1e1"><td class="memItemLeft"><a id="a6b536d4738caf0708e81c4924a00d1e1" name="a6b536d4738caf0708e81c4924a00d1e1"></a>
+#define&#160;</td><td class="memItemRight"><b>INDEX_PIN_0</b>&#160;&#160;&#160;(uint8_t) 25</td></tr>
+<tr class="memdesc:a6b536d4738caf0708e81c4924a00d1e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">GPIO pin used as the least significant bit of the lighthouse index. <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:af0b5d9bbb9c726ce80ffd19a9bf4bcf1" id="r_af0b5d9bbb9c726ce80ffd19a9bf4bcf1"><td class="memItemLeft">const uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#af0b5d9bbb9c726ce80ffd19a9bf4bcf1">CYCLE_COUNT_MAX</a> = 4294967295</td></tr>
 <tr class="memitem:ac863351c18bb4f0176b6820c9129b11e" id="r_ac863351c18bb4f0176b6820c9129b11e"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#ac863351c18bb4f0176b6820c9129b11e">LIGHTHOUSE_ID</a></td></tr>
+<tr class="memdesc:ac863351c18bb4f0176b6820c9129b11e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unique identifier of the current Lighthouse device.  <br /></td></tr>
 </table>
-<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
-<a id="a6b536d4738caf0708e81c4924a00d1e1" name="a6b536d4738caf0708e81c4924a00d1e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6b536d4738caf0708e81c4924a00d1e1">&#9670;&#160;</a></span>INDEX_PIN_0</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define INDEX_PIN_0&#160;&#160;&#160;(uint8_t) 21</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a3cb1cf89095d6978233e4aab984d1978" name="a3cb1cf89095d6978233e4aab984d1978"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3cb1cf89095d6978233e4aab984d1978">&#9670;&#160;</a></span>INDEX_PIN_1</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define INDEX_PIN_1&#160;&#160;&#160;(uint8_t) 19</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a5906dee3b2b10baa56eef97b312c2aa4" name="a5906dee3b2b10baa56eef97b312c2aa4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5906dee3b2b10baa56eef97b312c2aa4">&#9670;&#160;</a></span>INDEX_PIN_2</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define INDEX_PIN_2&#160;&#160;&#160;(uint8_t) 18</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad733a36008e3e7e7b67db0dfcf0f18c4" name="ad733a36008e3e7e7b67db0dfcf0f18c4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad733a36008e3e7e7b67db0dfcf0f18c4">&#9670;&#160;</a></span>NUMBER_OF_LIGHTHOUSES</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define NUMBER_OF_LIGHTHOUSES&#160;&#160;&#160;(uint8_t) 4</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a35ac667a7b80faf162f72c6f33fdb3a0" name="a35ac667a7b80faf162f72c6f33fdb3a0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a35ac667a7b80faf162f72c6f33fdb3a0">&#9670;&#160;</a></span>OBSERVER_ID</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define OBSERVER_ID&#160;&#160;&#160;169</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="af9b6757988b942331036baa4951c4e54" name="af9b6757988b942331036baa4951c4e54"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af9b6757988b942331036baa4951c4e54">&#9670;&#160;</a></span>STATUS_BUTTON</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define STATUS_BUTTON&#160;&#160;&#160;(uint8_t) 4</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
-<a id="af0b5d9bbb9c726ce80ffd19a9bf4bcf1" name="af0b5d9bbb9c726ce80ffd19a9bf4bcf1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af0b5d9bbb9c726ce80ffd19a9bf4bcf1">&#9670;&#160;</a></span>CYCLE_COUNT_MAX</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const uint32_t CYCLE_COUNT_MAX = 4294967295</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Global configuration header for the Lighthouse system. </p>
+<p>This file contains system-wide configuration constants, hardware pin definitions, and shared includes required by multiple modules of the Lighthouse firmware.</p>
+<p>It defines:</p><ul>
+<li>Global system parameters (number of lighthouses, observer ID)</li>
+<li>GPIO pin assignments used to determine the lighthouse identifier</li>
+<li>Common framework and module dependencies</li>
+<li>Global variables shared across compilation units </li>
+</ul>
+</div><a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
 <a id="ac863351c18bb4f0176b6820c9129b11e" name="ac863351c18bb4f0176b6820c9129b11e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac863351c18bb4f0176b6820c9129b11e">&#9670;&#160;</a></span>LIGHTHOUSE_ID</h2>
 
@@ -238,6 +160,9 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Unique identifier of the current Lighthouse device. </p>
+<p>The value is determined at startup based on the state of index pins. </p>
+
 </div>
 </div>
 </div><!-- contents -->
@@ -253,7 +178,7 @@ Variables</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a href="_lighthouse_config_8h.html">LighthouseConfig.h</a></li>
+    <li class="navelem"><b>include</b></li><li class="navelem"><a href="_lighthouse_config_8h.html">LighthouseConfig.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
   </ul>
 </div>

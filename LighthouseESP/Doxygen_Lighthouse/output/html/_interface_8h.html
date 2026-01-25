@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lighthouse: include/Interface.h File Reference</title>
+<title>Lighthouse Documentation: include/Interface.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Lighthouse
+   <div id="projectname">Lighthouse Documentation
    </div>
   </td>
  </tr>
@@ -91,36 +91,90 @@ $(function(){initNavTree('_interface_8h.html','',''); });
   <div class="headertitle"><div class="title">Interface.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Hardware interface abstraction for LEDs and user button.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="_lighthouse_config_8h_source.html">LighthouseConfig.h</a>&quot;</code><br />
 </div>
 <p><a href="_interface_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a76675368b46452a3eb270c01fe50566d" id="r_a76675368b46452a3eb270c01fe50566d"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a76675368b46452a3eb270c01fe50566d">DATA_TRANSFER_LED</a>&#160;&#160;&#160;(uint8_t) 2</td></tr>
+<tr class="memitem:a76675368b46452a3eb270c01fe50566d" id="r_a76675368b46452a3eb270c01fe50566d"><td class="memItemLeft"><a id="a76675368b46452a3eb270c01fe50566d" name="a76675368b46452a3eb270c01fe50566d"></a>
+#define&#160;</td><td class="memItemRight"><b>DATA_TRANSFER_LED</b>&#160;&#160;&#160;(uint8_t) 2</td></tr>
+<tr class="memdesc:a76675368b46452a3eb270c01fe50566d"><td class="mdescLeft">&#160;</td><td class="mdescRight">GPIO pin used to indicate data transfer activity. <br /></td></tr>
+<tr class="memitem:a1ee79833df3d87e0c016f364254899e9" id="r_a1ee79833df3d87e0c016f364254899e9"><td class="memItemLeft"><a id="a1ee79833df3d87e0c016f364254899e9" name="a1ee79833df3d87e0c016f364254899e9"></a>
+#define&#160;</td><td class="memItemRight"><b>ERROR_LED</b>&#160;&#160;&#160;(uint8_t) 2</td></tr>
+<tr class="memdesc:a1ee79833df3d87e0c016f364254899e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">GPIO pin used to indicate error states. <br /></td></tr>
+<tr class="memitem:af9b6757988b942331036baa4951c4e54" id="r_af9b6757988b942331036baa4951c4e54"><td class="memItemLeft"><a id="af9b6757988b942331036baa4951c4e54" name="af9b6757988b942331036baa4951c4e54"></a>
+#define&#160;</td><td class="memItemRight"><b>STATUS_BUTTON</b>&#160;&#160;&#160;(uint8_t) 4</td></tr>
+<tr class="memdesc:af9b6757988b942331036baa4951c4e54"><td class="mdescLeft">&#160;</td><td class="mdescRight">GPIO pin connected to the status button. <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a4291cdb32c220ff3472cd6563d4a1746" id="r_a4291cdb32c220ff3472cd6563d4a1746"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a4291cdb32c220ff3472cd6563d4a1746">Initialize_Interface</a> ()</td></tr>
+<tr class="memdesc:a4291cdb32c220ff3472cd6563d4a1746"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize GPIOs for LEDs and the status button.  <br /></td></tr>
+<tr class="memitem:a6e7538e1969c0945127355e1b6383eea" id="r_a6e7538e1969c0945127355e1b6383eea"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6e7538e1969c0945127355e1b6383eea">Blink_LED</a> ()</td></tr>
+<tr class="memdesc:a6e7538e1969c0945127355e1b6383eea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggle the state of the data transfer LED.  <br /></td></tr>
 <tr class="memitem:ade5f5724a7a44e6b8364a6cf07b5af77" id="r_ade5f5724a7a44e6b8364a6cf07b5af77"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ade5f5724a7a44e6b8364a6cf07b5af77">Data_Transfer_LED_ON</a> ()</td></tr>
+<tr class="memdesc:ade5f5724a7a44e6b8364a6cf07b5af77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turn on the data transfer LED.  <br /></td></tr>
 <tr class="memitem:a54baf1a24d311a1b5a9f2a22fe639087" id="r_a54baf1a24d311a1b5a9f2a22fe639087"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a54baf1a24d311a1b5a9f2a22fe639087">Data_Transfer_LED_OFF</a> ()</td></tr>
+<tr class="memdesc:a54baf1a24d311a1b5a9f2a22fe639087"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turn off the data transfer LED.  <br /></td></tr>
+<tr class="memitem:a28f0c1ebb6f675b3b829b57e625cf16a" id="r_a28f0c1ebb6f675b3b829b57e625cf16a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a28f0c1ebb6f675b3b829b57e625cf16a">Error_LED_On</a> ()</td></tr>
+<tr class="memdesc:a28f0c1ebb6f675b3b829b57e625cf16a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turn on the error indicator LED.  <br /></td></tr>
+<tr class="memitem:a0b5a04ff797267f65e8c78340838b011" id="r_a0b5a04ff797267f65e8c78340838b011"><td class="memItemLeft">void ICACHE_RAM_ATTR&#160;</td><td class="memItemRight"><a class="el" href="#a0b5a04ff797267f65e8c78340838b011">_button_ISR</a> ()</td></tr>
+<tr class="memdesc:a0b5a04ff797267f65e8c78340838b011"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interrupt Service Routine for the status button.  <br /></td></tr>
 </table>
-<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
-<a id="a76675368b46452a3eb270c01fe50566d" name="a76675368b46452a3eb270c01fe50566d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a76675368b46452a3eb270c01fe50566d">&#9670;&#160;</a></span>DATA_TRANSFER_LED</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Hardware interface abstraction for LEDs and user button. </p>
+<p>This header defines the hardware interface used by the Lighthouse system, including status LEDs and a user button. It provides constants describing GPIO assignments and declares public and private interface-related functions.</p>
+<p>The interface layer is responsible for:</p><ul>
+<li>Initializing GPIOs used for LEDs and button input</li>
+<li>Visual indication of system status and data transfer activity</li>
+<li>Handling button interrupts </li>
+</ul>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="a0b5a04ff797267f65e8c78340838b011" name="a0b5a04ff797267f65e8c78340838b011"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b5a04ff797267f65e8c78340838b011">&#9670;&#160;</a></span>_button_ISR()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define DATA_TRANSFER_LED&#160;&#160;&#160;(uint8_t) 2</td>
+          <td class="memname">void ICACHE_RAM_ATTR _button_ISR </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>Interrupt Service Routine for the status button. </p>
+<p>This ISR is executed on a rising edge of the status button signal and forwards the event to the state machine handler.</p>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
 </div>
 </div>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="a6e7538e1969c0945127355e1b6383eea" name="a6e7538e1969c0945127355e1b6383eea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e7538e1969c0945127355e1b6383eea">&#9670;&#160;</a></span>Blink_LED()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Blink_LED </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Toggle the state of the data transfer LED. </p>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
 <a id="a54baf1a24d311a1b5a9f2a22fe639087" name="a54baf1a24d311a1b5a9f2a22fe639087"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a54baf1a24d311a1b5a9f2a22fe639087">&#9670;&#160;</a></span>Data_Transfer_LED_OFF()</h2>
 
@@ -135,6 +189,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Turn off the data transfer LED. </p>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
 </div>
 </div>
@@ -153,6 +210,29 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Turn on the data transfer LED. </p>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a28f0c1ebb6f675b3b829b57e625cf16a" name="a28f0c1ebb6f675b3b829b57e625cf16a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28f0c1ebb6f675b3b829b57e625cf16a">&#9670;&#160;</a></span>Error_LED_On()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Error_LED_On </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Turn on the error indicator LED. </p>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
 </div>
 </div>
 <a id="a4291cdb32c220ff3472cd6563d4a1746" name="a4291cdb32c220ff3472cd6563d4a1746"></a>
@@ -170,6 +250,10 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Initialize GPIOs for LEDs and the status button. </p>
+<p>Configures the status button as an interrupt source and initializes LED GPIOs to their default states.</p>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
 </div>
 </div>
 </div><!-- contents -->
@@ -185,7 +269,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a href="_interface_8h.html">Interface.h</a></li>
+    <li class="navelem"><b>include</b></li><li class="navelem"><a href="_interface_8h.html">Interface.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
   </ul>
 </div>

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['position_0',['Position',['../struct_position.html',1,'']]],
-  ['positioning_20system_1',['Submodule of the Lighthouse Positioning System',['../index.html#autotoc_md1',1,'']]],
-  ['project_20status_2',['Project status',['../index.html#autotoc_md20',1,'']]]
+  ['observer_5fid_0',['OBSERVER_ID',['../_lighthouse_config_8h.html#a35ac667a7b80faf162f72c6f33fdb3a0',1,'LighthouseConfig.h']]],
+  ['opis_20logiki_1',['Opis logiki',['../index.html#autotoc_md1',1,'']]]
 ];

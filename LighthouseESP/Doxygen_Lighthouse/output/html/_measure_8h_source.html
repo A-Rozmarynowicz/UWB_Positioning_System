@@ -91,50 +91,74 @@ $(function(){initNavTree('_measure_8h_source.html','',''); });
   <div class="headertitle"><div class="title">Measure.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef MEASURE_H</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define MEASURE_H</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;LighthouseConfig.h&quot;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">const</span> <span class="keywordtype">float</span> THEORETICAL_MAX_DISTANCE = 10.0f;</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">const</span> uint8_t MIN_DISTANCE_MEASUREMENTS = 5;</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">const</span> <span class="keywordtype">float</span> DISTANCE_ANTENA_DELAY_OFFSET = 0.6;</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">// const float /DISTANCE_ANTENA_DELAY_OFFSET = 0.0;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="foldopen" id="foldopen00010" data-start="{" data-end="};">
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="struct_position.html">   10</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_position.html">Position</a> {</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keywordtype">float</span> x;</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordtype">float</span> y;</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keywordtype">float</span> z;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>};</div>
-</div>
+<a href="_measure_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">extern</span> <span class="keywordtype">float</span> distances_to_lighthouses[NUMBER_OF_LIGHTHOUSES];</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">extern</span> <span class="keywordtype">float</span> master_all_distances_matrix[NUMBER_OF_LIGHTHOUSES][NUMBER_OF_LIGHTHOUSES];</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">extern</span> <a class="code hl_struct" href="struct_position.html">Position</a> master_all_positions[NUMBER_OF_LIGHTHOUSES];</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">extern</span> <a class="code hl_struct" href="struct_position.html">Position</a> position;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">// Public</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keywordtype">void</span> New_Measurement(uint8_t lighthouse, <span class="keywordtype">float</span> distance);</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keywordtype">void</span> Calculate_Distance_To_Targets(uint8_t distance_measurements[NUMBER_OF_LIGHTHOUSES]);</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keywordtype">void</span> Print_Master_All_Distances_Matrix();</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keywordtype">void</span> Print_Position(uint8_t lighthouse);</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keywordtype">void</span> Calculate_Position_Of_Lighthouse(uint8_t lighthouse);</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">// Private</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keywordtype">void</span> _set_LGH_1_position();</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keywordtype">void</span> _set_LGH_2_position();</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keywordtype">void</span> _set_LGH_3_position();</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keywordtype">void</span> _set_LGH_4plus_position(uint8_t lighthouse);</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="astruct_position_html"><div class="ttname"><a href="struct_position.html">Position</a></div><div class="ttdef"><b>Definition</b> Measure.h:10</div></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#ifndef MEASURE_H</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#define MEASURE_H</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="_lighthouse_config_8h.html">LighthouseConfig.h</a>&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="_measure_8h.html#a90bd95f72af2171eb58a0f0b55bd822e">   23</a></span><span class="keyword">const</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="_measure_8h.html#a90bd95f72af2171eb58a0f0b55bd822e">THEORETICAL_MAX_DISTANCE</a> = 10.0f;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="_measure_8h.html#a2e68da10780b3a5023d25b9b76c7dcd9">   28</a></span><span class="keyword">const</span> uint8_t <a class="code hl_variable" href="_measure_8h.html#a2e68da10780b3a5023d25b9b76c7dcd9">MIN_DISTANCE_MEASUREMENTS</a> = 5;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="_measure_8h.html#abbbd56a108e0a59abd9d54f96a635253">   33</a></span><span class="keyword">const</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="_measure_8h.html#abbbd56a108e0a59abd9d54f96a635253">DISTANCE_ANTENA_DELAY_OFFSET</a> = 0.6;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span></div>
+<div class="foldopen" id="foldopen00039" data-start="{" data-end="};">
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="struct_position.html">   39</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_position.html">Position</a> {</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">float</span> x;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">float</span> y;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">float</span> z;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>};</div>
+</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keyword">extern</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="_measure_8h.html#a7af4755e90c986eafaf94e9b7b313dc7">distances_to_lighthouses</a>[<a class="code hl_define" href="_lighthouse_config_8h.html#ad733a36008e3e7e7b67db0dfcf0f18c4">NUMBER_OF_LIGHTHOUSES</a>];</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keyword">extern</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="_measure_8h.html#a427f2f170e94d2773c129e5597a8bc74">master_all_distances_matrix</a>[<a class="code hl_define" href="_lighthouse_config_8h.html#ad733a36008e3e7e7b67db0dfcf0f18c4">NUMBER_OF_LIGHTHOUSES</a>][<a class="code hl_define" href="_lighthouse_config_8h.html#ad733a36008e3e7e7b67db0dfcf0f18c4">NUMBER_OF_LIGHTHOUSES</a>];</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="keyword">extern</span> <a class="code hl_struct" href="struct_position.html">Position</a> <a class="code hl_variable" href="_measure_8h.html#a8b5fce7ca6976a5b07d94bd74d7650d4">master_all_positions</a>[<a class="code hl_define" href="_lighthouse_config_8h.html#ad733a36008e3e7e7b67db0dfcf0f18c4">NUMBER_OF_LIGHTHOUSES</a>];</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keyword">extern</span> <a class="code hl_struct" href="struct_position.html">Position</a> <a class="code hl_variable" href="_measure_8h.html#a4d84949a19a29d3bb4dd2635c8241a83">position</a>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">// Public</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keywordtype">void</span> <a class="code hl_function" href="_measure_8h.html#a6e5d30d7f9991ec97539ced1544d31c0">New_Measurement</a>(uint8_t lighthouse, <span class="keywordtype">float</span> distance);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="keywordtype">void</span> <a class="code hl_function" href="_measure_8h.html#a3fe352b30848dee334edbf435c3b49d2">Calculate_Distance_To_Targets</a>(uint8_t distance_measurements[<a class="code hl_define" href="_lighthouse_config_8h.html#ad733a36008e3e7e7b67db0dfcf0f18c4">NUMBER_OF_LIGHTHOUSES</a>]);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="keywordtype">void</span> <a class="code hl_function" href="_measure_8h.html#a70ecd05335acad1447d5c5dd3c1b2ab0">Print_Master_All_Distances_Matrix</a>();</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keywordtype">void</span> <a class="code hl_function" href="_measure_8h.html#af4d6502410cb7cc91ce76f2456492ec2">Print_Position</a>(uint8_t lighthouse);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="keywordtype">void</span> <a class="code hl_function" href="_measure_8h.html#ad8bf287324e8711d8d0b4cb2ead2d476">Calculate_Position_Of_Lighthouse</a>(uint8_t lighthouse);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment">// Private</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="keywordtype">void</span> <a class="code hl_function" href="_measure_8h.html#a16cc4c28780495c66196948438d5efe1">_set_LGH_1_position</a>();</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="keywordtype">void</span> <a class="code hl_function" href="_measure_8h.html#a240abbec25dedd9c43e2368bbdfad14c">_set_LGH_2_position</a>();</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="keywordtype">void</span> <a class="code hl_function" href="_measure_8h.html#ac1a1095b3137980495d24923977f7510">_set_LGH_3_position</a>();</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="keywordtype">void</span> <a class="code hl_function" href="_measure_8h.html#ab3051edfbac08774e98634d50480df0a">_set_LGH_4plus_position</a>(uint8_t lighthouse);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="a_lighthouse_config_8h_html"><div class="ttname"><a href="_lighthouse_config_8h.html">LighthouseConfig.h</a></div><div class="ttdoc">Global configuration header for the Lighthouse system.</div></div>
+<div class="ttc" id="a_lighthouse_config_8h_html_ad733a36008e3e7e7b67db0dfcf0f18c4"><div class="ttname"><a href="_lighthouse_config_8h.html#ad733a36008e3e7e7b67db0dfcf0f18c4">NUMBER_OF_LIGHTHOUSES</a></div><div class="ttdeci">#define NUMBER_OF_LIGHTHOUSES</div><div class="ttdoc">Total number of Lighthouse devices in the system.</div><div class="ttdef"><b>Definition</b> LighthouseConfig.h:23</div></div>
+<div class="ttc" id="a_measure_8h_html_a16cc4c28780495c66196948438d5efe1"><div class="ttname"><a href="_measure_8h.html#a16cc4c28780495c66196948438d5efe1">_set_LGH_1_position</a></div><div class="ttdeci">void _set_LGH_1_position()</div><div class="ttdoc">Calculate the position of lighthouse 1.</div><div class="ttdef"><b>Definition</b> Measure.cpp:91</div></div>
+<div class="ttc" id="a_measure_8h_html_a240abbec25dedd9c43e2368bbdfad14c"><div class="ttname"><a href="_measure_8h.html#a240abbec25dedd9c43e2368bbdfad14c">_set_LGH_2_position</a></div><div class="ttdeci">void _set_LGH_2_position()</div><div class="ttdoc">Calculate the 2D position of lighthouse 2.</div><div class="ttdef"><b>Definition</b> Measure.cpp:103</div></div>
+<div class="ttc" id="a_measure_8h_html_a2e68da10780b3a5023d25b9b76c7dcd9"><div class="ttname"><a href="_measure_8h.html#a2e68da10780b3a5023d25b9b76c7dcd9">MIN_DISTANCE_MEASUREMENTS</a></div><div class="ttdeci">const uint8_t MIN_DISTANCE_MEASUREMENTS</div><div class="ttdoc">Minimum number of distance measurements required for processing.</div><div class="ttdef"><b>Definition</b> Measure.h:28</div></div>
+<div class="ttc" id="a_measure_8h_html_a3fe352b30848dee334edbf435c3b49d2"><div class="ttname"><a href="_measure_8h.html#a3fe352b30848dee334edbf435c3b49d2">Calculate_Distance_To_Targets</a></div><div class="ttdeci">void Calculate_Distance_To_Targets(uint8_t distance_measurements[NUMBER_OF_LIGHTHOUSES])</div><div class="ttdoc">Calculate averaged distances to all target lighthouses.</div><div class="ttdef"><b>Definition</b> Measure.cpp:35</div></div>
+<div class="ttc" id="a_measure_8h_html_a427f2f170e94d2773c129e5597a8bc74"><div class="ttname"><a href="_measure_8h.html#a427f2f170e94d2773c129e5597a8bc74">master_all_distances_matrix</a></div><div class="ttdeci">float master_all_distances_matrix[NUMBER_OF_LIGHTHOUSES][NUMBER_OF_LIGHTHOUSES]</div><div class="ttdoc">Matrix containing distances between all lighthouse pairs.</div><div class="ttdef"><b>Definition</b> Measure.cpp:5</div></div>
+<div class="ttc" id="a_measure_8h_html_a4d84949a19a29d3bb4dd2635c8241a83"><div class="ttname"><a href="_measure_8h.html#a4d84949a19a29d3bb4dd2635c8241a83">position</a></div><div class="ttdeci">Position position</div><div class="ttdoc">Current device position.</div><div class="ttdef"><b>Definition</b> Measure.cpp:7</div></div>
+<div class="ttc" id="a_measure_8h_html_a6e5d30d7f9991ec97539ced1544d31c0"><div class="ttname"><a href="_measure_8h.html#a6e5d30d7f9991ec97539ced1544d31c0">New_Measurement</a></div><div class="ttdeci">void New_Measurement(uint8_t lighthouse, float distance)</div><div class="ttdoc">Add a new distance measurement from a lighthouse.</div><div class="ttdef"><b>Definition</b> Measure.cpp:19</div></div>
+<div class="ttc" id="a_measure_8h_html_a70ecd05335acad1447d5c5dd3c1b2ab0"><div class="ttname"><a href="_measure_8h.html#a70ecd05335acad1447d5c5dd3c1b2ab0">Print_Master_All_Distances_Matrix</a></div><div class="ttdeci">void Print_Master_All_Distances_Matrix()</div><div class="ttdoc">Print the full matrix of inter-lighthouse distances.</div><div class="ttdef"><b>Definition</b> Measure.cpp:50</div></div>
+<div class="ttc" id="a_measure_8h_html_a7af4755e90c986eafaf94e9b7b313dc7"><div class="ttname"><a href="_measure_8h.html#a7af4755e90c986eafaf94e9b7b313dc7">distances_to_lighthouses</a></div><div class="ttdeci">float distances_to_lighthouses[NUMBER_OF_LIGHTHOUSES]</div><div class="ttdoc">Distances measured to all lighthouses.</div><div class="ttdef"><b>Definition</b> Measure.cpp:4</div></div>
+<div class="ttc" id="a_measure_8h_html_a8b5fce7ca6976a5b07d94bd74d7650d4"><div class="ttname"><a href="_measure_8h.html#a8b5fce7ca6976a5b07d94bd74d7650d4">master_all_positions</a></div><div class="ttdeci">Position master_all_positions[NUMBER_OF_LIGHTHOUSES]</div><div class="ttdoc">Calculated positions of all lighthouses.</div><div class="ttdef"><b>Definition</b> Measure.cpp:6</div></div>
+<div class="ttc" id="a_measure_8h_html_a90bd95f72af2171eb58a0f0b55bd822e"><div class="ttname"><a href="_measure_8h.html#a90bd95f72af2171eb58a0f0b55bd822e">THEORETICAL_MAX_DISTANCE</a></div><div class="ttdeci">const float THEORETICAL_MAX_DISTANCE</div><div class="ttdoc">Theoretical maximum valid distance between devices [meters].</div><div class="ttdef"><b>Definition</b> Measure.h:23</div></div>
+<div class="ttc" id="a_measure_8h_html_ab3051edfbac08774e98634d50480df0a"><div class="ttname"><a href="_measure_8h.html#ab3051edfbac08774e98634d50480df0a">_set_LGH_4plus_position</a></div><div class="ttdeci">void _set_LGH_4plus_position(uint8_t lighthouse)</div><div class="ttdoc">Calculate the position of lighthouses with index 4 and above.</div><div class="ttdef"><b>Definition</b> Measure.cpp:162</div></div>
+<div class="ttc" id="a_measure_8h_html_abbbd56a108e0a59abd9d54f96a635253"><div class="ttname"><a href="_measure_8h.html#abbbd56a108e0a59abd9d54f96a635253">DISTANCE_ANTENA_DELAY_OFFSET</a></div><div class="ttdeci">const float DISTANCE_ANTENA_DELAY_OFFSET</div><div class="ttdoc">Antenna delay compensation offset applied to distance measurements [meters].</div><div class="ttdef"><b>Definition</b> Measure.h:33</div></div>
+<div class="ttc" id="a_measure_8h_html_ac1a1095b3137980495d24923977f7510"><div class="ttname"><a href="_measure_8h.html#ac1a1095b3137980495d24923977f7510">_set_LGH_3_position</a></div><div class="ttdeci">void _set_LGH_3_position()</div><div class="ttdoc">Calculate the 3D position of lighthouse 3.</div><div class="ttdef"><b>Definition</b> Measure.cpp:128</div></div>
+<div class="ttc" id="a_measure_8h_html_ad8bf287324e8711d8d0b4cb2ead2d476"><div class="ttname"><a href="_measure_8h.html#ad8bf287324e8711d8d0b4cb2ead2d476">Calculate_Position_Of_Lighthouse</a></div><div class="ttdeci">void Calculate_Position_Of_Lighthouse(uint8_t lighthouse)</div><div class="ttdoc">Calculate the spatial position of a lighthouse.</div><div class="ttdef"><b>Definition</b> Measure.cpp:67</div></div>
+<div class="ttc" id="a_measure_8h_html_af4d6502410cb7cc91ce76f2456492ec2"><div class="ttname"><a href="_measure_8h.html#af4d6502410cb7cc91ce76f2456492ec2">Print_Position</a></div><div class="ttdeci">void Print_Position(uint8_t lighthouse)</div><div class="ttdoc">Print the calculated position of a lighthouse.</div><div class="ttdef"><b>Definition</b> Measure.cpp:172</div></div>
+<div class="ttc" id="astruct_position_html"><div class="ttname"><a href="struct_position.html">Position</a></div><div class="ttdoc">3D Cartesian position representation.</div><div class="ttdef"><b>Definition</b> Measure.h:39</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>include</b></li><li class="navelem"><b>Measure.h</b></li>
+    <li class="navelem"><b>include</b></li><li class="navelem"><a href="_measure_8h.html">Measure.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
   </ul>
 </div>

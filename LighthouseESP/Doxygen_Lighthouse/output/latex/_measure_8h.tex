@@ -1,42 +1,75 @@
 \doxysection{include/\+\+Measure.h File Reference}
 \hypertarget{_measure_8h}{}\label{_measure_8h}\index{include/Measure.h@{include/Measure.h}}
+
+
+Distance measurement and position calculation utilities.  
+
+
 {\ttfamily \+\#include "{}Lighthouse\+Config.\+h"{}}\newline
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 struct \doxymbox{\hyperlink{struct_position}{Position}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em 3D Cartesian position representation. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \doxymbox{\hyperlink{_measure_8h_a853df673822e1422a96aa751eb355fbf}{Calculate\+\_\+\+Distance\+\_\+\+To\+\_\+\+Target}} (uint8\+\_\+t current\+\_\+target, float distance)
-\item 
+void \doxymbox{\hyperlink{_measure_8h_a6e5d30d7f9991ec97539ced1544d31c0}{New\+\_\+\+Measurement}} (uint8\+\_\+t lighthouse, float distance)
+\begin{DoxyCompactList}\small\item\em Add a new distance measurement from a lighthouse. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{_measure_8h_a3fe352b30848dee334edbf435c3b49d2}{Calculate\+\_\+\+Distance\+\_\+\+To\+\_\+\+Targets}} (uint8\+\_\+t distance\+\_\+measurements\+[\doxymbox{\hyperlink{_lighthouse_config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\+\_\+\+OF\+\_\+\+LIGHTHOUSES}}]\+)
+\begin{DoxyCompactList}\small\item\em Calculate averaged distances to all target lighthouses. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{_measure_8h_a70ecd05335acad1447d5c5dd3c1b2ab0}{Print\+\_\+\+Master\+\_\+\+All\+\_\+\+Distances\+\_\+\+Matrix}} ()
-\item 
-void \doxymbox{\hyperlink{_measure_8h_af4d6502410cb7cc91ce76f2456492ec2}{Print\+\_\+\+Position}} (uint8\+\_\+t lighthouse)
-\item 
+\begin{DoxyCompactList}\small\item\em Print the full matrix of inter-\/lighthouse distances. \end{DoxyCompactList}\item 
+\Hypertarget{_measure_8h_af4d6502410cb7cc91ce76f2456492ec2}\label{_measure_8h_af4d6502410cb7cc91ce76f2456492ec2} 
+void {\bfseries Print\+\_\+\+Position} (uint8\+\_\+t lighthouse)
+\begin{DoxyCompactList}\small\item\em Print the calculated position of a lighthouse. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{_measure_8h_ad8bf287324e8711d8d0b4cb2ead2d476}{Calculate\+\_\+\+Position\+\_\+\+Of\+\_\+\+Lighthouse}} (uint8\+\_\+t lighthouse)
-\item 
+\begin{DoxyCompactList}\small\item\em Calculate the spatial position of a lighthouse. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{_measure_8h_a16cc4c28780495c66196948438d5efe1}{\+\_\+set\+\_\+\+LGH\+\_\+1\+\_\+position}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Calculate the position of lighthouse 1. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{_measure_8h_a240abbec25dedd9c43e2368bbdfad14c}{\+\_\+set\+\_\+\+LGH\+\_\+2\+\_\+position}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Calculate the 2D position of lighthouse 2. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{_measure_8h_ac1a1095b3137980495d24923977f7510}{\+\_\+set\+\_\+\+LGH\+\_\+3\+\_\+position}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Calculate the 3D position of lighthouse 3. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{_measure_8h_ab3051edfbac08774e98634d50480df0a}{\+\_\+set\+\_\+\+LGH\+\_\+4plus\+\_\+position}} (uint8\+\_\+t lighthouse)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Calculate the position of lighthouses with index 4 and above. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-float \doxymbox{\hyperlink{_measure_8h_a7af4755e90c986eafaf94e9b7b313dc7}{distances\+\_\+to\+\_\+lighthouses}} \+[\doxymbox{\hyperlink{_lighthouse_config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\+\_\+\+OF\+\_\+\+LIGHTHOUSES}}]\+
-\item 
-float \doxymbox{\hyperlink{_measure_8h_a427f2f170e94d2773c129e5597a8bc74}{master\+\_\+all\+\_\+distances\+\_\+matrix}} \+[\doxymbox{\hyperlink{_lighthouse_config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\+\_\+\+OF\+\_\+\+LIGHTHOUSES}}]\+\+[\doxymbox{\hyperlink{_lighthouse_config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\+\_\+\+OF\+\_\+\+LIGHTHOUSES}}]\+
-\item 
-\doxymbox{\hyperlink{struct_position}{Position}} \doxymbox{\hyperlink{_measure_8h_a8b5fce7ca6976a5b07d94bd74d7650d4}{master\+\_\+all\+\_\+positions}} \+[\doxymbox{\hyperlink{_lighthouse_config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\+\_\+\+OF\+\_\+\+LIGHTHOUSES}}]\+
-\item 
-\doxymbox{\hyperlink{struct_position}{Position}} \doxymbox{\hyperlink{_measure_8h_a4d84949a19a29d3bb4dd2635c8241a83}{position}}
-\end{DoxyCompactItemize}
+\Hypertarget{_measure_8h_a90bd95f72af2171eb58a0f0b55bd822e}\label{_measure_8h_a90bd95f72af2171eb58a0f0b55bd822e} 
+const float {\bfseries THEORETICAL\+\_\+\+MAX\+\_\+\+DISTANCE} = 10.\+0f
+\begin{DoxyCompactList}\small\item\em Theoretical maximum valid distance between devices \+[meters]\+. \end{DoxyCompactList}\item 
+\Hypertarget{_measure_8h_a2e68da10780b3a5023d25b9b76c7dcd9}\label{_measure_8h_a2e68da10780b3a5023d25b9b76c7dcd9} 
+const uint8\+\_\+t {\bfseries MIN\+\_\+\+DISTANCE\+\_\+\+MEASUREMENTS} = 5
+\begin{DoxyCompactList}\small\item\em Minimum number of distance measurements required for processing. \end{DoxyCompactList}\item 
+\Hypertarget{_measure_8h_abbbd56a108e0a59abd9d54f96a635253}\label{_measure_8h_abbbd56a108e0a59abd9d54f96a635253} 
+const float {\bfseries DISTANCE\+\_\+\+ANTENA\+\_\+\+DELAY\+\_\+\+OFFSET} = 0.\+6
+\begin{DoxyCompactList}\small\item\em Antenna delay compensation offset applied to distance measurements \+[meters]\+. \end{DoxyCompactList}\item 
+\Hypertarget{_measure_8h_a7af4755e90c986eafaf94e9b7b313dc7}\label{_measure_8h_a7af4755e90c986eafaf94e9b7b313dc7} 
+float {\bfseries distances\+\_\+to\+\_\+lighthouses} \+[\doxymbox{\hyperlink{_lighthouse_config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\+\_\+\+OF\+\_\+\+LIGHTHOUSES}}]\+
+\begin{DoxyCompactList}\small\item\em Distances measured to all lighthouses. \end{DoxyCompactList}\item 
+\Hypertarget{_measure_8h_a427f2f170e94d2773c129e5597a8bc74}\label{_measure_8h_a427f2f170e94d2773c129e5597a8bc74} 
+float {\bfseries master\+\_\+all\+\_\+distances\+\_\+matrix} \+[\doxymbox{\hyperlink{_lighthouse_config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\+\_\+\+OF\+\_\+\+LIGHTHOUSES}}]\+\+[\doxymbox{\hyperlink{_lighthouse_config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\+\_\+\+OF\+\_\+\+LIGHTHOUSES}}]\+
+\begin{DoxyCompactList}\small\item\em Matrix containing distances between all lighthouse pairs. \end{DoxyCompactList}\item 
+\Hypertarget{_measure_8h_a8b5fce7ca6976a5b07d94bd74d7650d4}\label{_measure_8h_a8b5fce7ca6976a5b07d94bd74d7650d4} 
+\doxymbox{\hyperlink{struct_position}{Position}} {\bfseries master\+\_\+all\+\_\+positions} \+[\doxymbox{\hyperlink{_lighthouse_config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\+\_\+\+OF\+\_\+\+LIGHTHOUSES}}]\+
+\begin{DoxyCompactList}\small\item\em Calculated positions of all lighthouses. \end{DoxyCompactList}\item 
+\Hypertarget{_measure_8h_a4d84949a19a29d3bb4dd2635c8241a83}\label{_measure_8h_a4d84949a19a29d3bb4dd2635c8241a83} 
+\doxymbox{\hyperlink{struct_position}{Position}} {\bfseries position}
+\begin{DoxyCompactList}\small\item\em Current device position. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Distance measurement and position calculation utilities. 
+
+This header defines data structures, constants, and shared variables used for distance measurement processing and position estimation of Lighthouse devices within the system.
+
+It provides:\+
+\begin{DoxyItemize}
+\item Limits and parameters related to distance measurements
+\item A 3D position structure
+\item Global buffers storing distances and calculated positions 
+\end{DoxyItemize}
 
 \label{doc-func-members}
 \Hypertarget{_measure_8h_doc-func-members}
@@ -47,74 +80,137 @@ float \doxymbox{\hyperlink{_measure_8h_a427f2f170e94d2773c129e5597a8bc74}{master
 {\footnotesize\ttfamily \label{_measure_8h_a16cc4c28780495c66196948438d5efe1} 
 void \+\_\+set\+\_\+\+LGH\+\_\+1\+\_\+position (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Calculate the position of lighthouse 1. 
+
+Assumes lighthouse 0 is located at the origin.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
 \Hypertarget{_measure_8h_a240abbec25dedd9c43e2368bbdfad14c}\index{Measure.h@{Measure.h}!\_set\_LGH\_2\_position@{\_set\_LGH\_2\_position}}
 \index{\_set\_LGH\_2\_position@{\_set\_LGH\_2\_position}!Measure.h@{Measure.h}}
 \doxysubsubsection{\texorpdfstring{\_set\_LGH\_2\_position()}{\_set\_LGH\_2\_position()}}
 {\footnotesize\ttfamily \label{_measure_8h_a240abbec25dedd9c43e2368bbdfad14c} 
 void \+\_\+set\+\_\+\+LGH\+\_\+2\+\_\+position (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Calculate the 2D position of lighthouse 2. 
+
+Uses distances to lighthouse 0 and 1 to estimate X and Y coordinates.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
 \Hypertarget{_measure_8h_ac1a1095b3137980495d24923977f7510}\index{Measure.h@{Measure.h}!\_set\_LGH\_3\_position@{\_set\_LGH\_3\_position}}
 \index{\_set\_LGH\_3\_position@{\_set\_LGH\_3\_position}!Measure.h@{Measure.h}}
 \doxysubsubsection{\texorpdfstring{\_set\_LGH\_3\_position()}{\_set\_LGH\_3\_position()}}
 {\footnotesize\ttfamily \label{_measure_8h_ac1a1095b3137980495d24923977f7510} 
 void \+\_\+set\+\_\+\+LGH\+\_\+3\+\_\+position (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Calculate the 3D position of lighthouse 3. 
+
+Uses trilateration based on distances to lighthouses 0, 1, and 2.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
 \Hypertarget{_measure_8h_ab3051edfbac08774e98634d50480df0a}\index{Measure.h@{Measure.h}!\_set\_LGH\_4plus\_position@{\_set\_LGH\_4plus\_position}}
 \index{\_set\_LGH\_4plus\_position@{\_set\_LGH\_4plus\_position}!Measure.h@{Measure.h}}
 \doxysubsubsection{\texorpdfstring{\_set\_LGH\_4plus\_position()}{\_set\_LGH\_4plus\_position()}}
 {\footnotesize\ttfamily \label{_measure_8h_ab3051edfbac08774e98634d50480df0a} 
 void \+\_\+set\+\_\+\+LGH\+\_\+4plus\+\_\+position (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{lighthouse}{}\end{DoxyParamCaption})}
 
-\Hypertarget{_measure_8h_a853df673822e1422a96aa751eb355fbf}\index{Measure.h@{Measure.h}!Calculate\_Distance\_To\_Target@{Calculate\_Distance\_To\_Target}}
-\index{Calculate\_Distance\_To\_Target@{Calculate\_Distance\_To\_Target}!Measure.h@{Measure.h}}
-\doxysubsubsection{\texorpdfstring{Calculate\_Distance\_To\_Target()}{Calculate\_Distance\_To\_Target()}}
-{\footnotesize\ttfamily \label{_measure_8h_a853df673822e1422a96aa751eb355fbf} 
-void Calculate\+\_\+\+Distance\+\_\+\+To\+\_\+\+Target (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{current\+\_\+target}{, }\item[{float}]{distance}{}\end{DoxyParamCaption})}
 
+
+Calculate the position of lighthouses with index 4 and above. 
+
+Placeholder for future extensions.
+
+
+\begin{DoxyParams}{Parameters}
+{\em lighthouse} & ID of the lighthouse. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{_measure_8h_a3fe352b30848dee334edbf435c3b49d2}\index{Measure.h@{Measure.h}!Calculate\_Distance\_To\_Targets@{Calculate\_Distance\_To\_Targets}}
+\index{Calculate\_Distance\_To\_Targets@{Calculate\_Distance\_To\_Targets}!Measure.h@{Measure.h}}
+\doxysubsubsection{\texorpdfstring{Calculate\_Distance\_To\_Targets()}{Calculate\_Distance\_To\_Targets()}}
+{\footnotesize\ttfamily \label{_measure_8h_a3fe352b30848dee334edbf435c3b49d2} 
+void Calculate\+\_\+\+Distance\+\_\+\+To\+\_\+\+Targets (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{distance\+\_\+measurements}{\+[\+NUMBER\+\_\+\+OF\+\_\+\+LIGHTHOUSES]\+}\end{DoxyParamCaption})}
+
+
+
+Calculate averaged distances to all target lighthouses. 
+
+Applies averaging based on the number of measurements and compensates for antenna delay offset.
+
+
+\begin{DoxyParams}{Parameters}
+{\em distance\+\_\+measurements} & Array containing number of measurements per lighthouse. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
 \Hypertarget{_measure_8h_ad8bf287324e8711d8d0b4cb2ead2d476}\index{Measure.h@{Measure.h}!Calculate\_Position\_Of\_Lighthouse@{Calculate\_Position\_Of\_Lighthouse}}
 \index{Calculate\_Position\_Of\_Lighthouse@{Calculate\_Position\_Of\_Lighthouse}!Measure.h@{Measure.h}}
 \doxysubsubsection{\texorpdfstring{Calculate\_Position\_Of\_Lighthouse()}{Calculate\_Position\_Of\_Lighthouse()}}
 {\footnotesize\ttfamily \label{_measure_8h_ad8bf287324e8711d8d0b4cb2ead2d476} 
 void Calculate\+\_\+\+Position\+\_\+\+Of\+\_\+\+Lighthouse (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{lighthouse}{}\end{DoxyParamCaption})}
 
+
+
+Calculate the spatial position of a lighthouse. 
+
+Selects the appropriate positioning method depending on the lighthouse index.
+
+
+\begin{DoxyParams}{Parameters}
+{\em lighthouse} & ID of the lighthouse whose position is calculated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{_measure_8h_a6e5d30d7f9991ec97539ced1544d31c0}\index{Measure.h@{Measure.h}!New\_Measurement@{New\_Measurement}}
+\index{New\_Measurement@{New\_Measurement}!Measure.h@{Measure.h}}
+\doxysubsubsection{\texorpdfstring{New\_Measurement()}{New\_Measurement()}}
+{\footnotesize\ttfamily \label{_measure_8h_a6e5d30d7f9991ec97539ced1544d31c0} 
+void New\+\_\+\+Measurement (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{lighthouse}{, }\item[{float}]{distance}{}\end{DoxyParamCaption})}
+
+
+
+Add a new distance measurement from a lighthouse. 
+
+The measurement is accumulated and later averaged. Values exceeding the theoretical maximum range are ignored.
+
+
+\begin{DoxyParams}{Parameters}
+{\em lighthouse} & ID of the lighthouse providing the measurement. \\
+\hline
+{\em distance} & Measured distance value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
 \Hypertarget{_measure_8h_a70ecd05335acad1447d5c5dd3c1b2ab0}\index{Measure.h@{Measure.h}!Print\_Master\_All\_Distances\_Matrix@{Print\_Master\_All\_Distances\_Matrix}}
 \index{Print\_Master\_All\_Distances\_Matrix@{Print\_Master\_All\_Distances\_Matrix}!Measure.h@{Measure.h}}
 \doxysubsubsection{\texorpdfstring{Print\_Master\_All\_Distances\_Matrix()}{Print\_Master\_All\_Distances\_Matrix()}}
 {\footnotesize\ttfamily \label{_measure_8h_a70ecd05335acad1447d5c5dd3c1b2ab0} 
 void Print\+\_\+\+Master\+\_\+\+All\+\_\+\+Distances\+\_\+\+Matrix (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
-\Hypertarget{_measure_8h_af4d6502410cb7cc91ce76f2456492ec2}\index{Measure.h@{Measure.h}!Print\_Position@{Print\_Position}}
-\index{Print\_Position@{Print\_Position}!Measure.h@{Measure.h}}
-\doxysubsubsection{\texorpdfstring{Print\_Position()}{Print\_Position()}}
-{\footnotesize\ttfamily \label{_measure_8h_af4d6502410cb7cc91ce76f2456492ec2} 
-void Print\+\_\+\+Position (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{lighthouse}{}\end{DoxyParamCaption})}
 
 
+Print the full matrix of inter-\/lighthouse distances. 
 
-\label{doc-var-members}
-\Hypertarget{_measure_8h_doc-var-members}
-\doxysubsection{Variable Documentation}
-\Hypertarget{_measure_8h_a7af4755e90c986eafaf94e9b7b313dc7}\index{Measure.h@{Measure.h}!distances\_to\_lighthouses@{distances\_to\_lighthouses}}
-\index{distances\_to\_lighthouses@{distances\_to\_lighthouses}!Measure.h@{Measure.h}}
-\doxysubsubsection{\texorpdfstring{distances\_to\_lighthouses}{distances\_to\_lighthouses}}
-{\footnotesize\ttfamily \label{_measure_8h_a7af4755e90c986eafaf94e9b7b313dc7} 
-float distances\+\_\+to\+\_\+lighthouses\+[\doxymbox{\hyperlink{_lighthouse_config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\+\_\+\+OF\+\_\+\+LIGHTHOUSES}}]\+\hspace{0.3cm}{\ttfamily [extern]}}
-
-\Hypertarget{_measure_8h_a427f2f170e94d2773c129e5597a8bc74}\index{Measure.h@{Measure.h}!master\_all\_distances\_matrix@{master\_all\_distances\_matrix}}
-\index{master\_all\_distances\_matrix@{master\_all\_distances\_matrix}!Measure.h@{Measure.h}}
-\doxysubsubsection{\texorpdfstring{master\_all\_distances\_matrix}{master\_all\_distances\_matrix}}
-{\footnotesize\ttfamily \label{_measure_8h_a427f2f170e94d2773c129e5597a8bc74} 
-float master\+\_\+all\+\_\+distances\+\_\+matrix\+[\doxymbox{\hyperlink{_lighthouse_config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\+\_\+\+OF\+\_\+\+LIGHTHOUSES}}]\+\+[\doxymbox{\hyperlink{_lighthouse_config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\+\_\+\+OF\+\_\+\+LIGHTHOUSES}}]\+\hspace{0.3cm}{\ttfamily [extern]}}
-
-\Hypertarget{_measure_8h_a8b5fce7ca6976a5b07d94bd74d7650d4}\index{Measure.h@{Measure.h}!master\_all\_positions@{master\_all\_positions}}
-\index{master\_all\_positions@{master\_all\_positions}!Measure.h@{Measure.h}}
-\doxysubsubsection{\texorpdfstring{master\_all\_positions}{master\_all\_positions}}
-{\footnotesize\ttfamily \label{_measure_8h_a8b5fce7ca6976a5b07d94bd74d7650d4} 
-\doxymbox{\hyperlink{struct_position}{Position}} master\+\_\+all\+\_\+positions\+[\doxymbox{\hyperlink{_lighthouse_config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\+\_\+\+OF\+\_\+\+LIGHTHOUSES}}]\+\hspace{0.3cm}{\ttfamily [extern]}}
-
-\Hypertarget{_measure_8h_a4d84949a19a29d3bb4dd2635c8241a83}\index{Measure.h@{Measure.h}!position@{position}}
-\index{position@{position}!Measure.h@{Measure.h}}
-\doxysubsubsection{\texorpdfstring{position}{position}}
-{\footnotesize\ttfamily \label{_measure_8h_a4d84949a19a29d3bb4dd2635c8241a83} 
-\doxymbox{\hyperlink{struct_position}{Position}} position\hspace{0.3cm}{\ttfamily [extern]}}
-
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}

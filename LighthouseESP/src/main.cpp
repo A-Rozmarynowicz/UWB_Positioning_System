@@ -1,7 +1,29 @@
+/**
+ * @file main.cpp
+ *
+ * @brief Initialization and main control program for a UWB Lighthouse.
+ * @author Arkadiusz Rozmarynowicz
+ * @date 01.2026
+ *
+ * @details
+ * This program is designed for an ESP32 microcontroller acting as a UWB
+ * lighthouse device. It is responsible for:
+ * - Reading the lighthouse identifier (LIGHTHOUSE_ID) from three configuration
+ *   pins configured as INPUT_PULLDOWN.
+ * - Initializing hardware interfaces, timers, communication modules, and the
+ *   UWB subsystem.
+ * - Resetting and initializing the internal state machine controlling the
+ *   lighthouse operation.
+ * - Disabling WiFi power-saving modes.
+ * - Periodically updating the UWB subsystem in the main program loop.
+ *
+ * The application is built using the Arduino framework for ESP32.
+ */
+
+
 #include "LighthouseConfig.h"
 #include "esp_pm.h"
 #include "esp_wifi.h"
-
 
 void setup();
 void loop();

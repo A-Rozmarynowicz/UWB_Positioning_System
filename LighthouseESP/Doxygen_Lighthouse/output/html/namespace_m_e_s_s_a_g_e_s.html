@@ -92,46 +92,43 @@ $(function(){initNavTree('namespace_m_e_s_s_a_g_e_s.html','',''); });
 </div><!--header-->
 <div class="contents">
 
-<p>Contains all message sending functions for communication.  
+<p>High-level message construction and transmission API.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a53b9336cd365fbe8b450265789bdb9c5" id="r_a53b9336cd365fbe8b450265789bdb9c5"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a53b9336cd365fbe8b450265789bdb9c5">Send_Ack</a> (uint8_t receiver)</td></tr>
-<tr class="memdesc:a53b9336cd365fbe8b450265789bdb9c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends an acknowledgment to a receiver.  <br /></td></tr>
-<tr class="memitem:a779527be1ce88a871c7dc1d9c67cf608" id="r_a779527be1ce88a871c7dc1d9c67cf608"><td class="memItemLeft"><a id="a779527be1ce88a871c7dc1d9c67cf608" name="a779527be1ce88a871c7dc1d9c67cf608"></a>
-void&#160;</td><td class="memItemRight"><b>Send_Change_To_UWB_Response</b> (uint8_t receiver)</td></tr>
-<tr class="memitem:a3272238ad0f2e823578a7f947d294bd9" id="r_a3272238ad0f2e823578a7f947d294bd9"><td class="memItemLeft"><a id="a3272238ad0f2e823578a7f947d294bd9" name="a3272238ad0f2e823578a7f947d294bd9"></a>
-void&#160;</td><td class="memItemRight"><b>Send_UWB_Start_Anchoring</b> (uint8_t receiver)</td></tr>
-<tr class="memitem:ae485ebc648bcee04c8105f6c559f588b" id="r_ae485ebc648bcee04c8105f6c559f588b"><td class="memItemLeft"><a id="ae485ebc648bcee04c8105f6c559f588b" name="ae485ebc648bcee04c8105f6c559f588b"></a>
-void&#160;</td><td class="memItemRight"><b>Send_UWB_Query</b> (uint8_t receiver)</td></tr>
-<tr class="memitem:a76e5697b667570905e53eca1413612be" id="r_a76e5697b667570905e53eca1413612be"><td class="memItemLeft"><a id="a76e5697b667570905e53eca1413612be" name="a76e5697b667570905e53eca1413612be"></a>
-void&#160;</td><td class="memItemRight"><b>Send_UWB_Response</b> (uint8_t receiver)</td></tr>
-<tr class="memitem:a63f17ccb4746ff634bd48c66f6beda6f" id="r_a63f17ccb4746ff634bd48c66f6beda6f"><td class="memItemLeft"><a id="a63f17ccb4746ff634bd48c66f6beda6f" name="a63f17ccb4746ff634bd48c66f6beda6f"></a>
-void&#160;</td><td class="memItemRight"><b>Send_Relay_UWB_Response</b> (uint8_t new_uwber_id)</td></tr>
-<tr class="memitem:ade29b42c6fcda70cae806551fc7e37e7" id="r_ade29b42c6fcda70cae806551fc7e37e7"><td class="memItemLeft"><a id="ade29b42c6fcda70cae806551fc7e37e7" name="ade29b42c6fcda70cae806551fc7e37e7"></a>
-void&#160;</td><td class="memItemRight"><b>Send_End_Of_Config_Message</b> (uint8_t receiver)</td></tr>
-<tr class="memitem:a12878913f13578747a1ef67a79361a99" id="r_a12878913f13578747a1ef67a79361a99"><td class="memItemLeft"><a id="a12878913f13578747a1ef67a79361a99" name="a12878913f13578747a1ef67a79361a99"></a>
-void&#160;</td><td class="memItemRight"><b>Send_Query_Avg_Response_Time</b> (uint8_t receiver)</td></tr>
-<tr class="memitem:a0063dd7bd6a1101c183574758d0accde" id="r_a0063dd7bd6a1101c183574758d0accde"><td class="memItemLeft"><a id="a0063dd7bd6a1101c183574758d0accde" name="a0063dd7bd6a1101c183574758d0accde"></a>
-void&#160;</td><td class="memItemRight"><b>Send_Response_Avg_Response_Time</b> (uint8_t receiver, double avg)</td></tr>
-<tr class="memitem:a034c8620b34ff4e846a53a18f0d8913d" id="r_a034c8620b34ff4e846a53a18f0d8913d"><td class="memItemLeft"><a id="a034c8620b34ff4e846a53a18f0d8913d" name="a034c8620b34ff4e846a53a18f0d8913d"></a>
-void&#160;</td><td class="memItemRight"><b>Send_Master_LHG_Reset</b> ()</td></tr>
-<tr class="memitem:ae02c45f1a71bb9b6d61cf4b1e5b8e3a2" id="r_ae02c45f1a71bb9b6d61cf4b1e5b8e3a2"><td class="memItemLeft"><a id="ae02c45f1a71bb9b6d61cf4b1e5b8e3a2" name="ae02c45f1a71bb9b6d61cf4b1e5b8e3a2"></a>
-void&#160;</td><td class="memItemRight"><b>Send_Query_Distance</b> (uint8_t receiver, uint8_t target)</td></tr>
-<tr class="memitem:a054a53848d5d59efba7c708f2346790d" id="r_a054a53848d5d59efba7c708f2346790d"><td class="memItemLeft"><a id="a054a53848d5d59efba7c708f2346790d" name="a054a53848d5d59efba7c708f2346790d"></a>
-void&#160;</td><td class="memItemRight"><b>Send_Response_Distance</b> (uint8_t receiver, uint8_t target, float distance)</td></tr>
-<tr class="memitem:ace0e059de8ab03ca79e8f14a80bf0b6e" id="r_ace0e059de8ab03ca79e8f14a80bf0b6e"><td class="memItemLeft"><a id="ace0e059de8ab03ca79e8f14a80bf0b6e" name="ace0e059de8ab03ca79e8f14a80bf0b6e"></a>
-void&#160;</td><td class="memItemRight"><b>Send_Set_Position</b> (uint8_t receiver)</td></tr>
-<tr class="memitem:aeb5d529319fbcc0ad150c621c8d6b5f8" id="r_aeb5d529319fbcc0ad150c621c8d6b5f8"><td class="memItemLeft"><a id="aeb5d529319fbcc0ad150c621c8d6b5f8" name="aeb5d529319fbcc0ad150c621c8d6b5f8"></a>
-void&#160;</td><td class="memItemRight"><b>Send_Observer_Ready</b> ()</td></tr>
-<tr class="memitem:a25f1705da179de9f67cfaf6b497dc8b6" id="r_a25f1705da179de9f67cfaf6b497dc8b6"><td class="memItemLeft"><a id="a25f1705da179de9f67cfaf6b497dc8b6" name="a25f1705da179de9f67cfaf6b497dc8b6"></a>
-void&#160;</td><td class="memItemRight"><b>Send_Observer_Position_Response</b> ()</td></tr>
-<tr class="memitem:a5022f9b3147d33573efce481583aafb6" id="r_a5022f9b3147d33573efce481583aafb6"><td class="memItemLeft"><a id="a5022f9b3147d33573efce481583aafb6" name="a5022f9b3147d33573efce481583aafb6"></a>
-void&#160;</td><td class="memItemRight"><b>Send_Observer_UWB_Address_Response</b> ()</td></tr>
+<tr class="memdesc:a53b9336cd365fbe8b450265789bdb9c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send an ACK message to the specified receiver.  <br /></td></tr>
+<tr class="memitem:a779527be1ce88a871c7dc1d9c67cf608" id="r_a779527be1ce88a871c7dc1d9c67cf608"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a779527be1ce88a871c7dc1d9c67cf608">Send_Change_To_UWB_Response</a> (uint8_t receiver)</td></tr>
+<tr class="memdesc:a779527be1ce88a871c7dc1d9c67cf608"><td class="mdescLeft">&#160;</td><td class="mdescRight">Request the receiver to change its state to UWB response mode.  <br /></td></tr>
+<tr class="memitem:a3272238ad0f2e823578a7f947d294bd9" id="r_a3272238ad0f2e823578a7f947d294bd9"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3272238ad0f2e823578a7f947d294bd9">Send_UWB_Start_Anchoring</a> (uint8_t receiver)</td></tr>
+<tr class="memdesc:a3272238ad0f2e823578a7f947d294bd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Command the receiver to start the UWB anchoring procedure.  <br /></td></tr>
+<tr class="memitem:ae485ebc648bcee04c8105f6c559f588b" id="r_ae485ebc648bcee04c8105f6c559f588b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae485ebc648bcee04c8105f6c559f588b">Send_UWB_Query</a> (uint8_t receiver)</td></tr>
+<tr class="memdesc:ae485ebc648bcee04c8105f6c559f588b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a UWB query request to the receiver.  <br /></td></tr>
+<tr class="memitem:a76e5697b667570905e53eca1413612be" id="r_a76e5697b667570905e53eca1413612be"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a76e5697b667570905e53eca1413612be">Send_UWB_Response</a> (uint8_t receiver)</td></tr>
+<tr class="memdesc:a76e5697b667570905e53eca1413612be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a UWB response message to the receiver.  <br /></td></tr>
+<tr class="memitem:a63f17ccb4746ff634bd48c66f6beda6f" id="r_a63f17ccb4746ff634bd48c66f6beda6f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a63f17ccb4746ff634bd48c66f6beda6f">Send_Relay_UWB_Response</a> (uint8_t new_uwber_id)</td></tr>
+<tr class="memdesc:a63f17ccb4746ff634bd48c66f6beda6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Relay a UWB response by switching the new device to UWB query state.  <br /></td></tr>
+<tr class="memitem:ade29b42c6fcda70cae806551fc7e37e7" id="r_ade29b42c6fcda70cae806551fc7e37e7"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ade29b42c6fcda70cae806551fc7e37e7">Send_End_Of_Config_Message</a> (uint8_t receiver)</td></tr>
+<tr class="memdesc:ade29b42c6fcda70cae806551fc7e37e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notify the receiver that the configuration phase has ended.  <br /></td></tr>
+<tr class="memitem:a034c8620b34ff4e846a53a18f0d8913d" id="r_a034c8620b34ff4e846a53a18f0d8913d"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a034c8620b34ff4e846a53a18f0d8913d">Send_Master_LHG_Reset</a> ()</td></tr>
+<tr class="memdesc:a034c8620b34ff4e846a53a18f0d8913d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Broadcast a master reset command to all lighthouses.  <br /></td></tr>
+<tr class="memitem:ae02c45f1a71bb9b6d61cf4b1e5b8e3a2" id="r_ae02c45f1a71bb9b6d61cf4b1e5b8e3a2"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae02c45f1a71bb9b6d61cf4b1e5b8e3a2">Send_Query_Distance</a> (uint8_t receiver, uint8_t target)</td></tr>
+<tr class="memdesc:ae02c45f1a71bb9b6d61cf4b1e5b8e3a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Query the distance between the receiver and a target lighthouse.  <br /></td></tr>
+<tr class="memitem:a054a53848d5d59efba7c708f2346790d" id="r_a054a53848d5d59efba7c708f2346790d"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a054a53848d5d59efba7c708f2346790d">Send_Response_Distance</a> (uint8_t receiver, uint8_t target, float distance)</td></tr>
+<tr class="memdesc:a054a53848d5d59efba7c708f2346790d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a measured distance value to the receiver.  <br /></td></tr>
+<tr class="memitem:ace0e059de8ab03ca79e8f14a80bf0b6e" id="r_ace0e059de8ab03ca79e8f14a80bf0b6e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ace0e059de8ab03ca79e8f14a80bf0b6e">Send_Set_Position</a> (uint8_t receiver)</td></tr>
+<tr class="memdesc:ace0e059de8ab03ca79e8f14a80bf0b6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send position data (x, y, z) to the receiver.  <br /></td></tr>
+<tr class="memitem:aeb5d529319fbcc0ad150c621c8d6b5f8" id="r_aeb5d529319fbcc0ad150c621c8d6b5f8"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aeb5d529319fbcc0ad150c621c8d6b5f8">Send_Observer_Ready</a> ()</td></tr>
+<tr class="memdesc:aeb5d529319fbcc0ad150c621c8d6b5f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notify the observer that the system is ready.  <br /></td></tr>
+<tr class="memitem:a25f1705da179de9f67cfaf6b497dc8b6" id="r_a25f1705da179de9f67cfaf6b497dc8b6"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a25f1705da179de9f67cfaf6b497dc8b6">Send_Observer_Position_Response</a> ()</td></tr>
+<tr class="memdesc:a25f1705da179de9f67cfaf6b497dc8b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send the current position to the observer.  <br /></td></tr>
+<tr class="memitem:a5022f9b3147d33573efce481583aafb6" id="r_a5022f9b3147d33573efce481583aafb6"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a5022f9b3147d33573efce481583aafb6">Send_Observer_UWB_Address_Response</a> ()</td></tr>
+<tr class="memdesc:a5022f9b3147d33573efce481583aafb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send UWB address information to the observer.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Contains all message sending functions for communication. </p>
+<div class="textblock"><p>High-level message construction and transmission API. </p>
+<p>This namespace groups functions responsible for creating and sending protocol-compliant messages between devices. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a53b9336cd365fbe8b450265789bdb9c5" name="a53b9336cd365fbe8b450265789bdb9c5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a53b9336cd365fbe8b450265789bdb9c5">&#9670;&#160;</a></span>Send_Ack()</h2>
@@ -148,13 +145,344 @@ void&#160;</td><td class="memItemRight"><b>Send_Observer_UWB_Address_Response</b
       </table>
 </div><div class="memdoc">
 
-<p>Sends an acknowledgment to a receiver. </p>
+<p>Send an ACK message to the specified receiver. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">receiver</td><td>ID of the receiver </td></tr>
+    <tr><td class="paramname">receiver</td><td>ID of the device that should receive the ACK. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a779527be1ce88a871c7dc1d9c67cf608" name="a779527be1ce88a871c7dc1d9c67cf608"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a779527be1ce88a871c7dc1d9c67cf608">&#9670;&#160;</a></span>Send_Change_To_UWB_Response()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MESSAGES::Send_Change_To_UWB_Response </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>receiver</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Request the receiver to change its state to UWB response mode. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">receiver</td><td>ID of the target device. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="ade29b42c6fcda70cae806551fc7e37e7" name="ade29b42c6fcda70cae806551fc7e37e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade29b42c6fcda70cae806551fc7e37e7">&#9670;&#160;</a></span>Send_End_Of_Config_Message()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MESSAGES::Send_End_Of_Config_Message </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>receiver</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Notify the receiver that the configuration phase has ended. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">receiver</td><td>ID of the target device. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a034c8620b34ff4e846a53a18f0d8913d" name="a034c8620b34ff4e846a53a18f0d8913d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a034c8620b34ff4e846a53a18f0d8913d">&#9670;&#160;</a></span>Send_Master_LHG_Reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MESSAGES::Send_Master_LHG_Reset </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Broadcast a master reset command to all lighthouses. </p>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a25f1705da179de9f67cfaf6b497dc8b6" name="a25f1705da179de9f67cfaf6b497dc8b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25f1705da179de9f67cfaf6b497dc8b6">&#9670;&#160;</a></span>Send_Observer_Position_Response()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MESSAGES::Send_Observer_Position_Response </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send the current position to the observer. </p>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="aeb5d529319fbcc0ad150c621c8d6b5f8" name="aeb5d529319fbcc0ad150c621c8d6b5f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb5d529319fbcc0ad150c621c8d6b5f8">&#9670;&#160;</a></span>Send_Observer_Ready()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MESSAGES::Send_Observer_Ready </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Notify the observer that the system is ready. </p>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a5022f9b3147d33573efce481583aafb6" name="a5022f9b3147d33573efce481583aafb6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5022f9b3147d33573efce481583aafb6">&#9670;&#160;</a></span>Send_Observer_UWB_Address_Response()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MESSAGES::Send_Observer_UWB_Address_Response </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send UWB address information to the observer. </p>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="ae02c45f1a71bb9b6d61cf4b1e5b8e3a2" name="ae02c45f1a71bb9b6d61cf4b1e5b8e3a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae02c45f1a71bb9b6d61cf4b1e5b8e3a2">&#9670;&#160;</a></span>Send_Query_Distance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MESSAGES::Send_Query_Distance </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>receiver</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>target</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Query the distance between the receiver and a target lighthouse. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">receiver</td><td>ID of the device performing the measurement. </td></tr>
+    <tr><td class="paramname">target</td><td>ID of the target lighthouse. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a63f17ccb4746ff634bd48c66f6beda6f" name="a63f17ccb4746ff634bd48c66f6beda6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63f17ccb4746ff634bd48c66f6beda6f">&#9670;&#160;</a></span>Send_Relay_UWB_Response()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MESSAGES::Send_Relay_UWB_Response </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>new_uwber_id</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Relay a UWB response by switching the new device to UWB query state. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">new_uwber_id</td><td>ID of the device that should continue the UWB procedure. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a054a53848d5d59efba7c708f2346790d" name="a054a53848d5d59efba7c708f2346790d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a054a53848d5d59efba7c708f2346790d">&#9670;&#160;</a></span>Send_Response_Distance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MESSAGES::Send_Response_Distance </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>receiver</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>target</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>distance</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send a measured distance value to the receiver. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">receiver</td><td>ID of the target device. </td></tr>
+    <tr><td class="paramname">target</td><td>ID of the measured lighthouse. </td></tr>
+    <tr><td class="paramname">distance</td><td>Measured distance value. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="ace0e059de8ab03ca79e8f14a80bf0b6e" name="ace0e059de8ab03ca79e8f14a80bf0b6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace0e059de8ab03ca79e8f14a80bf0b6e">&#9670;&#160;</a></span>Send_Set_Position()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MESSAGES::Send_Set_Position </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>receiver</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send position data (x, y, z) to the receiver. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">receiver</td><td>ID of the target device. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="ae485ebc648bcee04c8105f6c559f588b" name="ae485ebc648bcee04c8105f6c559f588b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae485ebc648bcee04c8105f6c559f588b">&#9670;&#160;</a></span>Send_UWB_Query()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MESSAGES::Send_UWB_Query </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>receiver</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send a UWB query request to the receiver. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">receiver</td><td>ID of the target device. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a76e5697b667570905e53eca1413612be" name="a76e5697b667570905e53eca1413612be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76e5697b667570905e53eca1413612be">&#9670;&#160;</a></span>Send_UWB_Response()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MESSAGES::Send_UWB_Response </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>receiver</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send a UWB response message to the receiver. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">receiver</td><td>ID of the target device. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a3272238ad0f2e823578a7f947d294bd9" name="a3272238ad0f2e823578a7f947d294bd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3272238ad0f2e823578a7f947d294bd9">&#9670;&#160;</a></span>Send_UWB_Start_Anchoring()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MESSAGES::Send_UWB_Start_Anchoring </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>receiver</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Command the receiver to start the UWB anchoring procedure. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">receiver</td><td>ID of the target device. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
 </div>
 </div>

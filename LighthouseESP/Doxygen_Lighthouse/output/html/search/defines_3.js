@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['observer_5fid_0',['OBSERVER_ID',['../_lighthouse_config_8h.html#a35ac667a7b80faf162f72c6f33fdb3a0',1,'LighthouseConfig.h']]]
+  ['number_5fof_5flighthouses_0',['NUMBER_OF_LIGHTHOUSES',['../_lighthouse_config_8h.html#ad733a36008e3e7e7b67db0dfcf0f18c4',1,'LighthouseConfig.h']]]
 ];

@@ -3,95 +3,94 @@
 \doxymbox{\hyperlink{_communication_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ }
-\DoxyCodeLine{00014\ }
-\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#ifndef\ COMMUNICATION\_H}}
-\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ COMMUNICATION\_H}}
-\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}esp\_now.h"{}}}
-\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}LighthouseConfig.h"{}}}
-\DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ DATA\_SIZE\ 20}}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \textcolor{keyword}{const}\ uint8\_t\ BROADCAST\_RECEIVER\_ID\ =\ 255;}
-\DoxyCodeLine{00023\ \textcolor{keyword}{const}\ uint8\_t\ ACK\_MESSAGE\_COUNT\ =\ 10;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifndef\ COMMUNICATION\_H}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ COMMUNICATION\_H}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}esp\_now.h"{}}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_lighthouse_config_8h}{LighthouseConfig.h}}"{}}}
+\DoxyCodeLine{00023\ }
 \DoxyCodeLine{00024\ }
-\DoxyCodeLine{00025\ \textcolor{keyword}{enum}\ Data\_Setup\ \{}
-\DoxyCodeLine{00026\ \ \ RECEIVER\_ID\ =\ 0,}
-\DoxyCodeLine{00027\ \ \ TRANSMITTER\_ID\ =\ 1,}
-\DoxyCodeLine{00028\ \ \ COMMAND\ =\ 2,}
-\DoxyCodeLine{00029\ \ \ SINGLE\_0\ =\ 3,}
-\DoxyCodeLine{00030\ \ \ QUAD\_0\ =\ 4,}
-\DoxyCodeLine{00031\ \ \ QUAD\_1\ =\ 8,}
-\DoxyCodeLine{00032\ \ \ QUAD\_2\ =\ 12,}
-\DoxyCodeLine{00033\ \ \ QUAD\_3\ =\ 16,}
-\DoxyCodeLine{00034\ \};}
-\DoxyCodeLine{00035\ }
-\DoxyCodeLine{00036\ \textcolor{keyword}{enum}\ Data\_Commands\ \{}
-\DoxyCodeLine{00037\ \ \ MASTER\_LGH\_RESET,}
-\DoxyCodeLine{00038\ \ \ ACK\_COM,}
-\DoxyCodeLine{00039\ \ \ UWB\_START\_ANCHORING,}
-\DoxyCodeLine{00040\ \ \ UWB\_QUERY\_COM,}
-\DoxyCodeLine{00041\ \ \ UWB\_RESPONSE\_COM,}
-\DoxyCodeLine{00042\ \ \ CHANGE\_STATE\_COM,}
-\DoxyCodeLine{00043\ \ \ QUERY\_AVG\_RESPONSE\_TIME,}
-\DoxyCodeLine{00044\ \ \ RESPOND\_AVG\_RESPONSE\_TIME,}
-\DoxyCodeLine{00045\ \ \ QUERY\_DISTANCE,}
-\DoxyCodeLine{00046\ \ \ RESPONSE\_DISTANCE,}
-\DoxyCodeLine{00047\ \ \ SET\_POSITION,}
-\DoxyCodeLine{00048\ \ \ READY\_FOR\_OBSERVER,}
-\DoxyCodeLine{00049\ }
-\DoxyCodeLine{00050\ \ \ OBSERVER\_QUERY\_POSITION,}
-\DoxyCodeLine{00051\ \ \ OBSERVER\_RESPONSE\_POSITION,}
-\DoxyCodeLine{00052\ \ \ OBSERVER\_QUERY\_UWB\_ADDRESS,}
-\DoxyCodeLine{00053\ \ \ OBSERVER\_RESPONSE\_UWB\_ADDRESS,}
-\DoxyCodeLine{00054\ \ \ OBSERVER\_ENABLE\_UWB,}
-\DoxyCodeLine{00055\ \ \ OBSERVER\_WAKEUP\_RECKON,}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ DATA\_SIZE\ 20}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{const}\ uint8\_t\ \doxymbox{\hyperlink{_communication_8h_a09ac70a7b73c274a92a0bbcb20e399f6}{BROADCAST\_RECEIVER\_ID}}\ =\ 255;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{const}\ uint8\_t\ \doxymbox{\hyperlink{_communication_8h_a3cc04eaa8880389d6aa4dfc4a291e41a}{ACK\_MESSAGE\_COUNT}}\ =\ 10;}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{enum}\ \doxymbox{\hyperlink{_communication_8h_a5f7829e71f61d0ac0de6ef57f3556bdd}{Data\_Setup}}\ \{}
+\DoxyCodeLine{00048\ \ \ RECEIVER\_ID\ =\ 0,}
+\DoxyCodeLine{00049\ \ \ TRANSMITTER\_ID\ =\ 1,}
+\DoxyCodeLine{00050\ \ \ COMMAND\ =\ 2,}
+\DoxyCodeLine{00051\ \ \ SINGLE\_0\ =\ 3,}
+\DoxyCodeLine{00052\ \ \ QUAD\_0\ =\ 4,}
+\DoxyCodeLine{00053\ \ \ QUAD\_1\ =\ 8,}
+\DoxyCodeLine{00054\ \ \ QUAD\_2\ =\ 12,}
+\DoxyCodeLine{00055\ \ \ QUAD\_3\ =\ 16,}
 \DoxyCodeLine{00056\ \};}
-\DoxyCodeLine{00057\ \textcolor{keyword}{enum}\ Communication\_Errors\ \{}
-\DoxyCodeLine{00058\ \ \ PROTOCOL\_INIT\_FAIL,}
-\DoxyCodeLine{00059\ \ \ MESSAGE\_SEND\_FAIL,}
-\DoxyCodeLine{00060\ \ \ DELIVERY\_FAIL,}
-\DoxyCodeLine{00061\ \ \ ACK\_FAIL,}
-\DoxyCodeLine{00062\ \};}
-\DoxyCodeLine{00063\ }
-\DoxyCodeLine{00068\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_ack_status}{AckStatus}}\ \{}
-\DoxyCodeLine{00069\ \ \ uint8\_t\ current\_ack\_index;}
-\DoxyCodeLine{00070\ \ \ uint8\_t\ target\_ack\_lighthouse;}
-\DoxyCodeLine{00071\ \};}
-\DoxyCodeLine{00072\ }
-\DoxyCodeLine{00073\ \textcolor{keyword}{extern}\ \doxymbox{\hyperlink{struct_ack_status}{AckStatus}}\ current\_ack\_status;}
-\DoxyCodeLine{00074\ \textcolor{keyword}{extern}\ uint8\_t\ transmit\_buffer[DATA\_SIZE];\ \textcolor{comment}{//\ TODO}}
-\DoxyCodeLine{00075\ }
-\DoxyCodeLine{00081\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_communication_8h_a3b564dd662c5448bcab004e10a1f06eb}{Initialize\_Communication}}();}
-\DoxyCodeLine{00082\ }
-\DoxyCodeLine{00087\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespace_m_e_s_s_a_g_e_s}{MESSAGES}}\ \{}
-\DoxyCodeLine{00088\ }
-\DoxyCodeLine{00091\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{namespace_m_e_s_s_a_g_e_s_a53b9336cd365fbe8b450265789bdb9c5}{Send\_Ack}}(uint8\_t\ receiver);}
-\DoxyCodeLine{00092\ }
-\DoxyCodeLine{00093\ \textcolor{keywordtype}{void}\ Send\_Change\_To\_UWB\_Response(uint8\_t\ receiver);}
-\DoxyCodeLine{00094\ \textcolor{keywordtype}{void}\ Send\_UWB\_Start\_Anchoring(uint8\_t\ receiver);}
-\DoxyCodeLine{00095\ \textcolor{keywordtype}{void}\ Send\_UWB\_Query(uint8\_t\ receiver);}
-\DoxyCodeLine{00096\ \textcolor{keywordtype}{void}\ Send\_UWB\_Response(uint8\_t\ receiver);}
-\DoxyCodeLine{00097\ \textcolor{keywordtype}{void}\ Send\_Relay\_UWB\_Response(uint8\_t\ new\_uwber\_id);}
-\DoxyCodeLine{00098\ \textcolor{keywordtype}{void}\ Send\_End\_Of\_Config\_Message(uint8\_t\ receiver);}
-\DoxyCodeLine{00099\ \textcolor{keywordtype}{void}\ Send\_Query\_Avg\_Response\_Time(uint8\_t\ receiver);}
-\DoxyCodeLine{00100\ \textcolor{keywordtype}{void}\ Send\_Response\_Avg\_Response\_Time(uint8\_t\ receiver,\ \textcolor{keywordtype}{double}\ avg);}
-\DoxyCodeLine{00101\ \textcolor{keywordtype}{void}\ Send\_Master\_LHG\_Reset();}
-\DoxyCodeLine{00102\ \textcolor{keywordtype}{void}\ Send\_Query\_Distance(uint8\_t\ receiver,\ uint8\_t\ target);}
-\DoxyCodeLine{00103\ \textcolor{keywordtype}{void}\ Send\_Response\_Distance(uint8\_t\ receiver,\ uint8\_t\ target,\ \textcolor{keywordtype}{float}\ distance);}
-\DoxyCodeLine{00104\ \textcolor{keywordtype}{void}\ Send\_Set\_Position(uint8\_t\ receiver);}
-\DoxyCodeLine{00105\ }
-\DoxyCodeLine{00106\ \textcolor{keywordtype}{void}\ Send\_Observer\_Ready();}
-\DoxyCodeLine{00107\ \textcolor{keywordtype}{void}\ Send\_Observer\_Position\_Response();}
-\DoxyCodeLine{00108\ \textcolor{keywordtype}{void}\ Send\_Observer\_UWB\_Address\_Response();}
-\DoxyCodeLine{00109\ \}}
-\DoxyCodeLine{00110\ }
-\DoxyCodeLine{00111\ \textcolor{comment}{//\ Private}}
-\DoxyCodeLine{00112\ \textcolor{keywordtype}{void}\ \_send\_esp();}
-\DoxyCodeLine{00113\ \textcolor{keywordtype}{void}\ \_receive\_callback(\textcolor{keyword}{const}\ uint8\_t*\ macAddr,\ \textcolor{keyword}{const}\ uint8\_t*\ data,\ \textcolor{keywordtype}{int}\ dataLen);}
-\DoxyCodeLine{00114\ \textcolor{keywordtype}{void}\ \_sent\_callback(\textcolor{keyword}{const}\ uint8\_t\ *macAddr,\ esp\_now\_send\_status\_t\ status);}
-\DoxyCodeLine{00115\ \textcolor{keywordtype}{void}\ \_communication\_error(Communication\_Errors\ error);}
-\DoxyCodeLine{00116\ }
-\DoxyCodeLine{00117\ }
-\DoxyCodeLine{00118\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00065\ \textcolor{keyword}{enum}\ \doxymbox{\hyperlink{_communication_8h_a720807528b1dc7575d0e8edca56df577}{Data\_Commands}}\ \{}
+\DoxyCodeLine{00066\ \ \ MASTER\_LGH\_RESET,}
+\DoxyCodeLine{00067\ \ \ ACK\_COM,}
+\DoxyCodeLine{00068\ \ \ UWB\_START\_ANCHORING,}
+\DoxyCodeLine{00069\ \ \ UWB\_QUERY\_COM,}
+\DoxyCodeLine{00070\ \ \ UWB\_RESPONSE\_COM,}
+\DoxyCodeLine{00071\ \ \ CHANGE\_STATE\_COM,}
+\DoxyCodeLine{00072\ \ \ QUERY\_AVG\_RESPONSE\_TIME,}
+\DoxyCodeLine{00073\ \ \ RESPOND\_AVG\_RESPONSE\_TIME,}
+\DoxyCodeLine{00074\ \ \ QUERY\_DISTANCE,}
+\DoxyCodeLine{00075\ \ \ RESPONSE\_DISTANCE,}
+\DoxyCodeLine{00076\ \ \ SET\_POSITION,}
+\DoxyCodeLine{00077\ \ \ READY\_FOR\_OBSERVER,}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ OBSERVER\_QUERY\_POSITION,}
+\DoxyCodeLine{00080\ \ \ OBSERVER\_RESPONSE\_POSITION,}
+\DoxyCodeLine{00081\ \ \ OBSERVER\_QUERY\_UWB\_ADDRESS,}
+\DoxyCodeLine{00082\ \ \ OBSERVER\_RESPONSE\_UWB\_ADDRESS,}
+\DoxyCodeLine{00083\ \ \ OBSERVER\_ENABLE\_UWB,}
+\DoxyCodeLine{00084\ \ \ OBSERVER\_WAKEUP\_RECKON,}
+\DoxyCodeLine{00085\ \};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00091\ \textcolor{keyword}{enum}\ \doxymbox{\hyperlink{_communication_8h_a9b79e795e3bb6cdece9ebf16adfb9683}{Communication\_Errors}}\ \{}
+\DoxyCodeLine{00092\ \ \ PROTOCOL\_INIT\_FAIL,}
+\DoxyCodeLine{00093\ \ \ MESSAGE\_SEND\_FAIL,}
+\DoxyCodeLine{00094\ \ \ DELIVERY\_FAIL,}
+\DoxyCodeLine{00095\ \ \ ACK\_FAIL,}
+\DoxyCodeLine{00096\ \};}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00102\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_ack_status}{AckStatus}}\ \{}
+\DoxyCodeLine{00103\ \ \ uint8\_t\ current\_ack\_index;}
+\DoxyCodeLine{00104\ \ \ uint8\_t\ target\_ack\_lighthouse;}
+\DoxyCodeLine{00105\ \};}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \textcolor{keyword}{extern}\ \doxymbox{\hyperlink{struct_ack_status}{AckStatus}}\ current\_ack\_status;}
+\DoxyCodeLine{00108\ \textcolor{keyword}{extern}\ uint8\_t\ transmit\_buffer[\doxymbox{\hyperlink{_communication_8h_af55149bc1f05cf18af067a302e31e3f9}{DATA\_SIZE}}];}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_communication_8h_a3b564dd662c5448bcab004e10a1f06eb}{Initialize\_Communication}}();}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00119\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespace_m_e_s_s_a_g_e_s}{MESSAGES}}\ \{}
+\DoxyCodeLine{00120\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{namespace_m_e_s_s_a_g_e_s_a53b9336cd365fbe8b450265789bdb9c5}{Send\_Ack}}(uint8\_t\ receiver);}
+\DoxyCodeLine{00121\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{namespace_m_e_s_s_a_g_e_s_a779527be1ce88a871c7dc1d9c67cf608}{Send\_Change\_To\_UWB\_Response}}(uint8\_t\ receiver);}
+\DoxyCodeLine{00122\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{namespace_m_e_s_s_a_g_e_s_a3272238ad0f2e823578a7f947d294bd9}{Send\_UWB\_Start\_Anchoring}}(uint8\_t\ receiver);}
+\DoxyCodeLine{00123\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{namespace_m_e_s_s_a_g_e_s_ae485ebc648bcee04c8105f6c559f588b}{Send\_UWB\_Query}}(uint8\_t\ receiver);}
+\DoxyCodeLine{00124\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{namespace_m_e_s_s_a_g_e_s_a76e5697b667570905e53eca1413612be}{Send\_UWB\_Response}}(uint8\_t\ receiver);}
+\DoxyCodeLine{00125\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{namespace_m_e_s_s_a_g_e_s_a63f17ccb4746ff634bd48c66f6beda6f}{Send\_Relay\_UWB\_Response}}(uint8\_t\ new\_uwber\_id);}
+\DoxyCodeLine{00126\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{namespace_m_e_s_s_a_g_e_s_ade29b42c6fcda70cae806551fc7e37e7}{Send\_End\_Of\_Config\_Message}}(uint8\_t\ receiver);}
+\DoxyCodeLine{00127\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{namespace_m_e_s_s_a_g_e_s_a034c8620b34ff4e846a53a18f0d8913d}{Send\_Master\_LHG\_Reset}}();}
+\DoxyCodeLine{00128\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{namespace_m_e_s_s_a_g_e_s_ae02c45f1a71bb9b6d61cf4b1e5b8e3a2}{Send\_Query\_Distance}}(uint8\_t\ receiver,\ uint8\_t\ target);}
+\DoxyCodeLine{00129\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{namespace_m_e_s_s_a_g_e_s_a054a53848d5d59efba7c708f2346790d}{Send\_Response\_Distance}}(uint8\_t\ receiver,\ uint8\_t\ target,\ \textcolor{keywordtype}{float}\ distance);}
+\DoxyCodeLine{00130\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{namespace_m_e_s_s_a_g_e_s_ace0e059de8ab03ca79e8f14a80bf0b6e}{Send\_Set\_Position}}(uint8\_t\ receiver);}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{namespace_m_e_s_s_a_g_e_s_aeb5d529319fbcc0ad150c621c8d6b5f8}{Send\_Observer\_Ready}}();}
+\DoxyCodeLine{00133\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{namespace_m_e_s_s_a_g_e_s_a25f1705da179de9f67cfaf6b497dc8b6}{Send\_Observer\_Position\_Response}}();}
+\DoxyCodeLine{00134\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{namespace_m_e_s_s_a_g_e_s_a5022f9b3147d33573efce481583aafb6}{Send\_Observer\_UWB\_Address\_Response}}();}
+\DoxyCodeLine{00135\ \}}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \textcolor{comment}{//\ Private}}
+\DoxyCodeLine{00138\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_communication_8h_a3cf83a241a1209a64ef0481ef1c320bc}{\_send\_esp}}();}
+\DoxyCodeLine{00139\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_communication_8h_a90cd84e65fc70f7c9b04995f68ef505f}{\_receive\_callback}}(\textcolor{keyword}{const}\ uint8\_t*\ macAddr,\ \textcolor{keyword}{const}\ uint8\_t*\ data,\ \textcolor{keywordtype}{int}\ dataLen);}
+\DoxyCodeLine{00140\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_communication_8h_a4ec3145a53468061570ad150e3a99749}{\_sent\_callback}}(\textcolor{keyword}{const}\ uint8\_t\ *macAddr,\ esp\_now\_send\_status\_t\ status);}
+\DoxyCodeLine{00141\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_communication_8h_a727a150d05439f0ffd3a9ff198f82e8b}{\_communication\_error}}(\doxymbox{\hyperlink{_communication_8h_a9b79e795e3bb6cdece9ebf16adfb9683}{Communication\_Errors}}\ error);}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

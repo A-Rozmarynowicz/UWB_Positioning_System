@@ -1,51 +1,134 @@
 \doxysection{include/\+\+Interface.h File Reference}
 \hypertarget{_interface_8h}{}\label{_interface_8h}\index{include/Interface.h@{include/Interface.h}}
+
+
+Hardware interface abstraction for LEDs and user button.  
+
+
 {\ttfamily \+\#include "{}Lighthouse\+Config.\+h"{}}\newline
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\+\#define \doxymbox{\hyperlink{_interface_8h_a76675368b46452a3eb270c01fe50566d}{DATA\+\_\+\+TRANSFER\+\_\+\+LED}}~(uint8\+\_\+t) 2
-\end{DoxyCompactItemize}
+\Hypertarget{_interface_8h_a76675368b46452a3eb270c01fe50566d}\label{_interface_8h_a76675368b46452a3eb270c01fe50566d} 
+\+\#define {\bfseries DATA\+\_\+\+TRANSFER\+\_\+\+LED}~(uint8\+\_\+t) 2
+\begin{DoxyCompactList}\small\item\em GPIO pin used to indicate data transfer activity. \end{DoxyCompactList}\item 
+\Hypertarget{_interface_8h_a1ee79833df3d87e0c016f364254899e9}\label{_interface_8h_a1ee79833df3d87e0c016f364254899e9} 
+\+\#define {\bfseries ERROR\+\_\+\+LED}~(uint8\+\_\+t) 2
+\begin{DoxyCompactList}\small\item\em GPIO pin used to indicate error states. \end{DoxyCompactList}\item 
+\Hypertarget{_interface_8h_af9b6757988b942331036baa4951c4e54}\label{_interface_8h_af9b6757988b942331036baa4951c4e54} 
+\+\#define {\bfseries STATUS\+\_\+\+BUTTON}~(uint8\+\_\+t) 4
+\begin{DoxyCompactList}\small\item\em GPIO pin connected to the status button. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \doxymbox{\hyperlink{_interface_8h_a4291cdb32c220ff3472cd6563d4a1746}{Initialize\+\_\+\+Interface}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Initialize GPIOs for LEDs and the status button. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{_interface_8h_a6e7538e1969c0945127355e1b6383eea}{Blink\+\_\+\+LED}} ()
+\begin{DoxyCompactList}\small\item\em Toggle the state of the data transfer LED. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{_interface_8h_ade5f5724a7a44e6b8364a6cf07b5af77}{Data\+\_\+\+Transfer\+\_\+\+LED\+\_\+\+ON}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Turn on the data transfer LED. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{_interface_8h_a54baf1a24d311a1b5a9f2a22fe639087}{Data\+\_\+\+Transfer\+\_\+\+LED\+\_\+\+OFF}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Turn off the data transfer LED. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{_interface_8h_a28f0c1ebb6f675b3b829b57e625cf16a}{Error\+\_\+\+LED\+\_\+\+On}} ()
+\begin{DoxyCompactList}\small\item\em Turn on the error indicator LED. \end{DoxyCompactList}\item 
+void ICACHE\+\_\+\+RAM\+\_\+\+ATTR \doxymbox{\hyperlink{_interface_8h_a0b5a04ff797267f65e8c78340838b011}{\+\_\+button\+\_\+\+ISR}} ()
+\begin{DoxyCompactList}\small\item\em Interrupt Service Routine for the status button. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\label{doc-define-members}
-\Hypertarget{_interface_8h_doc-define-members}
-\doxysubsection{Macro Definition Documentation}
-\Hypertarget{_interface_8h_a76675368b46452a3eb270c01fe50566d}\index{Interface.h@{Interface.h}!DATA\_TRANSFER\_LED@{DATA\_TRANSFER\_LED}}
-\index{DATA\_TRANSFER\_LED@{DATA\_TRANSFER\_LED}!Interface.h@{Interface.h}}
-\doxysubsubsection{\texorpdfstring{DATA\_TRANSFER\_LED}{DATA\_TRANSFER\_LED}}
-{\footnotesize\ttfamily \label{_interface_8h_a76675368b46452a3eb270c01fe50566d} 
-\+\#define DATA\+\_\+\+TRANSFER\+\_\+\+LED~(uint8\+\_\+t) 2}
+\doxysubsection{Detailed Description}
+Hardware interface abstraction for LEDs and user button. 
 
+This header defines the hardware interface used by the Lighthouse system, including status LEDs and a user button. It provides constants describing GPIO assignments and declares public and private interface-\/related functions.
 
+The interface layer is responsible for:\+
+\begin{DoxyItemize}
+\item Initializing GPIOs used for LEDs and button input
+\item Visual indication of system status and data transfer activity
+\item Handling button interrupts 
+\end{DoxyItemize}
 
 \label{doc-func-members}
 \Hypertarget{_interface_8h_doc-func-members}
 \doxysubsection{Function Documentation}
+\Hypertarget{_interface_8h_a0b5a04ff797267f65e8c78340838b011}\index{Interface.h@{Interface.h}!\_button\_ISR@{\_button\_ISR}}
+\index{\_button\_ISR@{\_button\_ISR}!Interface.h@{Interface.h}}
+\doxysubsubsection{\texorpdfstring{\_button\_ISR()}{\_button\_ISR()}}
+{\footnotesize\ttfamily \label{_interface_8h_a0b5a04ff797267f65e8c78340838b011} 
+void ICACHE\+\_\+\+RAM\+\_\+\+ATTR \+\_\+button\+\_\+\+ISR (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Interrupt Service Routine for the status button. 
+
+This ISR is executed on a rising edge of the status button signal and forwards the event to the state machine handler.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{_interface_8h_a6e7538e1969c0945127355e1b6383eea}\index{Interface.h@{Interface.h}!Blink\_LED@{Blink\_LED}}
+\index{Blink\_LED@{Blink\_LED}!Interface.h@{Interface.h}}
+\doxysubsubsection{\texorpdfstring{Blink\_LED()}{Blink\_LED()}}
+{\footnotesize\ttfamily \label{_interface_8h_a6e7538e1969c0945127355e1b6383eea} 
+void Blink\+\_\+\+LED (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Toggle the state of the data transfer LED. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
 \Hypertarget{_interface_8h_a54baf1a24d311a1b5a9f2a22fe639087}\index{Interface.h@{Interface.h}!Data\_Transfer\_LED\_OFF@{Data\_Transfer\_LED\_OFF}}
 \index{Data\_Transfer\_LED\_OFF@{Data\_Transfer\_LED\_OFF}!Interface.h@{Interface.h}}
 \doxysubsubsection{\texorpdfstring{Data\_Transfer\_LED\_OFF()}{Data\_Transfer\_LED\_OFF()}}
 {\footnotesize\ttfamily \label{_interface_8h_a54baf1a24d311a1b5a9f2a22fe639087} 
 void Data\+\_\+\+Transfer\+\_\+\+LED\+\_\+\+OFF (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Turn off the data transfer LED. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
 \Hypertarget{_interface_8h_ade5f5724a7a44e6b8364a6cf07b5af77}\index{Interface.h@{Interface.h}!Data\_Transfer\_LED\_ON@{Data\_Transfer\_LED\_ON}}
 \index{Data\_Transfer\_LED\_ON@{Data\_Transfer\_LED\_ON}!Interface.h@{Interface.h}}
 \doxysubsubsection{\texorpdfstring{Data\_Transfer\_LED\_ON()}{Data\_Transfer\_LED\_ON()}}
 {\footnotesize\ttfamily \label{_interface_8h_ade5f5724a7a44e6b8364a6cf07b5af77} 
 void Data\+\_\+\+Transfer\+\_\+\+LED\+\_\+\+ON (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Turn on the data transfer LED. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{_interface_8h_a28f0c1ebb6f675b3b829b57e625cf16a}\index{Interface.h@{Interface.h}!Error\_LED\_On@{Error\_LED\_On}}
+\index{Error\_LED\_On@{Error\_LED\_On}!Interface.h@{Interface.h}}
+\doxysubsubsection{\texorpdfstring{Error\_LED\_On()}{Error\_LED\_On()}}
+{\footnotesize\ttfamily \label{_interface_8h_a28f0c1ebb6f675b3b829b57e625cf16a} 
+void Error\+\_\+\+LED\+\_\+\+On (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Turn on the error indicator LED. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
 \Hypertarget{_interface_8h_a4291cdb32c220ff3472cd6563d4a1746}\index{Interface.h@{Interface.h}!Initialize\_Interface@{Initialize\_Interface}}
 \index{Initialize\_Interface@{Initialize\_Interface}!Interface.h@{Interface.h}}
 \doxysubsubsection{\texorpdfstring{Initialize\_Interface()}{Initialize\_Interface()}}
 {\footnotesize\ttfamily \label{_interface_8h_a4291cdb32c220ff3472cd6563d4a1746} 
 void Initialize\+\_\+\+Interface (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Initialize GPIOs for LEDs and the status button. 
+
+Configures the status button as an interrupt source and initializes LED GPIOs to their default states.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}

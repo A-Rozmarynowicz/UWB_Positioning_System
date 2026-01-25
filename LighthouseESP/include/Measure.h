@@ -1,21 +1,65 @@
+/**
+ * @file Measure.h
+ * @brief Distance measurement and position calculation utilities.
+ *
+ * @details
+ * This header defines data structures, constants, and shared variables used
+ * for distance measurement processing and position estimation of Lighthouse
+ * devices within the system.
+ *
+ * It provides:
+ * - Limits and parameters related to distance measurements
+ * - A 3D position structure
+ * - Global buffers storing distances and calculated positions
+ */
+
 #ifndef MEASURE_H
 #define MEASURE_H
 #include "LighthouseConfig.h"
 
+/**
+ * @brief Theoretical maximum valid distance between devices [meters].
+ */
 const float THEORETICAL_MAX_DISTANCE = 10.0f;
-const uint8_t MIN_DISTANCE_MEASUREMENTS = 5;
-const float DISTANCE_ANTENA_DELAY_OFFSET = 0.6;
-// const float /DISTANCE_ANTENA_DELAY_OFFSET = 0.0;
 
+/**
+ * @brief Minimum number of distance measurements required for processing.
+ */
+const uint8_t MIN_DISTANCE_MEASUREMENTS = 5;
+
+/**
+ * @brief Antenna delay compensation offset applied to distance measurements [meters].
+ */
+const float DISTANCE_ANTENA_DELAY_OFFSET = 0.6;
+
+/**
+ * @struct Position
+ * @brief 3D Cartesian position representation.
+ */
 struct Position {
     float x;
     float y;
     float z;
 };
 
+/**
+ * @brief Distances measured to all lighthouses.
+ */
 extern float distances_to_lighthouses[NUMBER_OF_LIGHTHOUSES];
+
+/**
+ * @brief Matrix containing distances between all lighthouse pairs.
+ */
 extern float master_all_distances_matrix[NUMBER_OF_LIGHTHOUSES][NUMBER_OF_LIGHTHOUSES];
+
+/**
+ * @brief Calculated positions of all lighthouses.
+ */
 extern Position master_all_positions[NUMBER_OF_LIGHTHOUSES];
+
+/**
+ * @brief Current device position.
+ */
 extern Position position;
 
 // Public

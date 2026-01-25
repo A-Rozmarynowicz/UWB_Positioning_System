@@ -93,7 +93,7 @@ $(function(){initNavTree('_state_machine_8h_source.html','',''); });
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef STATEMACHINE_H</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define STATEMACHINE_H</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;LighthouseConfig.h&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="_lighthouse_config_8h.html">LighthouseConfig.h</a>&quot;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
 <div class="foldopen" id="foldopen00005" data-start="{" data-end="};">
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="struct_state_data.html">    5</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_state_data.html">StateData</a> {</div>
@@ -110,7 +110,7 @@ $(function(){initNavTree('_state_machine_8h_source.html','',''); });
 </div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">extern</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct_state_data.html">StateData</a> current_state_data;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">extern</span> uint8_t completed_distance_measurements[NUMBER_OF_LIGHTHOUSES];</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">extern</span> uint8_t completed_distance_measurements[<a class="code hl_define" href="_lighthouse_config_8h.html#ad733a36008e3e7e7b67db0dfcf0f18c4">NUMBER_OF_LIGHTHOUSES</a>];</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">enum</span> States {</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>  INITIAL = 0,</div>
@@ -228,6 +228,8 @@ $(function(){initNavTree('_state_machine_8h_source.html','',''); });
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="keywordtype">void</span> Observer_Response_Exit();</div>
 <div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
 <div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="a_lighthouse_config_8h_html"><div class="ttname"><a href="_lighthouse_config_8h.html">LighthouseConfig.h</a></div><div class="ttdoc">Global configuration header for the Lighthouse system.</div></div>
+<div class="ttc" id="a_lighthouse_config_8h_html_ad733a36008e3e7e7b67db0dfcf0f18c4"><div class="ttname"><a href="_lighthouse_config_8h.html#ad733a36008e3e7e7b67db0dfcf0f18c4">NUMBER_OF_LIGHTHOUSES</a></div><div class="ttdeci">#define NUMBER_OF_LIGHTHOUSES</div><div class="ttdoc">Total number of Lighthouse devices in the system.</div><div class="ttdef"><b>Definition</b> LighthouseConfig.h:23</div></div>
 <div class="ttc" id="astruct_state_data_html"><div class="ttname"><a href="struct_state_data.html">StateData</a></div><div class="ttdef"><b>Definition</b> StateMachine.h:5</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

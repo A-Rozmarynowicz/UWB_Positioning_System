@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['initialize_5fcommunication_0',['Initialize_Communication',['../_communication_8h.html#a3b564dd662c5448bcab004e10a1f06eb',1,'Communication.cpp']]]
+  ['error_5fled_0',['ERROR_LED',['../_interface_8h.html#a1ee79833df3d87e0c016f364254899e9',1,'Interface.h']]],
+  ['error_5fled_5fon_1',['Error_LED_On',['../_interface_8h.html#a28f0c1ebb6f675b3b829b57e625cf16a',1,'Interface.cpp']]]
 ];

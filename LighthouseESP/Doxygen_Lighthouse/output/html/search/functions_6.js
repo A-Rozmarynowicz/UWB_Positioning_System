@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['loop_0',['loop',['../main_8cpp.html#afe461d27b9c48d5921c00d521181f12f',1,'main.cpp']]]
+  ['new_5fmeasurement_0',['New_Measurement',['../_measure_8h.html#a6e5d30d7f9991ec97539ced1544d31c0',1,'Measure.cpp']]]
 ];

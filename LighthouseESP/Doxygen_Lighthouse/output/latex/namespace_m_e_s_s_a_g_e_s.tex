@@ -2,63 +2,46 @@
 \hypertarget{namespace_m_e_s_s_a_g_e_s}{}\label{namespace_m_e_s_s_a_g_e_s}\index{MESSAGES@{MESSAGES}}
 
 
-Contains all message sending functions for communication.  
+High-\/level message construction and transmission API.  
 
 
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \doxymbox{\hyperlink{namespace_m_e_s_s_a_g_e_s_a53b9336cd365fbe8b450265789bdb9c5}{Send\+\_\+\+Ack}} (uint8\+\_\+t receiver)
-\begin{DoxyCompactList}\small\item\em Sends an acknowledgment to a receiver. \end{DoxyCompactList}\item 
-\Hypertarget{namespace_m_e_s_s_a_g_e_s_a779527be1ce88a871c7dc1d9c67cf608}\label{namespace_m_e_s_s_a_g_e_s_a779527be1ce88a871c7dc1d9c67cf608} 
-void {\bfseries Send\+\_\+\+Change\+\_\+\+To\+\_\+\+UWB\+\_\+\+Response} (uint8\+\_\+t receiver)
-\item 
-\Hypertarget{namespace_m_e_s_s_a_g_e_s_a3272238ad0f2e823578a7f947d294bd9}\label{namespace_m_e_s_s_a_g_e_s_a3272238ad0f2e823578a7f947d294bd9} 
-void {\bfseries Send\+\_\+\+UWB\+\_\+\+Start\+\_\+\+Anchoring} (uint8\+\_\+t receiver)
-\item 
-\Hypertarget{namespace_m_e_s_s_a_g_e_s_ae485ebc648bcee04c8105f6c559f588b}\label{namespace_m_e_s_s_a_g_e_s_ae485ebc648bcee04c8105f6c559f588b} 
-void {\bfseries Send\+\_\+\+UWB\+\_\+\+Query} (uint8\+\_\+t receiver)
-\item 
-\Hypertarget{namespace_m_e_s_s_a_g_e_s_a76e5697b667570905e53eca1413612be}\label{namespace_m_e_s_s_a_g_e_s_a76e5697b667570905e53eca1413612be} 
-void {\bfseries Send\+\_\+\+UWB\+\_\+\+Response} (uint8\+\_\+t receiver)
-\item 
-\Hypertarget{namespace_m_e_s_s_a_g_e_s_a63f17ccb4746ff634bd48c66f6beda6f}\label{namespace_m_e_s_s_a_g_e_s_a63f17ccb4746ff634bd48c66f6beda6f} 
-void {\bfseries Send\+\_\+\+Relay\+\_\+\+UWB\+\_\+\+Response} (uint8\+\_\+t new\+\_\+uwber\+\_\+id)
-\item 
-\Hypertarget{namespace_m_e_s_s_a_g_e_s_ade29b42c6fcda70cae806551fc7e37e7}\label{namespace_m_e_s_s_a_g_e_s_ade29b42c6fcda70cae806551fc7e37e7} 
-void {\bfseries Send\+\_\+\+End\+\_\+\+Of\+\_\+\+Config\+\_\+\+Message} (uint8\+\_\+t receiver)
-\item 
-\Hypertarget{namespace_m_e_s_s_a_g_e_s_a12878913f13578747a1ef67a79361a99}\label{namespace_m_e_s_s_a_g_e_s_a12878913f13578747a1ef67a79361a99} 
-void {\bfseries Send\+\_\+\+Query\+\_\+\+Avg\+\_\+\+Response\+\_\+\+Time} (uint8\+\_\+t receiver)
-\item 
-\Hypertarget{namespace_m_e_s_s_a_g_e_s_a0063dd7bd6a1101c183574758d0accde}\label{namespace_m_e_s_s_a_g_e_s_a0063dd7bd6a1101c183574758d0accde} 
-void {\bfseries Send\+\_\+\+Response\+\_\+\+Avg\+\_\+\+Response\+\_\+\+Time} (uint8\+\_\+t receiver, double avg)
-\item 
-\Hypertarget{namespace_m_e_s_s_a_g_e_s_a034c8620b34ff4e846a53a18f0d8913d}\label{namespace_m_e_s_s_a_g_e_s_a034c8620b34ff4e846a53a18f0d8913d} 
-void {\bfseries Send\+\_\+\+Master\+\_\+\+LHG\+\_\+\+Reset} ()
-\item 
-\Hypertarget{namespace_m_e_s_s_a_g_e_s_ae02c45f1a71bb9b6d61cf4b1e5b8e3a2}\label{namespace_m_e_s_s_a_g_e_s_ae02c45f1a71bb9b6d61cf4b1e5b8e3a2} 
-void {\bfseries Send\+\_\+\+Query\+\_\+\+Distance} (uint8\+\_\+t receiver, uint8\+\_\+t target)
-\item 
-\Hypertarget{namespace_m_e_s_s_a_g_e_s_a054a53848d5d59efba7c708f2346790d}\label{namespace_m_e_s_s_a_g_e_s_a054a53848d5d59efba7c708f2346790d} 
-void {\bfseries Send\+\_\+\+Response\+\_\+\+Distance} (uint8\+\_\+t receiver, uint8\+\_\+t target, float distance)
-\item 
-\Hypertarget{namespace_m_e_s_s_a_g_e_s_ace0e059de8ab03ca79e8f14a80bf0b6e}\label{namespace_m_e_s_s_a_g_e_s_ace0e059de8ab03ca79e8f14a80bf0b6e} 
-void {\bfseries Send\+\_\+\+Set\+\_\+\+Position} (uint8\+\_\+t receiver)
-\item 
-\Hypertarget{namespace_m_e_s_s_a_g_e_s_aeb5d529319fbcc0ad150c621c8d6b5f8}\label{namespace_m_e_s_s_a_g_e_s_aeb5d529319fbcc0ad150c621c8d6b5f8} 
-void {\bfseries Send\+\_\+\+Observer\+\_\+\+Ready} ()
-\item 
-\Hypertarget{namespace_m_e_s_s_a_g_e_s_a25f1705da179de9f67cfaf6b497dc8b6}\label{namespace_m_e_s_s_a_g_e_s_a25f1705da179de9f67cfaf6b497dc8b6} 
-void {\bfseries Send\+\_\+\+Observer\+\_\+\+Position\+\_\+\+Response} ()
-\item 
-\Hypertarget{namespace_m_e_s_s_a_g_e_s_a5022f9b3147d33573efce481583aafb6}\label{namespace_m_e_s_s_a_g_e_s_a5022f9b3147d33573efce481583aafb6} 
-void {\bfseries Send\+\_\+\+Observer\+\_\+\+UWB\+\_\+\+Address\+\_\+\+Response} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Send an ACK message to the specified receiver. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{namespace_m_e_s_s_a_g_e_s_a779527be1ce88a871c7dc1d9c67cf608}{Send\+\_\+\+Change\+\_\+\+To\+\_\+\+UWB\+\_\+\+Response}} (uint8\+\_\+t receiver)
+\begin{DoxyCompactList}\small\item\em Request the receiver to change its state to UWB response mode. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{namespace_m_e_s_s_a_g_e_s_a3272238ad0f2e823578a7f947d294bd9}{Send\+\_\+\+UWB\+\_\+\+Start\+\_\+\+Anchoring}} (uint8\+\_\+t receiver)
+\begin{DoxyCompactList}\small\item\em Command the receiver to start the UWB anchoring procedure. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{namespace_m_e_s_s_a_g_e_s_ae485ebc648bcee04c8105f6c559f588b}{Send\+\_\+\+UWB\+\_\+\+Query}} (uint8\+\_\+t receiver)
+\begin{DoxyCompactList}\small\item\em Send a UWB query request to the receiver. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{namespace_m_e_s_s_a_g_e_s_a76e5697b667570905e53eca1413612be}{Send\+\_\+\+UWB\+\_\+\+Response}} (uint8\+\_\+t receiver)
+\begin{DoxyCompactList}\small\item\em Send a UWB response message to the receiver. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{namespace_m_e_s_s_a_g_e_s_a63f17ccb4746ff634bd48c66f6beda6f}{Send\+\_\+\+Relay\+\_\+\+UWB\+\_\+\+Response}} (uint8\+\_\+t new\+\_\+uwber\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Relay a UWB response by switching the new device to UWB query state. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{namespace_m_e_s_s_a_g_e_s_ade29b42c6fcda70cae806551fc7e37e7}{Send\+\_\+\+End\+\_\+\+Of\+\_\+\+Config\+\_\+\+Message}} (uint8\+\_\+t receiver)
+\begin{DoxyCompactList}\small\item\em Notify the receiver that the configuration phase has ended. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{namespace_m_e_s_s_a_g_e_s_a034c8620b34ff4e846a53a18f0d8913d}{Send\+\_\+\+Master\+\_\+\+LHG\+\_\+\+Reset}} ()
+\begin{DoxyCompactList}\small\item\em Broadcast a master reset command to all lighthouses. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{namespace_m_e_s_s_a_g_e_s_ae02c45f1a71bb9b6d61cf4b1e5b8e3a2}{Send\+\_\+\+Query\+\_\+\+Distance}} (uint8\+\_\+t receiver, uint8\+\_\+t target)
+\begin{DoxyCompactList}\small\item\em Query the distance between the receiver and a target lighthouse. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{namespace_m_e_s_s_a_g_e_s_a054a53848d5d59efba7c708f2346790d}{Send\+\_\+\+Response\+\_\+\+Distance}} (uint8\+\_\+t receiver, uint8\+\_\+t target, float distance)
+\begin{DoxyCompactList}\small\item\em Send a measured distance value to the receiver. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{namespace_m_e_s_s_a_g_e_s_ace0e059de8ab03ca79e8f14a80bf0b6e}{Send\+\_\+\+Set\+\_\+\+Position}} (uint8\+\_\+t receiver)
+\begin{DoxyCompactList}\small\item\em Send position data (x, y, z) to the receiver. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{namespace_m_e_s_s_a_g_e_s_aeb5d529319fbcc0ad150c621c8d6b5f8}{Send\+\_\+\+Observer\+\_\+\+Ready}} ()
+\begin{DoxyCompactList}\small\item\em Notify the observer that the system is ready. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{namespace_m_e_s_s_a_g_e_s_a25f1705da179de9f67cfaf6b497dc8b6}{Send\+\_\+\+Observer\+\_\+\+Position\+\_\+\+Response}} ()
+\begin{DoxyCompactList}\small\item\em Send the current position to the observer. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{namespace_m_e_s_s_a_g_e_s_a5022f9b3147d33573efce481583aafb6}{Send\+\_\+\+Observer\+\_\+\+UWB\+\_\+\+Address\+\_\+\+Response}} ()
+\begin{DoxyCompactList}\small\item\em Send UWB address information to the observer. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Contains all message sending functions for communication. 
+High-\/level message construction and transmission API. 
+
+This namespace groups functions responsible for creating and sending protocol-\/compliant messages between devices. 
 
 \label{doc-func-members}
 \Hypertarget{namespace_m_e_s_s_a_g_e_s_doc-func-members}
@@ -71,10 +54,233 @@ void MESSAGES::\+\+Send\+\_\+\+Ack (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}
 
 
 
-Sends an acknowledgment to a receiver. 
+Send an ACK message to the specified receiver. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em receiver} & ID of the receiver \\
+{\em receiver} & ID of the device that should receive the ACK. \\
 \hline
 \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{namespace_m_e_s_s_a_g_e_s_a779527be1ce88a871c7dc1d9c67cf608}\index{MESSAGES@{MESSAGES}!Send\_Change\_To\_UWB\_Response@{Send\_Change\_To\_UWB\_Response}}
+\index{Send\_Change\_To\_UWB\_Response@{Send\_Change\_To\_UWB\_Response}!MESSAGES@{MESSAGES}}
+\doxysubsubsection{\texorpdfstring{Send\_Change\_To\_UWB\_Response()}{Send\_Change\_To\_UWB\_Response()}}
+{\footnotesize\ttfamily \label{namespace_m_e_s_s_a_g_e_s_a779527be1ce88a871c7dc1d9c67cf608} 
+void MESSAGES::\+\+Send\+\_\+\+Change\+\_\+\+To\+\_\+\+UWB\+\_\+\+Response (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{receiver}{}\end{DoxyParamCaption})}
+
+
+
+Request the receiver to change its state to UWB response mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em receiver} & ID of the target device. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{namespace_m_e_s_s_a_g_e_s_ade29b42c6fcda70cae806551fc7e37e7}\index{MESSAGES@{MESSAGES}!Send\_End\_Of\_Config\_Message@{Send\_End\_Of\_Config\_Message}}
+\index{Send\_End\_Of\_Config\_Message@{Send\_End\_Of\_Config\_Message}!MESSAGES@{MESSAGES}}
+\doxysubsubsection{\texorpdfstring{Send\_End\_Of\_Config\_Message()}{Send\_End\_Of\_Config\_Message()}}
+{\footnotesize\ttfamily \label{namespace_m_e_s_s_a_g_e_s_ade29b42c6fcda70cae806551fc7e37e7} 
+void MESSAGES::\+\+Send\+\_\+\+End\+\_\+\+Of\+\_\+\+Config\+\_\+\+Message (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{receiver}{}\end{DoxyParamCaption})}
+
+
+
+Notify the receiver that the configuration phase has ended. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em receiver} & ID of the target device. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{namespace_m_e_s_s_a_g_e_s_a034c8620b34ff4e846a53a18f0d8913d}\index{MESSAGES@{MESSAGES}!Send\_Master\_LHG\_Reset@{Send\_Master\_LHG\_Reset}}
+\index{Send\_Master\_LHG\_Reset@{Send\_Master\_LHG\_Reset}!MESSAGES@{MESSAGES}}
+\doxysubsubsection{\texorpdfstring{Send\_Master\_LHG\_Reset()}{Send\_Master\_LHG\_Reset()}}
+{\footnotesize\ttfamily \label{namespace_m_e_s_s_a_g_e_s_a034c8620b34ff4e846a53a18f0d8913d} 
+void MESSAGES::\+\+Send\+\_\+\+Master\+\_\+\+LHG\+\_\+\+Reset (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Broadcast a master reset command to all lighthouses. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{namespace_m_e_s_s_a_g_e_s_a25f1705da179de9f67cfaf6b497dc8b6}\index{MESSAGES@{MESSAGES}!Send\_Observer\_Position\_Response@{Send\_Observer\_Position\_Response}}
+\index{Send\_Observer\_Position\_Response@{Send\_Observer\_Position\_Response}!MESSAGES@{MESSAGES}}
+\doxysubsubsection{\texorpdfstring{Send\_Observer\_Position\_Response()}{Send\_Observer\_Position\_Response()}}
+{\footnotesize\ttfamily \label{namespace_m_e_s_s_a_g_e_s_a25f1705da179de9f67cfaf6b497dc8b6} 
+void MESSAGES::\+\+Send\+\_\+\+Observer\+\_\+\+Position\+\_\+\+Response (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Send the current position to the observer. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{namespace_m_e_s_s_a_g_e_s_aeb5d529319fbcc0ad150c621c8d6b5f8}\index{MESSAGES@{MESSAGES}!Send\_Observer\_Ready@{Send\_Observer\_Ready}}
+\index{Send\_Observer\_Ready@{Send\_Observer\_Ready}!MESSAGES@{MESSAGES}}
+\doxysubsubsection{\texorpdfstring{Send\_Observer\_Ready()}{Send\_Observer\_Ready()}}
+{\footnotesize\ttfamily \label{namespace_m_e_s_s_a_g_e_s_aeb5d529319fbcc0ad150c621c8d6b5f8} 
+void MESSAGES::\+\+Send\+\_\+\+Observer\+\_\+\+Ready (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Notify the observer that the system is ready. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{namespace_m_e_s_s_a_g_e_s_a5022f9b3147d33573efce481583aafb6}\index{MESSAGES@{MESSAGES}!Send\_Observer\_UWB\_Address\_Response@{Send\_Observer\_UWB\_Address\_Response}}
+\index{Send\_Observer\_UWB\_Address\_Response@{Send\_Observer\_UWB\_Address\_Response}!MESSAGES@{MESSAGES}}
+\doxysubsubsection{\texorpdfstring{Send\_Observer\_UWB\_Address\_Response()}{Send\_Observer\_UWB\_Address\_Response()}}
+{\footnotesize\ttfamily \label{namespace_m_e_s_s_a_g_e_s_a5022f9b3147d33573efce481583aafb6} 
+void MESSAGES::\+\+Send\+\_\+\+Observer\+\_\+\+UWB\+\_\+\+Address\+\_\+\+Response (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Send UWB address information to the observer. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{namespace_m_e_s_s_a_g_e_s_ae02c45f1a71bb9b6d61cf4b1e5b8e3a2}\index{MESSAGES@{MESSAGES}!Send\_Query\_Distance@{Send\_Query\_Distance}}
+\index{Send\_Query\_Distance@{Send\_Query\_Distance}!MESSAGES@{MESSAGES}}
+\doxysubsubsection{\texorpdfstring{Send\_Query\_Distance()}{Send\_Query\_Distance()}}
+{\footnotesize\ttfamily \label{namespace_m_e_s_s_a_g_e_s_ae02c45f1a71bb9b6d61cf4b1e5b8e3a2} 
+void MESSAGES::\+\+Send\+\_\+\+Query\+\_\+\+Distance (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{receiver}{, }\item[{uint8\+\_\+t}]{target}{}\end{DoxyParamCaption})}
+
+
+
+Query the distance between the receiver and a target lighthouse. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em receiver} & ID of the device performing the measurement. \\
+\hline
+{\em target} & ID of the target lighthouse. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{namespace_m_e_s_s_a_g_e_s_a63f17ccb4746ff634bd48c66f6beda6f}\index{MESSAGES@{MESSAGES}!Send\_Relay\_UWB\_Response@{Send\_Relay\_UWB\_Response}}
+\index{Send\_Relay\_UWB\_Response@{Send\_Relay\_UWB\_Response}!MESSAGES@{MESSAGES}}
+\doxysubsubsection{\texorpdfstring{Send\_Relay\_UWB\_Response()}{Send\_Relay\_UWB\_Response()}}
+{\footnotesize\ttfamily \label{namespace_m_e_s_s_a_g_e_s_a63f17ccb4746ff634bd48c66f6beda6f} 
+void MESSAGES::\+\+Send\+\_\+\+Relay\+\_\+\+UWB\+\_\+\+Response (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{new\+\_\+uwber\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+Relay a UWB response by switching the new device to UWB query state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+uwber\+\_\+id} & ID of the device that should continue the UWB procedure. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{namespace_m_e_s_s_a_g_e_s_a054a53848d5d59efba7c708f2346790d}\index{MESSAGES@{MESSAGES}!Send\_Response\_Distance@{Send\_Response\_Distance}}
+\index{Send\_Response\_Distance@{Send\_Response\_Distance}!MESSAGES@{MESSAGES}}
+\doxysubsubsection{\texorpdfstring{Send\_Response\_Distance()}{Send\_Response\_Distance()}}
+{\footnotesize\ttfamily \label{namespace_m_e_s_s_a_g_e_s_a054a53848d5d59efba7c708f2346790d} 
+void MESSAGES::\+\+Send\+\_\+\+Response\+\_\+\+Distance (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{receiver}{, }\item[{uint8\+\_\+t}]{target}{, }\item[{float}]{distance}{}\end{DoxyParamCaption})}
+
+
+
+Send a measured distance value to the receiver. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em receiver} & ID of the target device. \\
+\hline
+{\em target} & ID of the measured lighthouse. \\
+\hline
+{\em distance} & Measured distance value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{namespace_m_e_s_s_a_g_e_s_ace0e059de8ab03ca79e8f14a80bf0b6e}\index{MESSAGES@{MESSAGES}!Send\_Set\_Position@{Send\_Set\_Position}}
+\index{Send\_Set\_Position@{Send\_Set\_Position}!MESSAGES@{MESSAGES}}
+\doxysubsubsection{\texorpdfstring{Send\_Set\_Position()}{Send\_Set\_Position()}}
+{\footnotesize\ttfamily \label{namespace_m_e_s_s_a_g_e_s_ace0e059de8ab03ca79e8f14a80bf0b6e} 
+void MESSAGES::\+\+Send\+\_\+\+Set\+\_\+\+Position (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{receiver}{}\end{DoxyParamCaption})}
+
+
+
+Send position data (x, y, z) to the receiver. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em receiver} & ID of the target device. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{namespace_m_e_s_s_a_g_e_s_ae485ebc648bcee04c8105f6c559f588b}\index{MESSAGES@{MESSAGES}!Send\_UWB\_Query@{Send\_UWB\_Query}}
+\index{Send\_UWB\_Query@{Send\_UWB\_Query}!MESSAGES@{MESSAGES}}
+\doxysubsubsection{\texorpdfstring{Send\_UWB\_Query()}{Send\_UWB\_Query()}}
+{\footnotesize\ttfamily \label{namespace_m_e_s_s_a_g_e_s_ae485ebc648bcee04c8105f6c559f588b} 
+void MESSAGES::\+\+Send\+\_\+\+UWB\+\_\+\+Query (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{receiver}{}\end{DoxyParamCaption})}
+
+
+
+Send a UWB query request to the receiver. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em receiver} & ID of the target device. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{namespace_m_e_s_s_a_g_e_s_a76e5697b667570905e53eca1413612be}\index{MESSAGES@{MESSAGES}!Send\_UWB\_Response@{Send\_UWB\_Response}}
+\index{Send\_UWB\_Response@{Send\_UWB\_Response}!MESSAGES@{MESSAGES}}
+\doxysubsubsection{\texorpdfstring{Send\_UWB\_Response()}{Send\_UWB\_Response()}}
+{\footnotesize\ttfamily \label{namespace_m_e_s_s_a_g_e_s_a76e5697b667570905e53eca1413612be} 
+void MESSAGES::\+\+Send\+\_\+\+UWB\+\_\+\+Response (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{receiver}{}\end{DoxyParamCaption})}
+
+
+
+Send a UWB response message to the receiver. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em receiver} & ID of the target device. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{namespace_m_e_s_s_a_g_e_s_a3272238ad0f2e823578a7f947d294bd9}\index{MESSAGES@{MESSAGES}!Send\_UWB\_Start\_Anchoring@{Send\_UWB\_Start\_Anchoring}}
+\index{Send\_UWB\_Start\_Anchoring@{Send\_UWB\_Start\_Anchoring}!MESSAGES@{MESSAGES}}
+\doxysubsubsection{\texorpdfstring{Send\_UWB\_Start\_Anchoring()}{Send\_UWB\_Start\_Anchoring()}}
+{\footnotesize\ttfamily \label{namespace_m_e_s_s_a_g_e_s_a3272238ad0f2e823578a7f947d294bd9} 
+void MESSAGES::\+\+Send\+\_\+\+UWB\+\_\+\+Start\+\_\+\+Anchoring (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{receiver}{}\end{DoxyParamCaption})}
+
+
+
+Command the receiver to start the UWB anchoring procedure. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em receiver} & ID of the target device. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
