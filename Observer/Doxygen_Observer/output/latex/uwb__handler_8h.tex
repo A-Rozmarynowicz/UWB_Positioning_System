@@ -1,0 +1,179 @@
+\doxysection{include/\+uwb\+\_\+handler.h File Reference}
+\hypertarget{uwb__handler_8h}{}\label{uwb__handler_8h}\index{include/uwb\_handler.h@{include/uwb\_handler.h}}
+
+
+UWB (DW1000) initialization and management.  
+
+
+{\ttfamily \+\#include $<$SPI.\+h$>$}\newline
+{\ttfamily \+\#include "{}DW1000\+Ranging.\+h"{}}\newline
+{\ttfamily \+\#include "{}observer\+\_\+config.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{uwb__handler_8h_a15236c379a8dd007a21e6820cacba528}{UWB\+\_\+\+ADDRESS\+\_\+\+LENGTH}}~8
+\begin{DoxyCompactList}\small\item\em Length of a UWB address in bytes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{uwb__handler_8h_aab700044d1c1eff50a15b9325e4d8905}{Initialize\+\_\+\+UWB}} ()
+\begin{DoxyCompactList}\small\item\em Initializes UWB hardware and starts the device as a tag. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{uwb__handler_8h_a04eefed7c7b89a87942a682f4b079f79}{Update\+\_\+\+UWB}} ()
+\begin{DoxyCompactList}\small\item\em Processes UWB ranging events. \end{DoxyCompactList}\item 
+uint8\+\_\+t \doxymbox{\hyperlink{uwb__handler_8h_a8f0a8e7a4ece1a0afd7beac4a1f08032}{Is\+\_\+\+UWB\+\_\+\+Enabled}} ()
+\begin{DoxyCompactList}\small\item\em Returns whether UWB is currently enabled. \end{DoxyCompactList}\item 
+\Hypertarget{uwb__handler_8h_a11c90ba8c4e89bb52cbe853b4b126e55}\label{uwb__handler_8h_a11c90ba8c4e89bb52cbe853b4b126e55} 
+void {\bfseries Disable\+\_\+\+UWB} ()
+\begin{DoxyCompactList}\small\item\em Disables UWB ranging. \end{DoxyCompactList}\item 
+\Hypertarget{uwb__handler_8h_a94baa2c6f8c48fb29a6455f0271fb588}\label{uwb__handler_8h_a94baa2c6f8c48fb29a6455f0271fb588} 
+void {\bfseries Enable\+\_\+\+UWB} ()
+\begin{DoxyCompactList}\small\item\em Enables UWB ranging. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{uwb__handler_8h_aa7bdee499d273973f46132f0f090bc92}{\+\_\+new\+\_\+range}} ()
+\begin{DoxyCompactList}\small\item\em Callback invoked when a new UWB range is received. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{uwb__handler_8h_a130e39040f943b0c4a465cbda92715a1}{\+\_\+new\+\_\+device}} (DW1000\+Device \texorpdfstring{$\ast$}{*}device)
+\begin{DoxyCompactList}\small\item\em Callback invoked when a new UWB device is detected. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{uwb__handler_8h_a9fe894aa59b24a7055ba350c1faa18c1}{\+\_\+inactive\+\_\+device}} (DW1000\+Device \texorpdfstring{$\ast$}{*}device)
+\begin{DoxyCompactList}\small\item\em Callback invoked when a previously detected UWB device becomes inactive. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const uint8\+\_\+t \doxymbox{\hyperlink{uwb__handler_8h_ad5ca857d6752fa3c47a659641d9687dc}{uwb\+\_\+addresses\+\_\+from\+\_\+\+LGH}} \+[\doxymbox{\hyperlink{observer__config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\+\_\+\+OF\+\_\+\+LIGHTHOUSES}}]\+\+[\doxymbox{\hyperlink{uwb__handler_8h_a15236c379a8dd007a21e6820cacba528}{UWB\+\_\+\+ADDRESS\+\_\+\+LENGTH}}]\+
+\begin{DoxyCompactList}\small\item\em UWB addresses assigned to each lighthouse. \end{DoxyCompactList}\item 
+const int8\+\_\+t {\bfseries PIN\+\_\+\+RST} = 22
+\item 
+const int8\+\_\+t {\bfseries PIN\+\_\+\+IRQ} = 33
+\item 
+const int8\+\_\+t {\bfseries PIN\+\_\+\+SS} = 5
+\item 
+const int8\+\_\+t {\bfseries PIN\+\_\+\+MOSI} = 23
+\item 
+const int8\+\_\+t {\bfseries PIN\+\_\+\+MISO} = 19
+\item 
+const int8\+\_\+t {\bfseries PIN\+\_\+\+SCK} = 18
+\item 
+\Hypertarget{uwb__handler_8h_ad58139fdb9926fd074a6bb4a6c8db91b}\label{uwb__handler_8h_ad58139fdb9926fd074a6bb4a6c8db91b} 
+char {\bfseries uwb\+\_\+address} \+[24]\+
+\item 
+\Hypertarget{uwb__handler_8h_ab439eb28b669bfcf33d3e34a6f780695}\label{uwb__handler_8h_ab439eb28b669bfcf33d3e34a6f780695} 
+uint8\+\_\+t {\bfseries uwb\+\_\+enable}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+UWB (DW1000) initialization and management. 
+
+This header contains constants, external variables and function declarations used to manage the DW1000 UWB module. It provides functions for initialization, update loop handling, enabling/\+disabling the module, and UWB callbacks. 
+
+\label{doc-define-members}
+\Hypertarget{uwb__handler_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{uwb__handler_8h_a15236c379a8dd007a21e6820cacba528}\index{uwb\_handler.h@{uwb\_handler.h}!UWB\_ADDRESS\_LENGTH@{UWB\_ADDRESS\_LENGTH}}
+\index{UWB\_ADDRESS\_LENGTH@{UWB\_ADDRESS\_LENGTH}!uwb\_handler.h@{uwb\_handler.h}}
+\doxysubsubsection{\texorpdfstring{UWB\_ADDRESS\_LENGTH}{UWB\_ADDRESS\_LENGTH}}
+{\footnotesize\ttfamily \label{uwb__handler_8h_a15236c379a8dd007a21e6820cacba528} 
+\+\#define UWB\+\_\+\+ADDRESS\+\_\+\+LENGTH~8}
+
+
+
+Length of a UWB address in bytes. 
+
+UWB uses 64-\/bit addresses (8 bytes). This constant is used to define address arrays and to perform address comparisons. 
+
+\label{doc-func-members}
+\Hypertarget{uwb__handler_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{uwb__handler_8h_a9fe894aa59b24a7055ba350c1faa18c1}\index{uwb\_handler.h@{uwb\_handler.h}!\_inactive\_device@{\_inactive\_device}}
+\index{\_inactive\_device@{\_inactive\_device}!uwb\_handler.h@{uwb\_handler.h}}
+\doxysubsubsection{\texorpdfstring{\_inactive\_device()}{\_inactive\_device()}}
+{\footnotesize\ttfamily \label{uwb__handler_8h_a9fe894aa59b24a7055ba350c1faa18c1} 
+void \+\_\+inactive\+\_\+device (\begin{DoxyParamCaption}\item[{DW1000\+Device \texorpdfstring{$\ast$}{*}}]{device}{}\end{DoxyParamCaption})}
+
+
+
+Callback invoked when a previously detected UWB device becomes inactive. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Pointer to the inactive DW1000 device. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{uwb__handler_8h_a130e39040f943b0c4a465cbda92715a1}\index{uwb\_handler.h@{uwb\_handler.h}!\_new\_device@{\_new\_device}}
+\index{\_new\_device@{\_new\_device}!uwb\_handler.h@{uwb\_handler.h}}
+\doxysubsubsection{\texorpdfstring{\_new\_device()}{\_new\_device()}}
+{\footnotesize\ttfamily \label{uwb__handler_8h_a130e39040f943b0c4a465cbda92715a1} 
+void \+\_\+new\+\_\+device (\begin{DoxyParamCaption}\item[{DW1000\+Device \texorpdfstring{$\ast$}{*}}]{device}{}\end{DoxyParamCaption})}
+
+
+
+Callback invoked when a new UWB device is detected. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Pointer to the detected DW1000 device. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{uwb__handler_8h_aa7bdee499d273973f46132f0f090bc92}\index{uwb\_handler.h@{uwb\_handler.h}!\_new\_range@{\_new\_range}}
+\index{\_new\_range@{\_new\_range}!uwb\_handler.h@{uwb\_handler.h}}
+\doxysubsubsection{\texorpdfstring{\_new\_range()}{\_new\_range()}}
+{\footnotesize\ttfamily \label{uwb__handler_8h_aa7bdee499d273973f46132f0f090bc92} 
+void \+\_\+new\+\_\+range (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Callback invoked when a new UWB range is received. 
+
+Reads the device short address, range, and RX power, then forwards the data to the state machine. \Hypertarget{uwb__handler_8h_aab700044d1c1eff50a15b9325e4d8905}\index{uwb\_handler.h@{uwb\_handler.h}!Initialize\_UWB@{Initialize\_UWB}}
+\index{Initialize\_UWB@{Initialize\_UWB}!uwb\_handler.h@{uwb\_handler.h}}
+\doxysubsubsection{\texorpdfstring{Initialize\_UWB()}{Initialize\_UWB()}}
+{\footnotesize\ttfamily \label{uwb__handler_8h_aab700044d1c1eff50a15b9325e4d8905} 
+void Initialize\+\_\+\+UWB (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes UWB hardware and starts the device as a tag. 
+
+This function:\+
+\begin{DoxyItemize}
+\item Resets the DW1000 module
+\item Configures SPI interface
+\item Attaches UWB callbacks
+\item Starts the UWB module as a tag 
+\end{DoxyItemize}\Hypertarget{uwb__handler_8h_a8f0a8e7a4ece1a0afd7beac4a1f08032}\index{uwb\_handler.h@{uwb\_handler.h}!Is\_UWB\_Enabled@{Is\_UWB\_Enabled}}
+\index{Is\_UWB\_Enabled@{Is\_UWB\_Enabled}!uwb\_handler.h@{uwb\_handler.h}}
+\doxysubsubsection{\texorpdfstring{Is\_UWB\_Enabled()}{Is\_UWB\_Enabled()}}
+{\footnotesize\ttfamily \label{uwb__handler_8h_a8f0a8e7a4ece1a0afd7beac4a1f08032} 
+uint8\+\_\+t Is\+\_\+\+UWB\+\_\+\+Enabled (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Returns whether UWB is currently enabled. 
+
+\begin{DoxyReturn}{Returns}
+1 if enabled, 0 otherwise. 
+\end{DoxyReturn}
+\Hypertarget{uwb__handler_8h_a04eefed7c7b89a87942a682f4b079f79}\index{uwb\_handler.h@{uwb\_handler.h}!Update\_UWB@{Update\_UWB}}
+\index{Update\_UWB@{Update\_UWB}!uwb\_handler.h@{uwb\_handler.h}}
+\doxysubsubsection{\texorpdfstring{Update\_UWB()}{Update\_UWB()}}
+{\footnotesize\ttfamily \label{uwb__handler_8h_a04eefed7c7b89a87942a682f4b079f79} 
+void Update\+\_\+\+UWB (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Processes UWB ranging events. 
+
+Must be called regularly in the main loop to keep the UWB stack running. 
+
+\label{doc-var-members}
+\Hypertarget{uwb__handler_8h_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{uwb__handler_8h_ad5ca857d6752fa3c47a659641d9687dc}\index{uwb\_handler.h@{uwb\_handler.h}!uwb\_addresses\_from\_LGH@{uwb\_addresses\_from\_LGH}}
+\index{uwb\_addresses\_from\_LGH@{uwb\_addresses\_from\_LGH}!uwb\_handler.h@{uwb\_handler.h}}
+\doxysubsubsection{\texorpdfstring{uwb\_addresses\_from\_LGH}{uwb\_addresses\_from\_LGH}}
+{\footnotesize\ttfamily \label{uwb__handler_8h_ad5ca857d6752fa3c47a659641d9687dc} 
+const uint8\+\_\+t uwb\+\_\+addresses\+\_\+from\+\_\+\+LGH\+[\doxymbox{\hyperlink{observer__config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\+\_\+\+OF\+\_\+\+LIGHTHOUSES}}]\+\+[\doxymbox{\hyperlink{uwb__handler_8h_a15236c379a8dd007a21e6820cacba528}{UWB\+\_\+\+ADDRESS\+\_\+\+LENGTH}}]\+\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+UWB addresses assigned to each lighthouse. 
+
+Each lighthouse has a unique 8-\/byte UWB address. The array index corresponds to the lighthouse ID (0..NUMBER\+\_\+\+OF\+\_\+\+LIGHTHOUSES-\/1). 

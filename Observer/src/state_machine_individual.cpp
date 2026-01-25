@@ -2,8 +2,19 @@
 #include "states_functions.h"
 #include "string.h"
 
+/** @defgroup StateMachine State Machine Functions
+ *  @brief Functions implementing the state machine logic. They all follow the same framework as functions in state_machine_common.cpp
+ *  @{
+ */
+
+
 #pragma region Initial State Functions
-void Initial_Enter(){
+/** @defgroup InitialState Initial State
+ *  @brief Functions for the INITIAL state.
+ *  @{
+ */
+
+ void Initial_Enter(){
     MESSAGES::Send_Wakeup_Reckon();
 }
 
@@ -20,9 +31,14 @@ void Initial_TimerCallback(Timer_Callbacks timer_callback){}
 void Initial_SailorCommand(Sailor_Commands command){}
 void Initial_UWB_New_Range(uint16_t device, float range, float rx_power){}
 void Initial_Exit(){}
+/** @} */
 #pragma endregion
 
 #pragma region Query Positions State Functions
+/** @defgroup QueryPositions Query Positions State
+ *  @brief Functions for the Query Positions State.
+ *  @{
+ */
 void Query_Positions_Enter(){
     Blink_LED();
     MESSAGES::Send_Query_Position(current_state_data.target_lgh);
@@ -86,9 +102,15 @@ void Query_Positions_UWB_New_Range(uint16_t device, float range, float rx_power)
 void Query_Positions_Exit(){
     Build_Constant_Matrices();
 }
+/** @} */
 #pragma endregion
 
 #pragma region Query Distances State Functions
+/** @defgroup QueryDistances Query Distances State
+ *  @brief Functions for the Query Distances State.
+ *  @{
+ */
+
 void Query_Distances_Enter(){
     Enable_UWB();
     Blink_LED();
@@ -120,4 +142,7 @@ void Query_Distances_UWB_New_Range(uint16_t device, float range, float rx_power)
     }
 }
 void Query_Distances_Exit(){}
+/** @} */
 #pragma endregion
+
+/** @} */

@@ -91,79 +91,102 @@ $(function(){initNavTree('state__machine_8h_source.html','',''); });
   <div class="headertitle"><div class="title">state_machine.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef STATE_MACHINE_H</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define STATE_MACHINE_H</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;observer_config.h&quot;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="foldopen" id="foldopen00006" data-start="{" data-end="};">
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="struct_state___data.html">    6</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_state___data.html">State_Data</a> {</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    uint8_t target_lgh;</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    uint8_t ack_index;</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>};</div>
-</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">enum</span> States {</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    INITIAL = 0,</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    QUERY_POSITIONS = 1,</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    QUERY_DISTANCES = 2,</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>};</div>
+<a href="state__machine_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#ifndef STATE_MACHINE_H</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#define STATE_MACHINE_H</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">enum</span> State_Machine_Errors {</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>  INEXISTING_STATE,</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>  WRONG_TRANSITION,</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>};</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">const</span> uint8_t MAX_ACK_NUMBER = 5;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">extern</span> States current_state;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">extern</span> <a class="code hl_struct" href="struct_state___data.html">State_Data</a> current_state_data;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keywordtype">void</span> Reset_And_Initialize_Machine();</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keywordtype">void</span> State_Machine_Error(State_Machine_Errors error);</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keywordtype">void</span> Change_State(States new_state);</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keywordtype">void</span> State_Enter();</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keywordtype">void</span> State_ReceiveCallback(<span class="keyword">const</span> uint8_t* data, <span class="keywordtype">int</span> dataLen);</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keywordtype">void</span> State_SentCallback();</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keywordtype">void</span> State_TimerCallback(Timer_Callbacks timer_callback);</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keywordtype">void</span> State_SailorCommand(Sailor_Commands command);</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keywordtype">void</span> State_UWB_New_Range(uint16_t device, <span class="keywordtype">float</span> range, <span class="keywordtype">float</span> rx_power);</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keywordtype">void</span> State_Exit();</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keywordtype">void</span> Initial_Enter();</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keywordtype">void</span> Initial_ReceiveCallback(<span class="keyword">const</span> uint8_t* data, <span class="keywordtype">int</span> dataLen);</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keywordtype">void</span> Initial_SentCallback();</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keywordtype">void</span> Initial_TimerCallback(Timer_Callbacks timer_callback);</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keywordtype">void</span> Initial_SailorCommand(Sailor_Commands command);</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keywordtype">void</span> Initial_UWB_New_Range(uint16_t device, <span class="keywordtype">float</span> range, <span class="keywordtype">float</span> rx_power);</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keywordtype">void</span> Initial_Exit();</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keywordtype">void</span> Query_Positions_Enter();</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keywordtype">void</span> Query_Positions_ReceiveCallback(<span class="keyword">const</span> uint8_t* data, <span class="keywordtype">int</span> dataLen);</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keywordtype">void</span> Query_Positions_SentCallback();</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keywordtype">void</span> Query_Positions_TimerCallback(Timer_Callbacks timer_callback);</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keywordtype">void</span> Query_Positions_SailorCommand(Sailor_Commands command);</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keywordtype">void</span> Query_Positions_UWB_New_Range(uint16_t device, <span class="keywordtype">float</span> range, <span class="keywordtype">float</span> rx_power);</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keywordtype">void</span> Query_Positions_Exit();</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keywordtype">void</span> Query_Distances_Enter();</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="keywordtype">void</span> Query_Distances_ReceiveCallback(<span class="keyword">const</span> uint8_t* data, <span class="keywordtype">int</span> dataLen);</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="keywordtype">void</span> Query_Distances_SentCallback();</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="keywordtype">void</span> Query_Distances_TimerCallback(Timer_Callbacks timer_callback);</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keywordtype">void</span> Query_Distances_SailorCommand(Sailor_Commands command);</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="keywordtype">void</span> Query_Distances_UWB_New_Range(uint16_t device, <span class="keywordtype">float</span> range, <span class="keywordtype">float</span> rx_power);</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="keywordtype">void</span> Query_Distances_Exit();</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="observer__config_8h.html">observer_config.h</a>&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span></div>
+<div class="foldopen" id="foldopen00026" data-start="{" data-end="};">
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="struct_state___data.html">   26</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_state___data.html">State_Data</a> {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    uint8_t target_lgh;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    uint8_t ack_index;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>};</div>
+</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span></div>
+<div class="foldopen" id="foldopen00034" data-start="{" data-end="};">
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="state__machine_8h.html#a808e5cd4979462d3bbe3070d7d147444">   34</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="state__machine_8h.html#a808e5cd4979462d3bbe3070d7d147444">States</a> {</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    INITIAL = 0,</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    QUERY_POSITIONS = 1,</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    QUERY_DISTANCES = 2,</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>};</div>
+</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span></div>
+<div class="foldopen" id="foldopen00043" data-start="{" data-end="};">
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="state__machine_8h.html#a0046ae703fbe4cbac532df113f7e1fc7">   43</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="state__machine_8h.html#a0046ae703fbe4cbac532df113f7e1fc7">State_Machine_Errors</a> {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  INEXISTING_STATE,</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  WRONG_TRANSITION,</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>};</div>
+</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="state__machine_8h.html#a11e8f6a8672bf3ecef6e9a5c6c1e5e90">   51</a></span><span class="keyword">const</span> uint8_t <a class="code hl_variable" href="state__machine_8h.html#a11e8f6a8672bf3ecef6e9a5c6c1e5e90">MAX_ACK_NUMBER</a> = 5;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="keyword">extern</span> <a class="code hl_enumeration" href="state__machine_8h.html#a808e5cd4979462d3bbe3070d7d147444">States</a> current_state;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="keyword">extern</span> <a class="code hl_struct" href="struct_state___data.html">State_Data</a> current_state_data;</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="astruct_state___data_html"><div class="ttname"><a href="struct_state___data.html">State_Data</a></div><div class="ttdef"><b>Definition</b> state_machine.h:6</div></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keywordtype">void</span> <a class="code hl_function" href="state__machine_8h.html#a952256c805158cd01d13e26aeede53dd">Reset_And_Initialize_Machine</a>();</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="keywordtype">void</span> <a class="code hl_function" href="state__machine_8h.html#a12942010c251953aea13d2119547d0f9">State_Machine_Error</a>(<a class="code hl_enumeration" href="state__machine_8h.html#a0046ae703fbe4cbac532df113f7e1fc7">State_Machine_Errors</a> error);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keywordtype">void</span> <a class="code hl_function" href="state__machine_8h.html#a1a9296a39f8c1f0afa308b5e0f918460">Change_State</a>(<a class="code hl_enumeration" href="state__machine_8h.html#a808e5cd4979462d3bbe3070d7d147444">States</a> new_state);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="keywordtype">void</span> <a class="code hl_function" href="state__machine_8h.html#a5689faefface91a7e9643535e3eab804">State_Enter</a>();</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="keywordtype">void</span> <a class="code hl_function" href="state__machine_8h.html#abf94f659c04b19a179eb62c3d404bea4">State_ReceiveCallback</a>(<span class="keyword">const</span> uint8_t* data, <span class="keywordtype">int</span> dataLen);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keywordtype">void</span> <a class="code hl_function" href="state__machine_8h.html#a9f6bb2f9271d4881e6ba0e68557a36fb">State_SentCallback</a>();</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="keywordtype">void</span> <a class="code hl_function" href="state__machine_8h.html#ae2927e73994faff2d9a6259093d82e73">State_TimerCallback</a>(<a class="code hl_enumeration" href="observer__config_8h.html#aa4cfa56f0ecbc0a890da7fb57c15ee75">Timer_Callbacks</a> timer_callback);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="keywordtype">void</span> <a class="code hl_function" href="state__machine_8h.html#a7787e817203330dd9e3c206749e78a8d">State_SailorCommand</a>(<a class="code hl_enumeration" href="observer__config_8h.html#a73222a5e9df2661ab3e21f5dcec68f07">Sailor_Commands</a> command);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="keywordtype">void</span> <a class="code hl_function" href="state__machine_8h.html#a2ce878086a38c315b67b49ba8b754ad5">State_UWB_New_Range</a>(uint16_t device, <span class="keywordtype">float</span> range, <span class="keywordtype">float</span> rx_power);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="keywordtype">void</span> <a class="code hl_function" href="state__machine_8h.html#a4c475b004ad7225235b664c233f22a85">State_Exit</a>();</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="keywordtype">void</span> Initial_Enter();</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="keywordtype">void</span> Initial_ReceiveCallback(<span class="keyword">const</span> uint8_t* data, <span class="keywordtype">int</span> dataLen);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="keywordtype">void</span> Initial_SentCallback();</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="keywordtype">void</span> Initial_TimerCallback(<a class="code hl_enumeration" href="observer__config_8h.html#aa4cfa56f0ecbc0a890da7fb57c15ee75">Timer_Callbacks</a> timer_callback);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="keywordtype">void</span> Initial_SailorCommand(<a class="code hl_enumeration" href="observer__config_8h.html#a73222a5e9df2661ab3e21f5dcec68f07">Sailor_Commands</a> command);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="keywordtype">void</span> Initial_UWB_New_Range(uint16_t device, <span class="keywordtype">float</span> range, <span class="keywordtype">float</span> rx_power);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="keywordtype">void</span> Initial_Exit();</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="keywordtype">void</span> Query_Positions_Enter();</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="keywordtype">void</span> Query_Positions_ReceiveCallback(<span class="keyword">const</span> uint8_t* data, <span class="keywordtype">int</span> dataLen);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="keywordtype">void</span> Query_Positions_SentCallback();</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="keywordtype">void</span> Query_Positions_TimerCallback(<a class="code hl_enumeration" href="observer__config_8h.html#aa4cfa56f0ecbc0a890da7fb57c15ee75">Timer_Callbacks</a> timer_callback);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="keywordtype">void</span> Query_Positions_SailorCommand(<a class="code hl_enumeration" href="observer__config_8h.html#a73222a5e9df2661ab3e21f5dcec68f07">Sailor_Commands</a> command);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="keywordtype">void</span> Query_Positions_UWB_New_Range(uint16_t device, <span class="keywordtype">float</span> range, <span class="keywordtype">float</span> rx_power);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="keywordtype">void</span> Query_Positions_Exit();</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="keywordtype">void</span> Query_Distances_Enter();</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="keywordtype">void</span> Query_Distances_ReceiveCallback(<span class="keyword">const</span> uint8_t* data, <span class="keywordtype">int</span> dataLen);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="keywordtype">void</span> Query_Distances_SentCallback();</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="keywordtype">void</span> Query_Distances_TimerCallback(<a class="code hl_enumeration" href="observer__config_8h.html#aa4cfa56f0ecbc0a890da7fb57c15ee75">Timer_Callbacks</a> timer_callback);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="keywordtype">void</span> Query_Distances_SailorCommand(<a class="code hl_enumeration" href="observer__config_8h.html#a73222a5e9df2661ab3e21f5dcec68f07">Sailor_Commands</a> command);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="keywordtype">void</span> Query_Distances_UWB_New_Range(uint16_t device, <span class="keywordtype">float</span> range, <span class="keywordtype">float</span> rx_power);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="keywordtype">void</span> Query_Distances_Exit();</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aobserver__config_8h_html"><div class="ttname"><a href="observer__config_8h.html">observer_config.h</a></div><div class="ttdoc">Global configuration and shared type definitions.</div></div>
+<div class="ttc" id="aobserver__config_8h_html_a73222a5e9df2661ab3e21f5dcec68f07"><div class="ttname"><a href="observer__config_8h.html#a73222a5e9df2661ab3e21f5dcec68f07">Sailor_Commands</a></div><div class="ttdeci">Sailor_Commands</div><div class="ttdoc">Commands available to the sailor device.</div><div class="ttdef"><b>Definition</b> observer_config.h:40</div></div>
+<div class="ttc" id="aobserver__config_8h_html_aa4cfa56f0ecbc0a890da7fb57c15ee75"><div class="ttname"><a href="observer__config_8h.html#aa4cfa56f0ecbc0a890da7fb57c15ee75">Timer_Callbacks</a></div><div class="ttdeci">Timer_Callbacks</div><div class="ttdoc">Timer callback identifiers.</div><div class="ttdef"><b>Definition</b> observer_config.h:33</div></div>
+<div class="ttc" id="astate__machine_8h_html_a0046ae703fbe4cbac532df113f7e1fc7"><div class="ttname"><a href="state__machine_8h.html#a0046ae703fbe4cbac532df113f7e1fc7">State_Machine_Errors</a></div><div class="ttdeci">State_Machine_Errors</div><div class="ttdoc">Errors that can occur within the state machine.</div><div class="ttdef"><b>Definition</b> state_machine.h:43</div></div>
+<div class="ttc" id="astate__machine_8h_html_a11e8f6a8672bf3ecef6e9a5c6c1e5e90"><div class="ttname"><a href="state__machine_8h.html#a11e8f6a8672bf3ecef6e9a5c6c1e5e90">MAX_ACK_NUMBER</a></div><div class="ttdeci">const uint8_t MAX_ACK_NUMBER</div><div class="ttdoc">Maximum number of ACK retries.</div><div class="ttdef"><b>Definition</b> state_machine.h:51</div></div>
+<div class="ttc" id="astate__machine_8h_html_a12942010c251953aea13d2119547d0f9"><div class="ttname"><a href="state__machine_8h.html#a12942010c251953aea13d2119547d0f9">State_Machine_Error</a></div><div class="ttdeci">void State_Machine_Error(State_Machine_Errors error)</div><div class="ttdoc">Handles errors inside the state machine.</div><div class="ttdef"><b>Definition</b> state_machine_common.cpp:200</div></div>
+<div class="ttc" id="astate__machine_8h_html_a1a9296a39f8c1f0afa308b5e0f918460"><div class="ttname"><a href="state__machine_8h.html#a1a9296a39f8c1f0afa308b5e0f918460">Change_State</a></div><div class="ttdeci">void Change_State(States new_state)</div><div class="ttdoc">Changes the current state and calls exit/enter handlers.</div><div class="ttdef"><b>Definition</b> state_machine_common.cpp:28</div></div>
+<div class="ttc" id="astate__machine_8h_html_a2ce878086a38c315b67b49ba8b754ad5"><div class="ttname"><a href="state__machine_8h.html#a2ce878086a38c315b67b49ba8b754ad5">State_UWB_New_Range</a></div><div class="ttdeci">void State_UWB_New_Range(uint16_t device, float range, float rx_power)</div><div class="ttdoc">Dispatches UWB ranging updates to the current state.</div><div class="ttdef"><b>Definition</b> state_machine_common.cpp:178</div></div>
+<div class="ttc" id="astate__machine_8h_html_a4c475b004ad7225235b664c233f22a85"><div class="ttname"><a href="state__machine_8h.html#a4c475b004ad7225235b664c233f22a85">State_Exit</a></div><div class="ttdeci">void State_Exit()</div><div class="ttdoc">Calls the exit handler of the current state.</div><div class="ttdef"><b>Definition</b> state_machine_common.cpp:154</div></div>
+<div class="ttc" id="astate__machine_8h_html_a5689faefface91a7e9643535e3eab804"><div class="ttname"><a href="state__machine_8h.html#a5689faefface91a7e9643535e3eab804">State_Enter</a></div><div class="ttdeci">void State_Enter()</div><div class="ttdoc">Calls the enter handler of the current state.</div><div class="ttdef"><b>Definition</b> state_machine_common.cpp:42</div></div>
+<div class="ttc" id="astate__machine_8h_html_a7787e817203330dd9e3c206749e78a8d"><div class="ttname"><a href="state__machine_8h.html#a7787e817203330dd9e3c206749e78a8d">State_SailorCommand</a></div><div class="ttdeci">void State_SailorCommand(Sailor_Commands command)</div><div class="ttdoc">Dispatches Sailor commands to the current state.</div><div class="ttdef"><b>Definition</b> state_machine_common.cpp:130</div></div>
+<div class="ttc" id="astate__machine_8h_html_a808e5cd4979462d3bbe3070d7d147444"><div class="ttname"><a href="state__machine_8h.html#a808e5cd4979462d3bbe3070d7d147444">States</a></div><div class="ttdeci">States</div><div class="ttdoc">Possible states of the observer state machine.</div><div class="ttdef"><b>Definition</b> state_machine.h:34</div></div>
+<div class="ttc" id="astate__machine_8h_html_a952256c805158cd01d13e26aeede53dd"><div class="ttname"><a href="state__machine_8h.html#a952256c805158cd01d13e26aeede53dd">Reset_And_Initialize_Machine</a></div><div class="ttdeci">void Reset_And_Initialize_Machine()</div><div class="ttdoc">Resets the state machine to the initial state and triggers the enter handler.</div><div class="ttdef"><b>Definition</b> state_machine_common.cpp:13</div></div>
+<div class="ttc" id="astate__machine_8h_html_a9f6bb2f9271d4881e6ba0e68557a36fb"><div class="ttname"><a href="state__machine_8h.html#a9f6bb2f9271d4881e6ba0e68557a36fb">State_SentCallback</a></div><div class="ttdeci">void State_SentCallback()</div><div class="ttdoc">Dispatches send completion callbacks to the current state.</div><div class="ttdef"><b>Definition</b> state_machine_common.cpp:85</div></div>
+<div class="ttc" id="astate__machine_8h_html_abf94f659c04b19a179eb62c3d404bea4"><div class="ttname"><a href="state__machine_8h.html#abf94f659c04b19a179eb62c3d404bea4">State_ReceiveCallback</a></div><div class="ttdeci">void State_ReceiveCallback(const uint8_t *data, int dataLen)</div><div class="ttdoc">Dispatches received ESP-NOW messages to the current state&#39;s handler.</div><div class="ttdef"><b>Definition</b> state_machine_common.cpp:65</div></div>
+<div class="ttc" id="astate__machine_8h_html_ae2927e73994faff2d9a6259093d82e73"><div class="ttname"><a href="state__machine_8h.html#ae2927e73994faff2d9a6259093d82e73">State_TimerCallback</a></div><div class="ttdeci">void State_TimerCallback(Timer_Callbacks timer_callback)</div><div class="ttdoc">Dispatches timer callbacks to the current state.</div><div class="ttdef"><b>Definition</b> state_machine_common.cpp:108</div></div>
+<div class="ttc" id="astruct_state___data_html"><div class="ttname"><a href="struct_state___data.html">State_Data</a></div><div class="ttdoc">Holds data required by the state machine during runtime.</div><div class="ttdef"><b>Definition</b> state_machine.h:26</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>include</b></li><li class="navelem"><b>state_machine.h</b></li>
+    <li class="navelem"><b>include</b></li><li class="navelem"><a href="state__machine_8h.html">state_machine.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
   </ul>
 </div>

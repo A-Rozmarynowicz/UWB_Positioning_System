@@ -1,3 +1,18 @@
+/**
+ * @file communication.h
+ * @brief ESP-NOW communication interface and message definitions.
+ *
+ * @details
+ * This header defines the communication protocol used by the system,
+ * including message formats, command identifiers, error codes, and helper
+ * functions for sending and receiving ESP-NOW packets.
+ *
+ * It provides:
+ * - Data layout and command enums for ESP-NOW messages
+ * - Global buffers and state structures for acknowledgements
+ * - Initialization and message sending utilities
+ */
+
 #ifndef COMMUNICATION_H
 #define COMMUNICATION_H
 
@@ -8,6 +23,9 @@
 const uint8_t BROADCAST_RECEIVER_ID = 255;
 const uint8_t ACK_MESSAGE_COUNT = 5;
 
+/**
+ * @brief Indices inside the ESP-NOW data packet.
+ */
 enum Data_Setup {
   RECEIVER_ID = 0,
   TRANSMITTER_ID = 1,
@@ -19,6 +37,9 @@ enum Data_Setup {
   QUAD_3 = 16,
 };
 
+/**
+ * @brief Commands used in ESP-NOW communication.
+ */
 enum Data_Commands {
   MASTER_LGH_RESET,
   ACK_COM,
@@ -41,6 +62,9 @@ enum Data_Commands {
   OBSERVER_WAKEUP_RECKON,
 };
 
+/**
+ * @brief Possible communication errors.
+ */
 enum Communication_Errors {
   PROTOCOL_INIT_FAIL,
   MESSAGE_SEND_FAIL,
@@ -48,12 +72,22 @@ enum Communication_Errors {
   ACK_FAIL,
 };
 
+/**
+ * @brief Acknowledgement status used for tracking message retries.
+ */
 struct AckStatus {
   uint8_t current_ack_index;
   uint8_t target_ack_lighthouse;
 };
 
+/**
+ * @brief Current acknowledgement status
+ */
 extern AckStatus current_ack_status;
+
+/**
+ * @brief Current data prepared to send.
+ */
 extern uint8_t transmit_buffer[DATA_SIZE];
 
 // Public

@@ -1,0 +1,100 @@
+\doxysection{include/\+timing.h File Reference}
+\hypertarget{timing_8h}{}\label{timing_8h}\index{include/timing.h@{include/timing.h}}
+
+
+Timer initialization and management for ACK handling.  
+
+
+{\ttfamily \+\#include "{}esp32-\/hal-\/timer.\+h"{}}\newline
+{\ttfamily \+\#include "{}observer\+\_\+config.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{timing_8h_a893b566b68340a229bbdc03a9f2c0649}{Initialize\+\_\+\+Timers}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the ACK timer. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{timing_8h_a6c20d9a7484b6e86e03683520d5f5723}{Start\+\_\+\+Ack\+\_\+\+Timer}} ()
+\begin{DoxyCompactList}\small\item\em Starts the ACK timer. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{timing_8h_aaf050820ac5b78194d516ef0d451499a}{Stop\+\_\+\+Ack\+\_\+\+Timer}} ()
+\begin{DoxyCompactList}\small\item\em Stops the ACK timer. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{timing_8h_aa5f6de73f85cdce38fe349f4f599423a}{Timing\+\_\+\+Error}} ()
+\begin{DoxyCompactList}\small\item\em Handles timing-\/related errors. \end{DoxyCompactList}\item 
+void IRAM\+\_\+\+ATTR \doxymbox{\hyperlink{timing_8h_af93d879c05958ab04769c455da43b421}{\+\_\+on\+\_\+ack\+\_\+timer\+\_\+timeout}} ()
+\begin{DoxyCompactList}\small\item\em Interrupt Service Routine for the ACK timer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{timing_8h_a0d096e1899eb31b43213bbb8ccc71303}\label{timing_8h_a0d096e1899eb31b43213bbb8ccc71303} 
+const uint16\+\_\+t {\bfseries ACK\+\_\+\+TIMER\+\_\+\+PERIOD\+\_\+\+MS} = 25
+\item 
+\Hypertarget{timing_8h_a9d740c55adddd05c8ae4b3fbf14de4c8}\label{timing_8h_a9d740c55adddd05c8ae4b3fbf14de4c8} 
+hw\+\_\+timer\+\_\+t \texorpdfstring{$\ast$}{*} {\bfseries ack\+\_\+timer}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Timer initialization and management for ACK handling. 
+
+This header defines the timer used for ACK timeout handling and provides functions to initialize, start, stop, and handle errors related to the timing system.
+
+It contains:\+
+\begin{DoxyItemize}
+\item Constants for timer periods
+\item External timer handle declarations
+\item Public timer control functions
+\item Private ISR callback declaration 
+\end{DoxyItemize}
+
+\label{doc-func-members}
+\Hypertarget{timing_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{timing_8h_af93d879c05958ab04769c455da43b421}\index{timing.h@{timing.h}!\_on\_ack\_timer\_timeout@{\_on\_ack\_timer\_timeout}}
+\index{\_on\_ack\_timer\_timeout@{\_on\_ack\_timer\_timeout}!timing.h@{timing.h}}
+\doxysubsubsection{\texorpdfstring{\_on\_ack\_timer\_timeout()}{\_on\_ack\_timer\_timeout()}}
+{\footnotesize\ttfamily \label{timing_8h_af93d879c05958ab04769c455da43b421} 
+void IRAM\+\_\+\+ATTR \+\_\+on\+\_\+ack\+\_\+timer\+\_\+timeout (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Interrupt Service Routine for the ACK timer. 
+
+Called when the ACK timer reaches its timeout. Stops the timer and notifies the state machine about the ACK timeout. \Hypertarget{timing_8h_a893b566b68340a229bbdc03a9f2c0649}\index{timing.h@{timing.h}!Initialize\_Timers@{Initialize\_Timers}}
+\index{Initialize\_Timers@{Initialize\_Timers}!timing.h@{timing.h}}
+\doxysubsubsection{\texorpdfstring{Initialize\_Timers()}{Initialize\_Timers()}}
+{\footnotesize\ttfamily \label{timing_8h_a893b566b68340a229bbdc03a9f2c0649} 
+void Initialize\+\_\+\+Timers (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the ACK timer. 
+
+Creates and configures the hardware timer used to trigger ACK timeouts. The timer is set up with a prescaler of 8000 (source clock 80 MHz), configured as an auto-\/reloading timer, and attaches the interrupt handler. If timer initialization fails, the error handler is executed. \Hypertarget{timing_8h_a6c20d9a7484b6e86e03683520d5f5723}\index{timing.h@{timing.h}!Start\_Ack\_Timer@{Start\_Ack\_Timer}}
+\index{Start\_Ack\_Timer@{Start\_Ack\_Timer}!timing.h@{timing.h}}
+\doxysubsubsection{\texorpdfstring{Start\_Ack\_Timer()}{Start\_Ack\_Timer()}}
+{\footnotesize\ttfamily \label{timing_8h_a6c20d9a7484b6e86e03683520d5f5723} 
+void Start\+\_\+\+Ack\+\_\+\+Timer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Starts the ACK timer. 
+
+Enables the timer counting, so that the ACK timeout ISR will be triggered after the configured period. \Hypertarget{timing_8h_aaf050820ac5b78194d516ef0d451499a}\index{timing.h@{timing.h}!Stop\_Ack\_Timer@{Stop\_Ack\_Timer}}
+\index{Stop\_Ack\_Timer@{Stop\_Ack\_Timer}!timing.h@{timing.h}}
+\doxysubsubsection{\texorpdfstring{Stop\_Ack\_Timer()}{Stop\_Ack\_Timer()}}
+{\footnotesize\ttfamily \label{timing_8h_aaf050820ac5b78194d516ef0d451499a} 
+void Stop\+\_\+\+Ack\+\_\+\+Timer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Stops the ACK timer. 
+
+Disables the timer counting to prevent further ACK timeout callbacks. \Hypertarget{timing_8h_aa5f6de73f85cdce38fe349f4f599423a}\index{timing.h@{timing.h}!Timing\_Error@{Timing\_Error}}
+\index{Timing\_Error@{Timing\_Error}!timing.h@{timing.h}}
+\doxysubsubsection{\texorpdfstring{Timing\_Error()}{Timing\_Error()}}
+{\footnotesize\ttfamily \label{timing_8h_aa5f6de73f85cdce38fe349f4f599423a} 
+void Timing\+\_\+\+Error (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Handles timing-\/related errors. 
+
+Called when timer initialization or operation fails. Triggers an error LED and prints an error message to the serial console. 

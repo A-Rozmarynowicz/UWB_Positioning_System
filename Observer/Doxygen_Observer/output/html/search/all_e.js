@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['team_0',['Collaborate with your team',['../index.html#autotoc_md5',1,'']]],
-  ['test_20and_20deploy_1',['Test and Deploy',['../index.html#autotoc_md6',1,'']]],
-  ['the_20lighthouse_20positioning_20system_2',['Submodule of the Lighthouse Positioning System',['../index.html#autotoc_md1',1,'']]],
-  ['this_20readme_3',['Editing this README',['../index.html#autotoc_md7',1,'']]],
-  ['tools_4',['Integrate with your tools',['../index.html#autotoc_md4',1,'']]]
+  ['pins_0',['Connection Pins',['../group___connection_pins.html',1,'']]],
+  ['position_1',['Position',['../struct_position.html',1,'Position'],['../observer__config_8h.html#aa78012e27ba983f9620fe4ff4bf1d616',1,'Position:&#160;observer_config.h']]],
+  ['positions_20state_2',['Query Positions State',['../group___query_positions.html',1,'']]]
 ];

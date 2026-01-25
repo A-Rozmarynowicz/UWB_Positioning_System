@@ -1,0 +1,221 @@
+\doxysection{include/\+communication.h File Reference}
+\hypertarget{communication_8h}{}\label{communication_8h}\index{include/communication.h@{include/communication.h}}
+
+
+ESP-\/\+NOW communication interface and message definitions.  
+
+
+{\ttfamily \+\#include "{}esp\+\_\+now.\+h"{}}\newline
+{\ttfamily \+\#include "{}observer\+\_\+config.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{struct_ack_status}{Ack\+Status}}
+\begin{DoxyCompactList}\small\item\em Acknowledgement status used for tracking message retries. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{communication_8h_af55149bc1f05cf18af067a302e31e3f9}\label{communication_8h_af55149bc1f05cf18af067a302e31e3f9} 
+\+\#define {\bfseries DATA\+\_\+\+SIZE}~20
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{communication_8h_a5f7829e71f61d0ac0de6ef57f3556bdd}\label{communication_8h_a5f7829e71f61d0ac0de6ef57f3556bdd} 
+enum \doxymbox{\hyperlink{communication_8h_a5f7829e71f61d0ac0de6ef57f3556bdd}{Data\+\_\+\+Setup}} \{ \newline
+{\bfseries RECEIVER\+\_\+\+ID} = 0
+, {\bfseries TRANSMITTER\+\_\+\+ID} = 1
+, {\bfseries COMMAND} = 2
+, {\bfseries SINGLE\+\_\+0} = 3
+, \newline
+{\bfseries QUAD\+\_\+0} = 4
+, {\bfseries QUAD\+\_\+1} = 8
+, {\bfseries QUAD\+\_\+2} = 12
+, {\bfseries QUAD\+\_\+3} = 16
+ \}
+\begin{DoxyCompactList}\small\item\em Indices inside the ESP-\/\+NOW data packet. \end{DoxyCompactList}\item 
+\Hypertarget{communication_8h_a720807528b1dc7575d0e8edca56df577}\label{communication_8h_a720807528b1dc7575d0e8edca56df577} 
+enum \doxymbox{\hyperlink{communication_8h_a720807528b1dc7575d0e8edca56df577}{Data\+\_\+\+Commands}} \{ \newline
+{\bfseries MASTER\+\_\+\+LGH\+\_\+\+RESET}
+, {\bfseries ACK\+\_\+\+COM}
+, {\bfseries UWB\+\_\+\+START\+\_\+\+ANCHORING}
+, {\bfseries UWB\+\_\+\+QUERY\+\_\+\+COM}
+, \newline
+{\bfseries UWB\+\_\+\+RESPONSE\+\_\+\+COM}
+, {\bfseries CHANGE\+\_\+\+STATE\+\_\+\+COM}
+, {\bfseries QUERY\+\_\+\+AVG\+\_\+\+RESPONSE\+\_\+\+TIME}
+, {\bfseries RESPOND\+\_\+\+AVG\+\_\+\+RESPONSE\+\_\+\+TIME}
+, \newline
+{\bfseries QUERY\+\_\+\+DISTANCE}
+, {\bfseries RESPONSE\+\_\+\+DISTANCE}
+, {\bfseries SET\+\_\+\+POSITION}
+, {\bfseries READY\+\_\+\+FOR\+\_\+\+OBSERVER}
+, \newline
+{\bfseries OBSERVER\+\_\+\+QUERY\+\_\+\+POSITION}
+, {\bfseries OBSERVER\+\_\+\+RESPONSE\+\_\+\+POSITION}
+, {\bfseries OBSERVER\+\_\+\+QUERY\+\_\+\+UWB\+\_\+\+ADDRESS}
+, {\bfseries OBSERVER\+\_\+\+RESPONSE\+\_\+\+UWB\+\_\+\+ADDRESS}
+, \newline
+{\bfseries OBSERVER\+\_\+\+ENABLE\+\_\+\+UWB}
+, {\bfseries OBSERVER\+\_\+\+WAKEUP\+\_\+\+RECKON}
+ \}
+\begin{DoxyCompactList}\small\item\em Commands used in ESP-\/\+NOW communication. \end{DoxyCompactList}\item 
+\Hypertarget{communication_8h_a9b79e795e3bb6cdece9ebf16adfb9683}\label{communication_8h_a9b79e795e3bb6cdece9ebf16adfb9683} 
+enum \doxymbox{\hyperlink{communication_8h_a9b79e795e3bb6cdece9ebf16adfb9683}{Communication\+\_\+\+Errors}} \{ {\bfseries PROTOCOL\+\_\+\+INIT\+\_\+\+FAIL}
+, {\bfseries MESSAGE\+\_\+\+SEND\+\_\+\+FAIL}
+, {\bfseries DELIVERY\+\_\+\+FAIL}
+, {\bfseries ACK\+\_\+\+FAIL}
+ \}
+\begin{DoxyCompactList}\small\item\em Possible communication errors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{communication_8h_a3b564dd662c5448bcab004e10a1f06eb}{Initialize\+\_\+\+Communication}} ()
+\begin{DoxyCompactList}\small\item\em Initializes ESP-\/\+NOW communication and sets up callbacks. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{communication_8h_ada14ff63a80c363adff8247da770c66a}{MESSAGES::\+\+Send\+\_\+\+Query\+\_\+\+Position}} (uint8\+\_\+t lgh\+\_\+index)
+\begin{DoxyCompactList}\small\item\em Sends a position query request to a specific lighthouse. \end{DoxyCompactList}\item 
+\Hypertarget{communication_8h_a7fe54f8dea3c19b6f79eca76a6a13f4a}\label{communication_8h_a7fe54f8dea3c19b6f79eca76a6a13f4a} 
+void {\bfseries MESSAGES::\+\+Send\+\_\+\+Wakeup\+\_\+\+Reckon} ()
+\begin{DoxyCompactList}\small\item\em Sends a broadcast wakeup message to all lighthouses. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{communication_8h_a3cf83a241a1209a64ef0481ef1c320bc}{\+\_\+send\+\_\+esp}} ()
+\begin{DoxyCompactList}\small\item\em Sends the current transmit buffer via ESP-\/\+NOW to all peers. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{communication_8h_a90cd84e65fc70f7c9b04995f68ef505f}{\+\_\+receive\+\_\+callback}} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}mac\+Addr, const uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, int data\+Len)
+\begin{DoxyCompactList}\small\item\em ESP-\/\+NOW receive callback. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{communication_8h_a4ec3145a53468061570ad150e3a99749}{\+\_\+sent\+\_\+callback}} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}mac\+Addr, esp\+\_\+now\+\_\+send\+\_\+status\+\_\+t status)
+\begin{DoxyCompactList}\small\item\em ESP-\/\+NOW send callback. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{communication_8h_a727a150d05439f0ffd3a9ff198f82e8b}{\+\_\+communication\+\_\+error}} (\doxymbox{\hyperlink{communication_8h_a9b79e795e3bb6cdece9ebf16adfb9683}{Communication\+\_\+\+Errors}} error)
+\begin{DoxyCompactList}\small\item\em Handles communication-\/related errors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{communication_8h_a09ac70a7b73c274a92a0bbcb20e399f6}\label{communication_8h_a09ac70a7b73c274a92a0bbcb20e399f6} 
+const uint8\+\_\+t {\bfseries BROADCAST\+\_\+\+RECEIVER\+\_\+\+ID} = 255
+\item 
+\Hypertarget{communication_8h_a3cc04eaa8880389d6aa4dfc4a291e41a}\label{communication_8h_a3cc04eaa8880389d6aa4dfc4a291e41a} 
+const uint8\+\_\+t {\bfseries ACK\+\_\+\+MESSAGE\+\_\+\+COUNT} = 5
+\item 
+\Hypertarget{communication_8h_a709b06b1381f6268b9c79e782dc87393}\label{communication_8h_a709b06b1381f6268b9c79e782dc87393} 
+\doxymbox{\hyperlink{struct_ack_status}{Ack\+Status}} {\bfseries current\+\_\+ack\+\_\+status}
+\begin{DoxyCompactList}\small\item\em Current acknowledgement status. \end{DoxyCompactList}\item 
+\Hypertarget{communication_8h_a09de4a9b4114f488f667f196f70382b0}\label{communication_8h_a09de4a9b4114f488f667f196f70382b0} 
+uint8\+\_\+t {\bfseries transmit\+\_\+buffer} \+[DATA\+\_\+\+SIZE]\+
+\begin{DoxyCompactList}\small\item\em Current data prepared to send. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+ESP-\/\+NOW communication interface and message definitions. 
+
+This header defines the communication protocol used by the system, including message formats, command identifiers, error codes, and helper functions for sending and receiving ESP-\/\+NOW packets.
+
+It provides:\+
+\begin{DoxyItemize}
+\item Data layout and command enums for ESP-\/\+NOW messages
+\item Global buffers and state structures for acknowledgements
+\item Initialization and message sending utilities 
+\end{DoxyItemize}
+
+\label{doc-func-members}
+\Hypertarget{communication_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{communication_8h_a727a150d05439f0ffd3a9ff198f82e8b}\index{communication.h@{communication.h}!\_communication\_error@{\_communication\_error}}
+\index{\_communication\_error@{\_communication\_error}!communication.h@{communication.h}}
+\doxysubsubsection{\texorpdfstring{\_communication\_error()}{\_communication\_error()}}
+{\footnotesize\ttfamily \label{communication_8h_a727a150d05439f0ffd3a9ff198f82e8b} 
+void \+\_\+communication\+\_\+error (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{communication_8h_a9b79e795e3bb6cdece9ebf16adfb9683}{Communication\+\_\+\+Errors}}}]{error}{}\end{DoxyParamCaption})}
+
+
+
+Handles communication-\/related errors. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em error} & Type of communication error.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyItemize}
+\item Restarts the device on protocol init failure
+\item Turns on error LED on any error
+\item Prints error type via Serial 
+\end{DoxyItemize}\Hypertarget{communication_8h_a90cd84e65fc70f7c9b04995f68ef505f}\index{communication.h@{communication.h}!\_receive\_callback@{\_receive\_callback}}
+\index{\_receive\_callback@{\_receive\_callback}!communication.h@{communication.h}}
+\doxysubsubsection{\texorpdfstring{\_receive\_callback()}{\_receive\_callback()}}
+{\footnotesize\ttfamily \label{communication_8h_a90cd84e65fc70f7c9b04995f68ef505f} 
+void \+\_\+receive\+\_\+callback (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{mac\+Addr}{, }\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{int}]{data\+Len}{}\end{DoxyParamCaption})}
+
+
+
+ESP-\/\+NOW receive callback. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mac\+Addr} & MAC address of sender. \\
+\hline
+{\em data} & Pointer to received data buffer. \\
+\hline
+{\em data\+Len} & Length of received data.\\
+\hline
+\end{DoxyParams}
+Validates receiver ID and forwards valid messages to the state machine. \Hypertarget{communication_8h_a3cf83a241a1209a64ef0481ef1c320bc}\index{communication.h@{communication.h}!\_send\_esp@{\_send\_esp}}
+\index{\_send\_esp@{\_send\_esp}!communication.h@{communication.h}}
+\doxysubsubsection{\texorpdfstring{\_send\_esp()}{\_send\_esp()}}
+{\footnotesize\ttfamily \label{communication_8h_a3cf83a241a1209a64ef0481ef1c320bc} 
+void \+\_\+send\+\_\+esp (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Sends the current transmit buffer via ESP-\/\+NOW to all peers. 
+
+
+\begin{DoxyItemize}
+\item Adds broadcast peer if not already registered
+\item Sends {\ttfamily \doxylink{communication_8h_a09de4a9b4114f488f667f196f70382b0}{transmit\+\_\+buffer}} using {\ttfamily esp\+\_\+now\+\_\+send}
+\item Handles errors using {\ttfamily \doxylink{communication_8h_a727a150d05439f0ffd3a9ff198f82e8b}{\+\_\+communication\+\_\+error}} 
+\end{DoxyItemize}\Hypertarget{communication_8h_a4ec3145a53468061570ad150e3a99749}\index{communication.h@{communication.h}!\_sent\_callback@{\_sent\_callback}}
+\index{\_sent\_callback@{\_sent\_callback}!communication.h@{communication.h}}
+\doxysubsubsection{\texorpdfstring{\_sent\_callback()}{\_sent\_callback()}}
+{\footnotesize\ttfamily \label{communication_8h_a4ec3145a53468061570ad150e3a99749} 
+void \+\_\+sent\+\_\+callback (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{mac\+Addr}{, }\item[{esp\+\_\+now\+\_\+send\+\_\+status\+\_\+t}]{status}{}\end{DoxyParamCaption})}
+
+
+
+ESP-\/\+NOW send callback. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mac\+Addr} & MAC address of receiver. \\
+\hline
+{\em status} & Send status result.\\
+\hline
+\end{DoxyParams}
+Calls {\ttfamily \doxylink{state__machine_8h_a9f6bb2f9271d4881e6ba0e68557a36fb}{State\+\_\+\+Sent\+Callback()}} on success or triggers communication error on failure. \Hypertarget{communication_8h_a3b564dd662c5448bcab004e10a1f06eb}\index{communication.h@{communication.h}!Initialize\_Communication@{Initialize\_Communication}}
+\index{Initialize\_Communication@{Initialize\_Communication}!communication.h@{communication.h}}
+\doxysubsubsection{\texorpdfstring{Initialize\_Communication()}{Initialize\_Communication()}}
+{\footnotesize\ttfamily \label{communication_8h_a3b564dd662c5448bcab004e10a1f06eb} 
+void Initialize\+\_\+\+Communication (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes ESP-\/\+NOW communication and sets up callbacks. 
+
+
+\begin{DoxyItemize}
+\item Sets Wi\+Fi mode to station and disconnects
+\item Initializes ESP-\/\+NOW protocol
+\item Registers receive and send callbacks
+\item Sets transmitter ID in transmit buffer 
+\end{DoxyItemize}\Hypertarget{communication_8h_ada14ff63a80c363adff8247da770c66a}\index{communication.h@{communication.h}!Send\_Query\_Position@{Send\_Query\_Position}}
+\index{Send\_Query\_Position@{Send\_Query\_Position}!communication.h@{communication.h}}
+\doxysubsubsection{\texorpdfstring{Send\_Query\_Position()}{Send\_Query\_Position()}}
+{\footnotesize\ttfamily \label{communication_8h_ada14ff63a80c363adff8247da770c66a} 
+void MESSAGES::\+\+Send\+\_\+\+Query\+\_\+\+Position (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{lgh\+\_\+index}{}\end{DoxyParamCaption})}
+
+
+
+Sends a position query request to a specific lighthouse. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lgh\+\_\+index} & Index of the lighthouse to query. \\
+\hline
+\end{DoxyParams}

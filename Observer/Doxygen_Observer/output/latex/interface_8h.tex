@@ -1,0 +1,41 @@
+\doxysection{include/\+interface.h File Reference}
+\hypertarget{interface_8h}{}\label{interface_8h}\index{include/interface.h@{include/interface.h}}
+
+
+Interface utilities for LEDs and basic hardware feedback.  
+
+
+{\ttfamily \+\#include "{}observer\+\_\+config.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{interface_8h_a4291cdb32c220ff3472cd6563d4a1746}\label{interface_8h_a4291cdb32c220ff3472cd6563d4a1746} 
+void {\bfseries Initialize\+\_\+\+Interface} ()
+\begin{DoxyCompactList}\small\item\em Initializes interface peripherals (LED pins, etc.). \end{DoxyCompactList}\item 
+\Hypertarget{interface_8h_a6e7538e1969c0945127355e1b6383eea}\label{interface_8h_a6e7538e1969c0945127355e1b6383eea} 
+void {\bfseries Blink\+\_\+\+LED} ()
+\begin{DoxyCompactList}\small\item\em Blinks the UWB exchange LED once. \end{DoxyCompactList}\item 
+\Hypertarget{interface_8h_a28f0c1ebb6f675b3b829b57e625cf16a}\label{interface_8h_a28f0c1ebb6f675b3b829b57e625cf16a} 
+void {\bfseries Error\+\_\+\+LED\+\_\+\+On} ()
+\begin{DoxyCompactList}\small\item\em Turns the error LED on to indicate a failure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{interface_8h_a9d5e4db6329aea5ae47b3ed7fec3b5bd}\label{interface_8h_a9d5e4db6329aea5ae47b3ed7fec3b5bd} 
+const uint8\+\_\+t {\bfseries UWB\+\_\+\+EXCHANGE\+\_\+\+LED} = 2
+\begin{DoxyCompactList}\small\item\em GPIO pin used for UWB exchange indication LED. \end{DoxyCompactList}\item 
+\Hypertarget{interface_8h_a149d05ab28107adb7036e0a8a8fcf711}\label{interface_8h_a149d05ab28107adb7036e0a8a8fcf711} 
+const uint8\+\_\+t {\bfseries ERROR\+\_\+\+LED} = 2
+\begin{DoxyCompactList}\small\item\em GPIO pin used for error indication LED. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface utilities for LEDs and basic hardware feedback. 
+
+This header defines constants and public functions used to control the onboard LEDs for status indication.
+
+It provides:\+
+\begin{DoxyItemize}
+\item Pin assignments for UWB exchange and error indication LEDs
+\item Initialization and control functions for the LEDs 
+\end{DoxyItemize}

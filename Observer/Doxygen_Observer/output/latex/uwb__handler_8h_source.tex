@@ -1,44 +1,45 @@
 \doxysection{uwb\+\_\+handler.\+h}
 \hypertarget{uwb__handler_8h_source}{}\label{uwb__handler_8h_source}\index{include/uwb\_handler.h@{include/uwb\_handler.h}}
-
+\doxymbox{\hyperlink{uwb__handler_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ UWB\_HANDLER\_H}}
-\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ UWB\_HANDLER\_H}}
-\DoxyCodeLine{00003\ }
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <SPI.h>}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}DW1000Ranging.h"{}}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}observer\_config.h"{}}}
-\DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ UWB\_ADDRESS\_LENGTH\ 8}}
-\DoxyCodeLine{00009\ }
-\DoxyCodeLine{00010\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ uint8\_t\ uwb\_addresses\_from\_LGH[NUMBER\_OF\_LIGHTHOUSES][UWB\_ADDRESS\_LENGTH];}
+\DoxyCodeLine{00001\ }
 \DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ \textcolor{comment}{//\ connection\ pins}}
-\DoxyCodeLine{00013\ \textcolor{keyword}{const}\ int8\_t\ PIN\_RST\ =\ 22;\ \ \textcolor{comment}{//\ reset\ pin}}
-\DoxyCodeLine{00014\ \textcolor{keyword}{const}\ int8\_t\ PIN\_IRQ\ =\ 33;\ \ \ \textcolor{comment}{//\ irq\ pin}}
-\DoxyCodeLine{00015\ \textcolor{keyword}{const}\ int8\_t\ PIN\_SS\ =\ 5;\ \ \ \ \textcolor{comment}{//\ spi\ select\ pin}}
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \textcolor{keyword}{const}\ int8\_t\ PIN\_MOSI\ =\ 23;}
-\DoxyCodeLine{00018\ \textcolor{keyword}{const}\ int8\_t\ PIN\_MISO\ =\ 19;}
-\DoxyCodeLine{00019\ \textcolor{keyword}{const}\ int8\_t\ PIN\_SCK\ =\ 18;}
-\DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ uwb\_address[24];}
-\DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ \textcolor{keyword}{extern}\ uint8\_t\ uwb\_enable;}
-\DoxyCodeLine{00024\ }
-\DoxyCodeLine{00025\ \textcolor{comment}{//\ Public}}
-\DoxyCodeLine{00026\ \textcolor{keywordtype}{void}\ Initialize\_UWB();}
-\DoxyCodeLine{00027\ \textcolor{keywordtype}{void}\ Update\_UWB();}
-\DoxyCodeLine{00028\ uint8\_t\ Is\_UWB\_Enabled();}
-\DoxyCodeLine{00029\ \textcolor{keywordtype}{void}\ Disable\_UWB();}
-\DoxyCodeLine{00030\ \textcolor{keywordtype}{void}\ Enable\_UWB();}
-\DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \textcolor{comment}{//\ Private}}
-\DoxyCodeLine{00033\ \textcolor{keywordtype}{void}\ \_new\_range();}
-\DoxyCodeLine{00034\ \textcolor{keywordtype}{void}\ \_new\_device(DW1000Device*\ device);}
-\DoxyCodeLine{00035\ \textcolor{keywordtype}{void}\ \_inactive\_device(DW1000Device*\ device);}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ }
-\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifndef\ UWB\_HANDLER\_H}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ UWB\_HANDLER\_H}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <SPI.h>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}DW1000Ranging.h"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{observer__config_8h}{observer\_config.h}}"{}}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ UWB\_ADDRESS\_LENGTH\ 8}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ uint8\_t\ uwb\_addresses\_from\_LGH[\doxymbox{\hyperlink{observer__config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\_OF\_LIGHTHOUSES}}][\doxymbox{\hyperlink{uwb__handler_8h_a15236c379a8dd007a21e6820cacba528}{UWB\_ADDRESS\_LENGTH}}];}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{const}\ int8\_t\ PIN\_RST\ =\ 22;\ \ \textcolor{comment}{//\ reset\ pin}}
+\DoxyCodeLine{00041\ \textcolor{keyword}{const}\ int8\_t\ PIN\_IRQ\ =\ 33;\ \ \ \textcolor{comment}{//\ irq\ pin}}
+\DoxyCodeLine{00042\ \textcolor{keyword}{const}\ int8\_t\ PIN\_SS\ =\ 5;\ \ \ \ \textcolor{comment}{//\ spi\ select\ pin}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{const}\ int8\_t\ PIN\_MOSI\ =\ 23;}
+\DoxyCodeLine{00045\ \textcolor{keyword}{const}\ int8\_t\ PIN\_MISO\ =\ 19;}
+\DoxyCodeLine{00046\ \textcolor{keyword}{const}\ int8\_t\ PIN\_SCK\ =\ 18;}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ uwb\_address[24];}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{extern}\ uint8\_t\ uwb\_enable;}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{comment}{//\ Public}}
+\DoxyCodeLine{00054\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{uwb__handler_8h_aab700044d1c1eff50a15b9325e4d8905}{Initialize\_UWB}}();}
+\DoxyCodeLine{00055\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{uwb__handler_8h_a04eefed7c7b89a87942a682f4b079f79}{Update\_UWB}}();}
+\DoxyCodeLine{00056\ uint8\_t\ \doxymbox{\hyperlink{uwb__handler_8h_a8f0a8e7a4ece1a0afd7beac4a1f08032}{Is\_UWB\_Enabled}}();}
+\DoxyCodeLine{00057\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{uwb__handler_8h_a11c90ba8c4e89bb52cbe853b4b126e55}{Disable\_UWB}}();}
+\DoxyCodeLine{00058\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{uwb__handler_8h_a94baa2c6f8c48fb29a6455f0271fb588}{Enable\_UWB}}();}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{comment}{//\ Private}}
+\DoxyCodeLine{00061\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{uwb__handler_8h_aa7bdee499d273973f46132f0f090bc92}{\_new\_range}}();}
+\DoxyCodeLine{00062\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{uwb__handler_8h_a130e39040f943b0c4a465cbda92715a1}{\_new\_device}}(DW1000Device*\ device);}
+\DoxyCodeLine{00063\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{uwb__handler_8h_a9fe894aa59b24a7055ba350c1faa18c1}{\_inactive\_device}}(DW1000Device*\ device);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

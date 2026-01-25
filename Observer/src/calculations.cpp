@@ -16,6 +16,15 @@ float ATB_vector[3] = {0};
 float solution_vector[3] = {0};
 
 // Public
+
+/**
+ * @brief Build constant matrices used for position estimation.
+ *
+ * @details
+ * Creates matrices A, Aᵀ, AᵀA and its inverse, as well as constants for B vector
+ * based on lighthouse positions. This is required before running position
+ * estimation.
+ */
 void Build_Constant_Matrices(){
     _build_a_matrix();
     _build_at_matrix();
@@ -27,6 +36,13 @@ void Build_Constant_Matrices(){
     _build_b_vector_constants();
 }
 
+/**
+ * @brief Estimate current position using least squares method.
+ *
+ * @details
+ * Averages measurements, builds B vector, computes AᵀB, solves for position
+ * and resets measurement buffers.
+ */
 void Estimate_Position(){
     _average_results();
     _build_b_vector();
@@ -35,17 +51,33 @@ void Estimate_Position(){
     _flush_distance_measurements();
 }
 
+/**
+ * @brief Update accumulated distance measurement for a lighthouse.
+ *
+ * @param lgh_index Index of the lighthouse.
+ * @param new_distance Newly measured distance value.
+ *
+ * @details
+ * Adds the distance to the running sum and increments the measurement counter,
+ * if it is within allowed limits.
+ */
 void Update_Distance_To_LGH(uint8_t lgh_index, float new_distance){
     if (distances_measurements_completed[lgh_index] > MAXIMUM_MEASUREMENT_PER_LGH){
         return;
     }
-    if (new_distance > THEORETICAL_MAX_DISTANCE || new_distance < -THEORETICAL_MAX_DISTANCE){
+    if (new_distance > THEORETICAL_MAX_DISTANCE || new_distance < 0.0f){
         return;
     }
     distances_to_lghs[lgh_index] += new_distance;
     distances_measurements_completed[lgh_index] += 1;
 }
 
+/**
+ * @brief Get lighthouse index from UWB short address.
+ *
+ * @param short_address UWB short address.
+ * @return Index of the lighthouse, or -1 if not found.
+ */
 int8_t Get_LGH_From_Short_Address(const uint16_t short_address){
     for (uint8_t i=0;i<NUMBER_OF_LIGHTHOUSES;i++){
         const uint8_t* potential_address = uwb_addresses_from_LGH[i];
@@ -56,17 +88,36 @@ int8_t Get_LGH_From_Short_Address(const uint16_t short_address){
     return -1;
 }
 
+/**
+ * @brief Convert long UWB address to short address.
+ *
+ * @param address Pointer to long address array.
+ * @return Short address (first two bytes).
+ */
 uint16_t Get_Short_Address_From_Long(const uint8_t* address){
     uint16_t short_address = address[1]*256 + address[0];
     return short_address;
 }
 
+/**
+ * @brief Update lighthouse position coordinates.
+ *
+ * @param lgh_index Index of the lighthouse.
+ * @param x X coordinate.
+ * @param y Y coordinate.
+ * @param z Z coordinate.
+ */
 void Update_LGH_Position(uint8_t lgh_index, float x, float y, float z){
     lghs_positions[lgh_index].x = x;
     lghs_positions[lgh_index].y = y;
     lghs_positions[lgh_index].z = z;
 }
 
+/**
+ * @brief Check if minimum number of measurements is complete for all lighthouses.
+ *
+ * @return True if all lighthouses have enough measurements, false otherwise.
+ */
 bool Are_Enough_Measurements_Complete() {
     for (int i = 0; i < NUMBER_OF_LIGHTHOUSES; i++) {
         if  (distances_measurements_completed[i] < MINIMUM_MEASUREMENTS_PER_LGH){
@@ -76,13 +127,24 @@ bool Are_Enough_Measurements_Complete() {
     return true;
 }
 
+/**
+ * @brief Handle calculation errors.
+ *
+ * @details
+ * Called when matrix inversion fails or other calculation errors occur.
+ * Turns on the error LED and logs an error message.
+ */
 void Calculations_Error() {
     Serial.printf("CALCULATION ERRROE\n");
     Error_LED_On();
 }
 
 // Private
-#pragma region Obliczenia
+#pragma region Calculations
+
+/**
+ * @brief Build matrix A for position estimation.
+ */
 void _build_a_matrix(){
     float x1 = lghs_positions[0].x, y1 = lghs_positions[0].y, z1 = lghs_positions[0].z;
     for (uint8_t row=0; row<NUMBER_OF_LIGHTHOUSES-1; row++){
@@ -93,6 +155,9 @@ void _build_a_matrix(){
     }
 }
 
+/**
+ * @brief Build matrix Aᵀ (transpose of A).
+ */
 void _build_at_matrix(){
     for (uint8_t row=0; row<NUMBER_OF_LIGHTHOUSES-1; row++){
         for (uint8_t column=0; column<3; column++){
@@ -101,6 +166,9 @@ void _build_at_matrix(){
     }
 }
 
+/**
+ * @brief Build matrix AᵀA.
+ */
 void _build_ata_matrix(){
     for (uint8_t i = 0; i < 3; i++) {
         for (uint8_t j = 0; j < 3; j++) {
@@ -113,7 +181,13 @@ void _build_ata_matrix(){
     }
 }
 
+/**
+ * @brief Invert matrix AᵀA using Gauss-Jordan elimination.
+ *
+ * @return 0 on success, 1 if matrix is singular.
+ */
 uint8_t _build_ata_inv_matrix() {
+    // Nie ma sensu tego rozbijać na oddzielne funkcje.
     uint8_t i, j, k;
     float ratio;
 
@@ -156,6 +230,9 @@ uint8_t _build_ata_inv_matrix() {
     return 0;
 }
 
+/**
+ * @brief Build constants for B vector from lighthouse positions.
+ */
 void _build_b_vector_constants(){
     for (uint8_t j=0; j<NUMBER_OF_LIGHTHOUSES; j++){
         B_vector_constants[j] = -(lghs_positions[j].x)*(lghs_positions[j].x)
@@ -163,6 +240,9 @@ void _build_b_vector_constants(){
     }
 }
 
+/**
+ * @brief Build vector B based on averaged distances.
+ */
 void _build_b_vector(){
     for (uint8_t j=0; j<NUMBER_OF_LIGHTHOUSES-1; j++){
         B_vector[j] = (distances_to_lghs[j+1])*(distances_to_lghs[j+1])
@@ -172,6 +252,9 @@ void _build_b_vector(){
         }
 }
 
+/**
+ * @brief Compute vector AᵀB.
+ */
 void _calculate_atb_vector(){
     uint8_t i, j;
     for (i = 0; i < 3; i++) {
@@ -182,6 +265,9 @@ void _calculate_atb_vector(){
     }
 }
 
+/**
+ * @brief Solve for position vector using (AᵀA)⁻¹AᵀB.
+ */
 void _calculate_solution(){
     uint8_t i, j;
     Serial.printf("Solution\n");
@@ -197,6 +283,9 @@ void _calculate_solution(){
     current_position.z = solution_vector[2];
 }
 
+/**
+ * @brief Average measured distances for each lighthouse.
+ */
 void _average_results() {
     for (int i = 0; i < NUMBER_OF_LIGHTHOUSES; i++) {
         if (distances_measurements_completed[i] == 0){
@@ -206,6 +295,9 @@ void _average_results() {
     }
 }
 
+/**
+ * @brief Reset measurement buffers after position calculation.
+ */
 void _flush_distance_measurements(){
     for (int i = 0; i < NUMBER_OF_LIGHTHOUSES; i++) {
         distances_measurements_completed[i] = 0;

@@ -1,38 +1,41 @@
 \doxysection{observer\+\_\+config.\+h}
 \hypertarget{observer__config_8h_source}{}\label{observer__config_8h_source}\index{include/observer\_config.h@{include/observer\_config.h}}
-
+\doxymbox{\hyperlink{observer__config_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ OBSERVER\_CONFIG\_H}}
-\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ OBSERVER\_CONFIG\_H}}
-\DoxyCodeLine{00003\ }
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#define\ NUMBER\_OF\_LIGHTHOUSES\ 4}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#define\ SAILOR\_ID\ 169}}
-\DoxyCodeLine{00006\ }
-\DoxyCodeLine{00007\ \textcolor{keyword}{enum}\ Timer\_Callbacks\ \{}
-\DoxyCodeLine{00008\ \ \ ACK,}
-\DoxyCodeLine{00009\ \};}
-\DoxyCodeLine{00010\ }
-\DoxyCodeLine{00011\ \textcolor{keyword}{enum}\ Sailor\_Commands\ \{}
-\DoxyCodeLine{00012\ \ \ \ \ cmd\_s\_1\ =\ 0,}
-\DoxyCodeLine{00013\ \};}
-\DoxyCodeLine{00014\ }
-\DoxyCodeLine{00015\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_position}{Position}}\ \{}
-\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{float}\ x;}
-\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{float}\ y;}
-\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{float}\ z;}
-\DoxyCodeLine{00019\ \}\ \doxymbox{\hyperlink{struct_position}{Position}};}
-\DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
-\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <WiFi.h>}}
-\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <esp\_now.h>}}
-\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}state\_machine.h"{}}}
-\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ "{}timing.h"{}}}
-\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ "{}sailor\_comm.h"{}}}
-\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ "{}communication.h"{}}}
-\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ "{}uwb\_handler.h"{}}}
-\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ "{}calculations.h"{}}}
-\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ "{}interface.h"{}}}
-\DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#ifndef\ OBSERVER\_CONFIG\_H}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ OBSERVER\_CONFIG\_H}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ NUMBER\_OF\_LIGHTHOUSES\ 4}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ SAILOR\_ID\ 169}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{enum}\ \doxymbox{\hyperlink{observer__config_8h_aa4cfa56f0ecbc0a890da7fb57c15ee75}{Timer\_Callbacks}}\ \{}
+\DoxyCodeLine{00034\ \ \ ACK,}
+\DoxyCodeLine{00035\ \};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{enum}\ \doxymbox{\hyperlink{observer__config_8h_a73222a5e9df2661ab3e21f5dcec68f07}{Sailor\_Commands}}\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ cmd\_s\_1\ =\ 0,}
+\DoxyCodeLine{00042\ \};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_position}{Position}}\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{float}\ x;}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{float}\ y;}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{float}\ z;}
+\DoxyCodeLine{00051\ \}\ \doxymbox{\hyperlink{struct_position}{Position}};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#include\ <WiFi.h>}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#include\ <esp\_now.h>}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{state__machine_8h}{state\_machine.h}}"{}}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{timing_8h}{timing.h}}"{}}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{sailor__comm_8h}{sailor\_comm.h}}"{}}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{communication_8h}{communication.h}}"{}}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{uwb__handler_8h}{uwb\_handler.h}}"{}}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{calculations_8h}{calculations.h}}"{}}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{interface_8h}{interface.h}}"{}}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

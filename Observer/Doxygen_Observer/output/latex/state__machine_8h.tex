@@ -1,0 +1,248 @@
+\doxysection{include/\+state\+\_\+machine.h File Reference}
+\hypertarget{state__machine_8h}{}\label{state__machine_8h}\index{include/state\_machine.h@{include/state\_machine.h}}
+
+
+State machine interface for the observer.  
+
+
+{\ttfamily \+\#include "{}observer\+\_\+config.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{struct_state___data}{State\+\_\+\+Data}}
+\begin{DoxyCompactList}\small\item\em Holds data required by the state machine during runtime. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{state__machine_8h_a808e5cd4979462d3bbe3070d7d147444}\label{state__machine_8h_a808e5cd4979462d3bbe3070d7d147444} 
+enum \doxymbox{\hyperlink{state__machine_8h_a808e5cd4979462d3bbe3070d7d147444}{States}} \{ {\bfseries INITIAL} = 0
+, {\bfseries QUERY\+\_\+\+POSITIONS} = 1
+, {\bfseries QUERY\+\_\+\+DISTANCES} = 2
+ \}
+\begin{DoxyCompactList}\small\item\em Possible states of the observer state machine. \end{DoxyCompactList}\item 
+\Hypertarget{state__machine_8h_a0046ae703fbe4cbac532df113f7e1fc7}\label{state__machine_8h_a0046ae703fbe4cbac532df113f7e1fc7} 
+enum \doxymbox{\hyperlink{state__machine_8h_a0046ae703fbe4cbac532df113f7e1fc7}{State\+\_\+\+Machine\+\_\+\+Errors}} \{ {\bfseries INEXISTING\+\_\+\+STATE}
+, {\bfseries WRONG\+\_\+\+TRANSITION}
+ \}
+\begin{DoxyCompactList}\small\item\em Errors that can occur within the state machine. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{state__machine_8h_a952256c805158cd01d13e26aeede53dd}{Reset\+\_\+\+And\+\_\+\+Initialize\+\_\+\+Machine}} ()
+\begin{DoxyCompactList}\small\item\em Resets the state machine to the initial state and triggers the enter handler. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{state__machine_8h_a12942010c251953aea13d2119547d0f9}{State\+\_\+\+Machine\+\_\+\+Error}} (\doxymbox{\hyperlink{state__machine_8h_a0046ae703fbe4cbac532df113f7e1fc7}{State\+\_\+\+Machine\+\_\+\+Errors}} error)
+\begin{DoxyCompactList}\small\item\em Handles errors inside the state machine. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{state__machine_8h_a1a9296a39f8c1f0afa308b5e0f918460}{Change\+\_\+\+State}} (\doxymbox{\hyperlink{state__machine_8h_a808e5cd4979462d3bbe3070d7d147444}{States}} new\+\_\+state)
+\begin{DoxyCompactList}\small\item\em Changes the current state and calls exit/\+enter handlers. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{state__machine_8h_a5689faefface91a7e9643535e3eab804}{State\+\_\+\+Enter}} ()
+\begin{DoxyCompactList}\small\item\em Calls the enter handler of the current state. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{state__machine_8h_abf94f659c04b19a179eb62c3d404bea4}{State\+\_\+\+Receive\+Callback}} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, int data\+Len)
+\begin{DoxyCompactList}\small\item\em Dispatches received ESP-\/\+NOW messages to the current state\textquotesingle{}s handler. \end{DoxyCompactList}\item 
+\Hypertarget{state__machine_8h_a9f6bb2f9271d4881e6ba0e68557a36fb}\label{state__machine_8h_a9f6bb2f9271d4881e6ba0e68557a36fb} 
+void {\bfseries State\+\_\+\+Sent\+Callback} ()
+\begin{DoxyCompactList}\small\item\em Dispatches send completion callbacks to the current state. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{state__machine_8h_ae2927e73994faff2d9a6259093d82e73}{State\+\_\+\+Timer\+Callback}} (\doxymbox{\hyperlink{observer__config_8h_aa4cfa56f0ecbc0a890da7fb57c15ee75}{Timer\+\_\+\+Callbacks}} timer\+\_\+callback)
+\begin{DoxyCompactList}\small\item\em Dispatches timer callbacks to the current state. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{state__machine_8h_a7787e817203330dd9e3c206749e78a8d}{State\+\_\+\+Sailor\+Command}} (\doxymbox{\hyperlink{observer__config_8h_a73222a5e9df2661ab3e21f5dcec68f07}{Sailor\+\_\+\+Commands}} command)
+\begin{DoxyCompactList}\small\item\em Dispatches Sailor commands to the current state. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{state__machine_8h_a2ce878086a38c315b67b49ba8b754ad5}{State\+\_\+\+UWB\+\_\+\+New\+\_\+\+Range}} (uint16\+\_\+t device, float range, float rx\+\_\+power)
+\begin{DoxyCompactList}\small\item\em Dispatches UWB ranging updates to the current state. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{state__machine_8h_a4c475b004ad7225235b664c233f22a85}{State\+\_\+\+Exit}} ()
+\begin{DoxyCompactList}\small\item\em Calls the exit handler of the current state. \end{DoxyCompactList}\item 
+void {\bfseries Initial\+\_\+\+Enter} ()
+\item 
+void {\bfseries Initial\+\_\+\+Receive\+Callback} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, int data\+Len)
+\item 
+void {\bfseries Initial\+\_\+\+Sent\+Callback} ()
+\item 
+void {\bfseries Initial\+\_\+\+Timer\+Callback} (\doxymbox{\hyperlink{observer__config_8h_aa4cfa56f0ecbc0a890da7fb57c15ee75}{Timer\+\_\+\+Callbacks}} timer\+\_\+callback)
+\item 
+void {\bfseries Initial\+\_\+\+Sailor\+Command} (\doxymbox{\hyperlink{observer__config_8h_a73222a5e9df2661ab3e21f5dcec68f07}{Sailor\+\_\+\+Commands}} command)
+\item 
+void {\bfseries Initial\+\_\+\+UWB\+\_\+\+New\+\_\+\+Range} (uint16\+\_\+t device, float range, float rx\+\_\+power)
+\item 
+void {\bfseries Initial\+\_\+\+Exit} ()
+\item 
+void {\bfseries Query\+\_\+\+Positions\+\_\+\+Enter} ()
+\item 
+void {\bfseries Query\+\_\+\+Positions\+\_\+\+Receive\+Callback} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, int data\+Len)
+\item 
+void {\bfseries Query\+\_\+\+Positions\+\_\+\+Sent\+Callback} ()
+\item 
+void {\bfseries Query\+\_\+\+Positions\+\_\+\+Timer\+Callback} (\doxymbox{\hyperlink{observer__config_8h_aa4cfa56f0ecbc0a890da7fb57c15ee75}{Timer\+\_\+\+Callbacks}} timer\+\_\+callback)
+\item 
+void {\bfseries Query\+\_\+\+Positions\+\_\+\+Sailor\+Command} (\doxymbox{\hyperlink{observer__config_8h_a73222a5e9df2661ab3e21f5dcec68f07}{Sailor\+\_\+\+Commands}} command)
+\item 
+void {\bfseries Query\+\_\+\+Positions\+\_\+\+UWB\+\_\+\+New\+\_\+\+Range} (uint16\+\_\+t device, float range, float rx\+\_\+power)
+\item 
+void {\bfseries Query\+\_\+\+Positions\+\_\+\+Exit} ()
+\item 
+void {\bfseries Query\+\_\+\+Distances\+\_\+\+Enter} ()
+\item 
+void {\bfseries Query\+\_\+\+Distances\+\_\+\+Receive\+Callback} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, int data\+Len)
+\item 
+void {\bfseries Query\+\_\+\+Distances\+\_\+\+Sent\+Callback} ()
+\item 
+void {\bfseries Query\+\_\+\+Distances\+\_\+\+Timer\+Callback} (\doxymbox{\hyperlink{observer__config_8h_aa4cfa56f0ecbc0a890da7fb57c15ee75}{Timer\+\_\+\+Callbacks}} timer\+\_\+callback)
+\item 
+void {\bfseries Query\+\_\+\+Distances\+\_\+\+Sailor\+Command} (\doxymbox{\hyperlink{observer__config_8h_a73222a5e9df2661ab3e21f5dcec68f07}{Sailor\+\_\+\+Commands}} command)
+\item 
+void {\bfseries Query\+\_\+\+Distances\+\_\+\+UWB\+\_\+\+New\+\_\+\+Range} (uint16\+\_\+t device, float range, float rx\+\_\+power)
+\item 
+void {\bfseries Query\+\_\+\+Distances\+\_\+\+Exit} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{state__machine_8h_a11e8f6a8672bf3ecef6e9a5c6c1e5e90}\label{state__machine_8h_a11e8f6a8672bf3ecef6e9a5c6c1e5e90} 
+const uint8\+\_\+t {\bfseries MAX\+\_\+\+ACK\+\_\+\+NUMBER} = 5
+\begin{DoxyCompactList}\small\item\em Maximum number of ACK retries. \end{DoxyCompactList}\item 
+\Hypertarget{state__machine_8h_ad22ce002ddbdd2937fb1e247570604f4}\label{state__machine_8h_ad22ce002ddbdd2937fb1e247570604f4} 
+\doxymbox{\hyperlink{state__machine_8h_a808e5cd4979462d3bbe3070d7d147444}{States}} {\bfseries current\+\_\+state}
+\begin{DoxyCompactList}\small\item\em Maximum number of ACK retries. \end{DoxyCompactList}\item 
+\Hypertarget{state__machine_8h_a783bf04e53d56d2af0be345f7ea46b3f}\label{state__machine_8h_a783bf04e53d56d2af0be345f7ea46b3f} 
+\doxymbox{\hyperlink{struct_state___data}{State\+\_\+\+Data}} {\bfseries current\+\_\+state\+\_\+data}
+\begin{DoxyCompactList}\small\item\em Global state data used by the state machine. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+State machine interface for the observer. 
+
+This header defines the state machine for the observer device. It includes:\+
+\begin{DoxyItemize}
+\item Definitions of possible states
+\item Error types for state transitions
+\item Global state data and current state tracking
+\item Declarations of public state machine API functions
+\item Declarations of state-\/specific handlers (enter, exit, callbacks) 
+\end{DoxyItemize}
+
+\label{doc-func-members}
+\Hypertarget{state__machine_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{state__machine_8h_a1a9296a39f8c1f0afa308b5e0f918460}\index{state\_machine.h@{state\_machine.h}!Change\_State@{Change\_State}}
+\index{Change\_State@{Change\_State}!state\_machine.h@{state\_machine.h}}
+\doxysubsubsection{\texorpdfstring{Change\_State()}{Change\_State()}}
+{\footnotesize\ttfamily \label{state__machine_8h_a1a9296a39f8c1f0afa308b5e0f918460} 
+void Change\+\_\+\+State (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{state__machine_8h_a808e5cd4979462d3bbe3070d7d147444}{States}}}]{new\+\_\+state}{}\end{DoxyParamCaption})}
+
+
+
+Changes the current state and calls exit/\+enter handlers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+state} & The state to switch to.\\
+\hline
+\end{DoxyParams}
+This function calls the current state\textquotesingle{}s exit handler, changes the state, and then calls the new state\textquotesingle{}s enter handler. \Hypertarget{state__machine_8h_a952256c805158cd01d13e26aeede53dd}\index{state\_machine.h@{state\_machine.h}!Reset\_And\_Initialize\_Machine@{Reset\_And\_Initialize\_Machine}}
+\index{Reset\_And\_Initialize\_Machine@{Reset\_And\_Initialize\_Machine}!state\_machine.h@{state\_machine.h}}
+\doxysubsubsection{\texorpdfstring{Reset\_And\_Initialize\_Machine()}{Reset\_And\_Initialize\_Machine()}}
+{\footnotesize\ttfamily \label{state__machine_8h_a952256c805158cd01d13e26aeede53dd} 
+void Reset\+\_\+\+And\+\_\+\+Initialize\+\_\+\+Machine (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Resets the state machine to the initial state and triggers the enter handler. 
+
+This function sets the current state to {\ttfamily INITIAL}, clears state data and calls {\ttfamily \doxylink{state__machine_8h_a5689faefface91a7e9643535e3eab804}{State\+\_\+\+Enter()}} to run the initial state\textquotesingle{}s enter handler. \Hypertarget{state__machine_8h_a5689faefface91a7e9643535e3eab804}\index{state\_machine.h@{state\_machine.h}!State\_Enter@{State\_Enter}}
+\index{State\_Enter@{State\_Enter}!state\_machine.h@{state\_machine.h}}
+\doxysubsubsection{\texorpdfstring{State\_Enter()}{State\_Enter()}}
+{\footnotesize\ttfamily \label{state__machine_8h_a5689faefface91a7e9643535e3eab804} 
+void State\+\_\+\+Enter (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Calls the enter handler of the current state. 
+
+Based on the current state, this function dispatches the call to the appropriate {\ttfamily \texorpdfstring{$\ast$}{*}\+\_\+\+Enter()} function. \Hypertarget{state__machine_8h_a4c475b004ad7225235b664c233f22a85}\index{state\_machine.h@{state\_machine.h}!State\_Exit@{State\_Exit}}
+\index{State\_Exit@{State\_Exit}!state\_machine.h@{state\_machine.h}}
+\doxysubsubsection{\texorpdfstring{State\_Exit()}{State\_Exit()}}
+{\footnotesize\ttfamily \label{state__machine_8h_a4c475b004ad7225235b664c233f22a85} 
+void State\+\_\+\+Exit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Calls the exit handler of the current state. 
+
+Based on the current state, this function dispatches the call to the appropriate {\ttfamily \texorpdfstring{$\ast$}{*}\+\_\+\+Exit()} function. \Hypertarget{state__machine_8h_a12942010c251953aea13d2119547d0f9}\index{state\_machine.h@{state\_machine.h}!State\_Machine\_Error@{State\_Machine\_Error}}
+\index{State\_Machine\_Error@{State\_Machine\_Error}!state\_machine.h@{state\_machine.h}}
+\doxysubsubsection{\texorpdfstring{State\_Machine\_Error()}{State\_Machine\_Error()}}
+{\footnotesize\ttfamily \label{state__machine_8h_a12942010c251953aea13d2119547d0f9} 
+void State\+\_\+\+Machine\+\_\+\+Error (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{state__machine_8h_a0046ae703fbe4cbac532df113f7e1fc7}{State\+\_\+\+Machine\+\_\+\+Errors}}}]{error}{}\end{DoxyParamCaption})}
+
+
+
+Handles errors inside the state machine. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em error} & Error type to report. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{state__machine_8h_abf94f659c04b19a179eb62c3d404bea4}\index{state\_machine.h@{state\_machine.h}!State\_ReceiveCallback@{State\_ReceiveCallback}}
+\index{State\_ReceiveCallback@{State\_ReceiveCallback}!state\_machine.h@{state\_machine.h}}
+\doxysubsubsection{\texorpdfstring{State\_ReceiveCallback()}{State\_ReceiveCallback()}}
+{\footnotesize\ttfamily \label{state__machine_8h_abf94f659c04b19a179eb62c3d404bea4} 
+void State\+\_\+\+Receive\+Callback (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{int}]{data\+Len}{}\end{DoxyParamCaption})}
+
+
+
+Dispatches received ESP-\/\+NOW messages to the current state\textquotesingle{}s handler. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointer to received data buffer. \\
+\hline
+{\em data\+Len} & Length of received data. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{state__machine_8h_a7787e817203330dd9e3c206749e78a8d}\index{state\_machine.h@{state\_machine.h}!State\_SailorCommand@{State\_SailorCommand}}
+\index{State\_SailorCommand@{State\_SailorCommand}!state\_machine.h@{state\_machine.h}}
+\doxysubsubsection{\texorpdfstring{State\_SailorCommand()}{State\_SailorCommand()}}
+{\footnotesize\ttfamily \label{state__machine_8h_a7787e817203330dd9e3c206749e78a8d} 
+void State\+\_\+\+Sailor\+Command (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{observer__config_8h_a73222a5e9df2661ab3e21f5dcec68f07}{Sailor\+\_\+\+Commands}}}]{command}{}\end{DoxyParamCaption})}
+
+
+
+Dispatches Sailor commands to the current state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & The command received from Sailor. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{state__machine_8h_ae2927e73994faff2d9a6259093d82e73}\index{state\_machine.h@{state\_machine.h}!State\_TimerCallback@{State\_TimerCallback}}
+\index{State\_TimerCallback@{State\_TimerCallback}!state\_machine.h@{state\_machine.h}}
+\doxysubsubsection{\texorpdfstring{State\_TimerCallback()}{State\_TimerCallback()}}
+{\footnotesize\ttfamily \label{state__machine_8h_ae2927e73994faff2d9a6259093d82e73} 
+void State\+\_\+\+Timer\+Callback (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{observer__config_8h_aa4cfa56f0ecbc0a890da7fb57c15ee75}{Timer\+\_\+\+Callbacks}}}]{timer\+\_\+callback}{}\end{DoxyParamCaption})}
+
+
+
+Dispatches timer callbacks to the current state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em timer\+\_\+callback} & The timer callback type. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{state__machine_8h_a2ce878086a38c315b67b49ba8b754ad5}\index{state\_machine.h@{state\_machine.h}!State\_UWB\_New\_Range@{State\_UWB\_New\_Range}}
+\index{State\_UWB\_New\_Range@{State\_UWB\_New\_Range}!state\_machine.h@{state\_machine.h}}
+\doxysubsubsection{\texorpdfstring{State\_UWB\_New\_Range()}{State\_UWB\_New\_Range()}}
+{\footnotesize\ttfamily \label{state__machine_8h_a2ce878086a38c315b67b49ba8b754ad5} 
+void State\+\_\+\+UWB\+\_\+\+New\+\_\+\+Range (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{device}{, }\item[{float}]{range}{, }\item[{float}]{rx\+\_\+power}{}\end{DoxyParamCaption})}
+
+
+
+Dispatches UWB ranging updates to the current state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Short address of the device. \\
+\hline
+{\em range} & Measured distance. \\
+\hline
+{\em rx\+\_\+power} & Received power level. \\
+\hline
+\end{DoxyParams}

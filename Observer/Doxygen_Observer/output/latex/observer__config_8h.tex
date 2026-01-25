@@ -1,0 +1,62 @@
+\doxysection{include/\+observer\+\_\+config.h File Reference}
+\hypertarget{observer__config_8h}{}\label{observer__config_8h}\index{include/observer\_config.h@{include/observer\_config.h}}
+
+
+Global configuration and shared type definitions.  
+
+
+{\ttfamily \+\#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \+\#include $<$Wi\+Fi.\+h$>$}\newline
+{\ttfamily \+\#include $<$esp\+\_\+now.\+h$>$}\newline
+{\ttfamily \+\#include "{}state\+\_\+machine.\+h"{}}\newline
+{\ttfamily \+\#include "{}timing.\+h"{}}\newline
+{\ttfamily \+\#include "{}sailor\+\_\+comm.\+h"{}}\newline
+{\ttfamily \+\#include "{}communication.\+h"{}}\newline
+{\ttfamily \+\#include "{}uwb\+\_\+handler.\+h"{}}\newline
+{\ttfamily \+\#include "{}calculations.\+h"{}}\newline
+{\ttfamily \+\#include "{}interface.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{struct_position}{Position}}
+\begin{DoxyCompactList}\small\item\em 3D position structure used throughout the system. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{observer__config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}\label{observer__config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4} 
+\+\#define {\bfseries NUMBER\+\_\+\+OF\+\_\+\+LIGHTHOUSES}~4
+\begin{DoxyCompactList}\small\item\em Total number of lighthouses in the system. \end{DoxyCompactList}\item 
+\Hypertarget{observer__config_8h_ab564064e68dd3aeca7b2a6e2269187e8}\label{observer__config_8h_ab564064e68dd3aeca7b2a6e2269187e8} 
+\+\#define {\bfseries SAILOR\+\_\+\+ID}~169
+\begin{DoxyCompactList}\small\item\em Unique ID of this device (sailor). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{observer__config_8h_aa78012e27ba983f9620fe4ff4bf1d616}\label{observer__config_8h_aa78012e27ba983f9620fe4ff4bf1d616} 
+typedef struct Position {\bfseries Position}
+\begin{DoxyCompactList}\small\item\em 3D position structure used throughout the system. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{observer__config_8h_aa4cfa56f0ecbc0a890da7fb57c15ee75}\label{observer__config_8h_aa4cfa56f0ecbc0a890da7fb57c15ee75} 
+enum \doxymbox{\hyperlink{observer__config_8h_aa4cfa56f0ecbc0a890da7fb57c15ee75}{Timer\+\_\+\+Callbacks}} \{ {\bfseries ACK}
+ \}
+\begin{DoxyCompactList}\small\item\em Timer callback identifiers. \end{DoxyCompactList}\item 
+\Hypertarget{observer__config_8h_a73222a5e9df2661ab3e21f5dcec68f07}\label{observer__config_8h_a73222a5e9df2661ab3e21f5dcec68f07} 
+enum \doxymbox{\hyperlink{observer__config_8h_a73222a5e9df2661ab3e21f5dcec68f07}{Sailor\+\_\+\+Commands}} \{ {\bfseries cmd\+\_\+s\+\_\+1} = 0
+ \}
+\begin{DoxyCompactList}\small\item\em Commands available to the sailor device. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Global configuration and shared type definitions. 
+
+This header defines global constants, enums, and shared structures used across the project. It also includes all other module headers to ensure consistent access to configuration and interfaces.
+
+It provides:\+
+\begin{DoxyItemize}
+\item Global system constants (e.\+g., number of lighthouses, device ID)
+\item Shared data structures (e.\+g., \doxylink{struct_position}{Position})
+\item Common enums used by multiple modules
+\item Includes for all other project headers 
+\end{DoxyItemize}

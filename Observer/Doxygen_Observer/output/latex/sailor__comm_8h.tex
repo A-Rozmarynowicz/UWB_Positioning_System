@@ -1,0 +1,72 @@
+\doxysection{include/\+sailor\+\_\+comm.h File Reference}
+\hypertarget{sailor__comm_8h}{}\label{sailor__comm_8h}\index{include/sailor\_comm.h@{include/sailor\_comm.h}}
+
+
+Communication interface for the sailor device.  
+
+
+{\ttfamily \+\#include "{}observer\+\_\+config.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{sailor__comm_8h_ae1ad867a9a9fbd2bae173efb8ba2c7d8}\label{sailor__comm_8h_ae1ad867a9a9fbd2bae173efb8ba2c7d8} 
+\+\#define {\bfseries SAILOR\+\_\+\+MESSAGE\+\_\+\+SIZE}~16
+\begin{DoxyCompactList}\small\item\em Size of a single sailor message in bytes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{sailor__comm_8h_aa6bebde896efa3196e1e90702de30e53}\label{sailor__comm_8h_aa6bebde896efa3196e1e90702de30e53} 
+enum \doxymbox{\hyperlink{sailor__comm_8h_aa6bebde896efa3196e1e90702de30e53}{Observer\+\_\+\+Info\+\_\+\+Setup}} \{ {\bfseries OBS\+\_\+\+ERROR\+\_\+\+CODE} = 0
+, {\bfseries OBS\+\_\+\+POSITION\+\_\+\+STRUCT} = 4
+ \}
+\begin{DoxyCompactList}\small\item\em Byte offsets for different data fields inside a sailor message. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{sailor__comm_8h_a46c728f1fe4f81bae0799af1683ddfb9}{Initialize\+\_\+\+Sailor\+\_\+\+Comm}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the UART interface used for sailor communication. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{sailor__comm_8h_a1579b379835852fdacdb1feeae60d923}{Send\+\_\+\+Current\+\_\+\+Position}} (\doxymbox{\hyperlink{struct_position}{Position}} \texorpdfstring{$\ast$}{*}current\+\_\+pos)
+\begin{DoxyCompactList}\small\item\em Sends the current position to the observer via UART. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Communication interface for the sailor device. 
+
+This header defines constants and data layout used for sending information from the sailor device to the observer (or other nodes).
+
+It provides:\+
+\begin{DoxyItemize}
+\item Message size constant
+\item Data layout enum for encoding sailor messages
+\item Public function declarations for initialization and sending position 
+\end{DoxyItemize}
+
+\label{doc-func-members}
+\Hypertarget{sailor__comm_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{sailor__comm_8h_a46c728f1fe4f81bae0799af1683ddfb9}\index{sailor\_comm.h@{sailor\_comm.h}!Initialize\_Sailor\_Comm@{Initialize\_Sailor\_Comm}}
+\index{Initialize\_Sailor\_Comm@{Initialize\_Sailor\_Comm}!sailor\_comm.h@{sailor\_comm.h}}
+\doxysubsubsection{\texorpdfstring{Initialize\_Sailor\_Comm()}{Initialize\_Sailor\_Comm()}}
+{\footnotesize\ttfamily \label{sailor__comm_8h_a46c728f1fe4f81bae0799af1683ddfb9} 
+void Initialize\+\_\+\+Sailor\+\_\+\+Comm (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the UART interface used for sailor communication. 
+
+Sets up the Serial2 port with 9600 baud rate and 8N1 configuration. \Hypertarget{sailor__comm_8h_a1579b379835852fdacdb1feeae60d923}\index{sailor\_comm.h@{sailor\_comm.h}!Send\_Current\_Position@{Send\_Current\_Position}}
+\index{Send\_Current\_Position@{Send\_Current\_Position}!sailor\_comm.h@{sailor\_comm.h}}
+\doxysubsubsection{\texorpdfstring{Send\_Current\_Position()}{Send\_Current\_Position()}}
+{\footnotesize\ttfamily \label{sailor__comm_8h_a1579b379835852fdacdb1feeae60d923} 
+void Send\+\_\+\+Current\+\_\+\+Position (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_position}{Position}} \texorpdfstring{$\ast$}{*}}]{current\+\_\+pos}{}\end{DoxyParamCaption})}
+
+
+
+Sends the current position to the observer via UART. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em current\+\_\+pos} & Pointer to the \doxylink{struct_position}{Position} structure containing x, y, z coordinates.\\
+\hline
+\end{DoxyParams}
+The function creates a fixed-\/size message buffer, copies the \doxylink{struct_position}{Position} structure into the correct offset, and sends the full message via Serial2. 

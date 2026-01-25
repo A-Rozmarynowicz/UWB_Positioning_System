@@ -14,3 +14,6 @@ ESP32 podłączone do DWM1000 poprzez SPI, oraz do STM32 poprzez UART.
 - przerwania: tak, od timera, od ESP-NOW, od DWM1000
 - delay: tylko tam gdzie to naprawdę konieczne (restart DWM1000)
 - możliwość wykorzystania kodu w innym projekcie: tak, są oddzielne pliki do obliczania pozycji, do automatu stanów, do timerów itp.
+
+## Link do głównej dokumentacji:
+* - [Dokumentacja](../../../../Doxygen/output/html/index.html)

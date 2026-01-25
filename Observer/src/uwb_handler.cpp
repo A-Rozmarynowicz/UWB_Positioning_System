@@ -11,6 +11,15 @@ const uint8_t uwb_addresses_from_LGH[NUMBER_OF_LIGHTHOUSES][UWB_ADDRESS_LENGTH] 
 uint8_t uwb_enable = 0;
 char uwb_address[24] = "6F:2D:91:8A:C4:73:5E:B0";
 
+/**
+ * @brief Initializes UWB hardware and starts the device as a tag.
+ *
+ * This function:
+ * - Resets the DW1000 module
+ * - Configures SPI interface
+ * - Attaches UWB callbacks
+ * - Starts the UWB module as a tag
+ */
 void Initialize_UWB(){
     pinMode(PIN_RST, OUTPUT);
     digitalWrite(PIN_RST, LOW);
@@ -28,20 +37,42 @@ void Initialize_UWB(){
     DW1000Ranging.startAsTag(uwb_address, DW1000.MODE_LONGDATA_RANGE_ACCURACY, false);
 }
 
+/**
+ * @brief Processes UWB ranging events.
+ *
+ * Must be called regularly in the main loop to keep the UWB stack running.
+ */
 void Update_UWB(){
     DW1000Ranging.loop();
 }
 
+/**
+ * @brief Returns whether UWB is currently enabled.
+ *
+ * @return 1 if enabled, 0 otherwise.
+ */
 uint8_t Is_UWB_Enabled(){return uwb_enable;}
 
+/**
+ * @brief Disables UWB ranging.
+ */
 void Disable_UWB(){
     uwb_enable = 0;
 }
 
+/**
+ * @brief Enables UWB ranging.
+ */
 void Enable_UWB(){
     uwb_enable = 1;
 }
 
+/**
+ * @brief Callback invoked when a new UWB range is received.
+ *
+ * Reads the device short address, range, and RX power, then forwards
+ * the data to the state machine.
+ */
 void _new_range() {
     uint16_t device = DW1000Ranging.getDistantDevice()->getShortAddress();
     float range = DW1000Ranging.getDistantDevice()->getRange();
@@ -54,12 +85,22 @@ void _new_range() {
     // Serial.print("\t RX power: "); Serial.printf("%0.2f", rx_power); Serial.println(" dBm");
 }
 
+/**
+ * @brief Callback invoked when a new UWB device is detected.
+ *
+ * @param device Pointer to the detected DW1000 device.
+ */
 void _new_device(DW1000Device* device) {
   Serial.print("ranging init; 1 device added ! -> ");
   Serial.print(" short:");
   Serial.println(device->getShortAddress(), HEX);
 }
 
+/**
+ * @brief Callback invoked when a previously detected UWB device becomes inactive.
+ *
+ * @param device Pointer to the inactive DW1000 device.
+ */
 void _inactive_device(DW1000Device* device) {
   Serial.print("delete inactive device: ");
   Serial.println(device->getShortAddress(), HEX);

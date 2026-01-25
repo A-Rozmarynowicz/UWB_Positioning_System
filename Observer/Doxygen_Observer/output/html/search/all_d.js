@@ -1,10 +1,8 @@
 var searchData=
 [
-  ['started_0',['Getting started',['../index.html#autotoc_md2',1,'']]],
-  ['state_5fdata_1',['State_Data',['../struct_state___data.html',1,'']]],
-  ['status_2',['Project status',['../index.html#autotoc_md20',1,'']]],
-  ['submodule_20of_20the_20lighthouse_20positioning_20system_3',['Submodule of the Lighthouse Positioning System',['../index.html#autotoc_md1',1,'']]],
-  ['suggestions_20for_20a_20good_20readme_4',['Suggestions for a good README',['../index.html#autotoc_md8',1,'']]],
-  ['support_5',['Support',['../index.html#autotoc_md15',1,'']]],
-  ['system_6',['Submodule of the Lighthouse Positioning System',['../index.html#autotoc_md1',1,'']]]
+  ['observer_0',['Observer',['../index.html#autotoc_md0',1,'']]],
+  ['observer_20documentation_1',['Observer Documentation',['../index.html',1,'']]],
+  ['observer_5fconfig_2eh_2',['observer_config.h',['../observer__config_8h.html',1,'']]],
+  ['observer_5finfo_5fsetup_3',['Observer_Info_Setup',['../sailor__comm_8h.html#aa6bebde896efa3196e1e90702de30e53',1,'sailor_comm.h']]],
+  ['opis_20logiki_4',['Opis logiki',['../index.html#autotoc_md1',1,'']]]
 ];

@@ -91,89 +91,108 @@ $(function(){initNavTree('communication_8h_source.html','',''); });
   <div class="headertitle"><div class="title">communication.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef COMMUNICATION_H</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define COMMUNICATION_H</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;esp_now.h&quot;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;observer_config.h&quot;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define DATA_SIZE 20</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">const</span> uint8_t BROADCAST_RECEIVER_ID = 255;</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">const</span> uint8_t ACK_MESSAGE_COUNT = 5;</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">enum</span> Data_Setup {</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>  RECEIVER_ID = 0,</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>  TRANSMITTER_ID = 1,</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>  COMMAND = 2,</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>  SINGLE_0 = 3,</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>  QUAD_0 = 4,</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>  QUAD_1 = 8,</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>  QUAD_2 = 12,</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>  QUAD_3 = 16,</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>};</div>
+<a href="communication_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#ifndef COMMUNICATION_H</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#define COMMUNICATION_H</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;esp_now.h&quot;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;<a class="code" href="observer__config_8h.html">observer_config.h</a>&quot;</span></div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">enum</span> Data_Commands {</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>  MASTER_LGH_RESET,</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>  ACK_COM,</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>  UWB_START_ANCHORING,</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>  UWB_QUERY_COM,</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  UWB_RESPONSE_COM,</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>  CHANGE_STATE_COM,</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>  QUERY_AVG_RESPONSE_TIME,</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>  RESPOND_AVG_RESPONSE_TIME,</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>  QUERY_DISTANCE,</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>  RESPONSE_DISTANCE,</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>  SET_POSITION,</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>  READY_FOR_OBSERVER,</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>  OBSERVER_QUERY_POSITION,</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  OBSERVER_RESPONSE_POSITION,</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  OBSERVER_QUERY_UWB_ADDRESS,</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  OBSERVER_RESPONSE_UWB_ADDRESS,</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  OBSERVER_ENABLE_UWB,</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>  OBSERVER_WAKEUP_RECKON,</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>};</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">enum</span> Communication_Errors {</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  PROTOCOL_INIT_FAIL,</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  MESSAGE_SEND_FAIL,</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>  DELIVERY_FAIL,</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  ACK_FAIL,</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>};</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="foldopen" id="foldopen00051" data-start="{" data-end="};">
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="struct_ack_status.html">   51</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_ack_status.html">AckStatus</a> {</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>  uint8_t current_ack_index;</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>  uint8_t target_ack_lighthouse;</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>};</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#define DATA_SIZE 20</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">const</span> uint8_t BROADCAST_RECEIVER_ID = 255;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">const</span> uint8_t ACK_MESSAGE_COUNT = 5;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span></div>
+<div class="foldopen" id="foldopen00029" data-start="{" data-end="};">
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="communication_8h.html#a5f7829e71f61d0ac0de6ef57f3556bdd">   29</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="communication_8h.html#a5f7829e71f61d0ac0de6ef57f3556bdd">Data_Setup</a> {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>  RECEIVER_ID = 0,</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>  TRANSMITTER_ID = 1,</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>  COMMAND = 2,</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>  SINGLE_0 = 3,</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>  QUAD_0 = 4,</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>  QUAD_1 = 8,</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>  QUAD_2 = 12,</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  QUAD_3 = 16,</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>};</div>
 </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="keyword">extern</span> <a class="code hl_struct" href="struct_ack_status.html">AckStatus</a> current_ack_status;</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="keyword">extern</span> uint8_t transmit_buffer[DATA_SIZE];</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment">// Public</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="keywordtype">void</span> Initialize_Communication();</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="keyword">namespace </span>MESSAGES {</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">void</span> Send_Query_Position(uint8_t lgh_index);</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordtype">void</span> Send_Wakeup_Reckon();</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>}</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment">// Private</span></div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="keywordtype">void</span> _send_esp();</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keywordtype">void</span> _receive_callback(<span class="keyword">const</span> uint8_t* macAddr, <span class="keyword">const</span> uint8_t* data, <span class="keywordtype">int</span> dataLen);</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="keywordtype">void</span> _sent_callback(<span class="keyword">const</span> uint8_t *macAddr, esp_now_send_status_t status);</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="keywordtype">void</span> _communication_error(Communication_Errors error);</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="astruct_ack_status_html"><div class="ttname"><a href="struct_ack_status.html">AckStatus</a></div><div class="ttdef"><b>Definition</b> communication.h:51</div></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span></div>
+<div class="foldopen" id="foldopen00043" data-start="{" data-end="};">
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="communication_8h.html#a720807528b1dc7575d0e8edca56df577">   43</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="communication_8h.html#a720807528b1dc7575d0e8edca56df577">Data_Commands</a> {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  MASTER_LGH_RESET,</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  ACK_COM,</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  UWB_START_ANCHORING,</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>  UWB_QUERY_COM,</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  UWB_RESPONSE_COM,</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>  CHANGE_STATE_COM,</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>  QUERY_AVG_RESPONSE_TIME,</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  RESPOND_AVG_RESPONSE_TIME,</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>  QUERY_DISTANCE,</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>  RESPONSE_DISTANCE,</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>  SET_POSITION,</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>  READY_FOR_OBSERVER,</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>  OBSERVER_QUERY_POSITION,</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>  OBSERVER_RESPONSE_POSITION,</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>  OBSERVER_QUERY_UWB_ADDRESS,</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>  OBSERVER_RESPONSE_UWB_ADDRESS,</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>  OBSERVER_ENABLE_UWB,</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>  OBSERVER_WAKEUP_RECKON,</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>};</div>
+</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span></div>
+<div class="foldopen" id="foldopen00068" data-start="{" data-end="};">
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="communication_8h.html#a9b79e795e3bb6cdece9ebf16adfb9683">   68</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="communication_8h.html#a9b79e795e3bb6cdece9ebf16adfb9683">Communication_Errors</a> {</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>  PROTOCOL_INIT_FAIL,</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>  MESSAGE_SEND_FAIL,</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>  DELIVERY_FAIL,</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>  ACK_FAIL,</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>};</div>
+</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span></div>
+<div class="foldopen" id="foldopen00078" data-start="{" data-end="};">
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="struct_ack_status.html">   78</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_ack_status.html">AckStatus</a> {</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>  uint8_t current_ack_index;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>  uint8_t target_ack_lighthouse;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>};</div>
+</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="keyword">extern</span> <a class="code hl_struct" href="struct_ack_status.html">AckStatus</a> <a class="code hl_variable" href="communication_8h.html#a709b06b1381f6268b9c79e782dc87393">current_ack_status</a>;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="keyword">extern</span> uint8_t transmit_buffer[DATA_SIZE];</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment">// Public</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="keywordtype">void</span> <a class="code hl_function" href="communication_8h.html#a3b564dd662c5448bcab004e10a1f06eb">Initialize_Communication</a>();</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="keyword">namespace </span>MESSAGES {</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keywordtype">void</span> Send_Query_Position(uint8_t lgh_index);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keywordtype">void</span> Send_Wakeup_Reckon();</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>}</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment">// Private</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="keywordtype">void</span> <a class="code hl_function" href="communication_8h.html#a3cf83a241a1209a64ef0481ef1c320bc">_send_esp</a>();</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="keywordtype">void</span> <a class="code hl_function" href="communication_8h.html#a90cd84e65fc70f7c9b04995f68ef505f">_receive_callback</a>(<span class="keyword">const</span> uint8_t* macAddr, <span class="keyword">const</span> uint8_t* data, <span class="keywordtype">int</span> dataLen);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="keywordtype">void</span> <a class="code hl_function" href="communication_8h.html#a4ec3145a53468061570ad150e3a99749">_sent_callback</a>(<span class="keyword">const</span> uint8_t *macAddr, esp_now_send_status_t status);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="keywordtype">void</span> <a class="code hl_function" href="communication_8h.html#a727a150d05439f0ffd3a9ff198f82e8b">_communication_error</a>(<a class="code hl_enumeration" href="communication_8h.html#a9b79e795e3bb6cdece9ebf16adfb9683">Communication_Errors</a> error);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="acommunication_8h_html_a3b564dd662c5448bcab004e10a1f06eb"><div class="ttname"><a href="communication_8h.html#a3b564dd662c5448bcab004e10a1f06eb">Initialize_Communication</a></div><div class="ttdeci">void Initialize_Communication()</div><div class="ttdoc">Initializes ESP-NOW communication and sets up callbacks.</div><div class="ttdef"><b>Definition</b> communication.cpp:40</div></div>
+<div class="ttc" id="acommunication_8h_html_a3cf83a241a1209a64ef0481ef1c320bc"><div class="ttname"><a href="communication_8h.html#a3cf83a241a1209a64ef0481ef1c320bc">_send_esp</a></div><div class="ttdeci">void _send_esp()</div><div class="ttdoc">Sends the current transmit buffer via ESP-NOW to all peers.</div><div class="ttdef"><b>Definition</b> communication.cpp:63</div></div>
+<div class="ttc" id="acommunication_8h_html_a4ec3145a53468061570ad150e3a99749"><div class="ttname"><a href="communication_8h.html#a4ec3145a53468061570ad150e3a99749">_sent_callback</a></div><div class="ttdeci">void _sent_callback(const uint8_t *macAddr, esp_now_send_status_t status)</div><div class="ttdoc">ESP-NOW send callback.</div><div class="ttdef"><b>Definition</b> communication.cpp:105</div></div>
+<div class="ttc" id="acommunication_8h_html_a5f7829e71f61d0ac0de6ef57f3556bdd"><div class="ttname"><a href="communication_8h.html#a5f7829e71f61d0ac0de6ef57f3556bdd">Data_Setup</a></div><div class="ttdeci">Data_Setup</div><div class="ttdoc">Indices inside the ESP-NOW data packet.</div><div class="ttdef"><b>Definition</b> communication.h:29</div></div>
+<div class="ttc" id="acommunication_8h_html_a709b06b1381f6268b9c79e782dc87393"><div class="ttname"><a href="communication_8h.html#a709b06b1381f6268b9c79e782dc87393">current_ack_status</a></div><div class="ttdeci">AckStatus current_ack_status</div><div class="ttdoc">Current acknowledgement status.</div></div>
+<div class="ttc" id="acommunication_8h_html_a720807528b1dc7575d0e8edca56df577"><div class="ttname"><a href="communication_8h.html#a720807528b1dc7575d0e8edca56df577">Data_Commands</a></div><div class="ttdeci">Data_Commands</div><div class="ttdoc">Commands used in ESP-NOW communication.</div><div class="ttdef"><b>Definition</b> communication.h:43</div></div>
+<div class="ttc" id="acommunication_8h_html_a727a150d05439f0ffd3a9ff198f82e8b"><div class="ttname"><a href="communication_8h.html#a727a150d05439f0ffd3a9ff198f82e8b">_communication_error</a></div><div class="ttdeci">void _communication_error(Communication_Errors error)</div><div class="ttdoc">Handles communication-related errors.</div><div class="ttdef"><b>Definition</b> communication.cpp:125</div></div>
+<div class="ttc" id="acommunication_8h_html_a90cd84e65fc70f7c9b04995f68ef505f"><div class="ttname"><a href="communication_8h.html#a90cd84e65fc70f7c9b04995f68ef505f">_receive_callback</a></div><div class="ttdeci">void _receive_callback(const uint8_t *macAddr, const uint8_t *data, int dataLen)</div><div class="ttdoc">ESP-NOW receive callback.</div><div class="ttdef"><b>Definition</b> communication.cpp:88</div></div>
+<div class="ttc" id="acommunication_8h_html_a9b79e795e3bb6cdece9ebf16adfb9683"><div class="ttname"><a href="communication_8h.html#a9b79e795e3bb6cdece9ebf16adfb9683">Communication_Errors</a></div><div class="ttdeci">Communication_Errors</div><div class="ttdoc">Possible communication errors.</div><div class="ttdef"><b>Definition</b> communication.h:68</div></div>
+<div class="ttc" id="aobserver__config_8h_html"><div class="ttname"><a href="observer__config_8h.html">observer_config.h</a></div><div class="ttdoc">Global configuration and shared type definitions.</div></div>
+<div class="ttc" id="astruct_ack_status_html"><div class="ttname"><a href="struct_ack_status.html">AckStatus</a></div><div class="ttdoc">Acknowledgement status used for tracking message retries.</div><div class="ttdef"><b>Definition</b> communication.h:78</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>include</b></li><li class="navelem"><b>communication.h</b></li>
+    <li class="navelem"><b>include</b></li><li class="navelem"><a href="communication_8h.html">communication.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
   </ul>
 </div>

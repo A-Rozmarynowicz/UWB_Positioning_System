@@ -1,0 +1,260 @@
+\doxysection{include/\+calculations.h File Reference}
+\hypertarget{calculations_8h}{}\label{calculations_8h}\index{include/calculations.h@{include/calculations.h}}
+
+
+\doxylink{struct_position}{Position} estimation and matrix calculations for the observer.  
+
+
+{\ttfamily \+\#include "{}observer\+\_\+config.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{calculations_8h_a7a2fa04650996688338835827b0d56c7}{Estimate\+\_\+\+Position}} ()
+\begin{DoxyCompactList}\small\item\em Estimate current position using least squares method. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{calculations_8h_ac985667216b10e54b0e88601d33fa734}{Build\+\_\+\+Constant\+\_\+\+Matrices}} ()
+\begin{DoxyCompactList}\small\item\em Build constant matrices used for position estimation. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{calculations_8h_ac8376df0589fd6a7127657fc45fd592c}{Update\+\_\+\+Distance\+\_\+\+To\+\_\+\+LGH}} (uint8\+\_\+t lgh\+\_\+index, float new\+\_\+distance)
+\begin{DoxyCompactList}\small\item\em Update accumulated distance measurement for a lighthouse. \end{DoxyCompactList}\item 
+int8\+\_\+t \doxymbox{\hyperlink{calculations_8h_aaec03d82628b31c234ffd2cdcd2274fa}{Get\+\_\+\+LGH\+\_\+\+From\+\_\+\+Short\+\_\+\+Address}} (const uint16\+\_\+t short\+\_\+address)
+\begin{DoxyCompactList}\small\item\em Get lighthouse index from UWB short address. \end{DoxyCompactList}\item 
+uint16\+\_\+t \doxymbox{\hyperlink{calculations_8h_a7f48e88ca77c11dfb6d89a62fc396d8b}{Get\+\_\+\+Short\+\_\+\+Address\+\_\+\+From\+\_\+\+Long}} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}address)
+\begin{DoxyCompactList}\small\item\em Convert long UWB address to short address. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{calculations_8h_ab7300d142d654c9b8fea624398eea7df}{Update\+\_\+\+LGH\+\_\+\+Position}} (uint8\+\_\+t lgh\+\_\+index, float x, float y, float z)
+\begin{DoxyCompactList}\small\item\em Update lighthouse position coordinates. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{calculations_8h_a3ef4e0bfcdf4fa10efb584da2147235a}{Are\+\_\+\+Enough\+\_\+\+Measurements\+\_\+\+Complete}} ()
+\begin{DoxyCompactList}\small\item\em Check if minimum number of measurements is complete for all lighthouses. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{calculations_8h_ad447ce7bef28031cdbd55c3a513483a2}{Calculations\+\_\+\+Error}} ()
+\begin{DoxyCompactList}\small\item\em Handle calculation errors. \end{DoxyCompactList}\item 
+\Hypertarget{calculations_8h_a6604d984ccde7121728d14be943ffe19}\label{calculations_8h_a6604d984ccde7121728d14be943ffe19} 
+void {\bfseries \+\_\+build\+\_\+a\+\_\+matrix} ()
+\begin{DoxyCompactList}\small\item\em Build matrix A for position estimation. \end{DoxyCompactList}\item 
+\Hypertarget{calculations_8h_a7fdeba288f832dca072c55a0d6df13e0}\label{calculations_8h_a7fdeba288f832dca072c55a0d6df13e0} 
+void {\bfseries \+\_\+build\+\_\+at\+\_\+matrix} ()
+\begin{DoxyCompactList}\small\item\em Build matrix Aᵀ (transpose of A). \end{DoxyCompactList}\item 
+\Hypertarget{calculations_8h_a674da9c4deac7ec4b50f00c9641a2424}\label{calculations_8h_a674da9c4deac7ec4b50f00c9641a2424} 
+void {\bfseries \+\_\+build\+\_\+ata\+\_\+matrix} ()
+\begin{DoxyCompactList}\small\item\em Build matrix AᵀA. \end{DoxyCompactList}\item 
+uint8\+\_\+t \doxymbox{\hyperlink{calculations_8h_aa5a7e8e1c3da62d619549c34fd862970}{\+\_\+build\+\_\+ata\+\_\+inv\+\_\+matrix}} ()
+\begin{DoxyCompactList}\small\item\em Invert matrix AᵀA using Gauss-\/\+Jordan elimination. \end{DoxyCompactList}\item 
+\Hypertarget{calculations_8h_a3163d1cb5e6035875f04b4c509147f38}\label{calculations_8h_a3163d1cb5e6035875f04b4c509147f38} 
+void {\bfseries \+\_\+build\+\_\+b\+\_\+vector\+\_\+constants} ()
+\begin{DoxyCompactList}\small\item\em Build constants for B vector from lighthouse positions. \end{DoxyCompactList}\item 
+\Hypertarget{calculations_8h_ad167bb4176a381fe6b6eca0fcf6de8e2}\label{calculations_8h_ad167bb4176a381fe6b6eca0fcf6de8e2} 
+void {\bfseries \+\_\+build\+\_\+b\+\_\+vector} ()
+\begin{DoxyCompactList}\small\item\em Build vector B based on averaged distances. \end{DoxyCompactList}\item 
+\Hypertarget{calculations_8h_af6e8ef3a9a4432ce8ef28f5236a980a4}\label{calculations_8h_af6e8ef3a9a4432ce8ef28f5236a980a4} 
+void {\bfseries \+\_\+calculate\+\_\+atb\+\_\+vector} ()
+\begin{DoxyCompactList}\small\item\em Compute vector AᵀB. \end{DoxyCompactList}\item 
+\Hypertarget{calculations_8h_aa49d8af54dbd19f9381f52a1671d83fa}\label{calculations_8h_aa49d8af54dbd19f9381f52a1671d83fa} 
+void {\bfseries \+\_\+calculate\+\_\+solution} ()
+\begin{DoxyCompactList}\small\item\em Solve for position vector using (AᵀA)⁻¹\+AᵀB. \end{DoxyCompactList}\item 
+\Hypertarget{calculations_8h_a317c3aa9fade4308a2a9b8a68ad1708e}\label{calculations_8h_a317c3aa9fade4308a2a9b8a68ad1708e} 
+void {\bfseries \+\_\+average\+\_\+results} ()
+\begin{DoxyCompactList}\small\item\em Average measured distances for each lighthouse. \end{DoxyCompactList}\item 
+\Hypertarget{calculations_8h_aad3edeb30a4930b76c7ff5f912469c6c}\label{calculations_8h_aad3edeb30a4930b76c7ff5f912469c6c} 
+void {\bfseries \+\_\+flush\+\_\+distance\+\_\+measurements} ()
+\begin{DoxyCompactList}\small\item\em Reset measurement buffers after position calculation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const float \doxymbox{\hyperlink{calculations_8h_a90bd95f72af2171eb58a0f0b55bd822e}{THEORETICAL\+\_\+\+MAX\+\_\+\+DISTANCE}} = 10.\+0f
+\begin{DoxyCompactList}\small\item\em Maximum expected distance between a tag and any lighthouse. \end{DoxyCompactList}\item 
+\Hypertarget{calculations_8h_ac01d9942d64f2a64a4255eafa5d57654}\label{calculations_8h_ac01d9942d64f2a64a4255eafa5d57654} 
+const uint8\+\_\+t {\bfseries MINIMUM\+\_\+\+MEASUREMENTS\+\_\+\+PER\+\_\+\+LGH} = 50
+\begin{DoxyCompactList}\small\item\em Minimum number of distance measurements required per lighthouse. \end{DoxyCompactList}\item 
+\Hypertarget{calculations_8h_ac5feff48c1c6fbc795a716941ae586d7}\label{calculations_8h_ac5feff48c1c6fbc795a716941ae586d7} 
+const uint8\+\_\+t {\bfseries MAXIMUM\+\_\+\+MEASUREMENT\+\_\+\+PER\+\_\+\+LGH} = 250
+\begin{DoxyCompactList}\small\item\em Maximum number of distance measurements stored per lighthouse. \end{DoxyCompactList}\item 
+\Hypertarget{calculations_8h_a3c591f03e8d8e9b6d1b5f2c2642b0421}\label{calculations_8h_a3c591f03e8d8e9b6d1b5f2c2642b0421} 
+uint16\+\_\+t {\bfseries distances\+\_\+measurements\+\_\+completed} \+[\doxymbox{\hyperlink{observer__config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\+\_\+\+OF\+\_\+\+LIGHTHOUSES}}]\+
+\begin{DoxyCompactList}\small\item\em Number of completed measurements for each lighthouse. \end{DoxyCompactList}\item 
+\Hypertarget{calculations_8h_a3e178ab475921d4e66f6ab44bcfa0ccf}\label{calculations_8h_a3e178ab475921d4e66f6ab44bcfa0ccf} 
+float {\bfseries distances\+\_\+to\+\_\+lghs} \+[\doxymbox{\hyperlink{observer__config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\+\_\+\+OF\+\_\+\+LIGHTHOUSES}}]\+
+\begin{DoxyCompactList}\small\item\em Current averaged distance to each lighthouse. \end{DoxyCompactList}\item 
+\Hypertarget{calculations_8h_a024e07eda1bdf3207564bf81512d53ab}\label{calculations_8h_a024e07eda1bdf3207564bf81512d53ab} 
+\doxymbox{\hyperlink{struct_position}{Position}} {\bfseries lghs\+\_\+positions} \+[\doxymbox{\hyperlink{observer__config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\+\_\+\+OF\+\_\+\+LIGHTHOUSES}}]\+
+\begin{DoxyCompactList}\small\item\em Known positions of all lighthouses. \end{DoxyCompactList}\item 
+\Hypertarget{calculations_8h_a61cd197c7421a55bd6cf4cff68e629c0}\label{calculations_8h_a61cd197c7421a55bd6cf4cff68e629c0} 
+float {\bfseries B\+\_\+vector\+\_\+constants} \+[\doxymbox{\hyperlink{observer__config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\+\_\+\+OF\+\_\+\+LIGHTHOUSES}}]\+
+\begin{DoxyCompactList}\small\item\em Vector containing constants used in B vector calculation. \end{DoxyCompactList}\item 
+float {\bfseries A\+\_\+matrix} \+[\doxymbox{\hyperlink{observer__config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\+\_\+\+OF\+\_\+\+LIGHTHOUSES}}-\/1]\+\+[3]\+
+\item 
+float {\bfseries AT\+\_\+matrix} \+[3]\+\+[\doxymbox{\hyperlink{observer__config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\+\_\+\+OF\+\_\+\+LIGHTHOUSES}}-\/1]\+
+\item 
+float {\bfseries ATA\+\_\+matrix} \+[3]\+\+[3]\+
+\item 
+float {\bfseries ATA\+\_\+inv\+\_\+matrix} \+[3]\+\+[3]\+
+\item 
+float {\bfseries B\+\_\+vector} \+[\doxymbox{\hyperlink{observer__config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\+\_\+\+OF\+\_\+\+LIGHTHOUSES}}-\/1]\+
+\item 
+float {\bfseries solution\+\_\+vector} \+[3]\+
+\item 
+float {\bfseries ATB\+\_\+vector} \+[3]\+
+\item 
+\Hypertarget{calculations_8h_a91dca57f0d208a58b669a922c779bd99}\label{calculations_8h_a91dca57f0d208a58b669a922c779bd99} 
+\doxymbox{\hyperlink{struct_position}{Position}} {\bfseries current\+\_\+position}
+\begin{DoxyCompactList}\small\item\em Estimated current position of the device. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{struct_position}{Position} estimation and matrix calculations for the observer. 
+
+This header defines constants, global variables, and function declarations used to estimate the position of the observer device based on UWB distance measurements to multiple lighthouses.
+
+It provides:\+
+\begin{DoxyItemize}
+\item Measurement limits and constants
+\item Storage for distance measurements and lighthouse positions
+\item Matrices and vectors for least-\/squares position estimation
+\item Public API for updating distances and calculating position 
+\end{DoxyItemize}
+
+\label{doc-func-members}
+\Hypertarget{calculations_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{calculations_8h_aa5a7e8e1c3da62d619549c34fd862970}\index{calculations.h@{calculations.h}!\_build\_ata\_inv\_matrix@{\_build\_ata\_inv\_matrix}}
+\index{\_build\_ata\_inv\_matrix@{\_build\_ata\_inv\_matrix}!calculations.h@{calculations.h}}
+\doxysubsubsection{\texorpdfstring{\_build\_ata\_inv\_matrix()}{\_build\_ata\_inv\_matrix()}}
+{\footnotesize\ttfamily \label{calculations_8h_aa5a7e8e1c3da62d619549c34fd862970} 
+uint8\+\_\+t \+\_\+build\+\_\+ata\+\_\+inv\+\_\+matrix (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Invert matrix AᵀA using Gauss-\/\+Jordan elimination. 
+
+\begin{DoxyReturn}{Returns}
+0 on success, 1 if matrix is singular. 
+\end{DoxyReturn}
+\Hypertarget{calculations_8h_a3ef4e0bfcdf4fa10efb584da2147235a}\index{calculations.h@{calculations.h}!Are\_Enough\_Measurements\_Complete@{Are\_Enough\_Measurements\_Complete}}
+\index{Are\_Enough\_Measurements\_Complete@{Are\_Enough\_Measurements\_Complete}!calculations.h@{calculations.h}}
+\doxysubsubsection{\texorpdfstring{Are\_Enough\_Measurements\_Complete()}{Are\_Enough\_Measurements\_Complete()}}
+{\footnotesize\ttfamily \label{calculations_8h_a3ef4e0bfcdf4fa10efb584da2147235a} 
+bool Are\+\_\+\+Enough\+\_\+\+Measurements\+\_\+\+Complete (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Check if minimum number of measurements is complete for all lighthouses. 
+
+\begin{DoxyReturn}{Returns}
+True if all lighthouses have enough measurements, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{calculations_8h_ac985667216b10e54b0e88601d33fa734}\index{calculations.h@{calculations.h}!Build\_Constant\_Matrices@{Build\_Constant\_Matrices}}
+\index{Build\_Constant\_Matrices@{Build\_Constant\_Matrices}!calculations.h@{calculations.h}}
+\doxysubsubsection{\texorpdfstring{Build\_Constant\_Matrices()}{Build\_Constant\_Matrices()}}
+{\footnotesize\ttfamily \label{calculations_8h_ac985667216b10e54b0e88601d33fa734} 
+void Build\+\_\+\+Constant\+\_\+\+Matrices (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Build constant matrices used for position estimation. 
+
+Creates matrices A, Aᵀ, AᵀA and its inverse, as well as constants for B vector based on lighthouse positions. This is required before running position estimation. \Hypertarget{calculations_8h_ad447ce7bef28031cdbd55c3a513483a2}\index{calculations.h@{calculations.h}!Calculations\_Error@{Calculations\_Error}}
+\index{Calculations\_Error@{Calculations\_Error}!calculations.h@{calculations.h}}
+\doxysubsubsection{\texorpdfstring{Calculations\_Error()}{Calculations\_Error()}}
+{\footnotesize\ttfamily \label{calculations_8h_ad447ce7bef28031cdbd55c3a513483a2} 
+void Calculations\+\_\+\+Error (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Handle calculation errors. 
+
+Called when matrix inversion fails or other calculation errors occur. Turns on the error LED and logs an error message. \Hypertarget{calculations_8h_a7a2fa04650996688338835827b0d56c7}\index{calculations.h@{calculations.h}!Estimate\_Position@{Estimate\_Position}}
+\index{Estimate\_Position@{Estimate\_Position}!calculations.h@{calculations.h}}
+\doxysubsubsection{\texorpdfstring{Estimate\_Position()}{Estimate\_Position()}}
+{\footnotesize\ttfamily \label{calculations_8h_a7a2fa04650996688338835827b0d56c7} 
+void Estimate\+\_\+\+Position (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Estimate current position using least squares method. 
+
+Averages measurements, builds B vector, computes AᵀB, solves for position and resets measurement buffers. \Hypertarget{calculations_8h_aaec03d82628b31c234ffd2cdcd2274fa}\index{calculations.h@{calculations.h}!Get\_LGH\_From\_Short\_Address@{Get\_LGH\_From\_Short\_Address}}
+\index{Get\_LGH\_From\_Short\_Address@{Get\_LGH\_From\_Short\_Address}!calculations.h@{calculations.h}}
+\doxysubsubsection{\texorpdfstring{Get\_LGH\_From\_Short\_Address()}{Get\_LGH\_From\_Short\_Address()}}
+{\footnotesize\ttfamily \label{calculations_8h_aaec03d82628b31c234ffd2cdcd2274fa} 
+int8\+\_\+t Get\+\_\+\+LGH\+\_\+\+From\+\_\+\+Short\+\_\+\+Address (\begin{DoxyParamCaption}\item[{const uint16\+\_\+t}]{short\+\_\+address}{}\end{DoxyParamCaption})}
+
+
+
+Get lighthouse index from UWB short address. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em short\+\_\+address} & UWB short address. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Index of the lighthouse, or -\/1 if not found. 
+\end{DoxyReturn}
+\Hypertarget{calculations_8h_a7f48e88ca77c11dfb6d89a62fc396d8b}\index{calculations.h@{calculations.h}!Get\_Short\_Address\_From\_Long@{Get\_Short\_Address\_From\_Long}}
+\index{Get\_Short\_Address\_From\_Long@{Get\_Short\_Address\_From\_Long}!calculations.h@{calculations.h}}
+\doxysubsubsection{\texorpdfstring{Get\_Short\_Address\_From\_Long()}{Get\_Short\_Address\_From\_Long()}}
+{\footnotesize\ttfamily \label{calculations_8h_a7f48e88ca77c11dfb6d89a62fc396d8b} 
+uint16\+\_\+t Get\+\_\+\+Short\+\_\+\+Address\+\_\+\+From\+\_\+\+Long (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{address}{}\end{DoxyParamCaption})}
+
+
+
+Convert long UWB address to short address. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & Pointer to long address array. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Short address (first two bytes). 
+\end{DoxyReturn}
+\Hypertarget{calculations_8h_ac8376df0589fd6a7127657fc45fd592c}\index{calculations.h@{calculations.h}!Update\_Distance\_To\_LGH@{Update\_Distance\_To\_LGH}}
+\index{Update\_Distance\_To\_LGH@{Update\_Distance\_To\_LGH}!calculations.h@{calculations.h}}
+\doxysubsubsection{\texorpdfstring{Update\_Distance\_To\_LGH()}{Update\_Distance\_To\_LGH()}}
+{\footnotesize\ttfamily \label{calculations_8h_ac8376df0589fd6a7127657fc45fd592c} 
+void Update\+\_\+\+Distance\+\_\+\+To\+\_\+\+LGH (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{lgh\+\_\+index}{, }\item[{float}]{new\+\_\+distance}{}\end{DoxyParamCaption})}
+
+
+
+Update accumulated distance measurement for a lighthouse. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lgh\+\_\+index} & Index of the lighthouse. \\
+\hline
+{\em new\+\_\+distance} & Newly measured distance value.\\
+\hline
+\end{DoxyParams}
+Adds the distance to the running sum and increments the measurement counter, if it is within allowed limits. \Hypertarget{calculations_8h_ab7300d142d654c9b8fea624398eea7df}\index{calculations.h@{calculations.h}!Update\_LGH\_Position@{Update\_LGH\_Position}}
+\index{Update\_LGH\_Position@{Update\_LGH\_Position}!calculations.h@{calculations.h}}
+\doxysubsubsection{\texorpdfstring{Update\_LGH\_Position()}{Update\_LGH\_Position()}}
+{\footnotesize\ttfamily \label{calculations_8h_ab7300d142d654c9b8fea624398eea7df} 
+void Update\+\_\+\+LGH\+\_\+\+Position (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{lgh\+\_\+index}{, }\item[{float}]{x}{, }\item[{float}]{y}{, }\item[{float}]{z}{}\end{DoxyParamCaption})}
+
+
+
+Update lighthouse position coordinates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lgh\+\_\+index} & Index of the lighthouse. \\
+\hline
+{\em x} & X coordinate. \\
+\hline
+{\em y} & Y coordinate. \\
+\hline
+{\em z} & Z coordinate. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-var-members}
+\Hypertarget{calculations_8h_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{calculations_8h_a90bd95f72af2171eb58a0f0b55bd822e}\index{calculations.h@{calculations.h}!THEORETICAL\_MAX\_DISTANCE@{THEORETICAL\_MAX\_DISTANCE}}
+\index{THEORETICAL\_MAX\_DISTANCE@{THEORETICAL\_MAX\_DISTANCE}!calculations.h@{calculations.h}}
+\doxysubsubsection{\texorpdfstring{THEORETICAL\_MAX\_DISTANCE}{THEORETICAL\_MAX\_DISTANCE}}
+{\footnotesize\ttfamily \label{calculations_8h_a90bd95f72af2171eb58a0f0b55bd822e} 
+const float THEORETICAL\+\_\+\+MAX\+\_\+\+DISTANCE = 10.\+0f}
+
+
+
+Maximum expected distance between a tag and any lighthouse. 
+
+Used to filter out unrealistic measurements. 

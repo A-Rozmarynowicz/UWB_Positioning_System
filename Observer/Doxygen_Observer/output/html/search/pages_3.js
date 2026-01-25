@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['logiki_0',['Opis logiki',['../index.html#autotoc_md1',1,'']]]
+  ['hardware_0',['Hardware',['../index.html#autotoc_md2',1,'']]]
 ];

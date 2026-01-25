@@ -28,14 +28,24 @@ var NAVTREE =
     [ "Observer", "index.html#autotoc_md0", [
       [ "Opis logiki", "index.html#autotoc_md1", null ],
       [ "Hardware", "index.html#autotoc_md2", null ],
-      [ "Do formularza:", "index.html#autotoc_md3", null ]
+      [ "Do formularza:", "index.html#autotoc_md3", null ],
+      [ "Link do głównej dokumentacji:", "index.html#autotoc_md4", null ]
     ] ],
+    [ "Topics", "topics.html", "topics" ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ]
     ] ],
     [ "Files", "files.html", [
-      [ "File List", "files.html", "files_dup" ]
+      [ "File List", "files.html", "files_dup" ],
+      [ "File Members", "globals.html", [
+        [ "All", "globals.html", null ],
+        [ "Functions", "globals_func.html", null ],
+        [ "Variables", "globals_vars.html", null ],
+        [ "Typedefs", "globals_type.html", null ],
+        [ "Enumerations", "globals_enum.html", null ],
+        [ "Macros", "globals_defs.html", null ]
+      ] ]
     ] ]
   ] ]
 ];

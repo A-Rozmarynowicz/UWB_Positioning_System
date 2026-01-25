@@ -1,3 +1,19 @@
+/**
+ * @file timing.h
+ * @brief Timer initialization and management for ACK handling.
+ *
+ * @details
+ * This header defines the timer used for ACK timeout handling and provides
+ * functions to initialize, start, stop, and handle errors related to the
+ * timing system.
+ *
+ * It contains:
+ * - Constants for timer periods
+ * - External timer handle declarations
+ * - Public timer control functions
+ * - Private ISR callback declaration
+ */
+
 #ifndef TIMING_H
 #define TIMING_H
 #include "esp32-hal-timer.h"
