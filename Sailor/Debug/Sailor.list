@@ -29,23 +29,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
  12 .comment      00000043  00000000  00000000  00020204  2**0
                   CONTENTS, READONLY
- 13 .debug_info   00015780  00000000  00000000  00020247  2**0
+ 13 .debug_info   00015788  00000000  00000000  00020247  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_abbrev 00002c96  00000000  00000000  000359c7  2**0
+ 14 .debug_abbrev 00002d1f  00000000  00000000  000359cf  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_aranges 000013b0  00000000  00000000  00038660  2**3
+ 15 .debug_aranges 000013b0  00000000  00000000  000386f0  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_rnglists 00000f6b  00000000  00000000  00039a10  2**0
+ 16 .debug_rnglists 00000f6b  00000000  00000000  00039aa0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_macro  00028ca3  00000000  00000000  0003a97b  2**0
+ 17 .debug_macro  00028ca3  00000000  00000000  0003aa0b  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_line   00018255  00000000  00000000  0006361e  2**0
+ 18 .debug_line   0001825b  00000000  00000000  000636ae  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    000f9194  00000000  00000000  0007b873  2**0
+ 19 .debug_str    000f9194  00000000  00000000  0007b909  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .debug_frame  000064e0  00000000  00000000  00174a08  2**2
+ 20 .debug_frame  000064e0  00000000  00000000  00174aa0  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_line_str 00000077  00000000  00000000  0017aee8  2**0
+ 21 .debug_line_str 00000077  00000000  00000000  0017af80  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -1208,11 +1208,11 @@ Disassembly of section .text:
  8000ea2:	bf00      	nop
 
 08000ea4 <Initialize_LCD_Handler>:
-const uint8_t Z_LCD_COORDS[2] = {1, 0};
-const uint8_t R_LCD_COORDS[2] = {1, 9};
-const uint8_t LCD_MESSAGE_WIDTH = 8;
-
-// Public
+/**
+ * @brief Initializes LCD handler and configures LCD controller.
+ * @param i2c_handle Pointer to the I2C handle used for LCD communication.
+ * @return LCD_OK if initialization succeeded, otherwise an LCD error code.
+ */
 LCD_Status Initialize_LCD_Handler(I2C_HandleTypeDef* i2c_handle){
  8000ea4:	b580      	push	{r7, lr}
  8000ea6:	b082      	sub	sp, #8
@@ -1233,7 +1233,11 @@ LCD_Status Initialize_LCD_Handler(I2C_HandleTypeDef* i2c_handle){
  8000ec0:	200001f0 	.word	0x200001f0
 
 08000ec4 <Put_Cursor>:
-
+ * @brief Sets the LCD cursor position.
+ * @param row LCD row (0 or 1).
+ * @param column LCD column (0..15).
+ * @return LCD_OK on success, otherwise an LCD error code.
+ */
 LCD_Status Put_Cursor(uint8_t row, uint8_t column){
  8000ec4:	b580      	push	{r7, lr}
  8000ec6:	b082      	sub	sp, #8
@@ -1278,7 +1282,11 @@ LCD_Status Put_Cursor(uint8_t row, uint8_t column){
  8000f04:	bd80      	pop	{r7, pc}
 
 08000f06 <Print_String>:
-
+ * @brief Prints a string on the LCD using the internal command queue.
+ * @param txt Pointer to the character buffer to print.
+ * @param size Number of characters to print.
+ * @return LCD_OK on success, otherwise an LCD error code.
+ */
 LCD_Status Print_String(char* txt, uint8_t size){
  8000f06:	b580      	push	{r7, lr}
  8000f08:	b084      	sub	sp, #16
@@ -1341,7 +1349,11 @@ LCD_Status Print_String(char* txt, uint8_t size){
  8000f66:	bd80      	pop	{r7, pc}
 
 08000f68 <Print_String_At_Pos>:
-
+ * @param size Number of characters to print.
+ * @param row Target row on the LCD.
+ * @param column Target column on the LCD.
+ * @return LCD_OK on success, otherwise an LCD error code.
+ */
 LCD_Status Print_String_At_Pos(char* txt, uint8_t size, uint8_t row, uint8_t column){
  8000f68:	b580      	push	{r7, lr}
  8000f6a:	b082      	sub	sp, #8
@@ -1376,7 +1388,11 @@ LCD_Status Print_String_At_Pos(char* txt, uint8_t size, uint8_t row, uint8_t col
 	...
 
 08000fa4 <Print_Whole_Position>:
-
+ * @param y Y coordinate.
+ * @param z Z coordinate.
+ * @param R Radius or distance value.
+ * @return LCD_OK on success, otherwise LCD_HAL_ERROR if transmission failed.
+ */
 LCD_Status Print_Whole_Position(float x, float y, float z, float R){
  8000fa4:	b580      	push	{r7, lr}
  8000fa6:	b08e      	sub	sp, #56	; 0x38
@@ -1552,7 +1568,10 @@ LCD_Status Print_Whole_Position(float x, float y, float z, float R){
 
 08001124 <_begin_transmission>:
 
-// Private
+/**
+ * @brief Starts transmission of the next queued byte over I2C if none is ongoing.
+ * @return HAL_OK if transmission started, otherwise HAL_ERROR or LCD_QUEUE_EMPTY.
+ */
 HAL_StatusTypeDef _begin_transmission(){
  8001124:	b580      	push	{r7, lr}
  8001126:	b082      	sub	sp, #8
@@ -1607,6 +1626,10 @@ HAL_StatusTypeDef _begin_transmission(){
 
 08001178 <_is_transmission_going>:
 
+/**
+ * @brief Returns whether a transmission is currently in progress.
+ * @return 1 if transmission is active, otherwise 0.
+ */
 uint8_t _is_transmission_going(){
  8001178:	b480      	push	{r7}
  800117a:	af00      	add	r7, sp, #0
@@ -1623,6 +1646,9 @@ uint8_t _is_transmission_going(){
 
 08001190 <_stop_transmission>:
 
+/**
+ * @brief Stops the ongoing transmission.
+ */
 void _stop_transmission(){
  8001190:	b480      	push	{r7}
  8001192:	af00      	add	r7, sp, #0
@@ -1639,6 +1665,10 @@ void _stop_transmission(){
 
 080011a8 <_increase_tail_pointer>:
 
+/**
+ * @brief Advances the tail pointer by a given amount, wrapping around the queue.
+ * @param inc Number of bytes to advance.
+ */
 void _increase_tail_pointer(uint16_t inc){
  80011a8:	b480      	push	{r7}
  80011aa:	b085      	sub	sp, #20
@@ -1711,7 +1741,11 @@ void _increase_tail_pointer(uint16_t inc){
  800121c:	200003f4 	.word	0x200003f4
 
 08001220 <_copy_buffer_to_queue>:
-
+/**
+ * @brief Copies a buffer into the transmission queue.
+ * @param buffer Pointer to data to enqueue.
+ * @return LCD_OK if success, otherwise LCD_QUEUE_FULL.
+ */
 LCD_Status _copy_buffer_to_queue(uint8_t* buffer){
  8001220:	b580      	push	{r7, lr}
  8001222:	b084      	sub	sp, #16
@@ -1827,7 +1861,11 @@ LCD_Status _copy_buffer_to_queue(uint8_t* buffer){
  80012e0:	200001f4 	.word	0x200001f4
 
 080012e4 <_has_queue_space>:
-
+/**
+ * @brief Checks if there is enough space in the queue for a given number of bytes.
+ * @param data_size Number of bytes to add.
+ * @return 1 if there is space, otherwise 0.
+ */
 uint8_t _has_queue_space(uint16_t data_size){
  80012e4:	b480      	push	{r7}
  80012e6:	b083      	sub	sp, #12
@@ -1902,7 +1940,11 @@ uint8_t _has_queue_space(uint16_t data_size){
  8001360:	200003f6 	.word	0x200003f6
 
 08001364 <_add_command_to_queue>:
-
+/**
+ * @brief Converts a command byte into 4 I2C nibbles and enqueues it.
+ * @param cmd Command byte to send.
+ * @return LCD_OK if success, otherwise LCD_QUEUE_FULL.
+ */
 LCD_Status _add_command_to_queue(char cmd){
  8001364:	b580      	push	{r7, lr}
  8001366:	b084      	sub	sp, #16
@@ -1964,7 +2006,11 @@ LCD_Status _add_command_to_queue(char cmd){
  80013c6:	bd80      	pop	{r7, pc}
 
 080013c8 <_add_data_to_queue>:
-
+/**
+ * @brief Converts a data byte into 4 I2C nibbles and enqueues it.
+ * @param data Data byte to send.
+ * @return LCD_OK if success, otherwise LCD_QUEUE_FULL.
+ */
 LCD_Status _add_data_to_queue(char data) {
  80013c8:	b580      	push	{r7, lr}
  80013ca:	b084      	sub	sp, #16
@@ -2023,9 +2069,12 @@ LCD_Status _add_data_to_queue(char data) {
  800142a:	bd80      	pop	{r7, pc}
 
 0800142c <_lcd_send_cmd>:
-
-LCD_Status _lcd_send_cmd (char cmd)
-{
+/**
+ * @brief Sends a single command to the LCD immediately over I2C.
+ * @param cmd Command byte to send.
+ * @return LCD_OK if successful, otherwise LCD_HAL_ERROR.
+ */
+LCD_Status _lcd_send_cmd (char cmd) {
  800142c:	b580      	push	{r7, lr}
  800142e:	b086      	sub	sp, #24
  8001430:	af02      	add	r7, sp, #8
@@ -2094,6 +2143,10 @@ LCD_Status _lcd_send_cmd (char cmd)
 
 08001498 <_send_one_byte>:
 
+/**
+ * @brief Sends a single queued byte using interrupt-driven I2C.
+ * @return HAL_OK if successful, otherwise HAL error.
+ */
 HAL_StatusTypeDef _send_one_byte(){
  8001498:	b580      	push	{r7, lr}
  800149a:	b082      	sub	sp, #8
@@ -2147,7 +2200,11 @@ HAL_StatusTypeDef _send_one_byte(){
  80014f0:	200001f4 	.word	0x200001f4
 
 080014f4 <_lcd_i2c_transmit_it_callback>:
-
+ * @brief Callback invoked after each byte transmission finishes.
+ *        Sends the next byte if queue is not empty.
+ * @param hi2c I2C handle that triggered the callback.
+ * @return HAL_OK on success, otherwise HAL error.
+ */
 HAL_StatusTypeDef _lcd_i2c_transmit_it_callback(I2C_HandleTypeDef *hi2c){
  80014f4:	b580      	push	{r7, lr}
  80014f6:	b082      	sub	sp, #8
@@ -2182,7 +2239,6 @@ HAL_StatusTypeDef _lcd_i2c_transmit_it_callback(I2C_HandleTypeDef *hi2c){
 	//	if (hi2c != h_lcd_i2c){
 //		return;
 //	}
-
 }
  8001524:	4618      	mov	r0, r3
  8001526:	3708      	adds	r7, #8
@@ -2192,6 +2248,11 @@ HAL_StatusTypeDef _lcd_i2c_transmit_it_callback(I2C_HandleTypeDef *hi2c){
  8001530:	200003f4 	.word	0x200003f4
 
 08001534 <_lcd_i2c_receive_it_callback>:
+/**
+ * @brief Dummy I2C receive callback (not used).
+ * @param hi2c I2C handle that triggered the callback.
+ * @return HAL_OK always.
+ */
 HAL_StatusTypeDef _lcd_i2c_receive_it_callback(I2C_HandleTypeDef *hi2c){
  8001534:	b480      	push	{r7}
  8001536:	b083      	sub	sp, #12
@@ -2208,10 +2269,15 @@ HAL_StatusTypeDef _lcd_i2c_receive_it_callback(I2C_HandleTypeDef *hi2c){
 
 0800154a <_lcd_init>:
 
+/**
+ * @brief Performs LCD controller initialization sequence in 4-bit mode.
+ * @return LCD_OK on success, otherwise LCD_INIT_FAIL.
+ */
 LCD_Status _lcd_init (void) {
  800154a:	b580      	push	{r7, lr}
  800154c:	b082      	sub	sp, #8
  800154e:	af00      	add	r7, sp, #0
+	// Każdy delay jest konieczny! <----------------------
   LCD_Status result = LCD_OK;
  8001550:	2300      	movs	r3, #0
  8001552:	71fb      	strb	r3, [r7, #7]
@@ -3129,11 +3195,11 @@ __STATIC_FORCEINLINE void __disable_irq(void)
 	...
 
 08001a6c <Initialize_Observer_Comm>:
-
-struct Position current_position = {0};
-struct Position initial_position = {0};
-
-// Public
+ *
+ * @param refresh_tim_handle Pointer to the timer used for periodic LCD refresh.
+ * @param obs_uart_handle Pointer to the UART interface used for communication.
+ * @return HAL_OK if initialization succeeds, HAL error otherwise.
+ */
 HAL_StatusTypeDef Initialize_Observer_Comm(TIM_HandleTypeDef* refresh_tim_handle, UART_HandleTypeDef* obs_uart_handle){
  8001a6c:	b580      	push	{r7, lr}
  8001a6e:	b082      	sub	sp, #8
@@ -3171,7 +3237,11 @@ HAL_StatusTypeDef Initialize_Observer_Comm(TIM_HandleTypeDef* refresh_tim_handle
  8001aac:	20000574 	.word	0x20000574
 
 08001ab0 <Get_Position_Vector_Length>:
-
+ * vector. Squared length is used to avoid costly sqrt operations.
+ *
+ * @param pos Pointer to the Position structure.
+ * @return Squared vector length.
+ */
 float Get_Position_Vector_Length(struct Position* pos){
  8001ab0:	b480      	push	{r7}
  8001ab2:	b083      	sub	sp, #12
@@ -3204,8 +3274,11 @@ float Get_Position_Vector_Length(struct Position* pos){
 	...
 
 08001b00 <_read_position>:
-
-// Private
+ *
+ * This function copies received position data from the UART buffer
+ * and adjusts it relative to the initial position. The first received
+ * non-zero position is stored as the initial reference.
+ */
 void _read_position(){
  8001b00:	b598      	push	{r3, r4, r7, lr}
  8001b02:	af00      	add	r7, sp, #0
@@ -3267,7 +3340,11 @@ void _read_position(){
  8001b94:	20000574 	.word	0x20000574
 
 08001b98 <_print_position_to_lcd>:
-
+ * This function prints the X, Y, Z coordinates and the total distance
+ * from the initial position on the LCD using the LCD handler.
+ *
+ * @return LCD_OK if display is successful, LCD_HAL_ERROR otherwise.
+ */
 LCD_Status _print_position_to_lcd(){
  8001b98:	b580      	push	{r7, lr}
  8001b9a:	ed2d 8b04 	vpush	{d8-d9}
@@ -3296,7 +3373,11 @@ LCD_Status _print_position_to_lcd(){
  8001bdc:	20000584 	.word	0x20000584
 
 08001be0 <_obs_timer_period_elapsed_it_callback>:
-
+ * position is printed to the LCD.
+ *
+ * @param htim Pointer to the timer handle.
+ * @return HAL_OK if handled correctly, HAL_ERROR otherwise.
+ */
 HAL_StatusTypeDef _obs_timer_period_elapsed_it_callback(TIM_HandleTypeDef *htim){
  8001be0:	b580      	push	{r7, lr}
  8001be2:	b082      	sub	sp, #8
@@ -3329,7 +3410,11 @@ HAL_StatusTypeDef _obs_timer_period_elapsed_it_callback(TIM_HandleTypeDef *htim)
  8001c0c:	2000056c 	.word	0x2000056c
 
 08001c10 <_obs_uart_receive_it_callback>:
-
+ * It updates the current position and restarts DMA reception.
+ *
+ * @param huart Pointer to the UART handle.
+ * @return HAL_OK if handled correctly, HAL error otherwise.
+ */
 HAL_StatusTypeDef _obs_uart_receive_it_callback(UART_HandleTypeDef *huart){
  8001c10:	b580      	push	{r7, lr}
  8001c12:	b082      	sub	sp, #8

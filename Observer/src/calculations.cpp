@@ -292,6 +292,7 @@ void _average_results() {
             continue;
         }
         distances_to_lghs[i] /= distances_measurements_completed[i];
+        distances_to_lghs[i] -= ANTENNA_DELAY_OFFSET;
     }
 }
 

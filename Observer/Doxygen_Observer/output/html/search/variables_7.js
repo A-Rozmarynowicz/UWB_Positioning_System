@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['uwb_5faddresses_5ffrom_5flgh_0',['uwb_addresses_from_LGH',['../uwb__handler_8h.html#ad5ca857d6752fa3c47a659641d9687dc',1,'uwb_handler.cpp']]],
-  ['uwb_5fexchange_5fled_1',['UWB_EXCHANGE_LED',['../interface_8h.html#a9d5e4db6329aea5ae47b3ed7fec3b5bd',1,'interface.h']]]
+  ['theoretical_5fmax_5fdistance_0',['THEORETICAL_MAX_DISTANCE',['../calculations_8h.html#a90bd95f72af2171eb58a0f0b55bd822e',1,'calculations.h']]],
+  ['transmit_5fbuffer_1',['transmit_buffer',['../communication_8h.html#a09de4a9b4114f488f667f196f70382b0',1,'communication.cpp']]]
 ];

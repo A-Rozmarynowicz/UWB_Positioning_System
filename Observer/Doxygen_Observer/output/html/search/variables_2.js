@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['distances_5fmeasurements_5fcompleted_0',['distances_measurements_completed',['../calculations_8h.html#a3c591f03e8d8e9b6d1b5f2c2642b0421',1,'calculations.cpp']]],
-  ['distances_5fto_5flghs_1',['distances_to_lghs',['../calculations_8h.html#a3e178ab475921d4e66f6ab44bcfa0ccf',1,'calculations.cpp']]]
+  ['current_5fack_5fstatus_0',['current_ack_status',['../communication_8h.html#a709b06b1381f6268b9c79e782dc87393',1,'communication.h']]],
+  ['current_5fposition_1',['current_position',['../calculations_8h.html#a91dca57f0d208a58b669a922c779bd99',1,'calculations.cpp']]],
+  ['current_5fstate_2',['current_state',['../state__machine_8h.html#ad22ce002ddbdd2937fb1e247570604f4',1,'state_machine_common.cpp']]],
+  ['current_5fstate_5fdata_3',['current_state_data',['../state__machine_8h.html#a783bf04e53d56d2af0be345f7ea46b3f',1,'state_machine_common.cpp']]]
 ];

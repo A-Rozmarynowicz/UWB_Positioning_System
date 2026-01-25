@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['lghs_5fpositions_0',['lghs_positions',['../calculations_8h.html#a024e07eda1bdf3207564bf81512d53ab',1,'calculations.cpp']]]
+  ['error_5fled_0',['ERROR_LED',['../interface_8h.html#a149d05ab28107adb7036e0a8a8fcf711',1,'interface.h']]]
 ];

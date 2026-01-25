@@ -18,6 +18,7 @@ var calculations_8h =
     [ "Get_Short_Address_From_Long", "calculations_8h.html#a7f48e88ca77c11dfb6d89a62fc396d8b", null ],
     [ "Update_Distance_To_LGH", "calculations_8h.html#ac8376df0589fd6a7127657fc45fd592c", null ],
     [ "Update_LGH_Position", "calculations_8h.html#ab7300d142d654c9b8fea624398eea7df", null ],
+    [ "ANTENNA_DELAY_OFFSET", "calculations_8h.html#ae81ad60395b8a2dc077e0736225b28fa", null ],
     [ "B_vector_constants", "calculations_8h.html#a61cd197c7421a55bd6cf4cff68e629c0", null ],
     [ "current_position", "calculations_8h.html#a91dca57f0d208a58b669a922c779bd99", null ],
     [ "distances_measurements_completed", "calculations_8h.html#a3c591f03e8d8e9b6d1b5f2c2642b0421", null ],

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['b_5fvector_5fconstants_0',['B_vector_constants',['../calculations_8h.html#a61cd197c7421a55bd6cf4cff68e629c0',1,'calculations.cpp']]]
+  ['antenna_5fdelay_5foffset_0',['ANTENNA_DELAY_OFFSET',['../calculations_8h.html#ae81ad60395b8a2dc077e0736225b28fa',1,'calculations.h']]]
 ];

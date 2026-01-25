@@ -11,51 +11,53 @@
 \DoxyCodeLine{00021\ }
 \DoxyCodeLine{00027\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{calculations_8h_a90bd95f72af2171eb58a0f0b55bd822e}{THEORETICAL\_MAX\_DISTANCE}}\ =\ 10.0f;}
 \DoxyCodeLine{00028\ }
-\DoxyCodeLine{00032\ \textcolor{keyword}{const}\ uint8\_t\ \doxymbox{\hyperlink{calculations_8h_ac01d9942d64f2a64a4255eafa5d57654}{MINIMUM\_MEASUREMENTS\_PER\_LGH}}\ =\ 50;}
+\DoxyCodeLine{00032\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{calculations_8h_ae81ad60395b8a2dc077e0736225b28fa}{ANTENNA\_DELAY\_OFFSET}}\ =\ 0.6f;}
 \DoxyCodeLine{00033\ }
-\DoxyCodeLine{00037\ \textcolor{keyword}{const}\ uint8\_t\ \doxymbox{\hyperlink{calculations_8h_ac5feff48c1c6fbc795a716941ae586d7}{MAXIMUM\_MEASUREMENT\_PER\_LGH}}\ =\ 250;}
+\DoxyCodeLine{00037\ \textcolor{keyword}{const}\ uint8\_t\ \doxymbox{\hyperlink{calculations_8h_ac01d9942d64f2a64a4255eafa5d57654}{MINIMUM\_MEASUREMENTS\_PER\_LGH}}\ =\ 50;}
 \DoxyCodeLine{00038\ }
-\DoxyCodeLine{00042\ \textcolor{keyword}{extern}\ uint16\_t\ distances\_measurements\_completed[\doxymbox{\hyperlink{observer__config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\_OF\_LIGHTHOUSES}}];}
+\DoxyCodeLine{00042\ \textcolor{keyword}{const}\ uint8\_t\ \doxymbox{\hyperlink{calculations_8h_ac5feff48c1c6fbc795a716941ae586d7}{MAXIMUM\_MEASUREMENT\_PER\_LGH}}\ =\ 250;}
 \DoxyCodeLine{00043\ }
-\DoxyCodeLine{00047\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{float}\ distances\_to\_lghs[\doxymbox{\hyperlink{observer__config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\_OF\_LIGHTHOUSES}}];}
+\DoxyCodeLine{00047\ \textcolor{keyword}{extern}\ uint16\_t\ distances\_measurements\_completed[\doxymbox{\hyperlink{observer__config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\_OF\_LIGHTHOUSES}}];}
 \DoxyCodeLine{00048\ }
-\DoxyCodeLine{00052\ \textcolor{keyword}{extern}\ \doxymbox{\hyperlink{struct_position}{Position}}\ lghs\_positions[\doxymbox{\hyperlink{observer__config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\_OF\_LIGHTHOUSES}}];}
+\DoxyCodeLine{00052\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{float}\ distances\_to\_lghs[\doxymbox{\hyperlink{observer__config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\_OF\_LIGHTHOUSES}}];}
 \DoxyCodeLine{00053\ }
-\DoxyCodeLine{00057\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{float}\ B\_vector\_constants[\doxymbox{\hyperlink{observer__config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\_OF\_LIGHTHOUSES}}];}
+\DoxyCodeLine{00057\ \textcolor{keyword}{extern}\ \doxymbox{\hyperlink{struct_position}{Position}}\ lghs\_positions[\doxymbox{\hyperlink{observer__config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\_OF\_LIGHTHOUSES}}];}
 \DoxyCodeLine{00058\ }
-\DoxyCodeLine{00063\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{float}\ A\_matrix[\doxymbox{\hyperlink{observer__config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\_OF\_LIGHTHOUSES}}-\/1][3];}
-\DoxyCodeLine{00064\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{float}\ AT\_matrix[3][\doxymbox{\hyperlink{observer__config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\_OF\_LIGHTHOUSES}}-\/1];}
-\DoxyCodeLine{00065\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{float}\ ATA\_matrix[3][3];}
-\DoxyCodeLine{00066\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{float}\ ATA\_inv\_matrix[3][3];}
-\DoxyCodeLine{00067\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{float}\ B\_vector[\doxymbox{\hyperlink{observer__config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\_OF\_LIGHTHOUSES}}-\/1];}
-\DoxyCodeLine{00068\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{float}\ solution\_vector[3];}
-\DoxyCodeLine{00069\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{float}\ ATB\_vector[3];}
-\DoxyCodeLine{00071\ }
-\DoxyCodeLine{00075\ \textcolor{keyword}{extern}\ \doxymbox{\hyperlink{struct_position}{Position}}\ current\_position;}
+\DoxyCodeLine{00062\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{float}\ B\_vector\_constants[\doxymbox{\hyperlink{observer__config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\_OF\_LIGHTHOUSES}}];}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00068\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{float}\ A\_matrix[\doxymbox{\hyperlink{observer__config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\_OF\_LIGHTHOUSES}}-\/1][3];}
+\DoxyCodeLine{00069\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{float}\ AT\_matrix[3][\doxymbox{\hyperlink{observer__config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\_OF\_LIGHTHOUSES}}-\/1];}
+\DoxyCodeLine{00070\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{float}\ ATA\_matrix[3][3];}
+\DoxyCodeLine{00071\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{float}\ ATA\_inv\_matrix[3][3];}
+\DoxyCodeLine{00072\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{float}\ B\_vector[\doxymbox{\hyperlink{observer__config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\_OF\_LIGHTHOUSES}}-\/1];}
+\DoxyCodeLine{00073\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{float}\ solution\_vector[3];}
+\DoxyCodeLine{00074\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{float}\ ATB\_vector[3];}
 \DoxyCodeLine{00076\ }
-\DoxyCodeLine{00077\ \textcolor{comment}{//\ Public}}
-\DoxyCodeLine{00078\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{calculations_8h_a7a2fa04650996688338835827b0d56c7}{Estimate\_Position}}();}
-\DoxyCodeLine{00079\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{calculations_8h_ac985667216b10e54b0e88601d33fa734}{Build\_Constant\_Matrices}}();}
-\DoxyCodeLine{00080\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{calculations_8h_ac8376df0589fd6a7127657fc45fd592c}{Update\_Distance\_To\_LGH}}(uint8\_t\ lgh\_index,\ \textcolor{keywordtype}{float}\ new\_distance);}
-\DoxyCodeLine{00081\ int8\_t\ \doxymbox{\hyperlink{calculations_8h_aaec03d82628b31c234ffd2cdcd2274fa}{Get\_LGH\_From\_Short\_Address}}(\textcolor{keyword}{const}\ uint16\_t\ short\_address);}
-\DoxyCodeLine{00082\ uint16\_t\ \doxymbox{\hyperlink{calculations_8h_a7f48e88ca77c11dfb6d89a62fc396d8b}{Get\_Short\_Address\_From\_Long}}(\textcolor{keyword}{const}\ uint8\_t*\ address);}
-\DoxyCodeLine{00083\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{calculations_8h_ab7300d142d654c9b8fea624398eea7df}{Update\_LGH\_Position}}(uint8\_t\ lgh\_index,\ \textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ z);}
-\DoxyCodeLine{00084\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{calculations_8h_a3ef4e0bfcdf4fa10efb584da2147235a}{Are\_Enough\_Measurements\_Complete}}();}
-\DoxyCodeLine{00085\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{calculations_8h_ad447ce7bef28031cdbd55c3a513483a2}{Calculations\_Error}}();}
-\DoxyCodeLine{00086\ }
-\DoxyCodeLine{00087\ \textcolor{comment}{//\ Private}}
-\DoxyCodeLine{00088\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{calculations_8h_a6604d984ccde7121728d14be943ffe19}{\_build\_a\_matrix}}();}
-\DoxyCodeLine{00089\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{calculations_8h_a7fdeba288f832dca072c55a0d6df13e0}{\_build\_at\_matrix}}();}
-\DoxyCodeLine{00090\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{calculations_8h_a674da9c4deac7ec4b50f00c9641a2424}{\_build\_ata\_matrix}}();}
-\DoxyCodeLine{00091\ uint8\_t\ \doxymbox{\hyperlink{calculations_8h_aa5a7e8e1c3da62d619549c34fd862970}{\_build\_ata\_inv\_matrix}}();}
-\DoxyCodeLine{00092\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{calculations_8h_a3163d1cb5e6035875f04b4c509147f38}{\_build\_b\_vector\_constants}}();}
-\DoxyCodeLine{00093\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{calculations_8h_ad167bb4176a381fe6b6eca0fcf6de8e2}{\_build\_b\_vector}}();}
-\DoxyCodeLine{00094\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{calculations_8h_af6e8ef3a9a4432ce8ef28f5236a980a4}{\_calculate\_atb\_vector}}();}
-\DoxyCodeLine{00095\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{calculations_8h_aa49d8af54dbd19f9381f52a1671d83fa}{\_calculate\_solution}}();}
-\DoxyCodeLine{00096\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{calculations_8h_a317c3aa9fade4308a2a9b8a68ad1708e}{\_average\_results}}();}
-\DoxyCodeLine{00097\ }
-\DoxyCodeLine{00098\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{calculations_8h_aad3edeb30a4930b76c7ff5f912469c6c}{\_flush\_distance\_measurements}}();}
-\DoxyCodeLine{00099\ }
-\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00080\ \textcolor{keyword}{extern}\ \doxymbox{\hyperlink{struct_position}{Position}}\ current\_position;}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{comment}{//\ Public}}
+\DoxyCodeLine{00083\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{calculations_8h_a7a2fa04650996688338835827b0d56c7}{Estimate\_Position}}();}
+\DoxyCodeLine{00084\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{calculations_8h_ac985667216b10e54b0e88601d33fa734}{Build\_Constant\_Matrices}}();}
+\DoxyCodeLine{00085\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{calculations_8h_ac8376df0589fd6a7127657fc45fd592c}{Update\_Distance\_To\_LGH}}(uint8\_t\ lgh\_index,\ \textcolor{keywordtype}{float}\ new\_distance);}
+\DoxyCodeLine{00086\ int8\_t\ \doxymbox{\hyperlink{calculations_8h_aaec03d82628b31c234ffd2cdcd2274fa}{Get\_LGH\_From\_Short\_Address}}(\textcolor{keyword}{const}\ uint16\_t\ short\_address);}
+\DoxyCodeLine{00087\ uint16\_t\ \doxymbox{\hyperlink{calculations_8h_a7f48e88ca77c11dfb6d89a62fc396d8b}{Get\_Short\_Address\_From\_Long}}(\textcolor{keyword}{const}\ uint8\_t*\ address);}
+\DoxyCodeLine{00088\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{calculations_8h_ab7300d142d654c9b8fea624398eea7df}{Update\_LGH\_Position}}(uint8\_t\ lgh\_index,\ \textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ z);}
+\DoxyCodeLine{00089\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{calculations_8h_a3ef4e0bfcdf4fa10efb584da2147235a}{Are\_Enough\_Measurements\_Complete}}();}
+\DoxyCodeLine{00090\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{calculations_8h_ad447ce7bef28031cdbd55c3a513483a2}{Calculations\_Error}}();}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{comment}{//\ Private}}
+\DoxyCodeLine{00093\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{calculations_8h_a6604d984ccde7121728d14be943ffe19}{\_build\_a\_matrix}}();}
+\DoxyCodeLine{00094\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{calculations_8h_a7fdeba288f832dca072c55a0d6df13e0}{\_build\_at\_matrix}}();}
+\DoxyCodeLine{00095\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{calculations_8h_a674da9c4deac7ec4b50f00c9641a2424}{\_build\_ata\_matrix}}();}
+\DoxyCodeLine{00096\ uint8\_t\ \doxymbox{\hyperlink{calculations_8h_aa5a7e8e1c3da62d619549c34fd862970}{\_build\_ata\_inv\_matrix}}();}
+\DoxyCodeLine{00097\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{calculations_8h_a3163d1cb5e6035875f04b4c509147f38}{\_build\_b\_vector\_constants}}();}
+\DoxyCodeLine{00098\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{calculations_8h_ad167bb4176a381fe6b6eca0fcf6de8e2}{\_build\_b\_vector}}();}
+\DoxyCodeLine{00099\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{calculations_8h_af6e8ef3a9a4432ce8ef28f5236a980a4}{\_calculate\_atb\_vector}}();}
+\DoxyCodeLine{00100\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{calculations_8h_aa49d8af54dbd19f9381f52a1671d83fa}{\_calculate\_solution}}();}
+\DoxyCodeLine{00101\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{calculations_8h_a317c3aa9fade4308a2a9b8a68ad1708e}{\_average\_results}}();}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{calculations_8h_aad3edeb30a4930b76c7ff5f912469c6c}{\_flush\_distance\_measurements}}();}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}
