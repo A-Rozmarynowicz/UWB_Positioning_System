@@ -7,12 +7,20 @@
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}LighthouseConfig.h"{}}}
 \DoxyCodeLine{00004\ }
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#define\ DATA\_TRANSFER\_LED\ (uint8\_t)\ 2}}
-\DoxyCodeLine{00006\ }
-\DoxyCodeLine{00007\ \textcolor{comment}{//\ Public}}
-\DoxyCodeLine{00008\ \textcolor{keywordtype}{void}\ Initialize\_Interface();}
-\DoxyCodeLine{00009\ \textcolor{keywordtype}{void}\ Data\_Transfer\_LED\_ON();}
-\DoxyCodeLine{00010\ \textcolor{keywordtype}{void}\ Data\_Transfer\_LED\_OFF();}
-\DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ ERROR\_LED\ (uint8\_t)\ 2}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ STATUS\_BUTTON\ (uint8\_t)\ 4}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ Public}}
+\DoxyCodeLine{00011\ \textcolor{keywordtype}{void}\ Initialize\_Interface();}
+\DoxyCodeLine{00012\ \textcolor{keywordtype}{void}\ Blink\_LED();}
+\DoxyCodeLine{00013\ \textcolor{keywordtype}{void}\ Data\_Transfer\_LED\_ON();}
+\DoxyCodeLine{00014\ \textcolor{keywordtype}{void}\ Data\_Transfer\_LED\_OFF();}
+\DoxyCodeLine{00015\ \textcolor{keywordtype}{void}\ Error\_LED\_On();}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{comment}{//\ Private}}
+\DoxyCodeLine{00018\ \textcolor{keywordtype}{void}\ ICACHE\_RAM\_ATTR\ \_button\_ISR();}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

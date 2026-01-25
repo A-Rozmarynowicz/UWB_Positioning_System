@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['collaborate_20with_20your_20team_0',['Collaborate with your team',['../index.html#autotoc_md4',1,'']]],
-  ['contributing_1',['Contributing',['../index.html#autotoc_md16',1,'']]]
+  ['lighthouse_20positioning_20system_0',['Lighthouse Positioning System',['../index.html#autotoc_md0',1,'']]],
+  ['lighthouse_20positioning_20system_20documentation_1',['Lighthouse Positioning System Documentation',['../index.html',1,'']]]
 ];

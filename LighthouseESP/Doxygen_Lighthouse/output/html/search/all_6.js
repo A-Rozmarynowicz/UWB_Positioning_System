@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['getting_20started_0',['Getting started',['../index.html#autotoc_md2',1,'']]],
-  ['good_20readme_1',['Suggestions for a good README',['../index.html#autotoc_md8',1,'']]]
+  ['lighthouse_20documentation_0',['Lighthouse Documentation',['../index.html',1,'']]],
+  ['lighthouseesp_1',['LighthouseESP',['../index.html#autotoc_md0',1,'']]],
+  ['logiki_2',['Opis logiki',['../index.html#autotoc_md1',1,'']]]
 ];

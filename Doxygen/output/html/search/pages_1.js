@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['badges_0',['Badges',['../index.html#autotoc_md10',1,'']]]
+  ['documentation_0',['Lighthouse Positioning System Documentation',['../index.html',1,'']]]
 ];

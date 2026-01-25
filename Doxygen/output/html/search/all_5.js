@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['files_0',['Add your files',['../index.html#autotoc_md2',1,'']]],
-  ['for_20a_20good_20readme_1',['Suggestions for a good README',['../index.html#autotoc_md7',1,'']]]
+  ['subprojects_0',['Subprojects',['../subprojects.html',1,'']]],
+  ['system_1',['Lighthouse Positioning System',['../index.html#autotoc_md0',1,'']]],
+  ['system_20documentation_2',['Lighthouse Positioning System Documentation',['../index.html',1,'']]]
 ];

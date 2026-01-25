@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['editing_20this_20readme_0',['Editing this README',['../index.html#autotoc_md7',1,'']]]
+  ['hardware_0',['Hardware',['../index.html#autotoc_md2',1,'']]]
 ];

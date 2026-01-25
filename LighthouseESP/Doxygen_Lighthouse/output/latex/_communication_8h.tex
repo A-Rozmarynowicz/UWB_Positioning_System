@@ -58,7 +58,11 @@ enum {\bfseries Data\+\_\+\+Commands} \{ \newline
 , \newline
 {\bfseries OBSERVER\+\_\+\+QUERY\+\_\+\+POSITION}
 , {\bfseries OBSERVER\+\_\+\+RESPONSE\+\_\+\+POSITION}
-, {\bfseries OBSERVER\+\_\+\+ENABLE\+\_\+\+UWB}
+, {\bfseries OBSERVER\+\_\+\+QUERY\+\_\+\+UWB\+\_\+\+ADDRESS}
+, {\bfseries OBSERVER\+\_\+\+RESPONSE\+\_\+\+UWB\+\_\+\+ADDRESS}
+, \newline
+{\bfseries OBSERVER\+\_\+\+ENABLE\+\_\+\+UWB}
+, {\bfseries OBSERVER\+\_\+\+WAKEUP\+\_\+\+RECKON}
  \}
 \item 
 \Hypertarget{_communication_8h_a9b79e795e3bb6cdece9ebf16adfb9683}\label{_communication_8h_a9b79e795e3bb6cdece9ebf16adfb9683} 
@@ -117,6 +121,9 @@ void {\bfseries MESSAGES::\+\+Send\+\_\+\+Observer\+\_\+\+Ready} ()
 \Hypertarget{namespace_m_e_s_s_a_g_e_s_a25f1705da179de9f67cfaf6b497dc8b6}\label{namespace_m_e_s_s_a_g_e_s_a25f1705da179de9f67cfaf6b497dc8b6} 
 void {\bfseries MESSAGES::\+\+Send\+\_\+\+Observer\+\_\+\+Position\+\_\+\+Response} ()
 \item 
+\Hypertarget{namespace_m_e_s_s_a_g_e_s_a5022f9b3147d33573efce481583aafb6}\label{namespace_m_e_s_s_a_g_e_s_a5022f9b3147d33573efce481583aafb6} 
+void {\bfseries MESSAGES::\+\+Send\+\_\+\+Observer\+\_\+\+UWB\+\_\+\+Address\+\_\+\+Response} ()
+\item 
 \Hypertarget{_communication_8h_a3cf83a241a1209a64ef0481ef1c320bc}\label{_communication_8h_a3cf83a241a1209a64ef0481ef1c320bc} 
 void {\bfseries \+\_\+send\+\_\+esp} ()
 \item 
@@ -136,7 +143,7 @@ void {\bfseries \+\_\+communication\+\_\+error} (Communication\+\_\+\+Errors err
 const uint8\+\_\+t {\bfseries BROADCAST\+\_\+\+RECEIVER\+\_\+\+ID} = 255
 \item 
 \Hypertarget{_communication_8h_a3cc04eaa8880389d6aa4dfc4a291e41a}\label{_communication_8h_a3cc04eaa8880389d6aa4dfc4a291e41a} 
-const uint8\+\_\+t {\bfseries ACK\+\_\+\+MESSAGE\+\_\+\+COUNT} = 5
+const uint8\+\_\+t {\bfseries ACK\+\_\+\+MESSAGE\+\_\+\+COUNT} = 10
 \item 
 \Hypertarget{_communication_8h_a709b06b1381f6268b9c79e782dc87393}\label{_communication_8h_a709b06b1381f6268b9c79e782dc87393} 
 \doxymbox{\hyperlink{struct_ack_status}{Ack\+Status}} {\bfseries current\+\_\+ack\+\_\+status}

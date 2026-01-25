@@ -17,7 +17,7 @@ void Initialize_UWB(){
     delay(10);
     digitalWrite(PIN_RST, HIGH);
     delay(10);
-`
+
     SPI.begin(PIN_SCK, PIN_MISO, PIN_MOSI, PIN_SS);
     SPI.setFrequency(1000000);
     DW1000Ranging.initCommunication(PIN_RST, PIN_SS, PIN_IRQ);

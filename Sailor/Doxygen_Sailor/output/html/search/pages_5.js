@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['files_0',['Add your files',['../index.html#autotoc_md3',1,'']]],
-  ['for_20a_20good_20readme_1',['Suggestions for a good README',['../index.html#autotoc_md8',1,'']]]
+  ['sailor_0',['Sailor',['../index.html#autotoc_md0',1,'']]],
+  ['sailor_20documentation_1',['Sailor Documentation',['../index.html',1,'']]]
 ];

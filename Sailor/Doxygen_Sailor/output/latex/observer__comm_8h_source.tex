@@ -33,18 +33,21 @@
 \DoxyCodeLine{00029\ \textcolor{keyword}{extern}\ UART\_HandleTypeDef*\ obs\_uart\_h;}
 \DoxyCodeLine{00030\ }
 \DoxyCodeLine{00031\ \textcolor{keyword}{extern}\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_position}{Position}}\ current\_position;}
-\DoxyCodeLine{00032\ \textcolor{keyword}{extern}\ uint8\_t\ obs\_uart\_receive\_buffer[OBSERVER\_MESSAGE\_SIZE];}
-\DoxyCodeLine{00033\ }
-\DoxyCodeLine{00034\ \textcolor{comment}{//\ Public}}
-\DoxyCodeLine{00035\ HAL\_StatusTypeDef\ Initialize\_Observer\_Comm(TIM\_HandleTypeDef*\ refresh\_tim\_handle,\ UART\_HandleTypeDef*\ obs\_uart\_handle);}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \textcolor{comment}{//\ Private}}
-\DoxyCodeLine{00038\ LCD\_Status\ \_print\_position\_to\_lcd();}
-\DoxyCodeLine{00039\ }
-\DoxyCodeLine{00040\ HAL\_StatusTypeDef\ \_obs\_timer\_period\_elapsed\_it\_callback(TIM\_HandleTypeDef\ *htim);}
-\DoxyCodeLine{00041\ HAL\_StatusTypeDef\ \_obs\_uart\_receive\_it\_callback(UART\_HandleTypeDef\ *huart);}
-\DoxyCodeLine{00042\ HAL\_StatusTypeDef\ \_obs\_uart\_transmit\_it\_callback(UART\_HandleTypeDef\ *huart);}
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ INC\_OBSERVER\_COMM\_H\_\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00032\ \textcolor{keyword}{extern}\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_position}{Position}}\ initial\_position;}
+\DoxyCodeLine{00033\ \textcolor{keyword}{extern}\ uint8\_t\ obs\_uart\_receive\_buffer[OBSERVER\_MESSAGE\_SIZE];}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{comment}{//\ Public}}
+\DoxyCodeLine{00036\ HAL\_StatusTypeDef\ Initialize\_Observer\_Comm(TIM\_HandleTypeDef*\ refresh\_tim\_handle,\ UART\_HandleTypeDef*\ obs\_uart\_handle);}
+\DoxyCodeLine{00037\ \textcolor{keywordtype}{float}\ Get\_Position\_Vector\_Length(\textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct_position}{Position}}*\ pos);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{comment}{//\ Private}}
+\DoxyCodeLine{00040\ \textcolor{keywordtype}{void}\ \_read\_position();}
+\DoxyCodeLine{00041\ LCD\_Status\ \_print\_position\_to\_lcd();}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ HAL\_StatusTypeDef\ \_obs\_timer\_period\_elapsed\_it\_callback(TIM\_HandleTypeDef\ *htim);}
+\DoxyCodeLine{00044\ HAL\_StatusTypeDef\ \_obs\_uart\_receive\_it\_callback(UART\_HandleTypeDef\ *huart);}
+\DoxyCodeLine{00045\ HAL\_StatusTypeDef\ \_obs\_uart\_transmit\_it\_callback(UART\_HandleTypeDef\ *huart);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ INC\_OBSERVER\_COMM\_H\_\ */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

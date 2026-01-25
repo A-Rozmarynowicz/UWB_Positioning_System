@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['deploy_0',['Test and Deploy',['../index.html#autotoc_md6',1,'']]],
-  ['description_1',['Description',['../index.html#autotoc_md10',1,'']]],
-  ['documentation_2',['Lighthouse Documentation',['../index.html',1,'']]]
+  ['lighthouse_20documentation_0',['Lighthouse Documentation',['../index.html',1,'']]],
+  ['lighthouseesp_1',['LighthouseESP',['../index.html#autotoc_md0',1,'']]],
+  ['logiki_2',['Opis logiki',['../index.html#autotoc_md1',1,'']]]
 ];

@@ -6,29 +6,35 @@
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MEASURE\_H}}
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}LighthouseConfig.h"{}}}
 \DoxyCodeLine{00004\ }
-\DoxyCodeLine{00005\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_position}{Position}}\ \{}
-\DoxyCodeLine{00006\ \ \ \ \ \textcolor{keywordtype}{float}\ x;}
-\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keywordtype}{float}\ y;}
-\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keywordtype}{float}\ z;}
-\DoxyCodeLine{00009\ \};}
-\DoxyCodeLine{00010\ }
-\DoxyCodeLine{00011\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{float}\ distances\_to\_lighthouses[NUMBER\_OF\_LIGHTHOUSES];}
-\DoxyCodeLine{00012\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{float}\ master\_all\_distances\_matrix[NUMBER\_OF\_LIGHTHOUSES][NUMBER\_OF\_LIGHTHOUSES];}
-\DoxyCodeLine{00013\ \textcolor{keyword}{extern}\ \doxymbox{\hyperlink{struct_position}{Position}}\ master\_all\_positions[NUMBER\_OF\_LIGHTHOUSES];}
-\DoxyCodeLine{00014\ \textcolor{keyword}{extern}\ \doxymbox{\hyperlink{struct_position}{Position}}\ position;}
+\DoxyCodeLine{00005\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ THEORETICAL\_MAX\_DISTANCE\ =\ 10.0f;}
+\DoxyCodeLine{00006\ \textcolor{keyword}{const}\ uint8\_t\ MIN\_DISTANCE\_MEASUREMENTS\ =\ 5;}
+\DoxyCodeLine{00007\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ DISTANCE\_ANTENA\_DELAY\_OFFSET\ =\ 0.6;}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ const\ float\ /DISTANCE\_ANTENA\_DELAY\_OFFSET\ =\ 0.0;}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_position}{Position}}\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{float}\ x;}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{float}\ y;}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{float}\ z;}
+\DoxyCodeLine{00014\ \};}
 \DoxyCodeLine{00015\ }
-\DoxyCodeLine{00016\ \textcolor{comment}{//\ Public}}
-\DoxyCodeLine{00017\ \textcolor{keywordtype}{void}\ Calculate\_Distance\_To\_Target(uint8\_t\ current\_target,\ \textcolor{keywordtype}{float}\ distance);}
-\DoxyCodeLine{00018\ \textcolor{keywordtype}{void}\ Print\_Master\_All\_Distances\_Matrix();}
-\DoxyCodeLine{00019\ \textcolor{keywordtype}{void}\ Print\_Position(uint8\_t\ lighthouse);}
-\DoxyCodeLine{00020\ \textcolor{keywordtype}{void}\ Calculate\_Position\_Of\_Lighthouse(uint8\_t\ lighthouse);}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \textcolor{comment}{//\ Private}}
-\DoxyCodeLine{00023\ \textcolor{keywordtype}{void}\ \_set\_LGH\_1\_position();}
-\DoxyCodeLine{00024\ \textcolor{keywordtype}{void}\ \_set\_LGH\_2\_position();}
-\DoxyCodeLine{00025\ \textcolor{keywordtype}{void}\ \_set\_LGH\_3\_position();}
-\DoxyCodeLine{00026\ \textcolor{keywordtype}{void}\ \_set\_LGH\_4plus\_position(uint8\_t\ lighthouse);}
+\DoxyCodeLine{00016\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{float}\ distances\_to\_lighthouses[NUMBER\_OF\_LIGHTHOUSES];}
+\DoxyCodeLine{00017\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{float}\ master\_all\_distances\_matrix[NUMBER\_OF\_LIGHTHOUSES][NUMBER\_OF\_LIGHTHOUSES];}
+\DoxyCodeLine{00018\ \textcolor{keyword}{extern}\ \doxymbox{\hyperlink{struct_position}{Position}}\ master\_all\_positions[NUMBER\_OF\_LIGHTHOUSES];}
+\DoxyCodeLine{00019\ \textcolor{keyword}{extern}\ \doxymbox{\hyperlink{struct_position}{Position}}\ position;}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{comment}{//\ Public}}
+\DoxyCodeLine{00022\ \textcolor{keywordtype}{void}\ New\_Measurement(uint8\_t\ lighthouse,\ \textcolor{keywordtype}{float}\ distance);}
+\DoxyCodeLine{00023\ \textcolor{keywordtype}{void}\ Calculate\_Distance\_To\_Targets(uint8\_t\ distance\_measurements[NUMBER\_OF\_LIGHTHOUSES]);}
+\DoxyCodeLine{00024\ \textcolor{keywordtype}{void}\ Print\_Master\_All\_Distances\_Matrix();}
+\DoxyCodeLine{00025\ \textcolor{keywordtype}{void}\ Print\_Position(uint8\_t\ lighthouse);}
+\DoxyCodeLine{00026\ \textcolor{keywordtype}{void}\ Calculate\_Position\_Of\_Lighthouse(uint8\_t\ lighthouse);}
 \DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00028\ \textcolor{comment}{//\ Private}}
+\DoxyCodeLine{00029\ \textcolor{keywordtype}{void}\ \_set\_LGH\_1\_position();}
+\DoxyCodeLine{00030\ \textcolor{keywordtype}{void}\ \_set\_LGH\_2\_position();}
+\DoxyCodeLine{00031\ \textcolor{keywordtype}{void}\ \_set\_LGH\_3\_position();}
+\DoxyCodeLine{00032\ \textcolor{keywordtype}{void}\ \_set\_LGH\_4plus\_position(uint8\_t\ lighthouse);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

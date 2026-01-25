@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['files_0',['Add your files',['../index.html#autotoc_md3',1,'']]],
-  ['for_20a_20good_20readme_1',['Suggestions for a good README',['../index.html#autotoc_md8',1,'']]]
+  ['initialize_5fcommunication_0',['Initialize_Communication',['../_communication_8h.html#a3b564dd662c5448bcab004e10a1f06eb',1,'Communication.cpp']]]
 ];

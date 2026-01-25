@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['deploy_0',['Test and Deploy',['../index.html#autotoc_md6',1,'']]],
-  ['description_1',['Description',['../index.html#autotoc_md10',1,'']]],
-  ['documentation_2',['Lighthouse Documentation',['../index.html',1,'']]]
+  ['formularza_3a_0',['Do formularza:',['../index.html#autotoc_md3',1,'']]]
 ];

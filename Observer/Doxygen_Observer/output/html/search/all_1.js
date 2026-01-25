@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['badges_0',['Badges',['../index.html#autotoc_md11',1,'']]]
+  ['do_20formularza_3a_0',['Do formularza:',['../index.html#autotoc_md3',1,'']]],
+  ['documentation_1',['Observer Documentation',['../index.html',1,'']]]
 ];

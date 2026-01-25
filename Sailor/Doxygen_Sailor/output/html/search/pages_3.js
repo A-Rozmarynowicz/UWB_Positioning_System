@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['deploy_0',['Test and Deploy',['../index.html#autotoc_md6',1,'']]],
-  ['description_1',['Description',['../index.html#autotoc_md10',1,'']]],
-  ['documentation_2',['Sailor Documentation',['../index.html',1,'']]]
+  ['logiki_0',['Opis logiki',['../index.html#autotoc_md1',1,'']]]
 ];

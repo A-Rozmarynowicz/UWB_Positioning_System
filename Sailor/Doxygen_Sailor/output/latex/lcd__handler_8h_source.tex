@@ -23,52 +23,54 @@
 \DoxyCodeLine{00019\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ uint8\_t\ X\_LCD\_COORDS[2];}
 \DoxyCodeLine{00020\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ uint8\_t\ Y\_LCD\_COORDS[2];}
 \DoxyCodeLine{00021\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ uint8\_t\ Z\_LCD\_COORDS[2];}
-\DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ LCD\_Status\ \{}
-\DoxyCodeLine{00025\ \ \ \ \ LCD\_OK\ =\ 0,}
-\DoxyCodeLine{00026\ \ \ \ \ LCD\_QUEUE\_FULL\ =\ 1,}
-\DoxyCodeLine{00027\ \ \ \ \ LCD\_QUEUE\_EMPTY\ =\ 2,}
-\DoxyCodeLine{00028\ \ \ \ \ LCD\_INIT\_FAIL\ =\ 3,}
-\DoxyCodeLine{00029\ \ \ \ \ LCD\_HAL\_ERROR\ =\ 4,}
-\DoxyCodeLine{00030\ \}\ LCD\_Status;}
-\DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ }
-\DoxyCodeLine{00033\ \textcolor{keyword}{extern}\ I2C\_HandleTypeDef*\ h\_lcd\_i2c;}
-\DoxyCodeLine{00034\ \textcolor{keyword}{extern}\ uint8\_t\ tx\_queue[QUEUE\_SIZE];}
-\DoxyCodeLine{00035\ \textcolor{keyword}{extern}\ uint16\_t\ head\_pointer;\ \textcolor{comment}{//\ Where\ we\ append\ to}}
-\DoxyCodeLine{00036\ \textcolor{keyword}{extern}\ uint16\_t\ tail\_pointer;\ \textcolor{comment}{//\ Where\ we\ send\ from}}
-\DoxyCodeLine{00037\ }
-\DoxyCodeLine{00038\ \textcolor{keyword}{extern}\ uint8\_t\ transmission\_going;}
+\DoxyCodeLine{00022\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ uint8\_t\ R\_LCD\_COORDS[2];}
+\DoxyCodeLine{00023\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ uint8\_t\ LCD\_MESSAGE\_WIDTH;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ LCD\_Status\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ LCD\_OK\ =\ 0,}
+\DoxyCodeLine{00028\ \ \ \ \ LCD\_QUEUE\_FULL\ =\ 1,}
+\DoxyCodeLine{00029\ \ \ \ \ LCD\_QUEUE\_EMPTY\ =\ 2,}
+\DoxyCodeLine{00030\ \ \ \ \ LCD\_INIT\_FAIL\ =\ 3,}
+\DoxyCodeLine{00031\ \ \ \ \ LCD\_HAL\_ERROR\ =\ 4,}
+\DoxyCodeLine{00032\ \}\ LCD\_Status;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{extern}\ I2C\_HandleTypeDef*\ h\_lcd\_i2c;}
+\DoxyCodeLine{00036\ \textcolor{keyword}{extern}\ uint8\_t\ tx\_queue[QUEUE\_SIZE];}
+\DoxyCodeLine{00037\ \textcolor{keyword}{extern}\ uint16\_t\ head\_pointer;\ \textcolor{comment}{//\ Where\ we\ append\ to}}
+\DoxyCodeLine{00038\ \textcolor{keyword}{extern}\ uint16\_t\ tail\_pointer;\ \textcolor{comment}{//\ Where\ we\ send\ from}}
 \DoxyCodeLine{00039\ }
-\DoxyCodeLine{00040\ \textcolor{comment}{//\ Public}}
-\DoxyCodeLine{00041\ LCD\_Status\ Initialize\_LCD\_Handler(I2C\_HandleTypeDef*\ i2c\_handle);}
-\DoxyCodeLine{00042\ LCD\_Status\ Put\_Cursor(uint8\_t\ row,\ uint8\_t\ column);}
-\DoxyCodeLine{00043\ LCD\_Status\ Print\_String(\textcolor{keywordtype}{char}*\ txt,\ uint8\_t\ size);}
-\DoxyCodeLine{00044\ LCD\_Status\ Print\_String\_At\_Pos(\textcolor{keywordtype}{char}*\ txt,\ uint8\_t\ size,\ uint8\_t\ row,\ uint8\_t\ column);}
-\DoxyCodeLine{00045\ }
-\DoxyCodeLine{00046\ LCD\_Status\ Print\_Whole\_Position(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ z);}
+\DoxyCodeLine{00040\ \textcolor{keyword}{extern}\ uint8\_t\ transmission\_going;}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{comment}{//\ Public}}
+\DoxyCodeLine{00043\ LCD\_Status\ Initialize\_LCD\_Handler(I2C\_HandleTypeDef*\ i2c\_handle);}
+\DoxyCodeLine{00044\ LCD\_Status\ Put\_Cursor(uint8\_t\ row,\ uint8\_t\ column);}
+\DoxyCodeLine{00045\ LCD\_Status\ Print\_String(\textcolor{keywordtype}{char}*\ txt,\ uint8\_t\ size);}
+\DoxyCodeLine{00046\ LCD\_Status\ Print\_String\_At\_Pos(\textcolor{keywordtype}{char}*\ txt,\ uint8\_t\ size,\ uint8\_t\ row,\ uint8\_t\ column);}
 \DoxyCodeLine{00047\ }
-\DoxyCodeLine{00048\ \textcolor{comment}{//\ Private}}
-\DoxyCodeLine{00049\ LCD\_Status\ \_lcd\_init(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00050\ }
-\DoxyCodeLine{00051\ LCD\_Status\ \_add\_command\_to\_queue(\textcolor{keywordtype}{char}\ cmd);}
-\DoxyCodeLine{00052\ LCD\_Status\ \_add\_data\_to\_queue(\textcolor{keywordtype}{char}\ data);}
-\DoxyCodeLine{00053\ LCD\_Status\ \_cd\_send\_cmd\ (\textcolor{keywordtype}{char}\ cmd);}
-\DoxyCodeLine{00054\ }
-\DoxyCodeLine{00055\ HAL\_StatusTypeDef\ \_begin\_transmission();}
-\DoxyCodeLine{00056\ \textcolor{keywordtype}{void}\ \_stop\_transmission();}
-\DoxyCodeLine{00057\ uint8\_t\ \_is\_transmission\_going();}
-\DoxyCodeLine{00058\ \textcolor{keywordtype}{void}\ \_increase\_tail\_pointer(uint16\_t\ inc);}
-\DoxyCodeLine{00059\ }
-\DoxyCodeLine{00060\ uint8\_t\ \_has\_queue\_space(uint16\_t\ data\_size);}
-\DoxyCodeLine{00061\ LCD\_Status\ \_copy\_buffer\_to\_queue(uint8\_t*\ buffer);}
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00063\ HAL\_StatusTypeDef\ \_send\_one\_byte();}
+\DoxyCodeLine{00048\ LCD\_Status\ Print\_Whole\_Position(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ z,\ \textcolor{keywordtype}{float}\ R);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{comment}{//\ Private}}
+\DoxyCodeLine{00051\ LCD\_Status\ \_lcd\_init(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ LCD\_Status\ \_add\_command\_to\_queue(\textcolor{keywordtype}{char}\ cmd);}
+\DoxyCodeLine{00054\ LCD\_Status\ \_add\_data\_to\_queue(\textcolor{keywordtype}{char}\ data);}
+\DoxyCodeLine{00055\ LCD\_Status\ \_cd\_send\_cmd\ (\textcolor{keywordtype}{char}\ cmd);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ HAL\_StatusTypeDef\ \_begin\_transmission();}
+\DoxyCodeLine{00058\ \textcolor{keywordtype}{void}\ \_stop\_transmission();}
+\DoxyCodeLine{00059\ uint8\_t\ \_is\_transmission\_going();}
+\DoxyCodeLine{00060\ \textcolor{keywordtype}{void}\ \_increase\_tail\_pointer(uint16\_t\ inc);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ uint8\_t\ \_has\_queue\_space(uint16\_t\ data\_size);}
+\DoxyCodeLine{00063\ LCD\_Status\ \_copy\_buffer\_to\_queue(uint8\_t*\ buffer);}
 \DoxyCodeLine{00064\ }
-\DoxyCodeLine{00065\ HAL\_StatusTypeDef\ \_lcd\_i2c\_transmit\_it\_callback(I2C\_HandleTypeDef\ *hi2c);}
-\DoxyCodeLine{00066\ HAL\_StatusTypeDef\ \_lcd\_i2c\_receive\_it\_callback(I2C\_HandleTypeDef\ *hi2c);}
-\DoxyCodeLine{00067\ }
-\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ INC\_LCD\_HANDLER\_H\_\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00065\ HAL\_StatusTypeDef\ \_send\_one\_byte();}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ HAL\_StatusTypeDef\ \_lcd\_i2c\_transmit\_it\_callback(I2C\_HandleTypeDef\ *hi2c);}
+\DoxyCodeLine{00068\ HAL\_StatusTypeDef\ \_lcd\_i2c\_receive\_it\_callback(I2C\_HandleTypeDef\ *hi2c);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ INC\_LCD\_HANDLER\_H\_\ */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}
