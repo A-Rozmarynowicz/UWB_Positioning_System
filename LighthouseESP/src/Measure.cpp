@@ -8,6 +8,9 @@ Position position = {0};
 
 
 void New_Measurement(uint8_t lighthouse, float distance){
+  if (distance > THEORETICAL_MAX_DISTANCE || distance < -THEORETICAL_MAX_DISTANCE){
+    return;
+  }
   distances_to_lighthouses[lighthouse] += distance;
 }
 

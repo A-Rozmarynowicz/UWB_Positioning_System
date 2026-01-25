@@ -9,6 +9,8 @@ uint8_t transmission_going = 0;
 const uint8_t X_LCD_COORDS[2] = {0, 0};
 const uint8_t Y_LCD_COORDS[2] = {0, 9};
 const uint8_t Z_LCD_COORDS[2] = {1, 0};
+const uint8_t R_LCD_COORDS[2] = {1, 9};
+const uint8_t LCD_MESSAGE_WIDTH = 8;
 
 // Public
 LCD_Status Initialize_LCD_Handler(I2C_HandleTypeDef* i2c_handle){
@@ -30,7 +32,7 @@ LCD_Status Put_Cursor(uint8_t row, uint8_t column){
 }
 
 LCD_Status Print_String(char* txt, uint8_t size){
-	if (_has_queue_space(size) == 0){
+	if (_has_queue_space(size*COMMAND_SIZE) == 0){
 		return LCD_QUEUE_FULL;
 	}
 	for (uint8_t i=0;i<size;i++){
@@ -48,15 +50,33 @@ LCD_Status Print_String_At_Pos(char* txt, uint8_t size, uint8_t row, uint8_t col
 	return Print_String(txt, size);
 }
 
-LCD_Status Print_Whole_Position(float x, float y, float z){
-	char buffer[12];
+LCD_Status Print_Whole_Position(float x, float y, float z, float R){
+	char buffer[32];
 	uint8_t size = 0;
-	size = sprintf(buffer, "x=%.2fm", x);
+	size = sprintf(buffer, "x=%.2fm    ", x);
+	if (strlen(buffer) > LCD_MESSAGE_WIDTH){
+		buffer[LCD_MESSAGE_WIDTH] = '\0';
+	}
 	if (Print_String_At_Pos(buffer, size, X_LCD_COORDS[0], X_LCD_COORDS[1]) != LCD_OK) {return LCD_HAL_ERROR;}
-	size = sprintf(buffer, "y=%.2fm", y);
+
+	size = sprintf(buffer, "y=%.2fm    ", y);
+	if (strlen(buffer) > LCD_MESSAGE_WIDTH){
+		buffer[LCD_MESSAGE_WIDTH] = '\0';
+	}
 	if (Print_String_At_Pos(buffer, size, Y_LCD_COORDS[0], Y_LCD_COORDS[1]) != LCD_OK) {return LCD_HAL_ERROR;}
-	size = sprintf(buffer, "z=%.2fm", z);
+
+	size = sprintf(buffer, "z=%.2fm    ", z);
+	if (strlen(buffer) > LCD_MESSAGE_WIDTH){
+		buffer[LCD_MESSAGE_WIDTH] = '\0';
+	}
 	if (Print_String_At_Pos(buffer, size, Z_LCD_COORDS[0], Z_LCD_COORDS[1]) != LCD_OK) {return LCD_HAL_ERROR;}
+
+	size = sprintf(buffer, "R=%.2fm    ", R);
+	if (strlen(buffer) > LCD_MESSAGE_WIDTH){
+		buffer[LCD_MESSAGE_WIDTH] = '\0';
+	}
+	if (Print_String_At_Pos(buffer, size, R_LCD_COORDS[0], R_LCD_COORDS[1]) != LCD_OK) {return LCD_HAL_ERROR;}
+
 	return LCD_OK;
 }
 

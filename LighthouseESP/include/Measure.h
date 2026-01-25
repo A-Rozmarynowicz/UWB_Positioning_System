@@ -2,6 +2,7 @@
 #define MEASURE_H
 #include "LighthouseConfig.h"
 
+const float THEORETICAL_MAX_DISTANCE = 10.0f;
 const uint8_t MIN_DISTANCE_MEASUREMENTS = 5;
 const float DISTANCE_ANTENA_DELAY_OFFSET = 0.6;
 // const float /DISTANCE_ANTENA_DELAY_OFFSET = 0.0;

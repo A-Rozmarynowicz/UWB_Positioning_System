@@ -400,7 +400,11 @@ void Observer_Response_Enter(){
   Enable_UWB();
   Data_Transfer_LED_ON();
 };
+
 void Observer_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
+  if (data[Data_Setup::COMMAND] == Data_Commands::OBSERVER_WAKEUP_RECKON){
+    MESSAGES::Send_Observer_Ready();
+  }
   if (data[Data_Setup::COMMAND] == Data_Commands::OBSERVER_QUERY_POSITION){
     Data_Transfer_LED_OFF();
     MESSAGES::Send_Observer_Position_Response();

@@ -29,12 +29,15 @@ extern TIM_HandleTypeDef* refresh_info_timer_h;
 extern UART_HandleTypeDef* obs_uart_h;
 
 extern struct Position current_position;
+extern struct Position initial_position;
 extern uint8_t obs_uart_receive_buffer[OBSERVER_MESSAGE_SIZE];
 
 // Public
 HAL_StatusTypeDef Initialize_Observer_Comm(TIM_HandleTypeDef* refresh_tim_handle, UART_HandleTypeDef* obs_uart_handle);
+float Get_Position_Vector_Length(struct Position* pos);
 
 // Private
+void _read_position();
 LCD_Status _print_position_to_lcd();
 
 HAL_StatusTypeDef _obs_timer_period_elapsed_it_callback(TIM_HandleTypeDef *htim);

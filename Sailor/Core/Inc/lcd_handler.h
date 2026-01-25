@@ -19,6 +19,8 @@
 extern const uint8_t X_LCD_COORDS[2];
 extern const uint8_t Y_LCD_COORDS[2];
 extern const uint8_t Z_LCD_COORDS[2];
+extern const uint8_t R_LCD_COORDS[2];
+extern const uint8_t LCD_MESSAGE_WIDTH;
 
 
 typedef enum LCD_Status {
@@ -43,7 +45,7 @@ LCD_Status Put_Cursor(uint8_t row, uint8_t column);
 LCD_Status Print_String(char* txt, uint8_t size);
 LCD_Status Print_String_At_Pos(char* txt, uint8_t size, uint8_t row, uint8_t column);
 
-LCD_Status Print_Whole_Position(float x, float y, float z);
+LCD_Status Print_Whole_Position(float x, float y, float z, float R);
 
 // Private
 LCD_Status _lcd_init(void);
