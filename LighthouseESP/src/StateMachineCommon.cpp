@@ -1,7 +1,7 @@
 #include "StateMachine.h"
 
 States current_state = States::INITIAL;
-StateData current_state_data = {0};
+State_Data current_state_data = {0};
 uint8_t completed_distance_measurements[NUMBER_OF_LIGHTHOUSES] = {0};
 
 /**

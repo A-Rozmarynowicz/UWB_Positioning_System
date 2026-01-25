@@ -1,7 +1,7 @@
 #include "string.h"
 #include "Communication.h"
 
-AckStatus current_ack_status = {0};
+Ack_Status current_ack_status = {0};
 uint8_t transmit_buffer[DATA_SIZE] = {0};
 
 #pragma region Message Functions

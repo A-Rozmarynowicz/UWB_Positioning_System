@@ -1,0 +1,51 @@
+\doxysection{State\+\_\+\+Data Struct Reference}
+\hypertarget{struct_state___data}{}\label{struct_state___data}\index{State\_Data@{State\_Data}}
+
+
+Data structure storing current state-\/related information.  
+
+
+
+
+{\ttfamily \+\#include $<$State\+Machine.\+h$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{struct_state___data_a1a6db6b9b495665dec7dff1170f192fb}\label{struct_state___data_a1a6db6b9b495665dec7dff1170f192fb} 
+bool {\bfseries ignoring\+\_\+sent\+\_\+callbacks}
+\item 
+\Hypertarget{struct_state___data_a8bebf369b417420fe2a656145922221f}\label{struct_state___data_a8bebf369b417420fe2a656145922221f} 
+uint8\+\_\+t {\bfseries target\+\_\+lighthouse}
+\item 
+\Hypertarget{struct_state___data_a550c77e69a95989af5b5c682295d0c01}\label{struct_state___data_a550c77e69a95989af5b5c682295d0c01} 
+uint8\+\_\+t {\bfseries distance\+\_\+query\+\_\+target}
+\item 
+\Hypertarget{struct_state___data_ac95a5f0e6b9ec1aa016e3075c01a2867}\label{struct_state___data_ac95a5f0e6b9ec1aa016e3075c01a2867} 
+uint8\+\_\+t {\bfseries stored\+\_\+next\+\_\+state}
+\item 
+\Hypertarget{struct_state___data_a57f8a93904e489f157f7831b4325af07}\label{struct_state___data_a57f8a93904e489f157f7831b4325af07} 
+uint16\+\_\+t {\bfseries time\+\_\+measurements\+\_\+completed}
+\item 
+\Hypertarget{struct_state___data_a48f7ba6dfc5dc14d4f92a8accb729dbb}\label{struct_state___data_a48f7ba6dfc5dc14d4f92a8accb729dbb} 
+uint16\+\_\+t {\bfseries message\+\_\+index}
+\item 
+\Hypertarget{struct_state___data_a80f911dfd63af92017c8f4c10bb6a0a1}\label{struct_state___data_a80f911dfd63af92017c8f4c10bb6a0a1} 
+uint32\+\_\+t {\bfseries last\+\_\+registered\+\_\+time}
+\item 
+\Hypertarget{struct_state___data_a22e5c14e97c18aad2cba39efdbf1a0a6}\label{struct_state___data_a22e5c14e97c18aad2cba39efdbf1a0a6} 
+double {\bfseries elapsed\+\_\+times\+\_\+sum}
+\item 
+\Hypertarget{struct_state___data_a06025104bd3539f2eb4fc46ba7a78f26}\label{struct_state___data_a06025104bd3539f2eb4fc46ba7a78f26} 
+double {\bfseries stored\+\_\+targets\+\_\+avg\+\_\+response\+\_\+time}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Data structure storing current state-\/related information. 
+
+Used to store variables that must persist across state transitions and callbacks. 
+
+The documentation for this struct was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+include/\+\doxymbox{\hyperlink{_state_machine_8h}{State\+Machine.\+h}}\end{DoxyCompactItemize}

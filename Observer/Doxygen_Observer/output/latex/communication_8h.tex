@@ -7,11 +7,6 @@ ESP-\/\+NOW communication interface and message definitions.
 
 {\ttfamily \+\#include "{}esp\+\_\+now.\+h"{}}\newline
 {\ttfamily \+\#include "{}observer\+\_\+config.\+h"{}}\newline
-\doxysubsubsection*{Classes}
-\begin{DoxyCompactItemize}
-\item 
-struct \doxymbox{\hyperlink{struct_ack_status}{Ack\+Status}}
-\begin{DoxyCompactList}\small\item\em Acknowledgement status used for tracking message retries. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
@@ -94,9 +89,6 @@ const uint8\+\_\+t {\bfseries BROADCAST\+\_\+\+RECEIVER\+\_\+\+ID} = 255
 \Hypertarget{communication_8h_a3cc04eaa8880389d6aa4dfc4a291e41a}\label{communication_8h_a3cc04eaa8880389d6aa4dfc4a291e41a} 
 const uint8\+\_\+t {\bfseries ACK\+\_\+\+MESSAGE\+\_\+\+COUNT} = 5
 \item 
-\Hypertarget{communication_8h_a709b06b1381f6268b9c79e782dc87393}\label{communication_8h_a709b06b1381f6268b9c79e782dc87393} 
-\doxymbox{\hyperlink{struct_ack_status}{Ack\+Status}} {\bfseries current\+\_\+ack\+\_\+status}
-\begin{DoxyCompactList}\small\item\em Current acknowledgement status. \end{DoxyCompactList}\item 
 \Hypertarget{communication_8h_a09de4a9b4114f488f667f196f70382b0}\label{communication_8h_a09de4a9b4114f488f667f196f70382b0} 
 uint8\+\_\+t {\bfseries transmit\+\_\+buffer} \+[DATA\+\_\+\+SIZE]\+
 \begin{DoxyCompactList}\small\item\em Current data prepared to send. \end{DoxyCompactList}\end{DoxyCompactItemize}

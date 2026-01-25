@@ -1,6 +1,6 @@
 var _state_machine_8h =
 [
-    [ "StateData", "struct_state_data.html", null ],
+    [ "State_Data", "struct_state___data.html", null ],
     [ "State_Machine_Errors", "_state_machine_8h.html#a0046ae703fbe4cbac532df113f7e1fc7", null ],
     [ "States", "_state_machine_8h.html#a808e5cd4979462d3bbe3070d7d147444", null ],
     [ "Change_State", "_state_machine_8h.html#a1a9296a39f8c1f0afa308b5e0f918460", null ],
@@ -15,6 +15,6 @@ var _state_machine_8h =
     [ "State_UWB_New_Range", "_state_machine_8h.html#a2ce878086a38c315b67b49ba8b754ad5", null ],
     [ "completed_distance_measurements", "_state_machine_8h.html#ac9355a39b7ba565ded1a7253f460a836", null ],
     [ "current_state", "_state_machine_8h.html#ad22ce002ddbdd2937fb1e247570604f4", null ],
-    [ "current_state_data", "_state_machine_8h.html#a356244e04ead2d115c6a89268cface9b", null ],
+    [ "current_state_data", "_state_machine_8h.html#ad2d4dd9f19d7204e2e99e07bd19c0434", null ],
     [ "MESSAGE_MAX_COUNT", "_state_machine_8h.html#a27717b2fd04a36c2234c2dc2de737abc", null ]
 ];

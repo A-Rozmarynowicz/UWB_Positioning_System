@@ -73,19 +73,6 @@ enum Communication_Errors {
 };
 
 /**
- * @brief Acknowledgement status used for tracking message retries.
- */
-struct AckStatus {
-  uint8_t current_ack_index;
-  uint8_t target_ack_lighthouse;
-};
-
-/**
- * @brief Current acknowledgement status
- */
-extern AckStatus current_ack_status;
-
-/**
  * @brief Current data prepared to send.
  */
 extern uint8_t transmit_buffer[DATA_SIZE];

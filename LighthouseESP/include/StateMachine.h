@@ -17,13 +17,13 @@
 #include "LighthouseConfig.h"
 
 /**
- * @struct StateData
+ * @struct State_Data
  * @brief Data structure storing current state-related information.
  *
  * Used to store variables that must persist across state transitions and
  * callbacks.
  */
-struct StateData {
+struct State_Data {
   bool ignoring_sent_callbacks;
   uint8_t target_lighthouse;
   uint8_t distance_query_target;
@@ -38,7 +38,7 @@ struct StateData {
 /**
  * @brief Current state data instance.
  */
-extern struct StateData current_state_data;
+extern struct State_Data current_state_data;
 
 /**
  * @brief Count of completed distance measurements for each lighthouse.

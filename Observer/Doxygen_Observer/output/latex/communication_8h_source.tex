@@ -54,29 +54,22 @@
 \DoxyCodeLine{00072\ \ \ ACK\_FAIL,}
 \DoxyCodeLine{00073\ \};}
 \DoxyCodeLine{00074\ }
-\DoxyCodeLine{00078\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_ack_status}{AckStatus}}\ \{}
-\DoxyCodeLine{00079\ \ \ uint8\_t\ current\_ack\_index;}
-\DoxyCodeLine{00080\ \ \ uint8\_t\ target\_ack\_lighthouse;}
-\DoxyCodeLine{00081\ \};}
+\DoxyCodeLine{00078\ \textcolor{keyword}{extern}\ uint8\_t\ transmit\_buffer[DATA\_SIZE];}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{comment}{//\ Public}}
+\DoxyCodeLine{00081\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{communication_8h_a3b564dd662c5448bcab004e10a1f06eb}{Initialize\_Communication}}();}
 \DoxyCodeLine{00082\ }
-\DoxyCodeLine{00086\ \textcolor{keyword}{extern}\ \doxymbox{\hyperlink{struct_ack_status}{AckStatus}}\ \doxymbox{\hyperlink{communication_8h_a709b06b1381f6268b9c79e782dc87393}{current\_ack\_status}};}
+\DoxyCodeLine{00083\ \textcolor{keyword}{namespace\ }MESSAGES\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{communication_8h_ada14ff63a80c363adff8247da770c66a}{Send\_Query\_Position}}(uint8\_t\ lgh\_index);}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{communication_8h_a7fe54f8dea3c19b6f79eca76a6a13f4a}{Send\_Wakeup\_Reckon}}();}
+\DoxyCodeLine{00086\ \}}
 \DoxyCodeLine{00087\ }
-\DoxyCodeLine{00091\ \textcolor{keyword}{extern}\ uint8\_t\ transmit\_buffer[DATA\_SIZE];}
-\DoxyCodeLine{00092\ }
-\DoxyCodeLine{00093\ \textcolor{comment}{//\ Public}}
-\DoxyCodeLine{00094\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{communication_8h_a3b564dd662c5448bcab004e10a1f06eb}{Initialize\_Communication}}();}
-\DoxyCodeLine{00095\ }
-\DoxyCodeLine{00096\ \textcolor{keyword}{namespace\ }MESSAGES\ \{}
-\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{void}\ Send\_Query\_Position(uint8\_t\ lgh\_index);}
-\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{void}\ Send\_Wakeup\_Reckon();}
-\DoxyCodeLine{00099\ \}}
-\DoxyCodeLine{00100\ }
-\DoxyCodeLine{00101\ \textcolor{comment}{//\ Private}}
-\DoxyCodeLine{00102\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{communication_8h_a3cf83a241a1209a64ef0481ef1c320bc}{\_send\_esp}}();}
-\DoxyCodeLine{00103\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{communication_8h_a90cd84e65fc70f7c9b04995f68ef505f}{\_receive\_callback}}(\textcolor{keyword}{const}\ uint8\_t*\ macAddr,\ \textcolor{keyword}{const}\ uint8\_t*\ data,\ \textcolor{keywordtype}{int}\ dataLen);}
-\DoxyCodeLine{00104\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{communication_8h_a4ec3145a53468061570ad150e3a99749}{\_sent\_callback}}(\textcolor{keyword}{const}\ uint8\_t\ *macAddr,\ esp\_now\_send\_status\_t\ status);}
-\DoxyCodeLine{00105\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{communication_8h_a727a150d05439f0ffd3a9ff198f82e8b}{\_communication\_error}}(\doxymbox{\hyperlink{communication_8h_a9b79e795e3bb6cdece9ebf16adfb9683}{Communication\_Errors}}\ error);}
-\DoxyCodeLine{00106\ }
-\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00088\ \textcolor{comment}{//\ Private}}
+\DoxyCodeLine{00089\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{communication_8h_a3cf83a241a1209a64ef0481ef1c320bc}{\_send\_esp}}();}
+\DoxyCodeLine{00090\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{communication_8h_a90cd84e65fc70f7c9b04995f68ef505f}{\_receive\_callback}}(\textcolor{keyword}{const}\ uint8\_t*\ macAddr,\ \textcolor{keyword}{const}\ uint8\_t*\ data,\ \textcolor{keywordtype}{int}\ dataLen);}
+\DoxyCodeLine{00091\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{communication_8h_a4ec3145a53468061570ad150e3a99749}{\_sent\_callback}}(\textcolor{keyword}{const}\ uint8\_t\ *macAddr,\ esp\_now\_send\_status\_t\ status);}
+\DoxyCodeLine{00092\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{communication_8h_a727a150d05439f0ffd3a9ff198f82e8b}{\_communication\_error}}(\doxymbox{\hyperlink{communication_8h_a9b79e795e3bb6cdece9ebf16adfb9683}{Communication\_Errors}}\ error);}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

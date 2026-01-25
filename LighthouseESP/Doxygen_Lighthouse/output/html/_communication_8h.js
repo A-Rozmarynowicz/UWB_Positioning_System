@@ -1,6 +1,6 @@
 var _communication_8h =
 [
-    [ "AckStatus", "struct_ack_status.html", null ],
+    [ "Ack_Status", "struct_ack___status.html", null ],
     [ "DATA_SIZE", "_communication_8h.html#af55149bc1f05cf18af067a302e31e3f9", null ],
     [ "Communication_Errors", "_communication_8h.html#a9b79e795e3bb6cdece9ebf16adfb9683", null ],
     [ "Data_Commands", "_communication_8h.html#a720807528b1dc7575d0e8edca56df577", null ],

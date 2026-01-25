@@ -1,6 +1,5 @@
 var annotated_dup =
 [
-    [ "AckStatus", "struct_ack_status.html", null ],
     [ "Position", "struct_position.html", null ],
     [ "State_Data", "struct_state___data.html", null ]
 ];

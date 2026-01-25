@@ -96,15 +96,15 @@ enum Communication_Errors {
 };
 
 /**
- * @struct AckStatus
+ * @struct Ack_Status
  * @brief Structure used to track acknowledgment state.
  */
-struct AckStatus {
+struct Ack_Status {
   uint8_t current_ack_index;
   uint8_t target_ack_lighthouse;
 };
 
-extern AckStatus current_ack_status;
+extern Ack_Status current_ack_status;
 extern uint8_t transmit_buffer[DATA_SIZE];
 
 void Initialize_Communication();

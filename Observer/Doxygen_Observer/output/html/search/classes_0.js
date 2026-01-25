@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ackstatus_0',['AckStatus',['../struct_ack_status.html',1,'']]]
+  ['position_0',['Position',['../struct_position.html',1,'']]]
 ];
