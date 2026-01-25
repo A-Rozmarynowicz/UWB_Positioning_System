@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lighthouse: src/StateMachineIndividual.cpp File Reference</title>
+<title>Lighthouse Documentation: src/StateMachineIndividual.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Lighthouse
+   <div id="projectname">Lighthouse Documentation
    </div>
   </td>
  </tr>
@@ -96,1448 +96,147 @@ $(function(){initNavTree('_state_machine_individual_8cpp.html','',''); });
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a1f437ba9dbfdcbfed50709d34529dc72" id="r_a1f437ba9dbfdcbfed50709d34529dc72"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a1f437ba9dbfdcbfed50709d34529dc72">Initial_Enter</a> ()</td></tr>
-<tr class="memitem:a1a1bc9eb31e75d94f40096a694ac5884" id="r_a1a1bc9eb31e75d94f40096a694ac5884"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a1a1bc9eb31e75d94f40096a694ac5884">Initial_ReceiveCallback</a> (const uint8_t *data, int dataLen, uint32_t receive_time)</td></tr>
-<tr class="memitem:a79aa0e62d4f7dda633b28c249bb40314" id="r_a79aa0e62d4f7dda633b28c249bb40314"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a79aa0e62d4f7dda633b28c249bb40314">Initial_SentCallback</a> (uint32_t send_time)</td></tr>
-<tr class="memitem:a3d8ba73994c9dae74db103315344119b" id="r_a3d8ba73994c9dae74db103315344119b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3d8ba73994c9dae74db103315344119b">Initial_TimerCallback</a> (<a class="el" href="_timing_8h.html#aa4cfa56f0ecbc0a890da7fb57c15ee75">Timer_Callbacks</a> timer_callback)</td></tr>
-<tr class="memitem:a447bdcdddc967aa5588ae3ea4d6a5459" id="r_a447bdcdddc967aa5588ae3ea4d6a5459"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a447bdcdddc967aa5588ae3ea4d6a5459">Initial_ButtonCallback</a> (uint8_t button)</td></tr>
-<tr class="memitem:a9bcdbfe549bce16ce4e8c116df083e04" id="r_a9bcdbfe549bce16ce4e8c116df083e04"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a9bcdbfe549bce16ce4e8c116df083e04">Initial_UWB_New_Range</a> (uint16_t device, float range, float rx_power)</td></tr>
-<tr class="memitem:abe66698809f83c3a9a7cf2757a9e39e7" id="r_abe66698809f83c3a9a7cf2757a9e39e7"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#abe66698809f83c3a9a7cf2757a9e39e7">Initial_Exit</a> ()</td></tr>
-<tr class="memitem:a302e8d12aa408c263ff5e882a490c9b5" id="r_a302e8d12aa408c263ff5e882a490c9b5"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a302e8d12aa408c263ff5e882a490c9b5">UWB_Query_Enter</a> ()</td></tr>
-<tr class="memitem:ac0c338d2682b1627f9589e5991ef29c8" id="r_ac0c338d2682b1627f9589e5991ef29c8"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ac0c338d2682b1627f9589e5991ef29c8">UWB_Query_ReceiveCallback</a> (const uint8_t *data, int dataLen, uint32_t receive_time)</td></tr>
-<tr class="memitem:abbf8594c1ebc397d8d418fa15afe05ec" id="r_abbf8594c1ebc397d8d418fa15afe05ec"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#abbf8594c1ebc397d8d418fa15afe05ec">UWB_Query_SentCallback</a> (uint32_t send_time)</td></tr>
-<tr class="memitem:af3887a69eeb3f130a9673e761a877f4c" id="r_af3887a69eeb3f130a9673e761a877f4c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af3887a69eeb3f130a9673e761a877f4c">UWB_Query_TimerCallback</a> (<a class="el" href="_timing_8h.html#aa4cfa56f0ecbc0a890da7fb57c15ee75">Timer_Callbacks</a> timer_callback)</td></tr>
-<tr class="memitem:a43177fdcc16044aa39f76c8c6904a3d6" id="r_a43177fdcc16044aa39f76c8c6904a3d6"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a43177fdcc16044aa39f76c8c6904a3d6">UWB_Query_ButtonCallback</a> (uint8_t button)</td></tr>
-<tr class="memitem:adda5c7ba4cde6461184718a1083754d8" id="r_adda5c7ba4cde6461184718a1083754d8"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#adda5c7ba4cde6461184718a1083754d8">UWB_Query_UWB_New_Range</a> (uint16_t device, float range, float rx_power)</td></tr>
-<tr class="memitem:a82c360c8367720d6ca466925701c69df" id="r_a82c360c8367720d6ca466925701c69df"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a82c360c8367720d6ca466925701c69df">UWB_Query_Exit</a> ()</td></tr>
-<tr class="memitem:ade9d656b9f4bcdaa8b2284ed4a75b5ab" id="r_ade9d656b9f4bcdaa8b2284ed4a75b5ab"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ade9d656b9f4bcdaa8b2284ed4a75b5ab">UWB_Response_Enter</a> ()</td></tr>
-<tr class="memitem:a7e41b8fc5225a8fd3481a4d3984f122b" id="r_a7e41b8fc5225a8fd3481a4d3984f122b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a7e41b8fc5225a8fd3481a4d3984f122b">UWB_Response_ReceiveCallback</a> (const uint8_t *data, int dataLen, uint32_t receive_time)</td></tr>
-<tr class="memitem:a6467e53b87d63fc0214193345c1475c9" id="r_a6467e53b87d63fc0214193345c1475c9"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6467e53b87d63fc0214193345c1475c9">UWB_Response_SentCallback</a> (uint32_t send_time)</td></tr>
-<tr class="memitem:a7444c8f0a1a22d4392fd9d19d98d7c6c" id="r_a7444c8f0a1a22d4392fd9d19d98d7c6c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a7444c8f0a1a22d4392fd9d19d98d7c6c">UWB_Response_TimerCallback</a> (<a class="el" href="_timing_8h.html#aa4cfa56f0ecbc0a890da7fb57c15ee75">Timer_Callbacks</a> timer_callback)</td></tr>
-<tr class="memitem:aaeaa2cab3b16b704da45d516f41432e6" id="r_aaeaa2cab3b16b704da45d516f41432e6"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aaeaa2cab3b16b704da45d516f41432e6">UWB_Response_ButtonCallback</a> (uint8_t button)</td></tr>
-<tr class="memitem:a3046d9bd9ff04de073a1cd9556fd55ec" id="r_a3046d9bd9ff04de073a1cd9556fd55ec"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3046d9bd9ff04de073a1cd9556fd55ec">UWB_Response_UWB_New_Range</a> (uint16_t device, float range, float rx_power)</td></tr>
-<tr class="memitem:afcade9aeb918e3e43a52be8d1ff21f33" id="r_afcade9aeb918e3e43a52be8d1ff21f33"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#afcade9aeb918e3e43a52be8d1ff21f33">UWB_Response_Exit</a> ()</td></tr>
-<tr class="memitem:a676e69c91b0609c49daa2ba8db3d6a8c" id="r_a676e69c91b0609c49daa2ba8db3d6a8c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a676e69c91b0609c49daa2ba8db3d6a8c">Post_UWB_Check_If_All_LGHS_Set_Enter</a> ()</td></tr>
-<tr class="memitem:a93921515e71a2a7c1f417599e6591b91" id="r_a93921515e71a2a7c1f417599e6591b91"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a93921515e71a2a7c1f417599e6591b91">Post_UWB_Check_If_All_LGHS_Set_ReceiveCallback</a> (const uint8_t *data, int dataLen, uint32_t receive_time)</td></tr>
-<tr class="memitem:ac3b409d39d84b7f423717eb2bcbb8283" id="r_ac3b409d39d84b7f423717eb2bcbb8283"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ac3b409d39d84b7f423717eb2bcbb8283">Post_UWB_Check_If_All_LGHS_Set_SentCallback</a> (uint32_t send_time)</td></tr>
-<tr class="memitem:a42138f67cb639a19c90c91fd2e691d0c" id="r_a42138f67cb639a19c90c91fd2e691d0c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a42138f67cb639a19c90c91fd2e691d0c">Post_UWB_Check_If_All_LGHS_Set_TimerCallback</a> (<a class="el" href="_timing_8h.html#aa4cfa56f0ecbc0a890da7fb57c15ee75">Timer_Callbacks</a> timer_callback)</td></tr>
-<tr class="memitem:a1b94478481f09b1390fd27e108b64f17" id="r_a1b94478481f09b1390fd27e108b64f17"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a1b94478481f09b1390fd27e108b64f17">Post_UWB_Check_If_All_LGHS_Set_ButtonCallback</a> (uint8_t button)</td></tr>
-<tr class="memitem:ae98affbba257f65725baa48b09f48f18" id="r_ae98affbba257f65725baa48b09f48f18"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae98affbba257f65725baa48b09f48f18">Post_UWB_Check_If_All_LGHS_Set_UWB_New_Range</a> (uint16_t device, float range, float rx_power)</td></tr>
-<tr class="memitem:a78baf1e5d9f9e036075c4ba93a64c050" id="r_a78baf1e5d9f9e036075c4ba93a64c050"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a78baf1e5d9f9e036075c4ba93a64c050">Post_UWB_Check_If_All_LGHS_Set_Exit</a> ()</td></tr>
-<tr class="memitem:afa57513fcf669c3c4e698a3303b48aef" id="r_afa57513fcf669c3c4e698a3303b48aef"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#afa57513fcf669c3c4e698a3303b48aef">Relay_UWB_Quering_Enter</a> ()</td></tr>
-<tr class="memitem:a02d017b6ad60f07efaaa729cd589df77" id="r_a02d017b6ad60f07efaaa729cd589df77"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a02d017b6ad60f07efaaa729cd589df77">Relay_UWB_Quering_ReceiveCallback</a> (const uint8_t *data, int dataLen, uint32_t receive_time)</td></tr>
-<tr class="memitem:a011fcb43cf78f831580e81c0898b9e4b" id="r_a011fcb43cf78f831580e81c0898b9e4b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a011fcb43cf78f831580e81c0898b9e4b">Relay_UWB_Quering_SentCallback</a> (uint32_t send_time)</td></tr>
-<tr class="memitem:a873d91f092fa7c31dff757ea2afef6a1" id="r_a873d91f092fa7c31dff757ea2afef6a1"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a873d91f092fa7c31dff757ea2afef6a1">Relay_UWB_Quering_TimerCallback</a> (<a class="el" href="_timing_8h.html#aa4cfa56f0ecbc0a890da7fb57c15ee75">Timer_Callbacks</a> timer_callback)</td></tr>
-<tr class="memitem:a73be1cb974b5b7bcda997e3f7a78fc69" id="r_a73be1cb974b5b7bcda997e3f7a78fc69"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a73be1cb974b5b7bcda997e3f7a78fc69">Relay_UWB_Quering_ButtonCallback</a> (uint8_t button)</td></tr>
-<tr class="memitem:a2e958de994a348224d7492d54c36db6a" id="r_a2e958de994a348224d7492d54c36db6a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a2e958de994a348224d7492d54c36db6a">Relay_UWB_Quering_UWB_New_Range</a> (uint16_t device, float range, float rx_power)</td></tr>
-<tr class="memitem:a58514337c079bfcedc8bd72b8beac1c8" id="r_a58514337c079bfcedc8bd72b8beac1c8"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a58514337c079bfcedc8bd72b8beac1c8">Relay_UWB_Quering_Exit</a> ()</td></tr>
-<tr class="memitem:a12f1af1b3c813cfdf0f486de7a91daec" id="r_a12f1af1b3c813cfdf0f486de7a91daec"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a12f1af1b3c813cfdf0f486de7a91daec">Inform_End_Config_Enter</a> ()</td></tr>
-<tr class="memitem:a3847dbd0bbadb0750c6838464f84b5e7" id="r_a3847dbd0bbadb0750c6838464f84b5e7"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3847dbd0bbadb0750c6838464f84b5e7">Inform_End_Config_ReceiveCallback</a> (const uint8_t *data, int dataLen, uint32_t receive_time)</td></tr>
-<tr class="memitem:a60861e6e8bc0bbe6ea532292d5785e16" id="r_a60861e6e8bc0bbe6ea532292d5785e16"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a60861e6e8bc0bbe6ea532292d5785e16">Inform_End_Config_SentCallback</a> (uint32_t send_time)</td></tr>
-<tr class="memitem:ae5554142b5e83f77c98d45694adfd29b" id="r_ae5554142b5e83f77c98d45694adfd29b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae5554142b5e83f77c98d45694adfd29b">Inform_End_Config_TimerCallback</a> (<a class="el" href="_timing_8h.html#aa4cfa56f0ecbc0a890da7fb57c15ee75">Timer_Callbacks</a> timer_callback)</td></tr>
-<tr class="memitem:aa8272f62996c3004550b891a41d259e8" id="r_aa8272f62996c3004550b891a41d259e8"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aa8272f62996c3004550b891a41d259e8">Inform_End_Config_ButtonCallback</a> (uint8_t button)</td></tr>
-<tr class="memitem:ad890afaa19a685cc06a2715e190f333b" id="r_ad890afaa19a685cc06a2715e190f333b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad890afaa19a685cc06a2715e190f333b">Inform_End_Config_UWB_New_Range</a> (uint16_t device, float range, float rx_power)</td></tr>
-<tr class="memitem:a44ee926415eab0475c7dbe6f0755f949" id="r_a44ee926415eab0475c7dbe6f0755f949"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a44ee926415eab0475c7dbe6f0755f949">Inform_End_Config_Exit</a> ()</td></tr>
-<tr class="memitem:ab429cb746174f2fdcf9ae1a7e9fffd9b" id="r_ab429cb746174f2fdcf9ae1a7e9fffd9b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab429cb746174f2fdcf9ae1a7e9fffd9b">Distance_Measure_Response_Enter</a> ()</td></tr>
-<tr class="memitem:a119a3e81ba111bedc37fb47b737cd89c" id="r_a119a3e81ba111bedc37fb47b737cd89c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a119a3e81ba111bedc37fb47b737cd89c">Distance_Measure_Response_ReceiveCallback</a> (const uint8_t *data, int dataLen, uint32_t receive_time)</td></tr>
-<tr class="memitem:a208c66475459f777858e515463553b04" id="r_a208c66475459f777858e515463553b04"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a208c66475459f777858e515463553b04">Distance_Measure_Response_SentCallback</a> (uint32_t send_time)</td></tr>
-<tr class="memitem:a285c8968d7226dc6055bb0688048e18e" id="r_a285c8968d7226dc6055bb0688048e18e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a285c8968d7226dc6055bb0688048e18e">Distance_Measure_Response_TimerCallback</a> (<a class="el" href="_timing_8h.html#aa4cfa56f0ecbc0a890da7fb57c15ee75">Timer_Callbacks</a> timer_callback)</td></tr>
-<tr class="memitem:a2d56b55e7f08d810aa456a5ce53e4f52" id="r_a2d56b55e7f08d810aa456a5ce53e4f52"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a2d56b55e7f08d810aa456a5ce53e4f52">Distance_Measure_Response_ButtonCallback</a> (uint8_t button)</td></tr>
-<tr class="memitem:af7ee78dfd042d89b750546deda5fc599" id="r_af7ee78dfd042d89b750546deda5fc599"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af7ee78dfd042d89b750546deda5fc599">Distance_Measure_Response_UWB_New_Range</a> (uint16_t device, float range, float rx_power)</td></tr>
-<tr class="memitem:a15599a3738d20b276154690cb6356a7b" id="r_a15599a3738d20b276154690cb6356a7b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a15599a3738d20b276154690cb6356a7b">Distance_Measure_Response_Exit</a> ()</td></tr>
-<tr class="memitem:abf09c8b2ca7e2b348103e4494e4637d2" id="r_abf09c8b2ca7e2b348103e4494e4637d2"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#abf09c8b2ca7e2b348103e4494e4637d2">Distance_Measure_Query_Enter</a> ()</td></tr>
-<tr class="memitem:a01c8d6b7e7be33abaf3c0d91b9222324" id="r_a01c8d6b7e7be33abaf3c0d91b9222324"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a01c8d6b7e7be33abaf3c0d91b9222324">Distance_Measure_Query_ReceiveCallback</a> (const uint8_t *data, int dataLen, uint32_t receive_time)</td></tr>
-<tr class="memitem:a6238b087ba97150654554636e57faeb0" id="r_a6238b087ba97150654554636e57faeb0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6238b087ba97150654554636e57faeb0">Distance_Measure_Query_SentCallback</a> (uint32_t send_time)</td></tr>
-<tr class="memitem:afcfd8d6a915804e4f63ceae04389530f" id="r_afcfd8d6a915804e4f63ceae04389530f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#afcfd8d6a915804e4f63ceae04389530f">Distance_Measure_Query_TimerCallback</a> (<a class="el" href="_timing_8h.html#aa4cfa56f0ecbc0a890da7fb57c15ee75">Timer_Callbacks</a> timer_callback)</td></tr>
-<tr class="memitem:a4b58a37162a5104d8fae036cb646e57a" id="r_a4b58a37162a5104d8fae036cb646e57a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a4b58a37162a5104d8fae036cb646e57a">Distance_Measure_Query_ButtonCallback</a> (uint8_t button)</td></tr>
-<tr class="memitem:ad1570c15c149020f3a6761163ae19287" id="r_ad1570c15c149020f3a6761163ae19287"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad1570c15c149020f3a6761163ae19287">Distance_Measure_Query_UWB_New_Range</a> (uint16_t device, float range, float rx_power)</td></tr>
-<tr class="memitem:ac7b497cb40135e442c8ce28565ebbb0a" id="r_ac7b497cb40135e442c8ce28565ebbb0a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ac7b497cb40135e442c8ce28565ebbb0a">Distance_Measure_Query_Exit</a> ()</td></tr>
-<tr class="memitem:a5db1e0ebb7b4ac25fae627cce7a8eda7" id="r_a5db1e0ebb7b4ac25fae627cce7a8eda7"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a5db1e0ebb7b4ac25fae627cce7a8eda7">Send_Calculated_Position_Enter</a> ()</td></tr>
-<tr class="memitem:a5f1b2e31bff835bddc69a5c753f02751" id="r_a5f1b2e31bff835bddc69a5c753f02751"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a5f1b2e31bff835bddc69a5c753f02751">Send_Calculated_Position_ReceiveCallback</a> (const uint8_t *data, int dataLen, uint32_t receive_time)</td></tr>
-<tr class="memitem:a445ab32c4f419dc808f43c8c752f2bd6" id="r_a445ab32c4f419dc808f43c8c752f2bd6"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a445ab32c4f419dc808f43c8c752f2bd6">Send_Calculated_Position_SentCallback</a> (uint32_t send_time)</td></tr>
-<tr class="memitem:a534e4ba4242361faf5b14bf977f2dbe8" id="r_a534e4ba4242361faf5b14bf977f2dbe8"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a534e4ba4242361faf5b14bf977f2dbe8">Send_Calculated_Position_TimerCallback</a> (<a class="el" href="_timing_8h.html#aa4cfa56f0ecbc0a890da7fb57c15ee75">Timer_Callbacks</a> timer_callback)</td></tr>
-<tr class="memitem:a3558d5db86bcaf1331d792dd32ea145b" id="r_a3558d5db86bcaf1331d792dd32ea145b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3558d5db86bcaf1331d792dd32ea145b">Send_Calculated_Position_ButtonCallback</a> (uint8_t button)</td></tr>
-<tr class="memitem:a8bbb1312a1aad37bf62eaa5d3171c233" id="r_a8bbb1312a1aad37bf62eaa5d3171c233"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a8bbb1312a1aad37bf62eaa5d3171c233">Send_Calculated_Position_UWB_New_Range</a> (uint16_t device, float range, float rx_power)</td></tr>
-<tr class="memitem:a95b7dd212da4b9f1ca04a95d67c3aae2" id="r_a95b7dd212da4b9f1ca04a95d67c3aae2"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a95b7dd212da4b9f1ca04a95d67c3aae2">Send_Calculated_Position_Exit</a> ()</td></tr>
-<tr class="memitem:aacce87b791354c8b99a2144bbe991b39" id="r_aacce87b791354c8b99a2144bbe991b39"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aacce87b791354c8b99a2144bbe991b39">Observer_Response_Enter</a> ()</td></tr>
-<tr class="memitem:a3992e01ff7f3aa148669d4cc05730111" id="r_a3992e01ff7f3aa148669d4cc05730111"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3992e01ff7f3aa148669d4cc05730111">Observer_Response_ReceiveCallback</a> (const uint8_t *data, int dataLen, uint32_t receive_time)</td></tr>
-<tr class="memitem:a06cceecd8deca7e38a336710b5332cf5" id="r_a06cceecd8deca7e38a336710b5332cf5"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a06cceecd8deca7e38a336710b5332cf5">Observer_Response_SentCallback</a> (uint32_t send_time)</td></tr>
-<tr class="memitem:a26cb4ef4fdebd41f33cc355b89c3fe97" id="r_a26cb4ef4fdebd41f33cc355b89c3fe97"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a26cb4ef4fdebd41f33cc355b89c3fe97">Observer_Response_TimerCallback</a> (<a class="el" href="_timing_8h.html#aa4cfa56f0ecbc0a890da7fb57c15ee75">Timer_Callbacks</a> timer_callback)</td></tr>
-<tr class="memitem:acff20a0fd977da6fb49ad4b4ecf25dde" id="r_acff20a0fd977da6fb49ad4b4ecf25dde"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#acff20a0fd977da6fb49ad4b4ecf25dde">Observer_Response_ButtonCallback</a> (uint8_t button)</td></tr>
-<tr class="memitem:ae68854a9bd56f612709affb6daf0b9bc" id="r_ae68854a9bd56f612709affb6daf0b9bc"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae68854a9bd56f612709affb6daf0b9bc">Observer_Response_UWB_New_Range</a> (uint16_t device, float range, float rx_power)</td></tr>
-<tr class="memitem:a84c2f6df5281075d272386b5fc942823" id="r_a84c2f6df5281075d272386b5fc942823"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a84c2f6df5281075d272386b5fc942823">Observer_Response_Exit</a> ()</td></tr>
+<tr class="memitem:ga1f437ba9dbfdcbfed50709d34529dc72" id="r_ga1f437ba9dbfdcbfed50709d34529dc72"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Initial_Enter</b> ()</td></tr>
+<tr class="memitem:ga1a1bc9eb31e75d94f40096a694ac5884" id="r_ga1a1bc9eb31e75d94f40096a694ac5884"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Initial_ReceiveCallback</b> (const uint8_t *data, int dataLen, uint32_t receive_time)</td></tr>
+<tr class="memitem:ga79aa0e62d4f7dda633b28c249bb40314" id="r_ga79aa0e62d4f7dda633b28c249bb40314"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Initial_SentCallback</b> (uint32_t send_time)</td></tr>
+<tr class="memitem:ga3d8ba73994c9dae74db103315344119b" id="r_ga3d8ba73994c9dae74db103315344119b"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Initial_TimerCallback</b> (<a class="el" href="_timing_8h.html#aa4cfa56f0ecbc0a890da7fb57c15ee75">Timer_Callbacks</a> timer_callback)</td></tr>
+<tr class="memitem:ga447bdcdddc967aa5588ae3ea4d6a5459" id="r_ga447bdcdddc967aa5588ae3ea4d6a5459"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Initial_ButtonCallback</b> (uint8_t button)</td></tr>
+<tr class="memitem:ga9bcdbfe549bce16ce4e8c116df083e04" id="r_ga9bcdbfe549bce16ce4e8c116df083e04"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Initial_UWB_New_Range</b> (uint16_t device, float range, float rx_power)</td></tr>
+<tr class="memitem:gabe66698809f83c3a9a7cf2757a9e39e7" id="r_gabe66698809f83c3a9a7cf2757a9e39e7"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Initial_Exit</b> ()</td></tr>
+<tr class="memitem:ga302e8d12aa408c263ff5e882a490c9b5" id="r_ga302e8d12aa408c263ff5e882a490c9b5"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>UWB_Query_Enter</b> ()</td></tr>
+<tr class="memitem:gac0c338d2682b1627f9589e5991ef29c8" id="r_gac0c338d2682b1627f9589e5991ef29c8"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>UWB_Query_ReceiveCallback</b> (const uint8_t *data, int dataLen, uint32_t receive_time)</td></tr>
+<tr class="memitem:gabbf8594c1ebc397d8d418fa15afe05ec" id="r_gabbf8594c1ebc397d8d418fa15afe05ec"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>UWB_Query_SentCallback</b> (uint32_t send_time)</td></tr>
+<tr class="memitem:gaf3887a69eeb3f130a9673e761a877f4c" id="r_gaf3887a69eeb3f130a9673e761a877f4c"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>UWB_Query_TimerCallback</b> (<a class="el" href="_timing_8h.html#aa4cfa56f0ecbc0a890da7fb57c15ee75">Timer_Callbacks</a> timer_callback)</td></tr>
+<tr class="memitem:ga43177fdcc16044aa39f76c8c6904a3d6" id="r_ga43177fdcc16044aa39f76c8c6904a3d6"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>UWB_Query_ButtonCallback</b> (uint8_t button)</td></tr>
+<tr class="memitem:gadda5c7ba4cde6461184718a1083754d8" id="r_gadda5c7ba4cde6461184718a1083754d8"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>UWB_Query_UWB_New_Range</b> (uint16_t device, float range, float rx_power)</td></tr>
+<tr class="memitem:ga82c360c8367720d6ca466925701c69df" id="r_ga82c360c8367720d6ca466925701c69df"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>UWB_Query_Exit</b> ()</td></tr>
+<tr class="memitem:gade9d656b9f4bcdaa8b2284ed4a75b5ab" id="r_gade9d656b9f4bcdaa8b2284ed4a75b5ab"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>UWB_Response_Enter</b> ()</td></tr>
+<tr class="memitem:ga7e41b8fc5225a8fd3481a4d3984f122b" id="r_ga7e41b8fc5225a8fd3481a4d3984f122b"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>UWB_Response_ReceiveCallback</b> (const uint8_t *data, int dataLen, uint32_t receive_time)</td></tr>
+<tr class="memitem:ga6467e53b87d63fc0214193345c1475c9" id="r_ga6467e53b87d63fc0214193345c1475c9"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>UWB_Response_SentCallback</b> (uint32_t send_time)</td></tr>
+<tr class="memitem:ga7444c8f0a1a22d4392fd9d19d98d7c6c" id="r_ga7444c8f0a1a22d4392fd9d19d98d7c6c"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>UWB_Response_TimerCallback</b> (<a class="el" href="_timing_8h.html#aa4cfa56f0ecbc0a890da7fb57c15ee75">Timer_Callbacks</a> timer_callback)</td></tr>
+<tr class="memitem:gaaeaa2cab3b16b704da45d516f41432e6" id="r_gaaeaa2cab3b16b704da45d516f41432e6"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>UWB_Response_ButtonCallback</b> (uint8_t button)</td></tr>
+<tr class="memitem:ga3046d9bd9ff04de073a1cd9556fd55ec" id="r_ga3046d9bd9ff04de073a1cd9556fd55ec"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>UWB_Response_UWB_New_Range</b> (uint16_t device, float range, float rx_power)</td></tr>
+<tr class="memitem:gafcade9aeb918e3e43a52be8d1ff21f33" id="r_gafcade9aeb918e3e43a52be8d1ff21f33"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>UWB_Response_Exit</b> ()</td></tr>
+<tr class="memitem:ga676e69c91b0609c49daa2ba8db3d6a8c" id="r_ga676e69c91b0609c49daa2ba8db3d6a8c"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Post_UWB_Check_If_All_LGHS_Set_Enter</b> ()</td></tr>
+<tr class="memitem:ga93921515e71a2a7c1f417599e6591b91" id="r_ga93921515e71a2a7c1f417599e6591b91"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Post_UWB_Check_If_All_LGHS_Set_ReceiveCallback</b> (const uint8_t *data, int dataLen, uint32_t receive_time)</td></tr>
+<tr class="memitem:gac3b409d39d84b7f423717eb2bcbb8283" id="r_gac3b409d39d84b7f423717eb2bcbb8283"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Post_UWB_Check_If_All_LGHS_Set_SentCallback</b> (uint32_t send_time)</td></tr>
+<tr class="memitem:ga42138f67cb639a19c90c91fd2e691d0c" id="r_ga42138f67cb639a19c90c91fd2e691d0c"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Post_UWB_Check_If_All_LGHS_Set_TimerCallback</b> (<a class="el" href="_timing_8h.html#aa4cfa56f0ecbc0a890da7fb57c15ee75">Timer_Callbacks</a> timer_callback)</td></tr>
+<tr class="memitem:ga1b94478481f09b1390fd27e108b64f17" id="r_ga1b94478481f09b1390fd27e108b64f17"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Post_UWB_Check_If_All_LGHS_Set_ButtonCallback</b> (uint8_t button)</td></tr>
+<tr class="memitem:gae98affbba257f65725baa48b09f48f18" id="r_gae98affbba257f65725baa48b09f48f18"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Post_UWB_Check_If_All_LGHS_Set_UWB_New_Range</b> (uint16_t device, float range, float rx_power)</td></tr>
+<tr class="memitem:ga78baf1e5d9f9e036075c4ba93a64c050" id="r_ga78baf1e5d9f9e036075c4ba93a64c050"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Post_UWB_Check_If_All_LGHS_Set_Exit</b> ()</td></tr>
+<tr class="memitem:gafa57513fcf669c3c4e698a3303b48aef" id="r_gafa57513fcf669c3c4e698a3303b48aef"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Relay_UWB_Quering_Enter</b> ()</td></tr>
+<tr class="memitem:ga02d017b6ad60f07efaaa729cd589df77" id="r_ga02d017b6ad60f07efaaa729cd589df77"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Relay_UWB_Quering_ReceiveCallback</b> (const uint8_t *data, int dataLen, uint32_t receive_time)</td></tr>
+<tr class="memitem:ga011fcb43cf78f831580e81c0898b9e4b" id="r_ga011fcb43cf78f831580e81c0898b9e4b"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Relay_UWB_Quering_SentCallback</b> (uint32_t send_time)</td></tr>
+<tr class="memitem:ga873d91f092fa7c31dff757ea2afef6a1" id="r_ga873d91f092fa7c31dff757ea2afef6a1"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Relay_UWB_Quering_TimerCallback</b> (<a class="el" href="_timing_8h.html#aa4cfa56f0ecbc0a890da7fb57c15ee75">Timer_Callbacks</a> timer_callback)</td></tr>
+<tr class="memitem:ga73be1cb974b5b7bcda997e3f7a78fc69" id="r_ga73be1cb974b5b7bcda997e3f7a78fc69"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Relay_UWB_Quering_ButtonCallback</b> (uint8_t button)</td></tr>
+<tr class="memitem:ga2e958de994a348224d7492d54c36db6a" id="r_ga2e958de994a348224d7492d54c36db6a"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Relay_UWB_Quering_UWB_New_Range</b> (uint16_t device, float range, float rx_power)</td></tr>
+<tr class="memitem:ga58514337c079bfcedc8bd72b8beac1c8" id="r_ga58514337c079bfcedc8bd72b8beac1c8"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Relay_UWB_Quering_Exit</b> ()</td></tr>
+<tr class="memitem:ga12f1af1b3c813cfdf0f486de7a91daec" id="r_ga12f1af1b3c813cfdf0f486de7a91daec"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Inform_End_Config_Enter</b> ()</td></tr>
+<tr class="memitem:ga3847dbd0bbadb0750c6838464f84b5e7" id="r_ga3847dbd0bbadb0750c6838464f84b5e7"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Inform_End_Config_ReceiveCallback</b> (const uint8_t *data, int dataLen, uint32_t receive_time)</td></tr>
+<tr class="memitem:ga60861e6e8bc0bbe6ea532292d5785e16" id="r_ga60861e6e8bc0bbe6ea532292d5785e16"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Inform_End_Config_SentCallback</b> (uint32_t send_time)</td></tr>
+<tr class="memitem:gae5554142b5e83f77c98d45694adfd29b" id="r_gae5554142b5e83f77c98d45694adfd29b"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Inform_End_Config_TimerCallback</b> (<a class="el" href="_timing_8h.html#aa4cfa56f0ecbc0a890da7fb57c15ee75">Timer_Callbacks</a> timer_callback)</td></tr>
+<tr class="memitem:gaa8272f62996c3004550b891a41d259e8" id="r_gaa8272f62996c3004550b891a41d259e8"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Inform_End_Config_ButtonCallback</b> (uint8_t button)</td></tr>
+<tr class="memitem:gad890afaa19a685cc06a2715e190f333b" id="r_gad890afaa19a685cc06a2715e190f333b"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Inform_End_Config_UWB_New_Range</b> (uint16_t device, float range, float rx_power)</td></tr>
+<tr class="memitem:ga44ee926415eab0475c7dbe6f0755f949" id="r_ga44ee926415eab0475c7dbe6f0755f949"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Inform_End_Config_Exit</b> ()</td></tr>
+<tr class="memitem:gab429cb746174f2fdcf9ae1a7e9fffd9b" id="r_gab429cb746174f2fdcf9ae1a7e9fffd9b"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Distance_Measure_Response_Enter</b> ()</td></tr>
+<tr class="memitem:ga119a3e81ba111bedc37fb47b737cd89c" id="r_ga119a3e81ba111bedc37fb47b737cd89c"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Distance_Measure_Response_ReceiveCallback</b> (const uint8_t *data, int dataLen, uint32_t receive_time)</td></tr>
+<tr class="memitem:ga208c66475459f777858e515463553b04" id="r_ga208c66475459f777858e515463553b04"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Distance_Measure_Response_SentCallback</b> (uint32_t send_time)</td></tr>
+<tr class="memitem:ga285c8968d7226dc6055bb0688048e18e" id="r_ga285c8968d7226dc6055bb0688048e18e"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Distance_Measure_Response_TimerCallback</b> (<a class="el" href="_timing_8h.html#aa4cfa56f0ecbc0a890da7fb57c15ee75">Timer_Callbacks</a> timer_callback)</td></tr>
+<tr class="memitem:ga2d56b55e7f08d810aa456a5ce53e4f52" id="r_ga2d56b55e7f08d810aa456a5ce53e4f52"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Distance_Measure_Response_ButtonCallback</b> (uint8_t button)</td></tr>
+<tr class="memitem:gaf7ee78dfd042d89b750546deda5fc599" id="r_gaf7ee78dfd042d89b750546deda5fc599"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Distance_Measure_Response_UWB_New_Range</b> (uint16_t device, float range, float rx_power)</td></tr>
+<tr class="memitem:ga15599a3738d20b276154690cb6356a7b" id="r_ga15599a3738d20b276154690cb6356a7b"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Distance_Measure_Response_Exit</b> ()</td></tr>
+<tr class="memitem:gabf09c8b2ca7e2b348103e4494e4637d2" id="r_gabf09c8b2ca7e2b348103e4494e4637d2"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Distance_Measure_Query_Enter</b> ()</td></tr>
+<tr class="memitem:ga01c8d6b7e7be33abaf3c0d91b9222324" id="r_ga01c8d6b7e7be33abaf3c0d91b9222324"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Distance_Measure_Query_ReceiveCallback</b> (const uint8_t *data, int dataLen, uint32_t receive_time)</td></tr>
+<tr class="memitem:ga6238b087ba97150654554636e57faeb0" id="r_ga6238b087ba97150654554636e57faeb0"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Distance_Measure_Query_SentCallback</b> (uint32_t send_time)</td></tr>
+<tr class="memitem:gafcfd8d6a915804e4f63ceae04389530f" id="r_gafcfd8d6a915804e4f63ceae04389530f"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Distance_Measure_Query_TimerCallback</b> (<a class="el" href="_timing_8h.html#aa4cfa56f0ecbc0a890da7fb57c15ee75">Timer_Callbacks</a> timer_callback)</td></tr>
+<tr class="memitem:ga4b58a37162a5104d8fae036cb646e57a" id="r_ga4b58a37162a5104d8fae036cb646e57a"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Distance_Measure_Query_ButtonCallback</b> (uint8_t button)</td></tr>
+<tr class="memitem:gad1570c15c149020f3a6761163ae19287" id="r_gad1570c15c149020f3a6761163ae19287"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Distance_Measure_Query_UWB_New_Range</b> (uint16_t device, float range, float rx_power)</td></tr>
+<tr class="memitem:gac7b497cb40135e442c8ce28565ebbb0a" id="r_gac7b497cb40135e442c8ce28565ebbb0a"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Distance_Measure_Query_Exit</b> ()</td></tr>
+<tr class="memitem:ga5db1e0ebb7b4ac25fae627cce7a8eda7" id="r_ga5db1e0ebb7b4ac25fae627cce7a8eda7"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Send_Calculated_Position_Enter</b> ()</td></tr>
+<tr class="memitem:ga5f1b2e31bff835bddc69a5c753f02751" id="r_ga5f1b2e31bff835bddc69a5c753f02751"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Send_Calculated_Position_ReceiveCallback</b> (const uint8_t *data, int dataLen, uint32_t receive_time)</td></tr>
+<tr class="memitem:ga445ab32c4f419dc808f43c8c752f2bd6" id="r_ga445ab32c4f419dc808f43c8c752f2bd6"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Send_Calculated_Position_SentCallback</b> (uint32_t send_time)</td></tr>
+<tr class="memitem:ga534e4ba4242361faf5b14bf977f2dbe8" id="r_ga534e4ba4242361faf5b14bf977f2dbe8"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Send_Calculated_Position_TimerCallback</b> (<a class="el" href="_timing_8h.html#aa4cfa56f0ecbc0a890da7fb57c15ee75">Timer_Callbacks</a> timer_callback)</td></tr>
+<tr class="memitem:ga3558d5db86bcaf1331d792dd32ea145b" id="r_ga3558d5db86bcaf1331d792dd32ea145b"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Send_Calculated_Position_ButtonCallback</b> (uint8_t button)</td></tr>
+<tr class="memitem:ga8bbb1312a1aad37bf62eaa5d3171c233" id="r_ga8bbb1312a1aad37bf62eaa5d3171c233"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Send_Calculated_Position_UWB_New_Range</b> (uint16_t device, float range, float rx_power)</td></tr>
+<tr class="memitem:ga95b7dd212da4b9f1ca04a95d67c3aae2" id="r_ga95b7dd212da4b9f1ca04a95d67c3aae2"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Send_Calculated_Position_Exit</b> ()</td></tr>
+<tr class="memitem:gaacce87b791354c8b99a2144bbe991b39" id="r_gaacce87b791354c8b99a2144bbe991b39"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Observer_Response_Enter</b> ()</td></tr>
+<tr class="memitem:ga3992e01ff7f3aa148669d4cc05730111" id="r_ga3992e01ff7f3aa148669d4cc05730111"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Observer_Response_ReceiveCallback</b> (const uint8_t *data, int dataLen, uint32_t receive_time)</td></tr>
+<tr class="memitem:ga06cceecd8deca7e38a336710b5332cf5" id="r_ga06cceecd8deca7e38a336710b5332cf5"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Observer_Response_SentCallback</b> (uint32_t send_time)</td></tr>
+<tr class="memitem:ga26cb4ef4fdebd41f33cc355b89c3fe97" id="r_ga26cb4ef4fdebd41f33cc355b89c3fe97"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Observer_Response_TimerCallback</b> (<a class="el" href="_timing_8h.html#aa4cfa56f0ecbc0a890da7fb57c15ee75">Timer_Callbacks</a> timer_callback)</td></tr>
+<tr class="memitem:gacff20a0fd977da6fb49ad4b4ecf25dde" id="r_gacff20a0fd977da6fb49ad4b4ecf25dde"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Observer_Response_ButtonCallback</b> (uint8_t button)</td></tr>
+<tr class="memitem:gae68854a9bd56f612709affb6daf0b9bc" id="r_gae68854a9bd56f612709affb6daf0b9bc"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Observer_Response_UWB_New_Range</b> (uint16_t device, float range, float rx_power)</td></tr>
+<tr class="memitem:ga84c2f6df5281075d272386b5fc942823" id="r_ga84c2f6df5281075d272386b5fc942823"><td class="memItemLeft">
+void&#160;</td><td class="memItemRight"><b>Observer_Response_Exit</b> ()</td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="a4b58a37162a5104d8fae036cb646e57a" name="a4b58a37162a5104d8fae036cb646e57a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4b58a37162a5104d8fae036cb646e57a">&#9670;&#160;</a></span>Distance_Measure_Query_ButtonCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Distance_Measure_Query_ButtonCallback </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>button</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="abf09c8b2ca7e2b348103e4494e4637d2" name="abf09c8b2ca7e2b348103e4494e4637d2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf09c8b2ca7e2b348103e4494e4637d2">&#9670;&#160;</a></span>Distance_Measure_Query_Enter()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Distance_Measure_Query_Enter </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac7b497cb40135e442c8ce28565ebbb0a" name="ac7b497cb40135e442c8ce28565ebbb0a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac7b497cb40135e442c8ce28565ebbb0a">&#9670;&#160;</a></span>Distance_Measure_Query_Exit()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Distance_Measure_Query_Exit </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a01c8d6b7e7be33abaf3c0d91b9222324" name="a01c8d6b7e7be33abaf3c0d91b9222324"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a01c8d6b7e7be33abaf3c0d91b9222324">&#9670;&#160;</a></span>Distance_Measure_Query_ReceiveCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Distance_Measure_Query_ReceiveCallback </td>
-          <td>(</td>
-          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>dataLen</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>receive_time</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a6238b087ba97150654554636e57faeb0" name="a6238b087ba97150654554636e57faeb0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6238b087ba97150654554636e57faeb0">&#9670;&#160;</a></span>Distance_Measure_Query_SentCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Distance_Measure_Query_SentCallback </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>send_time</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="afcfd8d6a915804e4f63ceae04389530f" name="afcfd8d6a915804e4f63ceae04389530f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afcfd8d6a915804e4f63ceae04389530f">&#9670;&#160;</a></span>Distance_Measure_Query_TimerCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Distance_Measure_Query_TimerCallback </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="_timing_8h.html#aa4cfa56f0ecbc0a890da7fb57c15ee75">Timer_Callbacks</a></td>          <td class="paramname"><span class="paramname"><em>timer_callback</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad1570c15c149020f3a6761163ae19287" name="ad1570c15c149020f3a6761163ae19287"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad1570c15c149020f3a6761163ae19287">&#9670;&#160;</a></span>Distance_Measure_Query_UWB_New_Range()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Distance_Measure_Query_UWB_New_Range </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>device</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>range</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>rx_power</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a2d56b55e7f08d810aa456a5ce53e4f52" name="a2d56b55e7f08d810aa456a5ce53e4f52"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2d56b55e7f08d810aa456a5ce53e4f52">&#9670;&#160;</a></span>Distance_Measure_Response_ButtonCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Distance_Measure_Response_ButtonCallback </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>button</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab429cb746174f2fdcf9ae1a7e9fffd9b" name="ab429cb746174f2fdcf9ae1a7e9fffd9b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab429cb746174f2fdcf9ae1a7e9fffd9b">&#9670;&#160;</a></span>Distance_Measure_Response_Enter()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Distance_Measure_Response_Enter </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a15599a3738d20b276154690cb6356a7b" name="a15599a3738d20b276154690cb6356a7b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a15599a3738d20b276154690cb6356a7b">&#9670;&#160;</a></span>Distance_Measure_Response_Exit()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Distance_Measure_Response_Exit </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a119a3e81ba111bedc37fb47b737cd89c" name="a119a3e81ba111bedc37fb47b737cd89c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a119a3e81ba111bedc37fb47b737cd89c">&#9670;&#160;</a></span>Distance_Measure_Response_ReceiveCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Distance_Measure_Response_ReceiveCallback </td>
-          <td>(</td>
-          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>dataLen</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>receive_time</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a208c66475459f777858e515463553b04" name="a208c66475459f777858e515463553b04"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a208c66475459f777858e515463553b04">&#9670;&#160;</a></span>Distance_Measure_Response_SentCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Distance_Measure_Response_SentCallback </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>send_time</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a285c8968d7226dc6055bb0688048e18e" name="a285c8968d7226dc6055bb0688048e18e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a285c8968d7226dc6055bb0688048e18e">&#9670;&#160;</a></span>Distance_Measure_Response_TimerCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Distance_Measure_Response_TimerCallback </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="_timing_8h.html#aa4cfa56f0ecbc0a890da7fb57c15ee75">Timer_Callbacks</a></td>          <td class="paramname"><span class="paramname"><em>timer_callback</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="af7ee78dfd042d89b750546deda5fc599" name="af7ee78dfd042d89b750546deda5fc599"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af7ee78dfd042d89b750546deda5fc599">&#9670;&#160;</a></span>Distance_Measure_Response_UWB_New_Range()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Distance_Measure_Response_UWB_New_Range </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>device</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>range</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>rx_power</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa8272f62996c3004550b891a41d259e8" name="aa8272f62996c3004550b891a41d259e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa8272f62996c3004550b891a41d259e8">&#9670;&#160;</a></span>Inform_End_Config_ButtonCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Inform_End_Config_ButtonCallback </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>button</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a12f1af1b3c813cfdf0f486de7a91daec" name="a12f1af1b3c813cfdf0f486de7a91daec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a12f1af1b3c813cfdf0f486de7a91daec">&#9670;&#160;</a></span>Inform_End_Config_Enter()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Inform_End_Config_Enter </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a44ee926415eab0475c7dbe6f0755f949" name="a44ee926415eab0475c7dbe6f0755f949"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a44ee926415eab0475c7dbe6f0755f949">&#9670;&#160;</a></span>Inform_End_Config_Exit()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Inform_End_Config_Exit </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a3847dbd0bbadb0750c6838464f84b5e7" name="a3847dbd0bbadb0750c6838464f84b5e7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3847dbd0bbadb0750c6838464f84b5e7">&#9670;&#160;</a></span>Inform_End_Config_ReceiveCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Inform_End_Config_ReceiveCallback </td>
-          <td>(</td>
-          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>dataLen</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>receive_time</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a60861e6e8bc0bbe6ea532292d5785e16" name="a60861e6e8bc0bbe6ea532292d5785e16"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a60861e6e8bc0bbe6ea532292d5785e16">&#9670;&#160;</a></span>Inform_End_Config_SentCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Inform_End_Config_SentCallback </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>send_time</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae5554142b5e83f77c98d45694adfd29b" name="ae5554142b5e83f77c98d45694adfd29b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae5554142b5e83f77c98d45694adfd29b">&#9670;&#160;</a></span>Inform_End_Config_TimerCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Inform_End_Config_TimerCallback </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="_timing_8h.html#aa4cfa56f0ecbc0a890da7fb57c15ee75">Timer_Callbacks</a></td>          <td class="paramname"><span class="paramname"><em>timer_callback</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad890afaa19a685cc06a2715e190f333b" name="ad890afaa19a685cc06a2715e190f333b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad890afaa19a685cc06a2715e190f333b">&#9670;&#160;</a></span>Inform_End_Config_UWB_New_Range()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Inform_End_Config_UWB_New_Range </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>device</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>range</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>rx_power</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a447bdcdddc967aa5588ae3ea4d6a5459" name="a447bdcdddc967aa5588ae3ea4d6a5459"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a447bdcdddc967aa5588ae3ea4d6a5459">&#9670;&#160;</a></span>Initial_ButtonCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Initial_ButtonCallback </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>button</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a1f437ba9dbfdcbfed50709d34529dc72" name="a1f437ba9dbfdcbfed50709d34529dc72"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1f437ba9dbfdcbfed50709d34529dc72">&#9670;&#160;</a></span>Initial_Enter()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Initial_Enter </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="abe66698809f83c3a9a7cf2757a9e39e7" name="abe66698809f83c3a9a7cf2757a9e39e7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abe66698809f83c3a9a7cf2757a9e39e7">&#9670;&#160;</a></span>Initial_Exit()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Initial_Exit </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a1a1bc9eb31e75d94f40096a694ac5884" name="a1a1bc9eb31e75d94f40096a694ac5884"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a1bc9eb31e75d94f40096a694ac5884">&#9670;&#160;</a></span>Initial_ReceiveCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Initial_ReceiveCallback </td>
-          <td>(</td>
-          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>dataLen</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>receive_time</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a79aa0e62d4f7dda633b28c249bb40314" name="a79aa0e62d4f7dda633b28c249bb40314"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a79aa0e62d4f7dda633b28c249bb40314">&#9670;&#160;</a></span>Initial_SentCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Initial_SentCallback </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>send_time</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a3d8ba73994c9dae74db103315344119b" name="a3d8ba73994c9dae74db103315344119b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3d8ba73994c9dae74db103315344119b">&#9670;&#160;</a></span>Initial_TimerCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Initial_TimerCallback </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="_timing_8h.html#aa4cfa56f0ecbc0a890da7fb57c15ee75">Timer_Callbacks</a></td>          <td class="paramname"><span class="paramname"><em>timer_callback</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a9bcdbfe549bce16ce4e8c116df083e04" name="a9bcdbfe549bce16ce4e8c116df083e04"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9bcdbfe549bce16ce4e8c116df083e04">&#9670;&#160;</a></span>Initial_UWB_New_Range()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Initial_UWB_New_Range </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>device</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>range</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>rx_power</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="acff20a0fd977da6fb49ad4b4ecf25dde" name="acff20a0fd977da6fb49ad4b4ecf25dde"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acff20a0fd977da6fb49ad4b4ecf25dde">&#9670;&#160;</a></span>Observer_Response_ButtonCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Observer_Response_ButtonCallback </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>button</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aacce87b791354c8b99a2144bbe991b39" name="aacce87b791354c8b99a2144bbe991b39"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aacce87b791354c8b99a2144bbe991b39">&#9670;&#160;</a></span>Observer_Response_Enter()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Observer_Response_Enter </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a84c2f6df5281075d272386b5fc942823" name="a84c2f6df5281075d272386b5fc942823"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a84c2f6df5281075d272386b5fc942823">&#9670;&#160;</a></span>Observer_Response_Exit()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Observer_Response_Exit </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a3992e01ff7f3aa148669d4cc05730111" name="a3992e01ff7f3aa148669d4cc05730111"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3992e01ff7f3aa148669d4cc05730111">&#9670;&#160;</a></span>Observer_Response_ReceiveCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Observer_Response_ReceiveCallback </td>
-          <td>(</td>
-          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>dataLen</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>receive_time</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a06cceecd8deca7e38a336710b5332cf5" name="a06cceecd8deca7e38a336710b5332cf5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a06cceecd8deca7e38a336710b5332cf5">&#9670;&#160;</a></span>Observer_Response_SentCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Observer_Response_SentCallback </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>send_time</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a26cb4ef4fdebd41f33cc355b89c3fe97" name="a26cb4ef4fdebd41f33cc355b89c3fe97"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a26cb4ef4fdebd41f33cc355b89c3fe97">&#9670;&#160;</a></span>Observer_Response_TimerCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Observer_Response_TimerCallback </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="_timing_8h.html#aa4cfa56f0ecbc0a890da7fb57c15ee75">Timer_Callbacks</a></td>          <td class="paramname"><span class="paramname"><em>timer_callback</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae68854a9bd56f612709affb6daf0b9bc" name="ae68854a9bd56f612709affb6daf0b9bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae68854a9bd56f612709affb6daf0b9bc">&#9670;&#160;</a></span>Observer_Response_UWB_New_Range()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Observer_Response_UWB_New_Range </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>device</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>range</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>rx_power</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a1b94478481f09b1390fd27e108b64f17" name="a1b94478481f09b1390fd27e108b64f17"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b94478481f09b1390fd27e108b64f17">&#9670;&#160;</a></span>Post_UWB_Check_If_All_LGHS_Set_ButtonCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Post_UWB_Check_If_All_LGHS_Set_ButtonCallback </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>button</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a676e69c91b0609c49daa2ba8db3d6a8c" name="a676e69c91b0609c49daa2ba8db3d6a8c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a676e69c91b0609c49daa2ba8db3d6a8c">&#9670;&#160;</a></span>Post_UWB_Check_If_All_LGHS_Set_Enter()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Post_UWB_Check_If_All_LGHS_Set_Enter </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a78baf1e5d9f9e036075c4ba93a64c050" name="a78baf1e5d9f9e036075c4ba93a64c050"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a78baf1e5d9f9e036075c4ba93a64c050">&#9670;&#160;</a></span>Post_UWB_Check_If_All_LGHS_Set_Exit()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Post_UWB_Check_If_All_LGHS_Set_Exit </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a93921515e71a2a7c1f417599e6591b91" name="a93921515e71a2a7c1f417599e6591b91"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a93921515e71a2a7c1f417599e6591b91">&#9670;&#160;</a></span>Post_UWB_Check_If_All_LGHS_Set_ReceiveCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Post_UWB_Check_If_All_LGHS_Set_ReceiveCallback </td>
-          <td>(</td>
-          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>dataLen</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>receive_time</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac3b409d39d84b7f423717eb2bcbb8283" name="ac3b409d39d84b7f423717eb2bcbb8283"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac3b409d39d84b7f423717eb2bcbb8283">&#9670;&#160;</a></span>Post_UWB_Check_If_All_LGHS_Set_SentCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Post_UWB_Check_If_All_LGHS_Set_SentCallback </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>send_time</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a42138f67cb639a19c90c91fd2e691d0c" name="a42138f67cb639a19c90c91fd2e691d0c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a42138f67cb639a19c90c91fd2e691d0c">&#9670;&#160;</a></span>Post_UWB_Check_If_All_LGHS_Set_TimerCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Post_UWB_Check_If_All_LGHS_Set_TimerCallback </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="_timing_8h.html#aa4cfa56f0ecbc0a890da7fb57c15ee75">Timer_Callbacks</a></td>          <td class="paramname"><span class="paramname"><em>timer_callback</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae98affbba257f65725baa48b09f48f18" name="ae98affbba257f65725baa48b09f48f18"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae98affbba257f65725baa48b09f48f18">&#9670;&#160;</a></span>Post_UWB_Check_If_All_LGHS_Set_UWB_New_Range()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Post_UWB_Check_If_All_LGHS_Set_UWB_New_Range </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>device</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>range</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>rx_power</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a73be1cb974b5b7bcda997e3f7a78fc69" name="a73be1cb974b5b7bcda997e3f7a78fc69"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a73be1cb974b5b7bcda997e3f7a78fc69">&#9670;&#160;</a></span>Relay_UWB_Quering_ButtonCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Relay_UWB_Quering_ButtonCallback </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>button</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="afa57513fcf669c3c4e698a3303b48aef" name="afa57513fcf669c3c4e698a3303b48aef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa57513fcf669c3c4e698a3303b48aef">&#9670;&#160;</a></span>Relay_UWB_Quering_Enter()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Relay_UWB_Quering_Enter </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a58514337c079bfcedc8bd72b8beac1c8" name="a58514337c079bfcedc8bd72b8beac1c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a58514337c079bfcedc8bd72b8beac1c8">&#9670;&#160;</a></span>Relay_UWB_Quering_Exit()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Relay_UWB_Quering_Exit </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a02d017b6ad60f07efaaa729cd589df77" name="a02d017b6ad60f07efaaa729cd589df77"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a02d017b6ad60f07efaaa729cd589df77">&#9670;&#160;</a></span>Relay_UWB_Quering_ReceiveCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Relay_UWB_Quering_ReceiveCallback </td>
-          <td>(</td>
-          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>dataLen</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>receive_time</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a011fcb43cf78f831580e81c0898b9e4b" name="a011fcb43cf78f831580e81c0898b9e4b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a011fcb43cf78f831580e81c0898b9e4b">&#9670;&#160;</a></span>Relay_UWB_Quering_SentCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Relay_UWB_Quering_SentCallback </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>send_time</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a873d91f092fa7c31dff757ea2afef6a1" name="a873d91f092fa7c31dff757ea2afef6a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a873d91f092fa7c31dff757ea2afef6a1">&#9670;&#160;</a></span>Relay_UWB_Quering_TimerCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Relay_UWB_Quering_TimerCallback </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="_timing_8h.html#aa4cfa56f0ecbc0a890da7fb57c15ee75">Timer_Callbacks</a></td>          <td class="paramname"><span class="paramname"><em>timer_callback</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a2e958de994a348224d7492d54c36db6a" name="a2e958de994a348224d7492d54c36db6a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e958de994a348224d7492d54c36db6a">&#9670;&#160;</a></span>Relay_UWB_Quering_UWB_New_Range()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Relay_UWB_Quering_UWB_New_Range </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>device</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>range</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>rx_power</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a3558d5db86bcaf1331d792dd32ea145b" name="a3558d5db86bcaf1331d792dd32ea145b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3558d5db86bcaf1331d792dd32ea145b">&#9670;&#160;</a></span>Send_Calculated_Position_ButtonCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Send_Calculated_Position_ButtonCallback </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>button</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a5db1e0ebb7b4ac25fae627cce7a8eda7" name="a5db1e0ebb7b4ac25fae627cce7a8eda7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5db1e0ebb7b4ac25fae627cce7a8eda7">&#9670;&#160;</a></span>Send_Calculated_Position_Enter()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Send_Calculated_Position_Enter </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a95b7dd212da4b9f1ca04a95d67c3aae2" name="a95b7dd212da4b9f1ca04a95d67c3aae2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a95b7dd212da4b9f1ca04a95d67c3aae2">&#9670;&#160;</a></span>Send_Calculated_Position_Exit()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Send_Calculated_Position_Exit </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a5f1b2e31bff835bddc69a5c753f02751" name="a5f1b2e31bff835bddc69a5c753f02751"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f1b2e31bff835bddc69a5c753f02751">&#9670;&#160;</a></span>Send_Calculated_Position_ReceiveCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Send_Calculated_Position_ReceiveCallback </td>
-          <td>(</td>
-          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>dataLen</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>receive_time</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a445ab32c4f419dc808f43c8c752f2bd6" name="a445ab32c4f419dc808f43c8c752f2bd6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a445ab32c4f419dc808f43c8c752f2bd6">&#9670;&#160;</a></span>Send_Calculated_Position_SentCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Send_Calculated_Position_SentCallback </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>send_time</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a534e4ba4242361faf5b14bf977f2dbe8" name="a534e4ba4242361faf5b14bf977f2dbe8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a534e4ba4242361faf5b14bf977f2dbe8">&#9670;&#160;</a></span>Send_Calculated_Position_TimerCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Send_Calculated_Position_TimerCallback </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="_timing_8h.html#aa4cfa56f0ecbc0a890da7fb57c15ee75">Timer_Callbacks</a></td>          <td class="paramname"><span class="paramname"><em>timer_callback</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a8bbb1312a1aad37bf62eaa5d3171c233" name="a8bbb1312a1aad37bf62eaa5d3171c233"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8bbb1312a1aad37bf62eaa5d3171c233">&#9670;&#160;</a></span>Send_Calculated_Position_UWB_New_Range()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Send_Calculated_Position_UWB_New_Range </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>device</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>range</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>rx_power</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a43177fdcc16044aa39f76c8c6904a3d6" name="a43177fdcc16044aa39f76c8c6904a3d6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a43177fdcc16044aa39f76c8c6904a3d6">&#9670;&#160;</a></span>UWB_Query_ButtonCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void UWB_Query_ButtonCallback </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>button</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a302e8d12aa408c263ff5e882a490c9b5" name="a302e8d12aa408c263ff5e882a490c9b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a302e8d12aa408c263ff5e882a490c9b5">&#9670;&#160;</a></span>UWB_Query_Enter()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void UWB_Query_Enter </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a82c360c8367720d6ca466925701c69df" name="a82c360c8367720d6ca466925701c69df"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a82c360c8367720d6ca466925701c69df">&#9670;&#160;</a></span>UWB_Query_Exit()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void UWB_Query_Exit </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac0c338d2682b1627f9589e5991ef29c8" name="ac0c338d2682b1627f9589e5991ef29c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac0c338d2682b1627f9589e5991ef29c8">&#9670;&#160;</a></span>UWB_Query_ReceiveCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void UWB_Query_ReceiveCallback </td>
-          <td>(</td>
-          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>dataLen</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>receive_time</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="abbf8594c1ebc397d8d418fa15afe05ec" name="abbf8594c1ebc397d8d418fa15afe05ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abbf8594c1ebc397d8d418fa15afe05ec">&#9670;&#160;</a></span>UWB_Query_SentCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void UWB_Query_SentCallback </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>send_time</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="af3887a69eeb3f130a9673e761a877f4c" name="af3887a69eeb3f130a9673e761a877f4c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af3887a69eeb3f130a9673e761a877f4c">&#9670;&#160;</a></span>UWB_Query_TimerCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void UWB_Query_TimerCallback </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="_timing_8h.html#aa4cfa56f0ecbc0a890da7fb57c15ee75">Timer_Callbacks</a></td>          <td class="paramname"><span class="paramname"><em>timer_callback</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="adda5c7ba4cde6461184718a1083754d8" name="adda5c7ba4cde6461184718a1083754d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adda5c7ba4cde6461184718a1083754d8">&#9670;&#160;</a></span>UWB_Query_UWB_New_Range()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void UWB_Query_UWB_New_Range </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>device</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>range</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>rx_power</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aaeaa2cab3b16b704da45d516f41432e6" name="aaeaa2cab3b16b704da45d516f41432e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaeaa2cab3b16b704da45d516f41432e6">&#9670;&#160;</a></span>UWB_Response_ButtonCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void UWB_Response_ButtonCallback </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>button</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ade9d656b9f4bcdaa8b2284ed4a75b5ab" name="ade9d656b9f4bcdaa8b2284ed4a75b5ab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ade9d656b9f4bcdaa8b2284ed4a75b5ab">&#9670;&#160;</a></span>UWB_Response_Enter()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void UWB_Response_Enter </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="afcade9aeb918e3e43a52be8d1ff21f33" name="afcade9aeb918e3e43a52be8d1ff21f33"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afcade9aeb918e3e43a52be8d1ff21f33">&#9670;&#160;</a></span>UWB_Response_Exit()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void UWB_Response_Exit </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7e41b8fc5225a8fd3481a4d3984f122b" name="a7e41b8fc5225a8fd3481a4d3984f122b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e41b8fc5225a8fd3481a4d3984f122b">&#9670;&#160;</a></span>UWB_Response_ReceiveCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void UWB_Response_ReceiveCallback </td>
-          <td>(</td>
-          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>dataLen</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>receive_time</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a6467e53b87d63fc0214193345c1475c9" name="a6467e53b87d63fc0214193345c1475c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6467e53b87d63fc0214193345c1475c9">&#9670;&#160;</a></span>UWB_Response_SentCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void UWB_Response_SentCallback </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>send_time</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7444c8f0a1a22d4392fd9d19d98d7c6c" name="a7444c8f0a1a22d4392fd9d19d98d7c6c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7444c8f0a1a22d4392fd9d19d98d7c6c">&#9670;&#160;</a></span>UWB_Response_TimerCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void UWB_Response_TimerCallback </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="_timing_8h.html#aa4cfa56f0ecbc0a890da7fb57c15ee75">Timer_Callbacks</a></td>          <td class="paramname"><span class="paramname"><em>timer_callback</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a3046d9bd9ff04de073a1cd9556fd55ec" name="a3046d9bd9ff04de073a1cd9556fd55ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3046d9bd9ff04de073a1cd9556fd55ec">&#9670;&#160;</a></span>UWB_Response_UWB_New_Range()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void UWB_Response_UWB_New_Range </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>device</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>range</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>rx_power</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
@@ -1551,7 +250,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a href="_state_machine_individual_8cpp.html">StateMachineIndividual.cpp</a></li>
+    <li class="navelem"><b>src</b></li><li class="navelem"><a href="_state_machine_individual_8cpp.html">StateMachineIndividual.cpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
   </ul>
 </div>

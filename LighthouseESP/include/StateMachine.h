@@ -1,7 +1,28 @@
+/**
+ * @file StateMachine.h
+ * @brief State machine definitions and interface for Lighthouse control logic.
+ *
+ * @details
+ * This header defines the state machine structure, states, error codes, and
+ * all state-specific callbacks used in the Lighthouse firmware.
+ *
+ * The state machine is responsible for:
+ * - Managing transitions between system states
+ * - Handling received messages and UWB ranges
+ * - Coordinating timers and button events
+ */
+
 #ifndef STATEMACHINE_H
 #define STATEMACHINE_H
 #include "LighthouseConfig.h"
 
+/**
+ * @struct StateData
+ * @brief Data structure storing current state-related information.
+ *
+ * Used to store variables that must persist across state transitions and
+ * callbacks.
+ */
 struct StateData {
   bool ignoring_sent_callbacks;
   uint8_t target_lighthouse;
@@ -14,9 +35,20 @@ struct StateData {
   double stored_targets_avg_response_time;
 };
 
+/**
+ * @brief Current state data instance.
+ */
 extern struct StateData current_state_data;
+
+/**
+ * @brief Count of completed distance measurements for each lighthouse.
+ */
 extern uint8_t completed_distance_measurements[NUMBER_OF_LIGHTHOUSES];
 
+/**
+ * @enum States
+ * @brief All possible states of the Lighthouse state machine.
+ */
 enum States {
   INITIAL = 0,
   UWB_QUERY, // 1
@@ -30,16 +62,26 @@ enum States {
   OBSERVER_RESPONSE, // 9
 };
 
+/**
+ * @enum State_Machine_Errors
+ * @brief Error codes used by the state machine.
+ */
 enum State_Machine_Errors {
   INEXISTING_STATE,
   WRONG_TRANSITION,
 };
 
-const uint16_t UWB_COUNT = 20;
+/**
+ * @brief Maximum number of messages allowed in a sequence.
+ */
 const uint8_t MESSAGE_MAX_COUNT = 5;
 
+/**
+ * @brief Current state of the state machine.
+ */
 extern States current_state;
 
+/* State machine core functions */
 void Reset_And_Initialize_Machine();
 void State_Machine_Error(State_Machine_Errors error);
 
@@ -52,6 +94,7 @@ void State_Button_Callback(uint8_t button);
 void State_UWB_New_Range(uint16_t device, float range, float rx_power);
 void State_Exit();
 
+/* State-specific callbacks */
 void Initial_Enter();
 void Initial_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time);
 void Initial_SentCallback(uint32_t send_time);

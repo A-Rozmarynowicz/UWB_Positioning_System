@@ -117,7 +117,6 @@ void _set_LGH_2_position(){
   master_all_positions[2].y = y;
 }
 
-
 /**
  * @brief Calculate the 3D position of lighthouse 3.
  *
@@ -149,7 +148,6 @@ void _set_LGH_3_position(){
   master_all_positions[3].y = y;
   master_all_positions[3].z = z;
 }
-
 
 /**
  * @brief Calculate the position of lighthouses with index 4 and above.

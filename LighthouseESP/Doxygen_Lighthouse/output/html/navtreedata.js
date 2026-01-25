@@ -30,6 +30,7 @@ var NAVTREE =
       [ "Hardware", "index.html#autotoc_md2", null ],
       [ "Do formularza:", "index.html#autotoc_md3", null ]
     ] ],
+    [ "Topics", "topics.html", "topics" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [

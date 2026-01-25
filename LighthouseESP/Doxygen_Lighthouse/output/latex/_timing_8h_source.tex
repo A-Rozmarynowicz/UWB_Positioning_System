@@ -1,37 +1,42 @@
 \doxysection{Timing.\+h}
 \hypertarget{_timing_8h_source}{}\label{_timing_8h_source}\index{include/Timing.h@{include/Timing.h}}
-
+\doxymbox{\hyperlink{_timing_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ TIMING\_H}}
-\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ TIMING\_H}}
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}esp32-\/hal-\/timer.h"{}}}
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_lighthouse_config_8h}{LighthouseConfig.h}}"{}}}
-\DoxyCodeLine{00005\ }
-\DoxyCodeLine{00006\ \textcolor{keyword}{enum}\ Timer\_Callbacks\ \{}
-\DoxyCodeLine{00007\ \ \ UWB\_ACTIVATION,}
-\DoxyCodeLine{00008\ \ \ ACK,}
-\DoxyCodeLine{00009\ \};}
-\DoxyCodeLine{00010\ }
-\DoxyCodeLine{00011\ \textcolor{keyword}{const}\ uint16\_t\ UWB\_ACTIVATION\_TIMER\_PERIOD\_MS\ =\ 150;}
-\DoxyCodeLine{00012\ \textcolor{keyword}{const}\ uint16\_t\ ACK\_TIMER\_PERIOD\_MS\ =\ 25;}
-\DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ \textcolor{keyword}{extern}\ hw\_timer\_t*\ uwb\_activation\_timer;}
-\DoxyCodeLine{00015\ \textcolor{keyword}{extern}\ hw\_timer\_t*\ ack\_timer;}
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \textcolor{keywordtype}{void}\ Initialize\_Timers();}
-\DoxyCodeLine{00018\ }
-\DoxyCodeLine{00019\ \textcolor{keywordtype}{void}\ Start\_UWB\_Activation\_Timer();}
-\DoxyCodeLine{00020\ \textcolor{keywordtype}{void}\ Stop\_UWB\_Activation\_Timer();}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \textcolor{keywordtype}{void}\ Start\_Ack\_Timer();}
-\DoxyCodeLine{00023\ \textcolor{keywordtype}{void}\ Stop\_Ack\_Timer();}
-\DoxyCodeLine{00024\ }
-\DoxyCodeLine{00025\ \textcolor{keywordtype}{void}\ Timing\_Error();}
-\DoxyCodeLine{00026\ }
-\DoxyCodeLine{00027\ \textcolor{comment}{//\ Private}}
-\DoxyCodeLine{00028\ \textcolor{keywordtype}{void}\ IRAM\_ATTR\ \_on\_UWB\_activation\_timer\_timeout();}
-\DoxyCodeLine{00029\ \textcolor{keywordtype}{void}\ IRAM\_ATTR\ \_on\_ack\_timer\_timeout();}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ TIMING\_H}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ TIMING\_H}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}esp32-\/hal-\/timer.h"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_lighthouse_config_8h}{LighthouseConfig.h}}"{}}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{enum}\ \doxymbox{\hyperlink{_timing_8h_aa4cfa56f0ecbc0a890da7fb57c15ee75}{Timer\_Callbacks}}\ \{}
+\DoxyCodeLine{00024\ \ \ UWB\_ACTIVATION,}
+\DoxyCodeLine{00025\ \ \ ACK,}
+\DoxyCodeLine{00026\ \};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{const}\ uint16\_t\ \doxymbox{\hyperlink{_timing_8h_a24f9dfabbf80176ccb4c6991fd29a9f4}{UWB\_ACTIVATION\_TIMER\_PERIOD\_MS}}\ =\ 150;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{const}\ uint16\_t\ \doxymbox{\hyperlink{_timing_8h_a0d096e1899eb31b43213bbb8ccc71303}{ACK\_TIMER\_PERIOD\_MS}}\ =\ 25;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00042\ \textcolor{keyword}{extern}\ hw\_timer\_t*\ \doxymbox{\hyperlink{_timing_8h_a7fbf619159a97bef5fb263cba960c939}{uwb\_activation\_timer}};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{extern}\ hw\_timer\_t*\ \doxymbox{\hyperlink{_timing_8h_a9d740c55adddd05c8ae4b3fbf14de4c8}{ack\_timer}};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_timing_8h_a893b566b68340a229bbdc03a9f2c0649}{Initialize\_Timers}}();}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_timing_8h_a565bbac38fb8b56978aee216c85d291b}{Start\_UWB\_Activation\_Timer}}();}
+\DoxyCodeLine{00052\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_timing_8h_a91b59fa17d7d833f0767d5ecaab87fd3}{Stop\_UWB\_Activation\_Timer}}();}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_timing_8h_a6c20d9a7484b6e86e03683520d5f5723}{Start\_Ack\_Timer}}();}
+\DoxyCodeLine{00055\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_timing_8h_aaf050820ac5b78194d516ef0d451499a}{Stop\_Ack\_Timer}}();}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_timing_8h_aa5f6de73f85cdce38fe349f4f599423a}{Timing\_Error}}();}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{comment}{//\ Private}}
+\DoxyCodeLine{00060\ \textcolor{keywordtype}{void}\ IRAM\_ATTR\ \doxymbox{\hyperlink{_timing_8h_a07b12639c88cc9df7977d2ab4224b969}{\_on\_UWB\_activation\_timer\_timeout}}();}
+\DoxyCodeLine{00061\ \textcolor{keywordtype}{void}\ IRAM\_ATTR\ \doxymbox{\hyperlink{_timing_8h_af93d879c05958ab04769c455da43b421}{\_on\_ack\_timer\_timeout}}();}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

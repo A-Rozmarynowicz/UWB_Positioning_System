@@ -91,45 +91,65 @@ $(function(){initNavTree('_timing_8h_source.html','',''); });
   <div class="headertitle"><div class="title">Timing.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef TIMING_H</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define TIMING_H</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;esp32-hal-timer.h&quot;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="_lighthouse_config_8h.html">LighthouseConfig.h</a>&quot;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">enum</span> Timer_Callbacks {</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>  UWB_ACTIVATION,</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>  ACK,</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>};</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">const</span> uint16_t UWB_ACTIVATION_TIMER_PERIOD_MS = 150;</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">const</span> uint16_t ACK_TIMER_PERIOD_MS = 25;</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">extern</span> hw_timer_t* uwb_activation_timer;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">extern</span> hw_timer_t* ack_timer;</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keywordtype">void</span> Initialize_Timers();</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keywordtype">void</span> Start_UWB_Activation_Timer();</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keywordtype">void</span> Stop_UWB_Activation_Timer();</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keywordtype">void</span> Start_Ack_Timer();</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keywordtype">void</span> Stop_Ack_Timer();</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keywordtype">void</span> Timing_Error();</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">// Private</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keywordtype">void</span> IRAM_ATTR _on_UWB_activation_timer_timeout();</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keywordtype">void</span> IRAM_ATTR _on_ack_timer_timeout();</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#endif</span></div>
+<a href="_timing_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#ifndef TIMING_H</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#define TIMING_H</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;esp32-hal-timer.h&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="_lighthouse_config_8h.html">LighthouseConfig.h</a>&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span></div>
+<div class="foldopen" id="foldopen00023" data-start="{" data-end="};">
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="_timing_8h.html#aa4cfa56f0ecbc0a890da7fb57c15ee75">   23</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="_timing_8h.html#aa4cfa56f0ecbc0a890da7fb57c15ee75">Timer_Callbacks</a> {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>  UWB_ACTIVATION,</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>  ACK,</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>};</div>
+</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="_timing_8h.html#a24f9dfabbf80176ccb4c6991fd29a9f4">   31</a></span><span class="keyword">const</span> uint16_t <a class="code hl_variable" href="_timing_8h.html#a24f9dfabbf80176ccb4c6991fd29a9f4">UWB_ACTIVATION_TIMER_PERIOD_MS</a> = 150;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="_timing_8h.html#a0d096e1899eb31b43213bbb8ccc71303">   36</a></span><span class="keyword">const</span> uint16_t <a class="code hl_variable" href="_timing_8h.html#a0d096e1899eb31b43213bbb8ccc71303">ACK_TIMER_PERIOD_MS</a> = 25;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keyword">extern</span> hw_timer_t* <a class="code hl_variable" href="_timing_8h.html#a7fbf619159a97bef5fb263cba960c939">uwb_activation_timer</a>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keyword">extern</span> hw_timer_t* <a class="code hl_variable" href="_timing_8h.html#a9d740c55adddd05c8ae4b3fbf14de4c8">ack_timer</a>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keywordtype">void</span> <a class="code hl_function" href="_timing_8h.html#a893b566b68340a229bbdc03a9f2c0649">Initialize_Timers</a>();</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keywordtype">void</span> <a class="code hl_function" href="_timing_8h.html#a565bbac38fb8b56978aee216c85d291b">Start_UWB_Activation_Timer</a>();</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keywordtype">void</span> <a class="code hl_function" href="_timing_8h.html#a91b59fa17d7d833f0767d5ecaab87fd3">Stop_UWB_Activation_Timer</a>();</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keywordtype">void</span> <a class="code hl_function" href="_timing_8h.html#a6c20d9a7484b6e86e03683520d5f5723">Start_Ack_Timer</a>();</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keywordtype">void</span> <a class="code hl_function" href="_timing_8h.html#aaf050820ac5b78194d516ef0d451499a">Stop_Ack_Timer</a>();</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="keywordtype">void</span> <a class="code hl_function" href="_timing_8h.html#aa5f6de73f85cdce38fe349f4f599423a">Timing_Error</a>();</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment">// Private</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="keywordtype">void</span> IRAM_ATTR <a class="code hl_function" href="_timing_8h.html#a07b12639c88cc9df7977d2ab4224b969">_on_UWB_activation_timer_timeout</a>();</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="keywordtype">void</span> IRAM_ATTR <a class="code hl_function" href="_timing_8h.html#af93d879c05958ab04769c455da43b421">_on_ack_timer_timeout</a>();</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="a_lighthouse_config_8h_html"><div class="ttname"><a href="_lighthouse_config_8h.html">LighthouseConfig.h</a></div><div class="ttdoc">Global configuration header for the Lighthouse system.</div></div>
+<div class="ttc" id="a_timing_8h_html_a07b12639c88cc9df7977d2ab4224b969"><div class="ttname"><a href="_timing_8h.html#a07b12639c88cc9df7977d2ab4224b969">_on_UWB_activation_timer_timeout</a></div><div class="ttdeci">void IRAM_ATTR _on_UWB_activation_timer_timeout()</div><div class="ttdoc">Interrupt handler for UWB activation timer.</div><div class="ttdef"><b>Definition</b> Timing.cpp:40</div></div>
+<div class="ttc" id="a_timing_8h_html_a0d096e1899eb31b43213bbb8ccc71303"><div class="ttname"><a href="_timing_8h.html#a0d096e1899eb31b43213bbb8ccc71303">ACK_TIMER_PERIOD_MS</a></div><div class="ttdeci">const uint16_t ACK_TIMER_PERIOD_MS</div><div class="ttdoc">ACK timeout timer period in milliseconds.</div><div class="ttdef"><b>Definition</b> Timing.h:36</div></div>
+<div class="ttc" id="a_timing_8h_html_a24f9dfabbf80176ccb4c6991fd29a9f4"><div class="ttname"><a href="_timing_8h.html#a24f9dfabbf80176ccb4c6991fd29a9f4">UWB_ACTIVATION_TIMER_PERIOD_MS</a></div><div class="ttdeci">const uint16_t UWB_ACTIVATION_TIMER_PERIOD_MS</div><div class="ttdoc">UWB activation timer period in milliseconds.</div><div class="ttdef"><b>Definition</b> Timing.h:31</div></div>
+<div class="ttc" id="a_timing_8h_html_a565bbac38fb8b56978aee216c85d291b"><div class="ttname"><a href="_timing_8h.html#a565bbac38fb8b56978aee216c85d291b">Start_UWB_Activation_Timer</a></div><div class="ttdeci">void Start_UWB_Activation_Timer()</div><div class="ttdoc">Starts the UWB activation timer.</div><div class="ttdef"><b>Definition</b> Timing.cpp:58</div></div>
+<div class="ttc" id="a_timing_8h_html_a6c20d9a7484b6e86e03683520d5f5723"><div class="ttname"><a href="_timing_8h.html#a6c20d9a7484b6e86e03683520d5f5723">Start_Ack_Timer</a></div><div class="ttdeci">void Start_Ack_Timer()</div><div class="ttdoc">Starts the ACK timeout timer.</div><div class="ttdef"><b>Definition</b> Timing.cpp:83</div></div>
+<div class="ttc" id="a_timing_8h_html_a7fbf619159a97bef5fb263cba960c939"><div class="ttname"><a href="_timing_8h.html#a7fbf619159a97bef5fb263cba960c939">uwb_activation_timer</a></div><div class="ttdeci">hw_timer_t * uwb_activation_timer</div><div class="ttdoc">Hardware timer instance used for UWB activation.</div><div class="ttdef"><b>Definition</b> Timing.cpp:6</div></div>
+<div class="ttc" id="a_timing_8h_html_a893b566b68340a229bbdc03a9f2c0649"><div class="ttname"><a href="_timing_8h.html#a893b566b68340a229bbdc03a9f2c0649">Initialize_Timers</a></div><div class="ttdeci">void Initialize_Timers()</div><div class="ttdoc">Initializes hardware timers for UWB activation and ACK timeout.</div><div class="ttdef"><b>Definition</b> Timing.cpp:15</div></div>
+<div class="ttc" id="a_timing_8h_html_a91b59fa17d7d833f0767d5ecaab87fd3"><div class="ttname"><a href="_timing_8h.html#a91b59fa17d7d833f0767d5ecaab87fd3">Stop_UWB_Activation_Timer</a></div><div class="ttdeci">void Stop_UWB_Activation_Timer()</div><div class="ttdoc">Stops the UWB activation timer.</div><div class="ttdef"><b>Definition</b> Timing.cpp:66</div></div>
+<div class="ttc" id="a_timing_8h_html_a9d740c55adddd05c8ae4b3fbf14de4c8"><div class="ttname"><a href="_timing_8h.html#a9d740c55adddd05c8ae4b3fbf14de4c8">ack_timer</a></div><div class="ttdeci">hw_timer_t * ack_timer</div><div class="ttdoc">Hardware timer instance used for ACK timeout.</div><div class="ttdef"><b>Definition</b> Timing.cpp:7</div></div>
+<div class="ttc" id="a_timing_8h_html_aa4cfa56f0ecbc0a890da7fb57c15ee75"><div class="ttname"><a href="_timing_8h.html#aa4cfa56f0ecbc0a890da7fb57c15ee75">Timer_Callbacks</a></div><div class="ttdeci">Timer_Callbacks</div><div class="ttdoc">Timer callback identifiers.</div><div class="ttdef"><b>Definition</b> Timing.h:23</div></div>
+<div class="ttc" id="a_timing_8h_html_aa5f6de73f85cdce38fe349f4f599423a"><div class="ttname"><a href="_timing_8h.html#aa5f6de73f85cdce38fe349f4f599423a">Timing_Error</a></div><div class="ttdeci">void Timing_Error()</div><div class="ttdoc">Handles timing related errors.</div><div class="ttdef"><b>Definition</b> Timing.cpp:75</div></div>
+<div class="ttc" id="a_timing_8h_html_aaf050820ac5b78194d516ef0d451499a"><div class="ttname"><a href="_timing_8h.html#aaf050820ac5b78194d516ef0d451499a">Stop_Ack_Timer</a></div><div class="ttdeci">void Stop_Ack_Timer()</div><div class="ttdoc">Stops the ACK timeout timer.</div><div class="ttdef"><b>Definition</b> Timing.cpp:90</div></div>
+<div class="ttc" id="a_timing_8h_html_af93d879c05958ab04769c455da43b421"><div class="ttname"><a href="_timing_8h.html#af93d879c05958ab04769c455da43b421">_on_ack_timer_timeout</a></div><div class="ttdeci">void IRAM_ATTR _on_ack_timer_timeout()</div><div class="ttdoc">Interrupt handler for ACK timeout timer.</div><div class="ttdef"><b>Definition</b> Timing.cpp:50</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>include</b></li><li class="navelem"><b>Timing.h</b></li>
+    <li class="navelem"><b>include</b></li><li class="navelem"><a href="_timing_8h.html">Timing.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
   </ul>
 </div>

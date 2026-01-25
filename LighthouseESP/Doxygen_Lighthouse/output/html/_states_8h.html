@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lighthouse: include/States.h File Reference</title>
+<title>Lighthouse Documentation: include/States.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Lighthouse
+   <div id="projectname">Lighthouse Documentation
    </div>
   </td>
  </tr>
@@ -91,6 +91,9 @@ $(function(){initNavTree('_states_8h.html','',''); });
   <div class="headertitle"><div class="title">States.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Helper functions for managing state indices and acknowledgements.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="_lighthouse_config_8h_source.html">LighthouseConfig.h</a>&quot;</code><br />
 </div>
 <p><a href="_states_8h_source.html">Go to the source code of this file.</a></p>
@@ -98,15 +101,26 @@ $(function(){initNavTree('_states_8h.html','',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ad39ba55ff89c6ae490cbed9bdee679b6" id="r_ad39ba55ff89c6ae490cbed9bdee679b6"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad39ba55ff89c6ae490cbed9bdee679b6">Reset_Target_Lighthouse_Index</a> (uint8_t *target_lighthouse_index)</td></tr>
+<tr class="memdesc:ad39ba55ff89c6ae490cbed9bdee679b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the target lighthouse index to the current lighthouse ID and advances it to the next valid lighthouse.  <br /></td></tr>
 <tr class="memitem:afa626db13c9a525ccd92eae74bf31d49" id="r_afa626db13c9a525ccd92eae74bf31d49"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#afa626db13c9a525ccd92eae74bf31d49">Increment_Target_Lighthouse_Index</a> (uint8_t *target_lighthouse_index)</td></tr>
+<tr class="memdesc:afa626db13c9a525ccd92eae74bf31d49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increments the target lighthouse index and wraps it around when exceeding the number of lighthouses.  <br /></td></tr>
 <tr class="memitem:ab6d409a3a35a591a61d30b8de123ec3d" id="r_ab6d409a3a35a591a61d30b8de123ec3d"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab6d409a3a35a591a61d30b8de123ec3d">Reset_Distance_Query_Target_Index</a> (uint8_t *distance_query_target_index)</td></tr>
+<tr class="memdesc:ab6d409a3a35a591a61d30b8de123ec3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the distance query target index to 0.  <br /></td></tr>
 <tr class="memitem:a1330510c497c8b3ea407c91af4568c54" id="r_a1330510c497c8b3ea407c91af4568c54"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a1330510c497c8b3ea407c91af4568c54">Increment_Distance_Query_Target_Index</a> (uint8_t *distance_query_target_index)</td></tr>
+<tr class="memdesc:a1330510c497c8b3ea407c91af4568c54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increments the distance query target index.  <br /></td></tr>
 <tr class="memitem:a162b940ace0454c32d7aecc135e76ff7" id="r_a162b940ace0454c32d7aecc135e76ff7"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a162b940ace0454c32d7aecc135e76ff7">Reset_Ack_Target_Index</a> (uint8_t *ack_target_lighthouse, uint8_t *ack_message_index)</td></tr>
+<tr class="memdesc:a162b940ace0454c32d7aecc135e76ff7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the ACK target lighthouse index to the current lighthouse ID and advances it to the next valid lighthouse.  <br /></td></tr>
 <tr class="memitem:a0c6bd876eeff4a0d0c063550d4fcb933" id="r_a0c6bd876eeff4a0d0c063550d4fcb933"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a0c6bd876eeff4a0d0c063550d4fcb933">Increment_Ack_Target_Index</a> (uint8_t *ack_target_lighthouse, uint8_t *ack_message_index)</td></tr>
+<tr class="memdesc:a0c6bd876eeff4a0d0c063550d4fcb933"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increments the ACK target lighthouse index and resets the ACK message index.  <br /></td></tr>
 <tr class="memitem:a01b6830ba2ce4a7cca9ba0f308c08b7b" id="r_a01b6830ba2ce4a7cca9ba0f308c08b7b"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a01b6830ba2ce4a7cca9ba0f308c08b7b">Validate_Ack_Index_Increase</a> (uint8_t *ack_index)</td></tr>
+<tr class="memdesc:a01b6830ba2ce4a7cca9ba0f308c08b7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validates and increments the ACK message index.  <br /></td></tr>
 <tr class="memitem:a3400a32772332b093f756fb0084cfa0e" id="r_a3400a32772332b093f756fb0084cfa0e"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a3400a32772332b093f756fb0084cfa0e">Check_If_All_Distances_Are_Measured</a> (uint8_t *received_distances)</td></tr>
+<tr class="memdesc:a3400a32772332b093f756fb0084cfa0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if all lighthouses (except the current one) have received the minimum required distance measurements.  <br /></td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Helper functions for managing state indices and acknowledgements. </p>
+<p>This module provides utility functions used by the state machine to track which lighthouse is currently targeted, manage distance query indices, and validate ACK responses. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a3400a32772332b093f756fb0084cfa0e" name="a3400a32772332b093f756fb0084cfa0e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3400a32772332b093f756fb0084cfa0e">&#9670;&#160;</a></span>Check_If_All_Distances_Are_Measured()</h2>
 
@@ -121,6 +135,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Checks if all lighthouses (except the current one) have received the minimum required distance measurements. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">received_distances</td><td>Pointer to the array of received distance counts. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if all other lighthouses have at least MIN_DISTANCE_MEASUREMENTS, otherwise false. </dd></dl>
 
 </div>
 </div>
@@ -143,6 +166,16 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Increments the ACK target lighthouse index and resets the ACK message index. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ack_target_lighthouse</td><td>Pointer to the target lighthouse index to increment. </td></tr>
+    <tr><td class="paramname">ack_message_index</td><td>Pointer to the ACK message index to reset. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the current ACK target lighthouse equals the current lighthouse ID, otherwise false. </dd></dl>
+
 </div>
 </div>
 <a id="a1330510c497c8b3ea407c91af4568c54" name="a1330510c497c8b3ea407c91af4568c54"></a>
@@ -160,6 +193,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Increments the distance query target index. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">distance_query_target_index</td><td>Pointer to the distance query index to increment. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the index reached the maximum number of lighthouses, otherwise false. </dd></dl>
+
 </div>
 </div>
 <a id="afa626db13c9a525ccd92eae74bf31d49" name="afa626db13c9a525ccd92eae74bf31d49"></a>
@@ -176,6 +218,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Increments the target lighthouse index and wraps it around when exceeding the number of lighthouses. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target_lighthouse_index</td><td>Pointer to the lighthouse index to increment. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the resulting index equals the current lighthouse ID, otherwise false. </dd></dl>
 
 </div>
 </div>
@@ -198,6 +249,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Resets the ACK target lighthouse index to the current lighthouse ID and advances it to the next valid lighthouse. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ack_target_lighthouse</td><td>Pointer to the target lighthouse index to reset. </td></tr>
+    <tr><td class="paramname">ack_message_index</td><td>Pointer to the ACK message index to reset. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ab6d409a3a35a591a61d30b8de123ec3d" name="ab6d409a3a35a591a61d30b8de123ec3d"></a>
@@ -214,6 +274,14 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Resets the distance query target index to 0. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">distance_query_target_index</td><td>Pointer to the distance query index to reset. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -232,6 +300,14 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Resets the target lighthouse index to the current lighthouse ID and advances it to the next valid lighthouse. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target_lighthouse_index</td><td>Pointer to the lighthouse index to reset. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a01b6830ba2ce4a7cca9ba0f308c08b7b" name="a01b6830ba2ce4a7cca9ba0f308c08b7b"></a>
@@ -249,6 +325,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Validates and increments the ACK message index. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ack_index</td><td>Pointer to the ACK index to increment. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the new index is still valid (less than ACK_MESSAGE_COUNT), otherwise false. </dd></dl>
+
 </div>
 </div>
 </div><!-- contents -->
@@ -264,7 +349,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a href="_states_8h.html">States.h</a></li>
+    <li class="navelem"><b>include</b></li><li class="navelem"><a href="_states_8h.html">States.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
   </ul>
 </div>

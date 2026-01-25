@@ -1,7 +1,20 @@
+/**
+ * @file StateMachineIndividual.cpp
+ * */
+
 #include "StateMachine.h"
 #include <math.h>
 
+/** @defgroup StateMachine State Machine Functions
+ *  @brief Functions implementing the state machine logic. They all follow the same framework as functions in StateMachineCommon.cpp
+ *  @{
+ */
+
 #pragma region Initial State Functions
+/** @defgroup InitialState Initial State
+ *  @brief Functions for the INITIAL state.
+ *  @{
+ */
 void Initial_Enter(){
   current_state_data.ignoring_sent_callbacks = true;
   if (LIGHTHOUSE_ID == 0){
@@ -39,9 +52,14 @@ void Initial_ButtonCallback(uint8_t button) {
 };
 void Initial_UWB_New_Range(uint16_t device, float range, float rx_power){}
 void Initial_Exit(){};
+/** @} */
 #pragma endregion
 
 #pragma region UWB Query State Functions
+/** @defgroup UWBQueryState UWB Query State
+ *  @brief Functions for the UWB_QUERY state.
+ *  @{
+ */
 void UWB_Query_Enter(){
   Restart_UWB_As_Tag();
   Start_UWB_Activation_Timer();
@@ -80,10 +98,14 @@ void UWB_Query_UWB_New_Range(uint16_t device, float range, float rx_power){
 void UWB_Query_Exit(){
   Calculate_Distance_To_Targets(completed_distance_measurements);
 };
-
+/** @} */
 #pragma endregion
 
 #pragma region UWB Response State Functions
+/** @defgroup UWBResponseState UWB Response State
+ *  @brief Functions for the UWB_RESPONSE state.
+ *  @{
+ */
 void UWB_Response_Enter(){
   Restart_UWB_As_Anchor();
   Enable_UWB();
@@ -118,9 +140,14 @@ void UWB_Response_UWB_New_Range(uint16_t device, float range, float rx_power){
   Serial.printf("SLAVE Range: %x \n", device);
 }
 void UWB_Response_Exit(){};
+/** @} */
 #pragma endregion
 
 #pragma region Post UWB Check If All LGHS Set State Functions
+/** @defgroup PostUWBCheckState Post UWB Check If All LGHS Set State
+ *  @brief Functions for the POST_UWB_CHECK_IF_ALL_LGHS_SET state.
+ *  @{
+ */
 void Post_UWB_Check_If_All_LGHS_Set_Enter(){
   Disable_UWB();
   if (LIGHTHOUSE_ID == NUMBER_OF_LIGHTHOUSES - 1){
@@ -136,9 +163,14 @@ void Post_UWB_Check_If_All_LGHS_Set_TimerCallback(Timer_Callbacks timer_callback
 void Post_UWB_Check_If_All_LGHS_Set_ButtonCallback(uint8_t button){};
 void Post_UWB_Check_If_All_LGHS_Set_UWB_New_Range(uint16_t device, float range, float rx_power){}
 void Post_UWB_Check_If_All_LGHS_Set_Exit(){};
+/** @} */
 #pragma endregion
 
 #pragma region Relay UWB Quering State Functions
+/** @defgroup RelayUWBQueryState Relay UWB Quering State
+ *  @brief Functions for the RELAY_UWB_QUERING state.
+ *  @{
+ */
 void Relay_UWB_Quering_Enter(){
   Reset_Ack_Target_Index(&current_ack_status.target_ack_lighthouse, &current_ack_status.current_ack_index);
   MESSAGES::Send_Relay_UWB_Response(current_ack_status.target_ack_lighthouse);
@@ -178,10 +210,14 @@ void Relay_UWB_Quering_ButtonCallback(uint8_t button){};
 void Relay_UWB_Quering_UWB_New_Range(uint16_t device, float range, float rx_power){}
 
 void Relay_UWB_Quering_Exit(){};
-
+/** @} */
 #pragma endregion
 
 #pragma region Inform End Config State Functions
+/** @defgroup InformEndConfigState Inform End Config State
+ *  @brief Functions for the INFORM_END_CONFIG state.
+ *  @{
+ */
 void Inform_End_Config_Enter(){
   Reset_Ack_Target_Index(&current_ack_status.target_ack_lighthouse, &current_ack_status.current_ack_index);
   Start_Ack_Timer();
@@ -229,9 +265,14 @@ void Inform_End_Config_TimerCallback(Timer_Callbacks timer_callback){
 void Inform_End_Config_ButtonCallback(uint8_t button){};
 void Inform_End_Config_UWB_New_Range(uint16_t device, float range, float rx_power){}
 void Inform_End_Config_Exit(){};
+/** @} */
 #pragma endregion
 
 #pragma region Distance Measure Response State Functions
+/** @defgroup DistanceMeasureResponseState Distance Measure Response State
+ *  @brief Functions for the DISTANCE_MEASURE_RESPONSE state.
+ *  @{
+ */
 void Distance_Measure_Response_Enter(){
   if (LIGHTHOUSE_ID == 0){
     Change_State(States::DISTANCE_MEASURE_QUERY);
@@ -257,9 +298,14 @@ void Distance_Measure_Response_TimerCallback(Timer_Callbacks timer_callback){};
 void Distance_Measure_Response_ButtonCallback(uint8_t button){};
 void Distance_Measure_Response_UWB_New_Range(uint16_t device, float range, float rx_power){}
 void Distance_Measure_Response_Exit(){};
+/** @} */
 #pragma endregion
 
 #pragma region Distance Measure Query State Functions
+/** @defgroup DistanceMeasureQueryState Distance Measure Query State
+ *  @brief Functions for the DISTANCE_MEASURE_QUERY state.
+ *  @{
+ */
 void Distance_Measure_Query_Enter(){
   for (uint8_t i=0; i<NUMBER_OF_LIGHTHOUSES; i++){
     master_all_distances_matrix[0][i] = distances_to_lighthouses[i];
@@ -324,9 +370,14 @@ void Distance_Measure_Query_TimerCallback(Timer_Callbacks timer_callback){
 void Distance_Measure_Query_ButtonCallback(uint8_t button){};
 void Distance_Measure_Query_UWB_New_Range(uint16_t device, float range, float rx_power){}
 void Distance_Measure_Query_Exit(){};
+/** @} */
 #pragma endregion
 
 #pragma region Send Calculated Position State Functions
+/** @defgroup SendCalculatedPositionState Send Calculated Position State
+ *  @brief Functions for the SEND_CALCULATED_POSITION state.
+ *  @{
+ */
 void Send_Calculated_Position_Enter(){
   // float dist0[4] = {0.0, 1.0, 1.0, 1.0};
   // memcpy(&master_all_distances_matrix[0], &dist0, sizeof(float) * 4);
@@ -389,9 +440,14 @@ void Send_Calculated_Position_TimerCallback(Timer_Callbacks timer_callback){
 void Send_Calculated_Position_ButtonCallback(uint8_t button){};
 void Send_Calculated_Position_UWB_New_Range(uint16_t device, float range, float rx_power){}
 void Send_Calculated_Position_Exit(){};
+/** @} */
 #pragma endregion
 
 #pragma region Observer Response State Functions
+/** @defgroup ObserverResponseState Observer Response State
+ *  @brief Functions for the OBSERVER_RESPONSE state.
+ *  @{
+ */
 void Observer_Response_Enter(){
   if (LIGHTHOUSE_ID == 0){
     MESSAGES::Send_Observer_Ready();
@@ -420,13 +476,7 @@ void Observer_Response_UWB_New_Range(uint16_t device, float range, float rx_powe
   Blink_LED();
 }
 void Observer_Response_Exit(){};
+/** @} */
 #pragma endregion
 
-
-
-
-
-
-
-
-
+/** @} */

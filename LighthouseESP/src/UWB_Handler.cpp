@@ -9,23 +9,49 @@ const uint8_t uwb_addresses_from_LGH[NUMBER_OF_LIGHTHOUSES][UWB_ADDRESS_LENGTH] 
     {0x3C, 0x9A, 0x44, 0x10, 0xFE, 0x02, 0x8D, 0x6F}
 };
 
+/**
+ * @brief Initialize UWB hardware pins and reset line.
+ *
+ * This function configures the reset pin for the DW1000 module and sets it to HIGH.
+ */
 void Initialize_UWB(){
     pinMode(PIN_RST, OUTPUT);
-
     digitalWrite(PIN_RST, HIGH);
 }
 
+/**
+ * @brief Execute the UWB ranging loop.
+ *
+ * Should be called periodically to process UWB events and update ranging data.
+ */
 void Update_UWB(){
     DW1000Ranging.loop();
 }
 
+/**
+ * @brief Get whether UWB is currently enabled.
+ *
+ * @return uint8_t 1 if UWB is enabled, 0 otherwise.
+ */
 uint8_t Is_UWB_Enabled(){return uwb_enable;}
 
+/**
+ * @brief Convert a long (8-byte) UWB address to a short (2-byte) address.
+ *
+ * @param address Pointer to an 8-byte long address.
+ * @return uint16_t Short address derived from the first two bytes.
+ */
 uint16_t Get_Short_Address_From_Long(const uint8_t* address){
     uint16_t short_address = address[1]*256 + address[0];
     return short_address;
 }
 
+/**
+ * @brief Get lighthouse index from short address.
+ *
+ * @param short_address Short UWB address to match.
+ * @return int8_t Lighthouse index if found, -1 if not found.
+ */
 int8_t Get_LGH_From_Short_Address(const uint16_t short_address){
     for (uint8_t i=0;i<NUMBER_OF_LIGHTHOUSES;i++){
         const uint8_t* potential_address = uwb_addresses_from_LGH[i];
@@ -36,6 +62,12 @@ int8_t Get_LGH_From_Short_Address(const uint16_t short_address){
     return -1;
 }
 
+/**
+ * @brief Get lighthouse index from full long address.
+ *
+ * @param address Pointer to an 8-byte long address.
+ * @return int8_t Lighthouse index if found, -1 if not found.
+ */
 int8_t Get_LGH_From_Address(const uint8_t* address){
     for (uint8_t i=0;i<NUMBER_OF_LIGHTHOUSES;i++){
         const uint8_t* potential_address = uwb_addresses_from_LGH[i];
@@ -53,24 +85,25 @@ int8_t Get_LGH_From_Address(const uint8_t* address){
     return -1;
 }
 
+/**
+ * @brief Restart UWB module in TAG mode.
+ *
+ * Performs hardware reset, reinitializes SPI and DW1000, attaches callbacks and starts
+ * DW1000 ranging as a TAG.
+ */
 void Restart_UWB_As_Tag(){
     Serial.println("Switching from ANCHOR to TAG...");
-
-    // 2. Hardware reset of DW1000 (IMPORTANT)
     _reset_DW1000();
 
-    // 3. Re-init SPI & DW1000
     SPI.begin(PIN_SCK, PIN_MISO, PIN_MOSI, PIN_SS);
     SPI.setFrequency(4000000);
     DW1000Ranging.initCommunication(PIN_RST, PIN_SS, PIN_IRQ);
     DW1000.setAntennaDelay(16436);
-    // DW1000Ranging.setReplyTime(300);
-    // 4. Reattach callbacks
+
     DW1000Ranging.attachNewRange(_new_range);
     DW1000Ranging.attachNewDevice(_new_device);
     DW1000Ranging.attachInactiveDevice(_inactive_device);
 
-    // 5. Start as TAG
     char address_str[24] = {0};
     _format_address_to_string(LIGHTHOUSE_ID, address_str);
     DW1000Ranging.startAsTag(
@@ -82,28 +115,28 @@ void Restart_UWB_As_Tag(){
     Serial.println("Now running as TAg");
 }
 
+/**
+ * @brief Restart UWB module in ANCHOR mode.
+ *
+ * Performs hardware reset, reinitializes SPI and DW1000, attaches callbacks and starts
+ * DW1000 ranging as an ANCHOR.
+ */
 void Restart_UWB_As_Anchor(){
     Serial.println("Switching from TAG to ANCHOR...");
 
-    // 2. Hardware reset of DW1000 (IMPORTANT)
     _reset_DW1000();
 
-    // 3. Re-init SPI & DW1000
     SPI.begin(PIN_SCK, PIN_MISO, PIN_MOSI, PIN_SS);
     SPI.setFrequency(4000000);
     DW1000Ranging.initCommunication(PIN_RST, PIN_SS, PIN_IRQ);
     DW1000.setAntennaDelay(16436);
 
-    // DW1000.setAntennaDelay(16736);s
-    // DW1000Ranging.setReplyTime(29);
-    // 4. Reattach callbacks
     DW1000Ranging.setReplyTime(900);
     DW1000Ranging.attachNewRange(_new_range);
     DW1000Ranging.attachBlinkDevice(_new_blink);
     DW1000Ranging.attachNewDevice(_new_device);
     DW1000Ranging.attachInactiveDevice(_inactive_device);
 
-    // 5. Start as ANCHOR
     char address_str[24] = {0};
     _format_address_to_string(LIGHTHOUSE_ID, address_str);
     Serial.printf("%s\n", address_str);
@@ -117,15 +150,27 @@ void Restart_UWB_As_Anchor(){
     Serial.println("Now running as Ancho");
 }
 
-
+/**
+ * @brief Disable UWB processing.
+ */
 void Disable_UWB(){
     uwb_enable = 0;
 }
 
+/**
+ * @brief Enable UWB processing.
+ */
 void Enable_UWB(){
     uwb_enable = 1;
 }
 
+/**
+ * @brief Compare two UWB addresses for equality.
+ *
+ * @param first Pointer to the first address array.
+ * @param second Pointer to the second address array.
+ * @return true if both addresses match, false otherwise.
+ */
 bool Are_Addresses_Equal(uint8_t* first, uint8_t* second){
     for (uint8_t i =0; i<UWB_ADDRESS_LENGTH; i++){
         if (first[i] != second[i]){
@@ -135,7 +180,9 @@ bool Are_Addresses_Equal(uint8_t* first, uint8_t* second){
     return true;
 }
 
-
+/**
+ * @brief Reset DW1000 hardware using the reset pin.
+ */
 void _reset_DW1000(){
     digitalWrite(PIN_RST, LOW);
     delay(50);
@@ -143,12 +190,23 @@ void _reset_DW1000(){
     delay(50);
 }
 
+
+/**
+ * @brief Callback invoked when a new blink device is detected.
+ *
+ * @param device Pointer to the detected DW1000 device.
+ */
 void _new_blink(DW1000Device* device) {
 //   Serial.print("blink; 1 device added ! -> ");
 //   Serial.print(" short:");
 //   Serial.println(device->getShortAddress(), HEX);
 }
 
+/**
+ * @brief Callback invoked when a new ranging device is detected.
+ *
+ * @details Triggers a state machine update with new range data.
+ */
 void _new_range() {
     uint16_t device = DW1000Ranging.getDistantDevice()->getShortAddress();
     float range = DW1000Ranging.getDistantDevice()->getRange();
@@ -159,17 +217,33 @@ void _new_range() {
     // Serial.print("\t RX power: "); Serial.printf("%0.2f", rx_power); Serial.println(" dBm");
 }
 
+/**
+ * @brief Callback invoked when a device becomes inactive.
+ *
+ * @param device Pointer to the inactive DW1000 device.
+ */
 void _new_device(DW1000Device* device) {
 //   Serial.print("ranging init; 1 device added ! -> ");
 //   Serial.print(" short:");
 //   Serial.println(device->getShortAddress(), HEX);
 }
 
+/**
+ * @brief Callback invoked when a device is removed due to inactivity.
+ *
+ * @param device Pointer to the inactive DW1000 device.
+ */
 void _inactive_device(DW1000Device* device) {
 //   Serial.print("delete inactive device: ");
 //   Serial.println(device->getShortAddress(), HEX);
 }
 
+/**
+ * @brief Format a lighthouse long address into a readable string.
+ *
+ * @param lgh_index Index of lighthouse to format address from.
+ * @param address_str Output buffer to store formatted string (at least 24 bytes).
+ */
 void _format_address_to_string(uint8_t lgh_index, char address_str[24]) {
     snprintf(
         address_str,

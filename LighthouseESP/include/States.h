@@ -1,6 +1,16 @@
+/**
+ * @file States.h
+ * @brief Helper functions for managing state indices and acknowledgements.
+ *
+ * This module provides utility functions used by the state machine to
+ * track which lighthouse is currently targeted, manage distance query indices,
+ * and validate ACK responses.
+ */
+
 #ifndef STATES_H
 #define STATES_H
 #include "LighthouseConfig.h"
+
 
 void Reset_Target_Lighthouse_Index(uint8_t* target_lighthouse_index);
 bool Increment_Target_Lighthouse_Index(uint8_t* target_lighthouse_index);

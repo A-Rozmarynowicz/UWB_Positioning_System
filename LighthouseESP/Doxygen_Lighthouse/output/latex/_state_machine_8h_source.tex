@@ -1,141 +1,145 @@
 \doxysection{State\+Machine.\+h}
 \hypertarget{_state_machine_8h_source}{}\label{_state_machine_8h_source}\index{include/StateMachine.h@{include/StateMachine.h}}
-
+\doxymbox{\hyperlink{_state_machine_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ STATEMACHINE\_H}}
-\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ STATEMACHINE\_H}}
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_lighthouse_config_8h}{LighthouseConfig.h}}"{}}}
-\DoxyCodeLine{00004\ }
-\DoxyCodeLine{00005\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_state_data}{StateData}}\ \{}
-\DoxyCodeLine{00006\ \ \ \textcolor{keywordtype}{bool}\ ignoring\_sent\_callbacks;}
-\DoxyCodeLine{00007\ \ \ uint8\_t\ target\_lighthouse;}
-\DoxyCodeLine{00008\ \ \ uint8\_t\ distance\_query\_target;}
-\DoxyCodeLine{00009\ \ \ uint8\_t\ stored\_next\_state;}
-\DoxyCodeLine{00010\ \ \ uint16\_t\ time\_measurements\_completed;}
-\DoxyCodeLine{00011\ \ \ uint16\_t\ message\_index;}
-\DoxyCodeLine{00012\ \ \ uint32\_t\ last\_registered\_time;}
-\DoxyCodeLine{00013\ \ \ \textcolor{keywordtype}{double}\ elapsed\_times\_sum;}
-\DoxyCodeLine{00014\ \ \ \textcolor{keywordtype}{double}\ stored\_targets\_avg\_response\_time;}
-\DoxyCodeLine{00015\ \};}
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \textcolor{keyword}{extern}\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_state_data}{StateData}}\ current\_state\_data;}
-\DoxyCodeLine{00018\ \textcolor{keyword}{extern}\ uint8\_t\ completed\_distance\_measurements[\doxymbox{\hyperlink{_lighthouse_config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\_OF\_LIGHTHOUSES}}];}
-\DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ \textcolor{keyword}{enum}\ States\ \{}
-\DoxyCodeLine{00021\ \ \ INITIAL\ =\ 0,}
-\DoxyCodeLine{00022\ \ \ UWB\_QUERY,\ \textcolor{comment}{//\ 1}}
-\DoxyCodeLine{00023\ \ \ UWB\_RESPONSE,\ \textcolor{comment}{//\ 2}}
-\DoxyCodeLine{00024\ \ \ POST\_UWB\_CHECK\_IF\_ALL\_LGHS\_SET,\ \textcolor{comment}{//\ 3}}
-\DoxyCodeLine{00025\ \ \ RELAY\_UWB\_QUERING,\ \textcolor{comment}{//\ 4}}
-\DoxyCodeLine{00026\ \ \ INFORM\_END\_CONFIG,\ \textcolor{comment}{//\ 5}}
-\DoxyCodeLine{00027\ \ \ DISTANCE\_MEASURE\_RESPONSE,\ \textcolor{comment}{//\ 6}}
-\DoxyCodeLine{00028\ \ \ DISTANCE\_MEASURE\_QUERY,\ \textcolor{comment}{//\ 7}}
-\DoxyCodeLine{00029\ \ \ SEND\_CALCULATED\_POSITION,\ \textcolor{comment}{//\ 8}}
-\DoxyCodeLine{00030\ \ \ OBSERVER\_RESPONSE,\ \textcolor{comment}{//\ 9}}
-\DoxyCodeLine{00031\ \};}
-\DoxyCodeLine{00032\ }
-\DoxyCodeLine{00033\ \textcolor{keyword}{enum}\ State\_Machine\_Errors\ \{}
-\DoxyCodeLine{00034\ \ \ INEXISTING\_STATE,}
-\DoxyCodeLine{00035\ \ \ WRONG\_TRANSITION,}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#ifndef\ STATEMACHINE\_H}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ STATEMACHINE\_H}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_lighthouse_config_8h}{LighthouseConfig.h}}"{}}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_state_data}{StateData}}\ \{}
+\DoxyCodeLine{00027\ \ \ \textcolor{keywordtype}{bool}\ ignoring\_sent\_callbacks;}
+\DoxyCodeLine{00028\ \ \ uint8\_t\ target\_lighthouse;}
+\DoxyCodeLine{00029\ \ \ uint8\_t\ distance\_query\_target;}
+\DoxyCodeLine{00030\ \ \ uint8\_t\ stored\_next\_state;}
+\DoxyCodeLine{00031\ \ \ uint16\_t\ time\_measurements\_completed;}
+\DoxyCodeLine{00032\ \ \ uint16\_t\ message\_index;}
+\DoxyCodeLine{00033\ \ \ uint32\_t\ last\_registered\_time;}
+\DoxyCodeLine{00034\ \ \ \textcolor{keywordtype}{double}\ elapsed\_times\_sum;}
+\DoxyCodeLine{00035\ \ \ \textcolor{keywordtype}{double}\ stored\_targets\_avg\_response\_time;}
 \DoxyCodeLine{00036\ \};}
 \DoxyCodeLine{00037\ }
-\DoxyCodeLine{00038\ \textcolor{keyword}{const}\ uint16\_t\ UWB\_COUNT\ =\ 20;}
-\DoxyCodeLine{00039\ \textcolor{keyword}{const}\ uint8\_t\ MESSAGE\_MAX\_COUNT\ =\ 5;}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \textcolor{keyword}{extern}\ States\ current\_state;}
+\DoxyCodeLine{00041\ \textcolor{keyword}{extern}\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_state_data}{StateData}}\ \doxymbox{\hyperlink{_state_machine_8h_a356244e04ead2d115c6a89268cface9b}{current\_state\_data}};}
 \DoxyCodeLine{00042\ }
-\DoxyCodeLine{00043\ \textcolor{keywordtype}{void}\ Reset\_And\_Initialize\_Machine();}
-\DoxyCodeLine{00044\ \textcolor{keywordtype}{void}\ State\_Machine\_Error(State\_Machine\_Errors\ error);}
-\DoxyCodeLine{00045\ }
-\DoxyCodeLine{00046\ \textcolor{keywordtype}{void}\ Change\_State(States\ new\_state);}
-\DoxyCodeLine{00047\ \textcolor{keywordtype}{void}\ State\_Enter();}
-\DoxyCodeLine{00048\ \textcolor{keywordtype}{void}\ State\_ReceiveCallback(\textcolor{keyword}{const}\ uint8\_t*\ data,\ \textcolor{keywordtype}{int}\ dataLen,\ uint32\_t\ receive\_time);}
-\DoxyCodeLine{00049\ \textcolor{keywordtype}{void}\ State\_SentCallback(uint32\_t\ send\_time);}
-\DoxyCodeLine{00050\ \textcolor{keywordtype}{void}\ State\_TimerCallback(Timer\_Callbacks\ timer\_callback);}
-\DoxyCodeLine{00051\ \textcolor{keywordtype}{void}\ State\_Button\_Callback(uint8\_t\ button);}
-\DoxyCodeLine{00052\ \textcolor{keywordtype}{void}\ State\_UWB\_New\_Range(uint16\_t\ device,\ \textcolor{keywordtype}{float}\ range,\ \textcolor{keywordtype}{float}\ rx\_power);}
-\DoxyCodeLine{00053\ \textcolor{keywordtype}{void}\ State\_Exit();}
-\DoxyCodeLine{00054\ }
-\DoxyCodeLine{00055\ \textcolor{keywordtype}{void}\ Initial\_Enter();}
-\DoxyCodeLine{00056\ \textcolor{keywordtype}{void}\ Initial\_ReceiveCallback(\textcolor{keyword}{const}\ uint8\_t*\ data,\ \textcolor{keywordtype}{int}\ dataLen,\ uint32\_t\ receive\_time);}
-\DoxyCodeLine{00057\ \textcolor{keywordtype}{void}\ Initial\_SentCallback(uint32\_t\ send\_time);}
-\DoxyCodeLine{00058\ \textcolor{keywordtype}{void}\ Initial\_TimerCallback(Timer\_Callbacks\ timer\_callback);}
-\DoxyCodeLine{00059\ \textcolor{keywordtype}{void}\ Initial\_ButtonCallback(uint8\_t\ button);}
-\DoxyCodeLine{00060\ \textcolor{keywordtype}{void}\ Initial\_UWB\_New\_Range(uint16\_t\ device,\ \textcolor{keywordtype}{float}\ range,\ \textcolor{keywordtype}{float}\ rx\_power);}
-\DoxyCodeLine{00061\ \textcolor{keywordtype}{void}\ Initial\_Exit();}
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00063\ \textcolor{keywordtype}{void}\ UWB\_Query\_Enter();}
-\DoxyCodeLine{00064\ \textcolor{keywordtype}{void}\ UWB\_Query\_ReceiveCallback(\textcolor{keyword}{const}\ uint8\_t*\ data,\ \textcolor{keywordtype}{int}\ dataLen,\ uint32\_t\ receive\_time);}
-\DoxyCodeLine{00065\ \textcolor{keywordtype}{void}\ UWB\_Query\_SentCallback(uint32\_t\ send\_time);}
-\DoxyCodeLine{00066\ \textcolor{keywordtype}{void}\ UWB\_Query\_TimerCallback(Timer\_Callbacks\ timer\_callback);}
-\DoxyCodeLine{00067\ \textcolor{keywordtype}{void}\ UWB\_Query\_ButtonCallback(uint8\_t\ button);}
-\DoxyCodeLine{00068\ \textcolor{keywordtype}{void}\ UWB\_Query\_UWB\_New\_Range(uint16\_t\ device,\ \textcolor{keywordtype}{float}\ range,\ \textcolor{keywordtype}{float}\ rx\_power);}
-\DoxyCodeLine{00069\ \textcolor{keywordtype}{void}\ UWB\_Query\_Exit();}
-\DoxyCodeLine{00070\ }
-\DoxyCodeLine{00071\ \textcolor{keywordtype}{void}\ UWB\_Response\_Enter();}
-\DoxyCodeLine{00072\ \textcolor{keywordtype}{void}\ UWB\_Response\_ReceiveCallback(\textcolor{keyword}{const}\ uint8\_t*\ data,\ \textcolor{keywordtype}{int}\ dataLen,\ uint32\_t\ receive\_time);}
-\DoxyCodeLine{00073\ \textcolor{keywordtype}{void}\ UWB\_Response\_SentCallback(uint32\_t\ send\_time);}
-\DoxyCodeLine{00074\ \textcolor{keywordtype}{void}\ UWB\_Response\_TimerCallback(Timer\_Callbacks\ timer\_callback);}
-\DoxyCodeLine{00075\ \textcolor{keywordtype}{void}\ UWB\_Response\_ButtonCallback(uint8\_t\ button);}
-\DoxyCodeLine{00076\ \textcolor{keywordtype}{void}\ UWB\_Response\_UWB\_New\_Range(uint16\_t\ device,\ \textcolor{keywordtype}{float}\ range,\ \textcolor{keywordtype}{float}\ rx\_power);}
-\DoxyCodeLine{00077\ \textcolor{keywordtype}{void}\ UWB\_Response\_Exit();}
+\DoxyCodeLine{00046\ \textcolor{keyword}{extern}\ uint8\_t\ \doxymbox{\hyperlink{_state_machine_8h_ac9355a39b7ba565ded1a7253f460a836}{completed\_distance\_measurements}}[\doxymbox{\hyperlink{_lighthouse_config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\_OF\_LIGHTHOUSES}}];}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{enum}\ \doxymbox{\hyperlink{_state_machine_8h_a808e5cd4979462d3bbe3070d7d147444}{States}}\ \{}
+\DoxyCodeLine{00053\ \ \ INITIAL\ =\ 0,}
+\DoxyCodeLine{00054\ \ \ UWB\_QUERY,\ \textcolor{comment}{//\ 1}}
+\DoxyCodeLine{00055\ \ \ UWB\_RESPONSE,\ \textcolor{comment}{//\ 2}}
+\DoxyCodeLine{00056\ \ \ POST\_UWB\_CHECK\_IF\_ALL\_LGHS\_SET,\ \textcolor{comment}{//\ 3}}
+\DoxyCodeLine{00057\ \ \ RELAY\_UWB\_QUERING,\ \textcolor{comment}{//\ 4}}
+\DoxyCodeLine{00058\ \ \ INFORM\_END\_CONFIG,\ \textcolor{comment}{//\ 5}}
+\DoxyCodeLine{00059\ \ \ DISTANCE\_MEASURE\_RESPONSE,\ \textcolor{comment}{//\ 6}}
+\DoxyCodeLine{00060\ \ \ DISTANCE\_MEASURE\_QUERY,\ \textcolor{comment}{//\ 7}}
+\DoxyCodeLine{00061\ \ \ SEND\_CALCULATED\_POSITION,\ \textcolor{comment}{//\ 8}}
+\DoxyCodeLine{00062\ \ \ OBSERVER\_RESPONSE,\ \textcolor{comment}{//\ 9}}
+\DoxyCodeLine{00063\ \};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00069\ \textcolor{keyword}{enum}\ \doxymbox{\hyperlink{_state_machine_8h_a0046ae703fbe4cbac532df113f7e1fc7}{State\_Machine\_Errors}}\ \{}
+\DoxyCodeLine{00070\ \ \ INEXISTING\_STATE,}
+\DoxyCodeLine{00071\ \ \ WRONG\_TRANSITION,}
+\DoxyCodeLine{00072\ \};}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00077\ \textcolor{keyword}{const}\ uint8\_t\ \doxymbox{\hyperlink{_state_machine_8h_a27717b2fd04a36c2234c2dc2de737abc}{MESSAGE\_MAX\_COUNT}}\ =\ 5;}
 \DoxyCodeLine{00078\ }
-\DoxyCodeLine{00079\ \textcolor{keywordtype}{void}\ Post\_UWB\_Check\_If\_All\_LGHS\_Set\_Enter();}
-\DoxyCodeLine{00080\ \textcolor{keywordtype}{void}\ Post\_UWB\_Check\_If\_All\_LGHS\_Set\_ReceiveCallback(\textcolor{keyword}{const}\ uint8\_t*\ data,\ \textcolor{keywordtype}{int}\ dataLen,\ uint32\_t\ receive\_time);}
-\DoxyCodeLine{00081\ \textcolor{keywordtype}{void}\ Post\_UWB\_Check\_If\_All\_LGHS\_Set\_SentCallback(uint32\_t\ send\_time);}
-\DoxyCodeLine{00082\ \textcolor{keywordtype}{void}\ Post\_UWB\_Check\_If\_All\_LGHS\_Set\_TimerCallback(Timer\_Callbacks\ timer\_callback);}
-\DoxyCodeLine{00083\ \textcolor{keywordtype}{void}\ Post\_UWB\_Check\_If\_All\_LGHS\_Set\_ButtonCallback(uint8\_t\ button);}
-\DoxyCodeLine{00084\ \textcolor{keywordtype}{void}\ Post\_UWB\_Check\_If\_All\_LGHS\_Set\_UWB\_New\_Range(uint16\_t\ device,\ \textcolor{keywordtype}{float}\ range,\ \textcolor{keywordtype}{float}\ rx\_power);}
-\DoxyCodeLine{00085\ \textcolor{keywordtype}{void}\ Post\_UWB\_Check\_If\_All\_LGHS\_Set\_Exit();}
-\DoxyCodeLine{00086\ }
-\DoxyCodeLine{00087\ \textcolor{keywordtype}{void}\ Relay\_UWB\_Quering\_Enter();}
-\DoxyCodeLine{00088\ \textcolor{keywordtype}{void}\ Relay\_UWB\_Quering\_ReceiveCallback(\textcolor{keyword}{const}\ uint8\_t*\ data,\ \textcolor{keywordtype}{int}\ dataLen,\ uint32\_t\ receive\_time);}
-\DoxyCodeLine{00089\ \textcolor{keywordtype}{void}\ Relay\_UWB\_Quering\_SentCallback(uint32\_t\ send\_time);}
-\DoxyCodeLine{00090\ \textcolor{keywordtype}{void}\ Relay\_UWB\_Quering\_TimerCallback(Timer\_Callbacks\ timer\_callback);}
-\DoxyCodeLine{00091\ \textcolor{keywordtype}{void}\ Relay\_UWB\_Quering\_ButtonCallback(uint8\_t\ button);}
-\DoxyCodeLine{00092\ \textcolor{keywordtype}{void}\ Relay\_UWB\_Quering\_UWB\_New\_Range(uint16\_t\ device,\ \textcolor{keywordtype}{float}\ range,\ \textcolor{keywordtype}{float}\ rx\_power);}
-\DoxyCodeLine{00093\ \textcolor{keywordtype}{void}\ Relay\_UWB\_Quering\_Exit();}
-\DoxyCodeLine{00094\ }
-\DoxyCodeLine{00095\ \textcolor{keywordtype}{void}\ Inform\_End\_Config\_Enter();}
-\DoxyCodeLine{00096\ \textcolor{keywordtype}{void}\ Inform\_End\_Config\_ReceiveCallback(\textcolor{keyword}{const}\ uint8\_t*\ data,\ \textcolor{keywordtype}{int}\ dataLen,\ uint32\_t\ receive\_time);}
-\DoxyCodeLine{00097\ \textcolor{keywordtype}{void}\ Inform\_End\_Config\_SentCallback(uint32\_t\ send\_time);}
-\DoxyCodeLine{00098\ \textcolor{keywordtype}{void}\ Inform\_End\_Config\_TimerCallback(Timer\_Callbacks\ timer\_callback);}
-\DoxyCodeLine{00099\ \textcolor{keywordtype}{void}\ Inform\_End\_Config\_ButtonCallback(uint8\_t\ button);}
-\DoxyCodeLine{00100\ \textcolor{keywordtype}{void}\ Inform\_End\_Config\_UWB\_New\_Range(uint16\_t\ device,\ \textcolor{keywordtype}{float}\ range,\ \textcolor{keywordtype}{float}\ rx\_power);}
-\DoxyCodeLine{00101\ \textcolor{keywordtype}{void}\ Inform\_End\_Config\_Exit();}
-\DoxyCodeLine{00102\ }
-\DoxyCodeLine{00103\ \textcolor{keywordtype}{void}\ Distance\_Measure\_Response\_Enter();}
-\DoxyCodeLine{00104\ \textcolor{keywordtype}{void}\ Distance\_Measure\_Response\_ReceiveCallback(\textcolor{keyword}{const}\ uint8\_t*\ data,\ \textcolor{keywordtype}{int}\ dataLen,\ uint32\_t\ receive\_time);}
-\DoxyCodeLine{00105\ \textcolor{keywordtype}{void}\ Distance\_Measure\_Response\_SentCallback(uint32\_t\ send\_time);}
-\DoxyCodeLine{00106\ \textcolor{keywordtype}{void}\ Distance\_Measure\_Response\_TimerCallback(Timer\_Callbacks\ timer\_callback);}
-\DoxyCodeLine{00107\ \textcolor{keywordtype}{void}\ Distance\_Measure\_Response\_ButtonCallback(uint8\_t\ button);}
-\DoxyCodeLine{00108\ \textcolor{keywordtype}{void}\ Distance\_Measure\_Response\_UWB\_New\_Range(uint16\_t\ device,\ \textcolor{keywordtype}{float}\ range,\ \textcolor{keywordtype}{float}\ rx\_power);}
-\DoxyCodeLine{00109\ \textcolor{keywordtype}{void}\ Distance\_Measure\_Response\_Exit();}
-\DoxyCodeLine{00110\ }
-\DoxyCodeLine{00111\ \textcolor{keywordtype}{void}\ Distance\_Measure\_Query\_Enter();}
-\DoxyCodeLine{00112\ \textcolor{keywordtype}{void}\ Distance\_Measure\_Query\_ReceiveCallback(\textcolor{keyword}{const}\ uint8\_t*\ data,\ \textcolor{keywordtype}{int}\ dataLen,\ uint32\_t\ receive\_time);}
-\DoxyCodeLine{00113\ \textcolor{keywordtype}{void}\ Distance\_Measure\_Query\_SentCallback(uint32\_t\ send\_time);}
-\DoxyCodeLine{00114\ \textcolor{keywordtype}{void}\ Distance\_Measure\_Query\_TimerCallback(Timer\_Callbacks\ timer\_callback);}
-\DoxyCodeLine{00115\ \textcolor{keywordtype}{void}\ Distance\_Measure\_Query\_ButtonCallback(uint8\_t\ button);}
-\DoxyCodeLine{00116\ \textcolor{keywordtype}{void}\ Distance\_Measure\_Query\_UWB\_New\_Range(uint16\_t\ device,\ \textcolor{keywordtype}{float}\ range,\ \textcolor{keywordtype}{float}\ rx\_power);}
-\DoxyCodeLine{00117\ \textcolor{keywordtype}{void}\ Distance\_Measure\_Query\_Exit();}
-\DoxyCodeLine{00118\ }
-\DoxyCodeLine{00119\ \textcolor{keywordtype}{void}\ Send\_Calculated\_Position\_Enter();}
-\DoxyCodeLine{00120\ \textcolor{keywordtype}{void}\ Send\_Calculated\_Position\_ReceiveCallback(\textcolor{keyword}{const}\ uint8\_t*\ data,\ \textcolor{keywordtype}{int}\ dataLen,\ uint32\_t\ receive\_time);}
-\DoxyCodeLine{00121\ \textcolor{keywordtype}{void}\ Send\_Calculated\_Position\_SentCallback(uint32\_t\ send\_time);}
-\DoxyCodeLine{00122\ \textcolor{keywordtype}{void}\ Send\_Calculated\_Position\_TimerCallback(Timer\_Callbacks\ timer\_callback);}
-\DoxyCodeLine{00123\ \textcolor{keywordtype}{void}\ Send\_Calculated\_Position\_ButtonCallback(uint8\_t\ button);}
-\DoxyCodeLine{00124\ \textcolor{keywordtype}{void}\ Send\_Calculated\_Position\_UWB\_New\_Range(uint16\_t\ device,\ \textcolor{keywordtype}{float}\ range,\ \textcolor{keywordtype}{float}\ rx\_power);}
-\DoxyCodeLine{00125\ \textcolor{keywordtype}{void}\ Send\_Calculated\_Position\_Exit();}
-\DoxyCodeLine{00126\ }
-\DoxyCodeLine{00127\ \textcolor{keywordtype}{void}\ Observer\_Response\_Enter();}
-\DoxyCodeLine{00128\ \textcolor{keywordtype}{void}\ Observer\_Response\_ReceiveCallback(\textcolor{keyword}{const}\ uint8\_t*\ data,\ \textcolor{keywordtype}{int}\ dataLen,\ uint32\_t\ receive\_time);}
-\DoxyCodeLine{00129\ \textcolor{keywordtype}{void}\ Observer\_Response\_SentCallback(uint32\_t\ send\_time);}
-\DoxyCodeLine{00130\ \textcolor{keywordtype}{void}\ Observer\_Response\_TimerCallback(Timer\_Callbacks\ timer\_callback);}
-\DoxyCodeLine{00131\ \textcolor{keywordtype}{void}\ Observer\_Response\_ButtonCallback(uint8\_t\ button);}
-\DoxyCodeLine{00132\ \textcolor{keywordtype}{void}\ Observer\_Response\_UWB\_New\_Range(uint16\_t\ device,\ \textcolor{keywordtype}{float}\ range,\ \textcolor{keywordtype}{float}\ rx\_power);}
-\DoxyCodeLine{00133\ \textcolor{keywordtype}{void}\ Observer\_Response\_Exit();}
-\DoxyCodeLine{00134\ }
-\DoxyCodeLine{00135\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00082\ \textcolor{keyword}{extern}\ \doxymbox{\hyperlink{_state_machine_8h_a808e5cd4979462d3bbe3070d7d147444}{States}}\ \doxymbox{\hyperlink{_state_machine_8h_ad22ce002ddbdd2937fb1e247570604f4}{current\_state}};}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{comment}{/*\ State\ machine\ core\ functions\ */}}
+\DoxyCodeLine{00085\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_state_machine_8h_a952256c805158cd01d13e26aeede53dd}{Reset\_And\_Initialize\_Machine}}();}
+\DoxyCodeLine{00086\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_state_machine_8h_a12942010c251953aea13d2119547d0f9}{State\_Machine\_Error}}(\doxymbox{\hyperlink{_state_machine_8h_a0046ae703fbe4cbac532df113f7e1fc7}{State\_Machine\_Errors}}\ error);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_state_machine_8h_a1a9296a39f8c1f0afa308b5e0f918460}{Change\_State}}(\doxymbox{\hyperlink{_state_machine_8h_a808e5cd4979462d3bbe3070d7d147444}{States}}\ new\_state);}
+\DoxyCodeLine{00089\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_state_machine_8h_a5689faefface91a7e9643535e3eab804}{State\_Enter}}();}
+\DoxyCodeLine{00090\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_state_machine_8h_a538d7b8f78c887504f57f0874d03c485}{State\_ReceiveCallback}}(\textcolor{keyword}{const}\ uint8\_t*\ data,\ \textcolor{keywordtype}{int}\ dataLen,\ uint32\_t\ receive\_time);}
+\DoxyCodeLine{00091\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_state_machine_8h_a3d27b79180084f7007aa76e25f4046d9}{State\_SentCallback}}(uint32\_t\ send\_time);}
+\DoxyCodeLine{00092\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_state_machine_8h_ae2927e73994faff2d9a6259093d82e73}{State\_TimerCallback}}(\doxymbox{\hyperlink{_timing_8h_aa4cfa56f0ecbc0a890da7fb57c15ee75}{Timer\_Callbacks}}\ timer\_callback);}
+\DoxyCodeLine{00093\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_state_machine_8h_a5319a6e44cd500dedd7e0ec042cead56}{State\_Button\_Callback}}(uint8\_t\ button);}
+\DoxyCodeLine{00094\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_state_machine_8h_a2ce878086a38c315b67b49ba8b754ad5}{State\_UWB\_New\_Range}}(uint16\_t\ device,\ \textcolor{keywordtype}{float}\ range,\ \textcolor{keywordtype}{float}\ rx\_power);}
+\DoxyCodeLine{00095\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_state_machine_8h_a4c475b004ad7225235b664c233f22a85}{State\_Exit}}();}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \textcolor{comment}{/*\ State-\/specific\ callbacks\ */}}
+\DoxyCodeLine{00098\ \textcolor{keywordtype}{void}\ Initial\_Enter();}
+\DoxyCodeLine{00099\ \textcolor{keywordtype}{void}\ Initial\_ReceiveCallback(\textcolor{keyword}{const}\ uint8\_t*\ data,\ \textcolor{keywordtype}{int}\ dataLen,\ uint32\_t\ receive\_time);}
+\DoxyCodeLine{00100\ \textcolor{keywordtype}{void}\ Initial\_SentCallback(uint32\_t\ send\_time);}
+\DoxyCodeLine{00101\ \textcolor{keywordtype}{void}\ Initial\_TimerCallback(\doxymbox{\hyperlink{_timing_8h_aa4cfa56f0ecbc0a890da7fb57c15ee75}{Timer\_Callbacks}}\ timer\_callback);}
+\DoxyCodeLine{00102\ \textcolor{keywordtype}{void}\ Initial\_ButtonCallback(uint8\_t\ button);}
+\DoxyCodeLine{00103\ \textcolor{keywordtype}{void}\ Initial\_UWB\_New\_Range(uint16\_t\ device,\ \textcolor{keywordtype}{float}\ range,\ \textcolor{keywordtype}{float}\ rx\_power);}
+\DoxyCodeLine{00104\ \textcolor{keywordtype}{void}\ Initial\_Exit();}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \textcolor{keywordtype}{void}\ UWB\_Query\_Enter();}
+\DoxyCodeLine{00107\ \textcolor{keywordtype}{void}\ UWB\_Query\_ReceiveCallback(\textcolor{keyword}{const}\ uint8\_t*\ data,\ \textcolor{keywordtype}{int}\ dataLen,\ uint32\_t\ receive\_time);}
+\DoxyCodeLine{00108\ \textcolor{keywordtype}{void}\ UWB\_Query\_SentCallback(uint32\_t\ send\_time);}
+\DoxyCodeLine{00109\ \textcolor{keywordtype}{void}\ UWB\_Query\_TimerCallback(\doxymbox{\hyperlink{_timing_8h_aa4cfa56f0ecbc0a890da7fb57c15ee75}{Timer\_Callbacks}}\ timer\_callback);}
+\DoxyCodeLine{00110\ \textcolor{keywordtype}{void}\ UWB\_Query\_ButtonCallback(uint8\_t\ button);}
+\DoxyCodeLine{00111\ \textcolor{keywordtype}{void}\ UWB\_Query\_UWB\_New\_Range(uint16\_t\ device,\ \textcolor{keywordtype}{float}\ range,\ \textcolor{keywordtype}{float}\ rx\_power);}
+\DoxyCodeLine{00112\ \textcolor{keywordtype}{void}\ UWB\_Query\_Exit();}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \textcolor{keywordtype}{void}\ UWB\_Response\_Enter();}
+\DoxyCodeLine{00115\ \textcolor{keywordtype}{void}\ UWB\_Response\_ReceiveCallback(\textcolor{keyword}{const}\ uint8\_t*\ data,\ \textcolor{keywordtype}{int}\ dataLen,\ uint32\_t\ receive\_time);}
+\DoxyCodeLine{00116\ \textcolor{keywordtype}{void}\ UWB\_Response\_SentCallback(uint32\_t\ send\_time);}
+\DoxyCodeLine{00117\ \textcolor{keywordtype}{void}\ UWB\_Response\_TimerCallback(\doxymbox{\hyperlink{_timing_8h_aa4cfa56f0ecbc0a890da7fb57c15ee75}{Timer\_Callbacks}}\ timer\_callback);}
+\DoxyCodeLine{00118\ \textcolor{keywordtype}{void}\ UWB\_Response\_ButtonCallback(uint8\_t\ button);}
+\DoxyCodeLine{00119\ \textcolor{keywordtype}{void}\ UWB\_Response\_UWB\_New\_Range(uint16\_t\ device,\ \textcolor{keywordtype}{float}\ range,\ \textcolor{keywordtype}{float}\ rx\_power);}
+\DoxyCodeLine{00120\ \textcolor{keywordtype}{void}\ UWB\_Response\_Exit();}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \textcolor{keywordtype}{void}\ Post\_UWB\_Check\_If\_All\_LGHS\_Set\_Enter();}
+\DoxyCodeLine{00123\ \textcolor{keywordtype}{void}\ Post\_UWB\_Check\_If\_All\_LGHS\_Set\_ReceiveCallback(\textcolor{keyword}{const}\ uint8\_t*\ data,\ \textcolor{keywordtype}{int}\ dataLen,\ uint32\_t\ receive\_time);}
+\DoxyCodeLine{00124\ \textcolor{keywordtype}{void}\ Post\_UWB\_Check\_If\_All\_LGHS\_Set\_SentCallback(uint32\_t\ send\_time);}
+\DoxyCodeLine{00125\ \textcolor{keywordtype}{void}\ Post\_UWB\_Check\_If\_All\_LGHS\_Set\_TimerCallback(\doxymbox{\hyperlink{_timing_8h_aa4cfa56f0ecbc0a890da7fb57c15ee75}{Timer\_Callbacks}}\ timer\_callback);}
+\DoxyCodeLine{00126\ \textcolor{keywordtype}{void}\ Post\_UWB\_Check\_If\_All\_LGHS\_Set\_ButtonCallback(uint8\_t\ button);}
+\DoxyCodeLine{00127\ \textcolor{keywordtype}{void}\ Post\_UWB\_Check\_If\_All\_LGHS\_Set\_UWB\_New\_Range(uint16\_t\ device,\ \textcolor{keywordtype}{float}\ range,\ \textcolor{keywordtype}{float}\ rx\_power);}
+\DoxyCodeLine{00128\ \textcolor{keywordtype}{void}\ Post\_UWB\_Check\_If\_All\_LGHS\_Set\_Exit();}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \textcolor{keywordtype}{void}\ Relay\_UWB\_Quering\_Enter();}
+\DoxyCodeLine{00131\ \textcolor{keywordtype}{void}\ Relay\_UWB\_Quering\_ReceiveCallback(\textcolor{keyword}{const}\ uint8\_t*\ data,\ \textcolor{keywordtype}{int}\ dataLen,\ uint32\_t\ receive\_time);}
+\DoxyCodeLine{00132\ \textcolor{keywordtype}{void}\ Relay\_UWB\_Quering\_SentCallback(uint32\_t\ send\_time);}
+\DoxyCodeLine{00133\ \textcolor{keywordtype}{void}\ Relay\_UWB\_Quering\_TimerCallback(\doxymbox{\hyperlink{_timing_8h_aa4cfa56f0ecbc0a890da7fb57c15ee75}{Timer\_Callbacks}}\ timer\_callback);}
+\DoxyCodeLine{00134\ \textcolor{keywordtype}{void}\ Relay\_UWB\_Quering\_ButtonCallback(uint8\_t\ button);}
+\DoxyCodeLine{00135\ \textcolor{keywordtype}{void}\ Relay\_UWB\_Quering\_UWB\_New\_Range(uint16\_t\ device,\ \textcolor{keywordtype}{float}\ range,\ \textcolor{keywordtype}{float}\ rx\_power);}
+\DoxyCodeLine{00136\ \textcolor{keywordtype}{void}\ Relay\_UWB\_Quering\_Exit();}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \textcolor{keywordtype}{void}\ Inform\_End\_Config\_Enter();}
+\DoxyCodeLine{00139\ \textcolor{keywordtype}{void}\ Inform\_End\_Config\_ReceiveCallback(\textcolor{keyword}{const}\ uint8\_t*\ data,\ \textcolor{keywordtype}{int}\ dataLen,\ uint32\_t\ receive\_time);}
+\DoxyCodeLine{00140\ \textcolor{keywordtype}{void}\ Inform\_End\_Config\_SentCallback(uint32\_t\ send\_time);}
+\DoxyCodeLine{00141\ \textcolor{keywordtype}{void}\ Inform\_End\_Config\_TimerCallback(\doxymbox{\hyperlink{_timing_8h_aa4cfa56f0ecbc0a890da7fb57c15ee75}{Timer\_Callbacks}}\ timer\_callback);}
+\DoxyCodeLine{00142\ \textcolor{keywordtype}{void}\ Inform\_End\_Config\_ButtonCallback(uint8\_t\ button);}
+\DoxyCodeLine{00143\ \textcolor{keywordtype}{void}\ Inform\_End\_Config\_UWB\_New\_Range(uint16\_t\ device,\ \textcolor{keywordtype}{float}\ range,\ \textcolor{keywordtype}{float}\ rx\_power);}
+\DoxyCodeLine{00144\ \textcolor{keywordtype}{void}\ Inform\_End\_Config\_Exit();}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \textcolor{keywordtype}{void}\ Distance\_Measure\_Response\_Enter();}
+\DoxyCodeLine{00147\ \textcolor{keywordtype}{void}\ Distance\_Measure\_Response\_ReceiveCallback(\textcolor{keyword}{const}\ uint8\_t*\ data,\ \textcolor{keywordtype}{int}\ dataLen,\ uint32\_t\ receive\_time);}
+\DoxyCodeLine{00148\ \textcolor{keywordtype}{void}\ Distance\_Measure\_Response\_SentCallback(uint32\_t\ send\_time);}
+\DoxyCodeLine{00149\ \textcolor{keywordtype}{void}\ Distance\_Measure\_Response\_TimerCallback(\doxymbox{\hyperlink{_timing_8h_aa4cfa56f0ecbc0a890da7fb57c15ee75}{Timer\_Callbacks}}\ timer\_callback);}
+\DoxyCodeLine{00150\ \textcolor{keywordtype}{void}\ Distance\_Measure\_Response\_ButtonCallback(uint8\_t\ button);}
+\DoxyCodeLine{00151\ \textcolor{keywordtype}{void}\ Distance\_Measure\_Response\_UWB\_New\_Range(uint16\_t\ device,\ \textcolor{keywordtype}{float}\ range,\ \textcolor{keywordtype}{float}\ rx\_power);}
+\DoxyCodeLine{00152\ \textcolor{keywordtype}{void}\ Distance\_Measure\_Response\_Exit();}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \textcolor{keywordtype}{void}\ Distance\_Measure\_Query\_Enter();}
+\DoxyCodeLine{00155\ \textcolor{keywordtype}{void}\ Distance\_Measure\_Query\_ReceiveCallback(\textcolor{keyword}{const}\ uint8\_t*\ data,\ \textcolor{keywordtype}{int}\ dataLen,\ uint32\_t\ receive\_time);}
+\DoxyCodeLine{00156\ \textcolor{keywordtype}{void}\ Distance\_Measure\_Query\_SentCallback(uint32\_t\ send\_time);}
+\DoxyCodeLine{00157\ \textcolor{keywordtype}{void}\ Distance\_Measure\_Query\_TimerCallback(\doxymbox{\hyperlink{_timing_8h_aa4cfa56f0ecbc0a890da7fb57c15ee75}{Timer\_Callbacks}}\ timer\_callback);}
+\DoxyCodeLine{00158\ \textcolor{keywordtype}{void}\ Distance\_Measure\_Query\_ButtonCallback(uint8\_t\ button);}
+\DoxyCodeLine{00159\ \textcolor{keywordtype}{void}\ Distance\_Measure\_Query\_UWB\_New\_Range(uint16\_t\ device,\ \textcolor{keywordtype}{float}\ range,\ \textcolor{keywordtype}{float}\ rx\_power);}
+\DoxyCodeLine{00160\ \textcolor{keywordtype}{void}\ Distance\_Measure\_Query\_Exit();}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \textcolor{keywordtype}{void}\ Send\_Calculated\_Position\_Enter();}
+\DoxyCodeLine{00163\ \textcolor{keywordtype}{void}\ Send\_Calculated\_Position\_ReceiveCallback(\textcolor{keyword}{const}\ uint8\_t*\ data,\ \textcolor{keywordtype}{int}\ dataLen,\ uint32\_t\ receive\_time);}
+\DoxyCodeLine{00164\ \textcolor{keywordtype}{void}\ Send\_Calculated\_Position\_SentCallback(uint32\_t\ send\_time);}
+\DoxyCodeLine{00165\ \textcolor{keywordtype}{void}\ Send\_Calculated\_Position\_TimerCallback(\doxymbox{\hyperlink{_timing_8h_aa4cfa56f0ecbc0a890da7fb57c15ee75}{Timer\_Callbacks}}\ timer\_callback);}
+\DoxyCodeLine{00166\ \textcolor{keywordtype}{void}\ Send\_Calculated\_Position\_ButtonCallback(uint8\_t\ button);}
+\DoxyCodeLine{00167\ \textcolor{keywordtype}{void}\ Send\_Calculated\_Position\_UWB\_New\_Range(uint16\_t\ device,\ \textcolor{keywordtype}{float}\ range,\ \textcolor{keywordtype}{float}\ rx\_power);}
+\DoxyCodeLine{00168\ \textcolor{keywordtype}{void}\ Send\_Calculated\_Position\_Exit();}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \textcolor{keywordtype}{void}\ Observer\_Response\_Enter();}
+\DoxyCodeLine{00171\ \textcolor{keywordtype}{void}\ Observer\_Response\_ReceiveCallback(\textcolor{keyword}{const}\ uint8\_t*\ data,\ \textcolor{keywordtype}{int}\ dataLen,\ uint32\_t\ receive\_time);}
+\DoxyCodeLine{00172\ \textcolor{keywordtype}{void}\ Observer\_Response\_SentCallback(uint32\_t\ send\_time);}
+\DoxyCodeLine{00173\ \textcolor{keywordtype}{void}\ Observer\_Response\_TimerCallback(\doxymbox{\hyperlink{_timing_8h_aa4cfa56f0ecbc0a890da7fb57c15ee75}{Timer\_Callbacks}}\ timer\_callback);}
+\DoxyCodeLine{00174\ \textcolor{keywordtype}{void}\ Observer\_Response\_ButtonCallback(uint8\_t\ button);}
+\DoxyCodeLine{00175\ \textcolor{keywordtype}{void}\ Observer\_Response\_UWB\_New\_Range(uint16\_t\ device,\ \textcolor{keywordtype}{float}\ range,\ \textcolor{keywordtype}{float}\ rx\_power);}
+\DoxyCodeLine{00176\ \textcolor{keywordtype}{void}\ Observer\_Response\_Exit();}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

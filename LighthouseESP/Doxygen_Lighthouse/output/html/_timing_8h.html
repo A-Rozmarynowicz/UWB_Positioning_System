@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lighthouse: include/Timing.h File Reference</title>
+<title>Lighthouse Documentation: include/Timing.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Lighthouse
+   <div id="projectname">Lighthouse Documentation
    </div>
   </td>
  </tr>
@@ -91,6 +91,9 @@ $(function(){initNavTree('_timing_8h.html','',''); });
   <div class="headertitle"><div class="title">Timing.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Timer management module for the Lighthouse system.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;esp32-hal-timer.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="_lighthouse_config_8h_source.html">LighthouseConfig.h</a>&quot;</code><br />
 </div>
@@ -98,28 +101,57 @@ $(function(){initNavTree('_timing_8h.html','',''); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:aa4cfa56f0ecbc0a890da7fb57c15ee75" id="r_aa4cfa56f0ecbc0a890da7fb57c15ee75"><td class="memItemLeft">enum &#160;</td><td class="memItemRight"><a class="el" href="#aa4cfa56f0ecbc0a890da7fb57c15ee75">Timer_Callbacks</a> { <a class="el" href="#aa4cfa56f0ecbc0a890da7fb57c15ee75af96b17614effb24948ee50620a4528e7">UWB_ACTIVATION</a>
-, <a class="el" href="#aa4cfa56f0ecbc0a890da7fb57c15ee75a41246e9c8691b7e33bc79b345e06b48e">ACK</a>
+<tr class="memitem:aa4cfa56f0ecbc0a890da7fb57c15ee75" id="r_aa4cfa56f0ecbc0a890da7fb57c15ee75"><td class="memItemLeft">enum &#160;</td><td class="memItemRight"><a class="el" href="#aa4cfa56f0ecbc0a890da7fb57c15ee75">Timer_Callbacks</a> { <b>UWB_ACTIVATION</b>
+, <b>ACK</b>
  }</td></tr>
+<tr class="memdesc:aa4cfa56f0ecbc0a890da7fb57c15ee75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer callback identifiers.  <a href="#aa4cfa56f0ecbc0a890da7fb57c15ee75">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a893b566b68340a229bbdc03a9f2c0649" id="r_a893b566b68340a229bbdc03a9f2c0649"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a893b566b68340a229bbdc03a9f2c0649">Initialize_Timers</a> ()</td></tr>
-<tr class="memitem:a565bbac38fb8b56978aee216c85d291b" id="r_a565bbac38fb8b56978aee216c85d291b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a565bbac38fb8b56978aee216c85d291b">Start_UWB_Activation_Timer</a> ()</td></tr>
-<tr class="memitem:a91b59fa17d7d833f0767d5ecaab87fd3" id="r_a91b59fa17d7d833f0767d5ecaab87fd3"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a91b59fa17d7d833f0767d5ecaab87fd3">Stop_UWB_Activation_Timer</a> ()</td></tr>
-<tr class="memitem:a6c20d9a7484b6e86e03683520d5f5723" id="r_a6c20d9a7484b6e86e03683520d5f5723"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6c20d9a7484b6e86e03683520d5f5723">Start_Ack_Timer</a> ()</td></tr>
-<tr class="memitem:aaf050820ac5b78194d516ef0d451499a" id="r_aaf050820ac5b78194d516ef0d451499a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aaf050820ac5b78194d516ef0d451499a">Stop_Ack_Timer</a> ()</td></tr>
+<tr class="memdesc:a893b566b68340a229bbdc03a9f2c0649"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes hardware timers for UWB activation and ACK timeout.  <br /></td></tr>
+<tr class="memitem:a565bbac38fb8b56978aee216c85d291b" id="r_a565bbac38fb8b56978aee216c85d291b"><td class="memItemLeft"><a id="a565bbac38fb8b56978aee216c85d291b" name="a565bbac38fb8b56978aee216c85d291b"></a>
+void&#160;</td><td class="memItemRight"><b>Start_UWB_Activation_Timer</b> ()</td></tr>
+<tr class="memdesc:a565bbac38fb8b56978aee216c85d291b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the UWB activation timer. <br /></td></tr>
+<tr class="memitem:a91b59fa17d7d833f0767d5ecaab87fd3" id="r_a91b59fa17d7d833f0767d5ecaab87fd3"><td class="memItemLeft"><a id="a91b59fa17d7d833f0767d5ecaab87fd3" name="a91b59fa17d7d833f0767d5ecaab87fd3"></a>
+void&#160;</td><td class="memItemRight"><b>Stop_UWB_Activation_Timer</b> ()</td></tr>
+<tr class="memdesc:a91b59fa17d7d833f0767d5ecaab87fd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the UWB activation timer. <br /></td></tr>
+<tr class="memitem:a6c20d9a7484b6e86e03683520d5f5723" id="r_a6c20d9a7484b6e86e03683520d5f5723"><td class="memItemLeft"><a id="a6c20d9a7484b6e86e03683520d5f5723" name="a6c20d9a7484b6e86e03683520d5f5723"></a>
+void&#160;</td><td class="memItemRight"><b>Start_Ack_Timer</b> ()</td></tr>
+<tr class="memdesc:a6c20d9a7484b6e86e03683520d5f5723"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the ACK timeout timer. <br /></td></tr>
+<tr class="memitem:aaf050820ac5b78194d516ef0d451499a" id="r_aaf050820ac5b78194d516ef0d451499a"><td class="memItemLeft"><a id="aaf050820ac5b78194d516ef0d451499a" name="aaf050820ac5b78194d516ef0d451499a"></a>
+void&#160;</td><td class="memItemRight"><b>Stop_Ack_Timer</b> ()</td></tr>
+<tr class="memdesc:aaf050820ac5b78194d516ef0d451499a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the ACK timeout timer. <br /></td></tr>
+<tr class="memitem:aa5f6de73f85cdce38fe349f4f599423a" id="r_aa5f6de73f85cdce38fe349f4f599423a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aa5f6de73f85cdce38fe349f4f599423a">Timing_Error</a> ()</td></tr>
+<tr class="memdesc:aa5f6de73f85cdce38fe349f4f599423a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles timing related errors.  <br /></td></tr>
 <tr class="memitem:a07b12639c88cc9df7977d2ab4224b969" id="r_a07b12639c88cc9df7977d2ab4224b969"><td class="memItemLeft">void IRAM_ATTR&#160;</td><td class="memItemRight"><a class="el" href="#a07b12639c88cc9df7977d2ab4224b969">_on_UWB_activation_timer_timeout</a> ()</td></tr>
+<tr class="memdesc:a07b12639c88cc9df7977d2ab4224b969"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interrupt handler for UWB activation timer.  <br /></td></tr>
 <tr class="memitem:af93d879c05958ab04769c455da43b421" id="r_af93d879c05958ab04769c455da43b421"><td class="memItemLeft">void IRAM_ATTR&#160;</td><td class="memItemRight"><a class="el" href="#af93d879c05958ab04769c455da43b421">_on_ack_timer_timeout</a> ()</td></tr>
+<tr class="memdesc:af93d879c05958ab04769c455da43b421"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interrupt handler for ACK timeout timer.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a24f9dfabbf80176ccb4c6991fd29a9f4" id="r_a24f9dfabbf80176ccb4c6991fd29a9f4"><td class="memItemLeft">const uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#a24f9dfabbf80176ccb4c6991fd29a9f4">UWB_ACTIVATION_TIMER_PERIOD_MS</a> = 150</td></tr>
-<tr class="memitem:a0d096e1899eb31b43213bbb8ccc71303" id="r_a0d096e1899eb31b43213bbb8ccc71303"><td class="memItemLeft">const uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#a0d096e1899eb31b43213bbb8ccc71303">ACK_TIMER_PERIOD_MS</a> = 25</td></tr>
-<tr class="memitem:a7fbf619159a97bef5fb263cba960c939" id="r_a7fbf619159a97bef5fb263cba960c939"><td class="memItemLeft">hw_timer_t *&#160;</td><td class="memItemRight"><a class="el" href="#a7fbf619159a97bef5fb263cba960c939">uwb_activation_timer</a></td></tr>
-<tr class="memitem:a9d740c55adddd05c8ae4b3fbf14de4c8" id="r_a9d740c55adddd05c8ae4b3fbf14de4c8"><td class="memItemLeft">hw_timer_t *&#160;</td><td class="memItemRight"><a class="el" href="#a9d740c55adddd05c8ae4b3fbf14de4c8">ack_timer</a></td></tr>
+<tr class="memitem:a24f9dfabbf80176ccb4c6991fd29a9f4" id="r_a24f9dfabbf80176ccb4c6991fd29a9f4"><td class="memItemLeft"><a id="a24f9dfabbf80176ccb4c6991fd29a9f4" name="a24f9dfabbf80176ccb4c6991fd29a9f4"></a>
+const uint16_t&#160;</td><td class="memItemRight"><b>UWB_ACTIVATION_TIMER_PERIOD_MS</b> = 150</td></tr>
+<tr class="memdesc:a24f9dfabbf80176ccb4c6991fd29a9f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">UWB activation timer period in milliseconds. <br /></td></tr>
+<tr class="memitem:a0d096e1899eb31b43213bbb8ccc71303" id="r_a0d096e1899eb31b43213bbb8ccc71303"><td class="memItemLeft"><a id="a0d096e1899eb31b43213bbb8ccc71303" name="a0d096e1899eb31b43213bbb8ccc71303"></a>
+const uint16_t&#160;</td><td class="memItemRight"><b>ACK_TIMER_PERIOD_MS</b> = 25</td></tr>
+<tr class="memdesc:a0d096e1899eb31b43213bbb8ccc71303"><td class="mdescLeft">&#160;</td><td class="mdescRight">ACK timeout timer period in milliseconds. <br /></td></tr>
+<tr class="memitem:a7fbf619159a97bef5fb263cba960c939" id="r_a7fbf619159a97bef5fb263cba960c939"><td class="memItemLeft"><a id="a7fbf619159a97bef5fb263cba960c939" name="a7fbf619159a97bef5fb263cba960c939"></a>
+hw_timer_t *&#160;</td><td class="memItemRight"><b>uwb_activation_timer</b></td></tr>
+<tr class="memdesc:a7fbf619159a97bef5fb263cba960c939"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hardware timer instance used for UWB activation. <br /></td></tr>
+<tr class="memitem:a9d740c55adddd05c8ae4b3fbf14de4c8" id="r_a9d740c55adddd05c8ae4b3fbf14de4c8"><td class="memItemLeft"><a id="a9d740c55adddd05c8ae4b3fbf14de4c8" name="a9d740c55adddd05c8ae4b3fbf14de4c8"></a>
+hw_timer_t *&#160;</td><td class="memItemRight"><b>ack_timer</b></td></tr>
+<tr class="memdesc:a9d740c55adddd05c8ae4b3fbf14de4c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hardware timer instance used for ACK timeout. <br /></td></tr>
 </table>
-<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Enumeration Type Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Timer management module for the Lighthouse system. </p>
+<p>This module provides initialization and control of hardware timers used for:</p><ul>
+<li>UWB activation delays</li>
+<li>ACK message timeouts</li>
+</ul>
+<p>The timers are implemented using ESP32 hardware timers and are used across different state machine transitions. </p>
+</div><a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Enumeration Type Documentation</h2>
 <a id="aa4cfa56f0ecbc0a890da7fb57c15ee75" name="aa4cfa56f0ecbc0a890da7fb57c15ee75"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa4cfa56f0ecbc0a890da7fb57c15ee75">&#9670;&#160;</a></span>Timer_Callbacks</h2>
 
@@ -131,10 +163,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aa4cfa56f0ecbc0a890da7fb57c15ee75af96b17614effb24948ee50620a4528e7" name="aa4cfa56f0ecbc0a890da7fb57c15ee75af96b17614effb24948ee50620a4528e7"></a>UWB_ACTIVATION&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aa4cfa56f0ecbc0a890da7fb57c15ee75a41246e9c8691b7e33bc79b345e06b48e" name="aa4cfa56f0ecbc0a890da7fb57c15ee75a41246e9c8691b7e33bc79b345e06b48e"></a>ACK&#160;</td><td class="fielddoc"></td></tr>
-</table>
+
+<p>Timer callback identifiers. </p>
+<p>Used to distinguish which timer has triggered in the ISR handlers. </p>
 
 </div>
 </div>
@@ -154,6 +185,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Interrupt handler for ACK timeout timer. </p>
+<p>Stops the timer and triggers the state machine callback for ACK timeout. </p>
+
 </div>
 </div>
 <a id="a07b12639c88cc9df7977d2ab4224b969" name="a07b12639c88cc9df7977d2ab4224b969"></a>
@@ -170,6 +204,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Interrupt handler for UWB activation timer. </p>
+<p>Stops the timer and triggers the state machine callback for UWB activation. </p>
 
 </div>
 </div>
@@ -188,16 +225,19 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Initializes hardware timers for UWB activation and ACK timeout. </p>
+<p>This function sets up two ESP32 hardware timers, attaches interrupt callbacks, configures the alarm periods, and enables the timers. </p>
+
 </div>
 </div>
-<a id="a6c20d9a7484b6e86e03683520d5f5723" name="a6c20d9a7484b6e86e03683520d5f5723"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6c20d9a7484b6e86e03683520d5f5723">&#9670;&#160;</a></span>Start_Ack_Timer()</h2>
+<a id="aa5f6de73f85cdce38fe349f4f599423a" name="aa5f6de73f85cdce38fe349f4f599423a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5f6de73f85cdce38fe349f4f599423a">&#9670;&#160;</a></span>Timing_Error()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Start_Ack_Timer </td>
+          <td class="memname">void Timing_Error </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -205,129 +245,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a565bbac38fb8b56978aee216c85d291b" name="a565bbac38fb8b56978aee216c85d291b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a565bbac38fb8b56978aee216c85d291b">&#9670;&#160;</a></span>Start_UWB_Activation_Timer()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Start_UWB_Activation_Timer </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aaf050820ac5b78194d516ef0d451499a" name="aaf050820ac5b78194d516ef0d451499a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf050820ac5b78194d516ef0d451499a">&#9670;&#160;</a></span>Stop_Ack_Timer()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Stop_Ack_Timer </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a91b59fa17d7d833f0767d5ecaab87fd3" name="a91b59fa17d7d833f0767d5ecaab87fd3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a91b59fa17d7d833f0767d5ecaab87fd3">&#9670;&#160;</a></span>Stop_UWB_Activation_Timer()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Stop_UWB_Activation_Timer </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
-<a id="a9d740c55adddd05c8ae4b3fbf14de4c8" name="a9d740c55adddd05c8ae4b3fbf14de4c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9d740c55adddd05c8ae4b3fbf14de4c8">&#9670;&#160;</a></span>ack_timer</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">hw_timer_t* ack_timer</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a0d096e1899eb31b43213bbb8ccc71303" name="a0d096e1899eb31b43213bbb8ccc71303"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d096e1899eb31b43213bbb8ccc71303">&#9670;&#160;</a></span>ACK_TIMER_PERIOD_MS</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const uint16_t ACK_TIMER_PERIOD_MS = 25</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7fbf619159a97bef5fb263cba960c939" name="a7fbf619159a97bef5fb263cba960c939"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7fbf619159a97bef5fb263cba960c939">&#9670;&#160;</a></span>uwb_activation_timer</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">hw_timer_t* uwb_activation_timer</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a24f9dfabbf80176ccb4c6991fd29a9f4" name="a24f9dfabbf80176ccb4c6991fd29a9f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a24f9dfabbf80176ccb4c6991fd29a9f4">&#9670;&#160;</a></span>UWB_ACTIVATION_TIMER_PERIOD_MS</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const uint16_t UWB_ACTIVATION_TIMER_PERIOD_MS = 150</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Handles timing related errors. </p>
+<p>This function prints an error message and turns on the error LED. </p>
 
 </div>
 </div>
@@ -344,7 +263,7 @@ Variables</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a href="_timing_8h.html">Timing.h</a></li>
+    <li class="navelem"><b>include</b></li><li class="navelem"><a href="_timing_8h.html">Timing.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
   </ul>
 </div>

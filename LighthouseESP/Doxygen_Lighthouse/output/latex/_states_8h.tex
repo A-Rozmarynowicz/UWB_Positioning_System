@@ -1,26 +1,36 @@
 \doxysection{include/\+\+States.h File Reference}
 \hypertarget{_states_8h}{}\label{_states_8h}\index{include/States.h@{include/States.h}}
+
+
+Helper functions for managing state indices and acknowledgements.  
+
+
 {\ttfamily \+\#include "{}Lighthouse\+Config.\+h"{}}\newline
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \doxymbox{\hyperlink{_states_8h_ad39ba55ff89c6ae490cbed9bdee679b6}{Reset\+\_\+\+Target\+\_\+\+Lighthouse\+\_\+\+Index}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}target\+\_\+lighthouse\+\_\+index)
-\item 
+\begin{DoxyCompactList}\small\item\em Resets the target lighthouse index to the current lighthouse ID and advances it to the next valid lighthouse. \end{DoxyCompactList}\item 
 bool \doxymbox{\hyperlink{_states_8h_afa626db13c9a525ccd92eae74bf31d49}{Increment\+\_\+\+Target\+\_\+\+Lighthouse\+\_\+\+Index}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}target\+\_\+lighthouse\+\_\+index)
-\item 
+\begin{DoxyCompactList}\small\item\em Increments the target lighthouse index and wraps it around when exceeding the number of lighthouses. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{_states_8h_ab6d409a3a35a591a61d30b8de123ec3d}{Reset\+\_\+\+Distance\+\_\+\+Query\+\_\+\+Target\+\_\+\+Index}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}distance\+\_\+query\+\_\+target\+\_\+index)
-\item 
+\begin{DoxyCompactList}\small\item\em Resets the distance query target index to 0. \end{DoxyCompactList}\item 
 bool \doxymbox{\hyperlink{_states_8h_a1330510c497c8b3ea407c91af4568c54}{Increment\+\_\+\+Distance\+\_\+\+Query\+\_\+\+Target\+\_\+\+Index}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}distance\+\_\+query\+\_\+target\+\_\+index)
-\item 
+\begin{DoxyCompactList}\small\item\em Increments the distance query target index. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{_states_8h_a162b940ace0454c32d7aecc135e76ff7}{Reset\+\_\+\+Ack\+\_\+\+Target\+\_\+\+Index}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}ack\+\_\+target\+\_\+lighthouse, uint8\+\_\+t \texorpdfstring{$\ast$}{*}ack\+\_\+message\+\_\+index)
-\item 
+\begin{DoxyCompactList}\small\item\em Resets the ACK target lighthouse index to the current lighthouse ID and advances it to the next valid lighthouse. \end{DoxyCompactList}\item 
 bool \doxymbox{\hyperlink{_states_8h_a0c6bd876eeff4a0d0c063550d4fcb933}{Increment\+\_\+\+Ack\+\_\+\+Target\+\_\+\+Index}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}ack\+\_\+target\+\_\+lighthouse, uint8\+\_\+t \texorpdfstring{$\ast$}{*}ack\+\_\+message\+\_\+index)
-\item 
+\begin{DoxyCompactList}\small\item\em Increments the ACK target lighthouse index and resets the ACK message index. \end{DoxyCompactList}\item 
 bool \doxymbox{\hyperlink{_states_8h_a01b6830ba2ce4a7cca9ba0f308c08b7b}{Validate\+\_\+\+Ack\+\_\+\+Index\+\_\+\+Increase}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}ack\+\_\+index)
-\item 
+\begin{DoxyCompactList}\small\item\em Validates and increments the ACK message index. \end{DoxyCompactList}\item 
 bool \doxymbox{\hyperlink{_states_8h_a3400a32772332b093f756fb0084cfa0e}{Check\+\_\+\+If\+\_\+\+All\+\_\+\+Distances\+\_\+\+Are\+\_\+\+Measured}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}received\+\_\+distances)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Checks if all lighthouses (except the current one) have received the minimum required distance measurements. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Helper functions for managing state indices and acknowledgements. 
+
+This module provides utility functions used by the state machine to track which lighthouse is currently targeted, manage distance query indices, and validate ACK responses. 
 
 \label{doc-func-members}
 \Hypertarget{_states_8h_doc-func-members}
@@ -31,45 +41,136 @@ bool \doxymbox{\hyperlink{_states_8h_a3400a32772332b093f756fb0084cfa0e}{Check\+\
 {\footnotesize\ttfamily \label{_states_8h_a3400a32772332b093f756fb0084cfa0e} 
 bool Check\+\_\+\+If\+\_\+\+All\+\_\+\+Distances\+\_\+\+Are\+\_\+\+Measured (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{received\+\_\+distances}{}\end{DoxyParamCaption})}
 
+
+
+Checks if all lighthouses (except the current one) have received the minimum required distance measurements. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em received\+\_\+distances} & Pointer to the array of received distance counts. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if all other lighthouses have at least MIN\+\_\+\+DISTANCE\+\_\+\+MEASUREMENTS, otherwise false. 
+\end{DoxyReturn}
 \Hypertarget{_states_8h_a0c6bd876eeff4a0d0c063550d4fcb933}\index{States.h@{States.h}!Increment\_Ack\_Target\_Index@{Increment\_Ack\_Target\_Index}}
 \index{Increment\_Ack\_Target\_Index@{Increment\_Ack\_Target\_Index}!States.h@{States.h}}
 \doxysubsubsection{\texorpdfstring{Increment\_Ack\_Target\_Index()}{Increment\_Ack\_Target\_Index()}}
 {\footnotesize\ttfamily \label{_states_8h_a0c6bd876eeff4a0d0c063550d4fcb933} 
 bool Increment\+\_\+\+Ack\+\_\+\+Target\+\_\+\+Index (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{ack\+\_\+target\+\_\+lighthouse}{, }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{ack\+\_\+message\+\_\+index}{}\end{DoxyParamCaption})}
 
+
+
+Increments the ACK target lighthouse index and resets the ACK message index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ack\+\_\+target\+\_\+lighthouse} & Pointer to the target lighthouse index to increment. \\
+\hline
+{\em ack\+\_\+message\+\_\+index} & Pointer to the ACK message index to reset. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the current ACK target lighthouse equals the current lighthouse ID, otherwise false. 
+\end{DoxyReturn}
 \Hypertarget{_states_8h_a1330510c497c8b3ea407c91af4568c54}\index{States.h@{States.h}!Increment\_Distance\_Query\_Target\_Index@{Increment\_Distance\_Query\_Target\_Index}}
 \index{Increment\_Distance\_Query\_Target\_Index@{Increment\_Distance\_Query\_Target\_Index}!States.h@{States.h}}
 \doxysubsubsection{\texorpdfstring{Increment\_Distance\_Query\_Target\_Index()}{Increment\_Distance\_Query\_Target\_Index()}}
 {\footnotesize\ttfamily \label{_states_8h_a1330510c497c8b3ea407c91af4568c54} 
 bool Increment\+\_\+\+Distance\+\_\+\+Query\+\_\+\+Target\+\_\+\+Index (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{distance\+\_\+query\+\_\+target\+\_\+index}{}\end{DoxyParamCaption})}
 
+
+
+Increments the distance query target index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em distance\+\_\+query\+\_\+target\+\_\+index} & Pointer to the distance query index to increment. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the index reached the maximum number of lighthouses, otherwise false. 
+\end{DoxyReturn}
 \Hypertarget{_states_8h_afa626db13c9a525ccd92eae74bf31d49}\index{States.h@{States.h}!Increment\_Target\_Lighthouse\_Index@{Increment\_Target\_Lighthouse\_Index}}
 \index{Increment\_Target\_Lighthouse\_Index@{Increment\_Target\_Lighthouse\_Index}!States.h@{States.h}}
 \doxysubsubsection{\texorpdfstring{Increment\_Target\_Lighthouse\_Index()}{Increment\_Target\_Lighthouse\_Index()}}
 {\footnotesize\ttfamily \label{_states_8h_afa626db13c9a525ccd92eae74bf31d49} 
 bool Increment\+\_\+\+Target\+\_\+\+Lighthouse\+\_\+\+Index (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{target\+\_\+lighthouse\+\_\+index}{}\end{DoxyParamCaption})}
 
+
+
+Increments the target lighthouse index and wraps it around when exceeding the number of lighthouses. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target\+\_\+lighthouse\+\_\+index} & Pointer to the lighthouse index to increment. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the resulting index equals the current lighthouse ID, otherwise false. 
+\end{DoxyReturn}
 \Hypertarget{_states_8h_a162b940ace0454c32d7aecc135e76ff7}\index{States.h@{States.h}!Reset\_Ack\_Target\_Index@{Reset\_Ack\_Target\_Index}}
 \index{Reset\_Ack\_Target\_Index@{Reset\_Ack\_Target\_Index}!States.h@{States.h}}
 \doxysubsubsection{\texorpdfstring{Reset\_Ack\_Target\_Index()}{Reset\_Ack\_Target\_Index()}}
 {\footnotesize\ttfamily \label{_states_8h_a162b940ace0454c32d7aecc135e76ff7} 
 void Reset\+\_\+\+Ack\+\_\+\+Target\+\_\+\+Index (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{ack\+\_\+target\+\_\+lighthouse}{, }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{ack\+\_\+message\+\_\+index}{}\end{DoxyParamCaption})}
 
+
+
+Resets the ACK target lighthouse index to the current lighthouse ID and advances it to the next valid lighthouse. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ack\+\_\+target\+\_\+lighthouse} & Pointer to the target lighthouse index to reset. \\
+\hline
+{\em ack\+\_\+message\+\_\+index} & Pointer to the ACK message index to reset. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{_states_8h_ab6d409a3a35a591a61d30b8de123ec3d}\index{States.h@{States.h}!Reset\_Distance\_Query\_Target\_Index@{Reset\_Distance\_Query\_Target\_Index}}
 \index{Reset\_Distance\_Query\_Target\_Index@{Reset\_Distance\_Query\_Target\_Index}!States.h@{States.h}}
 \doxysubsubsection{\texorpdfstring{Reset\_Distance\_Query\_Target\_Index()}{Reset\_Distance\_Query\_Target\_Index()}}
 {\footnotesize\ttfamily \label{_states_8h_ab6d409a3a35a591a61d30b8de123ec3d} 
 void Reset\+\_\+\+Distance\+\_\+\+Query\+\_\+\+Target\+\_\+\+Index (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{distance\+\_\+query\+\_\+target\+\_\+index}{}\end{DoxyParamCaption})}
 
+
+
+Resets the distance query target index to 0. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em distance\+\_\+query\+\_\+target\+\_\+index} & Pointer to the distance query index to reset. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{_states_8h_ad39ba55ff89c6ae490cbed9bdee679b6}\index{States.h@{States.h}!Reset\_Target\_Lighthouse\_Index@{Reset\_Target\_Lighthouse\_Index}}
 \index{Reset\_Target\_Lighthouse\_Index@{Reset\_Target\_Lighthouse\_Index}!States.h@{States.h}}
 \doxysubsubsection{\texorpdfstring{Reset\_Target\_Lighthouse\_Index()}{Reset\_Target\_Lighthouse\_Index()}}
 {\footnotesize\ttfamily \label{_states_8h_ad39ba55ff89c6ae490cbed9bdee679b6} 
 void Reset\+\_\+\+Target\+\_\+\+Lighthouse\+\_\+\+Index (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{target\+\_\+lighthouse\+\_\+index}{}\end{DoxyParamCaption})}
 
+
+
+Resets the target lighthouse index to the current lighthouse ID and advances it to the next valid lighthouse. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target\+\_\+lighthouse\+\_\+index} & Pointer to the lighthouse index to reset. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{_states_8h_a01b6830ba2ce4a7cca9ba0f308c08b7b}\index{States.h@{States.h}!Validate\_Ack\_Index\_Increase@{Validate\_Ack\_Index\_Increase}}
 \index{Validate\_Ack\_Index\_Increase@{Validate\_Ack\_Index\_Increase}!States.h@{States.h}}
 \doxysubsubsection{\texorpdfstring{Validate\_Ack\_Index\_Increase()}{Validate\_Ack\_Index\_Increase()}}
 {\footnotesize\ttfamily \label{_states_8h_a01b6830ba2ce4a7cca9ba0f308c08b7b} 
 bool Validate\+\_\+\+Ack\+\_\+\+Index\+\_\+\+Increase (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{ack\+\_\+index}{}\end{DoxyParamCaption})}
 
+
+
+Validates and increments the ACK message index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ack\+\_\+index} & Pointer to the ACK index to increment. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the new index is still valid (less than ACK\+\_\+\+MESSAGE\+\_\+\+COUNT), otherwise false. 
+\end{DoxyReturn}

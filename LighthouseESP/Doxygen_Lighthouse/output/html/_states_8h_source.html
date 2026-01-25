@@ -91,32 +91,43 @@ $(function(){initNavTree('_states_8h_source.html','',''); });
   <div class="headertitle"><div class="title">States.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef STATES_H</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define STATES_H</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="_lighthouse_config_8h.html">LighthouseConfig.h</a>&quot;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keywordtype">void</span> Reset_Target_Lighthouse_Index(uint8_t* target_lighthouse_index);</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keywordtype">bool</span> Increment_Target_Lighthouse_Index(uint8_t* target_lighthouse_index);</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keywordtype">void</span> Reset_Distance_Query_Target_Index(uint8_t* distance_query_target_index);</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keywordtype">bool</span> Increment_Distance_Query_Target_Index(uint8_t* distance_query_target_index);</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keywordtype">void</span> Reset_Ack_Target_Index(uint8_t* ack_target_lighthouse, uint8_t* ack_message_index);</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keywordtype">bool</span> Increment_Ack_Target_Index(uint8_t* ack_target_lighthouse, uint8_t* ack_message_index);</div>
+<a href="_states_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#ifndef STATES_H</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#define STATES_H</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="_lighthouse_config_8h.html">LighthouseConfig.h</a>&quot;</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keywordtype">bool</span> Validate_Ack_Index_Increase(uint8_t* ack_index);</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keywordtype">bool</span> Check_If_All_Distances_Are_Measured(uint8_t* received_distances);</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keywordtype">void</span> <a class="code hl_function" href="_states_8h.html#ad39ba55ff89c6ae490cbed9bdee679b6">Reset_Target_Lighthouse_Index</a>(uint8_t* target_lighthouse_index);</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keywordtype">bool</span> <a class="code hl_function" href="_states_8h.html#afa626db13c9a525ccd92eae74bf31d49">Increment_Target_Lighthouse_Index</a>(uint8_t* target_lighthouse_index);</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keywordtype">void</span> <a class="code hl_function" href="_states_8h.html#ab6d409a3a35a591a61d30b8de123ec3d">Reset_Distance_Query_Target_Index</a>(uint8_t* distance_query_target_index);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keywordtype">bool</span> <a class="code hl_function" href="_states_8h.html#a1330510c497c8b3ea407c91af4568c54">Increment_Distance_Query_Target_Index</a>(uint8_t* distance_query_target_index);</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keywordtype">void</span> <a class="code hl_function" href="_states_8h.html#a162b940ace0454c32d7aecc135e76ff7">Reset_Ack_Target_Index</a>(uint8_t* ack_target_lighthouse, uint8_t* ack_message_index);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keywordtype">bool</span> <a class="code hl_function" href="_states_8h.html#a0c6bd876eeff4a0d0c063550d4fcb933">Increment_Ack_Target_Index</a>(uint8_t* ack_target_lighthouse, uint8_t* ack_message_index);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keywordtype">bool</span> <a class="code hl_function" href="_states_8h.html#a01b6830ba2ce4a7cca9ba0f308c08b7b">Validate_Ack_Index_Increase</a>(uint8_t* ack_index);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keywordtype">bool</span> <a class="code hl_function" href="_states_8h.html#a3400a32772332b093f756fb0084cfa0e">Check_If_All_Distances_Are_Measured</a>(uint8_t* received_distances);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="a_lighthouse_config_8h_html"><div class="ttname"><a href="_lighthouse_config_8h.html">LighthouseConfig.h</a></div><div class="ttdoc">Global configuration header for the Lighthouse system.</div></div>
+<div class="ttc" id="a_states_8h_html_a01b6830ba2ce4a7cca9ba0f308c08b7b"><div class="ttname"><a href="_states_8h.html#a01b6830ba2ce4a7cca9ba0f308c08b7b">Validate_Ack_Index_Increase</a></div><div class="ttdeci">bool Validate_Ack_Index_Increase(uint8_t *ack_index)</div><div class="ttdoc">Validates and increments the ACK message index.</div><div class="ttdef"><b>Definition</b> States.cpp:105</div></div>
+<div class="ttc" id="a_states_8h_html_a0c6bd876eeff4a0d0c063550d4fcb933"><div class="ttname"><a href="_states_8h.html#a0c6bd876eeff4a0d0c063550d4fcb933">Increment_Ack_Target_Index</a></div><div class="ttdeci">bool Increment_Ack_Target_Index(uint8_t *ack_target_lighthouse, uint8_t *ack_message_index)</div><div class="ttdoc">Increments the ACK target lighthouse index and resets the ACK message index.</div><div class="ttdef"><b>Definition</b> States.cpp:82</div></div>
+<div class="ttc" id="a_states_8h_html_a1330510c497c8b3ea407c91af4568c54"><div class="ttname"><a href="_states_8h.html#a1330510c497c8b3ea407c91af4568c54">Increment_Distance_Query_Target_Index</a></div><div class="ttdeci">bool Increment_Distance_Query_Target_Index(uint8_t *distance_query_target_index)</div><div class="ttdoc">Increments the distance query target index.</div><div class="ttdef"><b>Definition</b> States.cpp:52</div></div>
+<div class="ttc" id="a_states_8h_html_a162b940ace0454c32d7aecc135e76ff7"><div class="ttname"><a href="_states_8h.html#a162b940ace0454c32d7aecc135e76ff7">Reset_Ack_Target_Index</a></div><div class="ttdeci">void Reset_Ack_Target_Index(uint8_t *ack_target_lighthouse, uint8_t *ack_message_index)</div><div class="ttdoc">Resets the ACK target lighthouse index to the current lighthouse ID and advances it to the next valid...</div><div class="ttdef"><b>Definition</b> States.cpp:69</div></div>
+<div class="ttc" id="a_states_8h_html_a3400a32772332b093f756fb0084cfa0e"><div class="ttname"><a href="_states_8h.html#a3400a32772332b093f756fb0084cfa0e">Check_If_All_Distances_Are_Measured</a></div><div class="ttdeci">bool Check_If_All_Distances_Are_Measured(uint8_t *received_distances)</div><div class="ttdoc">Checks if all lighthouses (except the current one) have received the minimum required distance measur...</div><div class="ttdef"><b>Definition</b> States.cpp:123</div></div>
+<div class="ttc" id="a_states_8h_html_ab6d409a3a35a591a61d30b8de123ec3d"><div class="ttname"><a href="_states_8h.html#ab6d409a3a35a591a61d30b8de123ec3d">Reset_Distance_Query_Target_Index</a></div><div class="ttdeci">void Reset_Distance_Query_Target_Index(uint8_t *distance_query_target_index)</div><div class="ttdoc">Resets the distance query target index to 0.</div><div class="ttdef"><b>Definition</b> States.cpp:41</div></div>
+<div class="ttc" id="a_states_8h_html_ad39ba55ff89c6ae490cbed9bdee679b6"><div class="ttname"><a href="_states_8h.html#ad39ba55ff89c6ae490cbed9bdee679b6">Reset_Target_Lighthouse_Index</a></div><div class="ttdeci">void Reset_Target_Lighthouse_Index(uint8_t *target_lighthouse_index)</div><div class="ttdoc">Resets the target lighthouse index to the current lighthouse ID and advances it to the next valid lig...</div><div class="ttdef"><b>Definition</b> States.cpp:9</div></div>
+<div class="ttc" id="a_states_8h_html_afa626db13c9a525ccd92eae74bf31d49"><div class="ttname"><a href="_states_8h.html#afa626db13c9a525ccd92eae74bf31d49">Increment_Target_Lighthouse_Index</a></div><div class="ttdeci">bool Increment_Target_Lighthouse_Index(uint8_t *target_lighthouse_index)</div><div class="ttdoc">Increments the target lighthouse index and wraps it around when exceeding the number of lighthouses.</div><div class="ttdef"><b>Definition</b> States.cpp:22</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>include</b></li><li class="navelem"><b>States.h</b></li>
+    <li class="navelem"><b>include</b></li><li class="navelem"><a href="_states_8h.html">States.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
   </ul>
 </div>

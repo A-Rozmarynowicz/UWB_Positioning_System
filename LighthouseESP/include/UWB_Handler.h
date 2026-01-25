@@ -1,3 +1,12 @@
+/**
+ * @file UWB_Handler.h
+ * @brief UWB (Ultra Wide Band) initialization and handling utilities.
+ *
+ * This module provides configuration and helper functions for DW1000-based UWB
+ * communication. It includes initialization, enabling/disabling, address
+ * conversion and callback handlers for UWB events.
+ */
+
 #ifndef UWB_HANDLER_H
 #define UWB_HANDLER_H
 
@@ -7,7 +16,10 @@
 
 #define UWB_ADDRESS_LENGTH 8
 
-// connection pins
+/** @defgroup ConnectionPins Connection Pins
+ *  @brief SPI connection pins.
+ *  @{
+ */
 const int8_t PIN_RST = 22;  // reset pin
 const int8_t PIN_IRQ = 33;   // irq pin
 const int8_t PIN_SS = 5;    // spi select pin
@@ -15,9 +27,16 @@ const int8_t PIN_SS = 5;    // spi select pin
 const int8_t PIN_MOSI = 23;
 const int8_t PIN_MISO = 19;
 const int8_t PIN_SCK = 18;
+/** @} */
 
+/**
+ * @brief UWB addresses for each lighthouse.
+ */
 extern const uint8_t uwb_addresses_from_LGH[NUMBER_OF_LIGHTHOUSES][UWB_ADDRESS_LENGTH];
 
+/**
+ * @brief UWB enable flag.
+ */
 extern uint8_t uwb_enable;
 
 void Initialize_UWB();

@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['distance_5fantena_5fdelay_5foffset_0',['DISTANCE_ANTENA_DELAY_OFFSET',['../_measure_8h.html#abbbd56a108e0a59abd9d54f96a635253',1,'Measure.h']]],
-  ['distances_5fto_5flighthouses_1',['distances_to_lighthouses',['../_measure_8h.html#a7af4755e90c986eafaf94e9b7b313dc7',1,'Measure.cpp']]]
+  ['completed_5fdistance_5fmeasurements_0',['completed_distance_measurements',['../_state_machine_8h.html#ac9355a39b7ba565ded1a7253f460a836',1,'StateMachineCommon.cpp']]],
+  ['current_5fstate_1',['current_state',['../_state_machine_8h.html#ad22ce002ddbdd2937fb1e247570604f4',1,'StateMachineCommon.cpp']]],
+  ['current_5fstate_5fdata_2',['current_state_data',['../_state_machine_8h.html#a356244e04ead2d115c6a89268cface9b',1,'StateMachineCommon.cpp']]]
 ];
