@@ -20,7 +20,4 @@ function accuracy = Random_Accuracy_Simulation(N, D, distance_accuracy, max_dist
     P = Solver(P_vec, R_vec);
     
     accuracy = norm(P - P_star);
-    if (accuracy > 1)
-        P_vec
-    end
 end
