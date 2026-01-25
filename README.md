@@ -17,3 +17,6 @@ Arkadiusz Rozmarynowicz
 
 ## Do formularza
 W każdym podprojekcie w README znajduje się pomoc w wypełnianiu formularza do oceny.
+
+## Uwaga
+W paru przypadkach użyto opóźnień blokujących (delay), jednak każde użycie jest konieczne i mogę je usprawiedliwić.
