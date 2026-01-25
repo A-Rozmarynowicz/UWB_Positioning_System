@@ -92,11 +92,11 @@ $(function(){initNavTree('main_8c.html','',''); });
 </div><!--header-->
 <div class="contents">
 
-<p>: Main program body  
+<p>Main application entry point and peripheral initialization.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="main_8h_source.html">main.h</a>&quot;</code><br />
-<code>#include &quot;lcd_handler.h&quot;</code><br />
-<code>#include &quot;observer_comm.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="lcd__handler_8h_source.html">lcd_handler.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="observer__comm_8h_source.html">observer_comm.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -129,10 +129,16 @@ UART_HandleTypeDef&#160;</td><td class="memItemRight"><b>huart4</b></td></tr>
 DMA_HandleTypeDef&#160;</td><td class="memItemRight"><b>hdma_uart4_rx</b></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>: Main program body </p>
-<dl class="section attention"><dt>Attention</dt><dd></dd></dl>
-<p>Copyright (c) 2025 STMicroelectronics. All rights reserved.</p>
-<p>This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-IS. </p>
+<div class="textblock"><p>Main application entry point and peripheral initialization. </p>
+<dl class="section author"><dt>Author</dt><dd>Arkadiusz Rozmarynowicz </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>01.2026</dd></dl>
+<p>This file contains the primary entry point for the firmware, configures system clocks and peripherals, and starts the application modules.</p>
+<p>It provides:</p><ul>
+<li>System and peripheral initialization (GPIO, DMA, I2C, UART, TIM)</li>
+<li>Main application loop</li>
+<li>HAL callback handlers for UART, I2C, and TIM events</li>
+<li>Error handling routines </li>
+</ul>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a1730ffe1e560465665eb47d9264826f9" name="a1730ffe1e560465665eb47d9264826f9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1730ffe1e560465665eb47d9264826f9">&#9670;&#160;</a></span>Error_Handler()</h2>

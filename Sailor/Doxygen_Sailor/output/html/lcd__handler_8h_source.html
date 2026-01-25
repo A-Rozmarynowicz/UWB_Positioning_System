@@ -91,83 +91,117 @@ $(function(){initNavTree('lcd__handler_8h_source.html','',''); });
   <div class="headertitle"><div class="title">lcd_handler.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * lcd_handler.h</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> *  Created on: Jan 7, 2026</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> *      Author: arekr</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef INC_LCD_HANDLER_H_</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define INC_LCD_HANDLER_H_</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;string.h&gt;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;stm32l4xx_hal.h&quot;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#define SLAVE_ADDRESS_LCD 0x4E</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#define QUEUE_SIZE 512</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#define COMMAND_SIZE 4</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">extern</span> <span class="keyword">const</span> uint8_t X_LCD_COORDS[2];</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">extern</span> <span class="keyword">const</span> uint8_t Y_LCD_COORDS[2];</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">extern</span> <span class="keyword">const</span> uint8_t Z_LCD_COORDS[2];</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">extern</span> <span class="keyword">const</span> uint8_t R_LCD_COORDS[2];</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">extern</span> <span class="keyword">const</span> uint8_t LCD_MESSAGE_WIDTH;</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">typedef</span> <span class="keyword">enum</span> LCD_Status {</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    LCD_OK = 0,</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    LCD_QUEUE_FULL = 1,</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    LCD_QUEUE_EMPTY = 2,</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    LCD_INIT_FAIL = 3,</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    LCD_HAL_ERROR = 4,</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>} LCD_Status;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">extern</span> I2C_HandleTypeDef* h_lcd_i2c;</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">extern</span> uint8_t tx_queue[QUEUE_SIZE];</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">extern</span> uint16_t head_pointer; <span class="comment">// Where we append to</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">extern</span> uint16_t tail_pointer; <span class="comment">// Where we send from</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">extern</span> uint8_t transmission_going;</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">// Public</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>LCD_Status Initialize_LCD_Handler(I2C_HandleTypeDef* i2c_handle);</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>LCD_Status Put_Cursor(uint8_t row, uint8_t column);</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>LCD_Status Print_String(<span class="keywordtype">char</span>* txt, uint8_t size);</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>LCD_Status Print_String_At_Pos(<span class="keywordtype">char</span>* txt, uint8_t size, uint8_t row, uint8_t column);</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>LCD_Status Print_Whole_Position(<span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y, <span class="keywordtype">float</span> z, <span class="keywordtype">float</span> R);</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">// Private</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>LCD_Status _lcd_init(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>LCD_Status _add_command_to_queue(<span class="keywordtype">char</span> cmd);</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>LCD_Status _add_data_to_queue(<span class="keywordtype">char</span> data);</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>LCD_Status _cd_send_cmd (<span class="keywordtype">char</span> cmd);</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>HAL_StatusTypeDef _begin_transmission();</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="keywordtype">void</span> _stop_transmission();</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>uint8_t _is_transmission_going();</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="keywordtype">void</span> _increase_tail_pointer(uint16_t inc);</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>uint8_t _has_queue_space(uint16_t data_size);</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>LCD_Status _copy_buffer_to_queue(uint8_t* buffer);</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>HAL_StatusTypeDef _send_one_byte();</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>HAL_StatusTypeDef _lcd_i2c_transmit_it_callback(I2C_HandleTypeDef *hi2c);</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>HAL_StatusTypeDef _lcd_i2c_receive_it_callback(I2C_HandleTypeDef *hi2c);</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="preprocessor">#endif </span><span class="comment">/* INC_LCD_HANDLER_H_ */</span><span class="preprocessor"></span></div>
+<a href="lcd__handler_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#ifndef INC_LCD_HANDLER_H_</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#define INC_LCD_HANDLER_H_</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;stm32l4xx_hal.h&quot;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="lcd__handler_8h.html#a16b338f4ba8614530cf7e484066f29c5">   25</a></span><span class="preprocessor">#define SLAVE_ADDRESS_LCD 0x4E</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="lcd__handler_8h.html#a142810068f1b99cd93d3fc9f0e160e02">   28</a></span><span class="preprocessor">#define QUEUE_SIZE 512</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="lcd__handler_8h.html#a87738054f9a89f0ac29c6ee1fb7da08d">   31</a></span><span class="preprocessor">#define COMMAND_SIZE 4</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">extern</span> <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="lcd__handler_8h.html#a20ed7a2710e8232d0769dc66b3d3a799">X_LCD_COORDS</a>[2];</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">extern</span> <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="lcd__handler_8h.html#a00c03866800a34338dad274edf60525f">Y_LCD_COORDS</a>[2];</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">extern</span> <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="lcd__handler_8h.html#a748f2860472debd077ba00d88918522d">Z_LCD_COORDS</a>[2];</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword">extern</span> <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="lcd__handler_8h.html#a705d125ccf1d5df9beff2c0fdfb3dfc7">R_LCD_COORDS</a>[2];</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keyword">extern</span> <span class="keyword">const</span> uint8_t <a class="code hl_variable" href="lcd__handler_8h.html#a34261702a1eae1fcccf29e782aa1360d">LCD_MESSAGE_WIDTH</a>;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span></div>
+<div class="foldopen" id="foldopen00054" data-start="{" data-end="};">
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="lcd__handler_8h.html#a089548ab4cb7759df05b6522b5c93dfa">   54</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span> <a class="code hl_enumeration" href="lcd__handler_8h.html#a089548ab4cb7759df05b6522b5c93dfa">LCD_Status</a> {</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    LCD_OK = 0,</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    LCD_QUEUE_FULL = 1,</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    LCD_QUEUE_EMPTY = 2,</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    LCD_INIT_FAIL = 3,</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    LCD_HAL_ERROR = 4,</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="lcd__handler_8h.html#a163814a53c7c1183c3885241f206eb67">   60</a></span>} <a class="code hl_enumeration" href="lcd__handler_8h.html#a089548ab4cb7759df05b6522b5c93dfa">LCD_Status</a>;</div>
+</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keyword">extern</span> I2C_HandleTypeDef* <a class="code hl_variable" href="lcd__handler_8h.html#a331ae57b71fbf33068ff554187806ef3">h_lcd_i2c</a>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keyword">extern</span> uint8_t <a class="code hl_variable" href="lcd__handler_8h.html#a3dbec766f37e5a23633eec12d3175d95">tx_queue</a>[<a class="code hl_define" href="lcd__handler_8h.html#a142810068f1b99cd93d3fc9f0e160e02">QUEUE_SIZE</a>];</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keyword">extern</span> uint16_t <a class="code hl_variable" href="lcd__handler_8h.html#a6a9dadea27abfa41273ca1c789c98a83">head_pointer</a>; <span class="comment">// Where we append to</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="keyword">extern</span> uint16_t <a class="code hl_variable" href="lcd__handler_8h.html#af87cded4aa97ab8016c0fb8b38777d5a">tail_pointer</a>; <span class="comment">// Where we send from</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="keyword">extern</span> uint8_t <a class="code hl_variable" href="lcd__handler_8h.html#a745f4da03c3ad80a60ba339a14f1ba1d">transmission_going</a>;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment">// Public</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><a class="code hl_enumeration" href="lcd__handler_8h.html#a089548ab4cb7759df05b6522b5c93dfa">LCD_Status</a> <a class="code hl_function" href="lcd__handler_8h.html#ada9db54b547384073c5915102736e4cb">Initialize_LCD_Handler</a>(I2C_HandleTypeDef* i2c_handle);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><a class="code hl_enumeration" href="lcd__handler_8h.html#a089548ab4cb7759df05b6522b5c93dfa">LCD_Status</a> <a class="code hl_function" href="lcd__handler_8h.html#a787cd812bab5a771e20376137b0ae021">Put_Cursor</a>(uint8_t row, uint8_t column);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><a class="code hl_enumeration" href="lcd__handler_8h.html#a089548ab4cb7759df05b6522b5c93dfa">LCD_Status</a> <a class="code hl_function" href="lcd__handler_8h.html#adf19ea4df63e8e2c611e6fe5380cca47">Print_String</a>(<span class="keywordtype">char</span>* txt, uint8_t size);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><a class="code hl_enumeration" href="lcd__handler_8h.html#a089548ab4cb7759df05b6522b5c93dfa">LCD_Status</a> <a class="code hl_function" href="lcd__handler_8h.html#ae968f47ce6843e77c59c4f414e79c816">Print_String_At_Pos</a>(<span class="keywordtype">char</span>* txt, uint8_t size, uint8_t row, uint8_t column);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><a class="code hl_enumeration" href="lcd__handler_8h.html#a089548ab4cb7759df05b6522b5c93dfa">LCD_Status</a> <a class="code hl_function" href="lcd__handler_8h.html#a045c490c3cb0c1c9093c0c93647f597d">Print_Whole_Position</a>(<span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y, <span class="keywordtype">float</span> z, <span class="keywordtype">float</span> R);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment">// Private</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><a class="code hl_enumeration" href="lcd__handler_8h.html#a089548ab4cb7759df05b6522b5c93dfa">LCD_Status</a> <a class="code hl_function" href="lcd__handler_8h.html#a9141877d76588ce2e89e4c6092fdae33">_lcd_init</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><a class="code hl_enumeration" href="lcd__handler_8h.html#a089548ab4cb7759df05b6522b5c93dfa">LCD_Status</a> <a class="code hl_function" href="lcd__handler_8h.html#acb033a81b4a5b905e91ae92ee725079a">_add_command_to_queue</a>(<span class="keywordtype">char</span> cmd);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><a class="code hl_enumeration" href="lcd__handler_8h.html#a089548ab4cb7759df05b6522b5c93dfa">LCD_Status</a> <a class="code hl_function" href="lcd__handler_8h.html#a5cec67324294419dac212492cb6a4c41">_add_data_to_queue</a>(<span class="keywordtype">char</span> data);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><a class="code hl_enumeration" href="lcd__handler_8h.html#a089548ab4cb7759df05b6522b5c93dfa">LCD_Status</a> _cd_send_cmd (<span class="keywordtype">char</span> cmd);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>HAL_StatusTypeDef <a class="code hl_function" href="lcd__handler_8h.html#a589ba8d7a1e8df5b6d67c525c75e71d4">_begin_transmission</a>();</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="keywordtype">void</span> <a class="code hl_function" href="lcd__handler_8h.html#a16f6e4aff6aa845706e1e453e9cf9e8b">_stop_transmission</a>();</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>uint8_t <a class="code hl_function" href="lcd__handler_8h.html#a6814e7db02b6713e8508484175621009">_is_transmission_going</a>();</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="keywordtype">void</span> <a class="code hl_function" href="lcd__handler_8h.html#ad602b42cb9a1e5b5334da814a9fff4b9">_increase_tail_pointer</a>(uint16_t inc);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>uint8_t <a class="code hl_function" href="lcd__handler_8h.html#a19b599f8f82c0d25e00482410a0362c0">_has_queue_space</a>(uint16_t data_size);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><a class="code hl_enumeration" href="lcd__handler_8h.html#a089548ab4cb7759df05b6522b5c93dfa">LCD_Status</a> <a class="code hl_function" href="lcd__handler_8h.html#a81804f1857dd9d577749548cfa6faf33">_copy_buffer_to_queue</a>(uint8_t* buffer);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>HAL_StatusTypeDef <a class="code hl_function" href="lcd__handler_8h.html#ad5baa2cfaf38dbc189091e14628a0b6e">_send_one_byte</a>();</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>HAL_StatusTypeDef <a class="code hl_function" href="lcd__handler_8h.html#ab217d9003aede7870abeee91f179f642">_lcd_i2c_transmit_it_callback</a>(I2C_HandleTypeDef *hi2c);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>HAL_StatusTypeDef <a class="code hl_function" href="lcd__handler_8h.html#a20582b23a1615ab951f63acba9a76438">_lcd_i2c_receive_it_callback</a>(I2C_HandleTypeDef *hi2c);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="preprocessor">#endif </span><span class="comment">/* INC_LCD_HANDLER_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="alcd__handler_8h_html_a00c03866800a34338dad274edf60525f"><div class="ttname"><a href="lcd__handler_8h.html#a00c03866800a34338dad274edf60525f">Y_LCD_COORDS</a></div><div class="ttdeci">const uint8_t Y_LCD_COORDS[2]</div><div class="ttdoc">Y coordinate positions on the LCD.</div><div class="ttdef"><b>Definition</b> lcd_handler.c:10</div></div>
+<div class="ttc" id="alcd__handler_8h_html_a045c490c3cb0c1c9093c0c93647f597d"><div class="ttname"><a href="lcd__handler_8h.html#a045c490c3cb0c1c9093c0c93647f597d">Print_Whole_Position</a></div><div class="ttdeci">LCD_Status Print_Whole_Position(float x, float y, float z, float R)</div><div class="ttdoc">Prints x, y, z coordinates and radius R on the LCD.</div><div class="ttdef"><b>Definition</b> lcd_handler.c:87</div></div>
+<div class="ttc" id="alcd__handler_8h_html_a089548ab4cb7759df05b6522b5c93dfa"><div class="ttname"><a href="lcd__handler_8h.html#a089548ab4cb7759df05b6522b5c93dfa">LCD_Status</a></div><div class="ttdeci">LCD_Status</div><div class="ttdoc">LCD operation status codes.</div><div class="ttdef"><b>Definition</b> lcd_handler.h:54</div></div>
+<div class="ttc" id="alcd__handler_8h_html_a142810068f1b99cd93d3fc9f0e160e02"><div class="ttname"><a href="lcd__handler_8h.html#a142810068f1b99cd93d3fc9f0e160e02">QUEUE_SIZE</a></div><div class="ttdeci">#define QUEUE_SIZE</div><div class="ttdoc">Maximum number of bytes that can be queued for transmission.</div><div class="ttdef"><b>Definition</b> lcd_handler.h:28</div></div>
+<div class="ttc" id="alcd__handler_8h_html_a16f6e4aff6aa845706e1e453e9cf9e8b"><div class="ttname"><a href="lcd__handler_8h.html#a16f6e4aff6aa845706e1e453e9cf9e8b">_stop_transmission</a></div><div class="ttdeci">void _stop_transmission()</div><div class="ttdoc">Stops the ongoing transmission.</div><div class="ttdef"><b>Definition</b> lcd_handler.c:150</div></div>
+<div class="ttc" id="alcd__handler_8h_html_a19b599f8f82c0d25e00482410a0362c0"><div class="ttname"><a href="lcd__handler_8h.html#a19b599f8f82c0d25e00482410a0362c0">_has_queue_space</a></div><div class="ttdeci">uint8_t _has_queue_space(uint16_t data_size)</div><div class="ttdoc">Checks if there is enough space in the queue for a given number of bytes.</div><div class="ttdef"><b>Definition</b> lcd_handler.c:207</div></div>
+<div class="ttc" id="alcd__handler_8h_html_a20582b23a1615ab951f63acba9a76438"><div class="ttname"><a href="lcd__handler_8h.html#a20582b23a1615ab951f63acba9a76438">_lcd_i2c_receive_it_callback</a></div><div class="ttdeci">HAL_StatusTypeDef _lcd_i2c_receive_it_callback(I2C_HandleTypeDef *hi2c)</div><div class="ttdoc">Dummy I2C receive callback (not used).</div><div class="ttdef"><b>Definition</b> lcd_handler.c:331</div></div>
+<div class="ttc" id="alcd__handler_8h_html_a20ed7a2710e8232d0769dc66b3d3a799"><div class="ttname"><a href="lcd__handler_8h.html#a20ed7a2710e8232d0769dc66b3d3a799">X_LCD_COORDS</a></div><div class="ttdeci">const uint8_t X_LCD_COORDS[2]</div><div class="ttdoc">X coordinate positions on the LCD.</div><div class="ttdef"><b>Definition</b> lcd_handler.c:9</div></div>
+<div class="ttc" id="alcd__handler_8h_html_a331ae57b71fbf33068ff554187806ef3"><div class="ttname"><a href="lcd__handler_8h.html#a331ae57b71fbf33068ff554187806ef3">h_lcd_i2c</a></div><div class="ttdeci">I2C_HandleTypeDef * h_lcd_i2c</div><div class="ttdoc">I2C handle used for communication with the LCD.</div><div class="ttdef"><b>Definition</b> lcd_handler.c:3</div></div>
+<div class="ttc" id="alcd__handler_8h_html_a34261702a1eae1fcccf29e782aa1360d"><div class="ttname"><a href="lcd__handler_8h.html#a34261702a1eae1fcccf29e782aa1360d">LCD_MESSAGE_WIDTH</a></div><div class="ttdeci">const uint8_t LCD_MESSAGE_WIDTH</div><div class="ttdoc">LCD message width in characters.</div><div class="ttdef"><b>Definition</b> lcd_handler.c:13</div></div>
+<div class="ttc" id="alcd__handler_8h_html_a3dbec766f37e5a23633eec12d3175d95"><div class="ttname"><a href="lcd__handler_8h.html#a3dbec766f37e5a23633eec12d3175d95">tx_queue</a></div><div class="ttdeci">uint8_t tx_queue[QUEUE_SIZE]</div><div class="ttdoc">Queue buffer for outgoing LCD commands/data.</div><div class="ttdef"><b>Definition</b> lcd_handler.c:4</div></div>
+<div class="ttc" id="alcd__handler_8h_html_a589ba8d7a1e8df5b6d67c525c75e71d4"><div class="ttname"><a href="lcd__handler_8h.html#a589ba8d7a1e8df5b6d67c525c75e71d4">_begin_transmission</a></div><div class="ttdeci">HAL_StatusTypeDef _begin_transmission()</div><div class="ttdoc">Starts transmission of the next queued byte over I2C if none is ongoing.</div><div class="ttdef"><b>Definition</b> lcd_handler.c:123</div></div>
+<div class="ttc" id="alcd__handler_8h_html_a5cec67324294419dac212492cb6a4c41"><div class="ttname"><a href="lcd__handler_8h.html#a5cec67324294419dac212492cb6a4c41">_add_data_to_queue</a></div><div class="ttdeci">LCD_Status _add_data_to_queue(char data)</div><div class="ttdoc">Converts a data byte into 4 I2C nibbles and enqueues it.</div><div class="ttdef"><b>Definition</b> lcd_handler.c:248</div></div>
+<div class="ttc" id="alcd__handler_8h_html_a6814e7db02b6713e8508484175621009"><div class="ttname"><a href="lcd__handler_8h.html#a6814e7db02b6713e8508484175621009">_is_transmission_going</a></div><div class="ttdeci">uint8_t _is_transmission_going()</div><div class="ttdoc">Returns whether a transmission is currently in progress.</div><div class="ttdef"><b>Definition</b> lcd_handler.c:143</div></div>
+<div class="ttc" id="alcd__handler_8h_html_a6a9dadea27abfa41273ca1c789c98a83"><div class="ttname"><a href="lcd__handler_8h.html#a6a9dadea27abfa41273ca1c789c98a83">head_pointer</a></div><div class="ttdeci">uint16_t head_pointer</div><div class="ttdoc">Index where new data is appended in the queue.</div><div class="ttdef"><b>Definition</b> lcd_handler.c:5</div></div>
+<div class="ttc" id="alcd__handler_8h_html_a705d125ccf1d5df9beff2c0fdfb3dfc7"><div class="ttname"><a href="lcd__handler_8h.html#a705d125ccf1d5df9beff2c0fdfb3dfc7">R_LCD_COORDS</a></div><div class="ttdeci">const uint8_t R_LCD_COORDS[2]</div><div class="ttdoc">R coordinate positions on the LCD.</div><div class="ttdef"><b>Definition</b> lcd_handler.c:12</div></div>
+<div class="ttc" id="alcd__handler_8h_html_a745f4da03c3ad80a60ba339a14f1ba1d"><div class="ttname"><a href="lcd__handler_8h.html#a745f4da03c3ad80a60ba339a14f1ba1d">transmission_going</a></div><div class="ttdeci">uint8_t transmission_going</div><div class="ttdoc">Flag indicating if an I2C transmission is currently in progress.</div><div class="ttdef"><b>Definition</b> lcd_handler.c:7</div></div>
+<div class="ttc" id="alcd__handler_8h_html_a748f2860472debd077ba00d88918522d"><div class="ttname"><a href="lcd__handler_8h.html#a748f2860472debd077ba00d88918522d">Z_LCD_COORDS</a></div><div class="ttdeci">const uint8_t Z_LCD_COORDS[2]</div><div class="ttdoc">Z coordinate positions on the LCD.</div><div class="ttdef"><b>Definition</b> lcd_handler.c:11</div></div>
+<div class="ttc" id="alcd__handler_8h_html_a787cd812bab5a771e20376137b0ae021"><div class="ttname"><a href="lcd__handler_8h.html#a787cd812bab5a771e20376137b0ae021">Put_Cursor</a></div><div class="ttdeci">LCD_Status Put_Cursor(uint8_t row, uint8_t column)</div><div class="ttdoc">Sets the LCD cursor position.</div><div class="ttdef"><b>Definition</b> lcd_handler.c:33</div></div>
+<div class="ttc" id="alcd__handler_8h_html_a81804f1857dd9d577749548cfa6faf33"><div class="ttname"><a href="lcd__handler_8h.html#a81804f1857dd9d577749548cfa6faf33">_copy_buffer_to_queue</a></div><div class="ttdeci">LCD_Status _copy_buffer_to_queue(uint8_t *buffer)</div><div class="ttdoc">Copies a buffer into the transmission queue.</div><div class="ttdef"><b>Definition</b> lcd_handler.c:178</div></div>
+<div class="ttc" id="alcd__handler_8h_html_a9141877d76588ce2e89e4c6092fdae33"><div class="ttname"><a href="lcd__handler_8h.html#a9141877d76588ce2e89e4c6092fdae33">_lcd_init</a></div><div class="ttdeci">LCD_Status _lcd_init(void)</div><div class="ttdoc">Performs LCD controller initialization sequence in 4-bit mode.</div><div class="ttdef"><b>Definition</b> lcd_handler.c:339</div></div>
+<div class="ttc" id="alcd__handler_8h_html_ab217d9003aede7870abeee91f179f642"><div class="ttname"><a href="lcd__handler_8h.html#ab217d9003aede7870abeee91f179f642">_lcd_i2c_transmit_it_callback</a></div><div class="ttdeci">HAL_StatusTypeDef _lcd_i2c_transmit_it_callback(I2C_HandleTypeDef *hi2c)</div><div class="ttdoc">Callback invoked after each byte transmission finishes. Sends the next byte if queue is not empty.</div><div class="ttdef"><b>Definition</b> lcd_handler.c:311</div></div>
+<div class="ttc" id="alcd__handler_8h_html_acb033a81b4a5b905e91ae92ee725079a"><div class="ttname"><a href="lcd__handler_8h.html#acb033a81b4a5b905e91ae92ee725079a">_add_command_to_queue</a></div><div class="ttdeci">LCD_Status _add_command_to_queue(char cmd)</div><div class="ttdoc">Converts a command byte into 4 I2C nibbles and enqueues it.</div><div class="ttdef"><b>Definition</b> lcd_handler.c:225</div></div>
+<div class="ttc" id="alcd__handler_8h_html_ad5baa2cfaf38dbc189091e14628a0b6e"><div class="ttname"><a href="lcd__handler_8h.html#ad5baa2cfaf38dbc189091e14628a0b6e">_send_one_byte</a></div><div class="ttdeci">HAL_StatusTypeDef _send_one_byte()</div><div class="ttdoc">Sends a single queued byte using interrupt-driven I2C.</div><div class="ttdef"><b>Definition</b> lcd_handler.c:293</div></div>
+<div class="ttc" id="alcd__handler_8h_html_ad602b42cb9a1e5b5334da814a9fff4b9"><div class="ttname"><a href="lcd__handler_8h.html#ad602b42cb9a1e5b5334da814a9fff4b9">_increase_tail_pointer</a></div><div class="ttdeci">void _increase_tail_pointer(uint16_t inc)</div><div class="ttdoc">Advances the tail pointer by a given amount, wrapping around the queue.</div><div class="ttdef"><b>Definition</b> lcd_handler.c:158</div></div>
+<div class="ttc" id="alcd__handler_8h_html_ada9db54b547384073c5915102736e4cb"><div class="ttname"><a href="lcd__handler_8h.html#ada9db54b547384073c5915102736e4cb">Initialize_LCD_Handler</a></div><div class="ttdeci">LCD_Status Initialize_LCD_Handler(I2C_HandleTypeDef *i2c_handle)</div><div class="ttdoc">Initializes LCD handler and configures LCD controller.</div><div class="ttdef"><b>Definition</b> lcd_handler.c:22</div></div>
+<div class="ttc" id="alcd__handler_8h_html_adf19ea4df63e8e2c611e6fe5380cca47"><div class="ttname"><a href="lcd__handler_8h.html#adf19ea4df63e8e2c611e6fe5380cca47">Print_String</a></div><div class="ttdeci">LCD_Status Print_String(char *txt, uint8_t size)</div><div class="ttdoc">Prints a string on the LCD using the internal command queue.</div><div class="ttdef"><b>Definition</b> lcd_handler.c:52</div></div>
+<div class="ttc" id="alcd__handler_8h_html_ae968f47ce6843e77c59c4f414e79c816"><div class="ttname"><a href="lcd__handler_8h.html#ae968f47ce6843e77c59c4f414e79c816">Print_String_At_Pos</a></div><div class="ttdeci">LCD_Status Print_String_At_Pos(char *txt, uint8_t size, uint8_t row, uint8_t column)</div><div class="ttdoc">Prints a string at a specific LCD position.</div><div class="ttdef"><b>Definition</b> lcd_handler.c:74</div></div>
+<div class="ttc" id="alcd__handler_8h_html_af87cded4aa97ab8016c0fb8b38777d5a"><div class="ttname"><a href="lcd__handler_8h.html#af87cded4aa97ab8016c0fb8b38777d5a">tail_pointer</a></div><div class="ttdeci">uint16_t tail_pointer</div><div class="ttdoc">Index from which data is transmitted from the queue.</div><div class="ttdef"><b>Definition</b> lcd_handler.c:6</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>Core</b></li><li class="navelem"><b>Inc</b></li><li class="navelem"><b>lcd_handler.h</b></li>
+    <li class="navelem"><b>Core</b></li><li class="navelem"><b>Inc</b></li><li class="navelem"><a href="lcd__handler_8h.html">lcd_handler.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
   </ul>
 </div>

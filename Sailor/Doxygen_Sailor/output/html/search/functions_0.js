@@ -1,4 +1,21 @@
 var searchData=
 [
-  ['_5fsbrk_0',['_sbrk',['../sysmem_8c.html#a68125648bcce70b6bb3aa0be50e99700',1,'sysmem.c']]]
+  ['_5fadd_5fcommand_5fto_5fqueue_0',['_add_command_to_queue',['../lcd__handler_8h.html#acb033a81b4a5b905e91ae92ee725079a',1,'lcd_handler.c']]],
+  ['_5fadd_5fdata_5fto_5fqueue_1',['_add_data_to_queue',['../lcd__handler_8h.html#a5cec67324294419dac212492cb6a4c41',1,'lcd_handler.c']]],
+  ['_5fbegin_5ftransmission_2',['_begin_transmission',['../lcd__handler_8h.html#a589ba8d7a1e8df5b6d67c525c75e71d4',1,'lcd_handler.c']]],
+  ['_5fcopy_5fbuffer_5fto_5fqueue_3',['_copy_buffer_to_queue',['../lcd__handler_8h.html#a81804f1857dd9d577749548cfa6faf33',1,'lcd_handler.c']]],
+  ['_5fhas_5fqueue_5fspace_4',['_has_queue_space',['../lcd__handler_8h.html#a19b599f8f82c0d25e00482410a0362c0',1,'lcd_handler.c']]],
+  ['_5fincrease_5ftail_5fpointer_5',['_increase_tail_pointer',['../lcd__handler_8h.html#ad602b42cb9a1e5b5334da814a9fff4b9',1,'lcd_handler.c']]],
+  ['_5fis_5ftransmission_5fgoing_6',['_is_transmission_going',['../lcd__handler_8h.html#a6814e7db02b6713e8508484175621009',1,'lcd_handler.c']]],
+  ['_5flcd_5fi2c_5freceive_5fit_5fcallback_7',['_lcd_i2c_receive_it_callback',['../lcd__handler_8h.html#a20582b23a1615ab951f63acba9a76438',1,'lcd_handler.c']]],
+  ['_5flcd_5fi2c_5ftransmit_5fit_5fcallback_8',['_lcd_i2c_transmit_it_callback',['../lcd__handler_8h.html#ab217d9003aede7870abeee91f179f642',1,'lcd_handler.c']]],
+  ['_5flcd_5finit_9',['_lcd_init',['../lcd__handler_8h.html#a9141877d76588ce2e89e4c6092fdae33',1,'lcd_handler.c']]],
+  ['_5fobs_5ftimer_5fperiod_5felapsed_5fit_5fcallback_10',['_obs_timer_period_elapsed_it_callback',['../observer__comm_8h.html#a05d9494c79d276f330741e66e0deb7cd',1,'observer_comm.c']]],
+  ['_5fobs_5fuart_5freceive_5fit_5fcallback_11',['_obs_uart_receive_it_callback',['../observer__comm_8h.html#ae6db9d1523d2c38d36d1f0dd7b1998f8',1,'observer_comm.c']]],
+  ['_5fobs_5fuart_5ftransmit_5fit_5fcallback_12',['_obs_uart_transmit_it_callback',['../observer__comm_8h.html#ac0e9ef33082eba7189d91074843443a5',1,'observer_comm.c']]],
+  ['_5fprint_5fposition_5fto_5flcd_13',['_print_position_to_lcd',['../observer__comm_8h.html#a031a3858d2f7590efc93ca30d6f6127f',1,'observer_comm.c']]],
+  ['_5fread_5fposition_14',['_read_position',['../observer__comm_8h.html#a3bef78ebb64e67becf20dfd3ec84eb75',1,'observer_comm.c']]],
+  ['_5fsbrk_15',['_sbrk',['../sysmem_8c.html#a68125648bcce70b6bb3aa0be50e99700',1,'sysmem.c']]],
+  ['_5fsend_5fone_5fbyte_16',['_send_one_byte',['../lcd__handler_8h.html#ad5baa2cfaf38dbc189091e14628a0b6e',1,'lcd_handler.c']]],
+  ['_5fstop_5ftransmission_17',['_stop_transmission',['../lcd__handler_8h.html#a16f6e4aff6aa845706e1e453e9cf9e8b',1,'lcd_handler.c']]]
 ];

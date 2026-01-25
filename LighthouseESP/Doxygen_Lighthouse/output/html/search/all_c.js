@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['observer_20response_20state_0',['Observer Response State',['../group___observer_response_state.html',1,'']]],
-  ['observer_5fid_1',['OBSERVER_ID',['../_lighthouse_config_8h.html#a35ac667a7b80faf162f72c6f33fdb3a0',1,'LighthouseConfig.h']]],
-  ['opis_20logiki_2',['Opis logiki',['../index.html#autotoc_md1',1,'']]]
+  ['new_5fmeasurement_0',['New_Measurement',['../_measure_8h.html#a6e5d30d7f9991ec97539ced1544d31c0',1,'Measure.cpp']]],
+  ['number_5fof_5flighthouses_1',['NUMBER_OF_LIGHTHOUSES',['../_lighthouse_config_8h.html#ad733a36008e3e7e7b67db0dfcf0f18c4',1,'LighthouseConfig.h']]]
 ];

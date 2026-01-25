@@ -1,0 +1,442 @@
+\doxysection{Core/\+\+Inc/\+lcd\+\_\+handler.h File Reference}
+\hypertarget{lcd__handler_8h}{}\label{lcd__handler_8h}\index{Core/Inc/lcd\_handler.h@{Core/Inc/lcd\_handler.h}}
+
+
+LCD display handling and transmission queue utilities.  
+
+
+{\ttfamily \+\#include $<$string.\+h$>$}\newline
+{\ttfamily \+\#include $<$stdio.\+h$>$}\newline
+{\ttfamily \+\#include "{}stm32l4xx\+\_\+hal.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lcd__handler_8h_a16b338f4ba8614530cf7e484066f29c5}\label{lcd__handler_8h_a16b338f4ba8614530cf7e484066f29c5} 
+\+\#define {\bfseries SLAVE\+\_\+\+ADDRESS\+\_\+\+LCD}~0x4E
+\begin{DoxyCompactList}\small\item\em I2C address of the LCD (7-\/bit address shifted left). \end{DoxyCompactList}\item 
+\Hypertarget{lcd__handler_8h_a142810068f1b99cd93d3fc9f0e160e02}\label{lcd__handler_8h_a142810068f1b99cd93d3fc9f0e160e02} 
+\+\#define {\bfseries QUEUE\+\_\+\+SIZE}~512
+\begin{DoxyCompactList}\small\item\em Maximum number of bytes that can be queued for transmission. \end{DoxyCompactList}\item 
+\Hypertarget{lcd__handler_8h_a87738054f9a89f0ac29c6ee1fb7da08d}\label{lcd__handler_8h_a87738054f9a89f0ac29c6ee1fb7da08d} 
+\+\#define {\bfseries COMMAND\+\_\+\+SIZE}~4
+\begin{DoxyCompactList}\small\item\em Size of a single LCD command in bytes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \doxymbox{\hyperlink{lcd__handler_8h_a089548ab4cb7759df05b6522b5c93dfa}{LCD\+\_\+\+Status}} \doxymbox{\hyperlink{lcd__handler_8h_a163814a53c7c1183c3885241f206eb67}{LCD\+\_\+\+Status}}
+\begin{DoxyCompactList}\small\item\em LCD operation status codes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \doxymbox{\hyperlink{lcd__handler_8h_a089548ab4cb7759df05b6522b5c93dfa}{LCD\+\_\+\+Status}} \{ \newline
+{\bfseries LCD\+\_\+\+OK} = 0
+, {\bfseries LCD\+\_\+\+QUEUE\+\_\+\+FULL} = 1
+, {\bfseries LCD\+\_\+\+QUEUE\+\_\+\+EMPTY} = 2
+, {\bfseries LCD\+\_\+\+INIT\+\_\+\+FAIL} = 3
+, \newline
+{\bfseries LCD\+\_\+\+HAL\+\_\+\+ERROR} = 4
+ \}
+\begin{DoxyCompactList}\small\item\em LCD operation status codes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{lcd__handler_8h_a089548ab4cb7759df05b6522b5c93dfa}{LCD\+\_\+\+Status}} \doxymbox{\hyperlink{lcd__handler_8h_ada9db54b547384073c5915102736e4cb}{Initialize\+\_\+\+LCD\+\_\+\+Handler}} (I2\+C\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}i2c\+\_\+handle)
+\begin{DoxyCompactList}\small\item\em Initializes LCD handler and configures LCD controller. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{lcd__handler_8h_a089548ab4cb7759df05b6522b5c93dfa}{LCD\+\_\+\+Status}} \doxymbox{\hyperlink{lcd__handler_8h_a787cd812bab5a771e20376137b0ae021}{Put\+\_\+\+Cursor}} (uint8\+\_\+t row, uint8\+\_\+t column)
+\begin{DoxyCompactList}\small\item\em Sets the LCD cursor position. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{lcd__handler_8h_a089548ab4cb7759df05b6522b5c93dfa}{LCD\+\_\+\+Status}} \doxymbox{\hyperlink{lcd__handler_8h_adf19ea4df63e8e2c611e6fe5380cca47}{Print\+\_\+\+String}} (char \texorpdfstring{$\ast$}{*}txt, uint8\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Prints a string on the LCD using the internal command queue. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{lcd__handler_8h_a089548ab4cb7759df05b6522b5c93dfa}{LCD\+\_\+\+Status}} \doxymbox{\hyperlink{lcd__handler_8h_ae968f47ce6843e77c59c4f414e79c816}{Print\+\_\+\+String\+\_\+\+At\+\_\+\+Pos}} (char \texorpdfstring{$\ast$}{*}txt, uint8\+\_\+t size, uint8\+\_\+t row, uint8\+\_\+t column)
+\begin{DoxyCompactList}\small\item\em Prints a string at a specific LCD position. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{lcd__handler_8h_a089548ab4cb7759df05b6522b5c93dfa}{LCD\+\_\+\+Status}} \doxymbox{\hyperlink{lcd__handler_8h_a045c490c3cb0c1c9093c0c93647f597d}{Print\+\_\+\+Whole\+\_\+\+Position}} (float x, float y, float z, float R)
+\begin{DoxyCompactList}\small\item\em Prints x, y, z coordinates and radius R on the LCD. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{lcd__handler_8h_a089548ab4cb7759df05b6522b5c93dfa}{LCD\+\_\+\+Status}} \doxymbox{\hyperlink{lcd__handler_8h_a9141877d76588ce2e89e4c6092fdae33}{\+\_\+lcd\+\_\+init}} (void)
+\begin{DoxyCompactList}\small\item\em Performs LCD controller initialization sequence in 4-\/bit mode. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{lcd__handler_8h_a089548ab4cb7759df05b6522b5c93dfa}{LCD\+\_\+\+Status}} \doxymbox{\hyperlink{lcd__handler_8h_acb033a81b4a5b905e91ae92ee725079a}{\+\_\+add\+\_\+command\+\_\+to\+\_\+queue}} (char cmd)
+\begin{DoxyCompactList}\small\item\em Converts a command byte into 4 I2C nibbles and enqueues it. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{lcd__handler_8h_a089548ab4cb7759df05b6522b5c93dfa}{LCD\+\_\+\+Status}} \doxymbox{\hyperlink{lcd__handler_8h_a5cec67324294419dac212492cb6a4c41}{\+\_\+add\+\_\+data\+\_\+to\+\_\+queue}} (char data)
+\begin{DoxyCompactList}\small\item\em Converts a data byte into 4 I2C nibbles and enqueues it. \end{DoxyCompactList}\item 
+\Hypertarget{lcd__handler_8h_afbd965d77c5925ccb63271f6ae681669}\label{lcd__handler_8h_afbd965d77c5925ccb63271f6ae681669} 
+\doxymbox{\hyperlink{lcd__handler_8h_a089548ab4cb7759df05b6522b5c93dfa}{LCD\+\_\+\+Status}} {\bfseries \+\_\+cd\+\_\+send\+\_\+cmd} (char cmd)
+\item 
+HAL\+\_\+\+Status\+Type\+Def \doxymbox{\hyperlink{lcd__handler_8h_a589ba8d7a1e8df5b6d67c525c75e71d4}{\+\_\+begin\+\_\+transmission}} ()
+\begin{DoxyCompactList}\small\item\em Starts transmission of the next queued byte over I2C if none is ongoing. \end{DoxyCompactList}\item 
+\Hypertarget{lcd__handler_8h_a16f6e4aff6aa845706e1e453e9cf9e8b}\label{lcd__handler_8h_a16f6e4aff6aa845706e1e453e9cf9e8b} 
+void {\bfseries \+\_\+stop\+\_\+transmission} ()
+\begin{DoxyCompactList}\small\item\em Stops the ongoing transmission. \end{DoxyCompactList}\item 
+uint8\+\_\+t \doxymbox{\hyperlink{lcd__handler_8h_a6814e7db02b6713e8508484175621009}{\+\_\+is\+\_\+transmission\+\_\+going}} ()
+\begin{DoxyCompactList}\small\item\em Returns whether a transmission is currently in progress. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{lcd__handler_8h_ad602b42cb9a1e5b5334da814a9fff4b9}{\+\_\+increase\+\_\+tail\+\_\+pointer}} (uint16\+\_\+t inc)
+\begin{DoxyCompactList}\small\item\em Advances the tail pointer by a given amount, wrapping around the queue. \end{DoxyCompactList}\item 
+uint8\+\_\+t \doxymbox{\hyperlink{lcd__handler_8h_a19b599f8f82c0d25e00482410a0362c0}{\+\_\+has\+\_\+queue\+\_\+space}} (uint16\+\_\+t data\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Checks if there is enough space in the queue for a given number of bytes. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{lcd__handler_8h_a089548ab4cb7759df05b6522b5c93dfa}{LCD\+\_\+\+Status}} \doxymbox{\hyperlink{lcd__handler_8h_a81804f1857dd9d577749548cfa6faf33}{\+\_\+copy\+\_\+buffer\+\_\+to\+\_\+queue}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}buffer)
+\begin{DoxyCompactList}\small\item\em Copies a buffer into the transmission queue. \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \doxymbox{\hyperlink{lcd__handler_8h_ad5baa2cfaf38dbc189091e14628a0b6e}{\+\_\+send\+\_\+one\+\_\+byte}} ()
+\begin{DoxyCompactList}\small\item\em Sends a single queued byte using interrupt-\/driven I2C. \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \doxymbox{\hyperlink{lcd__handler_8h_ab217d9003aede7870abeee91f179f642}{\+\_\+lcd\+\_\+i2c\+\_\+transmit\+\_\+it\+\_\+callback}} (I2\+C\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}hi2c)
+\begin{DoxyCompactList}\small\item\em Callback invoked after each byte transmission finishes. Sends the next byte if queue is not empty. \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \doxymbox{\hyperlink{lcd__handler_8h_a20582b23a1615ab951f63acba9a76438}{\+\_\+lcd\+\_\+i2c\+\_\+receive\+\_\+it\+\_\+callback}} (I2\+C\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}hi2c)
+\begin{DoxyCompactList}\small\item\em Dummy I2C receive callback (not used). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lcd__handler_8h_a20ed7a2710e8232d0769dc66b3d3a799}\label{lcd__handler_8h_a20ed7a2710e8232d0769dc66b3d3a799} 
+const uint8\+\_\+t {\bfseries X\+\_\+\+LCD\+\_\+\+COORDS} \+[2]\+
+\begin{DoxyCompactList}\small\item\em X coordinate positions on the LCD. \end{DoxyCompactList}\item 
+\Hypertarget{lcd__handler_8h_a00c03866800a34338dad274edf60525f}\label{lcd__handler_8h_a00c03866800a34338dad274edf60525f} 
+const uint8\+\_\+t {\bfseries Y\+\_\+\+LCD\+\_\+\+COORDS} \+[2]\+
+\begin{DoxyCompactList}\small\item\em Y coordinate positions on the LCD. \end{DoxyCompactList}\item 
+\Hypertarget{lcd__handler_8h_a748f2860472debd077ba00d88918522d}\label{lcd__handler_8h_a748f2860472debd077ba00d88918522d} 
+const uint8\+\_\+t {\bfseries Z\+\_\+\+LCD\+\_\+\+COORDS} \+[2]\+
+\begin{DoxyCompactList}\small\item\em Z coordinate positions on the LCD. \end{DoxyCompactList}\item 
+\Hypertarget{lcd__handler_8h_a705d125ccf1d5df9beff2c0fdfb3dfc7}\label{lcd__handler_8h_a705d125ccf1d5df9beff2c0fdfb3dfc7} 
+const uint8\+\_\+t {\bfseries R\+\_\+\+LCD\+\_\+\+COORDS} \+[2]\+
+\begin{DoxyCompactList}\small\item\em R coordinate positions on the LCD. \end{DoxyCompactList}\item 
+\Hypertarget{lcd__handler_8h_a34261702a1eae1fcccf29e782aa1360d}\label{lcd__handler_8h_a34261702a1eae1fcccf29e782aa1360d} 
+const uint8\+\_\+t {\bfseries LCD\+\_\+\+MESSAGE\+\_\+\+WIDTH}
+\begin{DoxyCompactList}\small\item\em LCD message width in characters. \end{DoxyCompactList}\item 
+\Hypertarget{lcd__handler_8h_a331ae57b71fbf33068ff554187806ef3}\label{lcd__handler_8h_a331ae57b71fbf33068ff554187806ef3} 
+I2\+C\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*} {\bfseries h\+\_\+lcd\+\_\+i2c}
+\begin{DoxyCompactList}\small\item\em I2C handle used for communication with the LCD. \end{DoxyCompactList}\item 
+\Hypertarget{lcd__handler_8h_a3dbec766f37e5a23633eec12d3175d95}\label{lcd__handler_8h_a3dbec766f37e5a23633eec12d3175d95} 
+uint8\+\_\+t {\bfseries tx\+\_\+queue} \+[\doxymbox{\hyperlink{lcd__handler_8h_a142810068f1b99cd93d3fc9f0e160e02}{QUEUE\+\_\+\+SIZE}}]\+
+\begin{DoxyCompactList}\small\item\em Queue buffer for outgoing LCD commands/\+data. \end{DoxyCompactList}\item 
+\Hypertarget{lcd__handler_8h_a6a9dadea27abfa41273ca1c789c98a83}\label{lcd__handler_8h_a6a9dadea27abfa41273ca1c789c98a83} 
+uint16\+\_\+t {\bfseries head\+\_\+pointer}
+\begin{DoxyCompactList}\small\item\em Index where new data is appended in the queue. \end{DoxyCompactList}\item 
+\Hypertarget{lcd__handler_8h_af87cded4aa97ab8016c0fb8b38777d5a}\label{lcd__handler_8h_af87cded4aa97ab8016c0fb8b38777d5a} 
+uint16\+\_\+t {\bfseries tail\+\_\+pointer}
+\begin{DoxyCompactList}\small\item\em Index from which data is transmitted from the queue. \end{DoxyCompactList}\item 
+\Hypertarget{lcd__handler_8h_a745f4da03c3ad80a60ba339a14f1ba1d}\label{lcd__handler_8h_a745f4da03c3ad80a60ba339a14f1ba1d} 
+uint8\+\_\+t {\bfseries transmission\+\_\+going}
+\begin{DoxyCompactList}\small\item\em Flag indicating if an I2C transmission is currently in progress. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+LCD display handling and transmission queue utilities. 
+
+This header defines constants, types, and shared variables used to manage an LCD display over I2C, including a software queue for asynchronous transmission.
+
+It provides:\+
+\begin{DoxyItemize}
+\item LCD command and data queue management
+\item LCD initialization and cursor positioning
+\item String printing functions
+\item Callback functions for I2C transmission handling 
+\end{DoxyItemize}
+
+\label{doc-typedef-members}
+\Hypertarget{lcd__handler_8h_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{lcd__handler_8h_a163814a53c7c1183c3885241f206eb67}\index{lcd\_handler.h@{lcd\_handler.h}!LCD\_Status@{LCD\_Status}}
+\index{LCD\_Status@{LCD\_Status}!lcd\_handler.h@{lcd\_handler.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_Status}{LCD\_Status}}
+{\footnotesize\ttfamily \label{lcd__handler_8h_a163814a53c7c1183c3885241f206eb67} 
+typedef enum \doxymbox{\hyperlink{lcd__handler_8h_a089548ab4cb7759df05b6522b5c93dfa}{LCD\+\_\+\+Status}} \doxymbox{\hyperlink{lcd__handler_8h_a089548ab4cb7759df05b6522b5c93dfa}{LCD\+\_\+\+Status}}}
+
+
+
+LCD operation status codes. 
+
+Returned by public functions to indicate success or error conditions. 
+
+\label{doc-enum-members}
+\Hypertarget{lcd__handler_8h_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{lcd__handler_8h_a089548ab4cb7759df05b6522b5c93dfa}\index{lcd\_handler.h@{lcd\_handler.h}!LCD\_Status@{LCD\_Status}}
+\index{LCD\_Status@{LCD\_Status}!lcd\_handler.h@{lcd\_handler.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_Status}{LCD\_Status}}
+{\footnotesize\ttfamily \label{lcd__handler_8h_a089548ab4cb7759df05b6522b5c93dfa} 
+enum \doxymbox{\hyperlink{lcd__handler_8h_a089548ab4cb7759df05b6522b5c93dfa}{LCD\+\_\+\+Status}}}
+
+
+
+LCD operation status codes. 
+
+Returned by public functions to indicate success or error conditions. 
+
+\label{doc-func-members}
+\Hypertarget{lcd__handler_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{lcd__handler_8h_acb033a81b4a5b905e91ae92ee725079a}\index{lcd\_handler.h@{lcd\_handler.h}!\_add\_command\_to\_queue@{\_add\_command\_to\_queue}}
+\index{\_add\_command\_to\_queue@{\_add\_command\_to\_queue}!lcd\_handler.h@{lcd\_handler.h}}
+\doxysubsubsection{\texorpdfstring{\_add\_command\_to\_queue()}{\_add\_command\_to\_queue()}}
+{\footnotesize\ttfamily \label{lcd__handler_8h_acb033a81b4a5b905e91ae92ee725079a} 
+\doxymbox{\hyperlink{lcd__handler_8h_a089548ab4cb7759df05b6522b5c93dfa}{LCD\+\_\+\+Status}} \+\_\+add\+\_\+command\+\_\+to\+\_\+queue (\begin{DoxyParamCaption}\item[{char}]{cmd}{}\end{DoxyParamCaption})}
+
+
+
+Converts a command byte into 4 I2C nibbles and enqueues it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cmd} & Command byte to send. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+LCD\+\_\+\+OK if success, otherwise LCD\+\_\+\+QUEUE\+\_\+\+FULL. 
+\end{DoxyReturn}
+\Hypertarget{lcd__handler_8h_a5cec67324294419dac212492cb6a4c41}\index{lcd\_handler.h@{lcd\_handler.h}!\_add\_data\_to\_queue@{\_add\_data\_to\_queue}}
+\index{\_add\_data\_to\_queue@{\_add\_data\_to\_queue}!lcd\_handler.h@{lcd\_handler.h}}
+\doxysubsubsection{\texorpdfstring{\_add\_data\_to\_queue()}{\_add\_data\_to\_queue()}}
+{\footnotesize\ttfamily \label{lcd__handler_8h_a5cec67324294419dac212492cb6a4c41} 
+\doxymbox{\hyperlink{lcd__handler_8h_a089548ab4cb7759df05b6522b5c93dfa}{LCD\+\_\+\+Status}} \+\_\+add\+\_\+data\+\_\+to\+\_\+queue (\begin{DoxyParamCaption}\item[{char}]{data}{}\end{DoxyParamCaption})}
+
+
+
+Converts a data byte into 4 I2C nibbles and enqueues it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Data byte to send. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+LCD\+\_\+\+OK if success, otherwise LCD\+\_\+\+QUEUE\+\_\+\+FULL. 
+\end{DoxyReturn}
+\Hypertarget{lcd__handler_8h_a589ba8d7a1e8df5b6d67c525c75e71d4}\index{lcd\_handler.h@{lcd\_handler.h}!\_begin\_transmission@{\_begin\_transmission}}
+\index{\_begin\_transmission@{\_begin\_transmission}!lcd\_handler.h@{lcd\_handler.h}}
+\doxysubsubsection{\texorpdfstring{\_begin\_transmission()}{\_begin\_transmission()}}
+{\footnotesize\ttfamily \label{lcd__handler_8h_a589ba8d7a1e8df5b6d67c525c75e71d4} 
+HAL\+\_\+\+Status\+Type\+Def \+\_\+begin\+\_\+transmission (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Starts transmission of the next queued byte over I2C if none is ongoing. 
+
+\begin{DoxyReturn}{Returns}
+HAL\+\_\+\+OK if transmission started, otherwise HAL\+\_\+\+ERROR or LCD\+\_\+\+QUEUE\+\_\+\+EMPTY. 
+\end{DoxyReturn}
+\Hypertarget{lcd__handler_8h_a81804f1857dd9d577749548cfa6faf33}\index{lcd\_handler.h@{lcd\_handler.h}!\_copy\_buffer\_to\_queue@{\_copy\_buffer\_to\_queue}}
+\index{\_copy\_buffer\_to\_queue@{\_copy\_buffer\_to\_queue}!lcd\_handler.h@{lcd\_handler.h}}
+\doxysubsubsection{\texorpdfstring{\_copy\_buffer\_to\_queue()}{\_copy\_buffer\_to\_queue()}}
+{\footnotesize\ttfamily \label{lcd__handler_8h_a81804f1857dd9d577749548cfa6faf33} 
+\doxymbox{\hyperlink{lcd__handler_8h_a089548ab4cb7759df05b6522b5c93dfa}{LCD\+\_\+\+Status}} \+\_\+copy\+\_\+buffer\+\_\+to\+\_\+queue (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{buffer}{}\end{DoxyParamCaption})}
+
+
+
+Copies a buffer into the transmission queue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & Pointer to data to enqueue. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+LCD\+\_\+\+OK if success, otherwise LCD\+\_\+\+QUEUE\+\_\+\+FULL. 
+\end{DoxyReturn}
+\Hypertarget{lcd__handler_8h_a19b599f8f82c0d25e00482410a0362c0}\index{lcd\_handler.h@{lcd\_handler.h}!\_has\_queue\_space@{\_has\_queue\_space}}
+\index{\_has\_queue\_space@{\_has\_queue\_space}!lcd\_handler.h@{lcd\_handler.h}}
+\doxysubsubsection{\texorpdfstring{\_has\_queue\_space()}{\_has\_queue\_space()}}
+{\footnotesize\ttfamily \label{lcd__handler_8h_a19b599f8f82c0d25e00482410a0362c0} 
+uint8\+\_\+t \+\_\+has\+\_\+queue\+\_\+space (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{data\+\_\+size}{}\end{DoxyParamCaption})}
+
+
+
+Checks if there is enough space in the queue for a given number of bytes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data\+\_\+size} & Number of bytes to add. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if there is space, otherwise 0. 
+\end{DoxyReturn}
+\Hypertarget{lcd__handler_8h_ad602b42cb9a1e5b5334da814a9fff4b9}\index{lcd\_handler.h@{lcd\_handler.h}!\_increase\_tail\_pointer@{\_increase\_tail\_pointer}}
+\index{\_increase\_tail\_pointer@{\_increase\_tail\_pointer}!lcd\_handler.h@{lcd\_handler.h}}
+\doxysubsubsection{\texorpdfstring{\_increase\_tail\_pointer()}{\_increase\_tail\_pointer()}}
+{\footnotesize\ttfamily \label{lcd__handler_8h_ad602b42cb9a1e5b5334da814a9fff4b9} 
+void \+\_\+increase\+\_\+tail\+\_\+pointer (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{inc}{}\end{DoxyParamCaption})}
+
+
+
+Advances the tail pointer by a given amount, wrapping around the queue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em inc} & Number of bytes to advance. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lcd__handler_8h_a6814e7db02b6713e8508484175621009}\index{lcd\_handler.h@{lcd\_handler.h}!\_is\_transmission\_going@{\_is\_transmission\_going}}
+\index{\_is\_transmission\_going@{\_is\_transmission\_going}!lcd\_handler.h@{lcd\_handler.h}}
+\doxysubsubsection{\texorpdfstring{\_is\_transmission\_going()}{\_is\_transmission\_going()}}
+{\footnotesize\ttfamily \label{lcd__handler_8h_a6814e7db02b6713e8508484175621009} 
+uint8\+\_\+t \+\_\+is\+\_\+transmission\+\_\+going (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Returns whether a transmission is currently in progress. 
+
+\begin{DoxyReturn}{Returns}
+1 if transmission is active, otherwise 0. 
+\end{DoxyReturn}
+\Hypertarget{lcd__handler_8h_a20582b23a1615ab951f63acba9a76438}\index{lcd\_handler.h@{lcd\_handler.h}!\_lcd\_i2c\_receive\_it\_callback@{\_lcd\_i2c\_receive\_it\_callback}}
+\index{\_lcd\_i2c\_receive\_it\_callback@{\_lcd\_i2c\_receive\_it\_callback}!lcd\_handler.h@{lcd\_handler.h}}
+\doxysubsubsection{\texorpdfstring{\_lcd\_i2c\_receive\_it\_callback()}{\_lcd\_i2c\_receive\_it\_callback()}}
+{\footnotesize\ttfamily \label{lcd__handler_8h_a20582b23a1615ab951f63acba9a76438} 
+HAL\+\_\+\+Status\+Type\+Def \+\_\+lcd\+\_\+i2c\+\_\+receive\+\_\+it\+\_\+callback (\begin{DoxyParamCaption}\item[{I2\+C\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{hi2c}{}\end{DoxyParamCaption})}
+
+
+
+Dummy I2C receive callback (not used). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hi2c} & I2C handle that triggered the callback. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+HAL\+\_\+\+OK always. 
+\end{DoxyReturn}
+\Hypertarget{lcd__handler_8h_ab217d9003aede7870abeee91f179f642}\index{lcd\_handler.h@{lcd\_handler.h}!\_lcd\_i2c\_transmit\_it\_callback@{\_lcd\_i2c\_transmit\_it\_callback}}
+\index{\_lcd\_i2c\_transmit\_it\_callback@{\_lcd\_i2c\_transmit\_it\_callback}!lcd\_handler.h@{lcd\_handler.h}}
+\doxysubsubsection{\texorpdfstring{\_lcd\_i2c\_transmit\_it\_callback()}{\_lcd\_i2c\_transmit\_it\_callback()}}
+{\footnotesize\ttfamily \label{lcd__handler_8h_ab217d9003aede7870abeee91f179f642} 
+HAL\+\_\+\+Status\+Type\+Def \+\_\+lcd\+\_\+i2c\+\_\+transmit\+\_\+it\+\_\+callback (\begin{DoxyParamCaption}\item[{I2\+C\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{hi2c}{}\end{DoxyParamCaption})}
+
+
+
+Callback invoked after each byte transmission finishes. Sends the next byte if queue is not empty. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hi2c} & I2C handle that triggered the callback. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+HAL\+\_\+\+OK on success, otherwise HAL error. 
+\end{DoxyReturn}
+\Hypertarget{lcd__handler_8h_a9141877d76588ce2e89e4c6092fdae33}\index{lcd\_handler.h@{lcd\_handler.h}!\_lcd\_init@{\_lcd\_init}}
+\index{\_lcd\_init@{\_lcd\_init}!lcd\_handler.h@{lcd\_handler.h}}
+\doxysubsubsection{\texorpdfstring{\_lcd\_init()}{\_lcd\_init()}}
+{\footnotesize\ttfamily \label{lcd__handler_8h_a9141877d76588ce2e89e4c6092fdae33} 
+\doxymbox{\hyperlink{lcd__handler_8h_a089548ab4cb7759df05b6522b5c93dfa}{LCD\+\_\+\+Status}} \+\_\+lcd\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Performs LCD controller initialization sequence in 4-\/bit mode. 
+
+\begin{DoxyReturn}{Returns}
+LCD\+\_\+\+OK on success, otherwise LCD\+\_\+\+INIT\+\_\+\+FAIL. 
+\end{DoxyReturn}
+\Hypertarget{lcd__handler_8h_ad5baa2cfaf38dbc189091e14628a0b6e}\index{lcd\_handler.h@{lcd\_handler.h}!\_send\_one\_byte@{\_send\_one\_byte}}
+\index{\_send\_one\_byte@{\_send\_one\_byte}!lcd\_handler.h@{lcd\_handler.h}}
+\doxysubsubsection{\texorpdfstring{\_send\_one\_byte()}{\_send\_one\_byte()}}
+{\footnotesize\ttfamily \label{lcd__handler_8h_ad5baa2cfaf38dbc189091e14628a0b6e} 
+HAL\+\_\+\+Status\+Type\+Def \+\_\+send\+\_\+one\+\_\+byte (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Sends a single queued byte using interrupt-\/driven I2C. 
+
+\begin{DoxyReturn}{Returns}
+HAL\+\_\+\+OK if successful, otherwise HAL error. 
+\end{DoxyReturn}
+\Hypertarget{lcd__handler_8h_ada9db54b547384073c5915102736e4cb}\index{lcd\_handler.h@{lcd\_handler.h}!Initialize\_LCD\_Handler@{Initialize\_LCD\_Handler}}
+\index{Initialize\_LCD\_Handler@{Initialize\_LCD\_Handler}!lcd\_handler.h@{lcd\_handler.h}}
+\doxysubsubsection{\texorpdfstring{Initialize\_LCD\_Handler()}{Initialize\_LCD\_Handler()}}
+{\footnotesize\ttfamily \label{lcd__handler_8h_ada9db54b547384073c5915102736e4cb} 
+\doxymbox{\hyperlink{lcd__handler_8h_a089548ab4cb7759df05b6522b5c93dfa}{LCD\+\_\+\+Status}} Initialize\+\_\+\+LCD\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{I2\+C\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{i2c\+\_\+handle}{}\end{DoxyParamCaption})}
+
+
+
+Initializes LCD handler and configures LCD controller. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i2c\+\_\+handle} & Pointer to the I2C handle used for LCD communication. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+LCD\+\_\+\+OK if initialization succeeded, otherwise an LCD error code. 
+\end{DoxyReturn}
+\Hypertarget{lcd__handler_8h_adf19ea4df63e8e2c611e6fe5380cca47}\index{lcd\_handler.h@{lcd\_handler.h}!Print\_String@{Print\_String}}
+\index{Print\_String@{Print\_String}!lcd\_handler.h@{lcd\_handler.h}}
+\doxysubsubsection{\texorpdfstring{Print\_String()}{Print\_String()}}
+{\footnotesize\ttfamily \label{lcd__handler_8h_adf19ea4df63e8e2c611e6fe5380cca47} 
+\doxymbox{\hyperlink{lcd__handler_8h_a089548ab4cb7759df05b6522b5c93dfa}{LCD\+\_\+\+Status}} Print\+\_\+\+String (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{txt}{, }\item[{uint8\+\_\+t}]{size}{}\end{DoxyParamCaption})}
+
+
+
+Prints a string on the LCD using the internal command queue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em txt} & Pointer to the character buffer to print. \\
+\hline
+{\em size} & Number of characters to print. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+LCD\+\_\+\+OK on success, otherwise an LCD error code. 
+\end{DoxyReturn}
+\Hypertarget{lcd__handler_8h_ae968f47ce6843e77c59c4f414e79c816}\index{lcd\_handler.h@{lcd\_handler.h}!Print\_String\_At\_Pos@{Print\_String\_At\_Pos}}
+\index{Print\_String\_At\_Pos@{Print\_String\_At\_Pos}!lcd\_handler.h@{lcd\_handler.h}}
+\doxysubsubsection{\texorpdfstring{Print\_String\_At\_Pos()}{Print\_String\_At\_Pos()}}
+{\footnotesize\ttfamily \label{lcd__handler_8h_ae968f47ce6843e77c59c4f414e79c816} 
+\doxymbox{\hyperlink{lcd__handler_8h_a089548ab4cb7759df05b6522b5c93dfa}{LCD\+\_\+\+Status}} Print\+\_\+\+String\+\_\+\+At\+\_\+\+Pos (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{txt}{, }\item[{uint8\+\_\+t}]{size}{, }\item[{uint8\+\_\+t}]{row}{, }\item[{uint8\+\_\+t}]{column}{}\end{DoxyParamCaption})}
+
+
+
+Prints a string at a specific LCD position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em txt} & Pointer to the character buffer to print. \\
+\hline
+{\em size} & Number of characters to print. \\
+\hline
+{\em row} & Target row on the LCD. \\
+\hline
+{\em column} & Target column on the LCD. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+LCD\+\_\+\+OK on success, otherwise an LCD error code. 
+\end{DoxyReturn}
+\Hypertarget{lcd__handler_8h_a045c490c3cb0c1c9093c0c93647f597d}\index{lcd\_handler.h@{lcd\_handler.h}!Print\_Whole\_Position@{Print\_Whole\_Position}}
+\index{Print\_Whole\_Position@{Print\_Whole\_Position}!lcd\_handler.h@{lcd\_handler.h}}
+\doxysubsubsection{\texorpdfstring{Print\_Whole\_Position()}{Print\_Whole\_Position()}}
+{\footnotesize\ttfamily \label{lcd__handler_8h_a045c490c3cb0c1c9093c0c93647f597d} 
+\doxymbox{\hyperlink{lcd__handler_8h_a089548ab4cb7759df05b6522b5c93dfa}{LCD\+\_\+\+Status}} Print\+\_\+\+Whole\+\_\+\+Position (\begin{DoxyParamCaption}\item[{float}]{x}{, }\item[{float}]{y}{, }\item[{float}]{z}{, }\item[{float}]{R}{}\end{DoxyParamCaption})}
+
+
+
+Prints x, y, z coordinates and radius R on the LCD. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & X coordinate. \\
+\hline
+{\em y} & Y coordinate. \\
+\hline
+{\em z} & Z coordinate. \\
+\hline
+{\em R} & Radius or distance value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+LCD\+\_\+\+OK on success, otherwise LCD\+\_\+\+HAL\+\_\+\+ERROR if transmission failed. 
+\end{DoxyReturn}
+\Hypertarget{lcd__handler_8h_a787cd812bab5a771e20376137b0ae021}\index{lcd\_handler.h@{lcd\_handler.h}!Put\_Cursor@{Put\_Cursor}}
+\index{Put\_Cursor@{Put\_Cursor}!lcd\_handler.h@{lcd\_handler.h}}
+\doxysubsubsection{\texorpdfstring{Put\_Cursor()}{Put\_Cursor()}}
+{\footnotesize\ttfamily \label{lcd__handler_8h_a787cd812bab5a771e20376137b0ae021} 
+\doxymbox{\hyperlink{lcd__handler_8h_a089548ab4cb7759df05b6522b5c93dfa}{LCD\+\_\+\+Status}} Put\+\_\+\+Cursor (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{row}{, }\item[{uint8\+\_\+t}]{column}{}\end{DoxyParamCaption})}
+
+
+
+Sets the LCD cursor position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & LCD row (0 or 1). \\
+\hline
+{\em column} & LCD column (0..15). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+LCD\+\_\+\+OK on success, otherwise an LCD error code. 
+\end{DoxyReturn}

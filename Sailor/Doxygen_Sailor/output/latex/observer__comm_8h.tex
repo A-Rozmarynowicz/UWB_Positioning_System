@@ -1,0 +1,207 @@
+\doxysection{Core/\+\+Inc/\+observer\+\_\+comm.h File Reference}
+\hypertarget{observer__comm_8h}{}\label{observer__comm_8h}\index{Core/Inc/observer\_comm.h@{Core/Inc/observer\_comm.h}}
+
+
+Observer communication module header.  
+
+
+{\ttfamily \+\#include "{}lcd\+\_\+handler.\+h"{}}\newline
+{\ttfamily \+\#include "{}stm32l4xx\+\_\+hal.\+h"{}}\newline
+{\ttfamily \+\#include "{}string.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{struct_position}{Position}}
+\begin{DoxyCompactList}\small\item\em Represents a 3D position vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{observer__comm_8h_a21d228c2922608db50b3cded13f6303a}\label{observer__comm_8h_a21d228c2922608db50b3cded13f6303a} 
+\+\#define {\bfseries OBSERVER\+\_\+\+MESSAGE\+\_\+\+SIZE}~16
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{observer__comm_8h_a2209082c3dc80fbd552bab03c37571b2}\label{observer__comm_8h_a2209082c3dc80fbd552bab03c37571b2} 
+typedef enum \doxymbox{\hyperlink{observer__comm_8h_aa6bebde896efa3196e1e90702de30e53}{Observer\+\_\+\+Info\+\_\+\+Setup}} {\bfseries Observer\+\_\+\+Info\+\_\+\+Setup}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{observer__comm_8h_aa6bebde896efa3196e1e90702de30e53}\label{observer__comm_8h_aa6bebde896efa3196e1e90702de30e53} 
+enum \doxymbox{\hyperlink{observer__comm_8h_aa6bebde896efa3196e1e90702de30e53}{Observer\+\_\+\+Info\+\_\+\+Setup}} \{ {\bfseries OBS\+\_\+\+ERROR\+\_\+\+CODE} = 0
+, {\bfseries OBS\+\_\+\+POSITION\+\_\+\+STRUCT} = 4
+ \}
+\begin{DoxyCompactList}\small\item\em Defines byte offsets in the observer message payload. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+HAL\+\_\+\+Status\+Type\+Def \doxymbox{\hyperlink{observer__comm_8h_aee8da0959f34cf7ae211e00e3893f82b}{Initialize\+\_\+\+Observer\+\_\+\+Comm}} (TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}refresh\+\_\+tim\+\_\+handle, UART\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}obs\+\_\+uart\+\_\+handle)
+\begin{DoxyCompactList}\small\item\em Initializes observer communication module. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{observer__comm_8h_a77c47c080d9eef612bd5659772f34d26}{Get\+\_\+\+Position\+\_\+\+Vector\+\_\+\+Length}} (struct \doxymbox{\hyperlink{struct_position}{Position}} \texorpdfstring{$\ast$}{*}pos)
+\begin{DoxyCompactList}\small\item\em Calculates squared length of a position vector. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{observer__comm_8h_a3bef78ebb64e67becf20dfd3ec84eb75}{\+\_\+read\+\_\+position}} ()
+\begin{DoxyCompactList}\small\item\em Reads and updates current position from UART buffer. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{lcd__handler_8h_a089548ab4cb7759df05b6522b5c93dfa}{LCD\+\_\+\+Status}} \doxymbox{\hyperlink{observer__comm_8h_a031a3858d2f7590efc93ca30d6f6127f}{\+\_\+print\+\_\+position\+\_\+to\+\_\+lcd}} ()
+\begin{DoxyCompactList}\small\item\em Prints current position to the LCD display. \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \doxymbox{\hyperlink{observer__comm_8h_a05d9494c79d276f330741e66e0deb7cd}{\+\_\+obs\+\_\+timer\+\_\+period\+\_\+elapsed\+\_\+it\+\_\+callback}} (TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}htim)
+\begin{DoxyCompactList}\small\item\em Timer interrupt callback handler. \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \doxymbox{\hyperlink{observer__comm_8h_ae6db9d1523d2c38d36d1f0dd7b1998f8}{\+\_\+obs\+\_\+uart\+\_\+receive\+\_\+it\+\_\+callback}} (UART\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}huart)
+\begin{DoxyCompactList}\small\item\em UART receive complete interrupt handler. \end{DoxyCompactList}\item 
+HAL\+\_\+\+Status\+Type\+Def \doxymbox{\hyperlink{observer__comm_8h_ac0e9ef33082eba7189d91074843443a5}{\+\_\+obs\+\_\+uart\+\_\+transmit\+\_\+it\+\_\+callback}} (UART\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}huart)
+\begin{DoxyCompactList}\small\item\em UART transmit complete interrupt handler. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{observer__comm_8h_a80eb72e06fae005bdda0b2297f2580ba}\label{observer__comm_8h_a80eb72e06fae005bdda0b2297f2580ba} 
+TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*} {\bfseries refresh\+\_\+info\+\_\+timer\+\_\+h}
+\begin{DoxyCompactList}\small\item\em Handle to the refresh timer used for periodic LCD updates. \end{DoxyCompactList}\item 
+\Hypertarget{observer__comm_8h_afc33d453c63fdef884b3eb6aef4e24ef}\label{observer__comm_8h_afc33d453c63fdef884b3eb6aef4e24ef} 
+UART\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*} {\bfseries obs\+\_\+uart\+\_\+h}
+\begin{DoxyCompactList}\small\item\em UART handle used for communication with the observer device. \end{DoxyCompactList}\item 
+\Hypertarget{observer__comm_8h_a56f8098d6b9ecb628a5bee992b3c9820}\label{observer__comm_8h_a56f8098d6b9ecb628a5bee992b3c9820} 
+struct \doxymbox{\hyperlink{struct_position}{Position}} {\bfseries current\+\_\+position}
+\begin{DoxyCompactList}\small\item\em Current calculated position of the device. \end{DoxyCompactList}\item 
+\Hypertarget{observer__comm_8h_afda72cdb8ec6b8e1ba62a697fa40d07e}\label{observer__comm_8h_afda72cdb8ec6b8e1ba62a697fa40d07e} 
+struct \doxymbox{\hyperlink{struct_position}{Position}} {\bfseries initial\+\_\+position}
+\begin{DoxyCompactList}\small\item\em Initial position stored at 1st measurement. \end{DoxyCompactList}\item 
+\Hypertarget{observer__comm_8h_ad7ceca4eea279384296f76cca07178ff}\label{observer__comm_8h_ad7ceca4eea279384296f76cca07178ff} 
+uint8\+\_\+t {\bfseries obs\+\_\+uart\+\_\+receive\+\_\+buffer} \+[OBSERVER\+\_\+\+MESSAGE\+\_\+\+SIZE]\+
+\begin{DoxyCompactList}\small\item\em UART receive buffer for incoming observer messages. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Observer communication module header. 
+
+This file defines the interface for communicating with the observer module via UART. It contains configuration constants, data structures, global variables, public API functions, and private helper functions and callbacks. 
+
+\label{doc-func-members}
+\Hypertarget{observer__comm_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{observer__comm_8h_a05d9494c79d276f330741e66e0deb7cd}\index{observer\_comm.h@{observer\_comm.h}!\_obs\_timer\_period\_elapsed\_it\_callback@{\_obs\_timer\_period\_elapsed\_it\_callback}}
+\index{\_obs\_timer\_period\_elapsed\_it\_callback@{\_obs\_timer\_period\_elapsed\_it\_callback}!observer\_comm.h@{observer\_comm.h}}
+\doxysubsubsection{\texorpdfstring{\_obs\_timer\_period\_elapsed\_it\_callback()}{\_obs\_timer\_period\_elapsed\_it\_callback()}}
+{\footnotesize\ttfamily \label{observer__comm_8h_a05d9494c79d276f330741e66e0deb7cd} 
+HAL\+\_\+\+Status\+Type\+Def \+\_\+obs\+\_\+timer\+\_\+period\+\_\+elapsed\+\_\+it\+\_\+callback (\begin{DoxyParamCaption}\item[{TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{htim}{}\end{DoxyParamCaption})}
+
+
+
+Timer interrupt callback handler. 
+
+This function is called periodically by the timer interrupt. If the interrupt source matches the refresh timer, the current position is printed to the LCD.
+
+
+\begin{DoxyParams}{Parameters}
+{\em htim} & Pointer to the timer handle. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+HAL\+\_\+\+OK if handled correctly, HAL\+\_\+\+ERROR otherwise. 
+\end{DoxyReturn}
+\Hypertarget{observer__comm_8h_ae6db9d1523d2c38d36d1f0dd7b1998f8}\index{observer\_comm.h@{observer\_comm.h}!\_obs\_uart\_receive\_it\_callback@{\_obs\_uart\_receive\_it\_callback}}
+\index{\_obs\_uart\_receive\_it\_callback@{\_obs\_uart\_receive\_it\_callback}!observer\_comm.h@{observer\_comm.h}}
+\doxysubsubsection{\texorpdfstring{\_obs\_uart\_receive\_it\_callback()}{\_obs\_uart\_receive\_it\_callback()}}
+{\footnotesize\ttfamily \label{observer__comm_8h_ae6db9d1523d2c38d36d1f0dd7b1998f8} 
+HAL\+\_\+\+Status\+Type\+Def \+\_\+obs\+\_\+uart\+\_\+receive\+\_\+it\+\_\+callback (\begin{DoxyParamCaption}\item[{UART\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{huart}{}\end{DoxyParamCaption})}
+
+
+
+UART receive complete interrupt handler. 
+
+This function is called when UART DMA reception completes. It updates the current position and restarts DMA reception.
+
+
+\begin{DoxyParams}{Parameters}
+{\em huart} & Pointer to the UART handle. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+HAL\+\_\+\+OK if handled correctly, HAL error otherwise. 
+\end{DoxyReturn}
+\Hypertarget{observer__comm_8h_ac0e9ef33082eba7189d91074843443a5}\index{observer\_comm.h@{observer\_comm.h}!\_obs\_uart\_transmit\_it\_callback@{\_obs\_uart\_transmit\_it\_callback}}
+\index{\_obs\_uart\_transmit\_it\_callback@{\_obs\_uart\_transmit\_it\_callback}!observer\_comm.h@{observer\_comm.h}}
+\doxysubsubsection{\texorpdfstring{\_obs\_uart\_transmit\_it\_callback()}{\_obs\_uart\_transmit\_it\_callback()}}
+{\footnotesize\ttfamily \label{observer__comm_8h_ac0e9ef33082eba7189d91074843443a5} 
+HAL\+\_\+\+Status\+Type\+Def \+\_\+obs\+\_\+uart\+\_\+transmit\+\_\+it\+\_\+callback (\begin{DoxyParamCaption}\item[{UART\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{huart}{}\end{DoxyParamCaption})}
+
+
+
+UART transmit complete interrupt handler. 
+
+This function is currently unused but provided for completeness.
+
+
+\begin{DoxyParams}{Parameters}
+{\em huart} & Pointer to the UART handle. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+HAL\+\_\+\+OK always. 
+\end{DoxyReturn}
+\Hypertarget{observer__comm_8h_a031a3858d2f7590efc93ca30d6f6127f}\index{observer\_comm.h@{observer\_comm.h}!\_print\_position\_to\_lcd@{\_print\_position\_to\_lcd}}
+\index{\_print\_position\_to\_lcd@{\_print\_position\_to\_lcd}!observer\_comm.h@{observer\_comm.h}}
+\doxysubsubsection{\texorpdfstring{\_print\_position\_to\_lcd()}{\_print\_position\_to\_lcd()}}
+{\footnotesize\ttfamily \label{observer__comm_8h_a031a3858d2f7590efc93ca30d6f6127f} 
+\doxymbox{\hyperlink{lcd__handler_8h_a089548ab4cb7759df05b6522b5c93dfa}{LCD\+\_\+\+Status}} \+\_\+print\+\_\+position\+\_\+to\+\_\+lcd (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Prints current position to the LCD display. 
+
+This function prints the X, Y, Z coordinates and the total distance from the initial position on the LCD using the LCD handler.
+
+\begin{DoxyReturn}{Returns}
+LCD\+\_\+\+OK if display is successful, LCD\+\_\+\+HAL\+\_\+\+ERROR otherwise. 
+\end{DoxyReturn}
+\Hypertarget{observer__comm_8h_a3bef78ebb64e67becf20dfd3ec84eb75}\index{observer\_comm.h@{observer\_comm.h}!\_read\_position@{\_read\_position}}
+\index{\_read\_position@{\_read\_position}!observer\_comm.h@{observer\_comm.h}}
+\doxysubsubsection{\texorpdfstring{\_read\_position()}{\_read\_position()}}
+{\footnotesize\ttfamily \label{observer__comm_8h_a3bef78ebb64e67becf20dfd3ec84eb75} 
+void \+\_\+read\+\_\+position (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Reads and updates current position from UART buffer. 
+
+This function copies received position data from the UART buffer and adjusts it relative to the initial position. The first received non-\/zero position is stored as the initial reference. \Hypertarget{observer__comm_8h_a77c47c080d9eef612bd5659772f34d26}\index{observer\_comm.h@{observer\_comm.h}!Get\_Position\_Vector\_Length@{Get\_Position\_Vector\_Length}}
+\index{Get\_Position\_Vector\_Length@{Get\_Position\_Vector\_Length}!observer\_comm.h@{observer\_comm.h}}
+\doxysubsubsection{\texorpdfstring{Get\_Position\_Vector\_Length()}{Get\_Position\_Vector\_Length()}}
+{\footnotesize\ttfamily \label{observer__comm_8h_a77c47c080d9eef612bd5659772f34d26} 
+float Get\+\_\+\+Position\+\_\+\+Vector\+\_\+\+Length (\begin{DoxyParamCaption}\item[{struct \doxymbox{\hyperlink{struct_position}{Position}} \texorpdfstring{$\ast$}{*}}]{pos}{}\end{DoxyParamCaption})}
+
+
+
+Calculates squared length of a position vector. 
+
+This function returns the squared Euclidean length of the position vector. Squared length is used to avoid costly sqrt operations.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & Pointer to the \doxylink{struct_position}{Position} structure. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Squared vector length. 
+\end{DoxyReturn}
+\Hypertarget{observer__comm_8h_aee8da0959f34cf7ae211e00e3893f82b}\index{observer\_comm.h@{observer\_comm.h}!Initialize\_Observer\_Comm@{Initialize\_Observer\_Comm}}
+\index{Initialize\_Observer\_Comm@{Initialize\_Observer\_Comm}!observer\_comm.h@{observer\_comm.h}}
+\doxysubsubsection{\texorpdfstring{Initialize\_Observer\_Comm()}{Initialize\_Observer\_Comm()}}
+{\footnotesize\ttfamily \label{observer__comm_8h_aee8da0959f34cf7ae211e00e3893f82b} 
+HAL\+\_\+\+Status\+Type\+Def Initialize\+\_\+\+Observer\+\_\+\+Comm (\begin{DoxyParamCaption}\item[{TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{refresh\+\_\+tim\+\_\+handle}{, }\item[{UART\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{obs\+\_\+uart\+\_\+handle}{}\end{DoxyParamCaption})}
+
+
+
+Initializes observer communication module. 
+
+This function stores the provided timer and UART handles, starts the timer interrupt, and begins UART DMA reception.
+
+
+\begin{DoxyParams}{Parameters}
+{\em refresh\+\_\+tim\+\_\+handle} & Pointer to the timer used for periodic LCD refresh. \\
+\hline
+{\em obs\+\_\+uart\+\_\+handle} & Pointer to the UART interface used for communication. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+HAL\+\_\+\+OK if initialization succeeds, HAL error otherwise. 
+\end{DoxyReturn}

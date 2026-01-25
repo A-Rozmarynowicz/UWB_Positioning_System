@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['assert_5fparam_0',['assert_param',['../stm32l4xx__hal__conf_8h.html#a631dea7b230e600555f979c62af1de21',1,'stm32l4xx_hal_conf.h']]]
+  ['command_5fsize_0',['COMMAND_SIZE',['../lcd__handler_8h.html#a87738054f9a89f0ac29c6ee1fb7da08d',1,'lcd_handler.h']]]
 ];

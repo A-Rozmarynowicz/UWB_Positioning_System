@@ -17,57 +17,43 @@ UWB (Ultra Wide Band) initialization and handling utilities.
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{_u_w_b___handler_8h_aab700044d1c1eff50a15b9325e4d8905}\label{_u_w_b___handler_8h_aab700044d1c1eff50a15b9325e4d8905} 
-void {\bfseries Initialize\+\_\+\+UWB} ()
-\item 
-\Hypertarget{_u_w_b___handler_8h_a04eefed7c7b89a87942a682f4b079f79}\label{_u_w_b___handler_8h_a04eefed7c7b89a87942a682f4b079f79} 
-void {\bfseries Update\+\_\+\+UWB} ()
-\item 
-\Hypertarget{_u_w_b___handler_8h_a53c26686a888efa1696f116939990545}\label{_u_w_b___handler_8h_a53c26686a888efa1696f116939990545} 
-void {\bfseries Restart\+\_\+\+UWB\+\_\+\+As\+\_\+\+Tag} ()
-\item 
-\Hypertarget{_u_w_b___handler_8h_a36b7fa8dd538039cf67315e96e26a5ca}\label{_u_w_b___handler_8h_a36b7fa8dd538039cf67315e96e26a5ca} 
-void {\bfseries Restart\+\_\+\+UWB\+\_\+\+As\+\_\+\+Anchor} ()
-\item 
-\Hypertarget{_u_w_b___handler_8h_a8f0a8e7a4ece1a0afd7beac4a1f08032}\label{_u_w_b___handler_8h_a8f0a8e7a4ece1a0afd7beac4a1f08032} 
-uint8\+\_\+t {\bfseries Is\+\_\+\+UWB\+\_\+\+Enabled} ()
-\item 
+void \doxymbox{\hyperlink{_u_w_b___handler_8h_aab700044d1c1eff50a15b9325e4d8905}{Initialize\+\_\+\+UWB}} ()
+\begin{DoxyCompactList}\small\item\em Initialize UWB hardware pins and reset line. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{_u_w_b___handler_8h_a04eefed7c7b89a87942a682f4b079f79}{Update\+\_\+\+UWB}} ()
+\begin{DoxyCompactList}\small\item\em Execute the UWB ranging loop. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{_u_w_b___handler_8h_a53c26686a888efa1696f116939990545}{Restart\+\_\+\+UWB\+\_\+\+As\+\_\+\+Tag}} ()
+\begin{DoxyCompactList}\small\item\em Restart UWB module in TAG mode. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{_u_w_b___handler_8h_a36b7fa8dd538039cf67315e96e26a5ca}{Restart\+\_\+\+UWB\+\_\+\+As\+\_\+\+Anchor}} ()
+\begin{DoxyCompactList}\small\item\em Restart UWB module in ANCHOR mode. \end{DoxyCompactList}\item 
+uint8\+\_\+t \doxymbox{\hyperlink{_u_w_b___handler_8h_a8f0a8e7a4ece1a0afd7beac4a1f08032}{Is\+\_\+\+UWB\+\_\+\+Enabled}} ()
+\begin{DoxyCompactList}\small\item\em Get whether UWB is currently enabled. \end{DoxyCompactList}\item 
 \Hypertarget{_u_w_b___handler_8h_a11c90ba8c4e89bb52cbe853b4b126e55}\label{_u_w_b___handler_8h_a11c90ba8c4e89bb52cbe853b4b126e55} 
 void {\bfseries Disable\+\_\+\+UWB} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Disable UWB processing. \end{DoxyCompactList}\item 
 \Hypertarget{_u_w_b___handler_8h_a94baa2c6f8c48fb29a6455f0271fb588}\label{_u_w_b___handler_8h_a94baa2c6f8c48fb29a6455f0271fb588} 
 void {\bfseries Enable\+\_\+\+UWB} ()
-\item 
-\Hypertarget{_u_w_b___handler_8h_a7f48e88ca77c11dfb6d89a62fc396d8b}\label{_u_w_b___handler_8h_a7f48e88ca77c11dfb6d89a62fc396d8b} 
-uint16\+\_\+t {\bfseries Get\+\_\+\+Short\+\_\+\+Address\+\_\+\+From\+\_\+\+Long} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}address)
-\item 
-\Hypertarget{_u_w_b___handler_8h_aaec03d82628b31c234ffd2cdcd2274fa}\label{_u_w_b___handler_8h_aaec03d82628b31c234ffd2cdcd2274fa} 
-int8\+\_\+t {\bfseries Get\+\_\+\+LGH\+\_\+\+From\+\_\+\+Short\+\_\+\+Address} (const uint16\+\_\+t short\+\_\+address)
-\item 
-\Hypertarget{_u_w_b___handler_8h_a203d1180fef16a82cad1fcd09cecac7a}\label{_u_w_b___handler_8h_a203d1180fef16a82cad1fcd09cecac7a} 
-int8\+\_\+t {\bfseries Get\+\_\+\+LGH\+\_\+\+From\+\_\+\+Address} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}address)
-\item 
-\Hypertarget{_u_w_b___handler_8h_a2b65504251274d271b2d9ad56638b135}\label{_u_w_b___handler_8h_a2b65504251274d271b2d9ad56638b135} 
-bool {\bfseries Are\+\_\+\+Addresses\+\_\+\+Equal} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}first, uint8\+\_\+t \texorpdfstring{$\ast$}{*}second)
-\item 
-\Hypertarget{_u_w_b___handler_8h_aa7bdee499d273973f46132f0f090bc92}\label{_u_w_b___handler_8h_aa7bdee499d273973f46132f0f090bc92} 
-void {\bfseries \+\_\+new\+\_\+range} ()
-\item 
-\Hypertarget{_u_w_b___handler_8h_a6abda2b2a9f21b376c38b1f2eba82772}\label{_u_w_b___handler_8h_a6abda2b2a9f21b376c38b1f2eba82772} 
-void {\bfseries \+\_\+new\+\_\+blink} (DW1000\+Device \texorpdfstring{$\ast$}{*}device)
-\item 
-\Hypertarget{_u_w_b___handler_8h_a130e39040f943b0c4a465cbda92715a1}\label{_u_w_b___handler_8h_a130e39040f943b0c4a465cbda92715a1} 
-void {\bfseries \+\_\+new\+\_\+device} (DW1000\+Device \texorpdfstring{$\ast$}{*}device)
-\item 
-\Hypertarget{_u_w_b___handler_8h_a9fe894aa59b24a7055ba350c1faa18c1}\label{_u_w_b___handler_8h_a9fe894aa59b24a7055ba350c1faa18c1} 
-void {\bfseries \+\_\+inactive\+\_\+device} (DW1000\+Device \texorpdfstring{$\ast$}{*}device)
-\item 
+\begin{DoxyCompactList}\small\item\em Enable UWB processing. \end{DoxyCompactList}\item 
+uint16\+\_\+t \doxymbox{\hyperlink{_u_w_b___handler_8h_a7f48e88ca77c11dfb6d89a62fc396d8b}{Get\+\_\+\+Short\+\_\+\+Address\+\_\+\+From\+\_\+\+Long}} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}address)
+\begin{DoxyCompactList}\small\item\em Convert a long (8-\/byte) UWB address to a short (2-\/byte) address. \end{DoxyCompactList}\item 
+int8\+\_\+t \doxymbox{\hyperlink{_u_w_b___handler_8h_aaec03d82628b31c234ffd2cdcd2274fa}{Get\+\_\+\+LGH\+\_\+\+From\+\_\+\+Short\+\_\+\+Address}} (const uint16\+\_\+t short\+\_\+address)
+\begin{DoxyCompactList}\small\item\em Get lighthouse index from short address. \end{DoxyCompactList}\item 
+int8\+\_\+t \doxymbox{\hyperlink{_u_w_b___handler_8h_a203d1180fef16a82cad1fcd09cecac7a}{Get\+\_\+\+LGH\+\_\+\+From\+\_\+\+Address}} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}address)
+\begin{DoxyCompactList}\small\item\em Get lighthouse index from full long address. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{_u_w_b___handler_8h_a2b65504251274d271b2d9ad56638b135}{Are\+\_\+\+Addresses\+\_\+\+Equal}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}first, uint8\+\_\+t \texorpdfstring{$\ast$}{*}second)
+\begin{DoxyCompactList}\small\item\em Compare two UWB addresses for equality. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{_u_w_b___handler_8h_aa7bdee499d273973f46132f0f090bc92}{\+\_\+new\+\_\+range}} ()
+\begin{DoxyCompactList}\small\item\em Callback invoked when a new ranging device is detected. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{_u_w_b___handler_8h_a6abda2b2a9f21b376c38b1f2eba82772}{\+\_\+new\+\_\+blink}} (DW1000\+Device \texorpdfstring{$\ast$}{*}device)
+\begin{DoxyCompactList}\small\item\em Callback invoked when a new blink device is detected. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{_u_w_b___handler_8h_a130e39040f943b0c4a465cbda92715a1}{\+\_\+new\+\_\+device}} (DW1000\+Device \texorpdfstring{$\ast$}{*}device)
+\begin{DoxyCompactList}\small\item\em Callback invoked when a device becomes inactive. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{_u_w_b___handler_8h_a9fe894aa59b24a7055ba350c1faa18c1}{\+\_\+inactive\+\_\+device}} (DW1000\+Device \texorpdfstring{$\ast$}{*}device)
+\begin{DoxyCompactList}\small\item\em Callback invoked when a device is removed due to inactivity. \end{DoxyCompactList}\item 
 \Hypertarget{_u_w_b___handler_8h_a4cc3c57e27d7b0b936b0f27f86b4bfc4}\label{_u_w_b___handler_8h_a4cc3c57e27d7b0b936b0f27f86b4bfc4} 
 void {\bfseries \+\_\+reset\+\_\+\+DW1000} ()
-\item 
-\Hypertarget{_u_w_b___handler_8h_a967d5aba1afc84766942e5d8eb2b523d}\label{_u_w_b___handler_8h_a967d5aba1afc84766942e5d8eb2b523d} 
-void {\bfseries \+\_\+format\+\_\+address\+\_\+to\+\_\+string} (uint8\+\_\+t lgh\+\_\+index, char address\+\_\+str\+[24]\+)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Reset DW1000 hardware using the reset pin. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{_u_w_b___handler_8h_a967d5aba1afc84766942e5d8eb2b523d}{\+\_\+format\+\_\+address\+\_\+to\+\_\+string}} (uint8\+\_\+t lgh\+\_\+index, char address\+\_\+str\+[24]\+)
+\begin{DoxyCompactList}\small\item\em Format a lighthouse long address into a readable string. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -85,13 +71,217 @@ const int8\+\_\+t {\bfseries PIN\+\_\+\+SCK} = 18
 \item 
 \Hypertarget{_u_w_b___handler_8h_ad5ca857d6752fa3c47a659641d9687dc}\label{_u_w_b___handler_8h_ad5ca857d6752fa3c47a659641d9687dc} 
 const uint8\+\_\+t {\bfseries uwb\+\_\+addresses\+\_\+from\+\_\+\+LGH} \+[\doxymbox{\hyperlink{_lighthouse_config_8h_ad733a36008e3e7e7b67db0dfcf0f18c4}{NUMBER\+\_\+\+OF\+\_\+\+LIGHTHOUSES}}]\+\+[UWB\+\_\+\+ADDRESS\+\_\+\+LENGTH]\+
-\item 
+\begin{DoxyCompactList}\small\item\em UWB addresses for each lighthouse. \end{DoxyCompactList}\item 
 \Hypertarget{_u_w_b___handler_8h_ab439eb28b669bfcf33d3e34a6f780695}\label{_u_w_b___handler_8h_ab439eb28b669bfcf33d3e34a6f780695} 
 uint8\+\_\+t {\bfseries uwb\+\_\+enable}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em UWB enable flag. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 UWB (Ultra Wide Band) initialization and handling utilities. 
 
 This module provides configuration and helper functions for DW1000-\/based UWB communication. It includes initialization, enabling/\+disabling, address conversion and callback handlers for UWB events. 
+
+\label{doc-func-members}
+\Hypertarget{_u_w_b___handler_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{_u_w_b___handler_8h_a967d5aba1afc84766942e5d8eb2b523d}\index{UWB\_Handler.h@{UWB\_Handler.h}!\_format\_address\_to\_string@{\_format\_address\_to\_string}}
+\index{\_format\_address\_to\_string@{\_format\_address\_to\_string}!UWB\_Handler.h@{UWB\_Handler.h}}
+\doxysubsubsection{\texorpdfstring{\_format\_address\_to\_string()}{\_format\_address\_to\_string()}}
+{\footnotesize\ttfamily \label{_u_w_b___handler_8h_a967d5aba1afc84766942e5d8eb2b523d} 
+void \+\_\+format\+\_\+address\+\_\+to\+\_\+string (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{lgh\+\_\+index}{, }\item[{char}]{address\+\_\+str}{\+[24]\+}\end{DoxyParamCaption})}
+
+
+
+Format a lighthouse long address into a readable string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lgh\+\_\+index} & Index of lighthouse to format address from. \\
+\hline
+{\em address\+\_\+str} & Output buffer to store formatted string (at least 24 bytes). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_u_w_b___handler_8h_a9fe894aa59b24a7055ba350c1faa18c1}\index{UWB\_Handler.h@{UWB\_Handler.h}!\_inactive\_device@{\_inactive\_device}}
+\index{\_inactive\_device@{\_inactive\_device}!UWB\_Handler.h@{UWB\_Handler.h}}
+\doxysubsubsection{\texorpdfstring{\_inactive\_device()}{\_inactive\_device()}}
+{\footnotesize\ttfamily \label{_u_w_b___handler_8h_a9fe894aa59b24a7055ba350c1faa18c1} 
+void \+\_\+inactive\+\_\+device (\begin{DoxyParamCaption}\item[{DW1000\+Device \texorpdfstring{$\ast$}{*}}]{device}{}\end{DoxyParamCaption})}
+
+
+
+Callback invoked when a device is removed due to inactivity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Pointer to the inactive DW1000 device. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_u_w_b___handler_8h_a6abda2b2a9f21b376c38b1f2eba82772}\index{UWB\_Handler.h@{UWB\_Handler.h}!\_new\_blink@{\_new\_blink}}
+\index{\_new\_blink@{\_new\_blink}!UWB\_Handler.h@{UWB\_Handler.h}}
+\doxysubsubsection{\texorpdfstring{\_new\_blink()}{\_new\_blink()}}
+{\footnotesize\ttfamily \label{_u_w_b___handler_8h_a6abda2b2a9f21b376c38b1f2eba82772} 
+void \+\_\+new\+\_\+blink (\begin{DoxyParamCaption}\item[{DW1000\+Device \texorpdfstring{$\ast$}{*}}]{device}{}\end{DoxyParamCaption})}
+
+
+
+Callback invoked when a new blink device is detected. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Pointer to the detected DW1000 device. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_u_w_b___handler_8h_a130e39040f943b0c4a465cbda92715a1}\index{UWB\_Handler.h@{UWB\_Handler.h}!\_new\_device@{\_new\_device}}
+\index{\_new\_device@{\_new\_device}!UWB\_Handler.h@{UWB\_Handler.h}}
+\doxysubsubsection{\texorpdfstring{\_new\_device()}{\_new\_device()}}
+{\footnotesize\ttfamily \label{_u_w_b___handler_8h_a130e39040f943b0c4a465cbda92715a1} 
+void \+\_\+new\+\_\+device (\begin{DoxyParamCaption}\item[{DW1000\+Device \texorpdfstring{$\ast$}{*}}]{device}{}\end{DoxyParamCaption})}
+
+
+
+Callback invoked when a device becomes inactive. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Pointer to the inactive DW1000 device. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_u_w_b___handler_8h_aa7bdee499d273973f46132f0f090bc92}\index{UWB\_Handler.h@{UWB\_Handler.h}!\_new\_range@{\_new\_range}}
+\index{\_new\_range@{\_new\_range}!UWB\_Handler.h@{UWB\_Handler.h}}
+\doxysubsubsection{\texorpdfstring{\_new\_range()}{\_new\_range()}}
+{\footnotesize\ttfamily \label{_u_w_b___handler_8h_aa7bdee499d273973f46132f0f090bc92} 
+void \+\_\+new\+\_\+range (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Callback invoked when a new ranging device is detected. 
+
+Triggers a state machine update with new range data. \Hypertarget{_u_w_b___handler_8h_a2b65504251274d271b2d9ad56638b135}\index{UWB\_Handler.h@{UWB\_Handler.h}!Are\_Addresses\_Equal@{Are\_Addresses\_Equal}}
+\index{Are\_Addresses\_Equal@{Are\_Addresses\_Equal}!UWB\_Handler.h@{UWB\_Handler.h}}
+\doxysubsubsection{\texorpdfstring{Are\_Addresses\_Equal()}{Are\_Addresses\_Equal()}}
+{\footnotesize\ttfamily \label{_u_w_b___handler_8h_a2b65504251274d271b2d9ad56638b135} 
+bool Are\+\_\+\+Addresses\+\_\+\+Equal (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{first}{, }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{second}{}\end{DoxyParamCaption})}
+
+
+
+Compare two UWB addresses for equality. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em first} & Pointer to the first address array. \\
+\hline
+{\em second} & Pointer to the second address array. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if both addresses match, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{_u_w_b___handler_8h_a203d1180fef16a82cad1fcd09cecac7a}\index{UWB\_Handler.h@{UWB\_Handler.h}!Get\_LGH\_From\_Address@{Get\_LGH\_From\_Address}}
+\index{Get\_LGH\_From\_Address@{Get\_LGH\_From\_Address}!UWB\_Handler.h@{UWB\_Handler.h}}
+\doxysubsubsection{\texorpdfstring{Get\_LGH\_From\_Address()}{Get\_LGH\_From\_Address()}}
+{\footnotesize\ttfamily \label{_u_w_b___handler_8h_a203d1180fef16a82cad1fcd09cecac7a} 
+int8\+\_\+t Get\+\_\+\+LGH\+\_\+\+From\+\_\+\+Address (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{address}{}\end{DoxyParamCaption})}
+
+
+
+Get lighthouse index from full long address. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & Pointer to an 8-\/byte long address. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int8\+\_\+t Lighthouse index if found, -\/1 if not found. 
+\end{DoxyReturn}
+\Hypertarget{_u_w_b___handler_8h_aaec03d82628b31c234ffd2cdcd2274fa}\index{UWB\_Handler.h@{UWB\_Handler.h}!Get\_LGH\_From\_Short\_Address@{Get\_LGH\_From\_Short\_Address}}
+\index{Get\_LGH\_From\_Short\_Address@{Get\_LGH\_From\_Short\_Address}!UWB\_Handler.h@{UWB\_Handler.h}}
+\doxysubsubsection{\texorpdfstring{Get\_LGH\_From\_Short\_Address()}{Get\_LGH\_From\_Short\_Address()}}
+{\footnotesize\ttfamily \label{_u_w_b___handler_8h_aaec03d82628b31c234ffd2cdcd2274fa} 
+int8\+\_\+t Get\+\_\+\+LGH\+\_\+\+From\+\_\+\+Short\+\_\+\+Address (\begin{DoxyParamCaption}\item[{const uint16\+\_\+t}]{short\+\_\+address}{}\end{DoxyParamCaption})}
+
+
+
+Get lighthouse index from short address. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em short\+\_\+address} & Short UWB address to match. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int8\+\_\+t Lighthouse index if found, -\/1 if not found. 
+\end{DoxyReturn}
+\Hypertarget{_u_w_b___handler_8h_a7f48e88ca77c11dfb6d89a62fc396d8b}\index{UWB\_Handler.h@{UWB\_Handler.h}!Get\_Short\_Address\_From\_Long@{Get\_Short\_Address\_From\_Long}}
+\index{Get\_Short\_Address\_From\_Long@{Get\_Short\_Address\_From\_Long}!UWB\_Handler.h@{UWB\_Handler.h}}
+\doxysubsubsection{\texorpdfstring{Get\_Short\_Address\_From\_Long()}{Get\_Short\_Address\_From\_Long()}}
+{\footnotesize\ttfamily \label{_u_w_b___handler_8h_a7f48e88ca77c11dfb6d89a62fc396d8b} 
+uint16\+\_\+t Get\+\_\+\+Short\+\_\+\+Address\+\_\+\+From\+\_\+\+Long (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{address}{}\end{DoxyParamCaption})}
+
+
+
+Convert a long (8-\/byte) UWB address to a short (2-\/byte) address. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & Pointer to an 8-\/byte long address. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint16\+\_\+t Short address derived from the first two bytes. 
+\end{DoxyReturn}
+\Hypertarget{_u_w_b___handler_8h_aab700044d1c1eff50a15b9325e4d8905}\index{UWB\_Handler.h@{UWB\_Handler.h}!Initialize\_UWB@{Initialize\_UWB}}
+\index{Initialize\_UWB@{Initialize\_UWB}!UWB\_Handler.h@{UWB\_Handler.h}}
+\doxysubsubsection{\texorpdfstring{Initialize\_UWB()}{Initialize\_UWB()}}
+{\footnotesize\ttfamily \label{_u_w_b___handler_8h_aab700044d1c1eff50a15b9325e4d8905} 
+void Initialize\+\_\+\+UWB (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Initialize UWB hardware pins and reset line. 
+
+This function configures the reset pin for the DW1000 module and sets it to HIGH. \Hypertarget{_u_w_b___handler_8h_a8f0a8e7a4ece1a0afd7beac4a1f08032}\index{UWB\_Handler.h@{UWB\_Handler.h}!Is\_UWB\_Enabled@{Is\_UWB\_Enabled}}
+\index{Is\_UWB\_Enabled@{Is\_UWB\_Enabled}!UWB\_Handler.h@{UWB\_Handler.h}}
+\doxysubsubsection{\texorpdfstring{Is\_UWB\_Enabled()}{Is\_UWB\_Enabled()}}
+{\footnotesize\ttfamily \label{_u_w_b___handler_8h_a8f0a8e7a4ece1a0afd7beac4a1f08032} 
+uint8\+\_\+t Is\+\_\+\+UWB\+\_\+\+Enabled (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Get whether UWB is currently enabled. 
+
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t 1 if UWB is enabled, 0 otherwise. 
+\end{DoxyReturn}
+\Hypertarget{_u_w_b___handler_8h_a36b7fa8dd538039cf67315e96e26a5ca}\index{UWB\_Handler.h@{UWB\_Handler.h}!Restart\_UWB\_As\_Anchor@{Restart\_UWB\_As\_Anchor}}
+\index{Restart\_UWB\_As\_Anchor@{Restart\_UWB\_As\_Anchor}!UWB\_Handler.h@{UWB\_Handler.h}}
+\doxysubsubsection{\texorpdfstring{Restart\_UWB\_As\_Anchor()}{Restart\_UWB\_As\_Anchor()}}
+{\footnotesize\ttfamily \label{_u_w_b___handler_8h_a36b7fa8dd538039cf67315e96e26a5ca} 
+void Restart\+\_\+\+UWB\+\_\+\+As\+\_\+\+Anchor (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Restart UWB module in ANCHOR mode. 
+
+Performs hardware reset, reinitializes SPI and DW1000, attaches callbacks and starts DW1000 ranging as an ANCHOR. \Hypertarget{_u_w_b___handler_8h_a53c26686a888efa1696f116939990545}\index{UWB\_Handler.h@{UWB\_Handler.h}!Restart\_UWB\_As\_Tag@{Restart\_UWB\_As\_Tag}}
+\index{Restart\_UWB\_As\_Tag@{Restart\_UWB\_As\_Tag}!UWB\_Handler.h@{UWB\_Handler.h}}
+\doxysubsubsection{\texorpdfstring{Restart\_UWB\_As\_Tag()}{Restart\_UWB\_As\_Tag()}}
+{\footnotesize\ttfamily \label{_u_w_b___handler_8h_a53c26686a888efa1696f116939990545} 
+void Restart\+\_\+\+UWB\+\_\+\+As\+\_\+\+Tag (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Restart UWB module in TAG mode. 
+
+Performs hardware reset, reinitializes SPI and DW1000, attaches callbacks and starts DW1000 ranging as a TAG. \Hypertarget{_u_w_b___handler_8h_a04eefed7c7b89a87942a682f4b079f79}\index{UWB\_Handler.h@{UWB\_Handler.h}!Update\_UWB@{Update\_UWB}}
+\index{Update\_UWB@{Update\_UWB}!UWB\_Handler.h@{UWB\_Handler.h}}
+\doxysubsubsection{\texorpdfstring{Update\_UWB()}{Update\_UWB()}}
+{\footnotesize\ttfamily \label{_u_w_b___handler_8h_a04eefed7c7b89a87942a682f4b079f79} 
+void Update\+\_\+\+UWB (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Execute the UWB ranging loop. 
+
+Should be called periodically to process UWB events and update ranging data. 

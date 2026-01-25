@@ -14,3 +14,6 @@ STM32 podłączone do ESP32 poprzez UART, oraz do LCD poprzez I2C.
 - przerwania: tak, od timera, od DMA
 - delay: brak
 - możliwość wykorzystania kodu w innym projekcie: tak, praktycznie stworzono bibliotekę do obsługi LCD.
+
+## Link do głównej dokumentacji:
+* - [Dokumentacja](../../../../Doxygen/output/html/index.html)

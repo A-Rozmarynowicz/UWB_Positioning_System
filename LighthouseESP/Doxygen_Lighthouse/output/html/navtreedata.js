@@ -28,7 +28,9 @@ var NAVTREE =
     [ "LighthouseESP", "index.html#autotoc_md0", [
       [ "Opis logiki", "index.html#autotoc_md1", null ],
       [ "Hardware", "index.html#autotoc_md2", null ],
-      [ "Do formularza:", "index.html#autotoc_md3", null ]
+      [ "Do formularza:", "index.html#autotoc_md3", null ],
+      [ "Uwaga", "index.html#autotoc_md4", null ],
+      [ "Link do głównej dokumentacji:", "index.html#autotoc_md5", null ]
     ] ],
     [ "Topics", "topics.html", "topics" ],
     [ "Namespaces", "namespaces.html", [

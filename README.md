@@ -11,3 +11,6 @@ Arkadiusz Rozmarynowicz
 - W folderze "Observer" znajduje się kod wgrywany do mobilnego ESP odpowiadającego za komunikację z latarniami.
 - W folderze "Sailor" znajduje się kod wgrywany do STM32 podłączonego do mobilnego ESP, odpowiadającego za wyświetlanie mierzonej pozycji na wyświetlaczu LCD.
 - W folderze "MATLAB_Simulations" znajdują się symulacje MATLAB.
+
+## Do formularza
+W każdym podprojekcie w README znajduje się pomoc w wypełnianiu formularza do oceny.

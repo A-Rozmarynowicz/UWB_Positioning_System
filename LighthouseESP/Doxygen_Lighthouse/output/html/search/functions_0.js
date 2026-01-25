@@ -2,13 +2,19 @@ var searchData=
 [
   ['_5fbutton_5fisr_0',['_button_ISR',['../_interface_8h.html#a0b5a04ff797267f65e8c78340838b011',1,'Interface.cpp']]],
   ['_5fcommunication_5ferror_1',['_communication_error',['../_communication_8h.html#a727a150d05439f0ffd3a9ff198f82e8b',1,'Communication.cpp']]],
-  ['_5fon_5fack_5ftimer_5ftimeout_2',['_on_ack_timer_timeout',['../_timing_8h.html#af93d879c05958ab04769c455da43b421',1,'Timing.cpp']]],
-  ['_5fon_5fuwb_5factivation_5ftimer_5ftimeout_3',['_on_UWB_activation_timer_timeout',['../_timing_8h.html#a07b12639c88cc9df7977d2ab4224b969',1,'Timing.cpp']]],
-  ['_5freceive_5fcallback_4',['_receive_callback',['../_communication_8h.html#a90cd84e65fc70f7c9b04995f68ef505f',1,'Communication.cpp']]],
-  ['_5fsend_5fesp_5',['_send_esp',['../_communication_8h.html#a3cf83a241a1209a64ef0481ef1c320bc',1,'Communication.cpp']]],
-  ['_5fsent_5fcallback_6',['_sent_callback',['../_communication_8h.html#a4ec3145a53468061570ad150e3a99749',1,'Communication.cpp']]],
-  ['_5fset_5flgh_5f1_5fposition_7',['_set_LGH_1_position',['../_measure_8h.html#a16cc4c28780495c66196948438d5efe1',1,'Measure.cpp']]],
-  ['_5fset_5flgh_5f2_5fposition_8',['_set_LGH_2_position',['../_measure_8h.html#a240abbec25dedd9c43e2368bbdfad14c',1,'Measure.cpp']]],
-  ['_5fset_5flgh_5f3_5fposition_9',['_set_LGH_3_position',['../_measure_8h.html#ac1a1095b3137980495d24923977f7510',1,'Measure.cpp']]],
-  ['_5fset_5flgh_5f4plus_5fposition_10',['_set_LGH_4plus_position',['../_measure_8h.html#ab3051edfbac08774e98634d50480df0a',1,'Measure.cpp']]]
+  ['_5fformat_5faddress_5fto_5fstring_2',['_format_address_to_string',['../_u_w_b___handler_8h.html#a967d5aba1afc84766942e5d8eb2b523d',1,'UWB_Handler.cpp']]],
+  ['_5finactive_5fdevice_3',['_inactive_device',['../_u_w_b___handler_8h.html#a9fe894aa59b24a7055ba350c1faa18c1',1,'UWB_Handler.cpp']]],
+  ['_5fnew_5fblink_4',['_new_blink',['../_u_w_b___handler_8h.html#a6abda2b2a9f21b376c38b1f2eba82772',1,'UWB_Handler.cpp']]],
+  ['_5fnew_5fdevice_5',['_new_device',['../_u_w_b___handler_8h.html#a130e39040f943b0c4a465cbda92715a1',1,'UWB_Handler.cpp']]],
+  ['_5fnew_5frange_6',['_new_range',['../_u_w_b___handler_8h.html#aa7bdee499d273973f46132f0f090bc92',1,'UWB_Handler.cpp']]],
+  ['_5fon_5fack_5ftimer_5ftimeout_7',['_on_ack_timer_timeout',['../_timing_8h.html#af93d879c05958ab04769c455da43b421',1,'Timing.cpp']]],
+  ['_5fon_5fuwb_5factivation_5ftimer_5ftimeout_8',['_on_UWB_activation_timer_timeout',['../_timing_8h.html#a07b12639c88cc9df7977d2ab4224b969',1,'Timing.cpp']]],
+  ['_5freceive_5fcallback_9',['_receive_callback',['../_communication_8h.html#a90cd84e65fc70f7c9b04995f68ef505f',1,'Communication.cpp']]],
+  ['_5freset_5fdw1000_10',['_reset_DW1000',['../_u_w_b___handler_8h.html#a4cc3c57e27d7b0b936b0f27f86b4bfc4',1,'UWB_Handler.cpp']]],
+  ['_5fsend_5fesp_11',['_send_esp',['../_communication_8h.html#a3cf83a241a1209a64ef0481ef1c320bc',1,'Communication.cpp']]],
+  ['_5fsent_5fcallback_12',['_sent_callback',['../_communication_8h.html#a4ec3145a53468061570ad150e3a99749',1,'Communication.cpp']]],
+  ['_5fset_5flgh_5f1_5fposition_13',['_set_LGH_1_position',['../_measure_8h.html#a16cc4c28780495c66196948438d5efe1',1,'Measure.cpp']]],
+  ['_5fset_5flgh_5f2_5fposition_14',['_set_LGH_2_position',['../_measure_8h.html#a240abbec25dedd9c43e2368bbdfad14c',1,'Measure.cpp']]],
+  ['_5fset_5flgh_5f3_5fposition_15',['_set_LGH_3_position',['../_measure_8h.html#ac1a1095b3137980495d24923977f7510',1,'Measure.cpp']]],
+  ['_5fset_5flgh_5f4plus_5fposition_16',['_set_LGH_4plus_position',['../_measure_8h.html#ab3051edfbac08774e98634d50480df0a',1,'Measure.cpp']]]
 ];

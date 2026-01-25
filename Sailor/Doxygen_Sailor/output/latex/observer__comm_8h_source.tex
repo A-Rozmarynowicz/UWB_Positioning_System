@@ -1,53 +1,53 @@
 \doxysection{observer\+\_\+comm.\+h}
 \hypertarget{observer__comm_8h_source}{}\label{observer__comm_8h_source}\index{Core/Inc/observer\_comm.h@{Core/Inc/observer\_comm.h}}
-
+\doxymbox{\hyperlink{observer__comm_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
-\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ observer\_comm.h}}
-\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ Created\ on:\ Jan\ 7,\ 2026}}
-\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ \ \ \ \ Author:\ arekr}}
-\DoxyCodeLine{00006\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ INC\_OBSERVER\_COMM\_H\_}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ INC\_OBSERVER\_COMM\_H\_}}
+\DoxyCodeLine{00001\ }
 \DoxyCodeLine{00010\ }
-\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}lcd\_handler.h"{}}}
-\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}stm32l4xx\_hal.h"{}}}
-\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}string.h"{}}}
-\DoxyCodeLine{00014\ }
-\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ OBSERVER\_MESSAGE\_SIZE\ 16}}
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ Observer\_Info\_Setup\ \{}
-\DoxyCodeLine{00018\ \ \ \ \ OBS\_ERROR\_CODE\ =\ 0,}
-\DoxyCodeLine{00019\ \ \ \ \ OBS\_POSITION\_STRUCT\ =\ 4,}
-\DoxyCodeLine{00020\ \}\ Observer\_Info\_Setup;}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_position}{Position}}\ \{}
-\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{float}\ x;}
-\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{float}\ y;}
-\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{float}\ z;}
-\DoxyCodeLine{00026\ \};}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \textcolor{keyword}{extern}\ TIM\_HandleTypeDef*\ refresh\_info\_timer\_h;}
-\DoxyCodeLine{00029\ \textcolor{keyword}{extern}\ UART\_HandleTypeDef*\ obs\_uart\_h;}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifndef\ INC\_OBSERVER\_COMM\_H\_}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ INC\_OBSERVER\_COMM\_H\_}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lcd__handler_8h}{lcd\_handler.h}}"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}stm32l4xx\_hal.h"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}string.h"{}}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ OBSERVER\_MESSAGE\_SIZE\ 16}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \doxymbox{\hyperlink{observer__comm_8h_aa6bebde896efa3196e1e90702de30e53}{Observer\_Info\_Setup}}\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ OBS\_ERROR\_CODE\ =\ 0,}
+\DoxyCodeLine{00027\ \ \ \ \ OBS\_POSITION\_STRUCT\ =\ 4,}
+\DoxyCodeLine{00028\ \}\ \doxymbox{\hyperlink{observer__comm_8h_aa6bebde896efa3196e1e90702de30e53}{Observer\_Info\_Setup}};}
+\DoxyCodeLine{00029\ }
 \DoxyCodeLine{00030\ }
-\DoxyCodeLine{00031\ \textcolor{keyword}{extern}\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_position}{Position}}\ current\_position;}
-\DoxyCodeLine{00032\ \textcolor{keyword}{extern}\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_position}{Position}}\ initial\_position;}
-\DoxyCodeLine{00033\ \textcolor{keyword}{extern}\ uint8\_t\ obs\_uart\_receive\_buffer[OBSERVER\_MESSAGE\_SIZE];}
-\DoxyCodeLine{00034\ }
-\DoxyCodeLine{00035\ \textcolor{comment}{//\ Public}}
-\DoxyCodeLine{00036\ HAL\_StatusTypeDef\ Initialize\_Observer\_Comm(TIM\_HandleTypeDef*\ refresh\_tim\_handle,\ UART\_HandleTypeDef*\ obs\_uart\_handle);}
-\DoxyCodeLine{00037\ \textcolor{keywordtype}{float}\ Get\_Position\_Vector\_Length(\textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct_position}{Position}}*\ pos);}
-\DoxyCodeLine{00038\ }
-\DoxyCodeLine{00039\ \textcolor{comment}{//\ Private}}
-\DoxyCodeLine{00040\ \textcolor{keywordtype}{void}\ \_read\_position();}
-\DoxyCodeLine{00041\ LCD\_Status\ \_print\_position\_to\_lcd();}
-\DoxyCodeLine{00042\ }
-\DoxyCodeLine{00043\ HAL\_StatusTypeDef\ \_obs\_timer\_period\_elapsed\_it\_callback(TIM\_HandleTypeDef\ *htim);}
-\DoxyCodeLine{00044\ HAL\_StatusTypeDef\ \_obs\_uart\_receive\_it\_callback(UART\_HandleTypeDef\ *huart);}
-\DoxyCodeLine{00045\ HAL\_StatusTypeDef\ \_obs\_uart\_transmit\_it\_callback(UART\_HandleTypeDef\ *huart);}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ INC\_OBSERVER\_COMM\_H\_\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00035\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_position}{Position}}\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{float}\ x;}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{float}\ y;}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{float}\ z;}
+\DoxyCodeLine{00039\ \};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{extern}\ TIM\_HandleTypeDef*\ \doxymbox{\hyperlink{observer__comm_8h_a80eb72e06fae005bdda0b2297f2580ba}{refresh\_info\_timer\_h}};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{extern}\ UART\_HandleTypeDef*\ \doxymbox{\hyperlink{observer__comm_8h_afc33d453c63fdef884b3eb6aef4e24ef}{obs\_uart\_h}};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00054\ \textcolor{keyword}{extern}\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_position}{Position}}\ \doxymbox{\hyperlink{observer__comm_8h_a56f8098d6b9ecb628a5bee992b3c9820}{current\_position}};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00059\ \textcolor{keyword}{extern}\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_position}{Position}}\ \doxymbox{\hyperlink{observer__comm_8h_afda72cdb8ec6b8e1ba62a697fa40d07e}{initial\_position}};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00064\ \textcolor{keyword}{extern}\ uint8\_t\ \doxymbox{\hyperlink{observer__comm_8h_ad7ceca4eea279384296f76cca07178ff}{obs\_uart\_receive\_buffer}}[OBSERVER\_MESSAGE\_SIZE];}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{comment}{//\ Public}}
+\DoxyCodeLine{00067\ HAL\_StatusTypeDef\ \doxymbox{\hyperlink{observer__comm_8h_aee8da0959f34cf7ae211e00e3893f82b}{Initialize\_Observer\_Comm}}(TIM\_HandleTypeDef*\ refresh\_tim\_handle,\ UART\_HandleTypeDef*\ obs\_uart\_handle);}
+\DoxyCodeLine{00068\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{observer__comm_8h_a77c47c080d9eef612bd5659772f34d26}{Get\_Position\_Vector\_Length}}(\textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct_position}{Position}}*\ pos);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{comment}{//\ Private}}
+\DoxyCodeLine{00071\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{observer__comm_8h_a3bef78ebb64e67becf20dfd3ec84eb75}{\_read\_position}}();}
+\DoxyCodeLine{00072\ \doxymbox{\hyperlink{lcd__handler_8h_a089548ab4cb7759df05b6522b5c93dfa}{LCD\_Status}}\ \doxymbox{\hyperlink{observer__comm_8h_a031a3858d2f7590efc93ca30d6f6127f}{\_print\_position\_to\_lcd}}();}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ HAL\_StatusTypeDef\ \doxymbox{\hyperlink{observer__comm_8h_a05d9494c79d276f330741e66e0deb7cd}{\_obs\_timer\_period\_elapsed\_it\_callback}}(TIM\_HandleTypeDef\ *htim);}
+\DoxyCodeLine{00075\ HAL\_StatusTypeDef\ \doxymbox{\hyperlink{observer__comm_8h_ae6db9d1523d2c38d36d1f0dd7b1998f8}{\_obs\_uart\_receive\_it\_callback}}(UART\_HandleTypeDef\ *huart);}
+\DoxyCodeLine{00076\ HAL\_StatusTypeDef\ \doxymbox{\hyperlink{observer__comm_8h_ac0e9ef33082eba7189d91074843443a5}{\_obs\_uart\_transmit\_it\_callback}}(UART\_HandleTypeDef\ *huart);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ INC\_OBSERVER\_COMM\_H\_\ */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

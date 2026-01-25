@@ -1,20 +1,20 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * @file           : main.c
-  * @brief          : Main program body
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2025 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ * @file main.c
+ * @brief Main application entry point and peripheral initialization.
+ *
+ * @author Arkadiusz Rozmarynowicz
+ * @date 01.2026
+ * @details
+ * This file contains the primary entry point for the firmware, configures
+ * system clocks and peripherals, and starts the application modules.
+ *
+ * It provides:
+ * - System and peripheral initialization (GPIO, DMA, I2C, UART, TIM)
+ * - Main application loop
+ * - HAL callback handlers for UART, I2C, and TIM events
+ * - Error handling routines
+ */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"

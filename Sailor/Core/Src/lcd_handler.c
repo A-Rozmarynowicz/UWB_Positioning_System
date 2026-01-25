@@ -13,11 +13,23 @@ const uint8_t R_LCD_COORDS[2] = {1, 9};
 const uint8_t LCD_MESSAGE_WIDTH = 8;
 
 // Public
+
+/**
+ * @brief Initializes LCD handler and configures LCD controller.
+ * @param i2c_handle Pointer to the I2C handle used for LCD communication.
+ * @return LCD_OK if initialization succeeded, otherwise an LCD error code.
+ */
 LCD_Status Initialize_LCD_Handler(I2C_HandleTypeDef* i2c_handle){
 	h_lcd_i2c = i2c_handle;
 	return _lcd_init();
 };
 
+/**
+ * @brief Sets the LCD cursor position.
+ * @param row LCD row (0 or 1).
+ * @param column LCD column (0..15).
+ * @return LCD_OK on success, otherwise an LCD error code.
+ */
 LCD_Status Put_Cursor(uint8_t row, uint8_t column){
 	switch (row)
 	{
@@ -31,6 +43,12 @@ LCD_Status Put_Cursor(uint8_t row, uint8_t column){
 	return _add_command_to_queue(column);
 }
 
+/**
+ * @brief Prints a string on the LCD using the internal command queue.
+ * @param txt Pointer to the character buffer to print.
+ * @param size Number of characters to print.
+ * @return LCD_OK on success, otherwise an LCD error code.
+ */
 LCD_Status Print_String(char* txt, uint8_t size){
 	if (_has_queue_space(size*COMMAND_SIZE) == 0){
 		return LCD_QUEUE_FULL;
@@ -45,11 +63,27 @@ LCD_Status Print_String(char* txt, uint8_t size){
 	return LCD_OK;
 }
 
+/**
+ * @brief Prints a string at a specific LCD position.
+ * @param txt Pointer to the character buffer to print.
+ * @param size Number of characters to print.
+ * @param row Target row on the LCD.
+ * @param column Target column on the LCD.
+ * @return LCD_OK on success, otherwise an LCD error code.
+ */
 LCD_Status Print_String_At_Pos(char* txt, uint8_t size, uint8_t row, uint8_t column){
 	Put_Cursor(row, column);
 	return Print_String(txt, size);
 }
 
+/**
+ * @brief Prints x, y, z coordinates and radius R on the LCD.
+ * @param x X coordinate.
+ * @param y Y coordinate.
+ * @param z Z coordinate.
+ * @param R Radius or distance value.
+ * @return LCD_OK on success, otherwise LCD_HAL_ERROR if transmission failed.
+ */
 LCD_Status Print_Whole_Position(float x, float y, float z, float R){
 	char buffer[32];
 	uint8_t size = 0;
@@ -81,6 +115,11 @@ LCD_Status Print_Whole_Position(float x, float y, float z, float R){
 }
 
 // Private
+
+/**
+ * @brief Starts transmission of the next queued byte over I2C if none is ongoing.
+ * @return HAL_OK if transmission started, otherwise HAL_ERROR or LCD_QUEUE_EMPTY.
+ */
 HAL_StatusTypeDef _begin_transmission(){
 	if (tail_pointer == head_pointer){
 		return LCD_QUEUE_EMPTY;
@@ -96,14 +135,26 @@ HAL_StatusTypeDef _begin_transmission(){
 	return HAL_OK;
 }
 
+
+/**
+ * @brief Returns whether a transmission is currently in progress.
+ * @return 1 if transmission is active, otherwise 0.
+ */
 uint8_t _is_transmission_going(){
 	return transmission_going;
 }
 
+/**
+ * @brief Stops the ongoing transmission.
+ */
 void _stop_transmission(){
 	transmission_going = 0;
 }
 
+/**
+ * @brief Advances the tail pointer by a given amount, wrapping around the queue.
+ * @param inc Number of bytes to advance.
+ */
 void _increase_tail_pointer(uint16_t inc){
 	if (tail_pointer == head_pointer){
 		return;
@@ -119,6 +170,11 @@ void _increase_tail_pointer(uint16_t inc){
 	tail_pointer = new_tail_pointer;
 }
 
+/**
+ * @brief Copies a buffer into the transmission queue.
+ * @param buffer Pointer to data to enqueue.
+ * @return LCD_OK if success, otherwise LCD_QUEUE_FULL.
+ */
 LCD_Status _copy_buffer_to_queue(uint8_t* buffer){
 	uint16_t data_size = sizeof(buffer);
 	if (_has_queue_space(data_size) == 0){
@@ -143,6 +199,11 @@ LCD_Status _copy_buffer_to_queue(uint8_t* buffer){
 	}
 }
 
+/**
+ * @brief Checks if there is enough space in the queue for a given number of bytes.
+ * @param data_size Number of bytes to add.
+ * @return 1 if there is space, otherwise 0.
+ */
 uint8_t _has_queue_space(uint16_t data_size){
 	if (head_pointer == tail_pointer){
 		return 1;
@@ -156,6 +217,11 @@ uint8_t _has_queue_space(uint16_t data_size){
 	return 0;
 }
 
+/**
+ * @brief Converts a command byte into 4 I2C nibbles and enqueues it.
+ * @param cmd Command byte to send.
+ * @return LCD_OK if success, otherwise LCD_QUEUE_FULL.
+ */
 LCD_Status _add_command_to_queue(char cmd){
 	if (_has_queue_space(COMMAND_SIZE) == 0){
 		return LCD_QUEUE_FULL;
@@ -174,6 +240,11 @@ LCD_Status _add_command_to_queue(char cmd){
 	return _copy_buffer_to_queue(data_t);
 }
 
+/**
+ * @brief Converts a data byte into 4 I2C nibbles and enqueues it.
+ * @param data Data byte to send.
+ * @return LCD_OK if success, otherwise LCD_QUEUE_FULL.
+ */
 LCD_Status _add_data_to_queue(char data) {
 	if (_has_queue_space(COMMAND_SIZE) == 0){
 		return LCD_QUEUE_FULL;
@@ -189,8 +260,12 @@ LCD_Status _add_data_to_queue(char data) {
 	return _copy_buffer_to_queue(data_t);
 }
 
-LCD_Status _lcd_send_cmd (char cmd)
-{
+/**
+ * @brief Sends a single command to the LCD immediately over I2C.
+ * @param cmd Command byte to send.
+ * @return LCD_OK if successful, otherwise LCD_HAL_ERROR.
+ */
+LCD_Status _lcd_send_cmd (char cmd) {
     char data_u, data_l;
     data_u = (cmd & 0xF0);           // extract upper 4 bits
     data_l = ((cmd << 4) & 0xF0);    // extract lower 4 bits
@@ -211,6 +286,10 @@ LCD_Status _lcd_send_cmd (char cmd)
     return LCD_HAL_ERROR;
 }
 
+/**
+ * @brief Sends a single queued byte using interrupt-driven I2C.
+ * @return HAL_OK if successful, otherwise HAL error.
+ */
 HAL_StatusTypeDef _send_one_byte(){
 	if (tail_pointer == head_pointer){
 		return HAL_ERROR;
@@ -223,6 +302,12 @@ HAL_StatusTypeDef _send_one_byte(){
 	return HAL_OK;
 }
 
+/**
+ * @brief Callback invoked after each byte transmission finishes.
+ *        Sends the next byte if queue is not empty.
+ * @param hi2c I2C handle that triggered the callback.
+ * @return HAL_OK on success, otherwise HAL error.
+ */
 HAL_StatusTypeDef _lcd_i2c_transmit_it_callback(I2C_HandleTypeDef *hi2c){
 	if (!_is_transmission_going()){
 		return HAL_OK;
@@ -236,13 +321,23 @@ HAL_StatusTypeDef _lcd_i2c_transmit_it_callback(I2C_HandleTypeDef *hi2c){
 	//	if (hi2c != h_lcd_i2c){
 //		return;
 //	}
-
 }
+
+/**
+ * @brief Dummy I2C receive callback (not used).
+ * @param hi2c I2C handle that triggered the callback.
+ * @return HAL_OK always.
+ */
 HAL_StatusTypeDef _lcd_i2c_receive_it_callback(I2C_HandleTypeDef *hi2c){
 	return HAL_OK;
 }
 
+/**
+ * @brief Performs LCD controller initialization sequence in 4-bit mode.
+ * @return LCD_OK on success, otherwise LCD_INIT_FAIL.
+ */
 LCD_Status _lcd_init (void) {
+	// Każdy delay jest konieczny! <----------------------
   LCD_Status result = LCD_OK;
   // 4 bit initialization
   HAL_Delay(50);  // wait for >40ms

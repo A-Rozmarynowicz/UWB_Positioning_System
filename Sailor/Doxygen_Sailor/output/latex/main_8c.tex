@@ -2,7 +2,7 @@
 \hypertarget{main_8c}{}\label{main_8c}\index{Core/Src/main.c@{Core/Src/main.c}}
 
 
-:\+ Main program body  
+Main application entry point and peripheral initialization.  
 
 
 {\ttfamily \+\#include "{}main.\+h"{}}\newline
@@ -50,14 +50,23 @@ DMA\+\_\+\+Handle\+Type\+Def {\bfseries hdma\+\_\+uart4\+\_\+rx}
 
 
 \doxysubsection{Detailed Description}
-:\+ Main program body 
+Main application entry point and peripheral initialization. 
 
-\begin{DoxyAttention}{Attention}
+\begin{DoxyAuthor}{Author}
+Arkadiusz Rozmarynowicz 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+01.\+2026
+\end{DoxyDate}
+This file contains the primary entry point for the firmware, configures system clocks and peripherals, and starts the application modules.
 
-\end{DoxyAttention}
-Copyright (c) 2025 STMicroelectronics. All rights reserved.
-
-This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-\/\+IS. 
+It provides:\+
+\begin{DoxyItemize}
+\item System and peripheral initialization (GPIO, DMA, I2C, UART, TIM)
+\item Main application loop
+\item HAL callback handlers for UART, I2C, and TIM events
+\item Error handling routines 
+\end{DoxyItemize}
 
 \label{doc-func-members}
 \Hypertarget{main_8c_doc-func-members}

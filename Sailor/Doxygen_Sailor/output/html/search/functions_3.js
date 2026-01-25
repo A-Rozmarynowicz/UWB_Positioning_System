@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['systemclock_5fconfig_0',['SystemClock_Config',['../main_8c.html#a70af21c671abfcc773614a9a4f63d920',1,'main.c']]]
+  ['initialize_5flcd_5fhandler_0',['Initialize_LCD_Handler',['../lcd__handler_8h.html#ada9db54b547384073c5915102736e4cb',1,'lcd_handler.c']]],
+  ['initialize_5fobserver_5fcomm_1',['Initialize_Observer_Comm',['../observer__comm_8h.html#aee8da0959f34cf7ae211e00e3893f82b',1,'observer_comm.c']]]
 ];

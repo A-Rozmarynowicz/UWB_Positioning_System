@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['of_20the_20lighthouse_20positioning_20system_0',['Submodule of the Lighthouse Positioning System',['../index.html#autotoc_md1',1,'']]]
+  ['queue_5fsize_0',['QUEUE_SIZE',['../lcd__handler_8h.html#a142810068f1b99cd93d3fc9f0e160e02',1,'lcd_handler.h']]]
 ];
