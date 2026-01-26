@@ -1,7 +1,7 @@
-../Core/Src/observer_comm.c:22:19:Initialize_Observer_Comm	16	static
-../Core/Src/observer_comm.c:38:7:Get_Position_Vector_Length	16	static
-../Core/Src/observer_comm.c:51:6:_read_position	16	static
-../Core/Src/observer_comm.c:69:12:_print_position_to_lcd	24	static
-../Core/Src/observer_comm.c:83:19:_obs_timer_period_elapsed_it_callback	16	static
-../Core/Src/observer_comm.c:101:19:_obs_uart_receive_it_callback	16	static
-../Core/Src/observer_comm.c:117:19:_obs_uart_transmit_it_callback	16	static
+../Core/Src/observer_comm.c:23:19:Initialize_Observer_Comm	16	static
+../Core/Src/observer_comm.c:39:7:Get_Position_Vector_Length	16	static
+../Core/Src/observer_comm.c:52:6:_read_position	16	static
+../Core/Src/observer_comm.c:70:12:_print_position_to_lcd	24	static
+../Core/Src/observer_comm.c:84:19:_obs_timer_period_elapsed_it_callback	16	static
+../Core/Src/observer_comm.c:102:19:_obs_uart_receive_it_callback	16	static
+../Core/Src/observer_comm.c:118:19:_obs_uart_transmit_it_callback	16	static

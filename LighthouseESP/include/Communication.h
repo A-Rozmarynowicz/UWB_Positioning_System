@@ -35,7 +35,7 @@ const uint8_t BROADCAST_RECEIVER_ID = 255;
 /**
  * @brief Number of ACK messages expected during acknowledgment procedures.
  */
-const uint8_t ACK_MESSAGE_COUNT = 10;
+const uint8_t ACK_MESSAGE_COUNT = 150;
 
 /**
  * @enum Data_Setup

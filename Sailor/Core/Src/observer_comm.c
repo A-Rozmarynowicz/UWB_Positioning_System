@@ -1,3 +1,4 @@
+#include <math.h>
 #include "observer_comm.h"
 
 TIM_HandleTypeDef* refresh_info_timer_h = 0;
@@ -36,7 +37,7 @@ HAL_StatusTypeDef Initialize_Observer_Comm(TIM_HandleTypeDef* refresh_tim_handle
  * @return Squared vector length.
  */
 float Get_Position_Vector_Length(struct Position* pos){
-	return (pos->x)*(pos->x) + (pos->y)*(pos->y) + (pos->z)*(pos->z);
+	return sqrt((pos->x)*(pos->x) + (pos->y)*(pos->y) + (pos->z)*(pos->z));
 }
 
 // Private

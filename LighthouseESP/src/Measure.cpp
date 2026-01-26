@@ -10,16 +10,20 @@ Position position = {0};
  * @brief Add a new distance measurement from a lighthouse.
  *
  * The measurement is accumulated and later averaged. Values exceeding the
- * theoretical maximum range are ignored.
+ * theoretical range are ignored.
  *
  * @param lighthouse ID of the lighthouse providing the measurement.
  * @param distance Measured distance value.
  * @return void
  */
 void New_Measurement(uint8_t lighthouse, float distance){
-  if (distance > THEORETICAL_MAX_DISTANCE || distance < 0.0f){
+  if (distance > THEORETICAL_MAX_DISTANCE || distance < -THEORETICAL_MAX_DISTANCE){
     return;
   }
+  if (distance < DISTANCE_ANTENA_DELAY_OFFSET){
+    distance = DISTANCE_ANTENA_DELAY_OFFSET;
+  }
+  completed_distance_measurements[lighthouse] += 1;
   distances_to_lighthouses[lighthouse] += distance;
 }
 

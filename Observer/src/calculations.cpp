@@ -65,8 +65,11 @@ void Update_Distance_To_LGH(uint8_t lgh_index, float new_distance){
     if (distances_measurements_completed[lgh_index] > MAXIMUM_MEASUREMENT_PER_LGH){
         return;
     }
-    if (new_distance > THEORETICAL_MAX_DISTANCE || new_distance < 0.0f){
+    if (new_distance > THEORETICAL_MAX_DISTANCE || new_distance < -THEORETICAL_MAX_DISTANCE){
         return;
+    }
+    if (new_distance < ANTENNA_DELAY_OFFSET) {
+        new_distance = ANTENNA_DELAY_OFFSET;
     }
     distances_to_lghs[lgh_index] += new_distance;
     distances_measurements_completed[lgh_index] += 1;

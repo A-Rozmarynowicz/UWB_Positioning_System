@@ -79,7 +79,7 @@ void UWB_Query_ButtonCallback(uint8_t button){};
 
 void UWB_Query_UWB_New_Range(uint16_t device, float range, float rx_power){
   int8_t lgh_index = Get_LGH_From_Short_Address(device);
-  if (completed_distance_measurements[lgh_index] > MIN_DISTANCE_MEASUREMENTS){
+  if (completed_distance_measurements[lgh_index] > MAX_DISTANCE_MEASUREMENTS){
     // Serial.printf("Enough: %d\n", lgh_index);
     return;
   }
@@ -89,7 +89,6 @@ void UWB_Query_UWB_New_Range(uint16_t device, float range, float rx_power){
   }
   Blink_LED();
   New_Measurement(lgh_index, range);
-  completed_distance_measurements[lgh_index] += 1;
   if (Check_If_All_Distances_Are_Measured(completed_distance_measurements)){
     Change_State(States::POST_UWB_CHECK_IF_ALL_LGHS_SET);
   }

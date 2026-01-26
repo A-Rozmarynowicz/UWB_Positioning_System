@@ -29,12 +29,12 @@ const float THEORETICAL_MAX_DISTANCE = 10.0f;
 /**
  * @brief Compensation for antena delay [meters].
  */
-const float ANTENNA_DELAY_OFFSET = 0.6f;
+const float ANTENNA_DELAY_OFFSET = 0.1f;
 
 /**
  * @brief Minimum number of distance measurements required per lighthouse.
  */
-const uint8_t MINIMUM_MEASUREMENTS_PER_LGH = 50;
+const uint8_t MINIMUM_MEASUREMENTS_PER_LGH = 25;
 
 /**
  * @brief Maximum number of distance measurements stored per lighthouse.

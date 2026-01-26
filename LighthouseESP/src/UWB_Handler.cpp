@@ -129,7 +129,7 @@ void Restart_UWB_As_Anchor(){
     SPI.begin(PIN_SCK, PIN_MISO, PIN_MOSI, PIN_SS);
     SPI.setFrequency(4000000);
     DW1000Ranging.initCommunication(PIN_RST, PIN_SS, PIN_IRQ);
-    DW1000.setAntennaDelay(16436);
+    // DW1000.setAntennaDelay(16436);  
 
     DW1000Ranging.setReplyTime(900);
     DW1000Ranging.attachNewRange(_new_range);
