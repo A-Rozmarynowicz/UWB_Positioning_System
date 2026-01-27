@@ -70,7 +70,7 @@ void Stop_UWB_Activation_Timer(){
 /**
  * @brief Handles timing related errors.
  *
- * This function prints an error message and turns on the error LED.
+ * This function turns on the error LED.
  */
 void Timing_Error() {
   Error_LED_On();

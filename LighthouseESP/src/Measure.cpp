@@ -49,20 +49,6 @@ void Calculate_Distance_To_Targets(uint8_t distance_measurements[NUMBER_OF_LIGHT
 }
 
 /**
- * @brief Print the full matrix of inter-lighthouse distances.
- *
- * @return void
- */
-void Print_Master_All_Distances_Matrix(){
-  for (uint8_t i=0;i<NUMBER_OF_LIGHTHOUSES;i++){
-        for (uint8_t j=0;j<NUMBER_OF_LIGHTHOUSES;j++){
-            printf("%4f ", master_all_distances_matrix[i][j]);
-        }
-        printf("\n");
-    }
-}
-
-/**
  * @brief Calculate the spatial position of a lighthouse.
  *
  * Selects the appropriate positioning method depending on the lighthouse index.
@@ -166,10 +152,3 @@ void _set_LGH_3_position(){
 void _set_LGH_4plus_position(uint8_t lighthouse){
   // Można rozszerzyć funkcjonalność.
 }
-
-/**
- * @brief Print the calculated position of a lighthouse.
- * @param lighthouse ID of the lighthouse.
- * @return void
- */
-void Print_Position(uint8_t lighthouse){}

@@ -321,7 +321,6 @@ void Distance_Measure_Query_ReceiveCallback(const uint8_t* data, int dataLen, ui
       current_ack_status.current_ack_index = 0;
       Reset_Distance_Query_Target_Index(&current_state_data.distance_query_target);
       if (Increment_Target_Lighthouse_Index(&current_state_data.target_lighthouse)){
-        Print_Master_All_Distances_Matrix();
         Change_State(States::SEND_CALCULATED_POSITION);
         return;
       }
@@ -360,7 +359,6 @@ void Distance_Measure_Query_Exit(){};
 void Send_Calculated_Position_Enter(){
   for (uint8_t i = 0; i<NUMBER_OF_LIGHTHOUSES;i++){
     Calculate_Position_Of_Lighthouse(i);
-    Print_Position(i);
   }
   Reset_Target_Lighthouse_Index(&current_state_data.target_lighthouse);
   Reset_Ack_Target_Index(&current_ack_status.target_ack_lighthouse, &current_ack_status.current_ack_index);
