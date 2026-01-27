@@ -122,7 +122,7 @@ void _sent_callback(const uint8_t *macAddr, esp_now_send_status_t status){
  */
 void _communication_error(Communication_Errors error){
   if (error == Communication_Errors::PROTOCOL_INIT_FAIL){
-    delay(10);
+    delay(10); // Konieczne
     ESP.restart();
   }
   Error_LED_On();

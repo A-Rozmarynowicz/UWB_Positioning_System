@@ -23,9 +23,9 @@ char uwb_address[24] = "6F:2D:91:8A:C4:73:5E:B0";
 void Initialize_UWB(){
     pinMode(PIN_RST, OUTPUT);
     digitalWrite(PIN_RST, LOW);
-    delay(10);
+    delay(10); // Konieczne
     digitalWrite(PIN_RST, HIGH);
-    delay(10);
+    delay(10); // Konieczne
 
     SPI.begin(PIN_SCK, PIN_MISO, PIN_MOSI, PIN_SS);
     SPI.setFrequency(1000000);
