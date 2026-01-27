@@ -28,7 +28,10 @@ var NAVTREE =
     [ "Lighthouse Positioning System", "index.html#autotoc_md0", [
       [ "O projekcie", "index.html#autotoc_md1", null ],
       [ "Autor", "index.html#autotoc_md2", null ],
-      [ "Pliki", "index.html#autotoc_md3", null ]
+      [ "Pliki", "index.html#autotoc_md3", null ],
+      [ "Efekty symulacji", "index.html#autotoc_md4", null ],
+      [ "Do formularza", "index.html#autotoc_md5", null ],
+      [ "Uwaga", "index.html#autotoc_md6", null ]
     ] ],
     [ "Subprojects", "subprojects.html", null ]
   ] ]

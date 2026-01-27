@@ -109,10 +109,6 @@ Functions</h2></td></tr>
 <tr class="memdesc:a6e5d30d7f9991ec97539ced1544d31c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a new distance measurement from a lighthouse.  <br /></td></tr>
 <tr class="memitem:a3fe352b30848dee334edbf435c3b49d2" id="r_a3fe352b30848dee334edbf435c3b49d2"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3fe352b30848dee334edbf435c3b49d2">Calculate_Distance_To_Targets</a> (uint8_t distance_measurements[<a class="el" href="_lighthouse_config_8h.html#ad733a36008e3e7e7b67db0dfcf0f18c4">NUMBER_OF_LIGHTHOUSES</a>])</td></tr>
 <tr class="memdesc:a3fe352b30848dee334edbf435c3b49d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate averaged distances to all target lighthouses.  <br /></td></tr>
-<tr class="memitem:a70ecd05335acad1447d5c5dd3c1b2ab0" id="r_a70ecd05335acad1447d5c5dd3c1b2ab0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a70ecd05335acad1447d5c5dd3c1b2ab0">Print_Master_All_Distances_Matrix</a> ()</td></tr>
-<tr class="memdesc:a70ecd05335acad1447d5c5dd3c1b2ab0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the full matrix of inter-lighthouse distances.  <br /></td></tr>
-<tr class="memitem:af4d6502410cb7cc91ce76f2456492ec2" id="r_af4d6502410cb7cc91ce76f2456492ec2"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af4d6502410cb7cc91ce76f2456492ec2">Print_Position</a> (uint8_t lighthouse)</td></tr>
-<tr class="memdesc:af4d6502410cb7cc91ce76f2456492ec2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the calculated position of a lighthouse.  <br /></td></tr>
 <tr class="memitem:ad8bf287324e8711d8d0b4cb2ead2d476" id="r_ad8bf287324e8711d8d0b4cb2ead2d476"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad8bf287324e8711d8d0b4cb2ead2d476">Calculate_Position_Of_Lighthouse</a> (uint8_t lighthouse)</td></tr>
 <tr class="memdesc:ad8bf287324e8711d8d0b4cb2ead2d476"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the spatial position of a lighthouse.  <br /></td></tr>
 <tr class="memitem:a16cc4c28780495c66196948438d5efe1" id="r_a16cc4c28780495c66196948438d5efe1"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a16cc4c28780495c66196948438d5efe1">_set_LGH_1_position</a> ()</td></tr>
@@ -127,13 +123,16 @@ Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a90bd95f72af2171eb58a0f0b55bd822e" id="r_a90bd95f72af2171eb58a0f0b55bd822e"><td class="memItemLeft"><a id="a90bd95f72af2171eb58a0f0b55bd822e" name="a90bd95f72af2171eb58a0f0b55bd822e"></a>
-const float&#160;</td><td class="memItemRight"><b>THEORETICAL_MAX_DISTANCE</b> = 10.0f</td></tr>
+const float&#160;</td><td class="memItemRight"><b>THEORETICAL_MAX_DISTANCE</b> = 12.0f</td></tr>
 <tr class="memdesc:a90bd95f72af2171eb58a0f0b55bd822e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Theoretical maximum valid distance between devices [meters]. <br /></td></tr>
 <tr class="memitem:a2e68da10780b3a5023d25b9b76c7dcd9" id="r_a2e68da10780b3a5023d25b9b76c7dcd9"><td class="memItemLeft"><a id="a2e68da10780b3a5023d25b9b76c7dcd9" name="a2e68da10780b3a5023d25b9b76c7dcd9"></a>
-const uint8_t&#160;</td><td class="memItemRight"><b>MIN_DISTANCE_MEASUREMENTS</b> = 5</td></tr>
+const uint8_t&#160;</td><td class="memItemRight"><b>MIN_DISTANCE_MEASUREMENTS</b> = 50</td></tr>
 <tr class="memdesc:a2e68da10780b3a5023d25b9b76c7dcd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum number of distance measurements required for processing. <br /></td></tr>
+<tr class="memitem:a01c1d6734cef0ba9e9cf108d0679f733" id="r_a01c1d6734cef0ba9e9cf108d0679f733"><td class="memItemLeft"><a id="a01c1d6734cef0ba9e9cf108d0679f733" name="a01c1d6734cef0ba9e9cf108d0679f733"></a>
+const uint8_t&#160;</td><td class="memItemRight"><b>MAX_DISTANCE_MEASUREMENTS</b> = 250</td></tr>
+<tr class="memdesc:a01c1d6734cef0ba9e9cf108d0679f733"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of distance measurements required for processing. <br /></td></tr>
 <tr class="memitem:abbbd56a108e0a59abd9d54f96a635253" id="r_abbbd56a108e0a59abd9d54f96a635253"><td class="memItemLeft"><a id="abbbd56a108e0a59abd9d54f96a635253" name="abbbd56a108e0a59abd9d54f96a635253"></a>
-const float&#160;</td><td class="memItemRight"><b>DISTANCE_ANTENA_DELAY_OFFSET</b> = 0.6</td></tr>
+const float&#160;</td><td class="memItemRight"><b>DISTANCE_ANTENA_DELAY_OFFSET</b> = 0.0</td></tr>
 <tr class="memdesc:abbbd56a108e0a59abd9d54f96a635253"><td class="mdescLeft">&#160;</td><td class="mdescRight">Antenna delay compensation offset applied to distance measurements [meters]. <br /></td></tr>
 <tr class="memitem:a7af4755e90c986eafaf94e9b7b313dc7" id="r_a7af4755e90c986eafaf94e9b7b313dc7"><td class="memItemLeft"><a id="a7af4755e90c986eafaf94e9b7b313dc7" name="a7af4755e90c986eafaf94e9b7b313dc7"></a>
 float&#160;</td><td class="memItemRight"><b>distances_to_lighthouses</b> [<a class="el" href="_lighthouse_config_8h.html#ad733a36008e3e7e7b67db0dfcf0f18c4">NUMBER_OF_LIGHTHOUSES</a>]</td></tr>
@@ -321,57 +320,11 @@ float&#160;</td><td class="memItemRight"><b>master_all_distances_matrix</b> [<a 
 </div><div class="memdoc">
 
 <p>Add a new distance measurement from a lighthouse. </p>
-<p>The measurement is accumulated and later averaged. Values exceeding the theoretical maximum range are ignored.</p>
+<p>The measurement is accumulated and later averaged. Values exceeding the theoretical range are ignored.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">lighthouse</td><td>ID of the lighthouse providing the measurement. </td></tr>
     <tr><td class="paramname">distance</td><td>Measured distance value. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
-
-</div>
-</div>
-<a id="a70ecd05335acad1447d5c5dd3c1b2ab0" name="a70ecd05335acad1447d5c5dd3c1b2ab0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a70ecd05335acad1447d5c5dd3c1b2ab0">&#9670;&#160;</a></span>Print_Master_All_Distances_Matrix()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Print_Master_All_Distances_Matrix </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Print the full matrix of inter-lighthouse distances. </p>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
-
-</div>
-</div>
-<a id="af4d6502410cb7cc91ce76f2456492ec2" name="af4d6502410cb7cc91ce76f2456492ec2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af4d6502410cb7cc91ce76f2456492ec2">&#9670;&#160;</a></span>Print_Position()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Print_Position </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>lighthouse</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Print the calculated position of a lighthouse. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">lighthouse</td><td>ID of the lighthouse. </td></tr>
   </table>
   </dd>
 </dl>

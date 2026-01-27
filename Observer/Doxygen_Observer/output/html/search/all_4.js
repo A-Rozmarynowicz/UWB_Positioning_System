@@ -7,7 +7,7 @@ var searchData=
   ['distances_5fmeasurements_5fcompleted_4',['distances_measurements_completed',['../calculations_8h.html#a3c591f03e8d8e9b6d1b5f2c2642b0421',1,'calculations.cpp']]],
   ['distances_5fto_5flghs_5',['distances_to_lghs',['../calculations_8h.html#a3e178ab475921d4e66f6ab44bcfa0ccf',1,'calculations.cpp']]],
   ['do_20formularza_3a_6',['Do formularza:',['../index.html#autotoc_md3',1,'']]],
-  ['do_20głównej_20dokumentacji_3a_7',['Link do głównej dokumentacji:',['../index.html#autotoc_md4',1,'']]],
+  ['do_20głównej_20dokumentacji_3a_7',['Link do głównej dokumentacji:',['../index.html#autotoc_md5',1,'']]],
   ['documentation_8',['Observer Documentation',['../index.html',1,'']]],
-  ['dokumentacji_3a_9',['Link do głównej dokumentacji:',['../index.html#autotoc_md4',1,'']]]
+  ['dokumentacji_3a_9',['Link do głównej dokumentacji:',['../index.html#autotoc_md5',1,'']]]
 ];
