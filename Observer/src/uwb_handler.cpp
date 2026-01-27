@@ -77,12 +77,7 @@ void _new_range() {
     uint16_t device = DW1000Ranging.getDistantDevice()->getShortAddress();
     float range = DW1000Ranging.getDistantDevice()->getRange();
     float rx_power = DW1000Ranging.getDistantDevice()->getRXPower();
-    // _new_range_received = true;
-    // Handle_Last_Range_Callback();
-    // Serial.print("from: "); Serial.printf("%x\n", last_device);
     State_UWB_New_Range(device, range, rx_power);
-    // Serial.print("\t Range: "); Serial.printf("%0.2f", range); Serial.print(" m");
-    // Serial.print("\t RX power: "); Serial.printf("%0.2f", rx_power); Serial.println(" dBm");
 }
 
 /**
@@ -90,18 +85,11 @@ void _new_range() {
  *
  * @param device Pointer to the detected DW1000 device.
  */
-void _new_device(DW1000Device* device) {
-  Serial.print("ranging init; 1 device added ! -> ");
-  Serial.print(" short:");
-  Serial.println(device->getShortAddress(), HEX);
-}
+void _new_device(DW1000Device* device) {}
 
 /**
  * @brief Callback invoked when a previously detected UWB device becomes inactive.
  *
  * @param device Pointer to the inactive DW1000 device.
  */
-void _inactive_device(DW1000Device* device) {
-  Serial.print("delete inactive device: ");
-  Serial.println(device->getShortAddress(), HEX);
-}
+void _inactive_device(DW1000Device* device) {}

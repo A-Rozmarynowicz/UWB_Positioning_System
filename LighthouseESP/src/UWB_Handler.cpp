@@ -179,7 +179,6 @@ void _reset_DW1000(){
     delay(50); // Konieczne
 }
 
-
 /**
  * @brief Callback invoked when a new blink device is detected.
  *

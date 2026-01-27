@@ -51,10 +51,9 @@ void Stop_Ack_Timer(){
  *
  * @details
  * Called when timer initialization or operation fails.
- * Triggers an error LED and prints an error message to the serial console.
+ * Triggers an error LED.
  */
 void Timing_Error(){
-  Serial.printf("Timing Error\n");
   Error_LED_On();
 }
 

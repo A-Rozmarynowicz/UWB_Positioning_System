@@ -135,10 +135,9 @@ bool Are_Enough_Measurements_Complete() {
  *
  * @details
  * Called when matrix inversion fails or other calculation errors occur.
- * Turns on the error LED and logs an error message.
+ * Turns on the error LED.
  */
 void Calculations_Error() {
-    Serial.printf("CALCULATION ERRROE\n");
     Error_LED_On();
 }
 
@@ -273,13 +272,11 @@ void _calculate_atb_vector(){
  */
 void _calculate_solution(){
     uint8_t i, j;
-    Serial.printf("Solution\n");
     for (i = 0; i < 3; i++) {
         solution_vector[i] = 0.0;
         for (j = 0; j < 3; j++) {
             solution_vector[i] += ATA_inv_matrix[i][j] * ATB_vector[j];
         }
-        Serial.printf("%.2f\n", solution_vector[i]);
     }
     current_position.x = solution_vector[0];
     current_position.y = solution_vector[1];

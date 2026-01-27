@@ -17,17 +17,11 @@
 #include "observer_config.h"
 
 void setup() {
-  Serial.begin(115200);
-  Serial.printf("Inited serial to PC\n");
   Initialize_Timers();
   Initialize_Sailor_Comm();
-  Serial.printf("Initialized Sailor Comm\n");
   Initialize_Communication();
-  Serial.printf("Initialized ESP NOW\n");
   Reset_And_Initialize_Machine();
-  Serial.printf("Inited state machine\n");
   Initialize_UWB();
-  Serial.printf("Inited UWB");
   Initialize_Interface();
 }
 

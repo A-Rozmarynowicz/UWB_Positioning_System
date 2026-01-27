@@ -42,7 +42,6 @@ void Initialize_Communication(){
   WiFi.disconnect();
 
   if (esp_now_init() == ESP_OK) {
-    Serial.println("ESP-NOW Init Success");
     esp_now_register_recv_cb(_receive_callback);
     esp_now_register_send_cb(_sent_callback);
   }
@@ -120,15 +119,12 @@ void _sent_callback(const uint8_t *macAddr, esp_now_send_status_t status){
  * @details
  * - Restarts the device on protocol init failure
  * - Turns on error LED on any error
- * - Prints error type via Serial
  */
 void _communication_error(Communication_Errors error){
   if (error == Communication_Errors::PROTOCOL_INIT_FAIL){
-    Serial.println("ESP-NOW Init Failed");
-    delay(100);
+    delay(10);
     ESP.restart();
   }
   Error_LED_On();
-  Serial.printf("Communication Error: %d \n", error);
 };
 #pragma endregion
