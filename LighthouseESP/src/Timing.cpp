@@ -73,7 +73,6 @@ void Stop_UWB_Activation_Timer(){
  * This function prints an error message and turns on the error LED.
  */
 void Timing_Error() {
-  Serial.printf("Timing ERROR!\n");
   Error_LED_On();
 }
 

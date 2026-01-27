@@ -201,7 +201,6 @@ void Initialize_Communication(){
   WiFi.disconnect();
 
   if (esp_now_init() == ESP_OK) {
-    Serial.println("ESP-NOW Init Success");
     esp_now_register_recv_cb(_receive_callback);
     esp_now_register_send_cb(_sent_callback);
   }
@@ -247,7 +246,6 @@ void _receive_callback(const uint8_t* macAddr, const uint8_t* data, int dataLen)
   }
   State_ReceiveCallback(data, dataLen, message_receive_time);
   if (data[Data_Setup::COMMAND] == Data_Commands::MASTER_LGH_RESET){
-    Serial.printf("REMOTE RESTART\n");
     ESP.restart();
   }
 };
@@ -277,11 +275,9 @@ void _sent_callback(const uint8_t *macAddr, esp_now_send_status_t status){
  */
 void _communication_error(Communication_Errors error){
   if (error == Communication_Errors::PROTOCOL_INIT_FAIL){
-    Serial.println("ESP-NOW Init Failed");
-    delay(100);
+    delay(10);
     ESP.restart();
   }
   Error_LED_On();
-  Serial.printf("Communication Error: %d \n", error);
 };
 #pragma endregion

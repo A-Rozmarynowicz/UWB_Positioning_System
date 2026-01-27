@@ -172,7 +172,4 @@ void _set_LGH_4plus_position(uint8_t lighthouse){
  * @param lighthouse ID of the lighthouse.
  * @return void
  */
-void Print_Position(uint8_t lighthouse){
-  Serial.printf("Position of LGH number: %d: ", lighthouse);
-  Serial.printf("x=%0.2f || y=%0.2f || z=%0.2f \n", master_all_positions[lighthouse].x, master_all_positions[lighthouse].y, master_all_positions[lighthouse].z);
-}
+void Print_Position(uint8_t lighthouse){}

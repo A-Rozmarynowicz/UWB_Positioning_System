@@ -80,10 +80,8 @@ void UWB_Query_ButtonCallback(uint8_t button){};
 void UWB_Query_UWB_New_Range(uint16_t device, float range, float rx_power){
   int8_t lgh_index = Get_LGH_From_Short_Address(device);
   if (completed_distance_measurements[lgh_index] > MAX_DISTANCE_MEASUREMENTS){
-    // Serial.printf("Enough: %d\n", lgh_index);
     return;
   }
-  Serial.printf("New range from %X : %0.2f\n", device, range);
   if (lgh_index == -1){
     return;
   }
@@ -112,7 +110,6 @@ void UWB_Response_Enter(){
 
 void UWB_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
   if (data[Data_Setup::COMMAND] == Data_Commands::CHANGE_STATE_COM){
-    Serial.printf("Wanting to switch state to: %d\n", data[Data_Setup::SINGLE_0]);
     switch (data[Data_Setup::SINGLE_0]) {
       case States::UWB_QUERY:
         current_state_data.ignoring_sent_callbacks = true;
@@ -136,7 +133,6 @@ void UWB_Response_TimerCallback(Timer_Callbacks timer_callback){};
 void UWB_Response_ButtonCallback(uint8_t button){};
 void UWB_Response_UWB_New_Range(uint16_t device, float range, float rx_power){
   Blink_LED();
-  Serial.printf("SLAVE Range: %x \n", device);
 }
 void UWB_Response_Exit(){};
 /** @} */
@@ -179,7 +175,6 @@ void Relay_UWB_Quering_Enter(){
 void Relay_UWB_Quering_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
   if (data[Data_Setup::TRANSMITTER_ID] == current_ack_status.target_ack_lighthouse){
     if (data[Data_Setup::COMMAND] == Data_Commands::ACK_COM){
-      Serial.printf("Received Ack \n");
       Stop_Ack_Timer();
       Change_State(States::UWB_RESPONSE);
     }
@@ -191,12 +186,10 @@ void Relay_UWB_Quering_SentCallback(uint32_t send_time){};
 void Relay_UWB_Quering_TimerCallback(Timer_Callbacks timer_callback){
   if (timer_callback == Timer_Callbacks::ACK){
     if (Validate_Ack_Index_Increase(&current_ack_status.current_ack_index)){
-      Serial.printf("Missed Single Ack \n");
       Start_Ack_Timer();
       MESSAGES::Send_Relay_UWB_Response(current_ack_status.target_ack_lighthouse);
     }
     else {
-      Serial.printf("Missed All Ack\n");
       Data_Transfer_LED_ON();
       _communication_error(Communication_Errors::ACK_FAIL);
       Change_State(States::UWB_RESPONSE);
@@ -228,7 +221,6 @@ void Inform_End_Config_ReceiveCallback(const uint8_t* data, int dataLen, uint32_
     if (data[Data_Setup::COMMAND] != Data_Commands::ACK_COM){
       return;
     }
-    Serial.printf("Received EndConf Ack\n");
     Stop_Ack_Timer();
     if (Increment_Ack_Target_Index(&current_ack_status.target_ack_lighthouse, &current_ack_status.current_ack_index)){
       Change_State(States::DISTANCE_MEASURE_RESPONSE);
@@ -243,12 +235,10 @@ void Inform_End_Config_SentCallback(uint32_t send_time){};
 void Inform_End_Config_TimerCallback(Timer_Callbacks timer_callback){
   if (timer_callback == Timer_Callbacks::ACK){
     if (Validate_Ack_Index_Increase(&current_ack_status.current_ack_index)){
-      Serial.printf("Missed a single EndConf Ack\n");
       Start_Ack_Timer();
       MESSAGES::Send_End_Of_Config_Message(current_ack_status.target_ack_lighthouse);
       return;
     }
-    Serial.printf("Missed all EndConf Acks\n");
     Data_Transfer_LED_ON();
     _communication_error(Communication_Errors::ACK_FAIL);
 
@@ -280,14 +270,12 @@ void Distance_Measure_Response_Enter(){
 void Distance_Measure_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
   if (data[Data_Setup::COMMAND] == Data_Commands::QUERY_DISTANCE){
     float distance = distances_to_lighthouses[data[Data_Setup::SINGLE_0]];
-    Serial.printf("Asked for distance to nr. %d. Distance = %f\n", data[Data_Setup::SINGLE_0], distance);
     MESSAGES::Send_Response_Distance(data[Data_Setup::TRANSMITTER_ID], data[Data_Setup::SINGLE_0], distance);
   }
   else if (data[Data_Setup::COMMAND] == Data_Commands::SET_POSITION){
     memcpy(&position.x, &data[QUAD_0], sizeof(float));
     memcpy(&position.y, &data[QUAD_1], sizeof(float));
     memcpy(&position.z, &data[QUAD_2], sizeof(float));
-    Serial.printf("Set position: %0.2f | %0.2f | %0.2f \n", position.x, position.y, position.z);
     MESSAGES::Send_Ack(data[Data_Setup::TRANSMITTER_ID]);
     Change_State(States::OBSERVER_RESPONSE);
   }
@@ -317,27 +305,23 @@ void Distance_Measure_Query_Enter(){
 
 void Distance_Measure_Query_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
   if (data[Data_Setup::TRANSMITTER_ID] != current_state_data.target_lighthouse){
-    Serial.printf("Distance Query Wrong target index: %d vs %d\n", data[Data_Setup::TRANSMITTER_ID], current_state_data.target_lighthouse);
     return;
   }
   if (data[Data_Setup::COMMAND] == Data_Commands::RESPONSE_DISTANCE){
     Stop_Ack_Timer();
     if (data[Data_Setup::SINGLE_0] != current_state_data.distance_query_target){
-      Serial.printf("Wrong query distance target target: %d vs %d\n", data[Data_Setup::SINGLE_0], current_state_data.distance_query_target);
       MESSAGES::Send_Query_Distance(current_state_data.target_lighthouse, current_state_data.distance_query_target);
       return;
     }
     float distance = 0.0f;
     memcpy(&distance, &data[Data_Setup::QUAD_0], sizeof(float));
     master_all_distances_matrix[current_state_data.target_lighthouse][current_state_data.distance_query_target] = distance;
-    Serial.printf("Received distance from %d about %d\n", current_state_data.target_lighthouse, current_state_data.distance_query_target);
 
     if (Increment_Distance_Query_Target_Index(&current_state_data.distance_query_target)){
       current_ack_status.current_ack_index = 0;
       Reset_Distance_Query_Target_Index(&current_state_data.distance_query_target);
       if (Increment_Target_Lighthouse_Index(&current_state_data.target_lighthouse)){
         Print_Master_All_Distances_Matrix();
-        Serial.printf("Average distance: %f\n", (master_all_distances_matrix[0][1]+master_all_distances_matrix[1][0])/2.0);
         Change_State(States::SEND_CALCULATED_POSITION);
         return;
       }
@@ -349,17 +333,13 @@ void Distance_Measure_Query_SentCallback(uint32_t send_time){};
 void Distance_Measure_Query_TimerCallback(Timer_Callbacks timer_callback){
   if (timer_callback == Timer_Callbacks::ACK){
     if (Validate_Ack_Index_Increase(&current_ack_status.current_ack_index)){
-      Serial.printf("Missed a single ACK for Distance Query \n");
       MESSAGES::Send_Query_Distance(current_state_data.target_lighthouse, current_state_data.distance_query_target);
     }
     else {
-      Serial.printf("Missed all ACK for Dsitance Query from %d \n", current_state_data.target_lighthouse);
       _communication_error(Communication_Errors::ACK_FAIL);
-
       current_ack_status.current_ack_index = 0;
       Reset_Distance_Query_Target_Index(&current_state_data.distance_query_target);
       if (Increment_Target_Lighthouse_Index(&current_state_data.target_lighthouse)){
-        // Print_Master_All_Distances_Matrix();
         Change_State(States::SEND_CALCULATED_POSITION);
         return;
       }
@@ -378,18 +358,6 @@ void Distance_Measure_Query_Exit(){};
  *  @{
  */
 void Send_Calculated_Position_Enter(){
-  // float dist0[4] = {0.0, 1.0, 1.0, 1.0};
-  // memcpy(&master_all_distances_matrix[0], &dist0, sizeof(float) * 4);
-
-  // float dist1[4] = {1.0, 0.0, 1.0, 1.0};
-  // memcpy(&master_all_distances_matrix[1], &dist1, sizeof(float) * 4);
-
-  // float dist2[4] = {1.0, 1.0, 0.0, 1.0};
-  // memcpy(&master_all_distances_matrix[2], &dist2, sizeof(float) * 4);
-
-  // float dist3[4] = {1.0, 1.0, 1.0, 0.0};
-  // memcpy(&master_all_distances_matrix[3], &dist3, sizeof(float) * 4);
-
   for (uint8_t i = 0; i<NUMBER_OF_LIGHTHOUSES;i++){
     Calculate_Position_Of_Lighthouse(i);
     Print_Position(i);
@@ -402,7 +370,6 @@ void Send_Calculated_Position_Enter(){
 void Send_Calculated_Position_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
   if (data[Data_Setup::TRANSMITTER_ID] != current_state_data.target_lighthouse){
     Stop_Ack_Timer();
-    Serial.printf("Set Position Wrong target index: %d vs %d\n", data[Data_Setup::TRANSMITTER_ID], current_state_data.target_lighthouse);
     MESSAGES::Send_Set_Position(current_state_data.target_lighthouse);
     return;
   }
@@ -421,11 +388,9 @@ void Send_Calculated_Position_SentCallback(uint32_t send_time){};
 void Send_Calculated_Position_TimerCallback(Timer_Callbacks timer_callback){
   if (timer_callback == Timer_Callbacks::ACK){
     if (Validate_Ack_Index_Increase(&current_ack_status.current_ack_index)){
-      Serial.printf("Missed a single ACK for Set Position \n");
       MESSAGES::Send_Set_Position(current_state_data.target_lighthouse);
     }
     else {
-      Serial.printf("Missed all ACK for Set Position from %d \n", current_state_data.target_lighthouse);
       _communication_error(Communication_Errors::ACK_FAIL);
       Data_Transfer_LED_ON();
       current_ack_status.current_ack_index = 0;

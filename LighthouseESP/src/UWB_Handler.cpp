@@ -92,7 +92,6 @@ int8_t Get_LGH_From_Address(const uint8_t* address){
  * DW1000 ranging as a TAG.
  */
 void Restart_UWB_As_Tag(){
-    Serial.println("Switching from ANCHOR to TAG...");
     _reset_DW1000();
 
     SPI.begin(PIN_SCK, PIN_MISO, PIN_MOSI, PIN_SS);
@@ -111,8 +110,6 @@ void Restart_UWB_As_Tag(){
         DW1000.MODE_LONGDATA_RANGE_ACCURACY,
         false
     );
-
-    Serial.println("Now running as TAg");
 }
 
 /**
@@ -122,14 +119,12 @@ void Restart_UWB_As_Tag(){
  * DW1000 ranging as an ANCHOR.
  */
 void Restart_UWB_As_Anchor(){
-    Serial.println("Switching from TAG to ANCHOR...");
-
     _reset_DW1000();
 
     SPI.begin(PIN_SCK, PIN_MISO, PIN_MOSI, PIN_SS);
     SPI.setFrequency(4000000);
     DW1000Ranging.initCommunication(PIN_RST, PIN_SS, PIN_IRQ);
-    // DW1000.setAntennaDelay(16436);  
+    // DW1000.setAntennaDelay(16436);
 
     DW1000Ranging.setReplyTime(900);
     DW1000Ranging.attachNewRange(_new_range);
@@ -139,15 +134,11 @@ void Restart_UWB_As_Anchor(){
 
     char address_str[24] = {0};
     _format_address_to_string(LIGHTHOUSE_ID, address_str);
-    Serial.printf("%s\n", address_str);
     DW1000Ranging.startAsAnchor(
         address_str,
         DW1000.MODE_LONGDATA_RANGE_ACCURACY,
         false
     );
-    Serial.printf("Short: %x:%x\n", DW1000Ranging.getCurrentShortAddress()[0], DW1000Ranging.getCurrentShortAddress()[1]);
-
-    Serial.println("Now running as Ancho");
 }
 
 /**
@@ -185,9 +176,9 @@ bool Are_Addresses_Equal(uint8_t* first, uint8_t* second){
  */
 void _reset_DW1000(){
     digitalWrite(PIN_RST, LOW);
-    delay(50);
+    delay(50); // Konieczne
     digitalWrite(PIN_RST, HIGH);
-    delay(50);
+    delay(50); // Konieczne
 }
 
 
@@ -196,11 +187,7 @@ void _reset_DW1000(){
  *
  * @param device Pointer to the detected DW1000 device.
  */
-void _new_blink(DW1000Device* device) {
-//   Serial.print("blink; 1 device added ! -> ");
-//   Serial.print(" short:");
-//   Serial.println(device->getShortAddress(), HEX);
-}
+void _new_blink(DW1000Device* device) {}
 
 /**
  * @brief Callback invoked when a new ranging device is detected.
@@ -212,9 +199,6 @@ void _new_range() {
     float range = DW1000Ranging.getDistantDevice()->getRange();
     float rx_power = DW1000Ranging.getDistantDevice()->getRXPower();
     State_UWB_New_Range(device, range, rx_power);
-    // Serial.print("from: "); Serial.printf("%x\n", device);
-    // Serial.print("\t Range: "); Serial.printf("%0.2f", range); Serial.print(" m");
-    // Serial.print("\t RX power: "); Serial.printf("%0.2f", rx_power); Serial.println(" dBm");
 }
 
 /**
@@ -222,21 +206,14 @@ void _new_range() {
  *
  * @param device Pointer to the inactive DW1000 device.
  */
-void _new_device(DW1000Device* device) {
-//   Serial.print("ranging init; 1 device added ! -> ");
-//   Serial.print(" short:");
-//   Serial.println(device->getShortAddress(), HEX);
-}
+void _new_device(DW1000Device* device) {}
 
 /**
  * @brief Callback invoked when a device is removed due to inactivity.
  *
  * @param device Pointer to the inactive DW1000 device.
  */
-void _inactive_device(DW1000Device* device) {
-//   Serial.print("delete inactive device: ");
-//   Serial.println(device->getShortAddress(), HEX);
-}
+void _inactive_device(DW1000Device* device) {}
 
 /**
  * @brief Format a lighthouse long address into a readable string.
