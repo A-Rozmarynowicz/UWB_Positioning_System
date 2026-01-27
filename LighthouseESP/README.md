@@ -16,7 +16,8 @@ ESP32 podłączone do DWM1000 poprzez SPI.
 - możliwość wykorzystania kodu w innym projekcie: tak, są oddzielne pliki do obliczania pozycji, do automatu stanów, do timerów itp.
 
 ## Uwaga
-Wiele funkcji jest pustych, jest to jednak bardzo konieczne ze względu na architekturę automatu stanów.
+- Wiele funkcji jest pustych, jest to jednak bardzo konieczne ze względu na architekturę automatu stanów.
+- Czasem wyskakuje pewien warning: pochodzi on z gotowej biblioteki, nie z mojego kodu.
 
 ## Link do głównej dokumentacji:
 * - [Dokumentacja](../../../../Doxygen/output/html/index.html)
