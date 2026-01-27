@@ -2284,10 +2284,6 @@ HAL_StatusTypeDef _lcd_i2c_transmit_it_callback(I2C_HandleTypeDef *hi2c){
 	return _send_one_byte();
  80015be:	f7ff ffbb 	bl	8001538 <_send_one_byte>
  80015c2:	4603      	mov	r3, r0
-
-	//	if (hi2c != h_lcd_i2c){
-//		return;
-//	}
 }
  80015c4:	4618      	mov	r0, r3
  80015c6:	3708      	adds	r7, #8
@@ -2326,7 +2322,7 @@ LCD_Status _lcd_init (void) {
  80015ea:	b580      	push	{r7, lr}
  80015ec:	b082      	sub	sp, #8
  80015ee:	af00      	add	r7, sp, #0
-	// Każdy delay jest konieczny! <----------------------
+  // Każdy delay jest konieczny! <----------------------
   LCD_Status result = LCD_OK;
  80015f0:	2300      	movs	r3, #0
  80015f2:	71fb      	strb	r3, [r7, #7]
@@ -2378,7 +2374,6 @@ LCD_Status _lcd_init (void) {
   HAL_Delay(10);
  800164c:	200a      	movs	r0, #10
  800164e:	f000 fe6d 	bl	800232c <HAL_Delay>
-
   if (result != LCD_OK){
  8001652:	79fb      	ldrb	r3, [r7, #7]
  8001654:	2b00      	cmp	r3, #0
@@ -2450,7 +2445,6 @@ LCD_Status _lcd_init (void) {
  80016ca:	2303      	movs	r3, #3
  80016cc:	e000      	b.n	80016d0 <_lcd_init+0xe6>
   }
-
   return LCD_OK;
  80016ce:	2300      	movs	r3, #0
 };

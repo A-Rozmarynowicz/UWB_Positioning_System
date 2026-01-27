@@ -14,5 +14,5 @@
 ../Core/Src/lcd_handler.c:268:12:_lcd_send_cmd	2
 ../Core/Src/lcd_handler.c:293:19:_send_one_byte	3
 ../Core/Src/lcd_handler.c:311:19:_lcd_i2c_transmit_it_callback	3
-../Core/Src/lcd_handler.c:331:19:_lcd_i2c_receive_it_callback	1
-../Core/Src/lcd_handler.c:339:12:_lcd_init	3
+../Core/Src/lcd_handler.c:327:19:_lcd_i2c_receive_it_callback	1
+../Core/Src/lcd_handler.c:335:12:_lcd_init	3

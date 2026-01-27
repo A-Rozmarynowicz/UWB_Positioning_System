@@ -317,10 +317,6 @@ HAL_StatusTypeDef _lcd_i2c_transmit_it_callback(I2C_HandleTypeDef *hi2c){
 		return HAL_OK;
 	}
 	return _send_one_byte();
-
-	//	if (hi2c != h_lcd_i2c){
-//		return;
-//	}
 }
 
 /**
@@ -337,7 +333,7 @@ HAL_StatusTypeDef _lcd_i2c_receive_it_callback(I2C_HandleTypeDef *hi2c){
  * @return LCD_OK on success, otherwise LCD_INIT_FAIL.
  */
 LCD_Status _lcd_init (void) {
-	// Każdy delay jest konieczny! <----------------------
+  // Każdy delay jest konieczny! <----------------------
   LCD_Status result = LCD_OK;
   // 4 bit initialization
   HAL_Delay(50);  // wait for >40ms
@@ -349,7 +345,6 @@ LCD_Status _lcd_init (void) {
   HAL_Delay(10);
   result += _lcd_send_cmd (0x20);  // 4bit mode
   HAL_Delay(10);
-
   if (result != LCD_OK){
 	  return LCD_INIT_FAIL;
   }
@@ -368,6 +363,5 @@ LCD_Status _lcd_init (void) {
   if (result != LCD_OK){
 	  return LCD_INIT_FAIL;
   }
-
   return LCD_OK;
 };

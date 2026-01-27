@@ -14,5 +14,5 @@
 ../Core/Src/lcd_handler.c:268:12:_lcd_send_cmd	32	static
 ../Core/Src/lcd_handler.c:293:19:_send_one_byte	16	static
 ../Core/Src/lcd_handler.c:311:19:_lcd_i2c_transmit_it_callback	16	static
-../Core/Src/lcd_handler.c:331:19:_lcd_i2c_receive_it_callback	16	static
-../Core/Src/lcd_handler.c:339:12:_lcd_init	16	static
+../Core/Src/lcd_handler.c:327:19:_lcd_i2c_receive_it_callback	16	static
+../Core/Src/lcd_handler.c:335:12:_lcd_init	16	static
