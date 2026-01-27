@@ -1,6 +1,6 @@
 #include "HardwareSerial.h"
 #include "esp32-hal-timer.h"
-#include "LighthouseConfig.h" // TODO tutaj Timers.h
+#include "LighthouseConfig.h"
 #include "Timing.h"
 
 hw_timer_t* uwb_activation_timer = NULL;
@@ -9,7 +9,7 @@ hw_timer_t* ack_timer = NULL;
 /**
  * @brief Initializes hardware timers for UWB activation and ACK timeout.
  *
- * This function sets up two ESP32 hardware timers, attaches interrupt callbacks,
+ * This function sets up two E SP32 hardware timers, attaches interrupt callbacks,
  * configures the alarm periods, and enables the timers.
  */
 void Initialize_Timers(){
