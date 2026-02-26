@@ -12,6 +12,7 @@ Arkadiusz Rozmarynowicz
 - W folderze [Sailor](Sailor/) znajduje się kod wgrywany do STM32 podłączonego do mobilnego ESP, odpowiadającego za wyświetlanie mierzonej pozycji na wyświetlaczu LCD.
 - W folderze [MATLAB_Simulations](MATLAB_Simulations/) znajdują się symulacje MATLAB.
 
+
 ## Efekty symulacji
 - W folderze [Pictures](Pictures/) znajdują się efekty symulacji z MATLABa
 
