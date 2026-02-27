@@ -13,6 +13,7 @@ Arkadiusz Rozmarynowicz
 - W folderze [MATLAB_Simulations](MATLAB_Simulations/) znajdują się symulacje MATLAB.
 
 
+
 ## Efekty symulacji
 - W folderze [Pictures](Pictures/) znajdują się efekty symulacji z MATLABa
 
