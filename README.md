@@ -6,8 +6,6 @@ Projekt wykonany w ramach przedmiotu PMIK. Umożliwia lokalizację modułu ESP32
 ## Autor
 Arkadiusz Rozmarynowicz
 
-
-
 ## Pliki
 - W folderze [LighthouseESP](LighthouseESP/) znajduje się kod wgrywany do modułów latarnii, ten sam kod dla każdej latarnii.
 - W folderze [Observer](Observer/) znajduje się kod wgrywany do mobilnego ESP odpowiadającego za komunikację z latarniami.
