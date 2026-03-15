@@ -7,6 +7,12 @@ An indoor positioning system based on Ultra-Wideband beacons. It allows centimet
 * [Setup](#setup)
 
 ## General info
+- A communication system consisting of a moving tag and at least four ranging anchors.
+- The tag and anchors are based on an DWM1000 ranging module and an ESP32.
+- Implemented a state machine that:
+    - allows the anchors to automatically determine their relative position after power-up
+    - mitigates communication issues among the modules
+    - enables positioning of the tag only when the anchors are setup properly
 - 
 
 ## Motivation
