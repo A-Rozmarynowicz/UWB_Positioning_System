@@ -12,17 +12,27 @@ An indoor positioning system based on Ultra-Wideband beacons. It allows centimet
 - Implemented a state machine that:
     - allows the anchors to automatically determine their relative position after power-up
     - mitigates communication issues among the modules
-    - enables positioning of the tag only when the anchors are setup properly
-- 
+    - enables positioning of the tag only when the anchors are setup properly.
+- Implemented an algorithm for least square error estimation of the 3D coordinates, based on uncertain distance measurements.
+- Designed and soldered a PCB:
+    - implemened safety measures, such as overcurrent, reverse polarity, and ESD protection.
+    -
+- Additionally, implemented a very low-level I2C communication between an STM32 and an LCD.
 
 ## Motivation
 As I decided on my Bachelor's project (full implementation of a quadcopter) I needed a way to position an UAV in an indoor environment. As I couldn't rely on GPS signal, I decided to create a DIY substitution. I experimented with a few ranging technologies, and finally settled with ultra-wideband beacons.
 
 ## Technologies
-Project is created with:
-* Lorem version: 12.3
-* Ipsum version: 2.33
-* Ament library version: 999
+Programming languages:
+- C++
+- C
+
+Communication protocols:
+- ESP-NOW
+- UWB
+- SPI
+- I2C
+- UART
 
 ## Setup
 To run this project, install it locally using npm:
