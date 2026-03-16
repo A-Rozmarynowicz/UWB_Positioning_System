@@ -21,7 +21,6 @@ Author: Arkadiusz Rozmarynowicz.
 * [Setup](#setup)
 * [Roadmap](#roadmap)
 
-
 ## General info
 - A communication system consisting of a moving tag and at least four ranging anchors.
 - The tag and anchors are based on an DWM1000 ranging module and an ESP32.
@@ -59,7 +58,6 @@ CAD softwares for hardware design:
 To run the project, please first refer to the details in [Hardware](/Hardware/) folder, and then follow the instructions in the [Software](/Software/) folder.
 
 ## Roadmap
-
 - [x] Distance measurements among the anchors
 - [x] Automatic 3D estimation of each anchor relative to each other
 - [x] 3D position estimation of the tag
@@ -68,3 +66,6 @@ To run the project, please first refer to the details in [Hardware](/Hardware/) 
 - [x] PCB and 3D-printed casing
 - [x] Test of the setup on a slowly moving tag
 - [ ] Integration with an UAV
+
+## License
+To be decided.
