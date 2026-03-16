@@ -32,8 +32,13 @@ Author: Arkadiusz Rozmarynowicz.
 ## Project structure
 The project has been split into two parts: hardware and software, that are available in the [Hardware](/Hardware/) and [Software](/Software/) folders, along with more details on each part.
 
+[MATLAB simulations](/Software/MATLAB_Simulations/) are available in the [Software](/Software/) folder.
+
 ## Important note
 As the project has been developed by me logged into a different account, the majority of commits come from "RocketEquation" and "arozmary" accounts, both of which belong to me.
+
+## Effects
+The system allows for positioning a slow-moving tag with an accuracy better than 25 centimeters. Effectiveness with a fast-moving tag has not yet been tested (see [roadmap](#roadmap)).
 
 ## Motivation
 As I decided on my Bachelor's project (full implementation of a quadcopter) I needed a way to position an UAV in an indoor environment. As I couldn't rely on GPS signal, I decided to create a DIY substitution. I experimented with a few ranging technologies, and finally settled with ultra-wideband beacons.

@@ -1,3 +1,5 @@
+
+
 - Implemented a state machine that:
     - allows the anchors to automatically determine their relative position after power-up
     - mitigates communication issues among the modules
