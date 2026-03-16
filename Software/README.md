@@ -1,11 +1,23 @@
+# UWB Positioning System - software
+This folder contains files associated with software of the UWB Positioning System.
 
+## Table of contents
+
+
+## General info
+- Implementation of a UWB anchor, also referred to as a "lighthouse".
+- Implementation of a UWB tag, also referred to as an "observer"
+-
 
 - Implemented a state machine that:
     - allows the anchors to automatically determine their relative position after power-up
     - mitigates communication issues among the modules
     - enables positioning of the tag only when the anchors are setup properly.
 
-- Additionally, implemented a very low-level I2C communication between an STM32 and an LCD.
+- Additionally, implemented a low-level I2C communication between an STM32 and an LCD.
+
+## Project structure
+-
 
 ## Pliki
 - W folderze [LighthouseESP](LighthouseESP/) znajduje się kod wgrywany do modułów latarnii, ten sam kod dla każdej latarnii.
