@@ -1,6 +1,8 @@
 # UWB Positioning System
 An indoor positioning system based on Ultra-Wideband beacons. It allows centimeter-accurate positioning of a moving tag, specifically designed for UAVs.
 
+Created software and hardware.
+
 ## Table of contents
 * [General info](#general-info)
 * [Technologies](#technologies)
@@ -9,11 +11,16 @@ An indoor positioning system based on Ultra-Wideband beacons. It allows centimet
 ## General info
 - A communication system consisting of a moving tag and at least four ranging anchors.
 - The tag and anchors are based on an DWM1000 ranging module and an ESP32.
+- Implemented an algorithm for least square error estimation of the 3D coordinates, based on uncertain distance measurements.
+- Designed and built a custom PCB with a 3D printed casing.
+- Simulated and visualized the process in MATLAB
+
+The project has been split into two parts: hardware and software
+
 - Implemented a state machine that:
     - allows the anchors to automatically determine their relative position after power-up
     - mitigates communication issues among the modules
     - enables positioning of the tag only when the anchors are setup properly.
-- Implemented an algorithm for least square error estimation of the 3D coordinates, based on uncertain distance measurements.
 - Designed and soldered a PCB:
     - implemened safety measures, such as overcurrent, reverse polarity, and ESD protection.
     -
@@ -33,6 +40,10 @@ Communication protocols:
 - SPI
 - I2C
 - UART
+
+Hardware technologies:
+- Altium Designer
+- Autodesk Fusion
 
 ## Setup
 To run this project, install it locally using npm:
