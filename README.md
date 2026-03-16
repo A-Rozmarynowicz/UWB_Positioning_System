@@ -1,3 +1,6 @@
+![Hardware](https://img.shields.io/badge/Hardware-blue)
+![Firmware](https://img.shields.io/badge/Software-green)
+
 # UWB Positioning System
 An indoor positioning system based on the Ultra-Wideband technology. It allows centimeter-accurate positioning of a moving tag, specifically designed for UAVs.
 
