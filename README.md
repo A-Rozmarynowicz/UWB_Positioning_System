@@ -47,15 +47,18 @@ As I decided on my Bachelor's project (full implementation of a quadcopter) I ne
 Programming languages:
 - C
 - C++
+- MATLAB
 
 Communication protocols:
 - UWB
 - ESP-NOW
 - SPI
-- I2C
 - UART
+- I2C
 
-CAD softwares for hardware design:
+Tools used:
+- STM32 Cube IDE
+- PlatformIO
 - Altium Designer
 - Autodesk Fusion
 

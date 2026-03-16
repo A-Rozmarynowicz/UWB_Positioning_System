@@ -5,6 +5,7 @@ This folder contains files associated with hardware of the UWB Positioning Syste
 * [General info](#general-info)
 * [Project structure](#project-structure)
 * [Software used](#software-used)
+* [Setup](#setup)
 * [Main components](#main-components)
 
 ## General info
@@ -21,6 +22,9 @@ This folder contains files associated with hardware of the UWB Positioning Syste
 
 ### Note
 The 3D elements were designed with the Autodesk Fusion software, which stores all the project files in the cloud, hence only the final .step files are avaiable.
+
+## Setup
+Please refer to the [UWB_Beacon_Design_Documentation.pdf](/Hardware/Electronics/Documents/Design_Documentations/UWB_Beacon_Design_Documentation.pdf) for relevant schematics.
 
 ## Software used
 - Used Altium Designer for PCB design.
