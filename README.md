@@ -1,5 +1,5 @@
 # UWB Positioning System
-An indoor positioning system based on Ultra-Wideband beacons. It allows centimeter-accurate positioning of a moving tag, specifically designed for UAVs.
+An indoor positioning system based on the Ultra-Wideband technology. It allows centimeter-accurate positioning of a moving tag, specifically designed for UAVs.
 
 Created both software and hardware.
 
