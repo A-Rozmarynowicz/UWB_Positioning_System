@@ -3,10 +3,17 @@ An indoor positioning system based on Ultra-Wideband beacons. It allows centimet
 
 Created both software and hardware.
 
+Author: Arkadiusz Rozmarynowicz.
+
 ## Table of contents
 * [General info](#general-info)
+* [Project structure](#project-structure)
+* [Important note](#important-note)
+* [Motivation](#motivation)
 * [Technologies](#technologies)
 * [Setup](#setup)
+* [Roadmap](#roadmap)
+
 
 ## General info
 - A communication system consisting of a moving tag and at least four ranging anchors.
@@ -31,8 +38,8 @@ Programming languages:
 - C++
 
 Communication protocols:
-- ESP-NOW
 - UWB
+- ESP-NOW
 - SPI
 - I2C
 - UART
@@ -46,8 +53,11 @@ To run the project, please first refer to the details in [Hardware](/Hardware/) 
 
 ## Roadmap
 
-- [x] asd
-- [ ] asd
-
-## Author
-Arkadiusz Rozmarynowicz.
+- [x] Distance measurements among the anchors
+- [x] Automatic 3D estimation of each anchor relative to each other
+- [x] 3D position estimation of the tag
+    - [x] Least squares method
+    - [ ] Weighted least squares method
+- [x] PCB and 3D-printed casing
+- [x] Test of the setup on a slowly moving tag
+- [ ] Integration with an UAV
