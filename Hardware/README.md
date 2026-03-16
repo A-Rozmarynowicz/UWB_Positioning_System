@@ -1,0 +1,3 @@
+- Designed and soldered a PCB:
+    - implemened safety measures, such as overcurrent, reverse polarity, and ESD protection.
+    -
