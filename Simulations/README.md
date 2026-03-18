@@ -2,6 +2,10 @@
 This subproject contains simulation resources for the UWB positioning system.
 
 ## Table of contents
+- [General information](#general-information)
+- [Example](#example)
+- [Visualizations](#visualizations)
+- [Future](#future)
 
 ## General information
 - Simulations allow analysis of the positioning system in different setups
@@ -16,14 +20,14 @@ In the following example, the default setup of the positioning system has been s
 ### Accuracy vs. number of lighthouses
 Below is a plot showing how average and worst-case accuracies change with number of active lighthouses:
 
-![./Pictures/Accuracy_Vs_Number_Of_Lighthouses.png](./Pictures/Accuracy_Vs_Number_Of_Lighthouses.png)
+<img src="./Pictures/Accuracy_Vs_Number_Of_Lighthouses.png" alt="./Pictures/Accuracy_Vs_Number_Of_Lighthouses.png" width="300"/>
 
 We see that the effectiveness improves with more and more anchors. Five anchors seems as an optimal choice, in the sense that it provides good accuracy with fewer hardware elements.
 
 ### Accuracy distribution
 Below is a histogram that shows what kind of position accuracy distribution can we expect, when four lighthouses are placed randomly (while still meeting requirements from the [Example](#example) section).
 
-![./Pictures/Accuracy_Analysis.png](./Pictures/Accuracy_Analysis.png)
+<img src="./Pictures/Accuracy_Analysis.png" alt="./Pictures/Accuracy_Analysis.png" width="300"/>
 
 Numerical data:
 - Average accuracy: 0.37m
@@ -33,9 +37,12 @@ Numerical data:
 
 We conclude that the overall accuracy distribution is satisfactory. Poor position estimates occur infrequently.
 
-### Visualizations
+## Visualizations
 Here, the 2D and 3D visualizations are presented.
 
 ![./Pictures/2D_Visualization.png](./Pictures/2D_Visualization.png)
 
 ![./Pictures/3D_Visualization.png](./Pictures/3D_Visualization.png)
+
+## Future
+The simulations will be helpful in testing the system in a UAV application.
