@@ -7,6 +7,7 @@ This folder contains files associated with hardware of the UWB Positioning Syste
 * [Software used](#software-used)
 * [Setup](#setup)
 * [Main components](#main-components)
+* [Visualization](#visualization)
 
 ## General info
 - Design of a PCB for an UWB anchor, including:
@@ -32,3 +33,12 @@ Please refer to the [UWB_Beacon_Design_Documentation.pdf](/Hardware/Electronics/
 
 ## Main components
 Used the ESP32 microcontroller with the DWM1000 UWB module.
+
+## Visualization
+Images of the PCB and the casing are shown below.
+
+<img src="./Images/PCB_2D_Image.png" alt="./Images/PCB_2D_Image.png" width="750"/>
+
+<img src="./Images/PCB_3D_Image.png" alt="./Images/PCB_3D_Image.png" width="750"/>
+
+<img src="./Images/Casing_Image.png" alt="./Images/Casing_Image.png" width="750"/>
