@@ -21,14 +21,14 @@ In the following example, the default setup of the positioning system has been s
 ### Accuracy vs. number of lighthouses
 Below is a plot showing how average and worst-case accuracies change with number of active lighthouses:
 
-<img src="./Pictures/Accuracy_Vs_Number_Of_Lighthouses.png" alt="./Pictures/Accuracy_Vs_Number_Of_Lighthouses.png" width="750"/>
+<img src="./Images/Accuracy_Vs_Number_Of_Lighthouses.png" alt="./Images/Accuracy_Vs_Number_Of_Lighthouses.png" width="750"/>
 
 We see that the effectiveness improves with more and more anchors. Five anchors seems as an optimal choice, in the sense that it provides good accuracy with fewer hardware elements.
 
 ### Accuracy distribution
 Below is a histogram that shows what kind of position accuracy distribution can we expect, when four lighthouses are placed randomly (while still meeting requirements from the [Example](#example) section).
 
-<img src="./Pictures/Accuracy_Analysis.png" alt="./Pictures/Accuracy_Analysis.png" width="750"/>
+<img src="./Images/Accuracy_Analysis.png" alt="./Images/Accuracy_Analysis.png" width="750"/>
 
 Numerical data:
 - Average accuracy: 0.37m
@@ -41,9 +41,9 @@ We conclude that the overall accuracy distribution is satisfactory. Poor positio
 ## Visualizations
 Here, the 2D and 3D visualizations are presented.
 
-<img src="./Pictures/2D_Visualization.png" alt="./Pictures/2D_Visualization.png" width="750"/>
+<img src="./Images/2D_Visualization.png" alt="./Images/2D_Visualization.png" width="750"/>
 
-<img src="./Pictures/3D_Visualization.png" alt="./Pictures/3D_Visualization.png" width="750"/>
+<img src="./Images/3D_Visualization.png" alt="./Images/3D_Visualization.png" width="750"/>
 
 ## Technologies
 - MATLAB
