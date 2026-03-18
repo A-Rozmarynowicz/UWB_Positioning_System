@@ -7,7 +7,7 @@ P_vec = [
     [0, 1, 1];
     ]; % Lighthouses' positions
 
-distance_accuracy = 0.4;
+distance_accuracy = 0.1;
 
 sz = size(P_vec);
 N = sz(1);
@@ -35,10 +35,10 @@ for i=1:N
     surf(x, y, z, "FaceAlpha", 0.1, "EdgeColor", "none", "FaceColor", "yellow");
 end
 
-legend(["Calculated position", "Ground truth position", "Distances to lighthouses"])
+legend(["Calculated position", "Ground truth position", "Lighthouses", "Distances to lighthouses"])
 
 title('3D visualization');
-subtitle(sprintf("Dokładność pomiaru odległości: %0.2fm \n Dokładność pomiaru pozycji: %0.2fm", distance_accuracy, accuracy));
+subtitle(sprintf("Distance measurement accuracy: %0.2fm \n Position measurement accuracy: %0.2fm", distance_accuracy, accuracy));
 xlabel('x');
 ylabel('y');
 zlabel("z");
