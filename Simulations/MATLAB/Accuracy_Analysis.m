@@ -17,7 +17,6 @@ end
 worst_accuracy = max(accuracies);
 average_accuracy = mean(accuracies);
 std_accuracy_deviation = std(accuracies);
-mode_accuracy = mode(accuracies);
 
 edges = [0, 0:distance_accuracy:20*distance_accuracy, max(worst_accuracy, 20*distance_accuracy)];
 h = histogram(accuracies, edges);
@@ -33,5 +32,18 @@ text(0.98*xl(2), 0.98*yl(2), info_str, ...
     'HorizontalAlignment', 'right', ...
     'VerticalAlignment', 'top');
 
-xlabel("Accuracy");
+xlabel("Accuracy [m]");
 ylabel("Number of occurrences");
+
+[~, mode_index] = max(h.Values);
+
+disp("Average accuracy: ");
+disp(average_accuracy);
+disp("Standard deviation: ");
+disp(std_accuracy_deviation);
+disp("Most frequently occured accuracy range: ");
+disp(h.BinEdges(mode_index));
+disp(h.BinEdges(mode_index+1));
+disp("Worst accuracy: ");
+disp(worst_accuracy);
+
