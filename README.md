@@ -6,9 +6,9 @@
 ![Software](https://img.shields.io/badge/Software-lightblue)
 
 # UWB Positioning System
-An indoor positioning system based on the Ultra-Wideband technology. It allows centimeter-accurate positioning of a moving tag, specifically designed for UAVs.
+An indoor positioning system based on the Ultra-Wideband technology. It allows centimeter-accurate positioning of a moving tag, without relying on GPS signal. Specifically designed for UAVs.
 
-Created both software and hardware.
+Implemented software, hardware and simulation.
 
 Author: Arkadiusz Rozmarynowicz.
 
@@ -16,10 +16,11 @@ Author: Arkadiusz Rozmarynowicz.
 * [General info](#general-info)
 * [Project structure](#project-structure)
 * [Important note](#important-note)
-* [Motivation](#motivation)
+* [Effectiveness](#effectiveness)
 * [Technologies](#technologies)
 * [Setup](#setup)
 * [Roadmap](#roadmap)
+* [Future](#future)
 
 ## General info
 - A communication system consisting of a moving tag and at least four ranging anchors.
@@ -27,21 +28,19 @@ Author: Arkadiusz Rozmarynowicz.
 - Implemented an algorithm for least square error estimation of the 3D coordinates, based on uncertain distance measurements.
 - Designed and built a custom PCB with a 3D printed casing.
 - Simulated and visualized the process in MATLAB.
-- Created a Doxygen documentation.
 
 ## Project structure
-The project has been split into two parts: hardware and software, that are available in the [Hardware](/Hardware/) and [Software](/Software/) folders, along with more details on each part.
+The project has been split into three parts: software, hardware, and simulation.
 
-[MATLAB simulations](/Software/MATLAB_Simulations/) are available in the [Software](/Software/) folder.
+- [Software](/Software/) consists of code for the tag and anchors.
+- [Hardware](/Hardware/) consists of a PCB project and a 3D-printed casing files.
+- [Simulation](/Simulations/) consists of MATLAB code that allows for testing and visualizing different setups.
 
 ## Important note
 As the project has been developed by me logged into a different account, the majority of commits come from "RocketEquation" and "arozmary" accounts, both of which belong to me.
 
-## Effects
+## Effectiveness
 The system allows for positioning a slow-moving tag with an accuracy better than 25 centimeters. Effectiveness with a fast-moving tag has not yet been tested (see [roadmap](#roadmap)).
-
-## Motivation
-As I decided on my Bachelor's project (full implementation of a quadcopter) I needed a way to position an UAV in an indoor environment. As I couldn't rely on GPS signal, I decided to create a DIY substitution. I experimented with a few ranging technologies, and finally settled with ultra-wideband beacons.
 
 ## Technologies
 Programming languages:
@@ -75,5 +74,5 @@ To run the project, please first refer to the details in [Hardware](/Hardware/) 
 - [x] Test of the setup on a slowly moving tag
 - [ ] Integration with an UAV
 
-## License
-To be decided.
+## Future
+The project will play an important role in the development of my Bachelor's project: "Design and implementation of a quadrotor with a localization algorithm based on Ultra-Wideband beacons", which you can follow through this [repository](https://github.com/A-Rozmarynowicz/Portfolio_Quadcopter).
