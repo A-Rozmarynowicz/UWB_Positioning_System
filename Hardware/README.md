@@ -37,8 +37,8 @@ Used the ESP32 microcontroller with the DWM1000 UWB module.
 ## Visualization
 Images of the PCB and the casing are shown below.
 
-<img src="./Images/PCB_2D_Image.png" alt="./Images/PCB_2D_Image.png" width="750"/>
+<img src="./Images/PCB_2D_Image.png" alt="./Images/PCB_2D_Image.png" width="550"/>
 
-<img src="./Images/PCB_3D_Image.png" alt="./Images/PCB_3D_Image.png" width="750"/>
+<img src="./Images/PCB_3D_Image.png" alt="./Images/PCB_3D_Image.png" width="550"/>
 
-<img src="./Images/Casing_Image.png" alt="./Images/Casing_Image.png" width="750"/>
+<img src="./Images/Casing_Image.png" alt="./Images/Casing_Image.png" width="550"/>
