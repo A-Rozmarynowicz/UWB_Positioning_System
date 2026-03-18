@@ -27,9 +27,8 @@ for n=1:N
 end
 
 figure;
-subplot(2, 1, 1);
+subplot(2, 1, 2);
 scatter(N_vec, worst_accuracies, "o", "filled");
-title("Accuracy vs. number of lighthouses")
 xticks(N_vec);
 xlim([least_lighthouses-0.5, most_lighthouses+0.5]);
 subtitle("Worst accuracy");
@@ -45,8 +44,9 @@ text(0.98*xl(2), 0.9*yl(2), info_str, ...
 ylabel("Accuracy [m]");
 
 
-subplot(2, 1, 2);
+subplot(2, 1, 1);
 scatter(N_vec, average_accuracies, 'o', "filled");
+title("Accuracy vs. number of lighthouses")
 hold on;
 errorbar(N_vec, std_deviations, average_accuracies, 'LineStyle', 'none', 'Color', 'k', 'CapSize', 10);
 

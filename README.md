@@ -13,16 +13,17 @@ Implemented software, hardware and simulation.
 Author: Arkadiusz Rozmarynowicz.
 
 ## Table of contents
-* [General info](#general-info)
+* [General information](#general-information)
 * [Project structure](#project-structure)
 * [Important note](#important-note)
 * [Effectiveness](#effectiveness)
+* [Naming convention](#naming-convention)
 * [Technologies](#technologies)
 * [Setup](#setup)
 * [Roadmap](#roadmap)
 * [Future](#future)
 
-## General info
+## General information
 - A communication system consisting of a moving tag and at least four ranging anchors.
 - The tag and anchors are based on an DWM1000 ranging module and an ESP32.
 - The anchors automatically determine their relative position on start-up.
@@ -42,6 +43,9 @@ As the project has been developed by me logged into a different account, the maj
 
 ## Effectiveness
 The system allows for positioning a slow-moving tag with an accuracy better than 25 centimeters. Effectiveness with a fast-moving tag has not yet been tested (see [roadmap](#roadmap)).
+
+## Naming convention
+The anchors are also referred to as "lighthouses", and the tag is also referred to as an "observer".
 
 ## Technologies
 Programming languages:
