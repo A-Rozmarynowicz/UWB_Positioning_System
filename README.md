@@ -57,13 +57,13 @@ Communication protocols:
 - I2C
 
 Tools used:
-- STM32 Cube IDE
 - PlatformIO
+- STM32 Cube IDE
 - Altium Designer
 - Autodesk Fusion
 
 ## Setup
-To run the project, please first refer to the details in [Hardware](/Hardware/) folder, and then follow the instructions in the [Software](/Software/) folder.
+To run the project, please first refer to the details in the[Hardware](/Hardware/) folder, and then follow the instructions in the [Software](/Software/) folder.
 
 ## Roadmap
 - [x] Distance measurements among the anchors
