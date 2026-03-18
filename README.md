@@ -6,9 +6,9 @@
 ![Software](https://img.shields.io/badge/Software-lightblue)
 
 # UWB Positioning System
-An indoor positioning system based on the Ultra-Wideband technology. It allows centimeter-accurate positioning of a moving tag, without relying on GPS signal. Specifically designed for UAVs.
+An indoor positioning system based on the Ultra-Wideband technology. It allows centimeter-accurate positioning of a moving tag, without relying on a GPS signal. Specifically designed for UAVs.
 
-Implemented software, hardware and simulation.
+Implemented software, hardware, and simulation.
 
 Author: Arkadiusz Rozmarynowicz.
 
@@ -25,7 +25,7 @@ Author: Arkadiusz Rozmarynowicz.
 
 ## General information
 - A communication system consisting of a moving tag and at least four ranging anchors.
-- The tag and anchors are based on an DWM1000 ranging module and an ESP32.
+- The tag and anchors are based on a DWM1000 ranging module and an ESP32.
 - The anchors automatically determine their relative position on start-up.
 - Implemented an algorithm for least square error estimation of the 3D coordinates, based on uncertain distance measurements.
 - Designed and built a custom PCB with a 3D printed casing.
@@ -35,7 +35,7 @@ Author: Arkadiusz Rozmarynowicz.
 The project has been split into three parts: software, hardware, and simulation.
 
 - [Software](/Software/) consists of code for the tag and anchors.
-- [Hardware](/Hardware/) consists of a PCB project and a 3D-printed casing files.
+- [Hardware](/Hardware/) consists of a PCB project and 3D-printed casing files.
 - [Simulation](/Simulations/) consists of MATLAB code that allows for testing and visualizing different setups.
 
 ## Important note
@@ -74,7 +74,7 @@ To run the project, please first refer to the details in the [Hardware](/Hardwar
 
 ## Roadmap
 - [x] Distance measurements among the anchors
-- [x] Automatic 3D estimation of each anchor relative to each other
+- [x] Automatic 3D estimation of each anchor relative to the others
 - [x] 3D position estimation of the tag
     - [x] Least squares method
     - [ ] Weighted least squares method
