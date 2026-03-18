@@ -40,9 +40,9 @@ We conclude that the overall accuracy distribution is satisfactory. Poor positio
 ## Visualizations
 Here, the 2D and 3D visualizations are presented.
 
-![./Pictures/2D_Visualization.png](./Pictures/2D_Visualization.png)
+<img src="./Pictures/2D_Visualization.png" alt="./Pictures/2D_Visualization.png" width="750"/>
 
-![./Pictures/3D_Visualization.png](./Pictures/3D_Visualization.png)
+<img src="./Pictures/3D_Visualization.png" alt="./Pictures/3D_Visualization.png" width="750"/>
 
 ## Future
 The simulations will be helpful in testing the system in a UAV application.
