@@ -13,6 +13,7 @@ max_distance = 5.0;
 
 worst_accuracies = zeros(N, 1);
 average_accuracies = zeros(N, 1);
+std_deviations = zeros(N, 1);
 accuracies = zeros(number_of_iterations, 1);
 
 for n=1:N
@@ -21,16 +22,17 @@ for n=1:N
     end
     worst_accuracies(n) = max(accuracies);
     average_accuracies(n) = sum(accuracies)/number_of_iterations;
+    std_deviations(n) = std(accuracies);
 end
 
 figure;
-sgtitle("Dokładność w zależności od ilości latarni");
+sgtitle("Accuracy vs number of lighthouses");
 subplot(2, 1, 1);
 stairs(N_vec, worst_accuracies, "LineWidth", 1.4);
 xticks(N_vec);
-subtitle("Najgorsza dokładność");
+subtitle("Worst accuracy");
 
-info_str = sprintf("Dokładność pomiaru odległości %0.2fm", distance_accuracy);
+info_str = sprintf("Distance measurement accuracy: %0.2fm", distance_accuracy);
 
 xl = xlim;
 yl = ylim;
@@ -38,16 +40,18 @@ text(0.98*xl(2), 0.9*yl(2), info_str, ...
     'HorizontalAlignment', 'right', ...
     'VerticalAlignment', 'top');
 
-ylabel("Dokładność [m]");
+ylabel("Accuracy [m]");
 
 hold on;
 
 
 subplot(2, 1, 2);
-stairs(N_vec, average_accuracies, "LineWidth", 1.4);
+plot(N_vec, average_accuracies, '.', "LineWidth", 1.4);
+hold on;
+stairs(N_vec, std_deviations, "LineStyle", "--", "LineWidth", 1.3);
 xticks(N_vec);
-subtitle("Średnia dokładność");
+subtitle("Average accuracy");
 
-ylabel("Dokładność [m]");
+ylabel("Accuracy [m]");
 
-xlabel("Liczba latarni")
+xlabel("Number of lighthouses")
