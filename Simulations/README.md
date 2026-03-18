@@ -5,6 +5,7 @@ This subproject contains simulation resources for the UWB positioning system.
 - [General information](#general-information)
 - [Example](#example)
 - [Visualizations](#visualizations)
+- [Technologies](#technologies)
 - [Future](#future)
 
 ## General information
@@ -43,6 +44,9 @@ Here, the 2D and 3D visualizations are presented.
 <img src="./Pictures/2D_Visualization.png" alt="./Pictures/2D_Visualization.png" width="750"/>
 
 <img src="./Pictures/3D_Visualization.png" alt="./Pictures/3D_Visualization.png" width="750"/>
+
+## Technologies
+- MATLAB
 
 ## Future
 The simulations will be helpful in testing the system in a UAV application.

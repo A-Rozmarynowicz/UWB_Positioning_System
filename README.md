@@ -45,7 +45,10 @@ As the project has been developed by me logged into a different account, the maj
 The system allows for positioning a slow-moving tag with an accuracy better than 25 centimeters. Effectiveness with a fast-moving tag has not yet been tested (see [roadmap](#roadmap)).
 
 ## Naming convention
-The anchors are also referred to as "lighthouses", and the tag is also referred to as an "observer".
+- The anchors are also referred to as "lighthouses".
+- The tag is also referred to as an "observer".
+- The module that reads data from the tag is also referred to as a "sailor".
+
 
 ## Technologies
 Programming languages:

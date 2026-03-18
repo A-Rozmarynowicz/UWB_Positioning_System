@@ -1,29 +1,21 @@
 # UWB Positioning System - software
-This folder contains files associated with software of the UWB Positioning System.
+This folder contains files associated with the software part of the UWB Positioning System.
 
 ## Table of contents
-* [Naming convention](#naming-convention)
 * [General info](#general-info)
 * [Project structure](#project-structure)
 * [Setup](#setup)
 * [Technologies](#technologies)
 
-## Naming convention
-- A UWB anchor is also referred to as a "lighthouse".
-- The UWB tag is also referred to as an "observer"
-- The module that read data from the tag is also referred to as a "sailor"
-
 ## General info
-- At least four anchors are needed for positioning a tag.
-- The anchors automatically determine their relative position in around 30 seconds after power-up
-- Simulation of the effectiveness of the system.
-- Implementation a low-level I2C communication between an STM32 and an LCD, for visualization and testing purposes.
+- Mitigation of loss of communication.
+- The anchors automatically determine their relative position on start-up.
+- Implemented an algorithm for least square error estimation of the 3D coordinates, based on uncertain distance measurements.
 
 ## Project structure
 - The [Lighthouse](Lighthouse/) folder contains code that is uploaded to an ESP32 anchor.
 - The [Observer](Observer/) folder contains code that is uploaded to an ESP32 tag.
 - The [Sailor](Sailor/) contains code uploaded to an STM32 module, connected to tag via UART.
-- The [MATLAB_Simulations](MATLAB_Simulations/) contains the simulation files and results.
 
 ## Setup
 To run this project, upload the [Lighthouse](./Lighthouse/) code to an ESP32, connected to a DWM1000 as discussed in the [Hardware](/Hardware/) part. Similarly upload the [Observer](./Observer/) code to an ESP32 + DWM1000 module. Then follow the setup instructions given in the [Lighthouse](./Lighthouse/) folder.
@@ -32,8 +24,7 @@ To run this project, upload the [Lighthouse](./Lighthouse/) code to an ESP32, co
 Programming languages:
 - C
 - C++
-- MATLAB
 
 Tools used:
-- STM32 Cube IDE
 - PlatformIO
+- STM32 Cube IDE
