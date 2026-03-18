@@ -1,3 +1,4 @@
+clear;
 number_of_iterations = 1000;
 most_lighthouses = 20;
 
@@ -26,10 +27,11 @@ for n=1:N
 end
 
 figure;
-sgtitle("Accuracy vs number of lighthouses");
 subplot(2, 1, 1);
-stairs(N_vec, worst_accuracies, "LineWidth", 1.4);
+scatter(N_vec, worst_accuracies, "o", "filled");
+title("Accuracy vs. number of lighthouses")
 xticks(N_vec);
+xlim([least_lighthouses-0.5, most_lighthouses+0.5]);
 subtitle("Worst accuracy");
 
 info_str = sprintf("Distance measurement accuracy: %0.2fm", distance_accuracy);
@@ -42,16 +44,16 @@ text(0.98*xl(2), 0.9*yl(2), info_str, ...
 
 ylabel("Accuracy [m]");
 
-hold on;
-
 
 subplot(2, 1, 2);
-plot(N_vec, average_accuracies, '.', "LineWidth", 1.4);
+scatter(N_vec, average_accuracies, 'o', "filled");
 hold on;
-stairs(N_vec, std_deviations, "LineStyle", "--", "LineWidth", 1.3);
+errorbar(N_vec, std_deviations, average_accuracies, 'LineStyle', 'none', 'Color', 'k', 'CapSize', 10);
+
 xticks(N_vec);
+xlim([least_lighthouses-0.5, most_lighthouses+0.5]);
 subtitle("Average accuracy");
+legend("Average accuracy", "Standard deviation")
 
 ylabel("Accuracy [m]");
-
 xlabel("Number of lighthouses")
