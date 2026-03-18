@@ -92,34 +92,8 @@ $(function(){initNavTree('index.html','',''); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md0"></a>
-LighthouseESP</h1>
-<p>Kod wgrywany do modułów 'latarni'.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md1"></a>
-Opis logiki</h2>
-<p>Działaniem programu zarządza automat stanów. Początkowo latarnie wyznaczają wzajemne odległości. Następnie jedna z nich zbiera informacje o pomiarach i oblicza względne pozycje. Na koniec wysyła informacje o sukcesie do modułu 'Observer'.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
-Hardware</h2>
-<p>ESP32 podłączone do DWM1000 poprzez SPI.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
-Do formularza:</h2>
-<ul>
-<li>struktury: tak, kilka</li>
-<li>timery: tak, dwa</li>
-<li>przerwania: tak, od timerów, od ESP-NOW, od DWM1000</li>
-<li>delay: tylko tam gdzie to naprawdę konieczne (restart DWM1000)</li>
-<li>możliwość wykorzystania kodu w innym projekcie: tak, są oddzielne pliki do obliczania pozycji, do automatu stanów, do timerów itp.</li>
-</ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
-Uwaga</h2>
-<ul>
-<li>Wiele funkcji jest pustych, jest to jednak bardzo konieczne ze względu na architekturę automatu stanów.</li>
-<li>Czasem wyskakuje pewien warning: pochodzi on z gotowej biblioteki, nie z mojego kodu.</li>
-</ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md5"></a>
-Link do głównej dokumentacji:</h2>
-<ul>
-<li>- <a href="../../../../Doxygen/output/html/index.html">Dokumentacja</a>   </li>
-</ul>
+Lighthouse</h1>
+<p>Also referred to as an "anchor". This is the project uploaded to an ESP32 + DWM1000 module, used for 3D positioning of a moving tag.   </p>
 </div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"></a>
 </div><!-- contents -->

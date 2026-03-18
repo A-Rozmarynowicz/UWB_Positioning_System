@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['uwaga_0',['Uwaga',['../index.html#autotoc_md6',1,'']]]
+  ['table_20of_20contents_0',['Table of contents',['../index.html#autotoc_md1',1,'']]],
+  ['technologies_1',['Technologies',['../index.html#autotoc_md5',1,'']]]
 ];

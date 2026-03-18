@@ -3,7 +3,7 @@
 
 * Lighthouse Positioning System project depends on the following subprojects:
 
-* - [Lighthouse](../../../LighthouseESP/Doxygen_Lighthouse/output/html/index.html)
+* - [Lighthouse](../../../Lighthouse/Doxygen_Lighthouse/output/html/index.html)
 
 * - [Observer](../../../Observer/Doxygen_Observer/output/html/index.html)
 

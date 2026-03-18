@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['obs_5fuart_5fh_0',['obs_uart_h',['../observer__comm_8h.html#afc33d453c63fdef884b3eb6aef4e24ef',1,'observer_comm.c']]],
-  ['obs_5fuart_5freceive_5fbuffer_1',['obs_uart_receive_buffer',['../observer__comm_8h.html#ad7ceca4eea279384296f76cca07178ff',1,'observer_comm.c']]],
-  ['observer_5fcomm_2eh_2',['observer_comm.h',['../observer__comm_8h.html',1,'']]],
-  ['observer_5finfo_5fsetup_3',['Observer_Info_Setup',['../observer__comm_8h.html#aa6bebde896efa3196e1e90702de30e53',1,'observer_comm.h']]],
-  ['opis_20logiki_4',['Opis logiki',['../index.html#autotoc_md1',1,'']]]
+  ['position_0',['Position',['../struct_position.html',1,'']]],
+  ['print_5fstring_1',['Print_String',['../lcd__handler_8h.html#adf19ea4df63e8e2c611e6fe5380cca47',1,'lcd_handler.c']]],
+  ['print_5fstring_5fat_5fpos_2',['Print_String_At_Pos',['../lcd__handler_8h.html#ae968f47ce6843e77c59c4f414e79c816',1,'lcd_handler.c']]],
+  ['print_5fwhole_5fposition_3',['Print_Whole_Position',['../lcd__handler_8h.html#a045c490c3cb0c1c9093c0c93647f597d',1,'lcd_handler.c']]],
+  ['put_5fcursor_4',['Put_Cursor',['../lcd__handler_8h.html#a787cd812bab5a771e20376137b0ae021',1,'lcd_handler.c']]]
 ];

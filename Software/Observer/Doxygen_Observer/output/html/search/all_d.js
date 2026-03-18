@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['observer_0',['Observer',['../index.html#autotoc_md0',1,'']]],
-  ['observer_20documentation_1',['Observer Documentation',['../index.html',1,'']]],
-  ['observer_5fconfig_2eh_2',['observer_config.h',['../observer__config_8h.html',1,'']]],
-  ['observer_5finfo_5fsetup_3',['Observer_Info_Setup',['../sailor__comm_8h.html#aa6bebde896efa3196e1e90702de30e53',1,'sailor_comm.h']]],
-  ['opis_20logiki_4',['Opis logiki',['../index.html#autotoc_md1',1,'']]]
+  ['pins_0',['Connection Pins',['../group___connection_pins.html',1,'']]],
+  ['position_1',['Position',['../struct_position.html',1,'Position'],['../observer__config_8h.html#aa78012e27ba983f9620fe4ff4bf1d616',1,'Position:&#160;observer_config.h']]],
+  ['positions_20state_2',['Query Positions State',['../group___query_positions.html',1,'']]]
 ];

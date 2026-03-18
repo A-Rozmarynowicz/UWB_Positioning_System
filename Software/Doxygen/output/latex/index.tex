@@ -1,19 +1,37 @@
 \chapter{Lighthouse Positioning System Documentation }
 \hypertarget{index}{}\label{index}\index{Lighthouse Positioning System Documentation@{Lighthouse Positioning System Documentation}}
-\hypertarget{index_autotoc_md0}{}\doxysection{\texorpdfstring{Lighthouse Positioning System}{Lighthouse Positioning System}}\label{index_autotoc_md0}
-\hypertarget{index_autotoc_md1}{}\doxysubsection{\texorpdfstring{O projekcie}{O projekcie}}\label{index_autotoc_md1}
-Projekt wykonany w ramach przedmiotu PMIK. Umożliwia lokalizację modułu ESP32 za pomocą nadajników UWB. Cztery \textquotesingle{}latarnie\textquotesingle{} umieszczone są w odległości parę metrów od siebie, a jeden z modułów może się poruszać w zasięgu latarni, jednocześnie wyznaczając swoją pozycję względną.\hypertarget{index_autotoc_md2}{}\doxysubsection{\texorpdfstring{Autor}{Autor}}\label{index_autotoc_md2}
-Arkadiusz Rozmarynowicz\hypertarget{index_autotoc_md3}{}\doxysubsection{\texorpdfstring{Pliki}{Pliki}}\label{index_autotoc_md3}
+\hypertarget{index_autotoc_md0}{}\doxysection{\texorpdfstring{UWB Positioning System -\/ software}{UWB Positioning System -\/ software}}\label{index_autotoc_md0}
+This folder contains subprojects associated with the software part of the UWB Positioning System.\hypertarget{index_autotoc_md1}{}\doxysubsection{\texorpdfstring{Table of contents}{Table of contents}}\label{index_autotoc_md1}
 
 \begin{DoxyItemize}
-\item W folderze \href{LighthouseESP/}{\texttt{Lighthouse\+ESP}} znajduje się kod wgrywany do modułów latarnii, ten sam kod dla każdej latarnii.
-\item W folderze \href{Observer/}{\texttt{Observer}} znajduje się kod wgrywany do mobilnego ESP odpowiadającego za komunikację z latarniami.
-\item W folderze \href{Sailor/}{\texttt{Sailor}} znajduje się kod wgrywany do STM32 podłączonego do mobilnego ESP, odpowiadającego za wyświetlanie mierzonej pozycji na wyświetlaczu LCD.
-\item W folderze \href{MATLAB_Simulations/}{\texttt{MATLAB\+\_\+\+Simulations}} znajdują się symulacje MATLAB.
-\end{DoxyItemize}\hypertarget{index_autotoc_md4}{}\doxysubsection{\texorpdfstring{Efekty symulacji}{Efekty symulacji}}\label{index_autotoc_md4}
+\item General info
+\item Project structure
+\item Setup
+\item Technologies
+\end{DoxyItemize}\hypertarget{index_autotoc_md2}{}\doxysubsection{\texorpdfstring{General info}{General info}}\label{index_autotoc_md2}
 
 \begin{DoxyItemize}
-\item W folderze \href{Pictures/}{\texttt{Pictures}} znajdują się efekty symulacji z MATLABa
-\end{DoxyItemize}\hypertarget{index_autotoc_md5}{}\doxysubsection{\texorpdfstring{Do formularza}{Do formularza}}\label{index_autotoc_md5}
-W każdym podprojekcie w README znajduje się pomoc w wypełnianiu formularza do oceny.\hypertarget{index_autotoc_md6}{}\doxysubsection{\texorpdfstring{Uwaga}{Uwaga}}\label{index_autotoc_md6}
-W paru przypadkach użyto opóźnień blokujących (delay), jednak każde użycie jest konieczne i mogę je usprawiedliwić.   
+\item Mitigation of loss of communication.
+\item The anchors automatically determine their relative position on start-\/up.
+\item Implemented an algorithm for least square error estimation of the 3D coordinates, based on uncertain distance measurements.
+\item Doxygen documentation.
+\end{DoxyItemize}\hypertarget{index_autotoc_md3}{}\doxysubsection{\texorpdfstring{Project structure}{Project structure}}\label{index_autotoc_md3}
+
+\begin{DoxyItemize}
+\item The \href{Lighthouse/}{\texttt{Lighthouse}} folder contains code that is uploaded to an ESP32 anchor.
+\item The \href{Observer/}{\texttt{Observer}} folder contains code that is uploaded to an ESP32 tag.
+\item The \href{Sailor/}{\texttt{Sailor}} folder contains code uploaded to an STM32 module, connected to tag via UART.
+\item The \href{Doxygen/}{\texttt{Doxygen}} folder contains files related to generating the documentation.
+\end{DoxyItemize}\hypertarget{index_autotoc_md4}{}\doxysubsection{\texorpdfstring{Setup}{Setup}}\label{index_autotoc_md4}
+To run this project, upload the \href{./Lighthouse/}{\texttt{Lighthouse}} code to an ESP32, connected to a DWM1000 as discussed in the \href{/Hardware/}{\texttt{Hardware}} part. Similarly upload the \href{./Observer/}{\texttt{Observer}} code to an ESP32 + DWM1000 module. Then follow the setup instructions given in the \href{./Lighthouse/}{\texttt{Lighthouse}} folder.\hypertarget{index_autotoc_md5}{}\doxysubsection{\texorpdfstring{Technologies}{Technologies}}\label{index_autotoc_md5}
+Programming languages:\+
+\begin{DoxyItemize}
+\item C
+\item C++
+\end{DoxyItemize}
+
+Tools used:\+
+\begin{DoxyItemize}
+\item Platform\+IO
+\item STM32 Cube IDE   
+\end{DoxyItemize}

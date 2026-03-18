@@ -92,32 +92,45 @@ $(function(){initNavTree('index.html','',''); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md0"></a>
-Lighthouse Positioning System</h1>
+UWB Positioning System - software</h1>
+<p>This folder contains subprojects associated with the software part of the UWB Positioning System.</p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md1"></a>
-O projekcie</h2>
-<p>Projekt wykonany w ramach przedmiotu PMIK. Umożliwia lokalizację modułu ESP32 za pomocą nadajników UWB. Cztery 'latarnie' umieszczone są w odległości parę metrów od siebie, a jeden z modułów może się poruszać w zasięgu latarni, jednocześnie wyznaczając swoją pozycję względną.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
-Autor</h2>
-<p>Arkadiusz Rozmarynowicz</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
-Pliki</h2>
+Table of contents</h2>
 <ul>
-<li>W folderze <a href="LighthouseESP/">LighthouseESP</a> znajduje się kod wgrywany do modułów latarnii, ten sam kod dla każdej latarnii.</li>
-<li>W folderze <a href="Observer/">Observer</a> znajduje się kod wgrywany do mobilnego ESP odpowiadającego za komunikację z latarniami.</li>
-<li>W folderze <a href="Sailor/">Sailor</a> znajduje się kod wgrywany do STM32 podłączonego do mobilnego ESP, odpowiadającego za wyświetlanie mierzonej pozycji na wyświetlaczu LCD.</li>
-<li>W folderze <a href="MATLAB_Simulations/">MATLAB_Simulations</a> znajdują się symulacje MATLAB.</li>
+<li>General info</li>
+<li>Project structure</li>
+<li>Setup</li>
+<li>Technologies</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
+General info</h2>
+<ul>
+<li>Mitigation of loss of communication.</li>
+<li>The anchors automatically determine their relative position on start-up.</li>
+<li>Implemented an algorithm for least square error estimation of the 3D coordinates, based on uncertain distance measurements.</li>
+<li>Doxygen documentation.</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
+Project structure</h2>
+<ul>
+<li>The <a href="Lighthouse/">Lighthouse</a> folder contains code that is uploaded to an ESP32 anchor.</li>
+<li>The <a href="Observer/">Observer</a> folder contains code that is uploaded to an ESP32 tag.</li>
+<li>The <a href="Sailor/">Sailor</a> folder contains code uploaded to an STM32 module, connected to tag via UART.</li>
+<li>The <a href="Doxygen/">Doxygen</a> folder contains files related to generating the documentation.</li>
 </ul>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
-Efekty symulacji</h2>
-<ul>
-<li>W folderze <a href="Pictures/">Pictures</a> znajdują się efekty symulacji z MATLABa</li>
-</ul>
+Setup</h2>
+<p>To run this project, upload the <a href="./Lighthouse/">Lighthouse</a> code to an ESP32, connected to a DWM1000 as discussed in the <a href="/Hardware/">Hardware</a> part. Similarly upload the <a href="./Observer/">Observer</a> code to an ESP32 + DWM1000 module. Then follow the setup instructions given in the <a href="./Lighthouse/">Lighthouse</a> folder.</p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md5"></a>
-Do formularza</h2>
-<p>W każdym podprojekcie w README znajduje się pomoc w wypełnianiu formularza do oceny.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md6"></a>
-Uwaga</h2>
-<p>W paru przypadkach użyto opóźnień blokujących (delay), jednak każde użycie jest konieczne i mogę je usprawiedliwić.   </p>
+Technologies</h2>
+<p>Programming languages:</p><ul>
+<li>C</li>
+<li>C++</li>
+</ul>
+<p>Tools used:</p><ul>
+<li>PlatformIO</li>
+<li>STM32 Cube IDE   </li>
+</ul>
 </div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"></a>
 </div><!-- contents -->

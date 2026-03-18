@@ -25,13 +25,12 @@
 var NAVTREE =
 [
   [ "Lighthouse Positioning System Documentation", "index.html", [
-    [ "Lighthouse Positioning System", "index.html#autotoc_md0", [
-      [ "O projekcie", "index.html#autotoc_md1", null ],
-      [ "Autor", "index.html#autotoc_md2", null ],
-      [ "Pliki", "index.html#autotoc_md3", null ],
-      [ "Efekty symulacji", "index.html#autotoc_md4", null ],
-      [ "Do formularza", "index.html#autotoc_md5", null ],
-      [ "Uwaga", "index.html#autotoc_md6", null ]
+    [ "UWB Positioning System - software", "index.html#autotoc_md0", [
+      [ "Table of contents", "index.html#autotoc_md1", null ],
+      [ "General info", "index.html#autotoc_md2", null ],
+      [ "Project structure", "index.html#autotoc_md3", null ],
+      [ "Setup", "index.html#autotoc_md4", null ],
+      [ "Technologies", "index.html#autotoc_md5", null ]
     ] ],
     [ "Subprojects", "subprojects.html", null ]
   ] ]

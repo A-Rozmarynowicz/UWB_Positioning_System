@@ -25,12 +25,7 @@
 var NAVTREE =
 [
   [ "Sailor Documentation", "index.html", [
-    [ "Sailor", "index.html#autotoc_md0", [
-      [ "Opis logiki", "index.html#autotoc_md1", null ],
-      [ "Hardware", "index.html#autotoc_md2", null ],
-      [ "Do formularza:", "index.html#autotoc_md3", null ],
-      [ "Link do głównej dokumentacji:", "index.html#autotoc_md4", null ]
-    ] ],
+    [ "Sailor", "index.html#autotoc_md0", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ]

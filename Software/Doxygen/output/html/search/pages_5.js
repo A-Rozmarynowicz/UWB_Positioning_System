@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['o_20projekcie_0',['O projekcie',['../index.html#autotoc_md1',1,'']]]
+  ['of_20contents_0',['Table of contents',['../index.html#autotoc_md1',1,'']]]
 ];

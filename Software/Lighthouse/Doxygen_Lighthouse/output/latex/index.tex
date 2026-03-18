@@ -1,23 +1,4 @@
 \chapter{Lighthouse Documentation }
 \hypertarget{index}{}\label{index}\index{Lighthouse Documentation@{Lighthouse Documentation}}
-\hypertarget{index_autotoc_md0}{}\doxysection{\texorpdfstring{Lighthouse\+ESP}{Lighthouse\+ESP}}\label{index_autotoc_md0}
-Kod wgrywany do modułów \textquotesingle{}latarni\textquotesingle{}.\hypertarget{index_autotoc_md1}{}\doxysubsection{\texorpdfstring{Opis logiki}{Opis logiki}}\label{index_autotoc_md1}
-Działaniem programu zarządza automat stanów. Początkowo latarnie wyznaczają wzajemne odległości. Następnie jedna z nich zbiera informacje o pomiarach i oblicza względne pozycje. Na koniec wysyła informacje o sukcesie do modułu \textquotesingle{}Observer\textquotesingle{}.\hypertarget{index_autotoc_md2}{}\doxysubsection{\texorpdfstring{Hardware}{Hardware}}\label{index_autotoc_md2}
-ESP32 podłączone do DWM1000 poprzez SPI.\hypertarget{index_autotoc_md3}{}\doxysubsection{\texorpdfstring{Do formularza:\+}{Do formularza:\+}}\label{index_autotoc_md3}
-
-\begin{DoxyItemize}
-\item struktury:\+ tak, kilka
-\item timery:\+ tak, dwa
-\item przerwania:\+ tak, od timerów, od ESP-\/\+NOW, od DWM1000
-\item delay:\+ tylko tam gdzie to naprawdę konieczne (restart DWM1000)
-\item możliwość wykorzystania kodu w innym projekcie:\+ tak, są oddzielne pliki do obliczania pozycji, do automatu stanów, do timerów itp.
-\end{DoxyItemize}\hypertarget{index_autotoc_md4}{}\doxysubsection{\texorpdfstring{Uwaga}{Uwaga}}\label{index_autotoc_md4}
-
-\begin{DoxyItemize}
-\item Wiele funkcji jest pustych, jest to jednak bardzo konieczne ze względu na architekturę automatu stanów.
-\item Czasem wyskakuje pewien warning:\+ pochodzi on z gotowej biblioteki, nie z mojego kodu.
-\end{DoxyItemize}\hypertarget{index_autotoc_md5}{}\doxysubsection{\texorpdfstring{Link do głównej dokumentacji:\+}{Link do głównej dokumentacji:\+}}\label{index_autotoc_md5}
-
-\begin{DoxyItemize}
-\item -\/ \href{../../../../Doxygen/output/html/index.html}{\texttt{Dokumentacja}}   
-\end{DoxyItemize}
+\hypertarget{index_autotoc_md0}{}\doxysection{\texorpdfstring{Lighthouse}{Lighthouse}}\label{index_autotoc_md0}
+Also referred to as an "{}anchor"{}. This is the project uploaded to an ESP32 + DWM1000 module, used for 3D positioning of a moving tag.   

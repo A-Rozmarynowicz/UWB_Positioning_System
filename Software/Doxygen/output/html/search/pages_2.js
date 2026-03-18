@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['efekty_20symulacji_0',['Efekty symulacji',['../index.html#autotoc_md4',1,'']]]
+  ['general_20info_0',['General info',['../index.html#autotoc_md2',1,'']]]
 ];

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['query_20distances_20state_0',['Query Distances State',['../group___query_distances.html',1,'']]],
-  ['query_20positions_20state_1',['Query Positions State',['../group___query_positions.html',1,'']]]
+  ['reset_5fand_5finitialize_5fmachine_0',['Reset_And_Initialize_Machine',['../state__machine_8h.html#a952256c805158cd01d13e26aeede53dd',1,'state_machine_common.cpp']]]
 ];

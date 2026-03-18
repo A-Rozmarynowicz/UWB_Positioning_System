@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['formularza_0',['Do formularza',['../index.html#autotoc_md5',1,'']]]
+  ['info_0',['General info',['../index.html#autotoc_md2',1,'']]]
 ];

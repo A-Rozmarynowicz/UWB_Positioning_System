@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['formularza_3a_0',['Do formularza:',['../index.html#autotoc_md3',1,'']]]
+  ['observer_0',['Observer',['../index.html#autotoc_md0',1,'']]],
+  ['observer_20documentation_1',['Observer Documentation',['../index.html',1,'']]]
 ];
