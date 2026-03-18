@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['głównej_20dokumentacji_3a_0',['Link do głównej dokumentacji:',['../index.html#autotoc_md4',1,'']]]
+  ['sailor_0',['Sailor',['../index.html#autotoc_md0',1,'']]],
+  ['sailor_20documentation_1',['Sailor Documentation',['../index.html',1,'']]]
 ];

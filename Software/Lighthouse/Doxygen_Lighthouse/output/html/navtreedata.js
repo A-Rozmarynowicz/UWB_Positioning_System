@@ -25,7 +25,9 @@
 var NAVTREE =
 [
   [ "Lighthouse Documentation", "index.html", [
-    [ "Lighthouse", "index.html#autotoc_md0", null ],
+    [ "Lighthouse", "index.html#autotoc_md0", [
+      [ "Main documentation:", "index.html#autotoc_md1", null ]
+    ] ],
     [ "Topics", "topics.html", "topics" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],

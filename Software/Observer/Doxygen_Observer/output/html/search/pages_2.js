@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['głównej_20dokumentacji_3a_0',['Link do głównej dokumentacji:',['../index.html#autotoc_md5',1,'']]]
+  ['observer_0',['Observer',['../index.html#autotoc_md0',1,'']]],
+  ['observer_20documentation_1',['Observer Documentation',['../index.html',1,'']]]
 ];

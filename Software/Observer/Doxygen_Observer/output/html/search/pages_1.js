@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['observer_0',['Observer',['../index.html#autotoc_md0',1,'']]],
-  ['observer_20documentation_1',['Observer Documentation',['../index.html',1,'']]]
+  ['main_20documentation_3a_0',['Main documentation:',['../index.html#autotoc_md1',1,'']]]
 ];

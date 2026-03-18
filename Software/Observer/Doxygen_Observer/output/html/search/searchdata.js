@@ -9,7 +9,7 @@ var indexSectionsWithContent =
   6: "cdost",
   7: "nsu",
   8: "cdfimpqs",
-  9: "do"
+  9: "dmo"
 };
 
 var indexSectionNames =

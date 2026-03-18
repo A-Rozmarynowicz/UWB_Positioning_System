@@ -11,5 +11,6 @@ var searchData=
   ['distance_20measure_20response_20state_8',['Distance Measure Response State',['../group___distance_measure_response_state.html',1,'']]],
   ['distance_5fantena_5fdelay_5foffset_9',['DISTANCE_ANTENA_DELAY_OFFSET',['../_measure_8h.html#abbbd56a108e0a59abd9d54f96a635253',1,'Measure.h']]],
   ['distances_5fto_5flighthouses_10',['distances_to_lighthouses',['../_measure_8h.html#a7af4755e90c986eafaf94e9b7b313dc7',1,'Measure.cpp']]],
-  ['documentation_11',['Lighthouse Documentation',['../index.html',1,'']]]
+  ['documentation_11',['Lighthouse Documentation',['../index.html',1,'']]],
+  ['documentation_3a_12',['Main documentation:',['../index.html#autotoc_md1',1,'']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['głównej_20dokumentacji_3a_0',['Link do głównej dokumentacji:',['../index.html#autotoc_md5',1,'']]]
+  ['main_20documentation_3a_0',['Main documentation:',['../index.html#autotoc_md1',1,'']]]
 ];

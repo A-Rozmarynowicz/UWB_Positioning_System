@@ -25,7 +25,9 @@
 var NAVTREE =
 [
   [ "Observer Documentation", "index.html", [
-    [ "Observer", "index.html#autotoc_md0", null ],
+    [ "Observer", "index.html#autotoc_md0", [
+      [ "Main documentation:", "index.html#autotoc_md1", null ]
+    ] ],
     [ "Topics", "topics.html", "topics" ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
