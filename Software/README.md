@@ -20,7 +20,7 @@ This folder contains subprojects associated with the software part of the UWB Po
 - The [Doxygen](Doxygen/) folder contains files related to generating the documentation.
 
 ## Setup
-To run this project, upload the [Lighthouse](./Lighthouse/) code to an ESP32, connected to a DWM1000 as discussed in the [Hardware](/Hardware/) part. Similarly upload the [Observer](./Observer/) code to an ESP32 + DWM1000 module. Then follow the setup instructions given in the [Lighthouse](./Lighthouse/) folder.
+To run this project, upload the [Lighthouse](./Lighthouse/) code to an ESP32, connected to a DWM1000 as discussed in the [Hardware](/Hardware/) part. Similarly, upload the [Observer](./Observer/) code to an ESP32 + DWM1000 module. Then follow the setup instructions given in the [Lighthouse](./Lighthouse/) folder.
 
 ## Technologies
 Programming languages:
