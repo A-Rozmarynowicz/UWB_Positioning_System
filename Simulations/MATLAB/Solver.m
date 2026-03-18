@@ -1,4 +1,17 @@
 function P = Solver(P_vec, R_vec)
+% Solver  Least squares method algorithm that estimates the tag's position
+%         based on distances to lighthouses
+%
+%   Inputs:
+%       P_vec: N by D matrix that represents lighthouses' positions, where
+%              N is the number of lighthouses, D is the number of dimensions.
+%       R_vec: N-element vector that contains tag's distances to
+%       lighthouses.
+%
+%   Outputs:
+%       P: tag's position
+%
+
     sz = size(P_vec);
     N = sz(1);
     D = sz(2);

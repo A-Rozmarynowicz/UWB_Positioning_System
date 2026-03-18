@@ -4,7 +4,7 @@ P_vec = [
     [0, 0]; ...
     [1, 0]; ...
     [1, 1]; ...
-    ];
+    ]; % Lighthouses' positions
 
 distance_accuracy = 0.1;
 
@@ -37,18 +37,19 @@ for i=1:N
     plot(C, "EdgeColor", "blue" ,"FaceColor", 'none');
 end
 
-scatter(P_vec(:, 1), P_vec(:, 2), "blue", ".");
+scatter(P_vec(:, 1), P_vec(:, 2), "blue", "*");
 
-legend(["Obliczony punkt", "Faktyczny punkt", "Odległości do latarni"])
+legend(["Calculated position", "Ground truth position", "Distances to lighthouses"])
 
-title('Wizualizacja 2D');
-subtitle(sprintf("Dokładność pomiaru odległości: %0.2fm \n Dokładność pomiaru pozycji: %0.2fm", distance_accuracy, accuracy));
+title('2D visualization');
+subtitle(sprintf("Distance measurement accuracy: %0.2fm \n Position measurement accuracy: %0.2fm", ...
+            distance_accuracy, accuracy));
 xlabel('x');
 ylabel('y');
-axis equal; % Ensures the circle looks round, not elliptical
+axis equal;
 
 function Circ = Circle(p, R, side_num)
-    theta = linspace(0, 2*pi-0.01, side_num); % Angles from 0 to 2*pi
+    theta = linspace(0, 2*pi-0.01, side_num);
     x = p(1) + R * cos(theta);
     y = p(2) + R * sin(theta);
     Circ = [x; y];
