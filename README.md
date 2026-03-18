@@ -39,7 +39,7 @@ The project has been split into three parts: software, hardware, and simulation.
 - [Simulation](/Simulations/) consists of MATLAB code that allows for testing and visualizing different setups.
 
 ## Important note
-As the project has been developed by me logged into a different account, the majority of commits come from "RocketEquation" and "arozmary" accounts, both of which belong to me.
+The majority of commits come from "RocketEquation" and "arozmary" accounts, both of which belong to me.
 
 ## Effectiveness
 The system allows for positioning a slow-moving tag with an accuracy better than 25 centimeters. Effectiveness with a fast-moving tag has not yet been tested (see [roadmap](#roadmap)).
