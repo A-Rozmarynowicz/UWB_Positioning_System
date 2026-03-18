@@ -25,7 +25,7 @@ Author: Arkadiusz Rozmarynowicz.
 ## General info
 - A communication system consisting of a moving tag and at least four ranging anchors.
 - The tag and anchors are based on an DWM1000 ranging module and an ESP32.
-- The anchors automatically determine their relative position.
+- The anchors automatically determine their relative position on start-up.
 - Implemented an algorithm for least square error estimation of the 3D coordinates, based on uncertain distance measurements.
 - Designed and built a custom PCB with a 3D printed casing.
 - Simulated and visualized the process in MATLAB.
