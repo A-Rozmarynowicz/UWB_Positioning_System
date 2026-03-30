@@ -12,6 +12,8 @@ Implemented software, hardware, and simulation.
 
 Author: Arkadiusz Rozmarynowicz.
 
+<img src="./Hardware/Images/PCB_3D_Image.png" alt=".Hardware/Images/PCB_3D_Image.png" width="550"/>
+
 ## Table of contents
 * [General information](#general-information)
 * [Project structure](#project-structure)
