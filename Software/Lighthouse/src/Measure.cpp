@@ -74,6 +74,21 @@ void Calculate_Position_Of_Lighthouse(uint8_t lighthouse){
 }
 
 /**
+ * @brief Print the full matrix of inter-lighthouse distances.
+ *
+ * @return void
+ */
+void Print_Master_All_Distances_Matrix(){
+  for (uint8_t i=0;i<NUMBER_OF_LIGHTHOUSES;i++){
+        for (uint8_t j=0;j<NUMBER_OF_LIGHTHOUSES;j++){
+            Serial.printf("%4f ", master_all_distances_matrix[i][j]);
+        }
+        Serial.printf("\n");
+    }
+}
+
+
+/**
  * @brief Calculate the position of lighthouse 1.
  *
  * Assumes lighthouse 0 is located at the origin.

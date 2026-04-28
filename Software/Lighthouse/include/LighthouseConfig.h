@@ -20,7 +20,7 @@
 /**
  * @brief Total number of Lighthouse devices in the system.
  */
-#define NUMBER_OF_LIGHTHOUSES (uint8_t) 4
+#define NUMBER_OF_LIGHTHOUSES (uint8_t) 2
 
 /**
  * @brief Unique identifier of the observer device.
@@ -30,17 +30,22 @@
 /**
  * @brief GPIO pin used as the most significant bit of the lighthouse index.
 */
-#define INDEX_PIN_2 (uint8_t) 27
+#define INDEX_PIN_3 (uint8_t) 25
+
+/**
+ * @brief GPIO pin used as the most significant bit of the lighthouse index.
+*/
+#define INDEX_PIN_2 (uint8_t) 26
 
 /**
  * @brief GPIO pin used as the middle bit of the lighthouse index.
  */
-#define INDEX_PIN_1 (uint8_t) 26
+#define INDEX_PIN_1 (uint8_t) 27
 
 /**
  * @brief GPIO pin used as the least significant bit of the lighthouse index.
  */
-#define INDEX_PIN_0 (uint8_t) 25
+#define INDEX_PIN_0 (uint8_t) 32
 
 #include <WiFi.h>
 #include <esp_now.h>

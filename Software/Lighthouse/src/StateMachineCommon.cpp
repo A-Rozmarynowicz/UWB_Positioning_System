@@ -23,6 +23,7 @@ void Reset_And_Initialize_Machine(){
  * @return void
  */
 void Change_State(States new_state){
+  Serial.printf("Switching from state %d to state %d  \n ---------------- \n", current_state, new_state);
   State_Exit();
   current_state = new_state;
   State_Enter();
