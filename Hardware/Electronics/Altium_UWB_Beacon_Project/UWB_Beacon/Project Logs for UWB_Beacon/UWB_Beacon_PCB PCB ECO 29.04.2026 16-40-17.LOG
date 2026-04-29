@@ -1,0 +1,11 @@
+Removed Member From Class: ClassName=Connectors Member=J?
+Change Component Footprint: Designator=J6 Old Footprint=FP-105455-0101-MFG New Footprint=CONN_1054500101_MOL
+Change Component Comment : Designator=J6 Old Comment=USB_Mount New Comment=USB C
+Change Component Designator: OldDesignator=P? NewDesignator=J2
+Change Managed Component Library Link : Designator=J6 Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID= Old ItemGUID=B4FE6E05-B796-4473-A5A6-913998CE8F66 New ItemGUID= Old RevisionGUID=E15F66CE-13D5-4239-A349-D419C4F50193 New RevisionGUID=
+Change component parameters: Designator = "J6" ("J6"); Footprint = "FP-105455-0101-MFG"; UniqueID = "\OQRGTJDL" ("\OQRGTJDL")
+Change component parameters (AddParameter): Name = "Copyright"; Value = "Copyright (C) 2026 Ultra Librarian. All rights reserved."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer_Name"; Value = "Molex"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer_Part_Number"; Value = "1054500101"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"
