@@ -44,7 +44,7 @@ The project has been split into three parts: software, hardware, and simulation.
 The majority of commits come from "RocketEquation" and "arozmary" accounts, both of which belong to me.
 
 ## Effectiveness
-The system allows for positioning a slow-moving tag with an accuracy better than 25 centimeters. Effectiveness with a fast-moving tag has not yet been tested (see [roadmap](#roadmap)).
+The system allows for positioning a slow-moving tag with an accuracy better than 25 centimeters.
 
 ## Naming convention
 - The anchors are also referred to as "lighthouses".
