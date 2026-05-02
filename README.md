@@ -12,15 +12,13 @@ Implemented software, hardware, and simulation.
 
 Author: Arkadiusz Rozmarynowicz.
 
-<img src="./Hardware/Images/PCB_3D_Image.png" alt=".Hardware/Images/PCB_3D_Image.png" width="550"/>
-
 ## Table of contents
 * [General information](#general-information)
-* [Project structure](#project-structure)
 * [Important note](#important-note)
 * [Effectiveness](#effectiveness)
 * [Naming convention](#naming-convention)
 * [Technologies](#technologies)
+* [Project structure](#project-structure)
 * [Setup](#setup)
 * [Roadmap](#roadmap)
 * [Future](#future)
@@ -33,12 +31,22 @@ Author: Arkadiusz Rozmarynowicz.
 - Designed and built a custom PCB with a 3D printed casing.
 - Simulated and visualized the process in MATLAB.
 
-## Project structure
-The project has been split into three parts: software, hardware, and simulation.
+----
 
-- [Software](/Software/) consists of code for the tag and anchors.
-- [Hardware](/Hardware/) consists of a PCB project and 3D-printed casing files.
-- [Simulation](/Simulations/) consists of MATLAB code that allows for testing and visualizing different setups.
+<p align="center">
+<img src="./Hardware/Images/PCB_3D_Image.png" alt=".Hardware/Images/PCB_3D_Image.png" width="550"><br>
+<em>Figure 1: 3D view of the PCB.</em>
+</p>
+
+<p align="center">
+<img src="./Hardware/Images/Casing_Image.png" alt=".Hardware/Images/Casing_Image.png" width="550"><br>
+<em>Figure 2: 3D view of the casing.</em>
+</p>
+
+<p align="center">
+<img src="./Simulations/Images/3D_Visualization.png" alt=".Hardware/Images/Casing_Image.png" width="550"><br>
+<em>Figure 3: Output visualization of one of the simulations.</em>
+</p>
 
 ## Important note
 The majority of commits come from "RocketEquation" and "arozmary" accounts, both of which belong to me.
@@ -70,6 +78,14 @@ Tools used:
 - STM32 Cube IDE
 - Altium Designer
 - Autodesk Fusion
+
+## Project structure
+The project has been split into three parts: software, hardware, and simulation.
+
+- [Software](/Software/) consists of code for the tag and anchors.
+- [Hardware](/Hardware/) consists of a PCB project and 3D-printed casing files.
+- [Simulation](/Simulations/) consists of MATLAB code that allows for testing and visualizing different setups.
+
 
 ## Setup
 To run the project, please first refer to the details in the [Hardware](/Hardware/) folder, and then follow the instructions in the [Software](/Software/) folder.
