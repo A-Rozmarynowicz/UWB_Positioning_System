@@ -14,12 +14,12 @@ Author: Arkadiusz Rozmarynowicz.
 
 ## Table of contents
 * [General information](#general-information)
-* [Important note](#important-note)
 * [Effectiveness](#effectiveness)
-* [Naming convention](#naming-convention)
 * [Technologies](#technologies)
 * [Project structure](#project-structure)
 * [Setup](#setup)
+* [Note on collaborators](#note-on-collaborators)
+* [Naming convention](#naming-convention)
 * [Roadmap](#roadmap)
 * [Future](#future)
 
@@ -48,16 +48,9 @@ Author: Arkadiusz Rozmarynowicz.
 <em>Figure 3: Output visualization of one of the simulations.</em>
 </p>
 
-## Important note
-The majority of commits come from "RocketEquation" and "arozmary" accounts, both of which belong to me.
 
 ## Effectiveness
 The system allows for positioning a slow-moving tag with an accuracy better than 25 centimeters.
-
-## Naming convention
-- The anchors are also referred to as "lighthouses".
-- The tag is also referred to as an "observer".
-- The module that reads data from the tag is also referred to as a "sailor".
 
 
 ## Technologies
@@ -89,6 +82,14 @@ The project has been split into three parts: software, hardware, and simulation.
 
 ## Setup
 To run the project, please first refer to the details in the [Hardware](/Hardware/) folder, and then follow the instructions in the [Software](/Software/) folder.
+
+## Note on collaborators
+The majority of commits come from "RocketEquation" and "arozmary" accounts, both of which belong to me.
+
+## Naming convention
+- The anchors are also referred to as "lighthouses".
+- The tag is also referred to as an "observer".
+- The module that reads data from the tag is also referred to as a "sailor".
 
 ## Roadmap
 - [x] Distance measurements among the anchors
