@@ -10,8 +10,6 @@ An indoor positioning system based on the Ultra-Wideband technology. It allows c
 
 Implemented software, hardware, and simulation.
 
-Author: Arkadiusz Rozmarynowicz.
-
 ## Table of contents
 * [General information](#general-information)
 * [Effectiveness](#effectiveness)
@@ -27,30 +25,30 @@ Author: Arkadiusz Rozmarynowicz.
 - A communication system consisting of a moving tag and at least four ranging anchors.
 - The tag and anchors are based on a DWM1000 ranging module and an ESP32.
 - The anchors automatically determine their relative position on start-up.
-- Implemented an algorithm for least square error estimation of the 3D coordinates, based on uncertain distance measurements.
+- Implemented the least square error method for estimating the 3D coordinates, based on uncertain distance measurements.
 - Designed and built a custom PCB with a 3D printed casing.
 - Simulated and visualized the process in MATLAB.
 
 ----
 
 <p align="center">
-<img src="./Hardware/Images/PCB_3D_Image.png" alt=".Hardware/Images/PCB_3D_Image.png" width="550"><br>
+<img src="./Hardware/Images/PCB_3D_Image.png" alt=".Hardware/Images/PCB_3D_Image.png" width="75%"><br>
 <em>Figure 1: 3D view of the PCB.</em>
 </p>
 
 <p align="center">
-<img src="./Hardware/Images/Casing_Image.png" alt=".Hardware/Images/Casing_Image.png" width="550"><br>
+<img src="./Hardware/Images/Casing_Image.png" alt=".Hardware/Images/Casing_Image.png" width="75%"><br>
 <em>Figure 2: 3D view of the casing.</em>
 </p>
 
 <p align="center">
-<img src="./Simulations/Images/3D_Visualization.png" alt=".Hardware/Images/Casing_Image.png" width="550"><br>
+<img src="./Simulations/Images/3D_Visualization.png" alt=".Hardware/Images/Casing_Image.png" width="75%"><br>
 <em>Figure 3: Output visualization of one of the simulations.</em>
 </p>
 
 
 ## Effectiveness
-The system allows for positioning a slow-moving tag with an accuracy better than 25 centimeters.
+The system allows for positioning a slow-moving tag with an accuracy better than 20 centimeters.
 
 
 ## Technologies
@@ -102,4 +100,4 @@ The majority of commits come from "RocketEquation" and "arozmary" accounts, both
 - [ ] Integration with an UAV
 
 ## Future
-The project will play an important role in the development of my Bachelor's project: "Design and implementation of a quadrotor with a localization algorithm based on Ultra-Wideband beacons", which you can follow through this [repository](https://github.com/A-Rozmarynowicz/Portfolio_Quadcopter).
+The project will play an important role in the development of my Bachelor's project: "Design and implementation of a quadrotor with a localization algorithm based on Ultra-Wideband beacons", which you can follow through this [repository](https://github.com/A-Rozmarynowicz/Quadcopter_Full_Implementation).
