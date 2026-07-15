@@ -9,7 +9,7 @@
  * @return void
  */
 void Initialize_Interface(){
-    pinMode(STATUS_BUTTON, INPUT_PULLUP);
+    pinMode(STATUS_BUTTON, INPUT_PULLDOWN);
     attachInterrupt(STATUS_BUTTON, _button_ISR, RISING);
     pinMode(DATA_TRANSFER_LED, OUTPUT);
     Data_Transfer_LED_OFF();
