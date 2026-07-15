@@ -10,6 +10,9 @@ An indoor positioning system based on the Ultra-Wideband technology. It allows c
 
 Implemented software, hardware, and simulation.
 
+Development time: from 10.2025 to 02.2026.
+
+
 ## Table of contents
 * [General information](#general-information)
 * [Effectiveness](#effectiveness)
