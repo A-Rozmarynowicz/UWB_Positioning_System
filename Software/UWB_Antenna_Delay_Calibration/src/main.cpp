@@ -8,6 +8,8 @@
 const uint8_t UWB_MODE_SELECT_PIN = 32;
 const uint8_t ANTENNA_DELAY_VALUE_SELECT_PIN = 27;
 
+bool done = false;
+
 void setup() {
   Serial.begin(115200);
   pinMode(UWB_MODE_SELECT_PIN, INPUT_PULLDOWN);
@@ -35,9 +37,16 @@ void setup() {
 
   Serial.printf("Antenna value: %d \n", antenna_value);
 
+  Init_UWB();
 }
 
 void loop() {
-  DW1000Ranging.loop();
+  if (!done) { DW1000Ranging.loop(); }
+  if (Is_Enough_Measurements()){
+    done = true;
+    Disable_UWB();
+    Estimate_Distance();
+    Serial.printf("Distance estimation: %f.3 \n", Get_Estimated_Distance());
+  }
 }
 
