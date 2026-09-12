@@ -5,9 +5,9 @@
 
 const uint32_t TARGET_NUMBER_OF_MEASUREMENTS = 1000;
 
-float distance_sum;
-float distance_estimation;
-uint32_t current_number_of_measurements = 0;
+extern float distance_sum;
+extern float distance_estimation;
+extern uint32_t current_number_of_measurements;
 
 void New_Measurement(float distance);
 bool Is_Enough_Measurements();
