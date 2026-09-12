@@ -1,7 +1,13 @@
 #include "UWB_Handler.h"
 
 uint8_t UWB_mode = ANCHOR;
-bool use_default_antenna_delay_value = false;
+uint16_t antenna_value = 0;
+
+void Set_Antenna_Value(uint16_t new_val)
+{
+    antenna_value = new_val;
+}
+
 
 void Init_UWB()
 {
@@ -10,14 +16,8 @@ void Init_UWB()
     DW1000Ranging.attachNewRange(New_Range);
     DW1000Ranging.attachBlinkDevice(New_Blink);
     DW1000Ranging.attachInactiveDevice(Inactive_Device);
-    if (use_default_antenna_delay_value){
-        DW1000.setAntennaDelay(BASE_ANTENNA_DELAY_VALUE);
-    }
-    else
-    {
-        DW1000.setAntennaDelay(MANUAL_ANTENNA_DELAY_VALUE);
+    DW1000.setAntennaDelay(antenna_value);
 
-    }
     //Enable the filter to smooth the distance
     //DW1000Ranging.useRangeFilter(true);
 

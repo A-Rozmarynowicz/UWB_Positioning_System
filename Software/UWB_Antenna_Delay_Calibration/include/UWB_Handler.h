@@ -16,8 +16,9 @@ const int8_t PIN_IRQ = 33;   // irq pin
 const int8_t PIN_SS = 5;    // spi select pin
 
 extern uint8_t UWB_mode;
-extern bool use_default_antenna_delay_value;
+extern uint16_t antenna_value;
 
+void Set_Antenna_Value(uint16_t new_val);
 void Init_UWB();
 void New_Range();
 void New_Blink(DW1000Device* device);

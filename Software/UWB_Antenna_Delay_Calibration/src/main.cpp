@@ -5,11 +5,35 @@
 #include "Calculations.h"
 
 
+const uint8_t UWB_MODE_SELECT_PIN = 32;
+const uint8_t ANTENNA_DELAY_VALUE_SELECT_PIN = 27;
 
 void setup() {
   Serial.begin(115200);
-  delay(1000);
-  //init the configuration
+  pinMode(UWB_MODE_SELECT_PIN, INPUT_PULLDOWN);
+  pinMode(ANTENNA_DELAY_VALUE_SELECT_PIN, INPUT_PULLDOWN);
+  delay(100);
+
+  if (digitalRead(UWB_MODE_SELECT_PIN))
+  {
+    UWB_mode = TAG;
+    Serial.println("TAG");
+  }
+  else {
+    UWB_mode = ANCHOR;
+    Serial.println("ANCHOR");
+  }
+
+  if (digitalRead(ANTENNA_DELAY_VALUE_SELECT_PIN))
+  {
+    Set_Antenna_Value(MANUAL_ANTENNA_DELAY_VALUE);
+  }
+  else
+  {
+    Set_Antenna_Value(BASE_ANTENNA_DELAY_VALUE);
+  }
+
+  Serial.printf("Antenna value: %d \n", antenna_value);
 
 }
 
