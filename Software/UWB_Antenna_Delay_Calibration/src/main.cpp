@@ -41,12 +41,13 @@ void setup() {
 }
 
 void loop() {
-  if (!done) { DW1000Ranging.loop(); }
-  if (Is_Enough_Measurements()){
+  if (done){return;}
+  DW1000Ranging.loop();
+  if (Is_Enough_Measurements() && (UWB_mode == TAG)){
     done = true;
     Disable_UWB();
     Estimate_Distance();
-    Serial.printf("Distance estimation: %f.3 \n", Get_Estimated_Distance());
+    Serial.printf("Distance estimation: %0.3fm \n", Get_Estimated_Distance());
   }
 }
 

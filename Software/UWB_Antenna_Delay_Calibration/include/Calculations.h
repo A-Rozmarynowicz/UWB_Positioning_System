@@ -3,7 +3,7 @@
 #include <Arduino.h>
 
 
-const uint32_t TARGET_NUMBER_OF_MEASUREMENTS = 1000;
+const uint32_t TARGET_NUMBER_OF_MEASUREMENTS = 400;
 
 extern float distance_sum;
 extern float distance_estimation;
