@@ -1,21 +1,37 @@
 #include "UWB_Handler.h"
 
+uint8_t UWB_mode = ANCHOR;
+bool use_default_antenna_delay_value = false;
+
 void Init_UWB()
 {
     DW1000Ranging.initCommunication(PIN_RST, PIN_SS, PIN_IRQ); //Reset, CS, IRQ pin
-  //define the sketch as anchor. It will be great to dynamically change the type of module
+
     DW1000Ranging.attachNewRange(New_Range);
     DW1000Ranging.attachBlinkDevice(New_Blink);
     DW1000Ranging.attachInactiveDevice(Inactive_Device);
-    DW1000.setAntennaDelay(16384);
+    if (use_default_antenna_delay_value){
+        DW1000.setAntennaDelay(BASE_ANTENNA_DELAY_VALUE);
+    }
+    else
+    {
+        DW1000.setAntennaDelay(MANUAL_ANTENNA_DELAY_VALUE);
+
+    }
     //Enable the filter to smooth the distance
     //DW1000Ranging.useRangeFilter(true);
 
-    //we start the module as an anchor
-    DW1000Ranging.startAsAnchor("82:17:5B:D5:A9:9A:E2:9C", DW1000.MODE_LONGDATA_RANGE_ACCURACY);
-    DW1000.setChannel(DW1000.CHANNEL_2);
+    if (UWB_mode == ANCHOR)
+    {
+        DW1000Ranging.startAsAnchor((char*)"82:17:5B:D5:A9:9A:E2:9C", TRANSMIT_MODE);
+    }
+    else
+    {
+        DW1000Ranging.startAsTag((char*)"7D:00:22:EA:82:60:3B:9C", TRANSMIT_MODE);
+    }
 
-        // 3. Add your manual power overrides here
+    DW1000.setChannel(CHANNEL);
+
     uint32_t maxPower = 0x1F1F1F1F;
     DW1000.writeBytes(0x1E, 0x00, (byte*)&maxPower, 4);
     DW1000.useSmartPower(false);
@@ -23,7 +39,7 @@ void Init_UWB()
     uint16_t ldeCfg2 = 0x1607;
     DW1000.writeBytes(0x2E, 0x1806, (byte*)&ldeCfg2, 2);
 
-    DW1000.commitConfiguration(); // Commit changes to the register
+    DW1000.commitConfiguration();
 }
 
 void New_Range() {
