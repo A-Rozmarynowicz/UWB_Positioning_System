@@ -2,7 +2,7 @@
 
 uint8_t UWB_mode = ANCHOR;
 uint16_t antenna_value = 0;
-const byte* UWB_TRANSMIT_MODE = DW1000Class::MODE_LONGDATA_RANGE_ACCURACY;
+const byte* UWB_TRANSMIT_MODE = DW1000Class::MODE_SHORTDATA_FAST_ACCURACY;
 
 void Set_Antenna_Value(uint16_t new_val)
 {
@@ -33,12 +33,14 @@ void Init_UWB()
 
     DW1000.setChannel(CHANNEL);
 
-    uint32_t maxPower = 0x1F1F1F1F;
-    DW1000.writeBytes(0x1E, 0x00, (byte*)&maxPower, 4);
     DW1000.useSmartPower(false);
 
-    uint16_t ldeCfg2 = 0x1607;
-    DW1000.writeBytes(0x2E, 0x1806, (byte*)&ldeCfg2, 2);
+    uint32_t maxPower = 0x25466767;
+    DW1000.writeBytes(0x1E, 0x00, (byte*)&maxPower, 4);
+
+
+    // uint16_t ldeCfg2 = 0x1607;
+    // DW1000.writeBytes(0x2E, 0x1806, (byte*)&ldeCfg2, 2);
 
     DW1000.commitConfiguration();
 }

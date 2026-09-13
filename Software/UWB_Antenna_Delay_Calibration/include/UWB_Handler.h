@@ -4,7 +4,7 @@
 #include "DW1000Ranging.h"
 #include "Calculations.h"
 
-const byte CHANNEL = DW1000.CHANNEL_2;
+const byte CHANNEL = DW1000.CHANNEL_5;
 extern const byte* UWB_TRANSMIT_MODE;
 const uint16_t MANUAL_ANTENNA_DELAY_VALUE = 0;
 
