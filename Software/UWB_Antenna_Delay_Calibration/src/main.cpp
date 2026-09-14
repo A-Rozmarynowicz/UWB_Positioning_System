@@ -47,7 +47,7 @@ void loop() {
     done = true;
     Disable_UWB();
     Estimate_Distance();
-    Serial.printf("Distance estimation: %0.3fm \n", Get_Estimated_Distance());
+    Serial.printf("Distance estimation: %0.4fm \n", Get_Estimated_Distance());
   }
 }
 

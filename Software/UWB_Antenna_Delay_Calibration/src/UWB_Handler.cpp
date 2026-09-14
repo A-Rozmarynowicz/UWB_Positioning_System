@@ -35,7 +35,8 @@ void Init_UWB()
 
     DW1000.useSmartPower(false);
 
-    uint32_t maxPower = 0x25466767;
+    // uint32_t maxPower = 0x25466767;
+    uint32_t maxPower = 0x26486A6A;
     DW1000.writeBytes(0x1E, 0x00, (byte*)&maxPower, 4);
 
 
