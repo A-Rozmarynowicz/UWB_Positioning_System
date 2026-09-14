@@ -6,9 +6,10 @@
 
 const byte CHANNEL = DW1000.CHANNEL_5;
 extern const byte* UWB_TRANSMIT_MODE;
-const uint16_t MANUAL_ANTENNA_DELAY_VALUE = 0;
 
 const uint16_t BASE_ANTENNA_DELAY_VALUE = 16350;
+const uint16_t MANUAL_ANTENNA_DELAY_VALUE = BASE_ANTENNA_DELAY_VALUE + 125;
+
 // connection pins
 const int8_t PIN_RST = 22;  // reset pin
 const int8_t PIN_IRQ = 33;   // irq pin
