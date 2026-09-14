@@ -48,8 +48,9 @@ void Init_UWB()
 
 void New_Range() {
     float range = DW1000Ranging.getDistantDevice()->getRange();
+    range = Get_Biased_Range_Value(range);
     Serial.print("from: "); Serial.print(DW1000Ranging.getDistantDevice()->getShortAddress(), HEX);
-    Serial.print("\t Range: "); Serial.print(DW1000Ranging.getDistantDevice()->getRange()); Serial.print(" m");
+    Serial.print("\t Range: "); Serial.print(range); Serial.print(" m");
     Serial.print("\t RX power: "); Serial.print(DW1000Ranging.getDistantDevice()->getRXPower()); Serial.println(" dBm");
     New_Measurement(range);
 }
