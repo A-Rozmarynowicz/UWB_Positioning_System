@@ -20,9 +20,18 @@ actual_distances = [U0_actual_distances; U0_actual_distances; U0_actual_distance
 
 
 E = actual_distances - U_distances;
+%% Plots
 
 plot(E);
 grid on;
 legend('U0U1','U0U2','U0U3','U1U2','U1U3','U2U3');
 xlabel('Measurement');
 ylabel('Error');
+
+%% Saves
+colNames = {'U0U1','U0U2','U0U3','U1U2','U1U3','U2U3'};
+T_U = array2table(U_distances, 'VariableNames', colNames);
+writetable(T_U, 'Data/U_distances.csv', 'WriteRowNames', true);
+
+A_U = array2table(actual_distances, 'VariableNames', colNames);
+writetable(A_U, 'Data/actual_distances.csv', 'WriteRowNames', true);

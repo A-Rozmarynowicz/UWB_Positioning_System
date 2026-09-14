@@ -1,4 +1,4 @@
-U_expected = U_distances_bias + polyval(interpolation_p_params, actual_distances)
+U_expected = U_distances_bias + polyval(interpolation_p_params, actual_distances);
 
 plot(actual_distances , actual_distances - U_expected);
 grid("on")
