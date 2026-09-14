@@ -12,7 +12,7 @@ U1U2 = [5.869, 5.255, 4.658, 4.127, 3.612, 3.088, 2.551, 2.060, 1.518, 1.087];
 U1U3 = [6.066, 5.428, 4.853, 4.308, 3.782, 3.260, 2.724, 2.205, 1.666, 1.221];
 U2U3 = [5.761, 5.284, 4.686, 4.175, 3.626, 3.101, 2.569, 2.047, 1.512, 1.092];
 
-U_distances = [U0U1; U0U2; U0U3; U1U2; U1U3; U2U3]'
+U_distances = [U0U1; U0U2; U0U3; U1U2; U1U3; U2U3]';
 
 actual_distances = [U0_actual_distances; U0_actual_distances; U0_actual_distances; ...
                     U1_actual_distances; U1_actual_distances; U2_actual_distances]';

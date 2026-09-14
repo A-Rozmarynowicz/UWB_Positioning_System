@@ -6,3 +6,4 @@ Data_U1U3_expected = [Data_U1U3_bias(:, 1), Data_U1U3_bias(:, 2) + polyval(inter
 Data_U2U3_expected = [Data_U2U3_bias(:, 1), Data_U2U3_bias(:, 2) + polyval(interpolation_p_params, U2_actual_distances)'];
 
 
+U_expected = U_distances_bias + 

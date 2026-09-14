@@ -2,7 +2,7 @@ est_idx = 6; % Na odległości 2m, czyli indeks 6
 c = 299792458.0;
 tau = 15.65e-12;
 
-A = [
+A_binary = [
     1, 1, 0, 0;
     1, 0, 1, 0;
     1, 0, 0, 1;

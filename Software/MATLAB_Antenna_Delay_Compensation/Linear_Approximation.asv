@@ -5,21 +5,26 @@ Data_U1U2_bias = [Data_U1U2(:, 1), Data_U1U2(:, 2) - c*(delta_t(2) + delta_t(3))
 Data_U1U3_bias = [Data_U1U3(:, 1), Data_U1U3(:, 2) - c*(delta_t(2) + delta_t(4))];
 Data_U2U3_bias = [Data_U2U3(:, 1), Data_U2U3(:, 2) - c*(delta_t(3) + delta_t(4))];
 
+U_distances_bias = (U_distances - (A_binary*delta_t*c)')
 
-E_bias = [
-    (Data_U0U1_bias(:,1) - Data_U0U1_bias(:,2))';
-    (Data_U0U2_bias(:,1) - Data_U0U2_bias(:,2))';
-    (Data_U0U3_bias(:,1) - Data_U0U3_bias(:,2))';
-    (Data_U1U2_bias(:,1) - Data_U1U2_bias(:,2))';
-    (Data_U1U3_bias(:,1) - Data_U1U3_bias(:,2))';
-    (Data_U2U3_bias(:,1) - Data_U2U3_bias(:,2))';
-]
+% [-0.0507,0.1058]
+
+E_bias = actual_distances - U_distances_bias';
+
+% E_bias = [
+%     (Data_U0U1_bias(:,1) - Data_U0U1_bias(:,2))';
+%     (Data_U0U2_bias(:,1) - Data_U0U2_bias(:,2))';
+%     (Data_U0U3_bias(:,1) - Data_U0U3_bias(:,2))';
+%     (Data_U1U2_bias(:,1) - Data_U1U2_bias(:,2))';
+%     (Data_U1U3_bias(:,1) - Data_U1U3_bias(:,2))';
+%     (Data_U2U3_bias(:,1) - Data_U2U3_bias(:,2))';
+% ]
 
 E_bias_total = sum(E_bias, 1) / number_of_experiments;
 actual_distances_avg = (U0_actual_distances + U1_actual_distances + U2_actual_distances)/3;
 
-p_params = polyfit(actual_distances_avg, E_bias_total, 1);
-error_compensation_line = polyval(p_params, actual_distances_avg);
+interpolation_p_params = polyfit(actual_distances_avg, E_bias_total, 1);
+error_compensation_line = polyval(interpolation_p_params, actual_distances_avg);
 
 plot(U0_actual_distances, Data_U0U1_bias(:,1) - Data_U0U1_bias(:,2), '*')
 hold on
@@ -28,6 +33,6 @@ plot(U0_actual_distances, Data_U0U3_bias(:,1) - Data_U0U3_bias(:,2), '*')
 plot(U1_actual_distances, Data_U1U2_bias(:,1) - Data_U1U2_bias(:,2), '*')
 plot(U1_actual_distances, Data_U1U3_bias(:,1) - Data_U1U3_bias(:,2), '*')
 plot(U2_actual_distances, Data_U2U3_bias(:,1) - Data_U2U3_bias(:,2), '*')
-plot(actual_distances_avg, yfit)
+plot(actual_distances_avg, error_compensation_line)
 
-fit = sum(abs(E_bias_total - yfit))
+quality = sum(abs(E_bias_total - error_compensation_line));
