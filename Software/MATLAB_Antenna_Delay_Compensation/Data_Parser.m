@@ -10,16 +10,25 @@ U1_actual_distances = U1_offset_distances + DWM_to_wall_offset*2;
 U2_offset_distances = [4.555, 4.037, 3.519, 3.015, 2.507, 2.001, 1.501, 1.000, 0.493, 0.100];
 U2_actual_distances = U2_offset_distances + DWM_to_wall_offset*2;
 
-scatter(linspace(0, number_of_distances_measured, number_of_distances_measured), U0_actual_distances, '*');
-hold on
-scatter(linspace(0, number_of_distances_measured, number_of_distances_measured), U1_actual_distances, '+');
-scatter(linspace(0, number_of_distances_measured, number_of_distances_measured), U2_actual_distances);
-hold off
+U0U1 = [5.877, 5.380, 4.775, 4.271, 3.738, 3.214, 2.689, 2.190, 1.656, 1.213];
+U0U2 = [5.628, 5.268, 4.647, 4.173, 3.628, 3.113, 2.591, 2.090, 1.539, 1.120];
+U0U3 = [5.886, 5.429, 4.787, 4.320, 3.758, 3.242, 2.709, 2.197, 1.675, 1.230];
+U1U2 = [5.869, 5.255, 4.658, 4.127, 3.612, 3.088, 2.551, 2.060, 1.518, 1.087];
+U1U3 = [6.066, 5.428, 4.853, 4.308, 3.782, 3.260, 2.724, 2.205, 1.666, 1.221];
+U2U3 = [5.761, 5.284, 4.686, 4.175, 3.626, 3.101, 2.569, 2.047, 1.512, 1.092];
 
-% U0U1 = [
-%     4.557, 5.877;
-%     4.035, 5.380;
-% 
-% ];
-% 
-% scatter(U0U1(:, 1), U0U1(1, :))
+Data_U0U1 = [U0_actual_distances; U0U1]';
+Data_U0U2 = [U0_actual_distances; U0U2]';
+Data_U0U3 = [U0_actual_distances; U0U3]';
+Data_U1U2 = [U1_actual_distances; U1U2]';
+Data_U1U3 = [U1_actual_distances; U1U3]';
+Data_U2U3 = [U2_actual_distances; U2U3]';
+
+
+plot(Data_U0U1(:, 2) - Data_U0U1(:, 1));
+hold on;
+plot(Data_U0U2(:, 2) - Data_U0U2(:, 1));
+plot(Data_U0U3(:, 2) - Data_U0U3(:, 1));
+plot(Data_U1U2(:, 2) - Data_U1U2(:, 1));
+plot(Data_U1U3(:, 2) - Data_U1U3(:, 1));
+plot(Data_U2U3(:, 2) - Data_U2U3(:, 1));
