@@ -1,5 +1,6 @@
 DWM_to_wall_offset = 0.025;
 number_of_distances_measured = 10;
+number_of_experiments = 6;
 
 U0_actual_distances = [4.557, 4.035, 3.519, 3.014, 2.508, 2.001, 1.499, 1.000, 0.497, 0.100] + 2*DWM_to_wall_offset;
 U1_actual_distances = [4.556, 4.036, 3.520, 3.015, 2.508, 2.001, 1.500, 1.000, 0.498, 0.100] + 2*DWM_to_wall_offset;

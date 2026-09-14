@@ -1,9 +1,5 @@
-Data_U0U1_expected = [Data_U0U1_bias(:, 1), Data_U0U1_bias(:, 2) + polyval(interpolation_p_params, U0_actual_distances)'];
-Data_U0U2_expected = [Data_U0U2_bias(:, 1), Data_U0U2_bias(:, 2) + polyval(interpolation_p_params, U0_actual_distances)'];
-Data_U0U3_expected = [Data_U0U3_bias(:, 1), Data_U0U3_bias(:, 2) + polyval(interpolation_p_params, U0_actual_distances)'];
-Data_U1U2_expected = [Data_U1U2_bias(:, 1), Data_U1U2_bias(:, 2) + polyval(interpolation_p_params, U1_actual_distances)'];
-Data_U1U3_expected = [Data_U1U3_bias(:, 1), Data_U1U3_bias(:, 2) + polyval(interpolation_p_params, U1_actual_distances)'];
-Data_U2U3_expected = [Data_U2U3_bias(:, 1), Data_U2U3_bias(:, 2) + polyval(interpolation_p_params, U2_actual_distances)'];
+U_expected = U_distances_bias + polyval(interpolation_p_params, actual_distances)
 
-
-U_expected = U_distances_bias + 
+plot(actual_distances , actual_distances - U_expected);
+grid("on")
+legend('U0U1','U0U2','U0U3','U1U2','U1U3','U2U3');

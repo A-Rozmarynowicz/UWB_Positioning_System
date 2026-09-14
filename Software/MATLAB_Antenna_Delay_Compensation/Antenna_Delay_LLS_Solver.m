@@ -13,7 +13,7 @@ A_binary = [
 
 E_time = (actual_distances(est_idx, :) - U_distances(est_idx, :))*(-1/c);
 
-delta_t = A\E_time';
+delta_t = A_binary\E_time';
 
 delta_t_ticks = round(delta_t/tau);
 
