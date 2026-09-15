@@ -1,4 +1,4 @@
-rootDir = 'PostCalib_Data/';
+rootDir = 'PostCalib_Data/Raw_Data/';
 
 folders = {'U0', 'U1', 'U2'};
 pairs   = {'U0U1', 'U1U2', 'U2U3'};
