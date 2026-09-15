@@ -1,7 +1,17 @@
 U1 = [
-
+4.571,
+4.050,
+3.535,
+3.029,
+2.519,
+2.016,
+1.515,
+1.012,
+0.509,
+0.100,
 ]
 
 %% Saves
 assert(length(U1) == 100);
-writematrix(U1, "U1U3_v7_p3.csv");
+writematrix(U1, "U0_distances" + ...
+    ".csv");

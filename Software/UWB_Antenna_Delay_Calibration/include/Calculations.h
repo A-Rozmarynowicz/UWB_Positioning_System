@@ -3,7 +3,7 @@
 #include <Arduino.h>
 
 
-const uint32_t TARGET_NUMBER_OF_MEASUREMENTS = 400;
+const uint32_t TARGET_NUMBER_OF_MEASUREMENTS = 100;
 const float A_poly_param = -0.0507;
 const float B_poly_param = 0.1058;
 

@@ -26,14 +26,7 @@ void setup() {
     Serial.println("ANCHOR");
   }
 
-  if (digitalRead(ANTENNA_DELAY_VALUE_SELECT_PIN))
-  {
-    Set_Antenna_Value(MANUAL_ANTENNA_DELAY_VALUE);
-  }
-  else
-  {
-    Set_Antenna_Value(BASE_ANTENNA_DELAY_VALUE);
-  }
+  Set_Antenna_Value(MANUAL_ANTENNA_DELAY_VALUE);
 
   Serial.printf("Antenna value: %d \n", antenna_value);
 

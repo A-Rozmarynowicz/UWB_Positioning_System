@@ -44,14 +44,17 @@ void Init_UWB()
     // DW1000.writeBytes(0x2E, 0x1806, (byte*)&ldeCfg2, 2);
 
     DW1000.commitConfiguration();
+    Serial.print("\n\n\n\n\n\n\n");
 }
 
 void New_Range() {
     float range = DW1000Ranging.getDistantDevice()->getRange();
     range = Get_Biased_Range_Value(range);
-    Serial.print("from: "); Serial.print(DW1000Ranging.getDistantDevice()->getShortAddress(), HEX);
-    Serial.print("\t Range: "); Serial.print(range); Serial.print(" m");
-    Serial.print("\t RX power: "); Serial.print(DW1000Ranging.getDistantDevice()->getRXPower()); Serial.println(" dBm");
+    float rounded = std::round(range * 1000.0f) / 1000.0f;
+    // Serial.print("from: "); Serial.print(DW1000Ranging.getDistantDevice()->getShortAddress(), HEX);
+    // Serial.print("\t Range: "); Serial.print(range); Serial.print(" m");
+    // Serial.print("\t RX power: "); Serial.print(DW1000Ranging.getDistantDevice()->getRXPower()); Serial.println(" dBm");
+    Serial.printf("%0.3f,\n", rounded);
     New_Measurement(range);
 }
 

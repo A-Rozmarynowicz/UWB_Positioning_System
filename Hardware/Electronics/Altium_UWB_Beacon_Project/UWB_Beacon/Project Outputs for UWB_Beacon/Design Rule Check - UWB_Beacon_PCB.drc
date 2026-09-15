@@ -1,7 +1,7 @@
 Protel Design System Design Rule Check
 PCB File : C:\Users\arekr\OneDrive\Pulpit\Github\UWB_Positioning_System\Hardware\Electronics\Altium_UWB_Beacon_Project\UWB_Beacon\UWB_Beacon_PCB.PcbDoc
-Date     : 08.05.2026
-Time     : 22:31:33
+Date     : 13.09.2026
+Time     : 13:28:03
 
 Processing Rule : Clearance Constraint (Gap=0.254mm) (All),(All)
 Rule Violations :0
@@ -51,4 +51,4 @@ Rule Violations :0
 
 Violations Detected : 0
 Waived Violations : 0
-Time Elapsed        : 00:00:00
+Time Elapsed        : 00:00:01

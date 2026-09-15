@@ -2,10 +2,8 @@
 FileName = UWB_Beacon_PCB.GBR
 AutoAperture = True
 *************************************************************
-Generating : Bottom Solder
-      File : UWB_Beacon_PCB.GBS
-
-    Adding Layer      : Bottom Solder
+Generating : Bottom Layer
+      File : UWB_Beacon_PCB.GBL
 
     Adding Layer      : Bottom Layer
 
@@ -13,27 +11,37 @@ Generating : Bottom Solder
 
 
 Used DCodes :
-    D25
-    D29
-    D40
-    D42
-    D43
+    D14
+    D17
+    D26
+    D27
+    D28
+    D31
     D44
-    D45
-    D46
-    D47
-    D48
-    D49
     D50
-    D51
-    D52
-    D53
-    D54
+    D56
+    D57
+    D58
+    D59
+    D61
+    D62
+    D63
+    D64
+    D65
+    D66
+    D67
+    D68
+    D69
+    D70
     D71
+    D72
+    D73
     D74
     D75
     D76
     D77
+    D78
+    D79
 *************************************************************
 
 *************************************************************
@@ -53,11 +61,14 @@ Used DCodes :
     D16
     D17
     D18
+    D19
 *************************************************************
 
 *************************************************************
-Generating : Bottom Layer
-      File : UWB_Beacon_PCB.GBL
+Generating : Bottom Paste
+      File : UWB_Beacon_PCB.GBP
+
+    Adding Layer      : Bottom Paste
 
     Adding Layer      : Bottom Layer
 
@@ -65,18 +76,53 @@ Generating : Bottom Layer
 
 
 Used DCodes :
-    D12
-    D16
+    D26
+    D27
+    D28
+    D31
+    D74
+    D75
+    D76
+    D77
+    D78
+*************************************************************
+
+*************************************************************
+Generating : Top Layer
+      File : UWB_Beacon_PCB.GTL
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D14
+    D17
+    D20
+    D21
+    D22
+    D23
+    D24
     D25
     D26
+    D27
+    D28
     D29
+    D30
+    D31
+    D32
+    D33
+    D34
+    D35
     D36
-    D43
+    D37
+    D38
+    D39
     D44
-    D51
-    D52
-    D55
+    D50
     D56
+    D57
     D58
     D59
     D60
@@ -96,26 +142,19 @@ Used DCodes :
 *************************************************************
 
 *************************************************************
-Generating : Bottom Paste
-      File : UWB_Beacon_PCB.GBP
+Generating : Bottom Overlay
+      File : UWB_Beacon_PCB.GBO
 
-    Adding Layer      : Bottom Paste
-
-    Adding Layer      : Bottom Layer
-
-    Adding Layer      : Multi-Layer
+    Adding Layer      : Bottom Overlay
 
 
 Used DCodes :
-    D25
-    D26
-    D29
-    D36
-    D68
-    D69
-    D70
-    D71
-    D72
+    D10
+    D12
+    D13
+    D14
+    D16
+    D19
 *************************************************************
 
 *************************************************************
@@ -130,7 +169,6 @@ Generating : Top Solder
 
 
 Used DCodes :
-    D19
     D20
     D21
     D22
@@ -138,13 +176,12 @@ Used DCodes :
     D24
     D25
     D27
-    D28
     D29
     D30
     D31
-    D32
-    D33
     D34
+    D35
+    D36
     D37
     D38
     D39
@@ -163,58 +200,42 @@ Used DCodes :
     D52
     D53
     D54
+    D55
 *************************************************************
 
 *************************************************************
-Generating : Top Layer
-      File : UWB_Beacon_PCB.GTL
+Generating : Bottom Solder
+      File : UWB_Beacon_PCB.GBS
 
-    Adding Layer      : Top Layer
+    Adding Layer      : Bottom Solder
+
+    Adding Layer      : Bottom Layer
 
     Adding Layer      : Multi-Layer
 
 
 Used DCodes :
-    D12
-    D16
-    D19
-    D20
-    D21
-    D22
-    D23
-    D24
-    D25
-    D26
     D27
-    D28
-    D29
-    D30
     D31
-    D32
-    D33
-    D34
-    D35
-    D36
-    D37
-    D38
-    D39
-    D43
+    D40
+    D41
     D44
+    D45
+    D46
+    D47
+    D48
+    D49
+    D50
     D51
     D52
+    D53
+    D54
     D55
-    D56
-    D57
-    D58
-    D59
-    D60
-    D61
-    D62
-    D63
-    D64
-    D65
-    D66
-    D67
+    D78
+    D80
+    D81
+    D82
+    D83
 *************************************************************
 
 *************************************************************
@@ -229,7 +250,6 @@ Generating : Top Paste
 
 
 Used DCodes :
-    D19
     D20
     D21
     D22
@@ -253,26 +273,11 @@ Used DCodes :
 *************************************************************
 
 *************************************************************
-Generating : Bottom Overlay
-      File : UWB_Beacon_PCB.GBO
-
-    Adding Layer      : Bottom Overlay
-
-
-Used DCodes :
-    D11
-    D12
-    D13
-    D15
-    D18
-*************************************************************
-
-*************************************************************
 Generating : Profile
       File : UWB_Beacon_PCB.GM
 
 
 Used DCodes :
-    D78
+    D84
 *************************************************************
 
