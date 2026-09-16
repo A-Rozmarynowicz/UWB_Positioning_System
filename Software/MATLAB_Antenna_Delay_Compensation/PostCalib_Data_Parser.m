@@ -1,7 +1,12 @@
-rootDir = 'PostCalib_Data/';
+rootDir = 'PostCalib_Data/Raw_Data/';
 
 folders = {'U0', 'U1', 'U2'};
-pairs   = {'U0U1', 'U1U2', 'U2U3'};
+
+pairs = {
+    {'U0U1', 'U0U2', 'U0U3'}, ...
+    {'U1U2', 'U1U3'}, ...
+    {'U2U3'} ...
+};
 
 %% Process p1, p2, p3
 for p = 1:3
@@ -9,23 +14,27 @@ for p = 1:3
     mergedData = [];
     columnNames = {};
 
-    for u = 1:3
+    for u = 1:length(folders)
 
         folder = fullfile(rootDir, folders{u});
-        pair = pairs{u};
+        folderPairs = pairs{u};
 
-        for v = 1:10
+        for pairIdx = 1:length(folderPairs)
 
-            filename = sprintf('%s_v%d_p%d.csv', pair, v, p);
-            filepath = fullfile(folder, filename);
+            pair = folderPairs{pairIdx};
 
-            data = readmatrix(filepath);
+            for v = 1:10
 
-            data = data(:);
+                filename = sprintf('%s_v%d_p%d.csv', pair, v, p);
+                filepath = fullfile(folder, filename);
 
-            mergedData(:, end+1) = data;
+                data = readmatrix(filepath);
+                data = data(:);
 
-            columnNames{end+1} = sprintf('%s_v%d', pair, v);
+                mergedData(:, end+1) = data;
+
+                columnNames{end+1} = sprintf('%s_v%d', pair, v);
+            end
         end
     end
 
@@ -39,22 +48,24 @@ for p = 1:3
         outputFile, height(T), width(T));
 end
 
+
+
 %% Process actual distances
 p1_offset_distance = 0.025*2;
 p2_offset_distance = 0.025*2;
 p3_offset_distance = 0.025+0.01;
 
-U0_post_distances = readmatrix("PostCalib_Data\Raw_Distances\U0_distances.csv");
+U0_post_distances = readmatrix("PostCalib_Data\Raw_Data\Raw_Distances\U0_distances.csv");
 U0_p1_distances = U0_post_distances + p1_offset_distance;
 U0_p2_distances = U0_post_distances + p2_offset_distance;
 U0_p3_distances = U0_post_distances + p3_offset_distance;
 
-U1_post_distances = readmatrix("PostCalib_Data\Raw_Distances\U1_distances.csv");
+U1_post_distances = readmatrix("PostCalib_Data\Raw_Data\Raw_Distances\U1_distances.csv");
 U1_p1_distances = U1_post_distances + p1_offset_distance;
 U1_p2_distances = U1_post_distances + p2_offset_distance;
 U1_p3_distances = U1_post_distances + p3_offset_distance;
 
-U2_post_distances = readmatrix("PostCalib_Data\Raw_Distances\U2_distances.csv");
+U2_post_distances = readmatrix("PostCalib_Data\Raw_Data\Raw_Distances\U2_distances.csv");
 U2_p1_distances = U2_post_distances + p1_offset_distance;
 U2_p2_distances = U2_post_distances + p2_offset_distance;
 U2_p3_distances = U2_post_distances + p3_offset_distance;
@@ -71,7 +82,6 @@ P3_distances = [U0_p3_distances, U1_p3_distances, U2_p3_distances];
 P3_distances_table = array2table(P3_distances, ...
     'VariableNames', {'U0', 'U1', 'U2'});
 
-% Save as CSV
-writetable(P1_distances_table, );
-writetable(P2_distances_table, 'P2_distances.csv');
-writetable(P3_distances_table, 'P3_distances.csv');
+writetable(P1_distances_table, 'PostCalib_Data/Actual_Distances/P1_actual_distances.csv');
+writetable(P2_distances_table, 'PostCalib_Data/Actual_Distances/P2_actual_distances.csv');
+writetable(P3_distances_table, 'PostCalib_Data/Actual_Distances/P3_actual_distances.csv');
