@@ -31,7 +31,7 @@ ylabel('Error');
 %% Saves
 colNames = {'U0U1','U0U2','U0U3','U1U2','U1U3','U2U3'};
 T_U = array2table(U_distances, 'VariableNames', colNames);
-writetable(T_U, 'Data/U_distances.csv', 'WriteRowNames', true);
+writetable(T_U, 'PreCalib_Data/U_distances.csv', 'WriteRowNames', true);
 
 A_U = array2table(actual_distances, 'VariableNames', colNames);
-writetable(A_U, 'Data/actual_distances.csv', 'WriteRowNames', true);
+writetable(A_U, 'PreCalib_Data/actual_distances.csv', 'WriteRowNames', true);

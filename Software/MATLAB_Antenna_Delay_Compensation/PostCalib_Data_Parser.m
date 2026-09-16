@@ -70,17 +70,17 @@ U2_p1_distances = U2_post_distances + p1_offset_distance;
 U2_p2_distances = U2_post_distances + p2_offset_distance;
 U2_p3_distances = U2_post_distances + p3_offset_distance;
 
-P1_distances = [U0_p1_distances, U1_p1_distances, U2_p1_distances];
+P1_distances = [U0_p1_distances, U0_p1_distances, U0_p1_distances, U1_p1_distances, U1_p1_distances, U2_p1_distances];
 P1_distances_table = array2table(P1_distances, ...
-    'VariableNames', {'U0', 'U1', 'U2'});
+    'VariableNames', {'U0U1', 'U0U2', 'U0U3', 'U1U2', 'U1U3', 'U2U3'});
 
-P2_distances = [U0_p2_distances, U1_p2_distances, U2_p2_distances];
+P2_distances = [U0_p2_distances, U0_p2_distances, U0_p2_distances, U1_p2_distances, U1_p2_distances, U2_p2_distances];
 P2_distances_table = array2table(P2_distances, ...
-    'VariableNames', {'U0', 'U1', 'U2'});
+    'VariableNames', {'U0U1', 'U0U2', 'U0U3', 'U1U2', 'U1U3', 'U2U3'});
 
-P3_distances = [U0_p3_distances, U1_p3_distances, U2_p3_distances];
+P3_distances = [U0_p3_distances, U0_p3_distances, U0_p3_distances, U1_p3_distances, U1_p3_distances, U2_p3_distances];
 P3_distances_table = array2table(P3_distances, ...
-    'VariableNames', {'U0', 'U1', 'U2'});
+    'VariableNames', {'U0U1', 'U0U2', 'U0U3', 'U1U2', 'U1U3', 'U2U3'});
 
 writetable(P1_distances_table, 'PostCalib_Data/Actual_Distances/P1_actual_distances.csv');
 writetable(P2_distances_table, 'PostCalib_Data/Actual_Distances/P2_actual_distances.csv');
