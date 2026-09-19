@@ -82,6 +82,10 @@ P3_distances = [U0_p3_distances, U0_p3_distances, U0_p3_distances, U1_p3_distanc
 P3_distances_table = array2table(P3_distances, ...
     'VariableNames', {'U0U1', 'U0U2', 'U0U3', 'U1U2', 'U1U3', 'U2U3'});
 
-writetable(P1_distances_table, 'PostCalib_Data/Actual_Distances/P1_actual_distances.csv');
-writetable(P2_distances_table, 'PostCalib_Data/Actual_Distances/P2_actual_distances.csv');
-writetable(P3_distances_table, 'PostCalib_Data/Actual_Distances/P3_actual_distances.csv');
+%% Saves
+save_ps = false;
+if save_ps
+    writetable(P1_distances_table, 'PostCalib_Data/Actual_Distances/P1_actual_distances.csv');
+    writetable(P2_distances_table, 'PostCalib_Data/Actual_Distances/P2_actual_distances.csv');
+    writetable(P3_distances_table, 'PostCalib_Data/Actual_Distances/P3_actual_distances.csv');
+end

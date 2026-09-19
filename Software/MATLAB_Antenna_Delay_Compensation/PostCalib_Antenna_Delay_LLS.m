@@ -14,7 +14,6 @@ A_binary = [
 ];
 
 E = 0.5*(P1_errors(est_idx, :) + P2_errors(est_idx, :))*(-1/c);
-% E = (P1_errors(est_idx, :))*(-1/c);
 
 delta_t_2 = (A_binary\E')*(linear_params(1));
 
