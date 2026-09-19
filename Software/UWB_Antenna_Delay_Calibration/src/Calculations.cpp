@@ -34,5 +34,5 @@ float Get_Estimated_Distance()
 
 float Get_Biased_Range_Value(float range)
 {
-    return range + range*A_poly_param + B_poly_param;
+    return range*A_poly_param + B_poly_param;
 }
