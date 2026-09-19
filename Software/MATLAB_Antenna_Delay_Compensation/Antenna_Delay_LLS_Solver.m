@@ -17,3 +17,5 @@ delta_t = A_binary\E_time';
 
 delta_t_ticks = round(delta_t/tau);
 
+display(delta_t_ticks);
+

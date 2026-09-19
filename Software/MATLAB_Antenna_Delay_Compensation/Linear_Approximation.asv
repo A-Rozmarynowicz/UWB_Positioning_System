@@ -7,10 +7,9 @@ actual_distances_avg = (U0_actual_distances + U1_actual_distances + U2_actual_di
 
 interpolation_p_params = polyfit(actual_distances_avg, E_bias_total, 1);
 error_compensation_line = polyval(interpolation_p_params, actual_distances_avg);
-
 % Trzeba pamiętać że interpolation_p_params wyrzuca [a, b], ale w równaniu
 % na poprawkę dajemy R2 = R1(1+a) + b, bo liczymy poprawkę na errorach.
-linear_params = [interpolation_p_params(1)+1, interpolation_p_params(2)];
+linear_params = [inter]
 
 plot(actual_distances, E_bias, '*')
 hold on;
@@ -18,13 +17,4 @@ plot(actual_distances_avg, error_compensation_line)
 
 quality = sum(abs(E_bias_total - error_compensation_line));
 
-display(linear_params);
-
-
-%% Plot expected results
-
-U_expected = polyval(linear_params, U_distances_bias);
-
-plot(actual_distances , actual_distances - U_expected);
-grid("on")
-legend('U0U1','U0U2','U0U3','U1U2','U1U3','U2U3');
+display(interpolation_p_params);

@@ -40,7 +40,7 @@ P1_std = reshape(std(P1_measured_distances, 0, 1), 10, 6);
 P2_std = reshape(std(P2_measured_distances, 0, 1), 10, 6);
 P3_std = reshape(std(P3_measured_distances, 0, 1), 10, 6);
 
-P1_errors = (P1_actual_distances - 0.1058)*(1/(1-0.0507)) - P1_average;
+P1_errors = P1_actual_distances - P1_average;
 P2_errors = P2_actual_distances - P2_average;
 P3_errors = P3_actual_distances - P3_average;
 
@@ -52,7 +52,10 @@ errorbar(P1_actual_distances_average, P1_errors(:, columns_singular(experiment))
 
 %% Plot
 figure;
-plot(P1_actual_distances_average, P1_errors,'o-', 'LineWidth', 1.5);
+plot(P2_actual_distances_average, P2_errors,'o-', 'LineWidth', 1.5);
 legend(["U0U1", "U0U2", "U0U3", "U1U2", "U1U3", "U2U3"])
 % hold on;
 % scatter(P1_actual_distances_average, P2_std);
+
+%% 
+
