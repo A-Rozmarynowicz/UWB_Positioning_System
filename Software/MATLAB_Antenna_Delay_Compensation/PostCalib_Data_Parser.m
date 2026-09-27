@@ -1,4 +1,4 @@
-rootDir = 'DronPrecalib_Data/Raw_Data/';
+rootDir = 'DronPostcalib_Data/Raw_Data/';
 
 folders = {'D0'};
 
@@ -107,9 +107,9 @@ if save_ps % Uwaga na folder!
 end
 
 
-save_ps = true;
+save_ps = false;
 if save_ps % Uwaga na folder!
-    writetable(P1_drone_distances_table, 'DronPrecalib_Data/Actual_Distances/P1_actual_distances.csv');
-    writetable(P2_drone_distances_table, 'DronPrecalib_Data/Actual_Distances/P2_actual_distances.csv');
+    writetable(P1_drone_distances_table, 'DronPostcalib_Data/Actual_Distances/P1_actual_distances.csv');
+    writetable(P2_drone_distances_table, 'DronPostcalib_Data/Actual_Distances/P2_actual_distances.csv');
     % writetable(P3_distances_table, 'PostCalib_Data/Actual_Distances/P3_actual_distances.csv');
 end

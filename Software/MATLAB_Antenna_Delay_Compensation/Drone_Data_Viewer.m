@@ -1,6 +1,6 @@
 %% Data loading
 
-rootDir = 'DronPrecalib_Data/';
+rootDir = 'DronPostcalib_Data/';
 
 P1 = readtable(fullfile(rootDir, 'Measured_Distances/P1_Measured_Distances.csv'));
 P2 = readtable(fullfile(rootDir, 'Measured_Distances/P2_Measured_Distances.csv'));
@@ -45,7 +45,7 @@ errorbar(P2_actual_distances_average, P2_errors(:, columns_singular(experiment))
 
 %% Plot
 figure;
-plot(P1_actual_distances_average, P1_errors+P2_errors, 'o-', 'LineWidth', 1.5);
+plot(P1_actual_distances_average, 0.5*(P1_errors+P2_errors), 'o-', 'LineWidth', 1.5);
 legend(["U0", "U1", "U2", "U3"])
 % hold on;
 % scatter(P1_actual_distances_average, P2_std);
