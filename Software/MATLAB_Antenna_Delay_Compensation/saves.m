@@ -1,19 +1,21 @@
-u = [
-4.572,
-4.053,
-3.538,
-3.029,
-2.523,
-2.019,
+d = [
+
+4.571,
+4.051,
+3.535,
+3.030,
+2.521,
+2.018,
 1.517,
-1.014,
-0.511,
+1.016,
+0.509,
 0.100,
+
+
 
 
 ]
 
-% assert(length(u) == 100);
-folder = "PostCalib_Data_v2";
-
-writematrix(u, fullfile(folder, "U2_distances.csv"));
+% assert(length(d) == 100);
+folder = "DronPrecalib_Data";
+writematrix(d, fullfile(folder, "D0_Raw_Distances.csv"));
