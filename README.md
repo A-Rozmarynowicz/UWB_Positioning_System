@@ -51,7 +51,7 @@ Development time: from 10.2025 to 02.2026.
 
 
 ## Effectiveness
-The system allows for positioning a slow-moving tag with an accuracy better than 20 centimeters.
+The system allows for positioning a slow-moving tag with an accuracy better than 6 centimeters.
 
 
 ## Technologies
