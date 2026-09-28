@@ -84,6 +84,15 @@ void Print_Master_All_Distances_Matrix(){
     }
 }
 
+/**
+ * @brief Applies linear approximation bias to the measurement
+ *
+ * @return float
+ */
+float Get_Biased_Range_Value(float range)
+{
+    return range*approximation_A_poly_param + approximation_B_poly_param;
+}
 
 /**
  * @brief Calculate the position of lighthouse 1.
