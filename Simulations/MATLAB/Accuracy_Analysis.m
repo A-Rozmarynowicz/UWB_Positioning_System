@@ -4,7 +4,7 @@ number_of_iterations = 1000;
 n_lighthouses = 4;
 dimensions = 3;
 
-distance_accuracy = 0.1; % Accuracy of a single distance measurement
+distance_accuracy = 0.05; % Accuracy of a single distance measurement
 minimal_axis_offset = 0.5; % Minimal distance of a lighthouse from other lighthouses
 max_distance = 5.0; % Max distance of a lighthouse from the origin
 

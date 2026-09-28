@@ -4,8 +4,10 @@
 
 
 const uint32_t TARGET_NUMBER_OF_MEASUREMENTS = 100;
-const float A_poly_param = 0.9493;
-const float B_poly_param = 0.1058;
+// const float A_poly_param = 0.9493;
+// const float B_poly_param = 0.1058; // BEacons
+const float A_poly_param = 0.9539;
+const float B_poly_param = -0.5259; // Dron
 
 extern float distance_sum;
 extern float distance_estimation;

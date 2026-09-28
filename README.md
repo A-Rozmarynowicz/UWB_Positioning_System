@@ -35,18 +35,23 @@ Development time: from 10.2025 to 02.2026.
 ----
 
 <p align="center">
+<img src="./Hardware/Images/UWB_rl.jpg" alt=".Hardware/Images/PCB_3D_Image.png" width="75%"><br>
+<em>Figure 1: UWB anchor.</em>
+</p>
+
+<p align="center">
 <img src="./Hardware/Images/PCB_3D_Image.png" alt=".Hardware/Images/PCB_3D_Image.png" width="75%"><br>
-<em>Figure 1: 3D view of the PCB.</em>
+<em>Figure 2: 3D view of the PCB.</em>
 </p>
 
 <p align="center">
 <img src="./Hardware/Images/Casing_Image.png" alt=".Hardware/Images/Casing_Image.png" width="75%"><br>
-<em>Figure 2: 3D view of the casing.</em>
+<em>Figure 3: 3D view of the casing.</em>
 </p>
 
 <p align="center">
 <img src="./Simulations/Images/3D_Visualization.png" alt=".Hardware/Images/Casing_Image.png" width="75%"><br>
-<em>Figure 3: Output visualization of one of the simulations.</em>
+<em>Figure 4: Output visualization of one of the simulations.</em>
 </p>
 
 
