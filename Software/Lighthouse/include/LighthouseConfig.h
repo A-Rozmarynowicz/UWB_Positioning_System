@@ -63,6 +63,6 @@
  *
  * The value is determined at startup based on the state of index pins.
  */
-extern uint8_t LIGHTHOUSE_ID;
+extern const uint8_t LIGHTHOUSE_ID;
 
 #endif

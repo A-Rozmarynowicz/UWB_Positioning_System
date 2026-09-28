@@ -103,6 +103,7 @@ void Restart_UWB_As_Tag(){
     DW1000Ranging.attachNewRange(_new_range);
     DW1000Ranging.attachNewDevice(_new_device);
     DW1000Ranging.attachInactiveDevice(_inactive_device);
+    DW1000.setAntennaDelay(DISTANCE_ANTENA_DELAY_OFFSET[LIGHTHOUSE_ID]);
 
     char address_str[24] = {0};
     _format_address_to_string(LIGHTHOUSE_ID, address_str);
@@ -111,6 +112,7 @@ void Restart_UWB_As_Tag(){
         UWB_TRANSMIT_MODE,
         false
     );
+
     DW1000.setChannel(CHANNEL);
     DW1000.useSmartPower(false);
     uint32_t maxPower = 0x26486A6A;
@@ -131,11 +133,12 @@ void Restart_UWB_As_Anchor(){
     SPI.setFrequency(4000000);
     DW1000Ranging.initCommunication(PIN_RST, PIN_SS, PIN_IRQ);
 
-    // DW1000Ranging.setReplyTime(900);
+    DW1000Ranging.setReplyTime((LIGHTHOUSE_ID*2+1) * DEFAULT_REPLY_DELAY_TIME );
     DW1000Ranging.attachNewRange(_new_range);
     DW1000Ranging.attachBlinkDevice(_new_blink);
     DW1000Ranging.attachNewDevice(_new_device);
     DW1000Ranging.attachInactiveDevice(_inactive_device);
+    DW1000.setAntennaDelay(DISTANCE_ANTENA_DELAY_OFFSET[LIGHTHOUSE_ID]);
 
     char address_str[24] = {0};
     _format_address_to_string(LIGHTHOUSE_ID, address_str);
@@ -206,6 +209,7 @@ void _new_blink(DW1000Device* device) {}
 void _new_range() {
     uint16_t device = DW1000Ranging.getDistantDevice()->getShortAddress();
     float range = DW1000Ranging.getDistantDevice()->getRange();
+    range = Get_Biased_Range_Value(range);
     float rx_power = DW1000Ranging.getDistantDevice()->getRXPower();
     State_UWB_New_Range(device, range, rx_power);
 }
