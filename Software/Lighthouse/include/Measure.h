@@ -20,12 +20,12 @@
 /**
  * @brief Theoretical maximum valid distance between devices [meters].
  */
-const float THEORETICAL_MAX_DISTANCE = 12.0f;
+const float THEORETICAL_MAX_DISTANCE = 10.0f;
 
 /**
  * @brief Minimum number of distance measurements required for processing.
  */
-const uint8_t MIN_DISTANCE_MEASUREMENTS = 50;
+const uint8_t MIN_DISTANCE_MEASUREMENTS = 100;
 
 /**
  * @brief Maximum number of distance measurements required for processing.
@@ -33,9 +33,24 @@ const uint8_t MIN_DISTANCE_MEASUREMENTS = 50;
 const uint8_t MAX_DISTANCE_MEASUREMENTS = 250;
 
 /**
- * @brief Antenna delay compensation offset applied to distance measurements [meters].
+ * @brief Antenna delay compensation offset applied to distance measurements.
  */
-const float DISTANCE_ANTENA_DELAY_OFFSET = 0.0;
+const uint16_t DISTANCE_ANTENA_DELAY_OFFSET[4] = {
+    16473,
+    16471,
+    16437,
+    16465
+};
+
+/**
+ * @brief Linear approximation parameter 'a'.
+ */
+const float approximation_A_poly_param = 0.9493;
+
+/**
+ * @brief Linear approximation parameter 'b'.
+ */
+const float approximation_B_poly_param = 0.1058;
 
 /**
  * @struct Position

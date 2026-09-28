@@ -28,24 +28,13 @@
 void setup();
 void loop();
 
-uint8_t LIGHTHOUSE_ID = 0;
+const uint8_t LIGHTHOUSE_ID = 0;
 
 void setup() {
   Serial.begin(115200);
   Serial.println("Began");
   delay(10);
 
-
-  pinMode(INDEX_PIN_0, INPUT_PULLDOWN);
-  pinMode(INDEX_PIN_1, INPUT_PULLDOWN);
-  pinMode(INDEX_PIN_2, INPUT_PULLDOWN);
-
-
-  uint8_t idx0 = digitalRead(INDEX_PIN_0);
-  uint8_t idx1 = digitalRead(INDEX_PIN_1);
-  uint8_t idx2 = digitalRead(INDEX_PIN_2);
-
-  LIGHTHOUSE_ID = 4*idx2 + 2*idx1 + 1*idx0;
 
   Initialize_Interface();
   Initialize_Timers();
