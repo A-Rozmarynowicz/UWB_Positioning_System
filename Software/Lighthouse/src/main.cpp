@@ -28,7 +28,7 @@
 void setup();
 void loop();
 
-const uint8_t LIGHTHOUSE_ID = 0;
+const uint8_t LIGHTHOUSE_ID = 3;
 
 void setup() {
   Serial.begin(115200);
@@ -43,6 +43,8 @@ void setup() {
   Reset_And_Initialize_Machine();
 
   Serial.printf("LIGHTHOUSE_ID: %d \n", LIGHTHOUSE_ID);
+  Serial.printf("Number of lighthouses: %d \n", NUMBER_OF_LIGHTHOUSES);
+
 
   setCpuFrequencyMhz(240);
 
