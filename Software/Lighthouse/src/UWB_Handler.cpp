@@ -2,11 +2,13 @@
 
 uint8_t uwb_enable = 0;
 
+const byte* UWB_TRANSMIT_MODE = DW1000Class::MODE_SHORTDATA_FAST_ACCURACY;
+
 const uint8_t uwb_addresses_from_LGH[NUMBER_OF_LIGHTHOUSES][UWB_ADDRESS_LENGTH] = {
     {0x82, 0x17, 0x5B, 0xD5, 0xA9, 0x9A, 0xE2, 0x9C},
     {0x7D, 0x00, 0x22, 0xEA, 0x82, 0x60, 0x3B, 0x9C},
-    // {0xA1, 0xB2, 0xC3, 0xD4, 0xE5, 0xF6, 0x07, 0x18},
-    // {0x3C, 0x9A, 0x44, 0x10, 0xFE, 0x02, 0x8D, 0x6F}
+    {0xA1, 0xB2, 0xC3, 0xD4, 0xE5, 0xF6, 0x07, 0x18},
+    {0x3C, 0x9A, 0x44, 0x10, 0xFE, 0x02, 0x8D, 0x6F}
 };
 
 /**
@@ -106,9 +108,14 @@ void Restart_UWB_As_Tag(){
     _format_address_to_string(LIGHTHOUSE_ID, address_str);
     DW1000Ranging.startAsTag(
         address_str,
-        DW1000.MODE_LONGDATA_RANGE_ACCURACY,
+        UWB_TRANSMIT_MODE,
         false
     );
+    DW1000.setChannel(CHANNEL);
+    DW1000.useSmartPower(false);
+    uint32_t maxPower = 0x26486A6A;
+    DW1000.writeBytes(0x1E, 0x00, (byte*)&maxPower, 4);
+    DW1000.commitConfiguration();
 }
 
 /**
@@ -124,7 +131,7 @@ void Restart_UWB_As_Anchor(){
     SPI.setFrequency(4000000);
     DW1000Ranging.initCommunication(PIN_RST, PIN_SS, PIN_IRQ);
 
-    DW1000Ranging.setReplyTime(900);
+    // DW1000Ranging.setReplyTime(900);
     DW1000Ranging.attachNewRange(_new_range);
     DW1000Ranging.attachBlinkDevice(_new_blink);
     DW1000Ranging.attachNewDevice(_new_device);
@@ -134,9 +141,14 @@ void Restart_UWB_As_Anchor(){
     _format_address_to_string(LIGHTHOUSE_ID, address_str);
     DW1000Ranging.startAsAnchor(
         address_str,
-        DW1000.MODE_LONGDATA_RANGE_ACCURACY,
+        UWB_TRANSMIT_MODE,
         false
     );
+    DW1000.setChannel(CHANNEL);
+    DW1000.useSmartPower(false);
+    uint32_t maxPower = 0x26486A6A;
+    DW1000.writeBytes(0x1E, 0x00, (byte*)&maxPower, 4);
+    DW1000.commitConfiguration();
 }
 
 /**
@@ -174,9 +186,9 @@ bool Are_Addresses_Equal(uint8_t* first, uint8_t* second){
  */
 void _reset_DW1000(){
     digitalWrite(PIN_RST, LOW);
-    delay(50); // Konieczne
+    delay(50);
     digitalWrite(PIN_RST, HIGH);
-    delay(50); // Konieczne
+    delay(50);
 }
 
 /**

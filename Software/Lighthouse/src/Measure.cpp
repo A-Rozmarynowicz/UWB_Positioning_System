@@ -17,11 +17,8 @@ Position position = {0};
  * @return void
  */
 void New_Measurement(uint8_t lighthouse, float distance){
-  if (distance > THEORETICAL_MAX_DISTANCE || distance < -THEORETICAL_MAX_DISTANCE){
+  if (distance > THEORETICAL_MAX_DISTANCE || distance < 0){
     return;
-  }
-  if (distance < DISTANCE_ANTENA_DELAY_OFFSET){
-    distance = DISTANCE_ANTENA_DELAY_OFFSET;
   }
   completed_distance_measurements[lighthouse] += 1;
   distances_to_lighthouses[lighthouse] += distance;
@@ -44,7 +41,7 @@ void Calculate_Distance_To_Targets(uint8_t distance_measurements[NUMBER_OF_LIGHT
     if (distance_measurements[i] == 0){
       continue;
     }
-    distances_to_lighthouses[i] = (distances_to_lighthouses[i]/distance_measurements[i]) - DISTANCE_ANTENA_DELAY_OFFSET;
+    distances_to_lighthouses[i] = (distances_to_lighthouses[i]/distance_measurements[i]);
   }
 }
 
@@ -165,5 +162,5 @@ void _set_LGH_3_position(){
  * @return void
  */
 void _set_LGH_4plus_position(uint8_t lighthouse){
-  // Można rozszerzyć funkcjonalność.
+
 }

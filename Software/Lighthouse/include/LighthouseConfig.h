@@ -20,7 +20,7 @@
 /**
  * @brief Total number of Lighthouse devices in the system.
  */
-#define NUMBER_OF_LIGHTHOUSES (uint8_t) 2
+#define NUMBER_OF_LIGHTHOUSES (uint8_t) 4
 
 /**
  * @brief Unique identifier of the observer device.

@@ -38,6 +38,8 @@ extern const uint8_t uwb_addresses_from_LGH[NUMBER_OF_LIGHTHOUSES][UWB_ADDRESS_L
  * @brief UWB enable flag.
  */
 extern uint8_t uwb_enable;
+const byte CHANNEL = DW1000.CHANNEL_5;
+extern const byte* UWB_TRANSMIT_MODE;
 
 void Initialize_UWB();
 void Update_UWB();
