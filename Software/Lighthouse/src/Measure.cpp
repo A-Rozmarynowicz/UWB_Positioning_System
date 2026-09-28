@@ -121,7 +121,7 @@ void _set_LGH_2_position(){
   float y_sugg = R0*R0 + R1*R1 - 2*x*x + 2*x*x1 - x1*x1;
   float y = 0.0;
   if (y_sugg <= 0.0){
-    y = 0.1;
+    y = AXIS_FORCED_OFFSET;
   }
   else {
     y = sqrtf(y_sugg/2);
@@ -154,7 +154,7 @@ void _set_LGH_3_position(){
     z = sqrtf(z_sugg/3.0);
   }
   else {
-    z = 0.1;
+    z = AXIS_FORCED_OFFSET;
   }
 
   master_all_positions[3].x = x;

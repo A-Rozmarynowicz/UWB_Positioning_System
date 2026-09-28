@@ -30,10 +30,10 @@ const uint8_t MIN_DISTANCE_MEASUREMENTS = 100;
 /**
  * @brief Maximum number of distance measurements required for processing.
  */
-const uint8_t MAX_DISTANCE_MEASUREMENTS = 250;
+const uint8_t MAX_DISTANCE_MEASUREMENTS = 150;
 
 /**
- * @brief Antenna delay compensation offset applied to distance measurements.
+ * @brief Antenna delay compensation offset applied to distance measurements, adequate for each LIGHTHOUSE_ID.
  */
 const uint16_t DISTANCE_ANTENA_DELAY_OFFSET[4] = {
     16473,
@@ -41,6 +41,13 @@ const uint16_t DISTANCE_ANTENA_DELAY_OFFSET[4] = {
     16437,
     16465
 };
+
+/**
+ * @brief Each consecutive beacon has to be offset from the hyperspace (?) laid by the previous beacons. If for example 3rd unit is on the same line with first 2 units, the math won't work.
+ * It is then artificially offset by this amount (in meters).
+ */
+const uint8_t AXIS_FORCED_OFFSET = 0.1;
+
 
 /**
  * @brief Linear approximation parameter 'a'.

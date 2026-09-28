@@ -361,6 +361,7 @@ void Distance_Measure_Query_Exit(){};
 void Send_Calculated_Position_Enter(){
   for (uint8_t i = 0; i<NUMBER_OF_LIGHTHOUSES;i++){
     Calculate_Position_Of_Lighthouse(i);
+    Serial.printf("Calculated position of lighthouse number %d: x=%.3fm | y=%.3fm | z=%.3fm. \n", i, master_all_positions[i].x, master_all_positions[i].y, master_all_positions[i].z);
   }
   Reset_Target_Lighthouse_Index(&current_state_data.target_lighthouse);
   Reset_Ack_Target_Index(&current_ack_status.target_ack_lighthouse, &current_ack_status.current_ack_index);
