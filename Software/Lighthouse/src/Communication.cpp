@@ -181,8 +181,9 @@ void MESSAGES::Send_Observer_Position_Response(){
  * @return void
  */
 void MESSAGES::Send_Observer_UWB_Address_Response(){
+  return; // This functionality is unnecessary. @todo: delete.
   transmit_buffer[Data_Setup::RECEIVER_ID] = OBSERVER_ID;
-  transmit_buffer[Data_Setup::COMMAND] = Data_Commands::OBSERVER_RESPONSE_UWB_ADDRESS;
+  // transmit_buffer[Data_Setup::COMMAND] = Data_Commands::OBSERVER_RESPONSE_UWB_ADDRESS;
   memcpy(&(transmit_buffer[Data_Setup::QUAD_0]), (&uwb_addresses_from_LGH[LIGHTHOUSE_ID][0]), 4);
   memcpy(&(transmit_buffer[Data_Setup::QUAD_1]), (&uwb_addresses_from_LGH[LIGHTHOUSE_ID][4]), 4);
   _send_esp();

@@ -14,7 +14,6 @@
  *   UWB subsystem.
  * - Resetting and initializing the internal state machine controlling the
  *   lighthouse operation.
- * - Disabling WiFi power-saving modes.
  * - Periodically updating the UWB subsystem in the main program loop.
  *
  * The application is built using the Arduino framework for ESP32.

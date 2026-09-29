@@ -430,9 +430,6 @@ void Observer_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_
     Data_Transfer_LED_OFF();
     MESSAGES::Send_Observer_Position_Response();
   }
-  else if (data[Data_Setup::COMMAND] == Data_Commands::OBSERVER_QUERY_UWB_ADDRESS){
-    MESSAGES::Send_Observer_UWB_Address_Response();
-  }
 };
 void Observer_Response_SentCallback(uint32_t send_time){};
 void Observer_Response_TimerCallback(Timer_Callbacks timer_callback){};
