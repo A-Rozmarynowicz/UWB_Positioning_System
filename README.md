@@ -29,7 +29,7 @@ Development time: from 10.2025 to 02.2026.
 - The tag and anchors are based on a DWM1000 ranging module and an ESP32.
 - The anchors automatically determine their relative position on start-up.
 - Implemented the least square error method for estimating the 3D coordinates, based on uncertain distance measurements.
-- Performed experiments that allowed error compensation at distances up to 4.5m.
+- Performed experiments and collected data that allowed error compensation at distances up to 4.5m.
 - Designed and built a custom PCB with a 3D printed casing.
 - Simulated and visualized the process in MATLAB.
 
