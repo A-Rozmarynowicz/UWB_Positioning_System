@@ -23,8 +23,8 @@ void Initial_Enter(){
 };
 
 void Initial_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
-if (data[Data_Setup::COMMAND] == Data_Commands::CHANGE_STATE_COM){
-  switch (data[Data_Setup::SINGLE_0]) {
+if (data[ESP_Data_Setup::COMMAND] == ESP_Data_Commands::CHANGE_STATE_COM){
+  switch (data[ESP_Data_Setup::SINGLE_0]) {
     case States::UWB_RESPONSE:
       Change_State(States::UWB_RESPONSE);
       break;
@@ -109,17 +109,17 @@ void UWB_Response_Enter(){
 };
 
 void UWB_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
-  if (data[Data_Setup::COMMAND] == Data_Commands::CHANGE_STATE_COM){
-    switch (data[Data_Setup::SINGLE_0]) {
+  if (data[ESP_Data_Setup::COMMAND] == ESP_Data_Commands::CHANGE_STATE_COM){
+    switch (data[ESP_Data_Setup::SINGLE_0]) {
       case States::UWB_QUERY:
         current_state_data.ignoring_sent_callbacks = true;
         current_state_data.stored_next_state = States::UWB_QUERY;
-        MESSAGES::Send_Ack(data[Data_Setup::TRANSMITTER_ID]);
+        MESSAGES::Send_Ack(data[ESP_Data_Setup::TRANSMITTER_ID]);
         Change_State(States::UWB_QUERY);
         break;
       case States::DISTANCE_MEASURE_RESPONSE:
         current_state_data.ignoring_sent_callbacks = true;
-        MESSAGES::Send_Ack(data[Data_Setup::TRANSMITTER_ID]);
+        MESSAGES::Send_Ack(data[ESP_Data_Setup::TRANSMITTER_ID]);
         Change_State(States::DISTANCE_MEASURE_RESPONSE);
         break;
       default:
@@ -173,8 +173,8 @@ void Relay_UWB_Quering_Enter(){
 };
 
 void Relay_UWB_Quering_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
-  if (data[Data_Setup::TRANSMITTER_ID] == current_ack_status.target_ack_lighthouse){
-    if (data[Data_Setup::COMMAND] == Data_Commands::ACK_COM){
+  if (data[ESP_Data_Setup::TRANSMITTER_ID] == current_ack_status.target_ack_lighthouse){
+    if (data[ESP_Data_Setup::COMMAND] == ESP_Data_Commands::ACK_COM){
       Stop_Ack_Timer();
       Change_State(States::UWB_RESPONSE);
     }
@@ -191,7 +191,7 @@ void Relay_UWB_Quering_TimerCallback(Timer_Callbacks timer_callback){
     }
     else {
       Data_Transfer_LED_ON();
-      _communication_error(Communication_Errors::ACK_FAIL);
+      _communication_error(ESP_Communication_Errors::ACK_FAIL);
       Change_State(States::UWB_RESPONSE);
     }
   }
@@ -217,8 +217,8 @@ void Inform_End_Config_Enter(){
 };
 
 void Inform_End_Config_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
-  if (data[Data_Setup::TRANSMITTER_ID] == current_ack_status.target_ack_lighthouse){
-    if (data[Data_Setup::COMMAND] != Data_Commands::ACK_COM){
+  if (data[ESP_Data_Setup::TRANSMITTER_ID] == current_ack_status.target_ack_lighthouse){
+    if (data[ESP_Data_Setup::COMMAND] != ESP_Data_Commands::ACK_COM){
       return;
     }
     Stop_Ack_Timer();
@@ -240,7 +240,7 @@ void Inform_End_Config_TimerCallback(Timer_Callbacks timer_callback){
       return;
     }
     Data_Transfer_LED_ON();
-    _communication_error(Communication_Errors::ACK_FAIL);
+    _communication_error(ESP_Communication_Errors::ACK_FAIL);
 
     if (Increment_Ack_Target_Index(&current_ack_status.target_ack_lighthouse, &current_ack_status.current_ack_index)){
       Change_State(States::DISTANCE_MEASURE_RESPONSE);
@@ -268,15 +268,15 @@ void Distance_Measure_Response_Enter(){
   }
 };
 void Distance_Measure_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
-  if (data[Data_Setup::COMMAND] == Data_Commands::QUERY_DISTANCE){
-    float distance = distances_to_lighthouses[data[Data_Setup::SINGLE_0]];
-    MESSAGES::Send_Response_Distance(data[Data_Setup::TRANSMITTER_ID], data[Data_Setup::SINGLE_0], distance);
+  if (data[ESP_Data_Setup::COMMAND] == ESP_Data_Commands::QUERY_DISTANCE){
+    float distance = distances_to_lighthouses[data[ESP_Data_Setup::SINGLE_0]];
+    MESSAGES::Send_Response_Distance(data[ESP_Data_Setup::TRANSMITTER_ID], data[ESP_Data_Setup::SINGLE_0], distance);
   }
-  else if (data[Data_Setup::COMMAND] == Data_Commands::SET_POSITION){
+  else if (data[ESP_Data_Setup::COMMAND] == ESP_Data_Commands::SET_POSITION){
     memcpy(&position.x, &data[QUAD_0], sizeof(float));
     memcpy(&position.y, &data[QUAD_1], sizeof(float));
     memcpy(&position.z, &data[QUAD_2], sizeof(float));
-    MESSAGES::Send_Ack(data[Data_Setup::TRANSMITTER_ID]);
+    MESSAGES::Send_Ack(data[ESP_Data_Setup::TRANSMITTER_ID]);
     Change_State(States::OBSERVER_RESPONSE);
   }
 };
@@ -304,17 +304,17 @@ void Distance_Measure_Query_Enter(){
 };
 
 void Distance_Measure_Query_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
-  if (data[Data_Setup::TRANSMITTER_ID] != current_state_data.target_lighthouse){
+  if (data[ESP_Data_Setup::TRANSMITTER_ID] != current_state_data.target_lighthouse){
     return;
   }
-  if (data[Data_Setup::COMMAND] == Data_Commands::RESPONSE_DISTANCE){
+  if (data[ESP_Data_Setup::COMMAND] == ESP_Data_Commands::RESPONSE_DISTANCE){
     Stop_Ack_Timer();
-    if (data[Data_Setup::SINGLE_0] != current_state_data.distance_query_target){
+    if (data[ESP_Data_Setup::SINGLE_0] != current_state_data.distance_query_target){
       MESSAGES::Send_Query_Distance(current_state_data.target_lighthouse, current_state_data.distance_query_target);
       return;
     }
     float distance = 0.0f;
-    memcpy(&distance, &data[Data_Setup::QUAD_0], sizeof(float));
+    memcpy(&distance, &data[ESP_Data_Setup::QUAD_0], sizeof(float));
     master_all_distances_matrix[current_state_data.target_lighthouse][current_state_data.distance_query_target] = distance;
 
     if (Increment_Distance_Query_Target_Index(&current_state_data.distance_query_target)){
@@ -336,7 +336,7 @@ void Distance_Measure_Query_TimerCallback(Timer_Callbacks timer_callback){
       MESSAGES::Send_Query_Distance(current_state_data.target_lighthouse, current_state_data.distance_query_target);
     }
     else {
-      _communication_error(Communication_Errors::ACK_FAIL);
+      _communication_error(ESP_Communication_Errors::ACK_FAIL);
       current_ack_status.current_ack_index = 0;
       Reset_Distance_Query_Target_Index(&current_state_data.distance_query_target);
       if (Increment_Target_Lighthouse_Index(&current_state_data.target_lighthouse)){
@@ -369,12 +369,12 @@ void Send_Calculated_Position_Enter(){
 };
 
 void Send_Calculated_Position_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
-  if (data[Data_Setup::TRANSMITTER_ID] != current_state_data.target_lighthouse){
+  if (data[ESP_Data_Setup::TRANSMITTER_ID] != current_state_data.target_lighthouse){
     Stop_Ack_Timer();
     MESSAGES::Send_Set_Position(current_state_data.target_lighthouse);
     return;
   }
-  if (data[Data_Setup::COMMAND] == Data_Commands::ACK_COM){
+  if (data[ESP_Data_Setup::COMMAND] == ESP_Data_Commands::ACK_COM){
     Stop_Ack_Timer();
     current_ack_status.current_ack_index = 0;
     if (Increment_Target_Lighthouse_Index(&current_state_data.target_lighthouse)){
@@ -392,7 +392,7 @@ void Send_Calculated_Position_TimerCallback(Timer_Callbacks timer_callback){
       MESSAGES::Send_Set_Position(current_state_data.target_lighthouse);
     }
     else {
-      _communication_error(Communication_Errors::ACK_FAIL);
+      _communication_error(ESP_Communication_Errors::ACK_FAIL);
       Data_Transfer_LED_ON();
       current_ack_status.current_ack_index = 0;
       if (Increment_Target_Lighthouse_Index(&current_state_data.target_lighthouse)){
@@ -423,10 +423,10 @@ void Observer_Response_Enter(){
 };
 
 void Observer_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
-  if (data[Data_Setup::COMMAND] == Data_Commands::OBSERVER_WAKEUP_RECKON){
+  if (data[ESP_Data_Setup::COMMAND] == ESP_Data_Commands::OBSERVER_WAKEUP_RECKON){
     MESSAGES::Send_Observer_Ready();
   }
-  if (data[Data_Setup::COMMAND] == Data_Commands::OBSERVER_QUERY_POSITION){
+  if (data[ESP_Data_Setup::COMMAND] == ESP_Data_Commands::OBSERVER_QUERY_POSITION){
     Data_Transfer_LED_OFF();
     MESSAGES::Send_Observer_Position_Response();
   }

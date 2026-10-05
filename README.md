@@ -109,4 +109,4 @@ The majority of commits come from "RocketEquation" and "arozmary" accounts, both
 - [ ] Integration with an UAV
 
 ## Future
-The project will play an important role in the development of my Bachelor's project: "Design and implementation of a quadrotor with a localization algorithm based on Ultra-Wideband beacons", which you can follow through this [repository](https://github.com/A-Rozmarynowicz/Quadcopter_Full_Implementation).
+The project will play an important role in the development of my Bachelor's project: "Design and implementation of a quadrotor with a localization algorithm based on Ultra-Wideband beacons", which you can follow through this [repository](https://github.com/A-Rozmarynowicz/Portfolio_Quadcopter).

@@ -2,7 +2,7 @@
 #include "Communication.h"
 
 Ack_Status current_ack_status = {0};
-uint8_t transmit_buffer[DATA_SIZE] = {0};
+uint8_t transmit_buffer[ESP_DATA_SIZE] = {0};
 
 #pragma region Message Functions
 /**
@@ -12,8 +12,8 @@ uint8_t transmit_buffer[DATA_SIZE] = {0};
  * @return void
  */
 void MESSAGES::Send_Ack(uint8_t receiver){
-  transmit_buffer[Data_Setup::RECEIVER_ID] = receiver;
-  transmit_buffer[Data_Setup::COMMAND] = Data_Commands::ACK_COM;
+  transmit_buffer[ESP_Data_Setup::RECEIVER_ID] = receiver;
+  transmit_buffer[ESP_Data_Setup::COMMAND] = ESP_Data_Commands::ACK_COM;
   _send_esp();
 }
 
@@ -24,9 +24,9 @@ void MESSAGES::Send_Ack(uint8_t receiver){
  * @return void
  */
 void MESSAGES::Send_Change_To_UWB_Response(uint8_t receiver){
-  transmit_buffer[Data_Setup::RECEIVER_ID] = receiver;
-  transmit_buffer[Data_Setup::COMMAND] = Data_Commands::CHANGE_STATE_COM;
-  transmit_buffer[Data_Setup::SINGLE_0] = States::UWB_RESPONSE;
+  transmit_buffer[ESP_Data_Setup::RECEIVER_ID] = receiver;
+  transmit_buffer[ESP_Data_Setup::COMMAND] = ESP_Data_Commands::CHANGE_STATE_COM;
+  transmit_buffer[ESP_Data_Setup::SINGLE_0] = States::UWB_RESPONSE;
   _send_esp();
 }
 
@@ -37,8 +37,8 @@ void MESSAGES::Send_Change_To_UWB_Response(uint8_t receiver){
  * @return void
  */
 void MESSAGES::Send_UWB_Start_Anchoring(uint8_t receiver){
-  transmit_buffer[Data_Setup::RECEIVER_ID] = receiver;
-  transmit_buffer[Data_Setup::COMMAND] = Data_Commands::UWB_START_ANCHORING;
+  transmit_buffer[ESP_Data_Setup::RECEIVER_ID] = receiver;
+  transmit_buffer[ESP_Data_Setup::COMMAND] = ESP_Data_Commands::UWB_START_ANCHORING;
   _send_esp();
 }
 
@@ -49,8 +49,8 @@ void MESSAGES::Send_UWB_Start_Anchoring(uint8_t receiver){
  * @return void
  */
 void MESSAGES::Send_UWB_Query(uint8_t receiver){
-  transmit_buffer[Data_Setup::RECEIVER_ID] = receiver;
-  transmit_buffer[Data_Setup::COMMAND] = Data_Commands::UWB_QUERY_COM;
+  transmit_buffer[ESP_Data_Setup::RECEIVER_ID] = receiver;
+  transmit_buffer[ESP_Data_Setup::COMMAND] = ESP_Data_Commands::UWB_QUERY_COM;
   _send_esp();
 };
 
@@ -61,8 +61,8 @@ void MESSAGES::Send_UWB_Query(uint8_t receiver){
  * @return void
  */
 void MESSAGES::Send_UWB_Response(uint8_t receiver){
-  transmit_buffer[Data_Setup::RECEIVER_ID] = receiver;
-  transmit_buffer[Data_Setup::COMMAND] = Data_Commands::UWB_RESPONSE_COM;
+  transmit_buffer[ESP_Data_Setup::RECEIVER_ID] = receiver;
+  transmit_buffer[ESP_Data_Setup::COMMAND] = ESP_Data_Commands::UWB_RESPONSE_COM;
   _send_esp();
 }
 
@@ -73,9 +73,9 @@ void MESSAGES::Send_UWB_Response(uint8_t receiver){
  * @return void
  */
 void MESSAGES::Send_Relay_UWB_Response(uint8_t new_uwber_id){
-  transmit_buffer[Data_Setup::RECEIVER_ID] = new_uwber_id;
-  transmit_buffer[Data_Setup::COMMAND] = Data_Commands::CHANGE_STATE_COM;
-  transmit_buffer[Data_Setup::SINGLE_0] = States::UWB_QUERY;
+  transmit_buffer[ESP_Data_Setup::RECEIVER_ID] = new_uwber_id;
+  transmit_buffer[ESP_Data_Setup::COMMAND] = ESP_Data_Commands::CHANGE_STATE_COM;
+  transmit_buffer[ESP_Data_Setup::SINGLE_0] = States::UWB_QUERY;
   _send_esp();
 }
 
@@ -86,9 +86,9 @@ void MESSAGES::Send_Relay_UWB_Response(uint8_t new_uwber_id){
  * @return void
  */
 void MESSAGES::Send_End_Of_Config_Message(uint8_t receiver){
-  transmit_buffer[Data_Setup::RECEIVER_ID] = receiver;
-  transmit_buffer[Data_Setup::COMMAND] = Data_Commands::CHANGE_STATE_COM;
-  transmit_buffer[Data_Setup::SINGLE_0] = States::DISTANCE_MEASURE_RESPONSE;
+  transmit_buffer[ESP_Data_Setup::RECEIVER_ID] = receiver;
+  transmit_buffer[ESP_Data_Setup::COMMAND] = ESP_Data_Commands::CHANGE_STATE_COM;
+  transmit_buffer[ESP_Data_Setup::SINGLE_0] = States::DISTANCE_MEASURE_RESPONSE;
   _send_esp();
 }
 
@@ -98,8 +98,8 @@ void MESSAGES::Send_End_Of_Config_Message(uint8_t receiver){
  * @return void
  */
 void MESSAGES::Send_Master_LHG_Reset(){
-  transmit_buffer[Data_Setup::RECEIVER_ID] = BROADCAST_RECEIVER_ID;
-  transmit_buffer[Data_Setup::COMMAND] = Data_Commands::MASTER_LGH_RESET;
+  transmit_buffer[ESP_Data_Setup::RECEIVER_ID] = BROADCAST_RECEIVER_ID;
+  transmit_buffer[ESP_Data_Setup::COMMAND] = ESP_Data_Commands::MASTER_LGH_RESET;
   _send_esp();
 }
 
@@ -111,9 +111,9 @@ void MESSAGES::Send_Master_LHG_Reset(){
  * @return void
  */
 void MESSAGES::Send_Query_Distance(uint8_t receiver, uint8_t target){
-  transmit_buffer[Data_Setup::RECEIVER_ID] = receiver;
-  transmit_buffer[Data_Setup::COMMAND] = Data_Commands::QUERY_DISTANCE;
-  transmit_buffer[Data_Setup::SINGLE_0] = target;
+  transmit_buffer[ESP_Data_Setup::RECEIVER_ID] = receiver;
+  transmit_buffer[ESP_Data_Setup::COMMAND] = ESP_Data_Commands::QUERY_DISTANCE;
+  transmit_buffer[ESP_Data_Setup::SINGLE_0] = target;
   _send_esp();
   Start_Ack_Timer();
 }
@@ -127,9 +127,9 @@ void MESSAGES::Send_Query_Distance(uint8_t receiver, uint8_t target){
  * @return void
  */
 void MESSAGES::Send_Response_Distance(uint8_t receiver, uint8_t target, float distance){
-  transmit_buffer[Data_Setup::RECEIVER_ID] = receiver;
-  transmit_buffer[Data_Setup::COMMAND] = Data_Commands::RESPONSE_DISTANCE;
-  transmit_buffer[Data_Setup::SINGLE_0] = target;
+  transmit_buffer[ESP_Data_Setup::RECEIVER_ID] = receiver;
+  transmit_buffer[ESP_Data_Setup::COMMAND] = ESP_Data_Commands::RESPONSE_DISTANCE;
+  transmit_buffer[ESP_Data_Setup::SINGLE_0] = target;
   memcpy(&transmit_buffer[QUAD_0], &distance, sizeof(float));
   _send_esp();
 }
@@ -142,8 +142,8 @@ void MESSAGES::Send_Response_Distance(uint8_t receiver, uint8_t target, float di
  */
 void MESSAGES::Send_Set_Position(uint8_t receiver){
   Start_Ack_Timer();
-  transmit_buffer[Data_Setup::RECEIVER_ID] = receiver;
-  transmit_buffer[Data_Setup::COMMAND] = Data_Commands::SET_POSITION;
+  transmit_buffer[ESP_Data_Setup::RECEIVER_ID] = receiver;
+  transmit_buffer[ESP_Data_Setup::COMMAND] = ESP_Data_Commands::SET_POSITION;
   memcpy(&transmit_buffer[QUAD_0], &master_all_positions[receiver].x, sizeof(float));
   memcpy(&transmit_buffer[QUAD_1], &master_all_positions[receiver].y, sizeof(float));
   memcpy(&transmit_buffer[QUAD_2], &master_all_positions[receiver].z, sizeof(float));
@@ -156,8 +156,8 @@ void MESSAGES::Send_Set_Position(uint8_t receiver){
  * @return void
  */
 void MESSAGES::Send_Observer_Ready(){
-  transmit_buffer[Data_Setup::RECEIVER_ID] = OBSERVER_ID;
-  transmit_buffer[Data_Setup::COMMAND] = Data_Commands::READY_FOR_OBSERVER;
+  transmit_buffer[ESP_Data_Setup::RECEIVER_ID] = DRONE_ESP_ID;
+  transmit_buffer[ESP_Data_Setup::COMMAND] = ESP_Data_Commands::READY_FOR_OBSERVER;
   _send_esp();
 }
 
@@ -167,11 +167,11 @@ void MESSAGES::Send_Observer_Ready(){
  * @return void
  */
 void MESSAGES::Send_Observer_Position_Response(){
-  transmit_buffer[Data_Setup::RECEIVER_ID] = OBSERVER_ID;
-  transmit_buffer[Data_Setup::COMMAND] = Data_Commands::OBSERVER_RESPONSE_POSITION;
-  memcpy(&(transmit_buffer[Data_Setup::QUAD_0]), &(position.x), sizeof(float));
-  memcpy(&(transmit_buffer[Data_Setup::QUAD_1]), &(position.y), sizeof(float));
-  memcpy(&(transmit_buffer[Data_Setup::QUAD_2]), &(position.z), sizeof(float));
+  transmit_buffer[ESP_Data_Setup::RECEIVER_ID] = DRONE_ESP_ID;
+  transmit_buffer[ESP_Data_Setup::COMMAND] = ESP_Data_Commands::OBSERVER_RESPONSE_POSITION;
+  memcpy(&(transmit_buffer[ESP_Data_Setup::QUAD_0]), &(position.x), sizeof(float));
+  memcpy(&(transmit_buffer[ESP_Data_Setup::QUAD_1]), &(position.y), sizeof(float));
+  memcpy(&(transmit_buffer[ESP_Data_Setup::QUAD_2]), &(position.z), sizeof(float));
   _send_esp();
 }
 
@@ -182,10 +182,10 @@ void MESSAGES::Send_Observer_Position_Response(){
  */
 void MESSAGES::Send_Observer_UWB_Address_Response(){
   return; // This functionality is unnecessary. @todo: delete.
-  transmit_buffer[Data_Setup::RECEIVER_ID] = OBSERVER_ID;
+  transmit_buffer[ESP_Data_Setup::RECEIVER_ID] = DRONE_ESP_ID;
   // transmit_buffer[Data_Setup::COMMAND] = Data_Commands::OBSERVER_RESPONSE_UWB_ADDRESS;
-  memcpy(&(transmit_buffer[Data_Setup::QUAD_0]), (&uwb_addresses_from_LGH[LIGHTHOUSE_ID][0]), 4);
-  memcpy(&(transmit_buffer[Data_Setup::QUAD_1]), (&uwb_addresses_from_LGH[LIGHTHOUSE_ID][4]), 4);
+  memcpy(&(transmit_buffer[ESP_Data_Setup::QUAD_0]), (&uwb_addresses_from_LGH[LIGHTHOUSE_ID][0]), 4);
+  memcpy(&(transmit_buffer[ESP_Data_Setup::QUAD_1]), (&uwb_addresses_from_LGH[LIGHTHOUSE_ID][4]), 4);
   _send_esp();
 }
 
@@ -206,9 +206,9 @@ void Initialize_Communication(){
     esp_now_register_send_cb(_sent_callback);
   }
   else {
-    _communication_error(Communication_Errors::PROTOCOL_INIT_FAIL);
+    _communication_error(ESP_Communication_Errors::PROTOCOL_INIT_FAIL);
   }
-  transmit_buffer[Data_Setup::TRANSMITTER_ID] = LIGHTHOUSE_ID;
+  transmit_buffer[ESP_Data_Setup::TRANSMITTER_ID] = LIGHTHOUSE_ID;
 };
 
 /**
@@ -224,10 +224,10 @@ void _send_esp(){
     esp_now_add_peer(&peerInfo);
   }
 
-  esp_err_t result = esp_now_send(broadcastAddress, transmit_buffer, DATA_SIZE);
+  esp_err_t result = esp_now_send(broadcastAddress, transmit_buffer, ESP_DATA_SIZE);
   if (result == ESP_OK) {}
   else {
-    _communication_error(Communication_Errors::MESSAGE_SEND_FAIL);
+    _communication_error(ESP_Communication_Errors::MESSAGE_SEND_FAIL);
   }
 };
 
@@ -246,7 +246,7 @@ void _receive_callback(const uint8_t* macAddr, const uint8_t* data, int dataLen)
     return;
   }
   State_ReceiveCallback(data, dataLen, message_receive_time);
-  if (data[Data_Setup::COMMAND] == Data_Commands::MASTER_LGH_RESET){
+  if (data[ESP_Data_Setup::COMMAND] == ESP_Data_Commands::MASTER_LGH_RESET){
     ESP.restart();
   }
 };
@@ -264,7 +264,7 @@ void _sent_callback(const uint8_t *macAddr, esp_now_send_status_t status){
     State_SentCallback(message_sent_time);
   }
   else{
-    _communication_error(Communication_Errors::DELIVERY_FAIL);
+    _communication_error(ESP_Communication_Errors::DELIVERY_FAIL);
   }
 };
 
@@ -274,8 +274,8 @@ void _sent_callback(const uint8_t *macAddr, esp_now_send_status_t status){
  * @param error Communication error code.
  * @return void
  */
-void _communication_error(Communication_Errors error){
-  if (error == Communication_Errors::PROTOCOL_INIT_FAIL){
+void _communication_error(ESP_Communication_Errors error){
+  if (error == ESP_Communication_Errors::PROTOCOL_INIT_FAIL){
     delay(10); // Konieczne
     ESP.restart();
   }

@@ -25,7 +25,7 @@
 /**
  * @brief Unique identifier of the observer device.
  */
-#define OBSERVER_ID 169
+#define DRONE_ESP_ID 171
 
 /**
  * @brief GPIO pin used as the most significant bit of the lighthouse index.

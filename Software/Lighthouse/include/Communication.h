@@ -25,7 +25,7 @@
 /**
  * @brief Size of the ESP-NOW transmit buffer in bytes.
  */
-#define DATA_SIZE 20
+#define ESP_DATA_SIZE 20
 
 /**
  * @brief Receiver ID used for broadcast messages.
@@ -44,7 +44,7 @@ const uint8_t ACK_MESSAGE_COUNT = 150;
  * This enumeration defines positions of specific fields inside the
  * transmit/receive buffer used by the communication protocol.
  */
-enum Data_Setup {
+enum ESP_Data_Setup {
   RECEIVER_ID = 0,
   TRANSMITTER_ID = 1,
   COMMAND = 2,
@@ -62,7 +62,7 @@ enum Data_Setup {
  * Defines the command identifiers exchanged between Lighthouse devices,
  * masters, and observers.
  */
-enum Data_Commands {
+enum ESP_Data_Commands {
   MASTER_LGH_RESET = 0,
   ACK_COM,
   UWB_START_ANCHORING,
@@ -85,7 +85,7 @@ enum Data_Commands {
  * @enum Communication_Errors
  * @brief Communication-related error codes.
  */
-enum Communication_Errors {
+enum ESP_Communication_Errors {
   PROTOCOL_INIT_FAIL,
   MESSAGE_SEND_FAIL,
   DELIVERY_FAIL,
@@ -102,7 +102,7 @@ struct Ack_Status {
 };
 
 extern Ack_Status current_ack_status;
-extern uint8_t transmit_buffer[DATA_SIZE];
+extern uint8_t transmit_buffer[ESP_DATA_SIZE];
 
 void Initialize_Communication();
 
@@ -135,6 +135,6 @@ void Send_Observer_UWB_Address_Response();
 void _send_esp();
 void _receive_callback(const uint8_t* macAddr, const uint8_t* data, int dataLen);
 void _sent_callback(const uint8_t *macAddr, esp_now_send_status_t status);
-void _communication_error(Communication_Errors error);
+void _communication_error(ESP_Communication_Errors error);
 
 #endif
