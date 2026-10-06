@@ -97,8 +97,11 @@ void Restart_UWB_As_Tag(){
     _reset_DW1000();
 
     SPI.begin(PIN_SCK, PIN_MISO, PIN_MOSI, PIN_SS);
-    SPI.setFrequency(4000000);
+    SPI.setFrequency(4000000); // 4MHz needed for initial safe boot handshakes
     DW1000Ranging.initCommunication(PIN_RST, PIN_SS, PIN_IRQ);
+
+    // CRITICAL SPEED FIX 1: Crank up SPI clock for ESP32 after init
+    SPI.setFrequency(16000000);
 
     DW1000Ranging.attachNewRange(_new_range);
     DW1000Ranging.attachNewDevice(_new_device);
@@ -107,6 +110,11 @@ void Restart_UWB_As_Tag(){
 
     char address_str[24] = {0};
     _format_address_to_string(LIGHTHOUSE_ID, address_str);
+
+    // CRITICAL SPEED FIX 2: Manually override the global library reply delay
+    // down from 7000us to 1500us before starting the state machine
+    DW1000Ranging.setReplyTime(1500);
+
     DW1000Ranging.startAsTag(
         address_str,
         UWB_TRANSMIT_MODE,
@@ -118,6 +126,11 @@ void Restart_UWB_As_Tag(){
     uint32_t maxPower = 0x26486A6A;
     DW1000.writeBytes(0x1E, 0x00, (byte*)&maxPower, 4);
     DW1000.commitConfiguration();
+
+    // CRITICAL SPEED FIX 3: Force the Tag's internal blink/poll loop timer down.
+    // By default, this is often set to 200ms or 500ms. Shifting it to 10-20ms
+    // frees the loop to poll continuously.
+    // DW1000Ranging.setTimerFrequency(20);
 }
 
 /**
@@ -133,7 +146,12 @@ void Restart_UWB_As_Anchor(){
     SPI.setFrequency(4000000);
     DW1000Ranging.initCommunication(PIN_RST, PIN_SS, PIN_IRQ);
 
-    DW1000Ranging.setReplyTime((LIGHTHOUSE_ID*2+1) * DEFAULT_REPLY_DELAY_TIME );
+    // Match the fast SPI
+    SPI.setFrequency(16000000);
+
+    // Match the 1500us base delay instead of the original 7000us base
+    DW1000Ranging.setReplyTime((LIGHTHOUSE_ID * 2 + 1) * 1500);
+
     DW1000Ranging.attachNewRange(_new_range);
     DW1000Ranging.attachBlinkDevice(_new_blink);
     DW1000Ranging.attachNewDevice(_new_device);
@@ -153,6 +171,7 @@ void Restart_UWB_As_Anchor(){
     DW1000.writeBytes(0x1E, 0x00, (byte*)&maxPower, 4);
     DW1000.commitConfiguration();
 }
+
 
 /**
  * @brief Disable UWB processing.
