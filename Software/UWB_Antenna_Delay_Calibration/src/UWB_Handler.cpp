@@ -18,9 +18,11 @@ void Init_UWB()
     DW1000Ranging.attachBlinkDevice(New_Blink);
     DW1000Ranging.attachInactiveDevice(Inactive_Device);
     DW1000.setAntennaDelay(antenna_value);
+    SPI.setFrequency(16000000);
 
     //Enable the filter to smooth the distance
     //DW1000Ranging.useRangeFilter(true);
+    DW1000Ranging.setReplyTime(750);
 
     if (UWB_mode == ANCHOR)
     {

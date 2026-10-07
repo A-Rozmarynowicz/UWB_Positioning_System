@@ -15,6 +15,7 @@
 #include "DW1000Ranging.h"
 
 #define UWB_ADDRESS_LENGTH 8
+#define UWB_RESPONSE_DELAY_TIME 750
 
 /** @defgroup ConnectionPins Connection Pins
  *  @brief SPI connection pins.

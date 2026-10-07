@@ -27,7 +27,7 @@
 void setup();
 void loop();
 
-const uint8_t LIGHTHOUSE_ID = 3;
+const uint8_t LIGHTHOUSE_ID = 0;
 
 void setup() {
   Serial.begin(115200);
@@ -45,21 +45,21 @@ void setup() {
   Serial.printf("Number of lighthouses: %d \n", NUMBER_OF_LIGHTHOUSES);
 
 
-  setCpuFrequencyMhz(240);
+  // setCpuFrequencyMhz(240);
 
-  esp_pm_lock_handle_t cpu_freq_lock;
-  esp_pm_lock_handle_t apb_freq_lock;
-  esp_pm_lock_handle_t no_light_sleep_lock;
+  // esp_pm_lock_handle_t cpu_freq_lock;
+  // esp_pm_lock_handle_t apb_freq_lock;
+  // esp_pm_lock_handle_t no_light_sleep_lock;
 
-  esp_pm_lock_create(ESP_PM_CPU_FREQ_MAX, 0, "cpu_freq_lock_name", &cpu_freq_lock);
-  esp_pm_lock_acquire(cpu_freq_lock);
+  // esp_pm_lock_create(ESP_PM_CPU_FREQ_MAX, 0, "cpu_freq_lock_name", &cpu_freq_lock);
+  // esp_pm_lock_acquire(cpu_freq_lock);
 
-  esp_pm_lock_create(ESP_PM_APB_FREQ_MAX, 0, "apb_freq_lock_name", &apb_freq_lock);
-  esp_pm_lock_acquire(apb_freq_lock);
+  // esp_pm_lock_create(ESP_PM_APB_FREQ_MAX, 0, "apb_freq_lock_name", &apb_freq_lock);
+  // esp_pm_lock_acquire(apb_freq_lock);
 
-  esp_pm_lock_create(ESP_PM_NO_LIGHT_SLEEP, 0, "no_light_sleep_lock_name", &no_light_sleep_lock);
-  esp_pm_lock_acquire(no_light_sleep_lock);
-  esp_wifi_set_ps(WIFI_PS_NONE);
+  // esp_pm_lock_create(ESP_PM_NO_LIGHT_SLEEP, 0, "no_light_sleep_lock_name", &no_light_sleep_lock);
+  // esp_pm_lock_acquire(no_light_sleep_lock);
+  // esp_wifi_set_ps(WIFI_PS_NONE);
 }
 
 void loop(){

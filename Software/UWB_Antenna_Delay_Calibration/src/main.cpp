@@ -23,7 +23,7 @@ void setup() {
   // if (digitalRead(UWB_MODE_SELECT_PIN))
   // {
     UWB_mode = TAG;
-    Serial.println("TAG");
+    // Serial.println("TAG");
   // }
   // else {
   //   UWB_mode = ANCHOR;
