@@ -60,6 +60,9 @@ void State_Enter(){
     case States::DISTANCE_MEASURE_QUERY:
       Distance_Measure_Query_Enter();
       break;
+    case States::EXCHANGE_DATA_WITH_GROUND_STATION_STATE:
+      Exchange_Data_With_Ground_Station_Enter();
+      break;
     case States::SEND_CALCULATED_POSITION:
       Send_Calculated_Position_Enter();
       break;
@@ -111,6 +114,9 @@ void State_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_ti
     case States::DISTANCE_MEASURE_QUERY:
       Distance_Measure_Query_ReceiveCallback(data, dataLen, receive_time);
       break;
+    case States::EXCHANGE_DATA_WITH_GROUND_STATION_STATE:
+      Exchange_Data_With_Ground_Station_ReceiveCallback(data, dataLen, receive_time);
+      break;
     case States::SEND_CALCULATED_POSITION:
       Send_Calculated_Position_ReceiveCallback(data, dataLen, receive_time);
       break;
@@ -155,6 +161,9 @@ void State_SentCallback(uint32_t send_time){
       break;
     case States::DISTANCE_MEASURE_QUERY:
       Distance_Measure_Query_SentCallback(send_time);
+      break;
+    case States::EXCHANGE_DATA_WITH_GROUND_STATION_STATE:
+      Exchange_Data_With_Ground_Station_SentCallback(send_time);
       break;
     case States::SEND_CALCULATED_POSITION:
       Send_Calculated_Position_SentCallback(send_time);
@@ -202,6 +211,9 @@ void State_TimerCallback(Timer_Callbacks timer_callback){
     case States::DISTANCE_MEASURE_QUERY:
       Distance_Measure_Query_TimerCallback(timer_callback);
       break;
+    case States::EXCHANGE_DATA_WITH_GROUND_STATION_STATE:
+      Exchange_Data_With_Ground_Station_TimerCallback(timer_callback);
+      break;
     case States::SEND_CALCULATED_POSITION:
       Send_Calculated_Position_TimerCallback(timer_callback);
       break;
@@ -246,6 +258,9 @@ void State_Button_Callback(uint8_t button){
       break;
     case States::DISTANCE_MEASURE_QUERY:
       Distance_Measure_Query_ButtonCallback(button);
+      break;
+    case States::EXCHANGE_DATA_WITH_GROUND_STATION_STATE:
+      Exchange_Data_With_Ground_Station_ButtonCallback(button);
       break;
     case States::SEND_CALCULATED_POSITION:
       Send_Calculated_Position_ButtonCallback(button);
@@ -294,6 +309,9 @@ void State_UWB_New_Range(uint16_t device, float range, float rx_power){
     case States::DISTANCE_MEASURE_QUERY:
       Distance_Measure_Query_UWB_New_Range(device, range, rx_power);
       break;
+    case States::EXCHANGE_DATA_WITH_GROUND_STATION_STATE:
+      Exchange_Data_With_Ground_Station_UWB_New_Range(device, range, rx_power);
+      break;
     case States::SEND_CALCULATED_POSITION:
       Send_Calculated_Position_UWB_New_Range(device, range, rx_power);
       break;
@@ -337,6 +355,9 @@ void State_Exit(){
       break;
     case States::DISTANCE_MEASURE_QUERY:
       Distance_Measure_Query_Exit();
+      break;
+    case States::EXCHANGE_DATA_WITH_GROUND_STATION_STATE:
+      Exchange_Data_With_Ground_Station_Exit();
       break;
     case States::SEND_CALCULATED_POSITION:
       Send_Calculated_Position_Exit();
