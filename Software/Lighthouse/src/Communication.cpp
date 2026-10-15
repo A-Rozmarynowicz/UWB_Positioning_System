@@ -214,12 +214,18 @@ void MESSAGES::Send_Distances_To_Ground_Station()
 {
   transmit_buffer[ESP_Data_Setup::RECEIVER_ID] = GROUND_STATION_ID;
   transmit_buffer[ESP_Data_Setup::COMMAND] = ESP_Data_Commands::GROUND_STATION_ANSWER_DISTANCES;
-  memcpy(&(transmit_buffer[ESP_Data_Setup::QUAD_0]), &(master_all_distances_matrix[0][1]), sizeof(float));
-  memcpy(&(transmit_buffer[ESP_Data_Setup::QUAD_1]), &(master_all_distances_matrix[0][2]), sizeof(float));
-  memcpy(&(transmit_buffer[ESP_Data_Setup::QUAD_2]), &(master_all_distances_matrix[0][3]), sizeof(float));
-  memcpy(&(transmit_buffer[ESP_Data_Setup::QUAD_3]), &(master_all_distances_matrix[1][2]), sizeof(float));
-  memcpy(&(transmit_buffer[ESP_Data_Setup::QUAD_4]), &(master_all_distances_matrix[1][3]), sizeof(float));
-  memcpy(&(transmit_buffer[ESP_Data_Setup::QUAD_5]), &(master_all_distances_matrix[2][3]), sizeof(float));
+  float d01 = (master_all_distances_matrix[0][1] + master_all_distances_matrix[1][0])*0.5;
+  float d02 = (master_all_distances_matrix[0][2] + master_all_distances_matrix[2][0])*0.5;
+  float d03 = (master_all_distances_matrix[0][3] + master_all_distances_matrix[3][0])*0.5;
+  float d12 = (master_all_distances_matrix[1][2] + master_all_distances_matrix[2][1])*0.5;
+  float d13 = (master_all_distances_matrix[1][3] + master_all_distances_matrix[3][1])*0.5;
+  float d23 = (master_all_distances_matrix[2][3] + master_all_distances_matrix[3][2])*0.5;
+  memcpy(&(transmit_buffer[ESP_Data_Setup::QUAD_0]), &(d01), sizeof(float));
+  memcpy(&(transmit_buffer[ESP_Data_Setup::QUAD_1]), &(d02), sizeof(float));
+  memcpy(&(transmit_buffer[ESP_Data_Setup::QUAD_2]), &(d03), sizeof(float));
+  memcpy(&(transmit_buffer[ESP_Data_Setup::QUAD_3]), &(d12), sizeof(float));
+  memcpy(&(transmit_buffer[ESP_Data_Setup::QUAD_4]), &(d13), sizeof(float));
+  memcpy(&(transmit_buffer[ESP_Data_Setup::QUAD_5]), &(d23), sizeof(float));
   _send_esp();
 }
 
