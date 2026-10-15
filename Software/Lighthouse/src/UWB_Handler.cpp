@@ -7,8 +7,8 @@ const byte* UWB_TRANSMIT_MODE = DW1000Class::MODE_SHORTDATA_FAST_ACCURACY;
 const uint8_t uwb_addresses_from_LGH[NUMBER_OF_LIGHTHOUSES][UWB_ADDRESS_LENGTH] = {
     {0x82, 0x17, 0x5B, 0xD5, 0xA9, 0x9A, 0xE2, 0x9C},
     {0x7D, 0x00, 0x22, 0xEA, 0x82, 0x60, 0x3B, 0x9C},
-    // {0xA1, 0xB2, 0xC3, 0xD4, 0xE5, 0xF6, 0x07, 0x18},
-    // {0x3C, 0x9A, 0x44, 0x10, 0xFE, 0x02, 0x8D, 0x6F}
+    {0xA1, 0xB2, 0xC3, 0xD4, 0xE5, 0xF6, 0x07, 0x18},
+    {0x3C, 0x9A, 0x44, 0x10, 0xFE, 0x02, 0x8D, 0x6F}
 };
 
 /**
@@ -140,7 +140,9 @@ void Restart_UWB_As_Tag(){
  * DW1000 ranging as an ANCHOR.
  */
 void Restart_UWB_As_Anchor(){
+    Serial.println("Before reset anchor");
     _reset_DW1000();
+    Serial.println("after reset anchor");
 
     SPI.begin(PIN_SCK, PIN_MISO, PIN_MOSI, PIN_SS);
     SPI.setFrequency(4000000);
@@ -151,6 +153,8 @@ void Restart_UWB_As_Anchor(){
 
     // Match the 1500us base delay instead of the original 7000us base
     DW1000Ranging.setReplyTime((LIGHTHOUSE_ID * 2 + 1) * UWB_RESPONSE_DELAY_TIME);
+
+    Serial.println("Set response delay time");
 
     DW1000Ranging.attachNewRange(_new_range);
     DW1000Ranging.attachBlinkDevice(_new_blink);
@@ -231,6 +235,8 @@ void _new_range() {
     range = Get_Biased_Range_Value(range);
     float rx_power = DW1000Ranging.getDistantDevice()->getRXPower();
     State_UWB_New_Range(device, range, rx_power);
+    // Serial.printf("range: %0.2f\n", range);
+    // Serial.printf("device: %d\n", Get_LGH_From_Short_Address(device));
 }
 
 /**

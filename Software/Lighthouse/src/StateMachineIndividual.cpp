@@ -20,6 +20,9 @@ void Initial_Enter(){
   if (LIGHTHOUSE_ID == 0){
     MESSAGES::Send_Master_LHG_Reset();
   }
+  else {
+    
+  }
 };
 
 void Initial_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
@@ -61,6 +64,7 @@ void Initial_Exit(){};
  *  @{
  */
 void UWB_Query_Enter(){
+  delay(250);
   Restart_UWB_As_Tag();
   Start_UWB_Activation_Timer();
 };
@@ -428,6 +432,7 @@ void Observer_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_
   }
   if (data[ESP_Data_Setup::COMMAND] == ESP_Data_Commands::OBSERVER_QUERY_POSITION){
     Data_Transfer_LED_OFF();
+    Serial.printf("JUST GOT IT: rec: %d\n", data[ESP_Data_Setup::RECEIVER_ID]);
     MESSAGES::Send_Observer_Position_Response();
   }
 };

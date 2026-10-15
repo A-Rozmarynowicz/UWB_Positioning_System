@@ -46,7 +46,7 @@ const uint16_t DISTANCE_ANTENA_DELAY_OFFSET[4] = {
  * @brief Each consecutive beacon has to be offset from the hyperspace (?) laid by the previous beacons. If for example 3rd unit is on the same line with first 2 units, the math won't work.
  * It is then artificially offset by this amount (in meters).
  */
-const uint8_t AXIS_FORCED_OFFSET = 0.1;
+const float AXIS_FORCED_OFFSET = 0.1;
 
 
 /**
@@ -57,7 +57,8 @@ const float approximation_A_poly_param = 0.9493;
 /**
  * @brief Linear approximation parameter 'b'.
  */
-const float approximation_B_poly_param = 0.1058;
+// const float approximation_B_poly_param = 0.1058;
+const float approximation_B_poly_param = 0.0;
 
 /**
  * @struct Position

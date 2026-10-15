@@ -18,6 +18,7 @@
 
 #ifndef COMMUNICATION_H
 #define COMMUNICATION_H
+
 #include "esp_now.h"
 #include "LighthouseConfig.h"
 
@@ -25,7 +26,7 @@
 /**
  * @brief Size of the ESP-NOW transmit buffer in bytes.
  */
-#define ESP_DATA_SIZE 20
+#define ESP_DATA_SIZE 28
 
 /**
  * @brief Receiver ID used for broadcast messages.
@@ -53,6 +54,8 @@ enum ESP_Data_Setup {
   QUAD_1 = 8,
   QUAD_2 = 12,
   QUAD_3 = 16,
+  QUAD_4 = 20,
+  QUAD_5 = 24,
 };
 
 /**
@@ -64,6 +67,7 @@ enum ESP_Data_Setup {
  */
 enum ESP_Data_Commands {
   MASTER_LGH_RESET = 0,
+  LGHS_WAS_RESET,
   ACK_COM,
   UWB_START_ANCHORING,
   UWB_QUERY_COM,
@@ -74,13 +78,20 @@ enum ESP_Data_Commands {
   QUERY_DISTANCE,
   RESPONSE_DISTANCE,
   SET_POSITION,
+  ANSWER_CURRENT_STATE,
 
   READY_FOR_OBSERVER = 24,
   OBSERVER_QUERY_POSITION,
   OBSERVER_RESPONSE_POSITION,
   OBSERVER_WAKEUP_RECKON,
-};
 
+  GROUND_STATION_QUERY_DISTANCES = 64,
+  GROUND_STATION_ANSWER_DISTANCES,
+  GROUND_STATION_UPDATE_POSITION,
+  GROUND_STATION_POSITION_UPDATE_ACK,
+  GROUND_STATION_POSITION_TRANSFER_DONE,
+  GROUND_STATION_REQUEST_CURRENT_STATE,
+};
 /**
  * @enum Communication_Errors
  * @brief Communication-related error codes.
@@ -114,6 +125,7 @@ void Initialize_Communication();
  * protocol-compliant messages between devices.
  */
 namespace MESSAGES {
+void Send_Reset_Info();
 void Send_Ack(uint8_t receiver);
 void Send_Change_To_UWB_Response(uint8_t receiver);
 void Send_UWB_Start_Anchoring(uint8_t receiver);

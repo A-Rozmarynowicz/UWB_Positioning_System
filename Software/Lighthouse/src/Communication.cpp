@@ -5,6 +5,18 @@ Ack_Status current_ack_status = {0};
 uint8_t transmit_buffer[ESP_DATA_SIZE] = {0};
 
 #pragma region Message Functions
+
+/**
+ * @brief Send info about reset to ground station.
+ *
+ * @return void
+ */
+void MESSAGES::Send_Reset_Info() {
+  transmit_buffer[ESP_Data_Setup::RECEIVER_ID] = GROUND_STATION_ID;
+  transmit_buffer[ESP_Data_Setup::COMMAND] = ESP_Data_Commands::LGHS_WAS_RESET;
+  _send_esp();
+}
+
 /**
  * @brief Send an ACK message to the specified receiver.
  *
@@ -172,6 +184,7 @@ void MESSAGES::Send_Observer_Position_Response(){
   memcpy(&(transmit_buffer[ESP_Data_Setup::QUAD_0]), &(position.x), sizeof(float));
   memcpy(&(transmit_buffer[ESP_Data_Setup::QUAD_1]), &(position.y), sizeof(float));
   memcpy(&(transmit_buffer[ESP_Data_Setup::QUAD_2]), &(position.z), sizeof(float));
+  Serial.printf("TRANSMITTEAR ID: %d\n", transmit_buffer[ESP_Data_Setup::TRANSMITTER_ID]);
   _send_esp();
 }
 
