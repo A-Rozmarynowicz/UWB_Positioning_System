@@ -144,6 +144,7 @@ void Send_Observer_UWB_Address_Response();
 
 void Send_Current_State_To_Ground_Station(uint8_t state);
 void Send_Distances_To_Ground_Station();
+void Send_Ack_Of_Position_Update_To_Ground_Station();
 }
 
 // Private

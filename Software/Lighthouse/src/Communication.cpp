@@ -208,7 +208,6 @@ void MESSAGES::Send_Current_State_To_Ground_Station(uint8_t state)
   transmit_buffer[ESP_Data_Setup::COMMAND] = ESP_Data_Commands::ANSWER_CURRENT_STATE;
   transmit_buffer[ESP_Data_Setup::SINGLE_0] = state;
   _send_esp();
-
 }
 
 void MESSAGES::Send_Distances_To_Ground_Station()
@@ -221,6 +220,13 @@ void MESSAGES::Send_Distances_To_Ground_Station()
   memcpy(&(transmit_buffer[ESP_Data_Setup::QUAD_3]), &(master_all_distances_matrix[1][2]), sizeof(float));
   memcpy(&(transmit_buffer[ESP_Data_Setup::QUAD_4]), &(master_all_distances_matrix[1][3]), sizeof(float));
   memcpy(&(transmit_buffer[ESP_Data_Setup::QUAD_5]), &(master_all_distances_matrix[2][3]), sizeof(float));
+  _send_esp();
+}
+
+void MESSAGES::Send_Ack_Of_Position_Update_To_Ground_Station()
+{
+  transmit_buffer[ESP_Data_Setup::RECEIVER_ID] = GROUND_STATION_ID;
+  transmit_buffer[ESP_Data_Setup::COMMAND] = ESP_Data_Commands::GROUND_STATION_POSITION_UPDATE_ACK;
   _send_esp();
 }
 
@@ -311,7 +317,7 @@ void _sent_callback(const uint8_t *macAddr, esp_now_send_status_t status){
  */
 void _communication_error(ESP_Communication_Errors error){
   if (error == ESP_Communication_Errors::PROTOCOL_INIT_FAIL){
-    delay(10); // Konieczne
+    delay(10);
     ESP.restart();
   }
   Error_LED_On();
