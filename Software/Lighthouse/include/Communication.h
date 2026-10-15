@@ -141,6 +141,9 @@ void Send_Set_Position(uint8_t receiver);
 void Send_Observer_Ready();
 void Send_Observer_Position_Response();
 void Send_Observer_UWB_Address_Response();
+
+void Send_Current_State_To_Ground_Station(uint8_t state);
+void Send_Distances_To_Ground_Station();
 }
 
 // Private

@@ -202,6 +202,28 @@ void MESSAGES::Send_Observer_UWB_Address_Response(){
   _send_esp();
 }
 
+void MESSAGES::Send_Current_State_To_Ground_Station(uint8_t state)
+{
+  transmit_buffer[ESP_Data_Setup::RECEIVER_ID] = GROUND_STATION_ID;
+  transmit_buffer[ESP_Data_Setup::COMMAND] = ESP_Data_Commands::ANSWER_CURRENT_STATE;
+  transmit_buffer[ESP_Data_Setup::SINGLE_0] = state;
+  _send_esp();
+
+}
+
+void MESSAGES::Send_Distances_To_Ground_Station()
+{
+  transmit_buffer[ESP_Data_Setup::RECEIVER_ID] = GROUND_STATION_ID;
+  transmit_buffer[ESP_Data_Setup::COMMAND] = ESP_Data_Commands::GROUND_STATION_ANSWER_DISTANCES;
+  memcpy(&(transmit_buffer[ESP_Data_Setup::QUAD_0]), &(master_all_distances_matrix[0][1]), sizeof(float));
+  memcpy(&(transmit_buffer[ESP_Data_Setup::QUAD_1]), &(master_all_distances_matrix[0][2]), sizeof(float));
+  memcpy(&(transmit_buffer[ESP_Data_Setup::QUAD_2]), &(master_all_distances_matrix[0][3]), sizeof(float));
+  memcpy(&(transmit_buffer[ESP_Data_Setup::QUAD_3]), &(master_all_distances_matrix[1][2]), sizeof(float));
+  memcpy(&(transmit_buffer[ESP_Data_Setup::QUAD_4]), &(master_all_distances_matrix[1][3]), sizeof(float));
+  memcpy(&(transmit_buffer[ESP_Data_Setup::QUAD_5]), &(master_all_distances_matrix[2][3]), sizeof(float));
+  _send_esp();
+}
+
 #pragma endregion
 
 #pragma region Other Functions

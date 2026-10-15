@@ -82,6 +82,10 @@ void State_Enter(){
  * @return void
  */
 void State_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
+  if (data[ESP_Data_Setup::COMMAND] == ESP_Data_Commands::GROUND_STATION_REQUEST_CURRENT_STATE) {
+    MESSAGES::Send_Current_State_To_Ground_Station(static_cast<uint8_t>(current_state));
+    return;
+  }
   switch (current_state) {
     case States::INITIAL:
       Initial_ReceiveCallback(data, dataLen, receive_time);
