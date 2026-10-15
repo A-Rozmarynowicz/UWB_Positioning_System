@@ -21,7 +21,7 @@ void Initial_Enter(){
     MESSAGES::Send_Master_LHG_Reset();
   }
   else {
-    
+
   }
 };
 
@@ -355,6 +355,23 @@ void Distance_Measure_Query_ButtonCallback(uint8_t button){};
 void Distance_Measure_Query_UWB_New_Range(uint16_t device, float range, float rx_power){}
 void Distance_Measure_Query_Exit(){};
 /** @} */
+#pragma endregion
+
+#pragma region Exchange Data with Ground Station
+
+/** @defgroup EXCHANGE_DATA_WITH_GROUND_STATION_STATE Exchange Data with Ground Station
+ *  @brief Functions for the EXCHANGE_DATA_WITH_GROUND_STATION state.
+ *  @{
+ */
+void Exchange_Data_With_Ground_Station_Enter(){};
+void Exchange_Data_With_Ground_Station_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){};
+void Exchange_Data_With_Ground_Station_SentCallback(uint32_t send_time){};
+void Exchange_Data_With_Ground_Station_TimerCallback(Timer_Callbacks timer_callback){};
+void Exchange_Data_With_Ground_Station_ButtonCallback(uint8_t button){};
+void Exchange_Data_With_Ground_Station_UWB_New_Range(uint16_t device, float range, float rx_power){}
+void Exchange_Data_With_Ground_Station_Exit(){};
+/** @} */
+
 #pragma endregion
 
 #pragma region Send Calculated Position State Functions

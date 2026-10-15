@@ -58,8 +58,9 @@ enum States {
   INFORM_END_CONFIG, // 5
   DISTANCE_MEASURE_RESPONSE, // 6
   DISTANCE_MEASURE_QUERY, // 7
-  SEND_CALCULATED_POSITION, // 8
-  OBSERVER_RESPONSE, // 9
+  EXCHANGE_DATA_WITH_GROUND_STATION_STATE, // 8
+  SEND_CALCULATED_POSITION, // 9
+  OBSERVER_RESPONSE, // 10
 };
 
 /**
@@ -158,6 +159,14 @@ void Distance_Measure_Query_TimerCallback(Timer_Callbacks timer_callback);
 void Distance_Measure_Query_ButtonCallback(uint8_t button);
 void Distance_Measure_Query_UWB_New_Range(uint16_t device, float range, float rx_power);
 void Distance_Measure_Query_Exit();
+
+void Exchange_Data_With_Ground_Station_Enter();
+void Exchange_Data_With_Ground_Station_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time);
+void Exchange_Data_With_Ground_Station_SentCallback(uint32_t send_time);
+void Exchange_Data_With_Ground_Station_TimerCallback(Timer_Callbacks timer_callback);
+void Exchange_Data_With_Ground_Station_ButtonCallback(uint8_t button);
+void Exchange_Data_With_Ground_Station_UWB_New_Range(uint16_t device, float range, float rx_powe);
+void Exchange_Data_With_Ground_Station_Exit();
 
 void Send_Calculated_Position_Enter();
 void Send_Calculated_Position_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time);
