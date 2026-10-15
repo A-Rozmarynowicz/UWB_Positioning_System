@@ -363,7 +363,10 @@ void Distance_Measure_Query_Exit(){};
  *  @brief Functions for the EXCHANGE_DATA_WITH_GROUND_STATION state.
  *  @{
  */
-void Exchange_Data_With_Ground_Station_Enter(){};
+void Exchange_Data_With_Ground_Station_Enter()
+{
+  Serial.print("Awaiting data from ground station\n");
+};
 void Exchange_Data_With_Ground_Station_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time)
 {
   if (data[ESP_Data_Setup::COMMAND] == ESP_Data_Commands::GROUND_STATION_QUERY_DISTANCES)
