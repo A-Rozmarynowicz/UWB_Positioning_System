@@ -326,7 +326,7 @@ void Distance_Measure_Query_ReceiveCallback(const uint8_t* data, int dataLen, ui
       Reset_Distance_Query_Target_Index(&current_state_data.distance_query_target);
       if (Increment_Target_Lighthouse_Index(&current_state_data.target_lighthouse)){
         Print_Master_All_Distances_Matrix();
-        Change_State(States::SEND_CALCULATED_POSITION);
+        Change_State(States::EXCHANGE_DATA_WITH_GROUND_STATION_STATE);
         return;
       }
     }
@@ -345,7 +345,7 @@ void Distance_Measure_Query_TimerCallback(Timer_Callbacks timer_callback){
       Reset_Distance_Query_Target_Index(&current_state_data.distance_query_target);
       if (Increment_Target_Lighthouse_Index(&current_state_data.target_lighthouse)){
         Print_Master_All_Distances_Matrix();
-        Change_State(States::SEND_CALCULATED_POSITION);
+        Change_State(States::EXCHANGE_DATA_WITH_GROUND_STATION_STATE);
         return;
       }
     }
@@ -399,7 +399,7 @@ void Exchange_Data_With_Ground_Station_Exit(){};
  */
 void Send_Calculated_Position_Enter(){
   for (uint8_t i = 0; i<NUMBER_OF_LIGHTHOUSES;i++){
-    Calculate_Position_Of_Lighthouse(i);
+    // Calculate_Position_Of_Lighthouse(i); // <= this is handled by the ground station
     Serial.printf("Calculated position of lighthouse number %d: x=%.3fm | y=%.3fm | z=%.3fm. \n", i, master_all_positions[i].x, master_all_positions[i].y, master_all_positions[i].z);
   }
   Reset_Target_Lighthouse_Index(&current_state_data.target_lighthouse);
