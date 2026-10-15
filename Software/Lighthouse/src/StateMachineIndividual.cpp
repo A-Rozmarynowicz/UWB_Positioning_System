@@ -364,7 +364,25 @@ void Distance_Measure_Query_Exit(){};
  *  @{
  */
 void Exchange_Data_With_Ground_Station_Enter(){};
-void Exchange_Data_With_Ground_Station_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){};
+void Exchange_Data_With_Ground_Station_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time)
+{
+  if (data[ESP_Data_Setup::COMMAND] == ESP_Data_Commands::GROUND_STATION_QUERY_DISTANCES)
+  {
+    MESSAGES::Send_Distances_To_Ground_Station();
+  }
+  else if (data[ESP_Data_Setup::COMMAND] == ESP_Data_Commands::GROUND_STATION_UPDATE_POSITION)
+  {
+    uint8_t lgh_index = data[ESP_Data_Setup::SINGLE_0];
+    mempcpy(&(master_all_positions[lgh_index].x), &(data[ESP_Data_Setup::QUAD_0]), sizeof(float));
+    mempcpy(&(master_all_positions[lgh_index].y), &(data[ESP_Data_Setup::QUAD_1]), sizeof(float));
+    mempcpy(&(master_all_positions[lgh_index].z), &(data[ESP_Data_Setup::QUAD_2]), sizeof(float));
+    MESSAGES::Send_Ack_Of_Position_Update_To_Ground_Station();
+  }
+  else if (data[ESP_Data_Setup::COMMAND] == ESP_Data_Commands::GROUND_STATION_POSITION_TRANSFER_DONE)
+  {
+    Change_State(States::SEND_CALCULATED_POSITION);
+  }
+};
 void Exchange_Data_With_Ground_Station_SentCallback(uint32_t send_time){};
 void Exchange_Data_With_Ground_Station_TimerCallback(Timer_Callbacks timer_callback){};
 void Exchange_Data_With_Ground_Station_ButtonCallback(uint8_t button){};
