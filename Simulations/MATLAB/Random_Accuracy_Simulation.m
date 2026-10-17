@@ -1,4 +1,4 @@
-function accuracy = Random_Accuracy_Simulation(n_lighthouses, dimensions, distance_accuracy, max_distance, solver, minimal_axis_offset)
+function [accuracy, lghs_positions_ground_truth, estimated_lghs_positions, tag_position_ground_truth, estimated_tag_position]= Random_Accuracy_Simulation(n_lighthouses, dimensions, distance_accuracy, max_distance, minimal_axis_offset, noise_func, lghs_estimator, tag_estimator)
 % Random_Accuracy_Simulation  Simulates the positioning process with the lighthouses placed in random positions.
 %   Inputs:
 %       n_lighthouses : number of lighthouses to simulate
@@ -14,21 +14,10 @@ function accuracy = Random_Accuracy_Simulation(n_lighthouses, dimensions, distan
 %       accuracy: accuracy achieved in this simulation
 %
 
-    tag_position = rand(1, dimensions)*(2*max_distance)- max_distance;
-    lighthouses_positions = zeros(n_lighthouses, dimensions);
+    tag_position_ground_truth = Generate_Tag_Position(dimensions, max_distance, true);
+    lghs_positions_ground_truth = Generate_Lighthouses_Positions(n_lighthouses, dimensions, max_distance, minimal_axis_offset);
     
-    for i=1:dimensions
-        lighthouses_positions(i+1, 1:i) = rand(1, i)*(2*max_distance) - max_distance;
-        if (lighthouses_positions(i+1, i))^2 < minimal_axis_offset
-            lighthouses_positions(i+1, i) = sign(lighthouses_positions(i+1, i)) * minimal_axis_offset;
-        end
-    end
     
-    if n_lighthouses > 4
-        lighthouses_positions(5:n_lighthouses, :) = rand(n_lighthouses-4, 3)*(2*max_distance) - max_distance;
-    end
-    
-    noise_vec = -distance_accuracy/2 + rand(n_lighthouses, 1)*distance_accuracy;
     distances = sqrt(sum( (ones(n_lighthouses,1) * tag_position - lighthouses_positions).^2, 2)) + noise_vec;
     
     P = Solver(lighthouses_positions, distances);
