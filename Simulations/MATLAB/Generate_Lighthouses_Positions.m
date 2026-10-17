@@ -15,14 +15,14 @@ function P_LGHS = Generate_Lighthouses_Positions(n_lighthouses, dimensions, max_
     P_LGHS = zeros(n_lighthouses, dimensions);
     
     for i=1:dimensions
-        P_LGHS(i+1, 1:i) = rand(1, i)*(2*max_distance) - max_distance;
-        if (P_LGHS(i+1, i))^2 < minimal_axis_offset
-            P_LGHS(i+1, i) = sign(P_LGHS(i+1, i)) * minimal_axis_offset;
+        P_LGHS(i+1, 1:i) = rand(1, i)*(max_distance-minimal_axis_offset) + minimal_axis_offset;
+        if (rand(1) < 0.5)
+            P_LGHS(i+1, 1:i) = -P_LGHS(i+1, 1:i);
         end
     end
     
     if n_lighthouses > 4
-        P_LGHS(5:n_lighthouses, :) = rand(n_lighthouses-4, 3)*(2*max_distance) - max_distance;
-    end
+        P_LGHS(5:n_lighthouses, :) = rand(n_lighthouses-4, 3)*(max_distance-minimal_axis_offset) - minimal_axis_offset;
+    end 
       
 end
