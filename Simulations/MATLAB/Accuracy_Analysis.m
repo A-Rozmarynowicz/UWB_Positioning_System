@@ -1,5 +1,5 @@
 clear;
-number_of_iterations = 1000;
+number_of_iterations = 100;
 
 n_lighthouses = 4;
 dimensions = 3;
@@ -10,8 +10,12 @@ max_distance = 5.0; % Max distance of a lighthouse from the origin
 
 accuracies = zeros(number_of_iterations, 1);
 
+
 for k=1:number_of_iterations
-    accuracies(k) = Random_Accuracy_Simulation(n_lighthouses, dimensions, distance_accuracy, max_distance, minimal_axis_offset);
+    accuracies(k) = Random_Accuracy_Simulation(n_lighthouses, dimensions, distance_accuracy, max_distance, minimal_axis_offset, @Apply_Uniform_Measurement_Noise, @Estimate_LGHS_Positions_lsqnonlin, @Estimate_Tag_Position_Least_Squares);
+    if mod(k, number_of_iterations/10) == 0
+        disp(k);
+    end
 end
 
 worst_accuracy = max(accuracies);
