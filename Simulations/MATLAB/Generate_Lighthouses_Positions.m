@@ -44,7 +44,6 @@ function P_LGHS = Generate_Lighthouses_Positions(n_lighthouses, dimensions, max_
             * max_distance;
     end
 
-
     for i=1:min(dimensions, 3)
         P_LGHS(:, i) = P_LGHS(:, i)*sign(P_LGHS(i+1, i));
     end
