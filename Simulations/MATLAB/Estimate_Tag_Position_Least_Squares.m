@@ -1,4 +1,4 @@
-function P = Solver(P_vec, R_vec)
+function P = Estimate_Tag_Position_Least_Squares(P_vec, R_vec)
 % Solver  Least squares method algorithm that estimates the tag's position
 %         based on distances to lighthouses
 %
