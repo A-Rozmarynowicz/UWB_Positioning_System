@@ -1,5 +1,5 @@
 function [accuracy, lghs_positions_ground_truth, estimated_lghs_positions, tag_position_ground_truth, estimated_tag_position] = ...
-Random_Accuracy_Simulation(n_lighthouses, dimensions, distance_accuracy, max_distance, minimal_axis_offset, noise_func, lghs_estimator, tag_estimator)
+Random_Accuracy_Simulation(n_lighthouses, dimensions, distance_accuracy, max_distance, minimal_axis_offset, noise_func, lghs_estimator, tag_estimator, lghs_position_generator, tag_position_generator)
 % Random_Accuracy_Simulation  Simulates the positioning process with the lighthouses placed in random positions.
 %   Inputs:
 %       n_lighthouses : number of lighthouses to simulate
@@ -15,8 +15,8 @@ Random_Accuracy_Simulation(n_lighthouses, dimensions, distance_accuracy, max_dis
 %       accuracy: accuracy achieved in this simulation
 %
 
-    tag_position_ground_truth = Generate_Tag_Position(dimensions, max_distance, true);
-    lghs_positions_ground_truth = Generate_Lighthouses_Positions(n_lighthouses, dimensions, max_distance, minimal_axis_offset);
+    tag_position_ground_truth = tag_position_generator(dimensions, max_distance, true);
+    lghs_positions_ground_truth = lghs_position_generator(n_lighthouses, dimensions, max_distance, minimal_axis_offset);
     
     distances_among_LGHS = Get_Distances_Among_LGHS(lghs_positions_ground_truth);
     distances_among_LGHS = noise_func(distances_among_LGHS, distance_accuracy);

@@ -12,7 +12,7 @@ accuracies = zeros(number_of_iterations, 1);
 
 
 for k=1:number_of_iterations
-    accuracies(k) = Random_Accuracy_Simulation(n_lighthouses, dimensions, distance_accuracy, max_distance, minimal_axis_offset, @Apply_Uniform_Measurement_Noise, @Estimate_LGHS_Positions_lsqnonlin, @Estimate_Tag_Position_Least_Squares);
+    accuracies(k) = Random_Accuracy_Simulation(n_lighthouses, dimensions, distance_accuracy, max_distance, minimal_axis_offset, @Apply_Uniform_Measurement_Noise, @Estimate_LGHS_Positions_lsqnonlin, @Estimate_Tag_Position_Least_Squares, @Generate_Fixed_Lighthouses_Positions, @Generate_Random_Tag_Position);
     if mod(k, number_of_iterations/10) == 0
         disp(k);
     end
