@@ -1,4 +1,4 @@
-function P_LGHS = Generate_Lighthouses_Positions(n_lighthouses, dimensions, max_distance, minimal_axis_offset)
+function P_LGHS = Generate_Random_Lighthouses_Positions(n_lighthouses, dimensions, max_distance, minimal_axis_offset)
 % Generate_Lighthouses_Positions Generates random lighthouse positions.
 %
 % Inputs:

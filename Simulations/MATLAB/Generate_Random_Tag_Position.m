@@ -1,4 +1,4 @@
-function P = Generate_Tag_Position(dimensions, max_distance, all_positive_cords)
+function P = Generate_Random_Tag_Position(dimensions, max_distance, all_positive_cords)
     if ~ismember(dimensions, [2, 3])
         error('dimensions must be either 2 or 3.');
     end

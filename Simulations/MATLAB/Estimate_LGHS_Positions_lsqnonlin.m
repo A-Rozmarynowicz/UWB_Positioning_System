@@ -37,7 +37,7 @@ function [P, dFit, residuals, rmse] = Estimate_LGHS_Positions_lsqnonlin(d)
         'MaxFunctionEvaluations',10000, ...
         'MaxIterations',2000);
 
-    rng(42);
+    % rng(42);
     bestTheta = [];
     bestCost = Inf;
 
