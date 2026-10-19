@@ -14,7 +14,7 @@ N = sz(1);
 Noise_vec = -distance_accuracy/2 + rand(N, 1)*distance_accuracy;
 R_vec = sqrt(sum( (ones(N,1) * P_star - P_vec).^2, 2)) + Noise_vec;
 
-P = Solver(P_vec, R_vec);
+P = Estimate_Tag_Position_Least_Squares(P_vec, R_vec);
 
 accuracy = norm(P - P_star);
 

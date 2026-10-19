@@ -1,7 +1,7 @@
 clear;
-number_of_iterations = 100;
+number_of_iterations = 10;
 
-n_lighthouses = 4;
+n_lighthouses = 5;
 dimensions = 3;
 
 distance_accuracy = 0.05; % Accuracy of a single distance measurement
