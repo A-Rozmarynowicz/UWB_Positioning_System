@@ -26,7 +26,7 @@
 /**
  * @brief Size of the ESP-NOW transmit buffer in bytes.
  */
-#define ESP_DATA_SIZE 28
+#define ESP_DATA_SIZE 44
 
 /**
  * @brief Receiver ID used for broadcast messages.
@@ -56,6 +56,10 @@ enum ESP_Data_Setup {
   QUAD_3 = 16,
   QUAD_4 = 20,
   QUAD_5 = 24,
+  QUAD_6 = 28,
+  QUAD_7 = 32,
+  QUAD_8 = 36,
+  QUAD_9 = 40,
 };
 
 /**
@@ -152,5 +156,8 @@ void _send_esp();
 void _receive_callback(const uint8_t* macAddr, const uint8_t* data, int dataLen);
 void _sent_callback(const uint8_t *macAddr, esp_now_send_status_t status);
 void _communication_error(ESP_Communication_Errors error);
+
+void _fillin_transmit_buffer_with_4LGHS_measurements();
+void _fillin_transmit_buffer_with_5LGHS_measurements();
 
 #endif

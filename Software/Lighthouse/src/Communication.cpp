@@ -214,6 +214,20 @@ void MESSAGES::Send_Distances_To_Ground_Station()
 {
   transmit_buffer[ESP_Data_Setup::RECEIVER_ID] = GROUND_STATION_ID;
   transmit_buffer[ESP_Data_Setup::COMMAND] = ESP_Data_Commands::GROUND_STATION_ANSWER_DISTANCES;
+  if (NUMBER_OF_LIGHTHOUSES == 4)
+  {
+    _fillin_transmit_buffer_with_4LGHS_measurements();
+  }
+  else if (NUMBER_OF_LIGHTHOUSES == 5)
+  {
+    _fillin_transmit_buffer_with_5LGHS_measurements();
+  }
+
+  _send_esp();
+}
+
+void _fillin_transmit_buffer_with_4LGHS_measurements()
+{
   float d01 = (master_all_distances_matrix[0][1] + master_all_distances_matrix[1][0])*0.5;
   float d02 = (master_all_distances_matrix[0][2] + master_all_distances_matrix[2][0])*0.5;
   float d03 = (master_all_distances_matrix[0][3] + master_all_distances_matrix[3][0])*0.5;
@@ -226,8 +240,32 @@ void MESSAGES::Send_Distances_To_Ground_Station()
   memcpy(&(transmit_buffer[ESP_Data_Setup::QUAD_3]), &(d12), sizeof(float));
   memcpy(&(transmit_buffer[ESP_Data_Setup::QUAD_4]), &(d13), sizeof(float));
   memcpy(&(transmit_buffer[ESP_Data_Setup::QUAD_5]), &(d23), sizeof(float));
-  _send_esp();
 }
+
+void _fillin_transmit_buffer_with_5LGHS_measurements()
+{
+  float d01 = (master_all_distances_matrix[0][1] + master_all_distances_matrix[1][0])*0.5;
+  float d02 = (master_all_distances_matrix[0][2] + master_all_distances_matrix[2][0])*0.5;
+  float d03 = (master_all_distances_matrix[0][3] + master_all_distances_matrix[3][0])*0.5;
+  float d04 = (master_all_distances_matrix[0][4] + master_all_distances_matrix[4][0])*0.5;
+  float d12 = (master_all_distances_matrix[1][2] + master_all_distances_matrix[2][1])*0.5;
+  float d13 = (master_all_distances_matrix[1][3] + master_all_distances_matrix[3][1])*0.5;
+  float d14 = (master_all_distances_matrix[1][4] + master_all_distances_matrix[4][1])*0.5;
+  float d23 = (master_all_distances_matrix[2][3] + master_all_distances_matrix[3][2])*0.5;
+  float d24 = (master_all_distances_matrix[2][4] + master_all_distances_matrix[4][2])*0.5;
+  float d34 = (master_all_distances_matrix[3][4] + master_all_distances_matrix[4][3])*0.5;
+  memcpy(&(transmit_buffer[ESP_Data_Setup::QUAD_0]), &(d01), sizeof(float));
+  memcpy(&(transmit_buffer[ESP_Data_Setup::QUAD_1]), &(d02), sizeof(float));
+  memcpy(&(transmit_buffer[ESP_Data_Setup::QUAD_2]), &(d03), sizeof(float));
+  memcpy(&(transmit_buffer[ESP_Data_Setup::QUAD_3]), &(d04), sizeof(float));
+  memcpy(&(transmit_buffer[ESP_Data_Setup::QUAD_4]), &(d12), sizeof(float));
+  memcpy(&(transmit_buffer[ESP_Data_Setup::QUAD_5]), &(d13), sizeof(float));
+  memcpy(&(transmit_buffer[ESP_Data_Setup::QUAD_6]), &(d14), sizeof(float));
+  memcpy(&(transmit_buffer[ESP_Data_Setup::QUAD_7]), &(d23), sizeof(float));
+  memcpy(&(transmit_buffer[ESP_Data_Setup::QUAD_8]), &(d24), sizeof(float));
+  memcpy(&(transmit_buffer[ESP_Data_Setup::QUAD_9]), &(d34), sizeof(float));
+}
+
 
 void MESSAGES::Send_Ack_Of_Position_Update_To_Ground_Station()
 {

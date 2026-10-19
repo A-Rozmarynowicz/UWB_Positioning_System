@@ -152,7 +152,7 @@ void _set_LGH_3_position(){
   float z = 0.0;
   if (z_sugg > 0.0) {
     z = sqrtf(z_sugg/3.0);
-  }
+  } 
   else {
     z = AXIS_FORCED_OFFSET;
   }
