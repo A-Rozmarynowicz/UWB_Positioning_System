@@ -1,10 +1,10 @@
 clear;
-number_of_iterations = 10;
+number_of_iterations = 500;
 
 n_lighthouses = 5;
 dimensions = 3;
 
-distance_accuracy = 0.05; % Accuracy of a single distance measurement
+distance_accuracy = 0.1; % Accuracy of a single distance measurement
 minimal_axis_offset = 0.5; % Minimal distance of a lighthouse from other lighthouses
 max_distance = 3.0; % Max distance of a lighthouse from the origin
 
@@ -12,7 +12,7 @@ accuracies = zeros(number_of_iterations, 1);
 
 
 for k=1:number_of_iterations
-    accuracies(k) = Random_Accuracy_Simulation(n_lighthouses, dimensions, distance_accuracy, max_distance, minimal_axis_offset, @Apply_Uniform_Measurement_Noise, @Estimate_LGHS_Positions_lsqnonlin, @Estimate_Tag_Position_Least_Squares, @Generate_Fixed_Lighthouses_Positions, @Generate_Random_Tag_Position);
+    accuracies(k) = Random_Accuracy_Simulation(n_lighthouses, dimensions, distance_accuracy, max_distance, minimal_axis_offset, @Apply_Uniform_Measurement_Noise, @Estimate_LGHS_Positions_lsqnonlin, @Estimate_Tag_Position_Damped_Gauss_Newton, @Generate_Fixed_Lighthouses_Positions, @Generate_Random_Tag_Position);
     if mod(k, number_of_iterations/10) == 0
         disp(k);
     end
@@ -22,7 +22,8 @@ worst_accuracy = max(accuracies);
 average_accuracy = mean(accuracies);
 std_accuracy_deviation = std(accuracies);
 
-edges = [0, 0:distance_accuracy:20*distance_accuracy, max(worst_accuracy, 20*distance_accuracy)];
+edge_width = 0.05;
+edges = [0, 0:edge_width:20*edge_width, max(worst_accuracy, 20*edge_width)];
 h = histogram(accuracies, edges);
 xlim([-distance_accuracy, max(min(20, worst_accuracy), 1.0)]);
 
