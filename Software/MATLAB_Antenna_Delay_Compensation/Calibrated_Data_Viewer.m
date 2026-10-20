@@ -52,8 +52,14 @@ errorbar(P2_actual_distances_average, P2_errors(:, columns_singular(experiment))
 
 %% Plot
 figure;
+hold on;
+grid on;
+title("Pomiary przed kalibracją", 'FontSize', 14)
 plot(P2_actual_distances_average, P2_errors,'o-', 'LineWidth', 1.5);
-legend(["U0U1", "U0U2", "U0U3", "U1U2", "U1U3", "U2U3"])
+legend('U0-U1','U0-U2','U0-U3','U1-U2','U1-U3','U2-U3', 'FontSize', 14);
+xlabel('Measured distance [m]', 'FontSize', 14);
+xlim([0, 5]);
+ylabel('Error [m]', 'FontSize', 14);
 % hold on;
 % scatter(P1_actual_distances_average, P2_std);
 

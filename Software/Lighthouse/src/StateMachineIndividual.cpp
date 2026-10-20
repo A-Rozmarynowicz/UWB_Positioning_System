@@ -19,6 +19,7 @@ void Initial_Enter(){
   current_state_data.ignoring_sent_callbacks = true;
   if (LIGHTHOUSE_ID == 0){
     MESSAGES::Send_Master_LHG_Reset();
+    Change_State(States::EXCHANGE_DATA_WITH_GROUND_STATION_STATE);
   }
   else {
 
@@ -371,6 +372,7 @@ void Exchange_Data_With_Ground_Station_ReceiveCallback(const uint8_t* data, int 
 {
   if (data[ESP_Data_Setup::COMMAND] == ESP_Data_Commands::GROUND_STATION_QUERY_DISTANCES)
   {
+    Serial.print("RECEIVED DISTANCE QUERY FROM GROUND ESP\n");
     MESSAGES::Send_Distances_To_Ground_Station();
   }
   else if (data[ESP_Data_Setup::COMMAND] == ESP_Data_Commands::GROUND_STATION_UPDATE_POSITION)

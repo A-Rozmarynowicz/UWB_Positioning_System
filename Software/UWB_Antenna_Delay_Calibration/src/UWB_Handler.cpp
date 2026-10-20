@@ -22,7 +22,7 @@ void Init_UWB()
 
     //Enable the filter to smooth the distance
     //DW1000Ranging.useRangeFilter(true);
-    DW1000Ranging.setReplyTime(750);
+    DW1000Ranging.setReplyTime(3200);
 
     if (UWB_mode == ANCHOR)
     {

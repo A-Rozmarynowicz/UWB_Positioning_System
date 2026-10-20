@@ -22,16 +22,18 @@ actual_distances = [U0_actual_distances; U0_actual_distances; U0_actual_distance
 E = actual_distances - U_distances;
 %% Plots
 
-plot(E);
+plot(actual_distances, E, 'o-', LineWidth=1.5);
 grid on;
-legend('U0U1','U0U2','U0U3','U1U2','U1U3','U2U3');
-xlabel('Measurement');
-ylabel('Error');
-
+title("Measurements before calibration", 'FontSize', 14);
+legend('U0-U1','U0-U2','U0-U3','U1-U2','U1-U3','U2-U3', 'FontSize', 14);
+xlim([0, 5]);
+xlabel('Measured distance [m]', 'FontSize', 14);
+ylabel('Error [m]', 'FontSize', 14);
 %% Saves
-colNames = {'U0U1','U0U2','U0U3','U1U2','U1U3','U2U3'};
-T_U = array2table(U_distances, 'VariableNames', colNames);
-writetable(T_U, 'PreCalib_Data/U_distances.csv', 'WriteRowNames', true);
 
-A_U = array2table(actual_distances, 'VariableNames', colNames);
-writetable(A_U, 'PreCalib_Data/actual_distances.csv', 'WriteRowNames', true);
+% colNames = {'U0U1','U0U2','U0U3','U1U2','U1U3','U2U3'};
+% T_U = array2table(U_distances, 'VariableNames', colNames);
+% writetable(T_U, 'PreCalib_Data/U_distances.csv', 'WriteRowNames', true);
+% 
+% A_U = array2table(actual_distances, 'VariableNames', colNames);
+% writetable(A_U, 'PreCalib_Data/actual_distances.csv', 'WriteRowNames', true);

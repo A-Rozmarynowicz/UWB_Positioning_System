@@ -15,26 +15,31 @@ bool done = false;
 
 void setup() {
   Serial.begin(115200);
-  // pinMode(UWB_MODE_SELECT_PIN, INPUT_PULLDOWN);
-  // pinMode(ANTENNA_DELAY_VALUE_SELECT_PIN, INPUT_PULLDOWN);
+  pinMode(UWB_MODE_SELECT_PIN, INPUT_PULLDOWN);
+  pinMode(ANTENNA_DELAY_VALUE_SELECT_PIN, INPUT_PULLDOWN);
   delay(100);
-  // SPI.begin(PIN_SCK, PIN_MISO, PIN_MOSI, PIN_SS);
-  // SPI.setFrequency(4000000);
-  // if (digitalRead(UWB_MODE_SELECT_PIN))
-  // {
+
+  bool tag = digitalRead(UWB_MODE_SELECT_PIN);
+  // tag = true;
+  // tag = false;
+
+  if (tag)
+  {
     UWB_mode = TAG;
-    // Serial.println("TAG");
-  // }
-  // else {
-  //   UWB_mode = ANCHOR;
-  //   Serial.println("ANCHOR");
-  // }
+    Serial.println("TAG");
+  }
+  else {
+    UWB_mode = ANCHOR;
+    Serial.println("ANCHOR");
+  }
 
   Set_Antenna_Value(MANUAL_ANTENNA_DELAY_VALUE);
 
   Serial.printf("Antenna value: %d \n", antenna_value);
 
   Init_UWB();
+
+  setCpuFrequencyMhz(240);
 }
 
 void loop() {
