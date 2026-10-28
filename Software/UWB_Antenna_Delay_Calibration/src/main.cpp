@@ -20,7 +20,7 @@ void setup() {
   delay(100);
 
   bool tag = digitalRead(UWB_MODE_SELECT_PIN);
-  // tag = true;
+  tag = true;
   // tag = false;
 
   if (tag)

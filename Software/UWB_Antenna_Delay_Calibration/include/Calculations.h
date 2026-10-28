@@ -4,10 +4,11 @@
 
 
 const uint32_t TARGET_NUMBER_OF_MEASUREMENTS = 1000;
-const float A_poly_param = 0.9493;
-// const float B_poly_param = 0.1058; // BEacons
-const float B_poly_param = 0.0558; // BEacons
-// const float A_poly_param = 0.9539;
+const float A_poly_param = 0.9493; // Beacons
+// const float B_poly_param = 0.1058; // Beacons v1
+const float B_poly_param = 0.0558; // BEacons v2
+
+// const float A_poly_param = 0.9539; // Dron
 // const float B_poly_param = -0.5259; // Dron
 
 extern float distance_sum;

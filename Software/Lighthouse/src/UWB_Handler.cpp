@@ -109,6 +109,8 @@ void Restart_UWB_As_Tag(){
     DW1000Ranging.attachInactiveDevice(_inactive_device);
     DW1000.setAntennaDelay(DISTANCE_ANTENA_DELAY_OFFSET[LIGHTHOUSE_ID]);
 
+    DW1000.useExtendedFrameLength(true);
+
     char address_str[24] = {0};
     _format_address_to_string(LIGHTHOUSE_ID, address_str);
 
@@ -152,7 +154,7 @@ void Restart_UWB_As_Anchor(){
 
     // Match the fast SPI
     SPI.setFrequency(16000000);
-
+    DW1000.useExtendedFrameLength(true);
     DW1000Ranging.setReplyTime((LIGHTHOUSE_ID * 2 + 1) * UWB_RESPONSE_DELAY_TIME);
 
     Serial.println("Set response delay time");
