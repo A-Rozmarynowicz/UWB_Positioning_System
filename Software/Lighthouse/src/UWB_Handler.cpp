@@ -114,13 +114,14 @@ void Restart_UWB_As_Tag(){
 
     // CRITICAL SPEED FIX 2: Manually override the global library reply delay
     // down from 7000us to 1500us before starting the state machine
-    DW1000Ranging.setReplyTime(1500);
+    // DW1000Ranging.setReplyTime(1500);
 
     DW1000Ranging.startAsTag(
         address_str,
         UWB_TRANSMIT_MODE,
         false
     );
+
 
     DW1000.setChannel(CHANNEL);
     DW1000.useSmartPower(false);
@@ -169,6 +170,8 @@ void Restart_UWB_As_Anchor(){
         UWB_TRANSMIT_MODE,
         false
     );
+
+    DW1000Ranging.setResetPeriod(UWB_RESET_TIME);
     DW1000.setChannel(CHANNEL);
     DW1000.useSmartPower(false);
     uint32_t maxPower = 0x26486A6A;

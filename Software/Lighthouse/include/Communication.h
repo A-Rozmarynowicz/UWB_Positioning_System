@@ -85,6 +85,7 @@ enum ESP_Data_Commands {
   RESPONSE_DISTANCE,
   SET_POSITION,
   ANSWER_CURRENT_STATE,
+  MASTER_READY_FOR_GROUND_STATION_EXCHANGE,
 
   READY_FOR_OBSERVER = 24,
   OBSERVER_QUERY_POSITION,
@@ -146,6 +147,7 @@ void Send_Master_LHG_Reset();
 void Send_Query_Distance(uint8_t receiver, uint8_t target);
 void Send_Response_Distance(uint8_t receiver, uint8_t target, float distance);
 void Send_Set_Position(uint8_t receiver);
+void Send_Master_Ready_For_Ground_Station_Exchange();
 
 void Send_Observer_Ready();
 void Send_Observer_Position_Response();

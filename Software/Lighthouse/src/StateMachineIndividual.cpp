@@ -365,6 +365,7 @@ void Distance_Measure_Query_Exit(){};
  */
 void Exchange_Data_With_Ground_Station_Enter()
 {
+  MESSAGES::Send_Master_Ready_For_Ground_Station_Exchange();
   Serial.print("Awaiting data from ground station\n");
 };
 void Exchange_Data_With_Ground_Station_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time)

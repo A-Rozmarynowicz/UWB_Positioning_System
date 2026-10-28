@@ -163,6 +163,13 @@ void MESSAGES::Send_Set_Position(uint8_t receiver){
   _send_esp();
 }
 
+void MESSAGES::Send_Master_Ready_For_Ground_Station_Exchange()
+{
+  transmit_buffer[ESP_Data_Setup::RECEIVER_ID] = GROUND_STATION_ID;
+  transmit_buffer[ESP_Data_Setup::COMMAND] = ESP_Data_Commands::MASTER_READY_FOR_GROUND_STATION_EXCHANGE;
+  _send_esp();
+}
+
 /**
  * @brief Notify the observer that the system is ready.
  *
