@@ -19,10 +19,9 @@ void Initial_Enter(){
   current_state_data.ignoring_sent_callbacks = true;
   if (LIGHTHOUSE_ID == 0){
     MESSAGES::Send_Master_LHG_Reset();
-    Change_State(States::EXCHANGE_DATA_WITH_GROUND_STATION_STATE);
   }
   else {
-
+    MESSAGES::Send_Reset_Info();
   }
 };
 

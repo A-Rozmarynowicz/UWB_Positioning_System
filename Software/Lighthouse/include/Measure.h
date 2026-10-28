@@ -35,11 +35,12 @@ const uint8_t MAX_DISTANCE_MEASUREMENTS = 150;
 /**
  * @brief Antenna delay compensation offset applied to distance measurements, adequate for each LIGHTHOUSE_ID.
  */
-const uint16_t DISTANCE_ANTENA_DELAY_OFFSET[4] = {
+const uint16_t DISTANCE_ANTENA_DELAY_OFFSET[5] = {
     16473,
     16471,
     16437,
-    16465
+    16465,
+    16482
 };
 
 /**
@@ -58,7 +59,7 @@ const float approximation_A_poly_param = 0.9493;
  * @brief Linear approximation parameter 'b'.
  */
 // const float approximation_B_poly_param = 0.1058;
-const float approximation_B_poly_param = 0.0;
+const float approximation_B_poly_param = 0.0558;
 
 /**
  * @struct Position

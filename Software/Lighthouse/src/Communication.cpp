@@ -12,7 +12,8 @@ uint8_t transmit_buffer[ESP_DATA_SIZE] = {0};
  * @return void
  */
 void MESSAGES::Send_Reset_Info() {
-  transmit_buffer[ESP_Data_Setup::RECEIVER_ID] = GROUND_STATION_ID;
+  transmit_buffer[ESP_Data_Setup::RECEIVER_ID] = BROADCAST_RECEIVER_ID;
+  transmit_buffer[ESP_Data_Setup::RECEIVER_ID] = 0;
   transmit_buffer[ESP_Data_Setup::COMMAND] = ESP_Data_Commands::LGHS_WAS_RESET;
   _send_esp();
 }
@@ -333,6 +334,9 @@ void _receive_callback(const uint8_t* macAddr, const uint8_t* data, int dataLen)
   State_ReceiveCallback(data, dataLen, message_receive_time);
   if (data[ESP_Data_Setup::COMMAND] == ESP_Data_Commands::MASTER_LGH_RESET){
     ESP.restart();
+  }
+  if (data[ESP_Data_Setup::COMMAND] == ESP_Data_Commands::LGHS_WAS_RESET){
+    Serial.printf("RESET OF LGHS NUMBER: %d\n", data[ESP_Data_Setup::TRANSMITTER_ID]);
   }
 };
 
