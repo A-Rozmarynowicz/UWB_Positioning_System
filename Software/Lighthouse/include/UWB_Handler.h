@@ -14,13 +14,19 @@
 #include <SPI.h>
 #include "DW1000Ranging.h"
 
+#define UWB_ADDRESS_LENGTH 8
+
+/** @defgroup DefaultsUWB Default UWB
+ *  @brief Default UWB settings.
+ *  @{
+ */
 #define UWB_SLOW_RESPONSE_DELAY_TIME 8000
 #define UWB_FAST_RESPONSE_DELAY_TIME 2000
 #define UWB_RESET_TIME 1000
 #define UWB_USE_RANGE_FILTER false
 #define UWB_RANGE_FILTER_VALUE 8
+/** @} */
 
-#define UWB_ADDRESS_LENGTH 8
 
 /** @defgroup ConnectionPins Connection Pins
  *  @brief SPI connection pins.
@@ -50,7 +56,7 @@ extern uint8_t uwb_enable;
  */
 extern const byte* UWB_TRANSMIT_MODE;
 extern byte uwb_channel;
-extern uint16_t uwb_response_delay;
+extern uint16_t uwb_fast_response_delay;
 extern uint16_t uwb_reset_time;
 
 void Initialize_UWB();
@@ -68,7 +74,7 @@ int8_t Get_LGH_From_Address(const uint8_t* address);
 bool Are_Addresses_Equal(uint8_t* first, uint8_t* second);
 
 void Set_UWB_Reset_Time(uint16_t new_reset_time);
-void Set_UWB_Response_Delay(uint16_t new_response_delay);
+void Set_UWB_Fast_Response_Delay(uint16_t new_fast_response_delay);
 void Set_UWB_Channel(byte new_channel);
 
 // Private

@@ -2,8 +2,11 @@
 
 uint8_t uwb_enable = 0;
 
-byte CHANNEL = DW1000.CHANNEL_5;
+// byte CHANNEL = DW1000.CHANNEL_5;
 const byte* UWB_TRANSMIT_MODE = DW1000Class::MODE_SHORTDATA_FAST_ACCURACY;
+extern byte uwb_channel = DW1000.CHANNEL_5;
+extern uint16_t uwb_fast_response_delay = UWB_FAST_RESPONSE_DELAY_TIME;
+extern uint16_t uwb_reset_time = UWB_RESET_TIME;
 
 const uint8_t uwb_addresses_from_LGH[NUMBER_OF_LIGHTHOUSES][UWB_ADDRESS_LENGTH] = {
     {0x82, 0x17, 0x5B, 0xD5, 0xA9, 0x9A, 0xE2, 0x9C},
@@ -125,9 +128,10 @@ void Restart_UWB_As_Tag(){
     DW1000Ranging.setReplyTime(UWB_SLOW_RESPONSE_DELAY_TIME);
     DW1000Ranging.useRangeFilter(UWB_USE_RANGE_FILTER);
     DW1000Ranging.setRangeFilterValue(UWB_RANGE_FILTER_VALUE);
-    DW1000Ranging.setResetPeriod(UWB_RESET_TIME);
 
-    DW1000.setChannel(CHANNEL);
+    DW1000Ranging.setResetPeriod(uwb_reset_time);
+    DW1000.setChannel(uwb_channel);
+
     DW1000.useSmartPower(false);
     uint32_t maxPower = 0x26486A6A;
     DW1000.writeBytes(0x1E, 0x00, (byte*)&maxPower, 4);
@@ -157,9 +161,14 @@ void Restart_UWB_As_Anchor(bool fast){
 
     DW1000.useExtendedFrameLength(true);
 
-    uint16_t response_time = UWB_SLOW_RESPONSE_DELAY_TIME;
-    if (fast) {response_time = UWB_FAST_RESPONSE_DELAY_TIME;}
-    DW1000Ranging.setReplyTime((LIGHTHOUSE_ID * 2 + 1) * response_time);
+    if (fast)
+    {
+        DW1000Ranging.setReplyTime((LIGHTHOUSE_ID * 2 + 1) * uwb_fast_response_delay);
+    }
+    else
+    {
+        DW1000Ranging.setReplyTime((LIGHTHOUSE_ID * 2 + 1) * UWB_SLOW_RESPONSE_DELAY_TIME);
+    }
 
     DW1000Ranging.attachNewRange(_new_range);
     DW1000Ranging.attachBlinkDevice(_new_blink);
@@ -175,11 +184,12 @@ void Restart_UWB_As_Anchor(bool fast){
         false
     );
 
-    DW1000Ranging.setResetPeriod(UWB_RESET_TIME);
     DW1000Ranging.useRangeFilter(UWB_USE_RANGE_FILTER);
     DW1000Ranging.setRangeFilterValue(UWB_RANGE_FILTER_VALUE);
 
-    DW1000.setChannel(CHANNEL);
+    DW1000Ranging.setResetPeriod(uwb_reset_time);
+    DW1000.setChannel(uwb_channel);
+
     DW1000.useSmartPower(false);
     uint32_t maxPower = 0x26486A6A;
     DW1000.writeBytes(0x1E, 0x00, (byte*)&maxPower, 4);
@@ -222,9 +232,9 @@ void Set_UWB_Reset_Time(uint16_t new_reset_time)
     uwb_reset_time = new_reset_time;
 }
 
-void Set_UWB_Response_Delay(uint16_t new_response_delay)
+void Set_UWB_Fast_Response_Delay(uint16_t new_fast_response_delay)
 {
-    uwb_response_delay = new_response_delay;
+    uwb_fast_response_delay = new_fast_response_delay;
 }
 
 void Set_UWB_Channel(byte new_channel)
