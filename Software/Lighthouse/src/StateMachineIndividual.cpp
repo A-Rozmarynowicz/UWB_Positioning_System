@@ -26,13 +26,18 @@ void Initial_Enter(){
 };
 
 void Initial_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_time){
-if (data[ESP_Data_Setup::COMMAND] == ESP_Data_Commands::CHANGE_STATE_COM){
-  switch (data[ESP_Data_Setup::SINGLE_0]) {
-    case States::UWB_RESPONSE:
-      Change_State(States::UWB_RESPONSE);
-      break;
+  if (data[ESP_Data_Setup::COMMAND] == ESP_Data_Commands::CHANGE_STATE_COM){
+    switch (data[ESP_Data_Setup::SINGLE_0]) {
+      case States::UWB_RESPONSE:
+        Change_State(States::UWB_RESPONSE);
+        break;
+    }
   }
-  };
+  else if (data[ESP_Data_Setup::COMMAND] == ESP_Data_Commands::MASTER_START_ALL_CONFIGURATION && LIGHTHOUSE_ID == 0)
+  {
+    current_state_data.ignoring_sent_callbacks = false;
+    MESSAGES::Send_Change_To_UWB_Response(BROADCAST_RECEIVER_ID);
+  }
 };
 
 void Initial_SentCallback(uint32_t send_time){
