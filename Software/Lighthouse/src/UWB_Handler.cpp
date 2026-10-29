@@ -4,9 +4,9 @@ uint8_t uwb_enable = 0;
 
 // byte CHANNEL = DW1000.CHANNEL_5;
 const byte* UWB_TRANSMIT_MODE = DW1000Class::MODE_SHORTDATA_FAST_ACCURACY;
-extern byte uwb_channel = DW1000.CHANNEL_5;
-extern uint16_t uwb_fast_response_delay = UWB_FAST_RESPONSE_DELAY_TIME;
-extern uint16_t uwb_reset_time = UWB_RESET_TIME;
+byte uwb_channel = DW1000.CHANNEL_5;
+uint16_t uwb_fast_response_delay = UWB_FAST_RESPONSE_DELAY_TIME;
+uint32_t uwb_reset_time = UWB_RESET_TIME;
 
 const uint8_t uwb_addresses_from_LGH[NUMBER_OF_LIGHTHOUSES][UWB_ADDRESS_LENGTH] = {
     {0x82, 0x17, 0x5B, 0xD5, 0xA9, 0x9A, 0xE2, 0x9C},
@@ -227,7 +227,7 @@ bool Are_Addresses_Equal(uint8_t* first, uint8_t* second){
     return true;
 }
 
-void Set_UWB_Reset_Time(uint16_t new_reset_time)
+void Set_UWB_Reset_Time(uint32_t new_reset_time)
 {
     uwb_reset_time = new_reset_time;
 }
@@ -240,6 +240,26 @@ void Set_UWB_Fast_Response_Delay(uint16_t new_fast_response_delay)
 void Set_UWB_Channel(byte new_channel)
 {
     uwb_channel = new_channel;
+}
+
+void Update_UWB_Settings_From_ESP_Packet(const uint8_t* data, int dataLen)
+{
+    if (data[ESP_Data_Setup::COMMAND] != ESP_Data_Commands::LGHS_SET_UWB_PARAMETERS)
+    {
+    return;
+    }
+
+    uint32_t new_reset_time;
+    uint16_t new_response_delay;
+    byte new_channel;
+
+    memcpy(&new_response_delay, &data[ESP_Data_Setup::QUAD_0], sizeof(uint16_t));
+    memcpy(&new_reset_time, &data[ESP_Data_Setup::QUAD_1], sizeof(uint32_t));
+    new_channel = data[ESP_Data_Setup::SINGLE_0];
+
+    Set_UWB_Channel(new_channel);
+    Set_UWB_Reset_Time(new_reset_time);
+    Set_UWB_Fast_Response_Delay(new_response_delay);
 }
 
 /**

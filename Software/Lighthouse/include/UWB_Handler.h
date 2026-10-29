@@ -57,7 +57,7 @@ extern uint8_t uwb_enable;
 extern const byte* UWB_TRANSMIT_MODE;
 extern byte uwb_channel;
 extern uint16_t uwb_fast_response_delay;
-extern uint16_t uwb_reset_time;
+extern uint32_t uwb_reset_time;
 
 void Initialize_UWB();
 void Update_UWB();
@@ -73,9 +73,10 @@ int8_t Get_LGH_From_Short_Address(const uint16_t short_address);
 int8_t Get_LGH_From_Address(const uint8_t* address);
 bool Are_Addresses_Equal(uint8_t* first, uint8_t* second);
 
-void Set_UWB_Reset_Time(uint16_t new_reset_time);
+void Set_UWB_Reset_Time(uint32_t new_reset_time);
 void Set_UWB_Fast_Response_Delay(uint16_t new_fast_response_delay);
 void Set_UWB_Channel(byte new_channel);
+void Update_UWB_Settings_From_ESP_Packet(const uint8_t* data, int dataLen);
 
 // Private
 void _new_range();
