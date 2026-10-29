@@ -38,6 +38,13 @@ void Initial_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_
     current_state_data.ignoring_sent_callbacks = false;
     MESSAGES::Send_Change_To_UWB_Response(BROADCAST_RECEIVER_ID);
   }
+  else if (data[ESP_Data_Setup::COMMAND] == ESP_Data_Commands::LGHS_SET_UWB_PARAMETERS){
+    Blink_LED();
+    Update_UWB_Settings_From_ESP_Packet(data, dataLen);
+    Disable_UWB();
+    Restart_UWB_As_Anchor(true);
+    Enable_UWB();
+  }
 };
 
 void Initial_SentCallback(uint32_t send_time){
@@ -479,6 +486,13 @@ void Observer_Response_ReceiveCallback(const uint8_t* data, int dataLen, uint32_
     Data_Transfer_LED_OFF();
     Serial.printf("JUST GOT IT: rec: %d\n", data[ESP_Data_Setup::RECEIVER_ID]);
     MESSAGES::Send_Observer_Position_Response();
+  }
+  if (data[ESP_Data_Setup::COMMAND] == ESP_Data_Commands::LGHS_SET_UWB_PARAMETERS){
+    Blink_LED();
+    Update_UWB_Settings_From_ESP_Packet(data, dataLen);
+    Disable_UWB();
+    Restart_UWB_As_Anchor(true);
+    Enable_UWB();
   }
 };
 void Observer_Response_SentCallback(uint32_t send_time){};
