@@ -50,7 +50,7 @@ extern const byte* UWB_TRANSMIT_MODE;
 void Initialize_UWB();
 void Update_UWB();
 void Restart_UWB_As_Tag();
-void Restart_UWB_As_Anchor();
+void Restart_UWB_As_Anchor(bool fast);
 
 uint8_t Is_UWB_Enabled();
 void Disable_UWB();

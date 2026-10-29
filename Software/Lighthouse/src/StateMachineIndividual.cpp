@@ -108,7 +108,7 @@ void UWB_Query_Exit(){
  *  @{
  */
 void UWB_Response_Enter(){
-  Restart_UWB_As_Anchor();
+  Restart_UWB_As_Anchor(false);
   Enable_UWB();
 };
 
@@ -461,7 +461,7 @@ void Observer_Response_Enter(){
   if (LIGHTHOUSE_ID == 0){
     MESSAGES::Send_Observer_Ready();
   }
-  Restart_UWB_As_Anchor();
+  Restart_UWB_As_Anchor(true);
   Enable_UWB();
   Data_Transfer_LED_ON();
 };
