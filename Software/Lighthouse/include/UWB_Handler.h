@@ -14,9 +14,13 @@
 #include <SPI.h>
 #include "DW1000Ranging.h"
 
-#define UWB_ADDRESS_LENGTH 8
-#define UWB_RESPONSE_DELAY_TIME 8000
+#define UWB_SLOW_RESPONSE_DELAY_TIME 8000
+#define UWB_FAST_RESPONSE_DELAY_TIME 2000
 #define UWB_RESET_TIME 1000
+#define UWB_USE_RANGE_FILTER false
+#define UWB_RANGE_FILTER_VALUE 8
+
+#define UWB_ADDRESS_LENGTH 8
 
 /** @defgroup ConnectionPins Connection Pins
  *  @brief SPI connection pins.

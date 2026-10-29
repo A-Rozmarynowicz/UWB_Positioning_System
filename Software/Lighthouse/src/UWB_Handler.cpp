@@ -114,9 +114,6 @@ void Restart_UWB_As_Tag(){
     char address_str[24] = {0};
     _format_address_to_string(LIGHTHOUSE_ID, address_str);
 
-    // CRITICAL SPEED FIX 2: Manually override the global library reply delay
-    // down from 7000us to 1500us before starting the state machine
-    // DW1000Ranging.setReplyTime(1500);
 
     DW1000Ranging.startAsTag(
         address_str,
@@ -124,6 +121,10 @@ void Restart_UWB_As_Tag(){
         false
     );
 
+    DW1000Ranging.setReplyTime(UWB_SLOW_RESPONSE_DELAY_TIME);
+    DW1000Ranging.useRangeFilter(UWB_USE_RANGE_FILTER);
+    DW1000Ranging.setRangeFilterValue(UWB_RANGE_FILTER_VALUE);
+    DW1000Ranging.setResetPeriod(UWB_RESET_TIME);
 
     DW1000.setChannel(CHANNEL);
     DW1000.useSmartPower(false);
@@ -143,10 +144,8 @@ void Restart_UWB_As_Tag(){
  * Performs hardware reset, reinitializes SPI and DW1000, attaches callbacks and starts
  * DW1000 ranging as an ANCHOR.
  */
-void Restart_UWB_As_Anchor(){
-    Serial.println("Before reset anchor");
+void Restart_UWB_As_Anchor(bool fast){
     _reset_DW1000();
-    Serial.println("after reset anchor");
 
     SPI.begin(PIN_SCK, PIN_MISO, PIN_MOSI, PIN_SS);
     SPI.setFrequency(4000000);
@@ -154,10 +153,12 @@ void Restart_UWB_As_Anchor(){
 
     // Match the fast SPI
     SPI.setFrequency(16000000);
-    DW1000.useExtendedFrameLength(true);
-    DW1000Ranging.setReplyTime((LIGHTHOUSE_ID * 2 + 1) * UWB_RESPONSE_DELAY_TIME);
 
-    Serial.println("Set response delay time");
+    DW1000.useExtendedFrameLength(true);
+
+    uint16_t response_time = UWB_SLOW_RESPONSE_DELAY_TIME;
+    if (fast) {response_time = UWB_FAST_RESPONSE_DELAY_TIME;}
+    DW1000Ranging.setReplyTime((LIGHTHOUSE_ID * 2 + 1) * response_time);
 
     DW1000Ranging.attachNewRange(_new_range);
     DW1000Ranging.attachBlinkDevice(_new_blink);
@@ -174,6 +175,9 @@ void Restart_UWB_As_Anchor(){
     );
 
     DW1000Ranging.setResetPeriod(UWB_RESET_TIME);
+    DW1000Ranging.useRangeFilter(UWB_USE_RANGE_FILTER);
+    DW1000Ranging.setRangeFilterValue(UWB_RANGE_FILTER_VALUE);
+
     DW1000.setChannel(CHANNEL);
     DW1000.useSmartPower(false);
     uint32_t maxPower = 0x26486A6A;
