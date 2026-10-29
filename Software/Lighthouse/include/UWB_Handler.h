@@ -44,8 +44,14 @@ extern const uint8_t uwb_addresses_from_LGH[NUMBER_OF_LIGHTHOUSES][UWB_ADDRESS_L
  * @brief UWB enable flag.
  */
 extern uint8_t uwb_enable;
-const byte CHANNEL = DW1000.CHANNEL_5;
+
+/**
+ * @brief UWB settings.
+ */
 extern const byte* UWB_TRANSMIT_MODE;
+extern byte uwb_channel;
+extern uint16_t uwb_response_delay;
+extern uint16_t uwb_reset_time;
 
 void Initialize_UWB();
 void Update_UWB();
@@ -60,6 +66,10 @@ uint16_t Get_Short_Address_From_Long(const uint8_t* address);
 int8_t Get_LGH_From_Short_Address(const uint16_t short_address);
 int8_t Get_LGH_From_Address(const uint8_t* address);
 bool Are_Addresses_Equal(uint8_t* first, uint8_t* second);
+
+void Set_UWB_Reset_Time(uint16_t new_reset_time);
+void Set_UWB_Response_Delay(uint16_t new_response_delay);
+void Set_UWB_Channel(byte new_channel);
 
 // Private
 void _new_range();

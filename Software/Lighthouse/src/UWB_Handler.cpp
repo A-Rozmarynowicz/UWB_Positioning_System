@@ -2,6 +2,7 @@
 
 uint8_t uwb_enable = 0;
 
+byte CHANNEL = DW1000.CHANNEL_5;
 const byte* UWB_TRANSMIT_MODE = DW1000Class::MODE_SHORTDATA_FAST_ACCURACY;
 
 const uint8_t uwb_addresses_from_LGH[NUMBER_OF_LIGHTHOUSES][UWB_ADDRESS_LENGTH] = {
@@ -214,6 +215,21 @@ bool Are_Addresses_Equal(uint8_t* first, uint8_t* second){
         }
     }
     return true;
+}
+
+void Set_UWB_Reset_Time(uint16_t new_reset_time)
+{
+    uwb_reset_time = new_reset_time;
+}
+
+void Set_UWB_Response_Delay(uint16_t new_response_delay)
+{
+    uwb_response_delay = new_response_delay;
+}
+
+void Set_UWB_Channel(byte new_channel)
+{
+    uwb_channel = new_channel;
 }
 
 /**
