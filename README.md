@@ -115,7 +115,7 @@ The system can be solved in the least-squares sense by finding
 \begin{equation}
 \mathbf{x}_{LS}
 =
-\underset{\mathbf{x}}{\operatorname{argmin}}
+\underset{\mathbf{x}}{\argmin}
 \|\mathbf{A}\mathbf{x}-\mathbf{b}\|_2^2
 \end{equation}
 ```
