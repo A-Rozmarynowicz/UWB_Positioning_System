@@ -177,7 +177,7 @@ Finally, the ground station can display calculated lighthouses relative position
 </p>
 
 ## Effectiveness
-The system allows for positioning of a tag with an accuracy of around 20cm at around 4Hz update rate.
+The system allows for positioning of a tag with an accuracy of around 20cm at around 4Hz update rate. I am trying to achieve higher update rates.
 
 ## Technologies
 Programming languages:
