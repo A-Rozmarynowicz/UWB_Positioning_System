@@ -41,9 +41,6 @@ void Initial_ReceiveCallback(const uint8_t* data, int dataLen, uint32_t receive_
   else if (data[ESP_Data_Setup::COMMAND] == ESP_Data_Commands::LGHS_SET_UWB_PARAMETERS){
     Blink_LED();
     Update_UWB_Settings_From_ESP_Packet(data, dataLen);
-    Disable_UWB();
-    Restart_UWB_As_Anchor(true);
-    Enable_UWB();
   }
 };
 

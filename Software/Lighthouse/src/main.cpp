@@ -27,7 +27,7 @@
 void setup();
 void loop();
 
-const uint8_t LIGHTHOUSE_ID = 4;
+const uint8_t LIGHTHOUSE_ID = 3;
 
 void setup() {
   Serial.begin(115200);
